@@ -148,8 +148,11 @@ window.WIGY_CONFIG = {
   ],
 
   // ============================================================
-  // 🖼️ SECCIÓN 2: IMÁGENES DEL CARRUSEL (formato vertical 9:16)
+  // 🖼️ SECCIÓN 2: CARRUSEL DE IMÁGENES (formato vertical 9:16)
+  // mostrarCarrusel: false → el carrusel NO se muestra (las URLs quedan
+  // guardadas abajo para cuando lo vuelvas a activar con true).
   // ============================================================
+  mostrarCarrusel: false,
   carruselImagenes: [
     { src: "https://cdn.shopify.com/s/files/1/0815/0338/7880/files/Enraizante_Verdea__raices_mas_fuertes.png?v=1791636371", alt: "Enraizante VERDEA: raíces más fuertes" },
     { src: "https://cdn.shopify.com/s/files/1/0815/0338/7880/files/Verdea_beneficios_2_el_mejor.png?v=1791636066", alt: "Beneficios del enraizante VERDEA" },
@@ -441,7 +444,7 @@ window.WIGY_DOM = {
 
   /* Resto de imágenes — preload con new Image() */
   var urls = [];
-  if (cfg.carruselImagenes) cfg.carruselImagenes.forEach(function(item) { urls.push(item.src); });
+  if (cfg.carruselImagenes && cfg.mostrarCarrusel !== false) cfg.carruselImagenes.forEach(function(item) { urls.push(item.src); });
   if (cfg.testimonios) cfg.testimonios.forEach(function(t) { if (t.foto) urls.push(t.foto); });
   if (cfg.logosMediaTicker) cfg.logosMediaTicker.forEach(function(l) { urls.push(l.src); });
   urls.forEach(function(url) {
@@ -1057,6 +1060,7 @@ window.WIGY_DOM = {
 
   function inject() {
     if (document.querySelector("[data-wigy-infinite]")) return true;
+    if (window.WIGY_CONFIG && window.WIGY_CONFIG.mostrarCarrusel === false) return true; /* Carrusel desactivado */
     var mediaTicker = document.getElementById("wigy-media-ticker");
     if (!mediaTicker) return false;
     var IMAGE_ITEMS = window.WIGY_CONFIG && window.WIGY_CONFIG.carruselImagenes;
@@ -1102,7 +1106,7 @@ window.WIGY_DOM = {
     var STYLE_KEY = "wigy-problem-style";
     if (!document.querySelector('[data-wigy-style="' + STYLE_KEY + '"]')) {
       var css =
-        "#" + ID + "{width:100%;clear:both;display:block;font-family:inherit;background:#F5F4EE;padding:50px 20px 50px 20px;border-top:1px solid #f0f0f0;border-bottom:1px solid #f0f0f0}" +
+        "#" + ID + "{width:100%;box-sizing:border-box;clear:both;display:block;font-family:inherit;background:#F5F4EE;padding:50px 20px 50px 20px;border-top:1px solid #f0f0f0;border-bottom:1px solid #f0f0f0}" +
         "#" + ID + " .prob-inner{max-width:720px;margin:0 auto;text-align:center}" +
         "#" + ID + " .prob-eyebrow{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1.8px;color:#E88031;margin-bottom:16px}" +
         "#" + ID + " .prob-eyebrow svg{width:16px;height:16px;flex:0 0 auto}" +
@@ -1156,26 +1160,31 @@ window.WIGY_DOM = {
         '<p class="prob-bottom">\u00BFCu\u00E1ntos esquejes perdiste esperando que <strong>echen ra\u00EDz</strong>?</p>' +
       '</div>';
 
-    var videoCarousel = document.querySelector('[data-wigy-infinite="1"]');
-    if (videoCarousel) {
-      videoCarousel.insertAdjacentElement("afterend", wrapper);
+    /* Se ubica después del carrusel; si está desactivado, después de la barra de medios */
+    var anchor = getAnchor();
+    if (anchor) {
+      anchor.insertAdjacentElement("afterend", wrapper);
     } else {
       var form = window.WIGY_DOM.form();
       if (form) form.appendChild(wrapper);
     }
   };
 
-  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", injectSection);
-  else {
-    var tries = 0;
-    var t = setInterval(function() {
-      tries++;
-      if (document.querySelector('[data-wigy-infinite="1"]') || tries >= 100) {
-        clearInterval(t);
-        injectSection();
-      }
-    }, 150);
+  function getAnchor() {
+    var carouselOn = !(window.WIGY_CONFIG && window.WIGY_CONFIG.mostrarCarrusel === false);
+    return (carouselOn && document.querySelector('[data-wigy-infinite="1"]')) ||
+           (!carouselOn && document.getElementById("wigy-media-ticker")) || null;
   }
+
+  var tries = 0;
+  var t = setInterval(function() {
+    tries++;
+    if (document.getElementById(ID)) { clearInterval(t); return; }
+    if (getAnchor() || tries >= 100) {
+      clearInterval(t);
+      injectSection();
+    }
+  }, 150);
 })();
 </script>
 <!-- ================================================================
@@ -1191,7 +1200,7 @@ window.WIGY_DOM = {
     var STYLE_KEY = "wigy-solution-style";
     if (!document.querySelector('[data-wigy-style="' + STYLE_KEY + '"]')) {
       var css =
-        "#" + ID + "{width:100%;clear:both;display:block;font-family:inherit;background:#fff;padding:50px 20px 50px 20px}" +
+        "#" + ID + "{width:100%;box-sizing:border-box;clear:both;display:block;font-family:inherit;background:#fff;padding:50px 20px 50px 20px}" +
         "#" + ID + " .sol-inner{max-width:720px;margin:0 auto;text-align:center}" +
         "#" + ID + " .sol-eyebrow{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1.8px;color:#2A5F35;margin-bottom:16px}" +
         "#" + ID + " .sol-eyebrow svg{width:16px;height:16px;flex:0 0 auto}" +
@@ -1272,7 +1281,7 @@ window.WIGY_DOM = {
     var STYLE_KEY = "wigy-comparison-style-v2";
     if (!document.querySelector('[data-wigy-style="' + STYLE_KEY + '"]')) {
       var css =
-        "#wigy-promo-comparison-standalone{width:100%;clear:both;display:block;font-family:inherit;background:#F5F4EE;padding:50px 20px;border-top:1px solid #f0f0f0}" +
+        "#wigy-promo-comparison-standalone{width:100%;box-sizing:border-box;clear:both;display:block;font-family:inherit;background:#F5F4EE;padding:50px 20px;border-top:1px solid #f0f0f0}" +
         "#wigy-promo-comparison-standalone .comp-inner{max-width:720px;margin:0 auto;text-align:center}" +
         "#wigy-promo-comparison-standalone .comp-eyebrow{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1.8px;color:#2A5F35;margin-bottom:16px}" +
         "#wigy-promo-comparison-standalone .comp-eyebrow svg{width:16px;height:16px;flex:0 0 auto}" +
