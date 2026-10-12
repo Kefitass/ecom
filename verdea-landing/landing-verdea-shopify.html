@@ -1778,8 +1778,28 @@ window.WIGY_DOM = {
     var slides = Array.from(wrapper.querySelectorAll('.splide__slide'));
     var prevBtn = wrapper.querySelector('.splide__arrow--prev');
     var nextBtn = wrapper.querySelector('.splide__arrow--next');
-    var dots = Array.from(wrapper.querySelectorAll('.splide__pagination__page'));
+    var pagination = wrapper.querySelector('.splide__pagination');
+    var dots = [];
     var currentIndex = 0;
+
+    /* Un punto por POSICIÓN posible (no por tarjeta). Si todas las tarjetas
+       entran en pantalla, se ocultan puntos y flechas. */
+    function rebuildDots(positions) {
+      if (!pagination || dots.length === positions) return;
+      pagination.innerHTML = '';
+      dots = [];
+      for (var i = 0; i < positions; i++) {
+        var li = document.createElement('li');
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'splide__pagination__page';
+        b.setAttribute('aria-label', 'Ir a la posici\u00F3n ' + (i + 1));
+        (function(idx) { b.addEventListener('click', function() { currentIndex = idx; updateSlider(); }); })(i);
+        li.appendChild(b);
+        pagination.appendChild(li);
+        dots.push(b);
+      }
+    }
 
     function getSlidesPerView() { return window.innerWidth >= 768 ? 3 : 1; }
 
@@ -1788,23 +1808,21 @@ window.WIGY_DOM = {
       var maxIndex = Math.max(0, slides.length - slidesPerView);
       if (currentIndex > maxIndex) currentIndex = maxIndex;
       /* Desplazamiento en píxeles enteros: evita que las fotos se vean borrosas */
-      var slideW = slides[0] ? slides[0].getBoundingClientRect().width : 0;
-      trackList.style.transform = slideW ? 'translate3d(-' + Math.round(currentIndex * slideW) + 'px,0,0)' : 'translateX(-' + (currentIndex * (100 / slidesPerView)) + '%)';
-      dots.forEach(function(dot, i) { if (dot) dot.classList.toggle('is-active', i === currentIndex); });
-      if (prevBtn) prevBtn.disabled = currentIndex === 0;
-      if (nextBtn) nextBtn.disabled = currentIndex >= maxIndex;
+      var target = slides[currentIndex];
+      var offset = target ? target.offsetLeft - slides[0].offsetLeft : 0;
+      trackList.style.transform = 'translate3d(-' + Math.round(offset) + 'px,0,0)';
+      rebuildDots(maxIndex + 1);
+      dots.forEach(function(dot, i) { dot.classList.toggle('is-active', i === currentIndex); });
+      var scrollable = maxIndex > 0;
+      if (pagination) pagination.style.display = scrollable ? '' : 'none';
+      if (prevBtn) { prevBtn.disabled = currentIndex === 0; prevBtn.style.visibility = scrollable ? '' : 'hidden'; }
+      if (nextBtn) { nextBtn.disabled = currentIndex >= maxIndex; nextBtn.style.visibility = scrollable ? '' : 'hidden'; }
     }
 
     if (prevBtn) prevBtn.addEventListener('click', function() { if (currentIndex > 0) { currentIndex--; updateSlider(); } });
     if (nextBtn) nextBtn.addEventListener('click', function() {
       var maxIndex = Math.max(0, slides.length - getSlidesPerView());
       if (currentIndex < maxIndex) { currentIndex++; updateSlider(); }
-    });
-    dots.forEach(function(dot, i) {
-      dot.addEventListener('click', function() {
-        currentIndex = Math.min(i, Math.max(0, slides.length - getSlidesPerView()));
-        updateSlider();
-      });
     });
 
     var startX = 0;
