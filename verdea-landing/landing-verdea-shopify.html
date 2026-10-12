@@ -1,3 +1,4 @@
+<meta charset="utf-8">
 <!-- ================================================================
      VERDEA — HUERTA DOMÉSTICA · LANDING PAGE PARA SHOPIFY
      "Tu rincón verde, tu momento de paz"
@@ -43,6 +44,15 @@ window.WIGY_CONFIG = {
   marca: "VERDEA",
   nombreProducto: "Enraizante VERDEA Root Boost",
   garantiaDias: 0,
+
+  // ============================================================
+  // 🧪 MODO PRUEBA
+  // false → normal (en Shopify solo carga en slugURL).
+  // Al abrir el archivo localmente (file://) o en localhost se activa SOLO,
+  // sin validar la URL. En true fuerza el modo prueba en cualquier lado
+  // (no lo dejes en true en la tienda publicada).
+  // ============================================================
+  modoPrueba: false,
 
   // ============================================================
   // ⭐ SECCIÓN 0B: RATING GENERAL
@@ -283,23 +293,89 @@ window.WIGY_DOM = {
 })();
 </script>
 <!-- ================================================================
-     VALIDACIÓN DE SLUG — Si la URL no coincide, no carga nada
-     Compara por handle (/products/xxx) para que funcione también
-     desde /collections/.../products/xxx y con ?variant=...
+     VALIDACIÓN DE SLUG + MODO PRUEBA
+     · En Shopify: solo carga en la URL del producto (compara por handle
+       /products/xxx, funciona desde /collections/... y con ?variant=...).
+     · MODO PRUEBA (sin validación de URL): se activa solo cuando el archivo
+       se abre localmente (file://), en localhost/127.0.0.1, con ?wigy_preview=1
+       en la URL, o con modoPrueba: true en el panel. Si la página no tiene
+       formulario de producto, crea uno simulado para ver la landing completa.
      ================================================================ -->
 <script>
 (function() {
-  var slugURL = window.WIGY_CONFIG && window.WIGY_CONFIG.slugURL;
-  if (!slugURL || slugURL.indexOf("⚠️") !== -1) return;
-  try {
-    var configPath = new URL(slugURL, window.location.origin).pathname.replace(/\/+$/, "");
-    var currentPath = window.location.pathname.replace(/\/+$/, "");
-    var m = configPath.match(/\/products\/[^\/]+$/);
-    var ok = m ? (currentPath.slice(-m[0].length) === m[0]) : (currentPath === configPath);
-    if (!ok) window.WIGY_SLUG_BLOCK = true;
-  } catch(e) {
-    window.WIGY_SLUG_BLOCK = true;
+  var cfg = window.WIGY_CONFIG || {};
+  var loc = window.location;
+  var isLocal = loc.protocol === "file:" ||
+                /^(localhost|127\.0\.0\.1|0\.0\.0\.0|\[::1\])$/.test(loc.hostname);
+  var forced = cfg.modoPrueba === true || /[?&]wigy_preview=1\b/.test(loc.search);
+  window.WIGY_PREVIEW = isLocal || forced;
+
+  if (!window.WIGY_PREVIEW) {
+    var slugURL = cfg.slugURL;
+    if (!slugURL || slugURL.indexOf("⚠️") !== -1) return;
+    try {
+      var configPath = new URL(slugURL).pathname.replace(/\/+$/, "");
+      var currentPath = loc.pathname.replace(/\/+$/, "");
+      var m = configPath.match(/\/products\/[^\/]+$/);
+      var ok = m ? (currentPath.slice(-m[0].length) === m[0]) : (currentPath === configPath);
+      if (!ok) window.WIGY_SLUG_BLOCK = true;
+    } catch(e) {
+      window.WIGY_SLUG_BLOCK = true;
+    }
+    return;
   }
+
+  /* ---------- MODO PRUEBA: página de producto simulada ---------- */
+  window.WIGY_SLUG_BLOCK = false;
+  function buildMock() {
+    if (document.getElementById("wigy-preview-page") || window.WIGY_DOM.form()) return;
+    if (!document.body) return;
+    var st = document.createElement("style");
+    st.id = "wigy-preview-style";
+    st.textContent =
+      "body{margin:0;background:#fff;color:#1f1f1f;font-family:'Open Sans','Lato',sans-serif}" +
+      "#wigy-preview-banner{background:#E88031;color:#fff;text-align:center;font:600 12px/1.4 'Open Sans',sans-serif;padding:6px 12px}" +
+      "#wigy-preview-page{max-width:1100px;margin:0 auto;padding:24px 16px 120px;box-sizing:border-box}" +
+      "#wigy-preview-page .wp-info{max-width:620px;margin:0 auto}" +
+      "#wigy-preview-page h1{font:800 28px/1.2 'Poppins','Montserrat',sans-serif;color:#1f1f1f;margin:0 0 4px}" +
+      "#wigy-preview-page .wp-form{margin:0}" +
+      "@media(max-width:768px){#wigy-preview-page h1{font-size:23px}}";
+    document.head.appendChild(st);
+
+    var banner = document.createElement("div");
+    banner.id = "wigy-preview-banner";
+    banner.textContent = "MODO PRUEBA — vista local de la landing (en Shopify este aviso no aparece)";
+
+    var page = document.createElement("div");
+    page.id = "wigy-preview-page";
+    page.innerHTML =
+      '<div class="wp-info">' +
+        '<h1 class="product__title">' + (cfg.nombreProducto || "Producto") + '</h1>' +
+        '<form class="wp-form product-form" action="/cart/add" method="post" id="product-form-preview">' +
+          '<input type="hidden" name="quantity" value="1">' +
+          '<div class="product-form__buttons">' +
+            '<button type="submit" name="add" class="product-form__submit">Agregar al carrito</button>' +
+          '</div>' +
+        '</form>' +
+      '</div>';
+
+    var anchor = document.getElementById("wigy-verdea-scripts");
+    if (anchor && anchor.parentNode) {
+      anchor.parentNode.insertBefore(banner, anchor);
+      anchor.parentNode.insertBefore(page, anchor);
+    } else {
+      document.body.appendChild(banner);
+      document.body.appendChild(page);
+    }
+
+    page.querySelector("form").addEventListener("submit", function(e) {
+      e.preventDefault();
+      var q = page.querySelector("input[name='quantity']").value;
+      alert("Modo prueba: se agregarían " + q + " unidad(es) al carrito.");
+    });
+  }
+  buildMock();
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", buildMock);
 })();
 </script>
 <!-- ================================================================
