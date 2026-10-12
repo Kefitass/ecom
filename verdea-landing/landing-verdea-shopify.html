@@ -43,6 +43,11 @@ window.WIGY_CONFIG = {
   // ============================================================
   marca: "VERDEA",
   nombreProducto: "Enraizante VERDEA Root Boost",
+  // Nombre corto que aparece en la notificación de compras recientes:
+  // "Susana de Corrientes · Compró Enraizante VERDEA 🌱"
+  nombreToast: "Enraizante VERDEA",
+  // true → agrega una 3.ª línea "hace X min · Compra verificada" a la notificación.
+  toastMostrarHora: false,
   garantiaDias: 0,
 
   // ============================================================
@@ -2358,6 +2363,8 @@ window.WIGY_DOM = {
   var checkSvg = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>';
 
   function getProductName() {
+    var cfgName = window.WIGY_CONFIG && window.WIGY_CONFIG.nombreToast;
+    if (cfgName) return cfgName;
     var el = window.WIGY_DOM.title();
     if (el) {
       var text = el.textContent.trim();
@@ -2385,7 +2392,7 @@ window.WIGY_DOM = {
       '<div class="toast-body">' +
         '<span class="toast-name">' + buyer.name + ' de ' + buyer.city + '</span>' +
         '<span class="toast-action">Compró ' + productName + ' 🌱</span>' +
-        '<span class="toast-time">' + time + ' · <span class="toast-verified">' + checkSvg + ' Compra verificada</span></span>' +
+        (window.WIGY_CONFIG && window.WIGY_CONFIG.toastMostrarHora ? '<span class="toast-time">' + time + ' · <span class="toast-verified">' + checkSvg + ' Compra verificada</span></span>' : '') +
       '</div>';
 
     toast.classList.remove("toast-in", "toast-out");
