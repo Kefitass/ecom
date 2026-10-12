@@ -55,6 +55,16 @@ window.WIGY_CONFIG = {
   modoPrueba: false,
 
   // ============================================================
+  // 📷 FOTOS DEL PRODUCTO (galería de la VISTA LOCAL / MODO PRUEBA)
+  // En Shopify la galería la muestra tu tema con las fotos cargadas en el
+  // producto; esta lista solo se usa al ver el archivo en modo prueba.
+  // La primera es la principal. Agregá más URLs y aparecen como miniaturas.
+  // ============================================================
+  fotosProducto: [
+    "https://cdn.shopify.com/s/files/1/0815/0338/7880/files/verdea_root_boost_1024x1024_9fa09c25-5f75-4bf5-a8a5-aef293b9090f.jpg?v=1791546432"
+  ],
+
+  // ============================================================
   // ⭐ SECCIÓN 0B: RATING GENERAL
   // Calificación que aparece debajo del título
   // ⚠️ Usá tu puntuación y cantidad de reseñas reales.
@@ -335,8 +345,18 @@ window.WIGY_DOM = {
     st.textContent =
       "body{margin:0;background:#fff;color:#1f1f1f;font-family:'Open Sans','Lato',sans-serif}" +
       "#wigy-preview-banner{background:#E88031;color:#fff;text-align:center;font:600 12px/1.4 'Open Sans',sans-serif;padding:6px 12px}" +
-      "#wigy-preview-page{max-width:1100px;margin:0 auto;padding:24px 16px 120px;box-sizing:border-box}" +
-      "#wigy-preview-page .wp-info{max-width:620px;margin:0 auto}" +
+      "#wigy-preview-page{max-width:1200px;margin:0 auto;padding:24px 16px 120px;box-sizing:border-box}" +
+      "#wigy-preview-page .wp-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:start}" +
+      "#wigy-preview-page .wp-gallery{position:sticky;top:16px}" +
+      "#wigy-preview-page .wp-main{position:relative;width:100%;aspect-ratio:1/1;border-radius:16px;overflow:hidden;background:#F5F4EE;border:1px solid rgba(42,95,53,.12)}" +
+      "#wigy-preview-page .wp-main img{width:100%;height:100%;object-fit:contain;display:block}" +
+      "#wigy-preview-page .wp-thumbs{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}" +
+      "#wigy-preview-page .wp-thumbs button{width:68px;height:68px;padding:0;border:2px solid transparent;border-radius:10px;overflow:hidden;background:#F5F4EE;cursor:pointer}" +
+      "#wigy-preview-page .wp-thumbs button.active{border-color:#2A5F35}" +
+      "#wigy-preview-page .wp-thumbs img{width:100%;height:100%;object-fit:cover;display:block}" +
+      "#wigy-preview-page .wp-info{min-width:0}" +
+      "#wigy-preview-page .wp-grid.no-gallery{grid-template-columns:minmax(0,620px);justify-content:center}" +
+      "@media(max-width:768px){#wigy-preview-page .wp-grid{display:block}#wigy-preview-page .wp-gallery{position:static;margin-bottom:20px}#wigy-preview-page .wp-thumbs button{width:56px;height:56px}}" +
       "#wigy-preview-page h1{font:800 28px/1.2 'Poppins','Montserrat',sans-serif;color:#1f1f1f;margin:0 0 4px}" +
       "#wigy-preview-page .wp-form{margin:0}" +
       "@media(max-width:768px){#wigy-preview-page h1{font-size:23px}}";
@@ -348,7 +368,16 @@ window.WIGY_DOM = {
 
     var page = document.createElement("div");
     page.id = "wigy-preview-page";
+    var fotos = (cfg.fotosProducto || []).filter(function(u) { return u && u.indexOf("\u26A0\uFE0F") === -1; });
+    var galleryHTML = fotos.length ?
+      '<div class="wp-gallery">' +
+        '<div class="wp-main"><img src="' + fotos[0] + '" alt="' + (cfg.nombreProducto || "") + '"></div>' +
+        (fotos.length > 1 ? '<div class="wp-thumbs">' + fotos.map(function(u, i) {
+          return '<button type="button" class="' + (i === 0 ? 'active' : '') + '" data-src="' + u + '"><img src="' + u + '" alt="Foto ' + (i + 1) + '"></button>';
+        }).join('') + '</div>' : '') +
+      '</div>' : '';
     page.innerHTML =
+      '<div class="wp-grid' + (fotos.length ? '' : ' no-gallery') + '">' + galleryHTML +
       '<div class="wp-info">' +
         '<h1 class="product__title">' + (cfg.nombreProducto || "Producto") + '</h1>' +
         '<form class="wp-form product-form" action="/cart/add" method="post" id="product-form-preview">' +
@@ -357,7 +386,7 @@ window.WIGY_DOM = {
             '<button type="submit" name="add" class="product-form__submit">Agregar al carrito</button>' +
           '</div>' +
         '</form>' +
-      '</div>';
+      '</div></div>';
 
     var anchor = document.getElementById("wigy-verdea-scripts");
     if (anchor && anchor.parentNode) {
@@ -367,6 +396,14 @@ window.WIGY_DOM = {
       document.body.appendChild(banner);
       document.body.appendChild(page);
     }
+
+    page.querySelectorAll(".wp-thumbs button").forEach(function(t) {
+      t.addEventListener("click", function() {
+        page.querySelector(".wp-main img").src = t.getAttribute("data-src");
+        page.querySelectorAll(".wp-thumbs button").forEach(function(x) { x.classList.remove("active"); });
+        t.classList.add("active");
+      });
+    });
 
     page.querySelector("form").addEventListener("submit", function(e) {
       e.preventDefault();
