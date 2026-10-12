@@ -122,7 +122,13 @@ window.WIGY_CONFIG = {
   // IMPORTANTE: este selector solo cambia la CANTIDAD que se agrega al carrito.
   // El precio con descuento lo tiene que aplicar Shopify (descuento automático
   // por cantidad o tu app de bundles).
+  //
+  // mostrarPacks: false → NO se muestra este selector: los packs los muestra
+  // Kaching Bundles (que es quien aplica descuentos y regalos). La barra fija
+  // de abajo toma el precio del pack elegido en Kaching.
+  // true → se usa este selector (solo si NO usás Kaching).
   // ============================================================
+  mostrarPacks: false,
   ofertas: [
     {
       nombre: "1 Enraizante",
@@ -598,7 +604,10 @@ window.WIGY_DOM = {
     var wrapper = document.createElement("div");
     wrapper.id = WRAPPER_ID;
     wrapper.innerHTML = buildHTML();
-    form.parentNode.insertBefore(wrapper, form);
+    /* Si está Kaching Bundles, la lista va ARRIBA de su widget */
+    var k = document.querySelector("kaching-bundles-block, .kaching-bundles, [class^='kaching-bundles']");
+    var anchor = k ? (k.closest(".shopify-app-block, [id^='shopify-block-']") || k) : form;
+    anchor.parentNode.insertBefore(wrapper, anchor);
   }
 
   var tries = 0;
@@ -631,6 +640,23 @@ window.WIGY_DOM = {
       s.id = ID + '-css';
       s.innerHTML = ".kb-wrap{font-family:'Poppins','Montserrat',sans-serif;margin:15px auto 8px auto!important;width:100%;max-width:600px}.kb-title{display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:900;color:#2A5F35;margin-bottom:20px;letter-spacing:.2px;white-space:nowrap;opacity:0}.kb-title::before,.kb-title::after{content:'';flex:1;border-bottom:2px solid rgba(107,163,66,.35);margin:0 12px}.kb-bar{border:2px solid rgba(42,95,53,.15);border-radius:16px;background:#fff;cursor:pointer;margin-bottom:12px;display:flex;flex-direction:column;position:relative;transition:.2s;box-sizing:border-box}.kb-bar.sel{border:2px solid #2A5F35;background:#F1F6EC;z-index:2;box-shadow:0 8px 20px rgba(42,95,53,.1)}.kb-pop{position:absolute;top:-14px;right:18px;background:#E88031;color:#fff;font-size:12px;font-weight:800;padding:6px 12px;border-radius:6px;letter-spacing:.5px;line-height:1;opacity:0;box-shadow:0 4px 10px rgba(232,128,49,.35);transform-origin:center right}.kb-bdg{background:#E88031;color:#fff;font-size:12px;font-weight:800;padding:4px 8px;border-radius:99px;line-height:1.1;opacity:0;transform-origin:center center;white-space:nowrap;flex-shrink:0}.kb-main{display:flex;align-items:center;padding:18px 20px;box-sizing:border-box}.kb-radio{width:32px;height:32px;border-radius:50%;border:2px solid rgba(0,0,0,.2);margin-right:18px;display:flex;align-items:center;justify-content:center;background:#fff;flex:0 0 auto;transition:.2s;box-sizing:border-box}.kb-bar.sel .kb-radio{border-color:#2A5F35;border-width:2px}.kb-radio::after{content:'';width:16px;height:16px;border-radius:50%;background:#6BA342;opacity:0;transform:scale(.5);transition:.25s cubic-bezier(0.175,0.885,0.32,1.275)}.kb-bar.sel .kb-radio::after{opacity:1;transform:scale(1)}.kb-c{flex:1;min-width:0;line-height:1.2}.kb-r1{display:flex;justify-content:space-between;align-items:center;gap:10px}.kb-r2{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-top:6px}.kb-t{font-size:18px;font-weight:800;color:#111;display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin:0}.kb-p{font-size:20px;font-weight:900;color:#111;margin:0;white-space:nowrap;flex-shrink:0}.kb-s{font-size:15px;color:#555;font-weight:600;margin:0;flex:1;min-width:0;line-height:1.3}.kb-op{font-size:15px;color:#888;text-decoration:line-through;margin:0;flex-shrink:0;white-space:nowrap;line-height:1.3}.kb-gifts{padding:0;overflow:hidden}.kb-gift-row{display:flex;align-items:center;gap:10px;padding:10px 20px;font-size:13px;font-weight:700;color:#333;background:rgba(107,163,66,.08);border-top:1px solid rgba(42,95,53,.1)}.kb-gift-row:last-child{border-radius:0 0 14px 14px}.kb-gift-check{width:20px;height:20px;border-radius:6px;background:#2A5F35;color:#fff;display:flex;align-items:center;justify-content:center;flex:0 0 auto}.kb-gift-check svg{width:12px;height:12px}.kb-gift-tag{background:#2A5F35;color:#fff;font-size:11px;font-weight:800;padding:3px 9px;border-radius:99px;margin-left:auto;white-space:nowrap}.js-quantity,.js-product-quantity,[data-component='product.quantity'],.product__info-container .product-form__quantity{display:none!important}.wigy-atc-col,.product-form__buttons{width:100%!important;max-width:600px!important;margin-left:auto!important;margin-right:auto!important;float:none!important;align-self:center!important;box-sizing:border-box!important}.js-prod-submit-form,button[name='add'],.btn-add-to-cart,.product-form__submit{background:linear-gradient(135deg,#2A5F35 0%,#6BA342 100%)!important;color:#ffffff!important;border:none!important;border-radius:99px!important;font-family:'Poppins','Montserrat',sans-serif!important;font-size:20px!important;font-weight:900!important;text-transform:uppercase!important;letter-spacing:1px!important;padding:20px 24px!important;box-shadow:0 8px 24px rgba(42,95,53,0.3)!important;transition:transform 0.2s ease,background 0.3s ease!important;width:100%!important;max-width:600px!important;margin:0 auto 15px auto!important;display:flex!important;align-items:center!important;justify-content:center!important;text-align:center!important;box-sizing:border-box!important;min-height:0!important}.js-prod-submit-form:hover,button[name='add']:hover,.btn-add-to-cart:hover,.product-form__submit:hover{transform:translateY(-3px)!important;background:linear-gradient(135deg,#1F4727 0%,#2A5F35 100%)!important}@keyframes kbSlideIn{0%{opacity:0;transform:translateY(20px) scale(0.95)}60%{opacity:1;transform:translateY(-3px) scale(1.02)}100%{opacity:1;transform:translateY(0) scale(1)}}@keyframes kbPopBounce{0%{opacity:0;transform:scale(0.2) rotate(-5deg)}50%{opacity:1;transform:scale(1.35) rotate(4deg)}75%{opacity:1;transform:scale(0.9) rotate(-2deg)}100%{opacity:1;transform:scale(1) rotate(0deg)}}.kb-in-view .kb-title{animation:kbSlideIn 0.6s cubic-bezier(0.175,0.885,0.32,1.275) forwards}.kb-in-view .kb-pop{animation:kbPopBounce 0.7s cubic-bezier(0.175,0.885,0.32,1.275) forwards}.kb-in-view .kb-bdg{animation:kbPopBounce 0.7s cubic-bezier(0.175,0.885,0.32,1.275) forwards}.kb-in-view .kb-bar:nth-child(3) .kb-pop{animation-delay:0.15s}.kb-in-view .kb-bar:nth-child(4) .kb-pop{animation-delay:0.35s}.kb-in-view .kb-bar:nth-child(3) .kb-bdg{animation-delay:0.25s}.kb-in-view .kb-bar:nth-child(4) .kb-bdg{animation-delay:0.45s}@media(max-width:768px){.kb-t{font-size:16px}.kb-p{font-size:18px}.kb-s{font-size:13.5px}.kb-op{font-size:13.5px}.js-prod-submit-form,button[name='add'],.btn-add-to-cart,.product-form__submit{font-size:18px!important;padding:18px 20px!important}}@media(max-width:480px){.kb-title{white-space:normal;text-align:center;font-size:15px}}";
       document.head.appendChild(s);
+    }
+
+    /* Packs desactivados (los maneja Kaching): solo se aplica el estilo y
+       centrado del botón; se deja un marcador oculto para cortar la espera. */
+    /* En la vista local (modo prueba) no hay Kaching: se muestran nuestros packs como referencia */
+    var hasKaching = !!document.querySelector("kaching-bundles-block, .kaching-bundles, [class^='kaching-bundles']");
+    if (window.WIGY_CONFIG.mostrarPacks === false && (hasKaching || !window.WIGY_PREVIEW)) {
+      var marker = document.createElement('div');
+      marker.id = ID;
+      marker.style.display = 'none';
+      pCol.parentNode.insertBefore(marker, pCol);
+      pCol.classList.add('wigy-atc-col');
+      pCol.style.setProperty('margin-left', 'auto', 'important');
+      pCol.style.setProperty('margin-right', 'auto', 'important');
+      pCol.style.setProperty('width', '100%', 'important');
+      pCol.style.setProperty('max-width', '600px', 'important');
+      return;
     }
 
     var giftCheckSVG = '<svg width="12" height="10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.334 1 4 8.333 1.667 5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>';
@@ -2101,17 +2127,32 @@ window.WIGY_DOM = {
 
     var productName = nameEl ? nameEl.textContent.trim() : "";
 
-    var selectedBundle = document.querySelector("#wigy-premium-bundles .kb-bar.sel .kb-p");
-    var oldPriceEl = document.querySelector("#wigy-premium-bundles .kb-bar.sel .kb-op");
-    var priceText = selectedBundle ? selectedBundle.textContent.trim() : "";
-    var oldPriceText = oldPriceEl ? oldPriceEl.textContent.trim() : "";
-
-    if (!priceText) {
+    /* Precio a mostrar: 1) pack elegido en nuestro selector, 2) pack elegido
+       en Kaching Bundles, 3) precio nativo del producto. */
+    function getPrices() {
+      var selP = document.querySelector("#wigy-premium-bundles .kb-bar.sel .kb-p");
+      if (selP) {
+        var selO = document.querySelector("#wigy-premium-bundles .kb-bar.sel .kb-op");
+        return { price: selP.textContent.trim(), old: selO ? selO.textContent.trim() : "" };
+      }
+      var root = document.querySelector("kaching-bundles-block, .kaching-bundles, [class^='kaching-bundles']");
+      if (root) {
+        var sel = root.querySelector("[class*='bar--selected'], [class*='bar'][class*='selected'], [class*='bar'][aria-checked='true']");
+        if (!sel) {
+          var radio = root.querySelector("input[type='radio']:checked");
+          if (radio) sel = radio.closest("[class*='bar']") || radio.parentElement;
+        }
+        var amounts = sel ? ((sel.innerText || "").match(/\$\s?\d[\d.,]*/g) || []) : [];
+        if (amounts.length) return { price: amounts[0], old: amounts[1] || "" };
+      }
       var pEl = document.querySelector(".js-price-display") ||
                 document.querySelector("[data-product-price]") ||
                 document.querySelector(".product__info-container .price-item--sale, .product__info-container .price-item--regular");
-      priceText = pEl ? pEl.textContent.trim() : "";
+      return { price: pEl ? pEl.textContent.trim() : "", old: "" };
     }
+    var initial = getPrices();
+    var priceText = initial.price;
+    var oldPriceText = initial.old;
 
     var bar = document.createElement("div");
     bar.id = ID;
@@ -2121,7 +2162,7 @@ window.WIGY_DOM = {
           (productName ? '<span class="sticky-name">' + productName + '</span>' : '') +
           '<div class="sticky-prices">' +
             '<span class="sticky-price">' + priceText + '</span>' +
-            (oldPriceText ? '<span class="sticky-old-price">' + oldPriceText + '</span>' : '') +
+            '<span class="sticky-old-price">' + oldPriceText + '</span>' +
           '</div>' +
         '</div>' +
         '<button class="sticky-btn" type="button">Agregar al carrito</button>' +
@@ -2150,19 +2191,15 @@ window.WIGY_DOM = {
       }, 500);
     });
 
-    var bundles = document.getElementById("wigy-premium-bundles");
-    if (bundles) {
-      bundles.addEventListener("click", function() {
-        setTimeout(function() {
-          var selPrice = bundles.querySelector(".kb-bar.sel .kb-p");
-          var selOld = bundles.querySelector(".kb-bar.sel .kb-op");
-          if (selPrice) bar.querySelector(".sticky-price").textContent = selPrice.textContent.trim();
-          var oldEl = bar.querySelector(".sticky-old-price");
-          if (selOld && oldEl) oldEl.textContent = selOld.textContent.trim();
-          else if (!selOld && oldEl) oldEl.textContent = "";
-        }, 100);
-      });
+    /* Al elegir otro pack (nuestro o de Kaching), se actualiza el precio */
+    function refreshPrices() {
+      var pr = getPrices();
+      if (pr.price) bar.querySelector(".sticky-price").textContent = pr.price;
+      bar.querySelector(".sticky-old-price").textContent = pr.old;
     }
+    document.addEventListener("click", function() { setTimeout(refreshPrices, 150); }, true);
+    document.addEventListener("change", function() { setTimeout(refreshPrices, 150); }, true);
+    setTimeout(refreshPrices, 1500);
 
     /* Visible cuando el botón original quedó por ENCIMA de la pantalla.
        Se chequea en cada scroll (no solo al cruzar el botón), así funciona
