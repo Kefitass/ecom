@@ -2629,5 +2629,36 @@ window.WIGY_DOM = {
   }
 })();
 </script>
+<!-- ================================================================
+     BLOQUE: PACK PRESELECCIONADO DESDE EL INICIO (?pack=2 / ?pack=3)
+     Si el cliente llega desde el inicio con un pack elegido, se marca
+     ese pack en Kaching automáticamente.
+     ================================================================ -->
+<script>
+(function() {
+  if (window.WIGY_SLUG_BLOCK) return;
+  var m = location.search.match(/[?&]pack=(\d)/);
+  if (!m) return;
+  var idx = parseInt(m[1], 10) - 1;
+  if (idx < 0) return;
+  var tries = 0;
+  var timer = setInterval(function() {
+    tries++;
+    var host = document.querySelector("kaching-bundle, kaching-bundles-block, .kaching-bundles__block");
+    var scope = host && (host.shadowRoot || host);
+    var bars = scope ? scope.querySelectorAll(".kaching-bundles__bar") : [];
+    if (!bars.length && scope) bars = scope.querySelectorAll("input[type='radio']");
+    if (bars.length > idx) {
+      clearInterval(timer);
+      var bar = bars[idx];
+      var radio = bar.matches && bar.matches("input") ? bar : bar.querySelector("input[type='radio']");
+      (radio || bar).click();
+      if (radio && !radio.checked) bar.click();
+      return;
+    }
+    if (tries > 50) clearInterval(timer);
+  }, 200);
+})();
+</script>
 </div>
 <!-- {% endraw %} -->
