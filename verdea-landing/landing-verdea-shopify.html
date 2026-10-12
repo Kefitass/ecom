@@ -279,6 +279,24 @@ window.WIGY_DOM = {
     return document.querySelector(".js-quantity-input") ||
            document.querySelector(".product-form__quantity input[name='quantity']") ||
            document.querySelector("input[name='quantity']");
+  },
+  /* Contenedor de ANCHO COMPLETO para las secciones largas de la landing.
+     Se crea justo DEBAJO de la sección del producto (foto + columna de compra),
+     así las secciones ocupan todo el ancho en PC en lugar de la columna derecha. */
+  fullWidth: function() {
+    var c = document.getElementById("wigy-landing-full");
+    if (c) return c;
+    var f = this.form();
+    if (!f) return null;
+    var host = document.getElementById("wigy-preview-page") ||
+               f.closest(".shopify-section") ||
+               f.closest("section") ||
+               f.closest(".product, product-info");
+    c = document.createElement("div");
+    c.id = "wigy-landing-full";
+    if (host && host.parentNode) host.insertAdjacentElement("afterend", c);
+    else f.appendChild(c);
+    return c;
   }
 };
 </script>
@@ -301,7 +319,10 @@ window.WIGY_DOM = {
     ":root{--vd-green:#2A5F35;--vd-sprout:#6BA342;--vd-earth:#4E382A;--vd-orange:#E88031;--vd-bg:#F5F4EE;--vd-white:#FFFFFF;" +
     "--vd-font-title:'Poppins','Montserrat',sans-serif;--vd-font-body:'Open Sans','Lato',sans-serif}" +
     "[id^='wigy-'],.kb-wrap,.wigy-image-carousel{font-family:var(--vd-font-body)}" +
-    "[id^='wigy-'] h2,[id^='wigy-'] h3,.kb-title,.kb-t,.kb-p,.kb-pop,.kb-bdg,#wigy-ticker .ticker-item,#wigy-sticky-atc .sticky-btn{font-family:var(--vd-font-title)!important}";
+    "[id^='wigy-'] h2,[id^='wigy-'] h3,.kb-title,.kb-t,.kb-p,.kb-pop,.kb-bdg,#wigy-ticker .ticker-item,#wigy-sticky-atc .sticky-btn{font-family:var(--vd-font-title)!important}" +
+    "#wigy-landing-full{width:100%;clear:both;display:block;box-sizing:border-box}" +
+    "#wigy-landing-full h2,#wigy-landing-full h3{font-weight:700!important;letter-spacing:-0.3px!important}" +
+    "#wigy-landing-full .t-content-orange h3{font-weight:600!important;letter-spacing:0!important}";
   document.head.appendChild(st);
 })();
 </script>
@@ -348,7 +369,7 @@ window.WIGY_DOM = {
     st.textContent =
       "body{margin:0;background:#fff;color:#1f1f1f;font-family:'Open Sans','Lato',sans-serif}" +
       "#wigy-preview-banner{background:#E88031;color:#fff;text-align:center;font:600 12px/1.4 'Open Sans',sans-serif;padding:6px 12px}" +
-      "#wigy-preview-page{max-width:1200px;margin:0 auto;padding:24px 16px 120px;box-sizing:border-box}" +
+      "#wigy-preview-page{max-width:1200px;margin:0 auto;padding:24px 16px 40px;box-sizing:border-box}" +
       "#wigy-preview-page .wp-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:start}" +
       "#wigy-preview-page .wp-gallery{position:sticky;top:16px}" +
       "#wigy-preview-page .wp-main{position:relative;width:100%;aspect-ratio:1/1;border-radius:16px;overflow:hidden;background:#F5F4EE;border:1px solid rgba(42,95,53,.12)}" +
@@ -1160,20 +1181,14 @@ window.WIGY_DOM = {
         '<p class="prob-bottom">\u00BFCu\u00E1ntos esquejes perdiste esperando que <strong>echen ra\u00EDz</strong>?</p>' +
       '</div>';
 
-    /* Se ubica después del carrusel; si está desactivado, después de la barra de medios */
-    var anchor = getAnchor();
-    if (anchor) {
-      anchor.insertAdjacentElement("afterend", wrapper);
-    } else {
-      var form = window.WIGY_DOM.form();
-      if (form) form.appendChild(wrapper);
-    }
+    /* Primera sección del bloque de ancho completo (debajo del producto).
+       Las demás secciones se encadenan después de esta. */
+    var full = window.WIGY_DOM.fullWidth();
+    if (full) full.insertBefore(wrapper, full.firstChild);
   };
 
   function getAnchor() {
-    var carouselOn = !(window.WIGY_CONFIG && window.WIGY_CONFIG.mostrarCarrusel === false);
-    return (carouselOn && document.querySelector('[data-wigy-infinite="1"]')) ||
-           (!carouselOn && document.getElementById("wigy-media-ticker")) || null;
+    return window.WIGY_DOM.form();
   }
 
   var tries = 0;
@@ -1866,7 +1881,7 @@ window.WIGY_DOM = {
       loadMaterialIcons();
 
       var STYLE_KEY = "wigy-shopify-faqs-style-standalone";
-      var css = "@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');\n#wigy-shopify-faqs-standalone{width:100%;margin-top:18px;--faq-bg:#2A5F35;--wave-color-1:rgba(107,163,66,0.3);--wave-color-2:rgba(107,163,66,0.6);--wave-color-3:#6BA342;font-family:inherit;clear:both}\n.wigy-section-divider{width:100%;line-height:0;display:block}\n.wigy-section-divider__svg{width:100%;display:block}\n.waves-animated-1{width:100%;height:25px;display:block}\n@media(min-width:768px){.waves-animated-1{height:35px}}\n.parallax1>use{animation:move-forever 25s cubic-bezier(.55,.5,.45,.5) infinite;animation-delay:-2s;animation-duration:7s}\n.parallax2>use{animation:move-forever 25s cubic-bezier(.55,.5,.45,.5) infinite;animation-delay:-3s;animation-duration:10s}\n.parallax3>use{animation:move-forever 25s cubic-bezier(.55,.5,.45,.5) infinite;animation-delay:-4s;animation-duration:13s}\n.parallax4>use{animation:move-forever 25s cubic-bezier(.55,.5,.45,.5) infinite;animation-delay:-5s;animation-duration:20s}\n@keyframes move-forever{0%{transform:translate3d(-90px,0,0)}100%{transform:translate3d(85px,0,0)}}\n.wigy-faqs-body{background-color:var(--faq-bg);padding:5px 16px 20px 16px;font-family:'Open Sans','Lato',sans-serif}\n.wigy-faqs-inner{max-width:600px;margin:0 auto}\n.wigy-faqs-title{text-align:center;font-size:24px;font-weight:900;color:#FFFFFF;margin:0 0 20px 0;letter-spacing:-0.3px}\n.wigy-accordion{border-top:1px solid rgba(255,255,255,0.15)}\n.wigy-accordion:last-child{border-bottom:1px solid rgba(255,255,255,0.15)}\n.wigy-accordion details{margin:0;padding:0}\n.wigy-accordion summary{display:flex;justify-content:space-between;align-items:center;padding:16px 0;cursor:pointer;list-style:none;outline:none;transition:opacity 0.2s ease}\n.wigy-accordion summary:hover{opacity:0.8}\n.wigy-accordion summary::-webkit-details-marker{display:none}\n.wigy-summary-title{display:flex;align-items:center;gap:12px}\n.wigy-summary-title img,.wigy-summary-title .material-icon{width:26px;height:26px;object-fit:contain;color:#FFFFFF;display:flex;align-items:center;justify-content:center}\n.wigy-summary-title img{filter:brightness(0) invert(1)}\n.wigy-accordion h2{margin:0;font-size:15px;font-weight:700;color:#FFFFFF}\n.wigy-icon-caret{width:14px;height:14px;transition:transform 0.3s cubic-bezier(0.4,0,0.2,1);color:#FFFFFF;flex:0 0 auto}\n.wigy-accordion details[open] summary .wigy-icon-caret{transform:rotate(180deg)}\n.wigy-accordion-content{font-size:14px;color:rgba(255,255,255,0.9);line-height:1.55;padding:0 0 16px 38px}\n.wigy-accordion-content p{margin:0 0 10px 0}\n.wigy-accordion-content p:last-child{margin-bottom:0}\n.wigy-accordion-content strong{color:#FFFFFF;font-weight:800}";
+      var css = "@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');\n#wigy-shopify-faqs-standalone{width:100%;margin-top:18px;--faq-bg:#2A5F35;--wave-color-1:rgba(107,163,66,0.3);--wave-color-2:rgba(107,163,66,0.6);--wave-color-3:#6BA342;font-family:inherit;clear:both}\n.wigy-section-divider{width:100%;line-height:0;display:block}\n.wigy-section-divider__svg{width:100%;display:block}\n.waves-animated-1{width:100%;height:25px;display:block}\n@media(min-width:768px){.waves-animated-1{height:35px}}\n.parallax1>use{animation:move-forever 25s cubic-bezier(.55,.5,.45,.5) infinite;animation-delay:-2s;animation-duration:7s}\n.parallax2>use{animation:move-forever 25s cubic-bezier(.55,.5,.45,.5) infinite;animation-delay:-3s;animation-duration:10s}\n.parallax3>use{animation:move-forever 25s cubic-bezier(.55,.5,.45,.5) infinite;animation-delay:-4s;animation-duration:13s}\n.parallax4>use{animation:move-forever 25s cubic-bezier(.55,.5,.45,.5) infinite;animation-delay:-5s;animation-duration:20s}\n@keyframes move-forever{0%{transform:translate3d(-90px,0,0)}100%{transform:translate3d(85px,0,0)}}\n.wigy-faqs-body{background-color:var(--faq-bg);padding:28px 20px 36px 20px;font-family:'Open Sans','Lato',sans-serif}\n.wigy-faqs-inner{max-width:720px;margin:0 auto}\n#wigy-shopify-faqs-standalone .wigy-faqs-title{text-align:center;font-size:12px!important;font-weight:600!important;color:#FFFFFF;margin:0 0 18px 0;letter-spacing:2px!important;text-transform:uppercase;opacity:.9}\n.wigy-accordion{border-top:1px solid rgba(255,255,255,0.15)}\n.wigy-accordion:last-child{border-bottom:1px solid rgba(255,255,255,0.15)}\n.wigy-accordion details{margin:0;padding:0}\n.wigy-accordion summary{display:flex;justify-content:space-between;align-items:center;padding:16px 0;cursor:pointer;list-style:none;outline:none;transition:opacity 0.2s ease}\n.wigy-accordion summary:hover{opacity:0.8}\n.wigy-accordion summary::-webkit-details-marker{display:none}\n.wigy-summary-title{display:flex;align-items:center;gap:12px}\n.wigy-summary-title .material-icon{font-size:22px;font-variation-settings:'FILL' 0,'wght' 300,'GRAD' 0,'opsz' 24}\n.wigy-summary-title img,.wigy-summary-title .material-icon{width:26px;height:26px;object-fit:contain;color:#FFFFFF;display:flex;align-items:center;justify-content:center}\n.wigy-summary-title img{filter:brightness(0) invert(1)}\n#wigy-shopify-faqs-standalone .wigy-accordion h2{margin:0;font-size:15px;font-weight:500!important;letter-spacing:0!important;line-height:1.4;color:#FFFFFF}\n.wigy-icon-caret{width:14px;height:14px;transition:transform 0.3s cubic-bezier(0.4,0,0.2,1);color:#FFFFFF;flex:0 0 auto}\n.wigy-accordion details[open] summary .wigy-icon-caret{transform:rotate(180deg)}\n.wigy-accordion-content{font-size:14.5px;color:rgba(255,255,255,0.88);line-height:1.6;padding:0 0 18px 38px}\n@media(max-width:768px){.wigy-faqs-body{padding:20px 16px 28px 16px}#wigy-shopify-faqs-standalone .wigy-accordion h2{font-size:14px}.wigy-accordion-content{padding-left:0}}\n.wigy-accordion-content p{margin:0 0 10px 0}\n.wigy-accordion-content p:last-child{margin-bottom:0}\n.wigy-accordion-content strong{color:#FFFFFF;font-weight:800}";
 
       if (!document.querySelector('[data-wigy-style="' + STYLE_KEY + '"]')) {
         var style = document.createElement("style");
