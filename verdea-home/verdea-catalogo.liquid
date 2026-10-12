@@ -1,0 +1,206 @@
+{% comment %}
+  VERDEA · Catálogo (sección nativa de Shopify para la página de colecciones)
+  Instalación: Editar código → Sections → "Agregar una nueva sección" → nombre: verdea-catalogo
+  → borrar todo lo que trae → pegar este archivo → Guardar.
+  Después: Personalizar → elegir "Colecciones" arriba al medio → ocultar las secciones del tema
+  → Agregar sección (dentro de Plantilla) → "VERDEA · Catálogo".
+  Las tarjetas llevan a la página de cada producto (donde están los packs de Kaching):
+  desde el catálogo no se compra directo, así nadie se saltea las ofertas.
+{% endcomment %}
+
+{%- liquid
+  assign promo_handles = 'enraizante-organico-para-huerta-y-macetas-250-ml'
+  if section.settings.productos_promo != blank
+    assign promo_handles = section.settings.productos_promo | map: 'handle' | join: ','
+  endif
+  assign promo_list = promo_handles | split: ','
+-%}
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+  #vc-{{ section.id }}{
+    --vc-green:#2A5F35;--vc-sprout:#6BA342;--vc-orange:#E88031;--vc-cream:#F5F4EE;--vc-earth:#4E382A;--vc-muted:#6E6157;--vc-line:#E5E2D6;
+    --vc-title:'Poppins','Montserrat',sans-serif;--vc-body:'Open Sans','Lato',sans-serif;
+    background:var(--vc-cream);color:var(--vc-earth);font-family:var(--vc-body);overflow:hidden;
+  }
+  #vc-{{ section.id }} *{box-sizing:border-box}
+  #vc-{{ section.id }} img{display:block;max-width:100%;height:auto}
+  #vc-{{ section.id }} h1,#vc-{{ section.id }} h2,#vc-{{ section.id }} h3{font-family:var(--vc-title);color:var(--vc-earth);margin:0;letter-spacing:0}
+  #vc-{{ section.id }} p{margin:0}
+  #vc-{{ section.id }} a{text-decoration:none}
+  .vc-wrap{max-width:1160px;margin:0 auto;padding:0 20px}
+
+  /* Encabezado */
+  .vc-head{text-align:center;padding:48px 0 28px}
+  .vc-kicker{display:inline-block;font-family:var(--vc-title);font-weight:600;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--vc-sprout);margin-bottom:10px}
+  .vc-h1{font-size:clamp(30px,4vw,44px);font-weight:800;line-height:1.15}
+  .vc-sub{font-size:16px;line-height:1.6;color:var(--vc-muted);max-width:560px;margin:12px auto 0!important}
+  .vc-chips{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:20px}
+  .vc-chip{display:inline-flex;align-items:center;gap:6px;background:#fff;border:1px solid var(--vc-line);border-radius:999px;padding:7px 14px;font-size:13px;font-weight:600;color:var(--vc-green)}
+  .vc-chip svg{width:16px;height:16px}
+
+  /* Grilla */
+  .vc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;padding-bottom:56px}
+  .vc-grid--1{grid-template-columns:1fr;max-width:980px;margin:0 auto}
+  .vc-grid--2{grid-template-columns:repeat(2,1fr);max-width:880px;margin:0 auto}
+  .vc-card{background:#fff;border:1px solid var(--vc-line);border-radius:22px;overflow:hidden;display:flex;flex-direction:column;transition:transform .25s,box-shadow .25s;color:inherit}
+  .vc-card:hover{transform:translateY(-4px);box-shadow:0 18px 36px rgba(78,56,42,.1)}
+  .vc-card__media{position:relative;aspect-ratio:1/1;background:linear-gradient(160deg,#EEF3E6,#F5F4EE);overflow:hidden}
+  #vc-{{ section.id }} .vc-card__media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+  .vc-card:hover .vc-card__media img{transform:scale(1.04)}
+  .vc-badge{position:absolute;left:14px;top:14px;z-index:1;background:var(--vc-orange);color:#fff;font-family:var(--vc-title);font-weight:700;font-size:12px;padding:6px 12px;border-radius:999px;letter-spacing:.03em;box-shadow:0 4px 12px rgba(232,128,49,.3)}
+  .vc-badge--soldout{background:#8a7f76;box-shadow:none}
+  .vc-card__body{padding:20px 20px 22px;display:flex;flex-direction:column;gap:8px;flex:1}
+  .vc-card__title{font-size:17px;font-weight:700;line-height:1.3}
+  .vc-rating{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--vc-muted)}
+  .vc-stars{display:inline-flex;gap:1px;color:#F4B400}
+  .vc-stars svg{width:14px;height:14px}
+  .vc-price{display:flex;align-items:baseline;flex-wrap:wrap;gap:8px;margin-top:2px}
+  .vc-price strong{font-family:var(--vc-title);font-size:22px;font-weight:800;color:var(--vc-earth)}
+  .vc-price s{color:#9a8f86;font-size:15px}
+  .vc-cuotas{font-size:13px;font-weight:600;color:var(--vc-green)}
+  .vc-promo{font-size:13px;color:var(--vc-orange);font-weight:700}
+  .vc-btn{margin-top:auto;display:flex;align-items:center;justify-content:center;gap:8px;min-height:50px;border-radius:999px;background:var(--vc-green);color:#fff;font-family:var(--vc-title);font-weight:700;font-size:15px;
+    box-shadow:0 8px 18px rgba(42,95,53,.22);transition:background .2s,box-shadow .2s}
+  .vc-card--promo .vc-btn{background:var(--vc-orange);box-shadow:0 8px 18px rgba(232,128,49,.28)}
+  .vc-card:hover .vc-btn{filter:brightness(.95)}
+  .vc-btn svg{width:17px;height:17px;transition:transform .2s}
+  .vc-card:hover .vc-btn svg{transform:translateX(4px)}
+  .vc-spacer{height:6px}
+
+  /* Un solo producto: tarjeta horizontal */
+  .vc-grid--1 .vc-card{flex-direction:row}
+  .vc-grid--1 .vc-card__media{flex:0 0 50%;aspect-ratio:auto;min-height:420px}
+  .vc-grid--1 .vc-card__body{padding:40px 44px;justify-content:center;gap:10px}
+  .vc-grid--1 .vc-card__title{font-size:26px}
+  .vc-grid--1 .vc-price strong{font-size:30px}
+  .vc-grid--1 .vc-btn{margin-top:14px}
+  .vc-list{list-style:none;margin:6px 0 0;padding:0;display:grid;gap:8px}
+  .vc-list li{display:flex;gap:8px;font-size:14.5px;line-height:1.45}
+  .vc-list svg{width:18px;height:18px;color:var(--vc-sprout);flex:none;margin-top:1px}
+
+  /* Paginación y vacío */
+  .vc-pag{display:flex;justify-content:center;gap:8px;padding-bottom:56px;flex-wrap:wrap}
+  .vc-pag a,.vc-pag span{min-width:42px;height:42px;padding:0 12px;border-radius:999px;display:inline-flex;align-items:center;justify-content:center;background:#fff;border:1px solid var(--vc-line);font-weight:600;color:var(--vc-earth)}
+  .vc-pag .current{background:var(--vc-green);border-color:var(--vc-green);color:#fff}
+  .vc-empty{text-align:center;padding:20px 0 64px;color:var(--vc-muted)}
+
+  @media (max-width:989px){
+    .vc-grid{grid-template-columns:repeat(2,1fr)}
+    .vc-grid--1 .vc-card{flex-direction:column}
+    .vc-grid--1 .vc-card__media{flex:none;aspect-ratio:1/1;min-height:0}
+    .vc-grid--1 .vc-card__body{padding:26px 22px 28px}
+  }
+  @media (max-width:749px){
+    .vc-head{padding:32px 0 22px}
+    .vc-grid,.vc-grid--2{grid-template-columns:1fr;gap:18px;padding-bottom:44px}
+    .vc-grid--1 .vc-card__title{font-size:22px}
+    .vc-grid--1 .vc-price strong{font-size:26px}
+  }
+</style>
+
+{%- capture vc_arrow -%}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>{%- endcapture -%}
+{%- capture vc_check -%}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>{%- endcapture -%}
+{%- capture vc_star -%}<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg>{%- endcapture -%}
+
+<div id="vc-{{ section.id }}">
+  <div class="vc-wrap">
+    <div class="vc-head">
+      <span class="vc-kicker">{{ section.settings.kicker }}</span>
+      <h1 class="vc-h1">
+        {%- if section.settings.titulo != blank -%}{{ section.settings.titulo }}{%- else -%}{{ collection.title }}{%- endif -%}
+      </h1>
+      {%- if section.settings.subtitulo != blank -%}<p class="vc-sub">{{ section.settings.subtitulo }}</p>{%- endif -%}
+      <div class="vc-chips">
+        <span class="vc-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7z"/><circle cx="7" cy="18" r="1.8"/><circle cx="17" cy="18" r="1.8"/></svg>Despacho en 24 hs</span>
+        <span class="vc-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="M2.5 10h19"/></svg>3 cuotas sin interés</span>
+        <span class="vc-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5 4 6v6c0 5 3.4 8.6 8 9.5 4.6-.9 8-4.5 8-9.5V6z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg>Garantía 100%</span>
+      </div>
+    </div>
+
+    {%- paginate collection.products by 24 -%}
+      {%- assign total = collection.products.size -%}
+      {%- if total == 0 -%}
+        <p class="vc-empty">Todavía no hay productos en esta sección. ¡Volvé pronto! 🌱</p>
+      {%- else -%}
+        <div class="vc-grid{% if total == 1 and paginate.pages <= 1 %} vc-grid--1{% elsif total == 2 and paginate.pages <= 1 %} vc-grid--2{% endif %}">
+          {%- for product in collection.products -%}
+            {%- assign es_promo = false -%}
+            {%- if promo_list contains product.handle -%}{%- assign es_promo = true -%}{%- endif -%}
+            <a class="vc-card{% if es_promo %} vc-card--promo{% endif %}" href="{{ product.url }}">
+              <div class="vc-card__media">
+                {%- unless product.available -%}
+                  <span class="vc-badge vc-badge--soldout">AGOTADO</span>
+                {%- else -%}
+                  {%- if es_promo and section.settings.sello != blank -%}
+                    <span class="vc-badge">{{ section.settings.sello }}</span>
+                  {%- elsif product.compare_at_price > product.price -%}
+                    <span class="vc-badge">{{ product.compare_at_price | minus: product.price | times: 100 | divided_by: product.compare_at_price | floor }}% OFF</span>
+                  {%- endif -%}
+                {%- endunless -%}
+                {%- if product.featured_image -%}
+                  {{ product.featured_image | image_url: width: 900 | image_tag: loading: 'lazy', widths: '300, 450, 600, 900', sizes: '(min-width: 990px) 380px, (min-width: 750px) 50vw, 100vw', alt: product.title }}
+                {%- endif -%}
+              </div>
+              <div class="vc-card__body">
+                <h3 class="vc-card__title">{{ product.title }}</h3>
+                {%- if es_promo -%}
+                  <div class="vc-rating"><span class="vc-stars">{{ vc_star }}{{ vc_star }}{{ vc_star }}{{ vc_star }}{{ vc_star }}</span><span><b>{{ section.settings.puntuacion }}</b> · {{ section.settings.texto_clientes }}</span></div>
+                {%- endif -%}
+                <div class="vc-price">
+                  <strong>{%- if product.price_varies -%}Desde {% endif -%}{{ product.price | money_without_trailing_zeros }}</strong>
+                  {%- if product.compare_at_price > product.price -%}<s>{{ product.compare_at_price | money_without_trailing_zeros }}</s>{%- endif -%}
+                </div>
+                <p class="vc-cuotas">3 cuotas sin interés</p>
+                {%- if es_promo and section.settings.texto_promo != blank -%}<p class="vc-promo">{{ section.settings.texto_promo }}</p>{%- endif -%}
+                {%- if total == 1 and es_promo -%}
+                  <ul class="vc-list">
+                    <li>{{ vc_check }} Raíces más rápidas y fuertes en esquejes y trasplantes</li>
+                    <li>{{ vc_check }} Mejor absorción de nutrientes: plantas más verdes</li>
+                    <li>{{ vc_check }} 100% orgánico, apto huerta</li>
+                  </ul>
+                {%- endif -%}
+                <div class="vc-spacer"></div>
+                <span class="vc-btn">{%- if product.available -%}{%- if es_promo -%}Ver ofertas{%- else -%}Ver producto{%- endif -%}{%- else -%}Ver producto{%- endif -%} {{ vc_arrow }}</span>
+              </div>
+            </a>
+          {%- endfor -%}
+        </div>
+        {%- if paginate.pages > 1 -%}
+          <nav class="vc-pag" aria-label="Páginas">
+            {%- if paginate.previous -%}<a href="{{ paginate.previous.url }}" aria-label="Anterior">‹</a>{%- endif -%}
+            {%- for part in paginate.parts -%}
+              {%- if part.is_link -%}<a href="{{ part.url }}">{{ part.title }}</a>{%- elsif part.title == paginate.current_page -%}<span class="current">{{ part.title }}</span>{%- else -%}<span>{{ part.title }}</span>{%- endif -%}
+            {%- endfor -%}
+            {%- if paginate.next -%}<a href="{{ paginate.next.url }}" aria-label="Siguiente">›</a>{%- endif -%}
+          </nav>
+        {%- endif -%}
+      {%- endif -%}
+    {%- endpaginate -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "VERDEA · Catálogo",
+  "tag": "section",
+  "class": "verdea-catalogo",
+  "enabled_on": { "templates": ["collection"] },
+  "settings": [
+    { "type": "header", "content": "Encabezado" },
+    { "type": "text", "id": "kicker", "label": "Texto chico de arriba", "default": "Tienda VERDEA" },
+    { "type": "text", "id": "titulo", "label": "Título", "default": "Nuestros productos", "info": "Dejalo vacío para usar el nombre de la colección." },
+    { "type": "textarea", "id": "subtitulo", "label": "Subtítulo", "default": "Todo lo que tu huerta y tus plantas necesitan para crecer fuertes desde la raíz. 🌱" },
+    { "type": "header", "content": "Productos con packs" },
+    { "type": "product_list", "id": "productos_promo", "label": "Productos con packs de descuento", "limit": 12, "info": "A estos se les muestra el sello, las estrellas y el botón \"Ver ofertas\". Si lo dejás vacío, se usa el Enraizante." },
+    { "type": "text", "id": "sello", "label": "Sello naranja", "default": "HASTA 35% OFF EN PACKS" },
+    { "type": "text", "id": "texto_promo", "label": "Texto de la oferta", "default": "🎁 Llevá 2 y ahorrá 30% · Llevá 3: 35% OFF + envío gratis" },
+    { "type": "text", "id": "puntuacion", "label": "Puntuación", "default": "4.9" },
+    { "type": "text", "id": "texto_clientes", "label": "Texto junto a las estrellas", "default": "+1.083 clientes felices" }
+  ],
+  "presets": [{ "name": "VERDEA · Catálogo" }]
+}
+{% endschema %}
