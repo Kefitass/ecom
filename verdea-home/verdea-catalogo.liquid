@@ -26,7 +26,10 @@
     --vc-title:'Poppins','Montserrat',sans-serif;--vc-body:'Open Sans','Lato',sans-serif;
     background:var(--vc-cream);color:var(--vc-earth);font-family:var(--vc-body);overflow:hidden;
   }
-  #vc-{{ section.id }} *{box-sizing:border-box}
+  #vc-{{ section.id }} *{box-sizing:border-box;letter-spacing:normal}
+  #vc-{{ section.id }}{line-height:1.55}
+  #vc-{{ section.id }} .vc-chip,#vc-{{ section.id }} .vc-rating,#vc-{{ section.id }} .vc-promo,#vc-{{ section.id }} .vc-cuotas{line-height:1.35}
+  #vc-{{ section.id }} .vc-kicker{letter-spacing:.08em}
   #vc-{{ section.id }} img{display:block;max-width:100%;height:auto}
   #vc-{{ section.id }} h1,#vc-{{ section.id }} h2,#vc-{{ section.id }} h3{font-family:var(--vc-title);color:var(--vc-earth);margin:0;letter-spacing:0}
   #vc-{{ section.id }} p{margin:0}
