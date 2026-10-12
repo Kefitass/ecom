@@ -73,7 +73,7 @@ window.WIGY_CONFIG = {
   // La primera es la principal. Agregá más URLs y aparecen como miniaturas.
   // ============================================================
   fotosProducto: [
-    "https://cdn.shopify.com/s/files/1/0815/0338/7880/files/verdea_root_boost_1024x1024_9fa09c25-5f75-4bf5-a8a5-aef293b9090f.jpg?v=1791546432"
+    "https://cdn.shopify.com/s/files/1/0815/0338/7880/files/verdea_enraizante_1024x1024_eabf64f8-9195-4e1d-b669-630989637b5a.png?v=1791546738"
   ],
 
   // ============================================================
@@ -394,15 +394,15 @@ window.WIGY_DOM = {
       "#wigy-preview-page{max-width:1200px;margin:0 auto;padding:24px 16px 40px;box-sizing:border-box}" +
       "#wigy-preview-page .wp-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:start}" +
       "#wigy-preview-page .wp-gallery{position:sticky;top:16px}" +
-      "#wigy-preview-page .wp-main{position:relative;width:100%;aspect-ratio:1/1;border-radius:16px;overflow:hidden;background:#F5F4EE;border:1px solid rgba(42,95,53,.12)}" +
-      "#wigy-preview-page .wp-main img{width:100%;height:100%;object-fit:contain;display:block}" +
+      "#wigy-preview-page .wp-main{position:relative;width:100%;border-radius:16px;overflow:hidden;background:#F5F4EE;border:1px solid rgba(42,95,53,.12);display:flex;align-items:center;justify-content:center}" +
+      "#wigy-preview-page .wp-main img{display:block;width:auto;max-width:100%;height:auto;max-height:80vh;object-fit:contain}" +
       "#wigy-preview-page .wp-thumbs{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}" +
       "#wigy-preview-page .wp-thumbs button{width:68px;height:68px;padding:0;border:2px solid transparent;border-radius:10px;overflow:hidden;background:#F5F4EE;cursor:pointer}" +
       "#wigy-preview-page .wp-thumbs button.active{border-color:#2A5F35}" +
       "#wigy-preview-page .wp-thumbs img{width:100%;height:100%;object-fit:cover;display:block}" +
       "#wigy-preview-page .wp-info{min-width:0}" +
       "#wigy-preview-page .wp-grid.no-gallery{grid-template-columns:minmax(0,620px);justify-content:center}" +
-      "@media(max-width:768px){#wigy-preview-page .wp-grid{display:block}#wigy-preview-page .wp-gallery{position:static;margin-bottom:20px}#wigy-preview-page .wp-thumbs button{width:56px;height:56px}}" +
+      "@media(max-width:768px){#wigy-preview-page .wp-main img{width:auto;max-width:100%;max-height:min(85vw,360px)}#wigy-preview-page .wp-grid{display:block}#wigy-preview-page .wp-gallery{position:static;margin-bottom:20px}#wigy-preview-page .wp-thumbs button{width:56px;height:56px}}" +
       "#wigy-preview-page h1{font:800 28px/1.2 'Poppins','Montserrat',sans-serif;color:#1f1f1f;margin:0 0 4px}" +
       "#wigy-preview-page .wp-form{margin:0}" +
       "@media(max-width:768px){#wigy-preview-page h1{font-size:23px}}";
@@ -842,6 +842,10 @@ window.WIGY_DOM = {
     ".js-product-promo-container[data-promotion-type='quantity-discounts'],[data-store='product-promotion-info'][data-promotion-type='quantity-discounts']{display:none!important}" +
     "#wigy-payments-clean-box{display:none!important}" +
     "[data-store^='product-price-']{display:none!important}" +
+    /* Foto del producto (temas tipo Dawn): siempre entera, sin recorte;
+       en celular con altura máxima para que no ocupe toda la pantalla */
+    ".product__media-wrapper .product__media img{object-fit:contain!important}" +
+    "@media(max-width:749px){.product__media-wrapper .product__media.media{padding-top:0!important;height:min(85vw,360px)!important;background:#F5F4EE}}" +
     ".product__info-container [id^='price-template']{display:none!important}";
   document.head.appendChild(style);
 })();
