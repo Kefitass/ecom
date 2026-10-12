@@ -15,7 +15,7 @@
      🎨 Identidad VERDEA:
         Verde Principal #2A5F35 · Verde Vivo #6BA342 · Tierra #4E382A
         Naranja Zanahoria #E88031 · Fondo Neutro #F5F4EE · Blanco #FFFFFF
-        Títulos: Montserrat (Poppins de respaldo) · Cuerpo: Open Sans (Lato de respaldo)
+        Títulos: Poppins (igual que la tienda; Montserrat de respaldo) · Cuerpo: Open Sans (Lato de respaldo)
      ================================================================ -->
 <div id="wigy-verdea-scripts" style="display:none" aria-hidden="true">
 <!-- ================================================================
@@ -36,11 +36,13 @@ window.WIGY_CONFIG = {
   slugURL: "https://syf1mp-tn.myshopify.com/products/enraizante-organico-para-huerta-y-macetas-250-ml",
 
   // ============================================================
-  // 🌱 SECCIÓN 0A: DATOS DE MARCA
+  // 🌱 SECCIÓN 0A: DATOS DE MARCA Y GARANTÍA
+  // garantiaDias: dejalo en 0 para mostrar "Garantía 100%" sin días,
+  // o poné el número de días de tu política de devolución (ej. 30).
   // ============================================================
   marca: "VERDEA",
-  nombreProducto: "Kit Huerta en Casa VERDEA",
-  garantiaDias: 30,
+  nombreProducto: "Enraizante VERDEA Root Boost",
+  garantiaDias: 0,
 
   // ============================================================
   // ⭐ SECCIÓN 0B: RATING GENERAL
@@ -48,24 +50,24 @@ window.WIGY_CONFIG = {
   // ⚠️ Usá tu puntuación y cantidad de reseñas reales.
   // ============================================================
   rating: {
-    puntuacion: 4.8,
+    puntuacion: 4.9,
     cantidadOpiniones: 54
   },
 
   // ============================================================
-  // 🧑‍🌾 SECCIÓN 0C: VALIDACIÓN DE EXPERTO
-  // Aparece debajo de la garantía. Debe ser profesional y serio.
-  // ⚠️ Usá un profesional real que avale el producto (con su permiso).
-  // Si la foto queda como "⚠️IMAGEN-EXPERTO⚠️", aparece la inicial del nombre.
+  // 🧑‍🌾 SECCIÓN 0C: VALIDACIÓN DE EXPERTO (OPCIONAL)
+  // En null → el bloque no se muestra.
+  // Para activarlo, reemplazá null por un profesional REAL que avale el producto:
+  // experto: {
+  //   nombre: "Ing. Agr. Nombre Apellido",
+  //   profesion: "Ingeniero/a Agrónomo/a",
+  //   matricula: "MP 0000",
+  //   matriculaDesc: "Matrícula profesional habilitada",
+  //   foto: "URL-DE-LA-FOTO",
+  //   mensaje: "Su opinión sobre el producto."
+  // },
   // ============================================================
-  experto: {
-    nombre: "⚠️NOMBRE-DEL-EXPERTO⚠️",
-    profesion: "Ingeniero/a Agrónomo/a",
-    matricula: "⚠️MATRÍCULA⚠️",
-    matriculaDesc: "Matrícula profesional habilitada",
-    foto: "⚠️IMAGEN-EXPERTO⚠️",
-    mensaje: "Para quien empieza, lo más importante es arrancar con semillas de buena germinación, un sustrato aireado y especies adecuadas a la temporada. Un kit que resuelve esas tres cosas y explica el paso a paso reduce muchísimo los errores típicos del principiante y acerca la primera cosecha."
-  },
+  experto: null,
 
   // ============================================================
   // 📰 SECCIÓN 0D: LOGOS DE MEDIOS (TICKER INFERIOR)
@@ -85,12 +87,15 @@ window.WIGY_CONFIG = {
   // Paquetes que aparecen arriba del botón de compra.
   // "etiqueta" → badge naranja (#E88031) arriba a la derecha.
   // "seleccionado: true" → la opción que viene marcada por defecto.
+  // IMPORTANTE: este selector solo cambia la CANTIDAD que se agrega al carrito.
+  // El precio con descuento lo tiene que aplicar Shopify (descuento automático
+  // por cantidad o tu app de bundles).
   // ============================================================
   ofertas: [
     {
-      nombre: "1 Kit Huerta",
-      precio: "⚠️PRECIO⚠️",
-      subtexto: "Ideal para empezar en tu balcón.",
+      nombre: "1 Enraizante",
+      precio: "$58.000",
+      subtexto: "3 cuotas sin interés",
       precioViejo: "",
       descuento: "",
       etiqueta: "",
@@ -99,26 +104,26 @@ window.WIGY_CONFIG = {
       regalo: ""
     },
     {
-      nombre: "2 Kits Huerta",
-      precio: "⚠️PRECIO⚠️",
-      subtexto: "Huerta completa: hojas + aromáticas.",
-      precioViejo: "⚠️PRECIO⚠️",
-      descuento: "⚠️%⚠️ OFF",
+      nombre: "2 Enraizantes",
+      precio: "$81.200",
+      subtexto: "3 cuotas sin interés",
+      precioViejo: "$116.000",
+      descuento: "30% OFF",
       etiqueta: "🌱 MÁS POPULAR",
       cantidad: 2,
       seleccionado: true,
-      regalo: "Guía VERDEA: Calendario de siembra"
+      regalo: "Guía de regalo"
     },
     {
-      nombre: "3 Kits Huerta",
-      precio: "⚠️PRECIO⚠️",
-      subtexto: "Para cosechar todo el año (o regalar).",
-      precioViejo: "⚠️PRECIO⚠️",
-      descuento: "⚠️%⚠️ OFF",
+      nombre: "3 Enraizantes",
+      precio: "$113.100",
+      subtexto: "Envío gratis + 3 cuotas sin interés",
+      precioViejo: "$174.000",
+      descuento: "35% OFF",
       etiqueta: "MEJOR VALOR",
       cantidad: 3,
       seleccionado: false,
-      regalo: "Guía VERDEA + Envío prioritario"
+      regalo: "Guía de regalo"
     }
   ],
 
@@ -126,55 +131,54 @@ window.WIGY_CONFIG = {
   // 🖼️ SECCIÓN 2: IMÁGENES DEL CARRUSEL (formato vertical 9:16)
   // ============================================================
   carruselImagenes: [
-    { src: "⚠️IMAGEN-CARRUSEL-1⚠️", alt: "Huerta VERDEA en balcón" },
-    { src: "⚠️IMAGEN-CARRUSEL-2⚠️", alt: "Primeros brotes del kit VERDEA" },
-    { src: "⚠️IMAGEN-CARRUSEL-3⚠️", alt: "Cosecha de lechuga en casa" },
-    { src: "⚠️IMAGEN-CARRUSEL-4⚠️", alt: "Aromáticas creciendo en maceta" },
-    { src: "⚠️IMAGEN-CARRUSEL-5⚠️", alt: "Huerta en familia" },
-    { src: "⚠️IMAGEN-CARRUSEL-6⚠️", alt: "Contenido del kit VERDEA" },
-    { src: "⚠️IMAGEN-CARRUSEL-7⚠️", alt: "Tomates cherry cosechados" }
+    { src: "⚠️IMAGEN-CARRUSEL-1⚠️", alt: "Enraizante VERDEA Root Boost" },
+    { src: "⚠️IMAGEN-CARRUSEL-2⚠️", alt: "Raíces fuertes con VERDEA" },
+    { src: "⚠️IMAGEN-CARRUSEL-3⚠️", alt: "Esquejes enraizando" },
+    { src: "⚠️IMAGEN-CARRUSEL-4⚠️", alt: "Trasplante sin estrés" },
+    { src: "⚠️IMAGEN-CARRUSEL-5⚠️", alt: "Huerta en casa" },
+    { src: "⚠️IMAGEN-CARRUSEL-6⚠️", alt: "Plantas de interior sanas" },
+    { src: "⚠️IMAGEN-CARRUSEL-7⚠️", alt: "Clientes VERDEA" }
   ],
 
   // ============================================================
-  // 📸 SECCIÓN 3: FOTO DE LA SECCIÓN DE ESTADÍSTICAS
+  // 📸 SECCIÓN 3: ESTADÍSTICAS (OPCIONAL) + FOTO
+  // Si "estadisticas" queda vacío [], la sección no se muestra.
+  // ⚠️ Cargá solo datos reales (ej. de una encuesta a tus clientes):
+  // estadisticas: [
+  //   { porcentaje: 90, texto: "Notó <strong>raíces más fuertes</strong> en sus esquejes." },
+  // ],
   // ============================================================
   fotoEstadisticas: "⚠️IMAGEN-ESTADISTICAS⚠️",
+  estadisticas: [],
 
   // ============================================================
   // 🔄 SECCIÓN 4: IMÁGENES DEL COMPARADOR ANTES / DESPUÉS
-  // Antes: balcón/patio vacío · Después: la huerta VERDEA crecida
+  // Antes: raíz/planta sin enraizante · Después: con VERDEA Root Boost
   // ============================================================
   comparadorAntes: "⚠️IMAGEN-ANTES⚠️",
   comparadorDespues: "⚠️IMAGEN-DESPUES⚠️",
 
   // ============================================================
-  // 💬 SECCIÓN 5: TESTIMONIOS DE CLIENTES
-  // ⚠️ Textos de ejemplo: reemplazalos por reseñas reales de clientes.
+  // 💬 SECCIÓN 5: TESTIMONIOS DE CLIENTES (reseñas reales de la tienda)
   // ============================================================
   testimonios: [
     {
       foto: "⚠️IMAGEN-TESTIMONIO-1⚠️",
-      nombre: "Carolina M.",
-      titulo: "Nunca había plantado nada… y ya coseché",
-      texto: "Siempre decía que tenía 'mano negra' para las plantas. Con la guía paso a paso de VERDEA no hubo forma de equivocarme: a los pocos días vi los primeros brotes y hoy como ensaladas con mi propia lechuga."
+      nombre: "Silvina M.",
+      titulo: "Chau estrés por trasplante",
+      texto: "Cada vez que pasaba una planta a una maceta más grande terminaba sufriendo. Con este Enraizante prenden enseguida y no sienten el cambio. Súper recomendado para los que aman la jardinería."
     },
     {
       foto: "⚠️IMAGEN-TESTIMONIO-2⚠️",
-      nombre: "Martín R.",
-      titulo: "Mi balcón de 2 m² ahora es mi lugar favorito",
-      texto: "Vivo en un departamento chico y pensé que no tenía espacio. Armé el kit en una tarde y ahora regar la huerta con el mate es mi momento de desconexión del día."
+      nombre: "Nacho R.",
+      titulo: "Aproveché la promo y valió 100% la pena",
+      texto: "Súper contento con la compra. Aproveché el descuento llevando el pack x2 y la verdad que un golazo. Las plantas respondieron re bien y me ahorré unos pesos."
     },
     {
       foto: "⚠️IMAGEN-TESTIMONIO-3⚠️",
-      nombre: "Lucía y Tomás",
-      titulo: "El mejor plan con los chicos",
-      texto: "Lo compramos para hacer algo juntos lejos de las pantallas. Los chicos controlan cada mañana cuánto creció 'su' planta y ahora piden comer verduras porque las cosecharon ellos."
-    },
-    {
-      foto: "⚠️IMAGEN-TESTIMONIO-4⚠️",
-      nombre: "Graciela P.",
-      titulo: "Sabor de verdad, como el de antes",
-      texto: "Las hierbas y los tomatitos de la huerta tienen un sabor que no se compara con los del súper. Ya pedí el segundo kit para sumar aromáticas."
+      nombre: "Sofía L.",
+      titulo: "Súper fácil de usar y efectivo!!",
+      texto: "Recién estoy arrancando con mis primeras plantas y tenía miedo de mandarme una macana. Con este enraizante fue facilísimo, no quema nada y los resultados se re notan. Más que feliz."
     }
   ],
 
@@ -182,10 +186,10 @@ window.WIGY_CONFIG = {
   // 📢 SECCIÓN 6: MENSAJES DE LA BARRA SUPERIOR
   // ============================================================
   mensajesTicker: [
-    "🌱 TU RINCÓN VERDE, TU MOMENTO DE PAZ",
-    "ENVÍO GRATIS A TODO EL PAÍS",
-    "GUÍA DE CULTIVO DE REGALO",
-    "GARANTÍA DE GERMINACIÓN 30 DÍAS"
+    "🌱 RAÍCES FUERTES DESDE EL PRIMER DÍA",
+    "DESPACHO EN 24 HS HÁBILES",
+    "3 CUOTAS SIN INTERÉS",
+    "LLEVÁ 2 Y AHORRÁ 30%"
   ],
 
   // ============================================================
@@ -261,7 +265,7 @@ window.WIGY_DOM = {
     var l = document.createElement("link");
     l.id = "wigy-verdea-fonts";
     l.rel = "stylesheet";
-    l.href = "https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&family=Open+Sans:wght@400;500;600;700&display=swap";
+    l.href = "https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800;900&family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;500;600;700&display=swap";
     document.head.appendChild(l);
   }
   if (document.getElementById("wigy-verdea-brand")) return;
@@ -269,7 +273,7 @@ window.WIGY_DOM = {
   st.id = "wigy-verdea-brand";
   st.textContent =
     ":root{--vd-green:#2A5F35;--vd-sprout:#6BA342;--vd-earth:#4E382A;--vd-orange:#E88031;--vd-bg:#F5F4EE;--vd-white:#FFFFFF;" +
-    "--vd-font-title:'Montserrat','Poppins',sans-serif;--vd-font-body:'Open Sans','Lato',sans-serif}" +
+    "--vd-font-title:'Poppins','Montserrat',sans-serif;--vd-font-body:'Open Sans','Lato',sans-serif}" +
     "[id^='wigy-'],.kb-wrap,.wigy-image-carousel{font-family:var(--vd-font-body)}" +
     "[id^='wigy-'] h2,[id^='wigy-'] h3,.kb-title,.kb-t,.kb-p,.kb-pop,.kb-bdg,#wigy-ticker .ticker-item,#wigy-sticky-atc .sticky-btn{font-family:var(--vd-font-title)!important}";
   document.head.appendChild(st);
@@ -413,10 +417,10 @@ window.WIGY_DOM = {
 
   function buildHTML() {
     var items = [
-      "Cosechá tus propias verduras y aromáticas en casa, sin experiencia",
-      "Todo incluido: semillas, sustrato y guía paso a paso",
-      "Ideal para balcones, patios y espacios chicos",
-      "Tu momento de paz diario: desconectá de pantallas y estrés"
+      "Raíces fuertes desde el primer día",
+      "Concentrado: un frasco, muchos usos",
+      "Para huerta, macetas y plantas de interior",
+      "Fórmula orgánica: cuida tus cultivos sin riesgos"
     ];
     var svg = '<svg class="benefit-icon" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#c1)"><mask id="m1" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="16" height="16"><path d="M7.99992 14.6668C8.87556 14.6679 9.74278 14.496 10.5518 14.1609C11.3607 13.8258 12.0955 13.3341 12.7139 12.7142C13.3339 12.0958 13.8255 11.361 14.1606 10.552C14.4957 9.74303 14.6677 8.8758 14.6666 8.00017C14.6677 7.12453 14.4957 6.25731 14.1606 5.44833C13.8255 4.63935 13.3339 3.90456 12.7139 3.28617C12.0955 2.66622 11.3607 2.17457 10.5518 1.83947C9.74278 1.50437 8.87556 1.33242 7.99992 1.3335C7.12429 1.33242 6.25707 1.50437 5.44809 1.83947C4.63911 2.17457 3.90431 2.66622 3.28592 3.28617C2.66598 3.90456 2.17433 4.63935 1.83923 5.44833C1.50413 6.25731 1.33218 7.12453 1.33326 8.00017C1.33218 8.8758 1.50413 9.74303 1.83923 10.552C2.17433 11.361 2.66598 12.0958 3.28592 12.7142C3.90431 13.3341 4.63911 13.8258 5.44809 14.1609C6.25707 14.496 7.12429 14.6679 7.99992 14.6668Z" fill="white" stroke="white" stroke-width="2" stroke-linejoin="round"></path><path d="M5.33325 8L7.33325 10L11.3333 6" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></mask><g mask="url(#m1)"><path d="M0 0H16V16H0V0Z" fill="#6BA342"></path></g></g><defs><clipPath id="c1"><rect width="16" height="16" fill="white"></rect></clipPath></defs></svg>';
     return '<ul class="benefits-list">' + items.map(function(text) {
@@ -463,7 +467,7 @@ window.WIGY_DOM = {
     if (!document.getElementById(ID + '-css')) {
       var s = document.createElement('style');
       s.id = ID + '-css';
-      s.innerHTML = ".kb-wrap{font-family:'Montserrat',sans-serif;margin:15px auto 8px auto!important;width:100%;max-width:600px}.kb-title{display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:900;color:#2A5F35;margin-bottom:20px;letter-spacing:.2px;white-space:nowrap;opacity:0}.kb-title::before,.kb-title::after{content:'';flex:1;border-bottom:2px solid rgba(107,163,66,.35);margin:0 12px}.kb-bar{border:2px solid rgba(42,95,53,.15);border-radius:16px;background:#fff;cursor:pointer;margin-bottom:12px;display:flex;flex-direction:column;position:relative;transition:.2s;box-sizing:border-box}.kb-bar.sel{border:2px solid #2A5F35;background:#F1F6EC;z-index:2;box-shadow:0 8px 20px rgba(42,95,53,.1)}.kb-pop{position:absolute;top:-14px;right:18px;background:#E88031;color:#fff;font-size:12px;font-weight:800;padding:6px 12px;border-radius:6px;letter-spacing:.5px;line-height:1;opacity:0;box-shadow:0 4px 10px rgba(232,128,49,.35);transform-origin:center right}.kb-bdg{background:#E88031;color:#fff;font-size:12px;font-weight:800;padding:4px 8px;border-radius:99px;line-height:1.1;opacity:0;transform-origin:center center;white-space:nowrap;flex-shrink:0}.kb-main{display:flex;align-items:center;padding:18px 20px;box-sizing:border-box}.kb-radio{width:32px;height:32px;border-radius:50%;border:2px solid rgba(0,0,0,.2);margin-right:18px;display:flex;align-items:center;justify-content:center;background:#fff;flex:0 0 auto;transition:.2s;box-sizing:border-box}.kb-bar.sel .kb-radio{border-color:#2A5F35;border-width:2px}.kb-radio::after{content:'';width:16px;height:16px;border-radius:50%;background:#6BA342;opacity:0;transform:scale(.5);transition:.25s cubic-bezier(0.175,0.885,0.32,1.275)}.kb-bar.sel .kb-radio::after{opacity:1;transform:scale(1)}.kb-c{flex:1;min-width:0;line-height:1.2}.kb-r1{display:flex;justify-content:space-between;align-items:center;gap:10px}.kb-r2{display:flex;justify-content:space-between;align-items:center;margin-top:6px}.kb-t{font-size:18px;font-weight:800;color:#111;display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin:0}.kb-p{font-size:20px;font-weight:900;color:#111;margin:0;white-space:nowrap;flex-shrink:0}.kb-s{font-size:15px;color:#555;font-weight:600;margin:0}.kb-op{font-size:15px;color:#888;text-decoration:line-through;margin:0}.kb-gifts{padding:0;overflow:hidden}.kb-gift-row{display:flex;align-items:center;gap:10px;padding:10px 20px;font-size:13px;font-weight:700;color:#333;background:rgba(107,163,66,.08);border-top:1px solid rgba(42,95,53,.1)}.kb-gift-row:last-child{border-radius:0 0 14px 14px}.kb-gift-check{width:20px;height:20px;border-radius:6px;background:#2A5F35;color:#fff;display:flex;align-items:center;justify-content:center;flex:0 0 auto}.kb-gift-check svg{width:12px;height:12px}.kb-gift-tag{background:#2A5F35;color:#fff;font-size:11px;font-weight:800;padding:3px 9px;border-radius:99px;margin-left:auto;white-space:nowrap}.js-quantity,.js-product-quantity,[data-component='product.quantity'],.product__info-container .product-form__quantity{display:none!important}.wigy-atc-col,.product-form__buttons{width:100%!important;max-width:600px!important;margin-left:auto!important;margin-right:auto!important;float:none!important;align-self:center!important;box-sizing:border-box!important}.js-prod-submit-form,button[name='add'],.btn-add-to-cart,.product-form__submit{background:linear-gradient(135deg,#2A5F35 0%,#6BA342 100%)!important;color:#ffffff!important;border:none!important;border-radius:99px!important;font-family:'Montserrat',sans-serif!important;font-size:20px!important;font-weight:900!important;text-transform:uppercase!important;letter-spacing:1px!important;padding:20px 24px!important;box-shadow:0 8px 24px rgba(42,95,53,0.3)!important;transition:transform 0.2s ease,background 0.3s ease!important;width:100%!important;max-width:600px!important;margin:0 auto 15px auto!important;display:flex!important;align-items:center!important;justify-content:center!important;text-align:center!important;box-sizing:border-box!important;min-height:0!important}.js-prod-submit-form:hover,button[name='add']:hover,.btn-add-to-cart:hover,.product-form__submit:hover{transform:translateY(-3px)!important;background:linear-gradient(135deg,#1F4727 0%,#2A5F35 100%)!important}@keyframes kbSlideIn{0%{opacity:0;transform:translateY(20px) scale(0.95)}60%{opacity:1;transform:translateY(-3px) scale(1.02)}100%{opacity:1;transform:translateY(0) scale(1)}}@keyframes kbPopBounce{0%{opacity:0;transform:scale(0.2) rotate(-5deg)}50%{opacity:1;transform:scale(1.35) rotate(4deg)}75%{opacity:1;transform:scale(0.9) rotate(-2deg)}100%{opacity:1;transform:scale(1) rotate(0deg)}}.kb-in-view .kb-title{animation:kbSlideIn 0.6s cubic-bezier(0.175,0.885,0.32,1.275) forwards}.kb-in-view .kb-pop{animation:kbPopBounce 0.7s cubic-bezier(0.175,0.885,0.32,1.275) forwards}.kb-in-view .kb-bdg{animation:kbPopBounce 0.7s cubic-bezier(0.175,0.885,0.32,1.275) forwards}.kb-in-view .kb-bar:nth-child(3) .kb-pop{animation-delay:0.15s}.kb-in-view .kb-bar:nth-child(4) .kb-pop{animation-delay:0.35s}.kb-in-view .kb-bar:nth-child(3) .kb-bdg{animation-delay:0.25s}.kb-in-view .kb-bar:nth-child(4) .kb-bdg{animation-delay:0.45s}@media(max-width:768px){.kb-t{font-size:16px}.kb-p{font-size:18px}.js-prod-submit-form,button[name='add'],.btn-add-to-cart,.product-form__submit{font-size:18px!important;padding:18px 20px!important}}@media(max-width:480px){.kb-title{white-space:normal;text-align:center;font-size:15px}}";
+      s.innerHTML = ".kb-wrap{font-family:'Poppins','Montserrat',sans-serif;margin:15px auto 8px auto!important;width:100%;max-width:600px}.kb-title{display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:900;color:#2A5F35;margin-bottom:20px;letter-spacing:.2px;white-space:nowrap;opacity:0}.kb-title::before,.kb-title::after{content:'';flex:1;border-bottom:2px solid rgba(107,163,66,.35);margin:0 12px}.kb-bar{border:2px solid rgba(42,95,53,.15);border-radius:16px;background:#fff;cursor:pointer;margin-bottom:12px;display:flex;flex-direction:column;position:relative;transition:.2s;box-sizing:border-box}.kb-bar.sel{border:2px solid #2A5F35;background:#F1F6EC;z-index:2;box-shadow:0 8px 20px rgba(42,95,53,.1)}.kb-pop{position:absolute;top:-14px;right:18px;background:#E88031;color:#fff;font-size:12px;font-weight:800;padding:6px 12px;border-radius:6px;letter-spacing:.5px;line-height:1;opacity:0;box-shadow:0 4px 10px rgba(232,128,49,.35);transform-origin:center right}.kb-bdg{background:#E88031;color:#fff;font-size:12px;font-weight:800;padding:4px 8px;border-radius:99px;line-height:1.1;opacity:0;transform-origin:center center;white-space:nowrap;flex-shrink:0}.kb-main{display:flex;align-items:center;padding:18px 20px;box-sizing:border-box}.kb-radio{width:32px;height:32px;border-radius:50%;border:2px solid rgba(0,0,0,.2);margin-right:18px;display:flex;align-items:center;justify-content:center;background:#fff;flex:0 0 auto;transition:.2s;box-sizing:border-box}.kb-bar.sel .kb-radio{border-color:#2A5F35;border-width:2px}.kb-radio::after{content:'';width:16px;height:16px;border-radius:50%;background:#6BA342;opacity:0;transform:scale(.5);transition:.25s cubic-bezier(0.175,0.885,0.32,1.275)}.kb-bar.sel .kb-radio::after{opacity:1;transform:scale(1)}.kb-c{flex:1;min-width:0;line-height:1.2}.kb-r1{display:flex;justify-content:space-between;align-items:center;gap:10px}.kb-r2{display:flex;justify-content:space-between;align-items:center;margin-top:6px}.kb-t{font-size:18px;font-weight:800;color:#111;display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin:0}.kb-p{font-size:20px;font-weight:900;color:#111;margin:0;white-space:nowrap;flex-shrink:0}.kb-s{font-size:15px;color:#555;font-weight:600;margin:0}.kb-op{font-size:15px;color:#888;text-decoration:line-through;margin:0}.kb-gifts{padding:0;overflow:hidden}.kb-gift-row{display:flex;align-items:center;gap:10px;padding:10px 20px;font-size:13px;font-weight:700;color:#333;background:rgba(107,163,66,.08);border-top:1px solid rgba(42,95,53,.1)}.kb-gift-row:last-child{border-radius:0 0 14px 14px}.kb-gift-check{width:20px;height:20px;border-radius:6px;background:#2A5F35;color:#fff;display:flex;align-items:center;justify-content:center;flex:0 0 auto}.kb-gift-check svg{width:12px;height:12px}.kb-gift-tag{background:#2A5F35;color:#fff;font-size:11px;font-weight:800;padding:3px 9px;border-radius:99px;margin-left:auto;white-space:nowrap}.js-quantity,.js-product-quantity,[data-component='product.quantity'],.product__info-container .product-form__quantity{display:none!important}.wigy-atc-col,.product-form__buttons{width:100%!important;max-width:600px!important;margin-left:auto!important;margin-right:auto!important;float:none!important;align-self:center!important;box-sizing:border-box!important}.js-prod-submit-form,button[name='add'],.btn-add-to-cart,.product-form__submit{background:linear-gradient(135deg,#2A5F35 0%,#6BA342 100%)!important;color:#ffffff!important;border:none!important;border-radius:99px!important;font-family:'Poppins','Montserrat',sans-serif!important;font-size:20px!important;font-weight:900!important;text-transform:uppercase!important;letter-spacing:1px!important;padding:20px 24px!important;box-shadow:0 8px 24px rgba(42,95,53,0.3)!important;transition:transform 0.2s ease,background 0.3s ease!important;width:100%!important;max-width:600px!important;margin:0 auto 15px auto!important;display:flex!important;align-items:center!important;justify-content:center!important;text-align:center!important;box-sizing:border-box!important;min-height:0!important}.js-prod-submit-form:hover,button[name='add']:hover,.btn-add-to-cart:hover,.product-form__submit:hover{transform:translateY(-3px)!important;background:linear-gradient(135deg,#1F4727 0%,#2A5F35 100%)!important}@keyframes kbSlideIn{0%{opacity:0;transform:translateY(20px) scale(0.95)}60%{opacity:1;transform:translateY(-3px) scale(1.02)}100%{opacity:1;transform:translateY(0) scale(1)}}@keyframes kbPopBounce{0%{opacity:0;transform:scale(0.2) rotate(-5deg)}50%{opacity:1;transform:scale(1.35) rotate(4deg)}75%{opacity:1;transform:scale(0.9) rotate(-2deg)}100%{opacity:1;transform:scale(1) rotate(0deg)}}.kb-in-view .kb-title{animation:kbSlideIn 0.6s cubic-bezier(0.175,0.885,0.32,1.275) forwards}.kb-in-view .kb-pop{animation:kbPopBounce 0.7s cubic-bezier(0.175,0.885,0.32,1.275) forwards}.kb-in-view .kb-bdg{animation:kbPopBounce 0.7s cubic-bezier(0.175,0.885,0.32,1.275) forwards}.kb-in-view .kb-bar:nth-child(3) .kb-pop{animation-delay:0.15s}.kb-in-view .kb-bar:nth-child(4) .kb-pop{animation-delay:0.35s}.kb-in-view .kb-bar:nth-child(3) .kb-bdg{animation-delay:0.25s}.kb-in-view .kb-bar:nth-child(4) .kb-bdg{animation-delay:0.45s}@media(max-width:768px){.kb-t{font-size:16px}.kb-p{font-size:18px}.js-prod-submit-form,button[name='add'],.btn-add-to-cart,.product-form__submit{font-size:18px!important;padding:18px 20px!important}}@media(max-width:480px){.kb-title{white-space:normal;text-align:center;font-size:15px}}";
       document.head.appendChild(s);
     }
 
@@ -480,8 +484,7 @@ window.WIGY_DOM = {
       var gift = o.regalo ? '<div class="kb-gifts"><div class="kb-gift-row"><span class="kb-gift-check">' + giftCheckSVG + '</span><span>' + o.regalo + '</span><span class="kb-gift-tag">GRATIS</span></div></div>' : '';
       return '<div class="kb-bar' + sel + '" data-qty="' + o.cantidad + '">' + pop + '<div class="kb-main"><div class="kb-radio"></div><div class="kb-c"><div class="kb-r1"><span class="kb-t">' + o.nombre + bdg + '</span><span class="kb-p">' + o.precio + '</span></div><div class="kb-r2"><span class="kb-s">' + o.subtexto + '</span>' + oldP + '</div></div></div>' + gift + '</div>';
     }).join('');
-    var dias = window.WIGY_CONFIG.garantiaDias || 30;
-    w.innerHTML = '<div class="kaching-bundles__block-title kb-title">Garantía ' + dias + ' días + Envío gratis</div>' + barsHTML;
+    w.innerHTML = '<div class="kaching-bundles__block-title kb-title">Cuidá tu huerta de la mejor manera</div>' + barsHTML;
 
     pCol.parentNode.insertBefore(w, pCol);
 
@@ -534,7 +537,7 @@ window.WIGY_DOM = {
 })();
 </script>
 <!-- ================================================================
-     BLOQUE 3: CAJA DE GARANTÍA (días configurables en WIGY_CONFIG.garantiaDias)
+     BLOQUE 3: CAJA DE GARANTÍA (WIGY_CONFIG.garantiaDias)
      ================================================================ -->
 <script>
 (function() {
@@ -597,8 +600,8 @@ window.WIGY_DOM = {
           '<path fill="currentColor" d="M12 2l8 4v6c0 5-3.4 9.4-8 10-4.6-.6-8-5-8-10V6l8-4zm-1 14l6-6-1.4-1.4L11 13.2 8.4 10.6 7 12l4 4z"/>' +
         '</svg>' +
         '<div class="wigy-garantia-text">' +
-          '<p class="wigy-garantia-title">Garantía de germinación de ' + ((window.WIGY_CONFIG && window.WIGY_CONFIG.garantiaDias) || 30) + ' días</p>' +
-          '<p class="wigy-garantia-desc">Si tus semillas no brotan siguiendo la guía, te reponemos el kit o te devolvemos el dinero. Sin vueltas. 100% libre de riesgo.</p>' +
+          '<p class="wigy-garantia-title">' + (function(){var d=(window.WIGY_CONFIG&&window.WIGY_CONFIG.garantiaDias)||0;return d?'Garant\u00EDa de '+d+' d\u00EDas':'Garant\u00EDa 100%';})() + ' \u00B7 Compra protegida</p>' +
+          '<p class="wigy-garantia-desc">Pagos seguros, despacho en 24 hs h\u00E1biles y atenci\u00F3n al cliente 24/7. Si algo no est\u00E1 bien con tu pedido, te lo resolvemos.</p>' +
         '</div>' +
       '</div>';
     return box;
@@ -779,17 +782,17 @@ window.WIGY_DOM = {
       {
         icon: "local_shipping",
         title: "Envíos",
-        text: "<p>El envío es <strong>GRATIS</strong> a todo el país.</p><p>Despachamos en 24-48 h hábiles y la entrega demora de <strong>⚠️3 a 7⚠️ días hábiles</strong> según tu zona. Te enviamos el código de seguimiento por email.</p>"
+        text: "<p>Despachamos dentro de las <strong>24 hs hábiles</strong> posteriores a la compra y enviamos a <strong>todo el país</strong>.</p><p>La entrega suele demorar entre <strong>2 y 3 días hábiles</strong>. Te mandamos el código de seguimiento por mail o WhatsApp.</p>"
       },
       {
         icon: "eco",
-        title: "¿Qué incluye el kit?",
-        text: "<h3>Tu kit VERDEA trae</h3><p>⚠️ Completar con el contenido exacto de info.txt ⚠️ — Semillas seleccionadas de hortalizas y aromáticas de estación, sustrato orgánico listo para usar, macetas/contenedores de cultivo, herramientas básicas y la <strong>Guía VERDEA paso a paso</strong>.</p><h3>Sin:</h3><p>Agroquímicos ni complicaciones: está pensado para que empieces hoy, aunque nunca hayas plantado nada.</p>"
+        title: "Modo de uso",
+        text: "<p>Es una fórmula <strong>concentrada</strong>: diluí unos pocos mililitros por litro de agua según las indicaciones de la etiqueta.</p><ul><li><strong>Esquejes:</strong> para que prendan más rápido.</li><li><strong>Trasplantes:</strong> para evitar el estrés de trasplante.</li><li><strong>Riego:</strong> para raíces más fuertes en huerta y macetas.</li></ul>"
       },
       {
         icon: "payments",
         title: "Medios de Pago",
-        text: "<ul><li><strong>Tarjeta de crédito:</strong> hasta <strong>⚠️3⚠️ cuotas sin interés</strong>.</li><li><strong>Tarjeta de débito:</strong> un pago.</li><li><strong>Mercado Pago:</strong> pagá de forma 100% segura.</li></ul><p>Todos los pagos se procesan en el checkout seguro de Shopify.</p>"
+        text: "<ul><li><strong>Tarjeta de crédito:</strong> <strong>3 cuotas sin interés</strong>.</li><li><strong>Tarjeta de débito:</strong> un pago.</li><li><strong>Mercado Pago:</strong> pagá de forma 100% segura.</li></ul><p>Todos los pagos se procesan en el checkout seguro de Shopify.</p>"
       }
     ];
 
@@ -952,7 +955,7 @@ window.WIGY_DOM = {
 
     var root = document.createElement("section"); root.className = "wigy-image-carousel"; root.setAttribute("data-wigy-infinite", "1");
     var slidesHTML = IMAGE_ITEMS.map(function(item) { return '<div class="wigy-slide"><div class="card"><div class="image-wrapper"><img src="' + item.src + '" alt="' + (item.alt || '') + '" loading="eager" draggable="false" /></div></div></div>'; }).join("");
-    root.innerHTML = '<div class="wigy-carousel-verified"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-1.09 14.41l-3.5-3.5 1.41-1.41 2.09 2.09 5.18-5.18 1.41 1.41-6.59 6.59z"/></svg> Huertas reales de nuestra comunidad</div><div class="track-container" aria-label="Galería infinita"><div class="track">' + slidesHTML + '</div></div>';
+    root.innerHTML = '<div class="wigy-carousel-verified"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-1.09 14.41l-3.5-3.5 1.41-1.41 2.09 2.09 5.18-5.18 1.41 1.41-6.59 6.59z"/></svg> Plantas reales de nuestra comunidad</div><div class="track-container" aria-label="Galería infinita"><div class="track">' + slidesHTML + '</div></div>';
     mediaTicker.insertAdjacentElement("afterend", root);
 
     var track = root.querySelector(".track");
@@ -1016,10 +1019,10 @@ window.WIGY_DOM = {
     }
 
     var problems = [
-      { icon: '<svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>', title: "Precios que no paran de subir", desc: "Cada semana la verduler\u00EDa te cuesta m\u00E1s y llev\u00E1s menos." },
-      { icon: '<svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>', title: "Verduras sin sabor", desc: "Tomates que no saben a nada y hojas que no sab\u00E9s c\u00F3mo fueron cultivadas." },
-      { icon: '<svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>', title: "Estr\u00E9s y pantallas todo el d\u00EDa", desc: "Termin\u00E1s el d\u00EDa agotado y sin un momento real para desconectar." },
-      { icon: '<svg viewBox="0 0 24 24"><path d="M11 20A7 7 0 019.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/><path d="M2 21c0-3 1.85-5.36 5.08-6"/><line x1="4" y1="4" x2="20" y2="20"/></svg>', title: "\u201CSe me muere todo\u201D", desc: "Probaste plantar alguna vez y, sin gu\u00EDa, las plantas no prosperaron." }
+      { icon: '<svg viewBox="0 0 24 24"><path d="M11 20A7 7 0 019.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/><line x1="4" y1="4" x2="20" y2="20"/></svg>', title: "Esquejes que no prenden", desc: "Semanas esperando que echen ra\u00EDz\u2026 y terminan pudri\u00E9ndose en el agua." },
+      { icon: '<svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>', title: "Golpe de trasplante", desc: "La pas\u00E1s a una maceta m\u00E1s grande y se decolora, se cae o pierde hojas." },
+      { icon: '<svg viewBox="0 0 24 24"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"/><polyline points="17 18 23 18 23 12"/></svg>', title: "Crecimiento lento", desc: "Ten\u00E9s buen sustrato, pero la planta no termina de arrancar ni se pone frondosa." },
+      { icon: '<svg viewBox="0 0 24 24"><path d="M8.5 14.5A2.5 2.5 0 0011 12c0-1.38-.5-2-1-3-1.07-2.14-.22-4.05 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 11-14 0c0-1.15.43-2.29 1-3a2.5 2.5 0 002.5 2.5z"/></svg>', title: "Miedo a quemarla", desc: "No quer\u00E9s usar productos agresivos en la huerta donde cultiv\u00E1s lo que com\u00E9s." }
     ];
 
     var cardsHTML = problems.map(function(p) {
@@ -1031,10 +1034,10 @@ window.WIGY_DOM = {
     wrapper.innerHTML =
       '<div class="prob-inner">' +
 
-        '<h2 class="prob-title">Quer\u00E9s comer m\u00E1s sano y vivir m\u00E1s tranquilo,<br>pero el d\u00EDa a d\u00EDa no te lo pone f\u00E1cil.</h2>' +
-        '<p class="prob-subtitle">Cada vez m\u00E1s personas sienten que perdieron el contacto con lo que comen y con su propio tiempo. Si te pasa alguno de estos, <strong>no sos el \u00FAnico</strong>.</p>' +
+        '<h2 class="prob-title">Una planta saludable empieza por sus ra\u00EDces.<br>Y ah\u00ED es donde casi siempre falla.</h2>' +
+        '<p class="prob-subtitle">Pod\u00E9s tener el mejor sustrato, regar perfecto y darle sol\u2026 pero si las ra\u00EDces no se desarrollan, la planta no crece. Si te pas\u00F3 alguno de estos, <strong>no sos el \u00FAnico</strong>.</p>' +
         '<div class="prob-grid">' + cardsHTML + '</div>' +
-        '<p class="prob-bottom">\u00BFAlguna vez compraste semillas sueltas y <strong>no brot\u00F3 nada</strong>?</p>' +
+        '<p class="prob-bottom">\u00BFCu\u00E1ntos esquejes perdiste esperando que <strong>echen ra\u00EDz</strong>?</p>' +
       '</div>';
 
     var videoCarousel = document.querySelector('[data-wigy-infinite="1"]');
@@ -1104,10 +1107,10 @@ window.WIGY_DOM = {
     }
 
     var features = [
-      { title: "Todo en una caja, listo para sembrar", desc: "Semillas seleccionadas, sustrato y contenedores. Abr\u00EDs, segu\u00EDs la gu\u00EDa y en minutos tu huerta est\u00E1 sembrada." },
-      { title: "Gu\u00EDa VERDEA paso a paso", desc: "Riego, luz, trasplante y cosecha explicados simple, para que no dependas de la suerte ni de la experiencia." },
-      { title: "Pensado para espacios chicos", desc: "Balc\u00F3n, patio, terraza o ventana con sol: no necesit\u00E1s jard\u00EDn para cosechar tus propias verduras." },
-      { title: "Cultivo natural, sin agroqu\u00EDmicos", desc: "Sab\u00E9s exactamente qu\u00E9 com\u00E9s: verduras y arom\u00E1ticas frescas, con el sabor de lo reci\u00E9n cosechado." }
+      { title: "Estimula ra\u00EDces m\u00E1s r\u00E1pidas y fuertes", desc: "Activa las c\u00E9lulas radiculares y la formaci\u00F3n de pelos absorbentes para que tus esquejes y brotes prendan en mucho menos tiempo, con ra\u00EDces visibles y sanas." },
+      { title: "Mejora la absorci\u00F3n de nutrientes", desc: "Al aumentar el volumen de la ra\u00EDz, la planta aprovecha al m\u00E1ximo el agua y los minerales del suelo: crecimiento m\u00E1s verde, tupido y lleno de energ\u00EDa." },
+      { title: "Protege contra el estr\u00E9s de trasplante", desc: "Acelera la regeneraci\u00F3n del tejido radicular y fortalece las defensas naturales para que la planta se adapte sin decaerse ni perder hojas." },
+      { title: "Org\u00E1nico y s\u00FAper concentrado", desc: "Seguro para huerta (verduras, arom\u00E1ticas y frutales), macetas, interior y ornamentales. Unos pocos ml por litro: un frasco rinde much\u00EDsimo." }
     ];
 
     var featsHTML = features.map(function(f, i) {
@@ -1119,8 +1122,8 @@ window.WIGY_DOM = {
     wrapper.innerHTML =
       '<div class="sol-inner">' +
 
-        '<h2 class="sol-title">VERDEA: tu rinc\u00F3n verde,<br>tu momento de paz.</h2>' +
-        '<p class="sol-subtitle">No es solo un kit de semillas. Es todo lo que necesit\u00E1s para <strong>armar tu huerta en casa y cosechar tus propios alimentos</strong>, aunque nunca hayas plantado nada.</p>' +
+        '<h2 class="sol-title">VERDEA Root Boost:<br>ra\u00EDces fuertes, plantas m\u00E1s sanas.</h2>' +
+        '<p class="sol-subtitle">Dale a tus plantas el impulso que necesitan. El enraizante VERDEA <strong>estimula el desarrollo de las ra\u00EDces, favorece la absorci\u00F3n de nutrientes y acompa\u00F1a el trasplante</strong> para que crezcan fuertes desde el primer d\u00EDa.</p>' +
         '<div class="sol-features">' + featsHTML + '</div>' +
       '</div>';
 
@@ -1189,8 +1192,8 @@ window.WIGY_DOM = {
     wrapper.innerHTML =
       '<div class="comp-inner">' +
 
-        '<h2 class="comp-heading">De balc\u00F3n vac\u00EDo a huerta que da frutos</h2>' +
-        '<p class="comp-person">\u26A0\uFE0FNOMBRE-CLIENTE\u26A0\uFE0F \u2014 balc\u00F3n de 2 m\u00B2, Rosario</p>' +
+        '<h2 class="comp-heading">Mir\u00E1 la diferencia en las ra\u00EDces</h2>' +
+        '<p class="comp-person">Sin enraizante vs. con VERDEA Root Boost \u2014 \u26A0\uFE0FDESCRIPCI\u00D3N-DE-LA-FOTO\u26A0\uFE0F</p>' +
         '<div class="wigy-comparison-slider">' +
           '<div class="wigy-label wigy-label-before">Antes</div>' +
           '<div class="wigy-label wigy-label-after">Despu\u00E9s</div>' +
@@ -1228,7 +1231,7 @@ window.WIGY_DOM = {
 })();
 </script>
 <!-- ================================================================
-     BLOQUE 12: LÍNEA DE TIEMPO — De la semilla a la cosecha
+     BLOQUE 12: LÍNEA DE TIEMPO — Cómo usarlo
      ================================================================ -->
 <script>
 (function() {
@@ -1238,7 +1241,7 @@ window.WIGY_DOM = {
 
   function injectStyleOnce() {
     if (document.getElementById(WRAPPER_ID + "-style")) return;
-    var css = "@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&display=swap');\n#" + WRAPPER_ID + "{width:100%;max-width:800px;margin:20px auto 0 auto;padding-top:10px;padding-bottom:40px;background:transparent;overflow:hidden;position:relative;z-index:10;font-family:'Montserrat',sans-serif}\n#" + WRAPPER_ID + " .hf-header-timeline{text-align:center;max-width:800px;padding:0 20px;margin:0 auto 40px auto}\n#" + WRAPPER_ID + " .hf-header-timeline h2{color:#2A5F35;font-size:32px;font-weight:800;margin:0;line-height:1.2;letter-spacing:-0.5px;font-family:'Montserrat',sans-serif}\n#" + WRAPPER_ID + " .hf-header-timeline .highlight{color:#2A5F35;display:block;font-family:'Montserrat',sans-serif;font-size:20px;font-weight:800;margin-top:10px}\n#" + WRAPPER_ID + " .timeline-container-orange{max-width:800px;margin:0 auto;padding:0 20px;position:relative}\n#" + WRAPPER_ID + " .timeline-row-orange{display:flex;gap:30px;position:relative;align-items:stretch}\n#" + WRAPPER_ID + " .timeline-marker-orange{display:flex;flex-direction:column;align-items:center;min-width:130px;position:relative}\n#" + WRAPPER_ID + " .timeline-track{position:absolute;top:15px;bottom:50px;left:calc(20px + 65px - 3px);width:6px;background-color:#e2e8f0;border-radius:6px;z-index:1}\n#" + WRAPPER_ID + " .timeline-progress-fill{position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(to bottom,#2A5F35,#6BA342);border-radius:6px;z-index:2;transform:scaleY(0);transform-origin:top center;will-change:transform;transition:transform 0.08s linear;box-shadow:0 0 12px rgba(107,163,66,0.45)}\n@keyframes wigy-pill-pop{0%{transform:scale(1);box-shadow:0 4px 10px rgba(42,95,53,0.25)}30%{transform:scale(1.22);box-shadow:0 12px 28px rgba(42,95,53,0.50)}55%{transform:scale(0.96);box-shadow:0 6px 14px rgba(42,95,53,0.30)}75%{transform:scale(1.10);box-shadow:0 10px 22px rgba(42,95,53,0.40)}100%{transform:scale(1);box-shadow:0 4px 10px rgba(42,95,53,0.25)}}\n#" + WRAPPER_ID + " .t-pill-orange{position:relative;z-index:3;border:2px solid #2A5F35;color:#fff;background-color:#2A5F35;padding:8px 18px;border-radius:50px;font-size:14px;font-weight:700;text-align:center;box-shadow:0 4px 10px rgba(42,95,53,0.25);margin-bottom:30px;white-space:nowrap;transform-origin:center center;will-change:transform}\n#" + WRAPPER_ID + " .t-pill-orange.pop{animation:wigy-pill-pop 0.55s cubic-bezier(0.36,0.07,0.19,0.97) forwards}\n#" + WRAPPER_ID + " .t-content-orange{flex:1;padding-bottom:50px}\n#" + WRAPPER_ID + " .timeline-row-orange:last-child .t-content-orange{padding-bottom:0}\n#" + WRAPPER_ID + " .t-content-orange h3{color:#2A5F35;font-size:20px;font-weight:800;margin:5px 0 10px 0;line-height:1.2;text-transform:uppercase;font-family:'Montserrat',sans-serif}\n#" + WRAPPER_ID + " .t-content-orange p{color:#3a3a3a;font-size:15px;line-height:1.6;margin:0;font-family:'Montserrat',sans-serif}\n@media(max-width:768px){#" + WRAPPER_ID + "{margin-top:15px;padding-top:10px;padding-bottom:30px}#" + WRAPPER_ID + " .timeline-marker-orange{min-width:100px}#" + WRAPPER_ID + " .timeline-row-orange{gap:15px}#" + WRAPPER_ID + " .t-pill-orange{font-size:12px;padding:6px 12px}#" + WRAPPER_ID + " .t-content-orange h3{font-size:18px}#" + WRAPPER_ID + " .t-content-orange p{font-size:14px}#" + WRAPPER_ID + " .hf-header-timeline h2{font-size:26px}#" + WRAPPER_ID + " .timeline-track{left:calc(20px + 50px - 3px)}}";
+    var css = "@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800;900&display=swap');\n#" + WRAPPER_ID + "{width:100%;max-width:800px;margin:20px auto 0 auto;padding-top:10px;padding-bottom:40px;background:transparent;overflow:hidden;position:relative;z-index:10;font-family:'Poppins','Montserrat',sans-serif}\n#" + WRAPPER_ID + " .hf-header-timeline{text-align:center;max-width:800px;padding:0 20px;margin:0 auto 40px auto}\n#" + WRAPPER_ID + " .hf-header-timeline h2{color:#2A5F35;font-size:32px;font-weight:800;margin:0;line-height:1.2;letter-spacing:-0.5px;font-family:'Poppins','Montserrat',sans-serif}\n#" + WRAPPER_ID + " .hf-header-timeline .highlight{color:#2A5F35;display:block;font-family:'Poppins','Montserrat',sans-serif;font-size:20px;font-weight:800;margin-top:10px}\n#" + WRAPPER_ID + " .timeline-container-orange{max-width:800px;margin:0 auto;padding:0 20px;position:relative}\n#" + WRAPPER_ID + " .timeline-row-orange{display:flex;gap:30px;position:relative;align-items:stretch}\n#" + WRAPPER_ID + " .timeline-marker-orange{display:flex;flex-direction:column;align-items:center;min-width:130px;position:relative}\n#" + WRAPPER_ID + " .timeline-track{position:absolute;top:15px;bottom:50px;left:calc(20px + 65px - 3px);width:6px;background-color:#e2e8f0;border-radius:6px;z-index:1}\n#" + WRAPPER_ID + " .timeline-progress-fill{position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(to bottom,#2A5F35,#6BA342);border-radius:6px;z-index:2;transform:scaleY(0);transform-origin:top center;will-change:transform;transition:transform 0.08s linear;box-shadow:0 0 12px rgba(107,163,66,0.45)}\n@keyframes wigy-pill-pop{0%{transform:scale(1);box-shadow:0 4px 10px rgba(42,95,53,0.25)}30%{transform:scale(1.22);box-shadow:0 12px 28px rgba(42,95,53,0.50)}55%{transform:scale(0.96);box-shadow:0 6px 14px rgba(42,95,53,0.30)}75%{transform:scale(1.10);box-shadow:0 10px 22px rgba(42,95,53,0.40)}100%{transform:scale(1);box-shadow:0 4px 10px rgba(42,95,53,0.25)}}\n#" + WRAPPER_ID + " .t-pill-orange{position:relative;z-index:3;border:2px solid #2A5F35;color:#fff;background-color:#2A5F35;padding:8px 18px;border-radius:50px;font-size:14px;font-weight:700;text-align:center;box-shadow:0 4px 10px rgba(42,95,53,0.25);margin-bottom:30px;white-space:nowrap;transform-origin:center center;will-change:transform}\n#" + WRAPPER_ID + " .t-pill-orange.pop{animation:wigy-pill-pop 0.55s cubic-bezier(0.36,0.07,0.19,0.97) forwards}\n#" + WRAPPER_ID + " .t-content-orange{flex:1;padding-bottom:50px}\n#" + WRAPPER_ID + " .timeline-row-orange:last-child .t-content-orange{padding-bottom:0}\n#" + WRAPPER_ID + " .t-content-orange h3{color:#2A5F35;font-size:20px;font-weight:800;margin:5px 0 10px 0;line-height:1.2;text-transform:uppercase;font-family:'Poppins','Montserrat',sans-serif}\n#" + WRAPPER_ID + " .t-content-orange p{color:#3a3a3a;font-size:15px;line-height:1.6;margin:0;font-family:'Poppins','Montserrat',sans-serif}\n@media(max-width:768px){#" + WRAPPER_ID + "{margin-top:15px;padding-top:10px;padding-bottom:30px}#" + WRAPPER_ID + " .timeline-marker-orange{min-width:100px}#" + WRAPPER_ID + " .timeline-row-orange{gap:15px}#" + WRAPPER_ID + " .t-pill-orange{font-size:12px;padding:6px 12px}#" + WRAPPER_ID + " .t-content-orange h3{font-size:18px}#" + WRAPPER_ID + " .t-content-orange p{font-size:14px}#" + WRAPPER_ID + " .hf-header-timeline h2{font-size:26px}#" + WRAPPER_ID + " .timeline-track{left:calc(20px + 50px - 3px)}}";
     var st = document.createElement("style");
     st.id = WRAPPER_ID + "-style";
     st.innerHTML = css;
@@ -1246,7 +1249,7 @@ window.WIGY_DOM = {
   }
 
   function buildHTML() {
-    return '<div class="hf-header-timeline"><h2>De la semilla a tu mesa</h2><span class="highlight">as\u00ED crece tu huerta VERDEA</span></div><div class="timeline-container-orange"><div class="timeline-track"><div class="timeline-progress-fill"></div></div><div class="timeline-row-orange"><div class="timeline-marker-orange"><div class="t-pill-orange">D\u00EDa 1</div></div><div class="t-content-orange"><h3>Sembr\u00E1s en minutos</h3><p>Abr\u00EDs el kit, prepar\u00E1s el sustrato y sembr\u00E1s siguiendo la gu\u00EDa. Sin herramientas extra ni conocimientos previos.</p></div></div><div class="timeline-row-orange"><div class="timeline-marker-orange"><div class="t-pill-orange">Semana 1-2</div></div><div class="t-content-orange"><h3>Aparecen los primeros brotes</h3><p>Las semillas germinan y ves asomar las primeras hojitas. Es el momento en que la huerta empieza a ser parte de tu rutina.</p></div></div><div class="timeline-row-orange"><div class="timeline-marker-orange"><div class="t-pill-orange">Semana 3-5</div></div><div class="t-content-orange"><h3>Crecimiento visible</h3><p>Las plantas se fortalecen d\u00EDa a d\u00EDa. Regar y cuidar tu huerta se convierte en tu momento de paz.</p></div></div><div class="timeline-row-orange"><div class="timeline-marker-orange"><div class="t-pill-orange">Semana 6+</div></div><div class="t-content-orange"><h3>Primera cosecha</h3><p>Hojas verdes y arom\u00E1ticas listas para cortar y llevar a la mesa. Frescas, sanas y cultivadas por vos.*</p></div></div></div><p style="text-align:center;font-size:12px;color:#888;margin:24px 0 0 0;padding:0 20px">*Los tiempos var\u00EDan seg\u00FAn la especie, la estaci\u00F3n y la luz disponible.</p>';
+    return '<div class="hf-header-timeline"><h2>As\u00ED de f\u00E1cil se usa</h2><span class="highlight">en 4 pasos, sin experiencia</span></div><div class="timeline-container-orange"><div class="timeline-track"><div class="timeline-progress-fill"></div></div><div class="timeline-row-orange"><div class="timeline-marker-orange"><div class="t-pill-orange">Paso 1</div></div><div class="t-content-orange"><h3>Diluilo en agua</h3><p>Unos pocos mililitros por litro de agua, seg\u00FAn la etiqueta. Al ser concentrado, el frasco de 250 ml rinde para much\u00EDsimas aplicaciones.</p></div></div><div class="timeline-row-orange"><div class="timeline-marker-orange"><div class="t-pill-orange">Paso 2</div></div><div class="t-content-orange"><h3>Aplicalo donde lo necesites</h3><p>En esquejes para que prendan, en trasplantes para evitar el golpe, o en el riego de tu huerta y tus macetas.</p></div></div><div class="timeline-row-orange"><div class="timeline-marker-orange"><div class="t-pill-orange">Paso 3</div></div><div class="t-content-orange"><h3>Ra\u00EDces en acci\u00F3n</h3><p>Desde los primeros usos vas a notar el est\u00EDmulo en el desarrollo de ra\u00EDces y m\u00E1s firmeza en tus plantas.</p></div></div><div class="timeline-row-orange"><div class="timeline-marker-orange"><div class="t-pill-orange">Resultado</div></div><div class="t-content-orange"><h3>Plantas m\u00E1s sanas</h3><p>Ra\u00EDces fuertes que absorben mejor el agua y los nutrientes: un crecimiento m\u00E1s verde, tupido y lleno de energ\u00EDa.</p></div></div></div>';
   }
 
   function initTimelineScroll(wrapper) {
@@ -1313,7 +1316,7 @@ window.WIGY_DOM = {
 
   function injectStyleOnce() {
     if (document.getElementById(WRAPPER_ID + "-style")) return;
-    var css = "@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&display=swap');\n#wigy-recovery-standalone{padding-bottom:10px!important;margin-bottom:0!important}\n#" + WRAPPER_ID + "{width:100%;max-width:1000px;margin:0 auto;padding-top:15px;padding-bottom:60px;background:transparent;overflow:hidden;position:relative;z-index:10;font-family:'Montserrat',sans-serif;text-align:center}\n#" + WRAPPER_ID + " .concerns-gradient-title{font-size:42px;font-weight:900;margin:0 0 16px 0;line-height:1.15;letter-spacing:-1px;background:linear-gradient(135deg,#6BA342 0%,#2A5F35 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;color:transparent;display:inline-block;padding:0 15px}\n#" + WRAPPER_ID + " .intro-text{font-size:18px;color:#444444;margin:0 auto 45px auto;line-height:1.5;max-width:850px;padding:0 15px}\n#" + WRAPPER_ID + " .intro-text strong{color:#2A5F35;font-weight:800}\n#" + WRAPPER_ID + " .glued-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:40px 25px;max-width:950px;margin:0 auto;padding:0 15px}\n#" + WRAPPER_ID + " .symbol-box{display:flex;flex-direction:column;align-items:center;justify-content:flex-start}\n#" + WRAPPER_ID + " .symbol-circle{width:120px;height:120px;border-radius:50%;background:#ffffff;border:2px solid rgba(107,163,66,0.15);box-shadow:0 10px 20px rgba(107,163,66,0.08);display:flex;justify-content:center;align-items:center;margin-bottom:16px;transition:all 0.3s cubic-bezier(0.4,0,0.2,1)}\n#" + WRAPPER_ID + " .symbol-box:hover .symbol-circle{transform:translateY(-8px) scale(1.05);border-color:#6BA342;box-shadow:0 16px 28px rgba(107,163,66,0.18);background:linear-gradient(135deg,#ffffff 0%,#F1F6EC 100%)}\n#" + WRAPPER_ID + " .symbol-circle svg{width:55px;height:55px;stroke:#6BA342;stroke-width:2.2;fill:none;stroke-linecap:round;stroke-linejoin:round;transition:stroke 0.3s ease}\n#" + WRAPPER_ID + " .symbol-box span{font-weight:800;font-size:15px;line-height:1.35;text-transform:uppercase;color:#4E382A;text-align:center;max-width:180px}\n@media(max-width:768px){#" + WRAPPER_ID + "{padding-top:10px;padding-bottom:45px}#" + WRAPPER_ID + " .concerns-gradient-title{font-size:32px;margin-bottom:15px}#" + WRAPPER_ID + " .intro-text{font-size:16px;margin-bottom:35px}#" + WRAPPER_ID + " .glued-grid{grid-template-columns:repeat(2,1fr);gap:30px 15px}#" + WRAPPER_ID + " .symbol-circle{width:95px;height:95px}#" + WRAPPER_ID + " .symbol-circle svg{width:45px;height:45px}#" + WRAPPER_ID + " .symbol-box span{font-size:13px;max-width:150px}}";
+    var css = "@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800;900&display=swap');\n#wigy-recovery-standalone{padding-bottom:10px!important;margin-bottom:0!important}\n#" + WRAPPER_ID + "{width:100%;max-width:1000px;margin:0 auto;padding-top:15px;padding-bottom:60px;background:transparent;overflow:hidden;position:relative;z-index:10;font-family:'Poppins','Montserrat',sans-serif;text-align:center}\n#" + WRAPPER_ID + " .concerns-gradient-title{font-size:42px;font-weight:900;margin:0 0 16px 0;line-height:1.15;letter-spacing:-1px;background:linear-gradient(135deg,#6BA342 0%,#2A5F35 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;color:transparent;display:inline-block;padding:0 15px}\n#" + WRAPPER_ID + " .intro-text{font-size:18px;color:#444444;margin:0 auto 45px auto;line-height:1.5;max-width:850px;padding:0 15px}\n#" + WRAPPER_ID + " .intro-text strong{color:#2A5F35;font-weight:800}\n#" + WRAPPER_ID + " .glued-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:40px 25px;max-width:950px;margin:0 auto;padding:0 15px}\n#" + WRAPPER_ID + " .symbol-box{display:flex;flex-direction:column;align-items:center;justify-content:flex-start}\n#" + WRAPPER_ID + " .symbol-circle{width:120px;height:120px;border-radius:50%;background:#ffffff;border:2px solid rgba(107,163,66,0.15);box-shadow:0 10px 20px rgba(107,163,66,0.08);display:flex;justify-content:center;align-items:center;margin-bottom:16px;transition:all 0.3s cubic-bezier(0.4,0,0.2,1)}\n#" + WRAPPER_ID + " .symbol-box:hover .symbol-circle{transform:translateY(-8px) scale(1.05);border-color:#6BA342;box-shadow:0 16px 28px rgba(107,163,66,0.18);background:linear-gradient(135deg,#ffffff 0%,#F1F6EC 100%)}\n#" + WRAPPER_ID + " .symbol-circle svg{width:55px;height:55px;stroke:#6BA342;stroke-width:2.2;fill:none;stroke-linecap:round;stroke-linejoin:round;transition:stroke 0.3s ease}\n#" + WRAPPER_ID + " .symbol-box span{font-weight:800;font-size:15px;line-height:1.35;text-transform:uppercase;color:#4E382A;text-align:center;max-width:180px}\n@media(max-width:768px){#" + WRAPPER_ID + "{padding-top:10px;padding-bottom:45px}#" + WRAPPER_ID + " .concerns-gradient-title{font-size:32px;margin-bottom:15px}#" + WRAPPER_ID + " .intro-text{font-size:16px;margin-bottom:35px}#" + WRAPPER_ID + " .glued-grid{grid-template-columns:repeat(2,1fr);gap:30px 15px}#" + WRAPPER_ID + " .symbol-circle{width:95px;height:95px}#" + WRAPPER_ID + " .symbol-circle svg{width:45px;height:45px}#" + WRAPPER_ID + " .symbol-box span{font-size:13px;max-width:150px}}";
     var st = document.createElement("style");
     st.id = WRAPPER_ID + "-style";
     st.innerHTML = css;
@@ -1321,7 +1324,7 @@ window.WIGY_DOM = {
   }
 
   function buildHTML() {
-    return '<h2 class="concerns-gradient-title">Una huerta en casa, muchos beneficios para tu vida</h2><p class="intro-text">Cultivar tus propios alimentos <strong>cambia cómo comés y cómo te sentís</strong>. Con VERDEA, ese cambio empieza en tu balcón:</p><div class="glued-grid"><div class="symbol-box"><div class="symbol-circle"><svg viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"></path><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path></svg></div><span>Comida fresca y sin agroquímicos</span></div><div class="symbol-box"><div class="symbol-circle"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"></path><path d="M12 18V6"></path></svg></div><span>Ahorro en la verdulería</span></div><div class="symbol-box"><div class="symbol-circle"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></div><span>Menos estrés, más calma</span></div><div class="symbol-box"><div class="symbol-circle"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></div><span>Plan en familia lejos de pantallas</span></div><div class="symbol-box"><div class="symbol-circle"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg></div><span>Perfecto para balcones y patios</span></div><div class="symbol-box"><div class="symbol-circle"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><polyline points="9 12 11 14 15 10"></polyline></svg></div><span>Fácil aunque nunca hayas plantado</span></div></div>';
+    return '<h2 class="concerns-gradient-title">Un solo frasco para el problema que más plantas mata</h2><p class="intro-text">Cuando las raíces no se desarrollan, <strong>la planta no puede crecer</strong>. Root Boost trabaja desde abajo para ayudarte con:</p><div class="glued-grid"><div class="symbol-box"><div class="symbol-circle"><svg viewBox="0 0 24 24"><path d="M12 22V12"></path><path d="M12 12c-2 0-4-1-5-3 2 0 4 1 5 3z"></path><path d="M12 12c2 0 4-1 5-3-2 0-4 1-5 3z"></path><path d="M12 22c-1.5-1-3-1-4 0M12 22c1.5-1 3-1 4 0"></path></svg></div><span>Esquejes que no enraízan</span></div><div class="symbol-box"><div class="symbol-circle"><svg viewBox="0 0 24 24"><path d="M7 10h10l-1 11H8z"></path><path d="M12 10V4"></path><path d="M12 6c-2 0-3-1-4-2 2 0 3 1 4 2z"></path></svg></div><span>Estrés y golpe de trasplante</span></div><div class="symbol-box"><div class="symbol-circle"><svg viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"></path><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path></svg></div><span>Hojas caídas o decoloradas</span></div><div class="symbol-box"><div class="symbol-circle"><svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg></div><span>Crecimiento lento</span></div><div class="symbol-box"><div class="symbol-circle"><svg viewBox="0 0 24 24"><path d="M12 2c0 0-6 4-6 10a6 6 0 0 0 12 0c0-6-6-10-6-10z"></path></svg></div><span>Mala absorción de agua y nutrientes</span></div><div class="symbol-box"><div class="symbol-circle"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg></div><span>Plantas de interior débiles</span></div></div>';
   }
 
   function mount() {
@@ -1351,8 +1354,8 @@ window.WIGY_DOM = {
 
   function injectStyleOnce() {
     if (document.getElementById(WRAPPER_ID + "-style")) return;
-    var css = "@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&display=swap');" +
-      "#" + WRAPPER_ID + "{width:100%;max-width:1100px;margin:0 auto;padding:50px 20px;box-sizing:border-box;font-family:'Montserrat',sans-serif;background:#ffffff}" +
+    var css = "@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800;900&display=swap');" +
+      "#" + WRAPPER_ID + "{width:100%;max-width:1100px;margin:0 auto;padding:50px 20px;box-sizing:border-box;font-family:'Poppins','Montserrat',sans-serif;background:#ffffff}" +
       "#" + WRAPPER_ID + " .clinical-inner{display:flex;align-items:center;gap:50px;background:#ffffff;border-radius:20px}" +
       "#" + WRAPPER_ID + " .clinical-image-col{flex:1;width:100%;max-width:450px;border-radius:20px;overflow:hidden;box-shadow:0 20px 40px rgba(0,0,0,0.1);position:relative;background:#f4f4f4;line-height:0;border:1px solid rgba(0,0,0,0.05);margin:0 auto}" +
       "#" + WRAPPER_ID + " .clinical-image-col img{width:100%;height:auto;display:block;object-fit:cover}" +
@@ -1388,17 +1391,12 @@ window.WIGY_DOM = {
   function buildHTML() {
     return '<div class="clinical-inner">' +
       '<div class="clinical-image-col">' +
-        '<img src="' + window.WIGY_CONFIG.fotoEstadisticas + '" alt="Huerta VERDEA" loading="eager">' +
+        '<img src="' + window.WIGY_CONFIG.fotoEstadisticas + '" alt="VERDEA Root Boost" loading="eager">' +
       '</div>' +
       '<div class="clinical-stats-col">' +
-        '<h3 class="clinical-title">Lo que vive nuestra comunidad de huerteros VERDEA</h3>' +
-        /* ⚠️ Reemplazá los porcentajes (data-target) por datos reales de tus encuestas a clientes. */
+        '<h3 class="clinical-title">Lo que notan quienes ya usan VERDEA</h3>' +
         '<div class="results__rows-container">' +
-          '<div class="results__row"><div class="results__percentage" data-target="94"><p>0%</p></div><div class="results__text"><p>Vio <strong>germinar sus semillas</strong> en las primeras 2 semanas.</p></div></div>' +
-          '<div class="results__row"><div class="results__percentage" data-target="91"><p>0%</p></div><div class="results__text"><p>Cosechó por primera vez <strong>sin experiencia previa</strong>.</p></div></div>' +
-          '<div class="results__row"><div class="results__percentage" data-target="89"><p>0%</p></div><div class="results__text"><p>Siente que <strong>come más sano</strong> desde que tiene su huerta.</p></div></div>' +
-          '<div class="results__row"><div class="results__percentage" data-target="92"><p>0%</p></div><div class="results__text"><p>Dice que cuidar la huerta es <strong>su momento de desconexión</strong> del día.</p></div></div>' +
-          '<div class="results__row"><div class="results__percentage" data-target="96"><p>0%</p></div><div class="results__text"><p><strong>Recomendaría VERDEA</strong> a un amigo o familiar.</p></div></div>' +
+          (window.WIGY_CONFIG.estadisticas || []).map(function(e) { return '<div class="results__row"><div class="results__percentage" data-target="' + parseInt(e.porcentaje, 10) + '"><p>0%</p></div><div class="results__text"><p>' + e.texto + '</p></div></div>'; }).join('') +
         '</div>' +
       '</div>' +
     '</div>';
@@ -1436,6 +1434,8 @@ window.WIGY_DOM = {
     if (document.getElementById(WRAPPER_ID)) return true;
     var concernsWidget = document.getElementById("wigy-concerns-standalone");
     if (!concernsWidget) return false;
+    var stats = window.WIGY_CONFIG && window.WIGY_CONFIG.estadisticas;
+    if (!stats || !stats.length) return true; /* Sin datos reales → no se muestra */
     injectStyleOnce();
     var wrapper = document.createElement("section");
     wrapper.id = WRAPPER_ID;
@@ -1470,8 +1470,8 @@ window.WIGY_DOM = {
 
   function injectStyleOnce() {
     if (document.getElementById(WRAPPER_ID + "-style")) return;
-    var css = "@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&display=swap');\n" +
-      "#" + WRAPPER_ID + "{width:100%;max-width:900px;margin:20px auto 50px auto;padding:20px 15px;box-sizing:border-box;font-family:'Montserrat',sans-serif}\n" +
+    var css = "@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800;900&display=swap');\n" +
+      "#" + WRAPPER_ID + "{width:100%;max-width:900px;margin:20px auto 50px auto;padding:20px 15px;box-sizing:border-box;font-family:'Poppins','Montserrat',sans-serif}\n" +
       "#" + WRAPPER_ID + " .comp-title{font-size:38px;font-weight:900;text-align:center;margin:0 0 10px 0;line-height:1.2;letter-spacing:-1px;background:linear-gradient(135deg,#6BA342 0%,#2A5F35 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;color:transparent}\n" +
       "#" + WRAPPER_ID + " .comp-subtitle{font-size:16px;color:#555555;text-align:center;max-width:600px;margin:0 auto 35px auto;line-height:1.5}\n" +
       "#" + WRAPPER_ID + " .comp-table-wrapper{background:#ffffff;border-radius:20px;box-shadow:0 15px 35px rgba(0,0,0,0.08);border:1px solid rgba(0,0,0,0.05);padding:10px 0;position:relative;overflow:hidden}\n" +
@@ -1516,12 +1516,12 @@ window.WIGY_DOM = {
   function buildHTML() {
     var iconCheck = '<div class="icon-box icon-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>';
     var iconCross = '<div class="icon-box icon-cross"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></div>';
-    var rows = ["Semillas seleccionadas de estación", "Sustrato listo para usar", "Guía paso a paso para principiantes", "Todo en una sola caja", "Pensado para espacios chicos", "Garantía de germinación"];
+    var rows = ["Raíces más rápidas y fuertes", "Esquejes que prenden mejor", "Menos estrés de trasplante", "Mejor absorción de nutrientes", "Crecimiento más verde y tupido", "Cuidado orgánico de tus cultivos"];
     var rowsHTML = "";
     rows.forEach(function(label) {
       rowsHTML += '<tr><td class="row-label">' + label + '</td><td class="cell-brand">' + iconCheck + '</td><td class="cell-other">' + iconCross + '</td></tr>';
     });
-    return '<h2 class="comp-title">¿Por qué elegir VERDEA?</h2><p class="comp-subtitle">Comprar semillas, tierra y macetas por separado es caro, lleva tiempo y sin guía es fácil equivocarse. VERDEA lo resuelve todo en un solo kit.</p><div class="comp-table-wrapper"><div class="comp-brand-bg"></div><table><thead><tr><th class="th-empty">&nbsp;</th><th class="th-brand">VERDEA</th><th class="th-other">Por separado</th></tr></thead><tbody>' + rowsHTML + '</tbody></table></div>';
+    return '<h2 class="comp-title">¿Por qué elegir nuestro enraizante?</h2><p class="comp-subtitle">La diferencia entre una planta que sobrevive y una que crece con fuerza está en sus raíces.</p><div class="comp-table-wrapper"><div class="comp-brand-bg"></div><table><thead><tr><th class="th-empty">&nbsp;</th><th class="th-brand">Con VERDEA</th><th class="th-other">Sin enraizante</th></tr></thead><tbody>' + rowsHTML + '</tbody></table></div>';
   }
 
   function positionOverlay(wrapper) {
@@ -1542,7 +1542,7 @@ window.WIGY_DOM = {
 
   function mount() {
     if (document.getElementById(WRAPPER_ID)) return true;
-    var statsWidget = document.getElementById("wigy-clinical-results-standalone");
+    var statsWidget = document.getElementById("wigy-clinical-results-standalone") || document.getElementById("wigy-concerns-standalone");
     if (!statsWidget) return false;
     injectStyleOnce();
     var wrapper = document.createElement("section");
@@ -1584,7 +1584,7 @@ window.WIGY_DOM = {
 
   function injectStyleOnce() {
     if (document.getElementById(WRAPPER_ID + "-style")) return;
-    var css = "@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&display=swap');\n#" + WRAPPER_ID + "{width:100%;max-width:1200px;margin:40px auto 60px auto;padding:0 15px;box-sizing:border-box;font-family:'Montserrat',sans-serif;overflow:hidden}\n#" + WRAPPER_ID + " .title-with-highlight{font-family:'Montserrat',sans-serif;font-size:38px;font-weight:900;text-align:center;margin-bottom:45px;line-height:1.25;letter-spacing:-1px;background:linear-gradient(135deg,#2A5F35 0%,#6BA342 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;color:transparent;display:block;padding:0 15px}\n#" + WRAPPER_ID + " .splide-wrapper{position:relative;padding:0 60px}\n#" + WRAPPER_ID + " .splide__track{overflow:hidden;width:100%;padding:10px 0}\n#" + WRAPPER_ID + " .splide__list{display:flex;transition:transform 0.5s cubic-bezier(0.25,1,0.5,1);margin:0;padding:0;list-style:none;touch-action:pan-y}\n#" + WRAPPER_ID + " .splide__slide{flex:0 0 100%;padding:0 15px;box-sizing:border-box;opacity:0;transform:translateY(50px) scale(0.95);transition:opacity 0.6s ease,transform 0.6s cubic-bezier(0.175,0.885,0.32,1.275)}\n@media(min-width:768px){#" + WRAPPER_ID + " .splide__slide{flex:0 0 33.3333%}}\n#" + WRAPPER_ID + " .splide__slide.is-visible-animated{opacity:1;transform:translateY(0) scale(1)}\n#" + WRAPPER_ID + " .multicolumn-card{background:#ffffff;border-radius:20px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,0.06);border:1px solid rgba(0,0,0,0.04);display:flex;flex-direction:column;height:100%;transition:transform 0.3s ease,box-shadow 0.3s ease}\n#" + WRAPPER_ID + " .multicolumn-card:hover{transform:translateY(-8px);box-shadow:0 16px 40px rgba(42,95,53,0.15);border-color:rgba(107,163,66,0.3)}\n#" + WRAPPER_ID + " .multicolumn-card__image-wrapper{position:relative;width:100%;padding-top:100%;background:#f4f4f4}\n#" + WRAPPER_ID + " .multicolumn-card__image{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover}\n#" + WRAPPER_ID + " .multicolumn-card__info{padding:25px 20px;flex:1;display:flex;flex-direction:column;text-align:center;background:#ffffff}\n#" + WRAPPER_ID + " .rating-stars-and-text{display:flex;justify-content:center;margin-bottom:15px;color:#6BA342}\n#" + WRAPPER_ID + " .rating-stars__container{display:flex;gap:4px}\n#" + WRAPPER_ID + " .rating-stars__container svg{width:18px;height:18px}\n#" + WRAPPER_ID + " h3{font-size:20px;font-weight:800;color:#111111;margin:0 0 10px 0}\n#" + WRAPPER_ID + " .rte p{font-size:15px;color:#555555;line-height:1.6;margin:0 0 18px 0}\n#" + WRAPPER_ID + " .testimonial-card__author{font-size:15px;font-weight:800;color:#2A5F35;margin-top:auto}\n#" + WRAPPER_ID + " .splide__arrow{position:absolute;top:50%;transform:translateY(-50%);width:50px;height:50px;border-radius:50%;background:#ffffff;border:1px solid #eaeaea;box-shadow:0 8px 20px rgba(0,0,0,0.12);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.2s;padding:0;z-index:10}\n#" + WRAPPER_ID + " .splide__arrow--prev{left:0}\n#" + WRAPPER_ID + " .splide__arrow--next{right:0}\n#" + WRAPPER_ID + " .splide__arrow:hover:not(:disabled){background:#2A5F35;border-color:#2A5F35;transform:translateY(-50%) scale(1.1)}\n#" + WRAPPER_ID + " .splide__arrow svg{width:18px;height:18px;transition:0.2s;fill:#111}\n#" + WRAPPER_ID + " .splide__arrow:hover:not(:disabled) svg{fill:#ffffff}\n#" + WRAPPER_ID + " .splide__arrow:disabled{opacity:0.3;cursor:not-allowed}\n#" + WRAPPER_ID + " .splide__arrow--prev svg{transform:rotate(180deg)}\n#" + WRAPPER_ID + " .splide__pagination{display:flex;justify-content:center;gap:10px;list-style:none;padding:0;margin-top:25px}\n#" + WRAPPER_ID + " .splide__pagination__page{width:10px;height:10px;border-radius:50%;background:#d1d5db;border:none;cursor:pointer;transition:0.3s;padding:0}\n#" + WRAPPER_ID + " .splide__pagination__page.is-active{background:#2A5F35;transform:scale(1.4)}\n#" + WRAPPER_ID + " .testimonial-verified{display:inline-flex;align-items:center;gap:4px;margin-top:8px;font-size:12px;font-weight:700;color:#2A5F35;line-height:1}\n#" + WRAPPER_ID + " .testimonial-verified svg{width:14px;height:14px;flex:0 0 auto}\n#" + WRAPPER_ID + " .wigy-verified-clients-bar{display:flex;align-items:center;justify-content:center;gap:6px;margin-bottom:12px;font-size:13px;font-weight:700;color:#2A5F35;letter-spacing:0.3px}\n#" + WRAPPER_ID + " .wigy-verified-clients-bar svg{width:16px;height:16px;flex:0 0 auto}\n@media(max-width:768px){#" + WRAPPER_ID + "{margin:30px auto 40px auto}#" + WRAPPER_ID + " .title-with-highlight{font-size:28px;margin-bottom:25px}#" + WRAPPER_ID + " .splide-wrapper{padding:0 15px}#" + WRAPPER_ID + " .splide__arrow{width:40px;height:40px}#" + WRAPPER_ID + " .splide__arrow--prev{left:-5px}#" + WRAPPER_ID + " .splide__arrow--next{right:-5px}#" + WRAPPER_ID + " h3{font-size:18px}#" + WRAPPER_ID + " .rte p{font-size:14.5px}}";
+    var css = "@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800;900&display=swap');\n#" + WRAPPER_ID + "{width:100%;max-width:1200px;margin:40px auto 60px auto;padding:0 15px;box-sizing:border-box;font-family:'Poppins','Montserrat',sans-serif;overflow:hidden}\n#" + WRAPPER_ID + " .title-with-highlight{font-family:'Poppins','Montserrat',sans-serif;font-size:38px;font-weight:900;text-align:center;margin-bottom:45px;line-height:1.25;letter-spacing:-1px;background:linear-gradient(135deg,#2A5F35 0%,#6BA342 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;color:transparent;display:block;padding:0 15px}\n#" + WRAPPER_ID + " .splide-wrapper{position:relative;padding:0 60px}\n#" + WRAPPER_ID + " .splide__track{overflow:hidden;width:100%;padding:10px 0}\n#" + WRAPPER_ID + " .splide__list{display:flex;transition:transform 0.5s cubic-bezier(0.25,1,0.5,1);margin:0;padding:0;list-style:none;touch-action:pan-y}\n#" + WRAPPER_ID + " .splide__slide{flex:0 0 100%;padding:0 15px;box-sizing:border-box;opacity:0;transform:translateY(50px) scale(0.95);transition:opacity 0.6s ease,transform 0.6s cubic-bezier(0.175,0.885,0.32,1.275)}\n@media(min-width:768px){#" + WRAPPER_ID + " .splide__slide{flex:0 0 33.3333%}}\n#" + WRAPPER_ID + " .splide__slide.is-visible-animated{opacity:1;transform:translateY(0) scale(1)}\n#" + WRAPPER_ID + " .multicolumn-card{background:#ffffff;border-radius:20px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,0.06);border:1px solid rgba(0,0,0,0.04);display:flex;flex-direction:column;height:100%;transition:transform 0.3s ease,box-shadow 0.3s ease}\n#" + WRAPPER_ID + " .multicolumn-card:hover{transform:translateY(-8px);box-shadow:0 16px 40px rgba(42,95,53,0.15);border-color:rgba(107,163,66,0.3)}\n#" + WRAPPER_ID + " .multicolumn-card__image-wrapper{position:relative;width:100%;padding-top:100%;background:#f4f4f4}\n#" + WRAPPER_ID + " .multicolumn-card__image{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover}\n#" + WRAPPER_ID + " .multicolumn-card__info{padding:25px 20px;flex:1;display:flex;flex-direction:column;text-align:center;background:#ffffff}\n#" + WRAPPER_ID + " .rating-stars-and-text{display:flex;justify-content:center;margin-bottom:15px;color:#6BA342}\n#" + WRAPPER_ID + " .rating-stars__container{display:flex;gap:4px}\n#" + WRAPPER_ID + " .rating-stars__container svg{width:18px;height:18px}\n#" + WRAPPER_ID + " h3{font-size:20px;font-weight:800;color:#111111;margin:0 0 10px 0}\n#" + WRAPPER_ID + " .rte p{font-size:15px;color:#555555;line-height:1.6;margin:0 0 18px 0}\n#" + WRAPPER_ID + " .testimonial-card__author{font-size:15px;font-weight:800;color:#2A5F35;margin-top:auto}\n#" + WRAPPER_ID + " .splide__arrow{position:absolute;top:50%;transform:translateY(-50%);width:50px;height:50px;border-radius:50%;background:#ffffff;border:1px solid #eaeaea;box-shadow:0 8px 20px rgba(0,0,0,0.12);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.2s;padding:0;z-index:10}\n#" + WRAPPER_ID + " .splide__arrow--prev{left:0}\n#" + WRAPPER_ID + " .splide__arrow--next{right:0}\n#" + WRAPPER_ID + " .splide__arrow:hover:not(:disabled){background:#2A5F35;border-color:#2A5F35;transform:translateY(-50%) scale(1.1)}\n#" + WRAPPER_ID + " .splide__arrow svg{width:18px;height:18px;transition:0.2s;fill:#111}\n#" + WRAPPER_ID + " .splide__arrow:hover:not(:disabled) svg{fill:#ffffff}\n#" + WRAPPER_ID + " .splide__arrow:disabled{opacity:0.3;cursor:not-allowed}\n#" + WRAPPER_ID + " .splide__arrow--prev svg{transform:rotate(180deg)}\n#" + WRAPPER_ID + " .splide__pagination{display:flex;justify-content:center;gap:10px;list-style:none;padding:0;margin-top:25px}\n#" + WRAPPER_ID + " .splide__pagination__page{width:10px;height:10px;border-radius:50%;background:#d1d5db;border:none;cursor:pointer;transition:0.3s;padding:0}\n#" + WRAPPER_ID + " .splide__pagination__page.is-active{background:#2A5F35;transform:scale(1.4)}\n#" + WRAPPER_ID + " .testimonial-verified{display:inline-flex;align-items:center;gap:4px;margin-top:8px;font-size:12px;font-weight:700;color:#2A5F35;line-height:1}\n#" + WRAPPER_ID + " .testimonial-verified svg{width:14px;height:14px;flex:0 0 auto}\n#" + WRAPPER_ID + " .wigy-verified-clients-bar{display:flex;align-items:center;justify-content:center;gap:6px;margin-bottom:12px;font-size:13px;font-weight:700;color:#2A5F35;letter-spacing:0.3px}\n#" + WRAPPER_ID + " .wigy-verified-clients-bar svg{width:16px;height:16px;flex:0 0 auto}\n@media(max-width:768px){#" + WRAPPER_ID + "{margin:30px auto 40px auto}#" + WRAPPER_ID + " .title-with-highlight{font-size:28px;margin-bottom:25px}#" + WRAPPER_ID + " .splide-wrapper{padding:0 15px}#" + WRAPPER_ID + " .splide__arrow{width:40px;height:40px}#" + WRAPPER_ID + " .splide__arrow--prev{left:-5px}#" + WRAPPER_ID + " .splide__arrow--next{right:-5px}#" + WRAPPER_ID + " h3{font-size:18px}#" + WRAPPER_ID + " .rte p{font-size:14.5px}}";
     var st = document.createElement("style");
     st.id = WRAPPER_ID + "-style";
     st.innerHTML = css;
@@ -1613,7 +1613,7 @@ window.WIGY_DOM = {
 
     var verifiedBarSvg = '<svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-1.09 14.41l-3.5-3.5 1.41-1.41 2.09 2.09 5.18-5.18 1.41 1.41-6.59 6.59z"/></svg>';
 
-    return '<h2 class="title-with-highlight">🌱 Lo que dicen quienes ya cosechan con VERDEA</h2><div class="wigy-verified-clients-bar">' + verifiedBarSvg + ' Clientes verificados</div><div class="splide-wrapper"><button class="splide__arrow splide__arrow--prev" type="button">' + ARROW_SVG + '</button><button class="splide__arrow splide__arrow--next" type="button">' + ARROW_SVG + '</button><div class="splide__track"><ul class="splide__list">' + cardsHTML + '</ul></div><ul class="splide__pagination">' + dotsHTML + '</ul></div>';
+    return '<h2 class="title-with-highlight">🌱 Nuestros clientes: raíces más fuertes, plantas más sanas</h2><div class="wigy-verified-clients-bar">' + verifiedBarSvg + ' Clientes verificados</div><div class="splide-wrapper"><button class="splide__arrow splide__arrow--prev" type="button">' + ARROW_SVG + '</button><button class="splide__arrow splide__arrow--next" type="button">' + ARROW_SVG + '</button><div class="splide__track"><ul class="splide__list">' + cardsHTML + '</ul></div><ul class="splide__pagination">' + dotsHTML + '</ul></div>';
   }
 
   function initTestimonialsSlider(wrapper) {
@@ -1676,7 +1676,7 @@ window.WIGY_DOM = {
     if (document.getElementById(WRAPPER_ID)) return true;
     var comparisonWidget = document.getElementById("wigy-comparison-table-standalone");
     var statsWidget = document.getElementById("wigy-clinical-results-standalone");
-    var target = comparisonWidget || statsWidget;
+    var target = comparisonWidget || statsWidget || document.getElementById("wigy-concerns-standalone");
     if (!target) return false;
     injectStyleOnce();
     var wrapper = document.createElement("section");
@@ -1742,14 +1742,14 @@ window.WIGY_DOM = {
       var caretSvg = '<svg aria-hidden="true" focusable="false" class="wigy-icon-caret" viewBox="0 0 10 6"><path fill-rule="evenodd" clip-rule="evenodd" d="M9.354.646a.5.5 0 00-.708 0L5 4.293 1.354.646a.5.5 0 00-.708.708l4 4a.5.5 0 00.708 0l4-4a.5.5 0 000-.708z" fill="currentColor"></path></svg>';
 
       var faqItems = [
-        { icon: '<span class="material-icon material-symbols-outlined">store</span>', question: "¿Puedo comprar VERDEA en una tienda física?", answer: '<p>Por ahora VERDEA se vende <strong>exclusivamente online</strong>. Así cuidamos la calidad de cada kit y te lo hacemos llegar al mejor precio, directo a tu casa.</p>' },
-        { icon: '<span class="material-icon material-symbols-outlined">info</span>', question: "¿Qué es el Kit Huerta en Casa VERDEA?", answer: '<p>Es un kit completo para <strong>armar tu propia huerta doméstica</strong> en balcón, patio o terraza: semillas seleccionadas, sustrato listo para usar y una guía paso a paso para que coseches tus propias verduras y aromáticas, aunque nunca hayas plantado nada.</p>' },
-        { icon: '<span class="material-icon material-symbols-outlined">eco</span>', question: "¿Qué trae exactamente el kit?", answer: '<p><strong>⚠️ Completar con el contenido exacto de info.txt ⚠️</strong><br><br>Semillas de hortalizas y aromáticas de estación, sustrato orgánico, contenedores de cultivo, herramientas básicas y la <strong>Guía VERDEA</strong> con calendario de siembra.</p>' },
-        { icon: '<span class="material-icon material-symbols-outlined">yard</span>', question: "¿Necesito experiencia o mucho espacio?", answer: '<p><strong>No.</strong> El kit está pensado para principiantes y espacios chicos. Con un rincón que reciba unas horas de sol por día (balcón, ventana o patio) ya podés empezar.</p>' },
-        { icon: '<span class="material-icon material-symbols-outlined">local_shipping</span>', question: "¿Cuánto tarda el envío?", answer: '<p>Despachamos en <strong>24-48 h hábiles</strong> y la entrega demora entre <strong>⚠️3 y 7⚠️ días hábiles</strong> según tu zona. Te enviamos el número de seguimiento por email apenas sale tu pedido.</p>' },
-        { icon: '<span class="material-icon material-symbols-outlined">water_drop</span>', question: "¿Cuánto tiempo me lleva cuidarla?", answer: '<p>Apenas <strong>unos minutos por día</strong>: revisar la humedad, regar cuando haga falta y disfrutar. Para muchos de nuestros clientes es su momento de paz del día.</p>' },
-        { icon: '<span class="material-icon material-symbols-outlined">schedule</span>', question: "¿Cuándo voy a cosechar?", answer: '<p>Los primeros brotes suelen aparecer entre la <strong>semana 1 y 2</strong>. Las hojas verdes y aromáticas se pueden empezar a cosechar desde la <strong>semana 6</strong> aprox. Los tiempos varían según la especie, la estación y la luz.</p>' },
-        { icon: '<span class="material-icon material-symbols-outlined">verified_user</span>', question: "¿Tienen garantía?", answer: '<p>Sí. Tenés una <strong>garantía de germinación de ' + ((window.WIGY_CONFIG && window.WIGY_CONFIG.garantiaDias) || 30) + ' días</strong>: si tus semillas no brotan siguiendo la guía, te reponemos el kit o te devolvemos el dinero. Sin vueltas.</p>' }
+        { icon: '<span class="material-icon material-symbols-outlined">potted_plant</span>', question: "¿Sirve para cualquier tipo de planta y huerta?", answer: '<p>Sí. Está formulado para ser seguro y efectivo tanto en <strong>huertas orgánicas</strong> (verduras, aromáticas y frutales) como en <strong>macetas, plantas de interior y ornamentales</strong>. Al ser un producto orgánico, cuida la salud de tus cultivos sin riesgos.</p>' },
+        { icon: '<span class="material-icon material-symbols-outlined">schedule</span>', question: "¿Cuándo se empiezan a notar los resultados?", answer: '<p>Gracias a su fórmula de alta concentración y acción rápida, vas a notar un <strong>estímulo visible en el desarrollo de raíces</strong> y en la firmeza de tus plantas <strong>desde los primeros usos</strong>, ayudando a que los esquejes prendan.</p>' },
+        { icon: '<span class="material-icon material-symbols-outlined">yard</span>', question: "¿Qué pasa si hago un trasplante a una maceta más grande?", answer: '<p>Es el <strong>momento ideal</strong> para usarlo. Acelera la regeneración del tejido radicular y fortalece las defensas naturales de la planta, evitando el clásico <strong>"choque o estrés de trasplante"</strong> para que no se decaiga ni pierda hojas.</p>' },
+        { icon: '<span class="material-icon material-symbols-outlined">water_drop</span>', question: "¿Rinde mucho cada frasco o se acaba rápido?", answer: '<p>Al ser una fórmula <strong>súper concentrada</strong>, rinde un montón. Solo necesitás diluir unos pocos mililitros por litro de agua según las indicaciones de la etiqueta, así que un frasco de 250 ml alcanza para <strong>muchísimas sesiones de riego, trasplantes y esquejes</strong>.</p>' },
+        { icon: '<span class="material-icon material-symbols-outlined">science</span>', question: "¿Cómo se usa?", answer: '<p>Diluí la dosis indicada en la etiqueta en agua y aplicalo en el <strong>remojo de esquejes</strong>, al momento del <strong>trasplante</strong> o en el <strong>riego</strong> de tu huerta y tus macetas. Es fácil de usar, aunque estés empezando.</p>' },
+        { icon: '<span class="material-icon material-symbols-outlined">local_shipping</span>', question: "¿Cuánto tarda en llegar mi pedido?", answer: '<p>Despachamos dentro de las <strong>24 hs hábiles</strong> posteriores a la compra. Enviamos a todo el país y la entrega suele demorar entre <strong>2 y 3 días hábiles</strong>. Una vez despachado, te mandamos por mail o WhatsApp el código de seguimiento.</p>' },
+        { icon: '<span class="material-icon material-symbols-outlined">payments</span>', question: "¿Cómo puedo pagar?", answer: '<p>Con tarjeta de crédito en <strong>3 cuotas sin interés</strong>, débito o Mercado Pago, en el checkout 100% seguro de Shopify.</p>' },
+        { icon: '<span class="material-icon material-symbols-outlined">verified_user</span>', question: "¿Mi compra está garantizada?", answer: '<p>Sí. Tenés <strong>' + (function(){var d=(window.WIGY_CONFIG&&window.WIGY_CONFIG.garantiaDias)||0;return d?'Garant\u00EDa de '+d+' d\u00EDas':'Garant\u00EDa 100%';})() + '</strong>, pagos seguros y <strong>atención al cliente 24/7</strong>. Si algo no está bien con tu pedido, escribinos y lo resolvemos.</p>' }
       ];
 
       var accordionsHTML = faqItems.map(function(item) {
@@ -1835,7 +1835,7 @@ window.WIGY_DOM = {
     "box-shadow:0 -8px 30px rgba(0,0,0,0.08);",
     "padding:12px 20px;display:flex;align-items:center;justify-content:center;gap:16px;",
     "transform:translateY(100%);transition:transform 0.35s cubic-bezier(0.4,0,0.2,1);",
-    "font-family:'Montserrat',sans-serif}",
+    "font-family:'Poppins','Montserrat',sans-serif}",
 
     "#" + ID + ".visible{transform:translateY(0)}",
 
