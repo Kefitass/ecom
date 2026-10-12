@@ -131,13 +131,14 @@ window.WIGY_CONFIG = {
   // 🖼️ SECCIÓN 2: IMÁGENES DEL CARRUSEL (formato vertical 9:16)
   // ============================================================
   carruselImagenes: [
-    { src: "⚠️IMAGEN-CARRUSEL-1⚠️", alt: "Enraizante VERDEA Root Boost" },
-    { src: "⚠️IMAGEN-CARRUSEL-2⚠️", alt: "Raíces fuertes con VERDEA" },
-    { src: "⚠️IMAGEN-CARRUSEL-3⚠️", alt: "Esquejes enraizando" },
-    { src: "⚠️IMAGEN-CARRUSEL-4⚠️", alt: "Trasplante sin estrés" },
-    { src: "⚠️IMAGEN-CARRUSEL-5⚠️", alt: "Huerta en casa" },
-    { src: "⚠️IMAGEN-CARRUSEL-6⚠️", alt: "Plantas de interior sanas" },
-    { src: "⚠️IMAGEN-CARRUSEL-7⚠️", alt: "Clientes VERDEA" }
+    { src: "https://cdn.shopify.com/s/files/1/0815/0338/7880/files/Enraizante_Verdea__raices_mas_fuertes.png?v=1791636371", alt: "Enraizante VERDEA: raíces más fuertes" },
+    { src: "https://cdn.shopify.com/s/files/1/0815/0338/7880/files/Verdea_beneficios_2_el_mejor.png?v=1791636066", alt: "Beneficios del enraizante VERDEA" },
+    { src: "https://cdn.shopify.com/s/files/1/0815/0338/7880/files/Demostracion_de_enraizante_en_el_jardin.png?v=1791601399", alt: "Enraizante VERDEA en el jardín" },
+    { src: "https://cdn.shopify.com/s/files/1/0815/0338/7880/files/Hombre_promocionando_enraizante_organico_en_jardin.png?v=1791594511", alt: "Enraizante orgánico VERDEA en la huerta" },
+    { src: "https://cdn.shopify.com/s/files/1/0815/0338/7880/files/imagen_apara_landing.jpg?v=1791599554", alt: "VERDEA Root Boost" },
+    { src: "https://cdn.shopify.com/s/files/1/0815/0338/7880/files/Foto_productos_verdea.png?v=1791594191", alt: "Productos VERDEA" },
+    { src: "https://cdn.shopify.com/s/files/1/0815/0338/7880/files/GuiaVerdeaRaiz10241024.png?v=1791546130", alt: "Guía VERDEA de regalo" },
+    { src: "https://cdn.shopify.com/s/files/1/0815/0338/7880/files/Camion_ecologico_volando_con_envio_gratis.png?v=1791599207", alt: "Envío a todo el país" }
   ],
 
   // ============================================================
@@ -148,34 +149,36 @@ window.WIGY_CONFIG = {
   //   { porcentaje: 90, texto: "Notó <strong>raíces más fuertes</strong> en sus esquejes." },
   // ],
   // ============================================================
-  fotoEstadisticas: "⚠️IMAGEN-ESTADISTICAS⚠️",
+  fotoEstadisticas: "https://cdn.shopify.com/s/files/1/0815/0338/7880/files/FotoProductoenraizante.png?v=1791498186",
   estadisticas: [],
 
   // ============================================================
   // 🔄 SECCIÓN 4: IMÁGENES DEL COMPARADOR ANTES / DESPUÉS
-  // Antes: raíz/planta sin enraizante · Después: con VERDEA Root Boost
+  // Con dos fotos (antes y después) → slider para arrastrar.
+  // Con UNA foto que ya trae el antes/después → dejá "comparadorAntes" vacío ("")
+  // y poné la foto en "comparadorDespues": se muestra completa, sin slider.
   // ============================================================
-  comparadorAntes: "⚠️IMAGEN-ANTES⚠️",
-  comparadorDespues: "⚠️IMAGEN-DESPUES⚠️",
+  comparadorAntes: "",
+  comparadorDespues: "https://cdn.shopify.com/s/files/1/0815/0338/7880/files/Comparativa_de_raices_antes_y_despues_muy_pero_muy_pro.png?v=1791600542",
 
   // ============================================================
   // 💬 SECCIÓN 5: TESTIMONIOS DE CLIENTES (reseñas reales de la tienda)
   // ============================================================
   testimonios: [
     {
-      foto: "⚠️IMAGEN-TESTIMONIO-1⚠️",
+      foto: "https://cdn.shopify.com/s/files/1/0815/0338/7880/files/Trasplante_con_raices_y_enraizante_organico_foto_resena.png?v=1791593844",
       nombre: "Silvina M.",
       titulo: "Chau estrés por trasplante",
       texto: "Cada vez que pasaba una planta a una maceta más grande terminaba sufriendo. Con este Enraizante prenden enseguida y no sienten el cambio. Súper recomendado para los que aman la jardinería."
     },
     {
-      foto: "⚠️IMAGEN-TESTIMONIO-2⚠️",
+      foto: "https://cdn.shopify.com/s/files/1/0815/0338/7880/files/testimonio_nachit.png?v=1791602984",
       nombre: "Nacho R.",
       titulo: "Aproveché la promo y valió 100% la pena",
       texto: "Súper contento con la compra. Aproveché el descuento llevando el pack x2 y la verdad que un golazo. Las plantas respondieron re bien y me ahorré unos pesos."
     },
     {
-      foto: "⚠️IMAGEN-TESTIMONIO-3⚠️",
+      foto: "https://cdn.shopify.com/s/files/1/0815/0338/7880/files/selfie_mujer_verdea.png?v=1791605310",
       nombre: "Sofía L.",
       titulo: "Súper fácil de usar y efectivo!!",
       texto: "Recién estoy arrancando con mis primeras plantas y tenía miedo de mandarme una macana. Con este enraizante fue facilísimo, no quema nada y los resultados se re notan. Más que feliz."
@@ -1163,6 +1166,8 @@ window.WIGY_DOM = {
         "#wigy-promo-comparison-standalone .comp-heading{font-size:30px;font-weight:900;color:#2A5F35;margin:0 0 6px 0;line-height:1.25;letter-spacing:-0.5px}" +
         "#wigy-promo-comparison-standalone .comp-person{font-size:14.5px;color:#666;margin:0 0 24px 0;font-weight:500}" +
         ".wigy-comparison-slider{--clip:50%;position:relative;width:100%;max-width:560px;margin:0 auto;border-radius:16px;overflow:hidden;box-shadow:0 12px 32px rgba(0,0,0,0.12);aspect-ratio:1/1;background:#f4f4f4;user-select:none;border:1px solid rgba(0,0,0,0.06)}" +
+        ".wigy-comparison-single{max-width:560px;margin:0 auto;border-radius:16px;overflow:hidden;box-shadow:0 12px 32px rgba(0,0,0,0.12);border:1px solid rgba(0,0,0,0.06);line-height:0;background:#F5F4EE}" +
+        ".wigy-comparison-single img{width:100%;height:auto;display:block}" +
         ".wigy-comparison-img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;display:block;pointer-events:none}" +
         ".wigy-comparison-before{clip-path:polygon(0 0,var(--clip) 0,var(--clip) 100%,0 100%);z-index:2}" +
         ".wigy-comparison-input{position:absolute;top:0;left:0;width:100%;height:100%;opacity:0;cursor:ew-resize;z-index:10;margin:0;-webkit-appearance:none}" +
@@ -1187,13 +1192,23 @@ window.WIGY_DOM = {
       document.head.appendChild(st);
     }
 
+    var cfgC = window.WIGY_CONFIG;
+    /* Modo imagen única: si "comparadorAntes" está vacío o es igual a "comparadorDespues"
+       (una foto que ya trae el antes/después), se muestra la imagen completa sin slider. */
+    var singleImg = !cfgC.comparadorAntes || cfgC.comparadorAntes === cfgC.comparadorDespues;
     var wrapper = document.createElement("div");
     wrapper.id = "wigy-promo-comparison-standalone";
-    wrapper.innerHTML =
+    wrapper.innerHTML = singleImg ?
+      '<div class="comp-inner">' +
+        '<h2 class="comp-heading">Mir\u00E1 la diferencia en las ra\u00EDces</h2>' +
+        '<p class="comp-person">Sin enraizante vs. con VERDEA Root Boost</p>' +
+        '<div class="wigy-comparison-single"><img src="' + cfgC.comparadorDespues + '" alt="Ra\u00EDces antes y despu\u00E9s de usar VERDEA Root Boost" loading="eager"></div>' +
+      '</div>'
+      :
       '<div class="comp-inner">' +
 
         '<h2 class="comp-heading">Mir\u00E1 la diferencia en las ra\u00EDces</h2>' +
-        '<p class="comp-person">Sin enraizante vs. con VERDEA Root Boost \u2014 \u26A0\uFE0FDESCRIPCI\u00D3N-DE-LA-FOTO\u26A0\uFE0F</p>' +
+        '<p class="comp-person">Sin enraizante vs. con VERDEA Root Boost</p>' +
         '<div class="wigy-comparison-slider">' +
           '<div class="wigy-label wigy-label-before">Antes</div>' +
           '<div class="wigy-label wigy-label-after">Despu\u00E9s</div>' +
