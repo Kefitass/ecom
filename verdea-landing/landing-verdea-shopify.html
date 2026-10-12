@@ -1710,30 +1710,34 @@ window.WIGY_DOM = {
       "#" + WRAPPER_ID + " .comp-title{font-size:38px;font-weight:900;text-align:center;margin:0 0 10px 0;line-height:1.2;letter-spacing:-1px;background:linear-gradient(135deg,#6BA342 0%,#2A5F35 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;color:transparent}\n" +
       "#" + WRAPPER_ID + " .comp-subtitle{font-size:16px;color:#555555;text-align:center;max-width:600px;margin:0 auto 35px auto;line-height:1.5}\n" +
       "#" + WRAPPER_ID + " .comp-table-wrapper{background:#ffffff;border-radius:20px;box-shadow:0 15px 35px rgba(0,0,0,0.08);border:1px solid rgba(0,0,0,0.05);padding:10px 0;position:relative;overflow:hidden}\n" +
-      "#" + WRAPPER_ID + " table{width:100%;border-collapse:separate;border-spacing:0;text-align:center;position:relative;z-index:2}\n" +
+      "#" + WRAPPER_ID + " table.wigy-cmp-table{width:100%!important;border-collapse:separate!important;border-spacing:0!important;border:0!important;box-shadow:none!important;table-layout:auto!important;margin:0!important;text-align:center;position:relative;z-index:2;background:transparent!important}\n" +
+      "#" + WRAPPER_ID + " table.wigy-cmp-table th,#" + WRAPPER_ID + " table.wigy-cmp-table td{border:0!important;box-shadow:none!important;background-clip:padding-box}\n" +
       "#" + WRAPPER_ID + " th,#" + WRAPPER_ID + " td{padding:16px 12px;vertical-align:middle}\n" +
       "#" + WRAPPER_ID + " th{font-size:20px;font-weight:900;border-bottom:2px solid #eaeaea}\n" +
       "#" + WRAPPER_ID + " .th-empty{width:50%;border-bottom:none}\n" +
       "#" + WRAPPER_ID + " .th-other{color:#111111;width:25%}\n" +
-      "#" + WRAPPER_ID + " .th-brand{color:#ffffff;width:25%;border-bottom:none;padding-top:24px;background:transparent}\n" +
-      "#" + WRAPPER_ID + " .cell-brand{background:transparent;border-bottom:none!important}\n" +
-      "#" + WRAPPER_ID + " tr:last-child .cell-brand{padding-bottom:24px}\n" +
-      "#" + WRAPPER_ID + " .comp-brand-bg{position:absolute;z-index:1;" +
-      "background:#2A5F35;border-radius:16px;" +
-      "transform:scaleY(0);transform-origin:top center;" +
-      "transition:transform 3.5s cubic-bezier(0.25,0.46,0.45,0.94)}\n" +
-      "#" + WRAPPER_ID + ".wigy-revealed .comp-brand-bg{transform:scaleY(1)}\n" +
+      "#" + WRAPPER_ID + " .th-brand,#" + WRAPPER_ID + " .cell-brand{background:linear-gradient(#2A5F35,#2A5F35) top center/100% 0% no-repeat!important;transition:background-size 0.35s linear}\n" +
+      "#" + WRAPPER_ID + " .th-brand{color:#ffffff;width:25%;padding-top:24px;border-radius:16px 16px 0 0}\n" +
+      "#" + WRAPPER_ID + " tr:last-child .cell-brand{padding-bottom:24px;border-radius:0 0 16px 16px}\n" +
+      "#" + WRAPPER_ID + ".wigy-revealed .th-brand,#" + WRAPPER_ID + ".wigy-revealed .cell-brand{background-size:100% 100%!important}\n" +
+      "#" + WRAPPER_ID + ".wigy-revealed tr:nth-child(1) .cell-brand{transition-delay:0.35s}\n" +
+      "#" + WRAPPER_ID + ".wigy-revealed tr:nth-child(2) .cell-brand{transition-delay:0.7s}\n" +
+      "#" + WRAPPER_ID + ".wigy-revealed tr:nth-child(3) .cell-brand{transition-delay:1.05s}\n" +
+      "#" + WRAPPER_ID + ".wigy-revealed tr:nth-child(4) .cell-brand{transition-delay:1.4s}\n" +
+      "#" + WRAPPER_ID + ".wigy-revealed tr:nth-child(5) .cell-brand{transition-delay:1.75s}\n" +
+      "#" + WRAPPER_ID + ".wigy-revealed tr:nth-child(6) .cell-brand{transition-delay:2.1s}\n" +
+
       "#" + WRAPPER_ID + " .cell-brand .icon-box{opacity:0;transform:scale(0.5);" +
       "transition:opacity 0.35s ease,transform 0.35s cubic-bezier(0.175,0.885,0.32,1.275)}\n" +
       "#" + WRAPPER_ID + " .th-brand{opacity:0;transition:opacity 0.4s ease}\n" +
       "#" + WRAPPER_ID + ".wigy-revealed .th-brand{opacity:1;transition-delay:0.15s}\n" +
       "#" + WRAPPER_ID + ".wigy-revealed .cell-brand .icon-box{opacity:1;transform:scale(1)}\n" +
-      "#" + WRAPPER_ID + ".wigy-revealed tr:nth-child(1) .cell-brand .icon-box{transition-delay:1s}\n" +
-      "#" + WRAPPER_ID + ".wigy-revealed tr:nth-child(2) .cell-brand .icon-box{transition-delay:1.4s}\n" +
-      "#" + WRAPPER_ID + ".wigy-revealed tr:nth-child(3) .cell-brand .icon-box{transition-delay:1.8s}\n" +
-      "#" + WRAPPER_ID + ".wigy-revealed tr:nth-child(4) .cell-brand .icon-box{transition-delay:2.2s}\n" +
-      "#" + WRAPPER_ID + ".wigy-revealed tr:nth-child(5) .cell-brand .icon-box{transition-delay:2.6s}\n" +
-      "#" + WRAPPER_ID + ".wigy-revealed tr:nth-child(6) .cell-brand .icon-box{transition-delay:3s}\n" +
+      "#" + WRAPPER_ID + ".wigy-revealed tr:nth-child(1) .cell-brand .icon-box{transition-delay:0.55s}\n" +
+      "#" + WRAPPER_ID + ".wigy-revealed tr:nth-child(2) .cell-brand .icon-box{transition-delay:0.9s}\n" +
+      "#" + WRAPPER_ID + ".wigy-revealed tr:nth-child(3) .cell-brand .icon-box{transition-delay:1.25s}\n" +
+      "#" + WRAPPER_ID + ".wigy-revealed tr:nth-child(4) .cell-brand .icon-box{transition-delay:1.6s}\n" +
+      "#" + WRAPPER_ID + ".wigy-revealed tr:nth-child(5) .cell-brand .icon-box{transition-delay:1.95s}\n" +
+      "#" + WRAPPER_ID + ".wigy-revealed tr:nth-child(6) .cell-brand .icon-box{transition-delay:2.3s}\n" +
       "#" + WRAPPER_ID + " .row-label{text-align:left;font-weight:800;font-size:15px;color:#4E382A;border-bottom:1px solid #f0f0f0;padding-left:25px}\n" +
       "#" + WRAPPER_ID + " .cell-other{border-bottom:1px solid #f0f0f0}\n" +
       "#" + WRAPPER_ID + " tr:last-child .row-label,#" + WRAPPER_ID + " tr:last-child .cell-other{border-bottom:none}\n" +
@@ -1756,7 +1760,7 @@ window.WIGY_DOM = {
     rows.forEach(function(label) {
       rowsHTML += '<tr><td class="row-label">' + label + '</td><td class="cell-brand">' + iconCheck + '</td><td class="cell-other">' + iconCross + '</td></tr>';
     });
-    return '<h2 class="comp-title">¿Por qué elegir nuestro enraizante?</h2><p class="comp-subtitle">La diferencia entre una planta que sobrevive y una que crece con fuerza está en sus raíces.</p><div class="comp-table-wrapper"><div class="comp-brand-bg"></div><table><thead><tr><th class="th-empty">&nbsp;</th><th class="th-brand">Con VERDEA</th><th class="th-other">Sin enraizante</th></tr></thead><tbody>' + rowsHTML + '</tbody></table></div>';
+    return '<h2 class="comp-title">¿Por qué elegir nuestro enraizante?</h2><p class="comp-subtitle">La diferencia entre una planta que sobrevive y una que crece con fuerza está en sus raíces.</p><div class="comp-table-wrapper"><table class="wigy-cmp-table"><thead><tr><th class="th-empty">&nbsp;</th><th class="th-brand">Con VERDEA</th><th class="th-other">Sin enraizante</th></tr></thead><tbody>' + rowsHTML + '</tbody></table></div>';
   }
 
   function positionOverlay(wrapper) {
@@ -1796,7 +1800,7 @@ window.WIGY_DOM = {
         positionOverlay(wrapper);
         setTimeout(function() {
           wrapper.classList.add("wigy-revealed");
-        }, 800);
+        }, 300);
       }
     }, { threshold: 0.2 });
     obs.observe(wrapper);
