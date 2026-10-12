@@ -2641,22 +2641,54 @@ window.WIGY_DOM = {
   if (!m) return;
   var idx = parseInt(m[1], 10) - 1;
   if (idx < 0) return;
-  var tries = 0;
+
+  /* Busca las opciones de Kaching (también dentro de shadow DOM) */
+  function getBars() {
+    var hosts = document.querySelectorAll("kaching-bundle, kaching-bundles-block, .kaching-bundles__block, .kaching-bundles, [id*='kaching']");
+    for (var h = 0; h < hosts.length; h++) {
+      var scope = hosts[h].shadowRoot || hosts[h];
+      var bars = scope.querySelectorAll(".kaching-bundles__bar");
+      if (!bars.length) bars = scope.querySelectorAll("[class*='bundles__bar']:not([class*='bundles__bar-']):not([class*='bundles__bars'])");
+      if (!bars.length) {
+        var radios = scope.querySelectorAll("input[type='radio']");
+        if (radios.length) bars = Array.prototype.map.call(radios, function(r) { return r.closest("label") || r.parentElement; });
+      }
+      if (bars.length) return bars;
+    }
+    return [];
+  }
+  function isSelected(bar) {
+    var r = bar.querySelector && bar.querySelector("input[type='radio']");
+    if (r) return r.checked;
+    return /selected|active|checked/.test(bar.className || "") || bar.getAttribute("aria-checked") === "true";
+  }
+  function selectBar(bar) {
+    var r = bar.querySelector("input[type='radio']");
+    bar.click();
+    if (r && !r.checked) { r.click(); }
+    if (r && !r.checked) {
+      r.checked = true;
+      r.dispatchEvent(new Event("input", { bubbles: true }));
+      r.dispatchEvent(new Event("change", { bubbles: true }));
+    }
+  }
+
+  /* Kaching puede cargar tarde o volver a marcar su opción por defecto,
+     así que se insiste hasta que el pack elegido quede marcado y estable. */
+  var tries = 0, stable = 0;
   var timer = setInterval(function() {
     tries++;
-    var host = document.querySelector("kaching-bundle, kaching-bundles-block, .kaching-bundles__block");
-    var scope = host && (host.shadowRoot || host);
-    var bars = scope ? scope.querySelectorAll(".kaching-bundles__bar") : [];
-    if (!bars.length && scope) bars = scope.querySelectorAll("input[type='radio']");
+    var bars = getBars();
     if (bars.length > idx) {
-      clearInterval(timer);
-      var bar = bars[idx];
-      var radio = bar.matches && bar.matches("input") ? bar : bar.querySelector("input[type='radio']");
-      (radio || bar).click();
-      if (radio && !radio.checked) bar.click();
-      return;
+      if (isSelected(bars[idx])) {
+        stable++;
+        if (stable >= 8) clearInterval(timer);
+      } else {
+        stable = 0;
+        selectBar(bars[idx]);
+      }
     }
-    if (tries > 50) clearInterval(timer);
+    if (tries > 75) clearInterval(timer);
   }, 200);
 })();
 </script>
