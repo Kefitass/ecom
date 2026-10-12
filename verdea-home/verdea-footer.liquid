@@ -10,7 +10,7 @@
   assign wa = section.settings.whatsapp | remove: '+' | remove: ' ' | remove: '-'
   assign wa_msg = section.settings.whatsapp_mensaje | url_encode
   assign wa_url = 'https://wa.me/' | append: wa | append: '?text=' | append: wa_msg
-  assign mail = section.settings.email | default: shop.email
+  assign mail = section.settings.email | default: 'gardenfreeportfolio@gmail.com'
 -%}
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
@@ -176,7 +176,7 @@
     { "type": "text", "id": "whatsapp", "label": "WhatsApp (solo números, con 549)", "default": "5491139448089", "info": "Formato Argentina: 549 + código de área sin 0 + número sin 15." },
     { "type": "text", "id": "whatsapp_visible", "label": "WhatsApp (como se muestra)", "default": "+54 9 11 3944-8089" },
     { "type": "text", "id": "whatsapp_mensaje", "label": "Mensaje que se escribe solo", "default": "¡Hola VERDEA! 🌱 Tengo una consulta sobre el enraizante." },
-    { "type": "text", "id": "email", "label": "Email", "default": "gardenfreeportfolio@gmail.com", "info": "Si lo dejás vacío se usa el email de contacto de la tienda." },
+    { "type": "text", "id": "email", "label": "Email", "default": "gardenfreeportfolio@gmail.com", "info": "Mail que se muestra en el pie de página." },
     { "type": "text", "id": "horario", "label": "Horario de atención", "default": "Lunes a viernes de 9 a 18 hs" },
     { "type": "header", "content": "Botón flotante de WhatsApp" },
     { "type": "checkbox", "id": "whatsapp_flotante", "label": "Mostrar botón flotante", "default": true },
