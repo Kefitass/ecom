@@ -100,13 +100,15 @@
   .vh-prod__list li{display:flex;gap:10px;align-items:flex-start;font-size:15px;line-height:1.45}
   .vh-prod__list svg{width:20px;height:20px;color:var(--vh-sprout);flex:none;margin-top:1px}
   .vh-packs{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:24px}
-  .vh-pack{border:1.5px solid var(--vh-line);border-radius:14px;padding:12px 14px 12px 40px;position:relative;background:var(--vh-cream);text-align:left;cursor:pointer;font:inherit;color:inherit;width:100%;
-    transition:border-color .2s,background .2s,box-shadow .2s,transform .15s;-webkit-tap-highlight-color:transparent}
-  .vh-pack:hover{border-color:#d9c9b5}
-  .vh-pack:active{transform:scale(.98)}
-  .vh-pack:before{content:"";box-sizing:border-box;position:absolute;left:14px;top:50%;width:16px;height:16px;margin-top:-8px;border-radius:50%;border:2px solid #cfc6b8;background:#fff;transition:border .2s,box-shadow .2s}
-  .vh-pack.is-sel{border-color:var(--vh-orange);background:#FFF7F0;box-shadow:0 6px 16px rgba(232,128,49,.16)}
-  .vh-pack.is-sel:before{border:5px solid var(--vh-orange)}
+  #vh-{{ section.id }} .vh-pack{display:block;border:1.5px solid var(--vh-line)!important;border-radius:14px;padding:12px 14px 12px 40px;position:relative;background:var(--vh-cream)!important;text-align:left;cursor:pointer;margin:0;
+    transition:border-color .2s,background .2s,box-shadow .2s,transform .15s;-webkit-tap-highlight-color:transparent;user-select:none}
+  #vh-{{ section.id }} .vh-pack:hover{border-color:#d9c9b5!important}
+  #vh-{{ section.id }} .vh-pack:active{transform:scale(.98)}
+  #vh-{{ section.id }} .vh-pack input{position:absolute;opacity:0;width:1px;height:1px;margin:0;pointer-events:none}
+  #vh-{{ section.id }} .vh-pack__dot{position:absolute;left:14px;top:50%;width:16px;height:16px;margin-top:-8px;border-radius:50%;border:2px solid #cfc6b8;background:#fff;box-sizing:border-box;transition:border .2s}
+  #vh-{{ section.id }} .vh-pack.is-sel,#vh-{{ section.id }} .vh-pack:has(input:checked){border-color:var(--vh-orange)!important;background:#FFF7F0!important;box-shadow:0 6px 16px rgba(232,128,49,.16)}
+  #vh-{{ section.id }} .vh-pack.is-sel .vh-pack__dot,#vh-{{ section.id }} .vh-pack:has(input:checked) .vh-pack__dot{border:5px solid var(--vh-orange)}
+  #vh-{{ section.id }} .vh-pack:has(input:focus-visible){outline:2px solid var(--vh-green);outline-offset:2px}
   .vh-pack b{display:block;font-family:var(--vh-title);font-size:14px;color:var(--vh-earth)}
   .vh-pack span{font-size:12.5px;color:var(--vh-muted)}
   .vh-pack i{position:absolute;top:-10px;right:10px;background:var(--vh-orange);color:#fff;font-style:normal;font-family:var(--vh-title);font-weight:700;font-size:11px;padding:3px 9px;border-radius:999px}
@@ -292,8 +294,8 @@
             <li>{{ vh_check }} Concentrado: 250 ml rinden muchísimos riegos</li>
           </ul>
           <div class="vh-packs" role="radiogroup" aria-label="Elegí tu pack">
-            <button type="button" class="vh-pack is-sel" role="radio" aria-checked="true" data-pack="2" data-cta="Quiero el pack x2"><i>MÁS POPULAR</i><b>Llevá 2: 30% OFF</b><span>+ guía de regalo</span></button>
-            <button type="button" class="vh-pack" role="radio" aria-checked="false" data-pack="3" data-cta="Quiero el pack x3"><b>Llevá 3: 35% OFF</b><span>+ envío gratis y guía</span></button>
+            <label class="vh-pack is-sel" data-pack="2" data-cta="Quiero el pack x2"><input type="radio" name="vhpack-{{ section.id }}" value="2" checked><span class="vh-pack__dot"></span><i>MÁS POPULAR</i><b>Llevá 2: 30% OFF</b><span>+ guía de regalo</span></label>
+            <label class="vh-pack" data-pack="3" data-cta="Quiero el pack x3"><input type="radio" name="vhpack-{{ section.id }}" value="3"><span class="vh-pack__dot"></span><b>Llevá 3: 35% OFF</b><span>+ envío gratis y guía</span></label>
           </div>
           <a class="vh-btn vh-btn--orange vh-pack-cta" href="{{ url_producto }}?pack=2" data-base="{{ url_producto }}"><span>Quiero el pack x2</span> {{ vh_arrow }}</a>
         </div>
@@ -404,12 +406,20 @@
     if (!root) return;
     /* Packs del producto destacado: se eligen y el botón lleva al producto con ese pack */
     var cta = root.querySelector('.vh-pack-cta');
-    root.querySelectorAll('.vh-pack').forEach(function (b) {
-      b.addEventListener('click', function () {
-        root.querySelectorAll('.vh-pack').forEach(function (o) { o.classList.remove('is-sel'); o.setAttribute('aria-checked', 'false'); });
-        b.classList.add('is-sel'); b.setAttribute('aria-checked', 'true');
-        if (cta) { cta.href = cta.getAttribute('data-base') + '?pack=' + b.getAttribute('data-pack'); cta.querySelector('span').textContent = b.getAttribute('data-cta'); }
-      });
+    function pickPack(label) {
+      root.querySelectorAll('.vh-pack').forEach(function (o) { o.classList.remove('is-sel'); });
+      label.classList.add('is-sel');
+      var r = label.querySelector('input'); if (r) r.checked = true;
+      if (cta) {
+        cta.href = cta.getAttribute('data-base') + '?pack=' + label.getAttribute('data-pack');
+        var t = cta.querySelector('span'); if (t) t.textContent = label.getAttribute('data-cta');
+      }
+    }
+    root.addEventListener('change', function (e) {
+      var l = e.target.closest && e.target.closest('.vh-pack'); if (l) pickPack(l);
+    });
+    root.addEventListener('click', function (e) {
+      var l = e.target.closest && e.target.closest('.vh-pack'); if (l) pickPack(l);
     });
 
     var els = root.querySelectorAll('.vh-reveal');
