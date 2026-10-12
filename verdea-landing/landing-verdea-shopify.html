@@ -605,7 +605,7 @@ window.WIGY_DOM = {
     wrapper.id = WRAPPER_ID;
     wrapper.innerHTML = buildHTML();
     /* Si está Kaching Bundles, la lista va ARRIBA de su widget */
-    var k = document.querySelector("kaching-bundles-block, .kaching-bundles, [class^='kaching-bundles']");
+    var k = document.querySelector("kaching-bundle, kaching-bundles-block, .kaching-bundles__block, .shopify-app-block[id*='kaching']");
     var anchor = k ? (k.closest(".shopify-app-block, [id^='shopify-block-']") || k) : form;
     anchor.parentNode.insertBefore(wrapper, anchor);
   }
@@ -645,7 +645,7 @@ window.WIGY_DOM = {
     /* Packs desactivados (los maneja Kaching): solo se aplica el estilo y
        centrado del botón; se deja un marcador oculto para cortar la espera. */
     /* En la vista local (modo prueba) no hay Kaching: se muestran nuestros packs como referencia */
-    var hasKaching = !!document.querySelector("kaching-bundles-block, .kaching-bundles, [class^='kaching-bundles']");
+    var hasKaching = !!document.querySelector("kaching-bundle, kaching-bundles-block, .kaching-bundles__block, .shopify-app-block[id*='kaching']");
     if (window.WIGY_CONFIG.mostrarPacks === false && (hasKaching || !window.WIGY_PREVIEW)) {
       var marker = document.createElement('div');
       marker.id = ID;
@@ -872,8 +872,24 @@ window.WIGY_DOM = {
        en celular con altura máxima para que no ocupe toda la pantalla */
     ".product__media-wrapper .product__media img{object-fit:contain!important}" +
     "@media(max-width:749px){.product__media-wrapper .product__media.media{padding-top:0!important;height:min(85vw,360px)!important;background:#F5F4EE}}" +
-    ".product__info-container [id^='price-template']{display:none!important}";
+    ".product__info-container [id^='price-template']{display:none!important}" +
+    ".product__info-container .product__view-details{display:none!important}";
   document.head.appendChild(style);
+})();
+
+(function() {
+  if (window.WIGY_SLUG_BLOCK || window.WIGY_PREVIEW) return;
+  /* Si el código está en una sección "Liquid personalizado" propia, esa sección
+     queda vacía (todo se ubica en otros lugares): se colapsa para no dejar un hueco. */
+  function collapseHost() {
+    var holder = document.getElementById("wigy-verdea-scripts");
+    var sec = holder && holder.closest(".shopify-section");
+    var form = window.WIGY_DOM.form();
+    if (sec && !(form && sec.contains(form)) && !sec.querySelector("[id^='wigy-']:not(#wigy-verdea-scripts)")) {
+      sec.style.setProperty("display", "none", "important");
+    }
+  }
+  setTimeout(collapseHost, 1500);
 })();
 
 (function() {
@@ -961,7 +977,22 @@ window.WIGY_DOM = {
       document.head.appendChild(fontLink);
     }
     if (document.getElementById(STYLE_ID)) return;
-    var css = "#" + WRAP_ID + "{width:100%;margin:24px 0 0 0;font-family:inherit;border-top:1px solid rgba(0,0,0,0.08)}#" + WRAP_ID + " details.accordion__details{border-bottom:1px solid rgba(0,0,0,0.08);margin:0;padding:0;background:transparent;box-shadow:none;border-radius:0;overflow:hidden}#" + WRAP_ID + " summary.accordion__summary{display:flex;justify-content:space-between;align-items:center;padding:15px 0;cursor:pointer;list-style:none;outline:none}#" + WRAP_ID + " summary.accordion__summary::-webkit-details-marker{display:none}#" + WRAP_ID + " .summary__title{display:flex;align-items:center;gap:10px}#" + WRAP_ID + " .accordion__title{margin:0;font-size:15px;font-weight:500;color:#111;letter-spacing:0.2px}#" + WRAP_ID + " .material-icon{font-size:20px;color:#2A5F35;display:flex;align-items:center;justify-content:center;font-variation-settings:'FILL' 0,'wght' 300,'GRAD' 0,'opsz' 20}#" + WRAP_ID + " .icon-caret{width:12px;height:12px;flex:0 0 auto;transition:transform 0.3s ease;color:#111}#" + WRAP_ID + " details[open] .icon-caret{transform:rotate(180deg)}#" + WRAP_ID + " .accordion__content-wrapper{padding:0 0 15px 30px}#" + WRAP_ID + " .accordion__content{font-size:14px;color:#444;line-height:1.5}#" + WRAP_ID + " .accordion__content h3{font-size:14px;font-weight:700;margin:10px 0 5px;color:#111}#" + WRAP_ID + " .accordion__content p{margin:0 0 10px 0}#" + WRAP_ID + " .accordion__content p:last-child{margin-bottom:0}#" + WRAP_ID + " .accordion__content ul{margin:0 0 0 18px;padding:0}#" + WRAP_ID + " .accordion__content li{margin-bottom:6px}";
+    var css =
+      "#" + WRAP_ID + "{width:100%!important;max-width:100%!important;margin:20px 0 0 0;font-family:inherit;border-top:1px solid rgba(0,0,0,0.08);box-sizing:border-box}" +
+      "#" + WRAP_ID + " .wmf-item{border-bottom:1px solid rgba(0,0,0,0.08);margin:0;padding:0;width:100%}" +
+      "#" + WRAP_ID + " .wmf-sum{display:flex!important;align-items:center;justify-content:space-between;gap:12px;width:100%;padding:15px 0;cursor:pointer;list-style:none;outline:none;box-sizing:border-box}" +
+      "#" + WRAP_ID + " .wmf-sum::-webkit-details-marker{display:none}" +
+      "#" + WRAP_ID + " .wmf-head{display:flex;align-items:center;gap:10px;flex:1 1 auto;min-width:0}" +
+      "#" + WRAP_ID + " .wmf-ico{flex:0 0 20px;width:20px;height:20px;color:#2A5F35;display:block}" +
+      "#" + WRAP_ID + " .wmf-title{margin:0!important;padding:0;flex:1 1 auto;min-width:0;max-width:none!important;font-size:15px!important;font-weight:500!important;line-height:1.35!important;letter-spacing:0.2px;color:#111;white-space:normal;word-break:normal;font-family:var(--vd-font-title)}" +
+      "#" + WRAP_ID + " .wmf-caret{flex:0 0 12px;width:12px;height:12px;transition:transform 0.3s ease;color:#111}" +
+      "#" + WRAP_ID + " .wmf-item[open] .wmf-caret{transform:rotate(180deg)}" +
+      "#" + WRAP_ID + " .wmf-body{padding:0 0 15px 30px;font-size:14px;color:#444;line-height:1.5}" +
+      "#" + WRAP_ID + " .wmf-body p{margin:0 0 10px 0}" +
+      "#" + WRAP_ID + " .wmf-body p:last-child{margin-bottom:0}" +
+      "#" + WRAP_ID + " .wmf-body ul{margin:0 0 0 18px;padding:0}" +
+      "#" + WRAP_ID + " .wmf-body li{margin-bottom:6px}" +
+      "@media(max-width:768px){#" + WRAP_ID + " .wmf-body{padding-left:0}}";
     var st = document.createElement("style");
     st.id = STYLE_ID;
     st.type = "text/css";
@@ -972,27 +1003,27 @@ window.WIGY_DOM = {
   function buildHTML() {
     var items = [
       {
-        icon: "local_shipping",
+        icon: '<svg class="wmf-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M1 4h13v11H1z"/><path d="M14 8h4l3 3v4h-7z"/><circle cx="5.5" cy="18" r="2"/><circle cx="17.5" cy="18" r="2"/></svg>',
         title: "Envíos",
         text: "<p>Despachamos dentro de las <strong>24 hs hábiles</strong> posteriores a la compra y enviamos a <strong>todo el país</strong>.</p><p>La entrega suele demorar entre <strong>2 y 3 días hábiles</strong>. Te mandamos el código de seguimiento por mail o WhatsApp.</p>"
       },
       {
-        icon: "eco",
+        icon: '<svg class="wmf-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>',
         title: "Modo de uso",
         text: "<p>Es una fórmula <strong>concentrada</strong>: diluí unos pocos mililitros por litro de agua según las indicaciones de la etiqueta.</p><ul><li><strong>Esquejes:</strong> para que prendan más rápido.</li><li><strong>Trasplantes:</strong> para evitar el estrés de trasplante.</li><li><strong>Riego:</strong> para raíces más fuertes en huerta y macetas.</li></ul>"
       },
       {
-        icon: "payments",
+        icon: '<svg class="wmf-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/><path d="M6 15h4"/></svg>',
         title: "Medios de Pago",
         text: "<ul><li><strong>Tarjeta de crédito:</strong> <strong>3 cuotas sin interés</strong>.</li><li><strong>Tarjeta de débito:</strong> un pago.</li><li><strong>Mercado Pago:</strong> pagá de forma 100% segura.</li></ul><p>Todos los pagos se procesan en el checkout seguro de Shopify.</p>"
       }
     ];
 
-    var caretSvg = '<svg aria-hidden="true" focusable="false" class="icon icon-caret" viewBox="0 0 10 6"><path fill-rule="evenodd" clip-rule="evenodd" d="M9.354.646a.5.5 0 00-.708 0L5 4.293 1.354.646a.5.5 0 00-.708.708l4 4a.5.5 0 00.708 0l4-4a.5.5 0 000-.708z" fill="currentColor"></path></svg>';
+    var caretSvg = '<svg aria-hidden="true" focusable="false" class="wmf-caret" viewBox="0 0 10 6"><path fill-rule="evenodd" clip-rule="evenodd" d="M9.354.646a.5.5 0 00-.708 0L5 4.293 1.354.646a.5.5 0 00-.708.708l4 4a.5.5 0 00.708 0l4-4a.5.5 0 000-.708z" fill="currentColor"></path></svg>';
 
     var html = '<div id="' + WRAP_ID + '">';
     items.forEach(function(it) {
-      html += '<details class="accordion__details"><summary class="accordion__summary"><div class="summary__title"><span class="material-icon material-symbols-outlined">' + it.icon + '</span><h2 class="h4 accordion__title">' + it.title + '</h2></div>' + caretSvg + '</summary><div class="accordion__content-wrapper"><div class="accordion__content rte">' + it.text + '</div></div></details>';
+      html += '<details class="wmf-item"><summary class="wmf-sum"><span class="wmf-head">' + it.icon + '<span class="wmf-title">' + it.title + '</span></span>' + caretSvg + '</summary><div class="wmf-body">' + it.text + '</div></details>';
     });
     html += '</div>';
     return html;
@@ -1957,7 +1988,7 @@ window.WIGY_DOM = {
       loadMaterialIcons();
 
       var STYLE_KEY = "wigy-shopify-faqs-style-standalone";
-      var css = "@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');\n#wigy-shopify-faqs-standalone{width:100%;margin-top:18px;--faq-bg:#2A5F35;--wave-color-1:rgba(107,163,66,0.3);--wave-color-2:rgba(107,163,66,0.6);--wave-color-3:#6BA342;font-family:inherit;clear:both}\n.wigy-section-divider{width:100%;line-height:0;display:block}\n.wigy-section-divider__svg{width:100%;display:block}\n.waves-animated-1{width:100%;height:25px;display:block}\n@media(min-width:768px){.waves-animated-1{height:35px}}\n.parallax1>use{animation:move-forever 25s cubic-bezier(.55,.5,.45,.5) infinite;animation-delay:-2s;animation-duration:7s}\n.parallax2>use{animation:move-forever 25s cubic-bezier(.55,.5,.45,.5) infinite;animation-delay:-3s;animation-duration:10s}\n.parallax3>use{animation:move-forever 25s cubic-bezier(.55,.5,.45,.5) infinite;animation-delay:-4s;animation-duration:13s}\n.parallax4>use{animation:move-forever 25s cubic-bezier(.55,.5,.45,.5) infinite;animation-delay:-5s;animation-duration:20s}\n@keyframes move-forever{0%{transform:translate3d(-90px,0,0)}100%{transform:translate3d(85px,0,0)}}\n.wigy-faqs-body{background-color:var(--faq-bg);padding:28px 20px 36px 20px;font-family:'Open Sans','Lato',sans-serif}\n.wigy-faqs-inner{max-width:720px;margin:0 auto}\n#wigy-shopify-faqs-standalone .wigy-faqs-title{text-align:center;font-size:12px!important;font-weight:600!important;color:#FFFFFF;margin:0 0 18px 0;letter-spacing:2px!important;text-transform:uppercase;opacity:.9}\n.wigy-accordion{border-top:1px solid rgba(255,255,255,0.15)}\n.wigy-accordion:last-child{border-bottom:1px solid rgba(255,255,255,0.15)}\n.wigy-accordion details{margin:0;padding:0}\n.wigy-accordion summary{display:flex;justify-content:space-between;align-items:center;padding:16px 0;cursor:pointer;list-style:none;outline:none;transition:opacity 0.2s ease}\n.wigy-accordion summary:hover{opacity:0.8}\n.wigy-accordion summary::-webkit-details-marker{display:none}\n.wigy-summary-title{display:flex;align-items:center;gap:12px}\n.wigy-summary-title .material-icon{font-size:22px;font-variation-settings:'FILL' 0,'wght' 300,'GRAD' 0,'opsz' 24}\n.wigy-summary-title img,.wigy-summary-title .material-icon{width:26px;height:26px;object-fit:contain;color:#FFFFFF;display:flex;align-items:center;justify-content:center}\n.wigy-summary-title img{filter:brightness(0) invert(1)}\n#wigy-shopify-faqs-standalone .wigy-accordion h2{margin:0;font-size:15px;font-weight:500!important;letter-spacing:0!important;line-height:1.4;color:#FFFFFF}\n.wigy-icon-caret{width:14px;height:14px;transition:transform 0.3s cubic-bezier(0.4,0,0.2,1);color:#FFFFFF;flex:0 0 auto}\n.wigy-accordion details[open] summary .wigy-icon-caret{transform:rotate(180deg)}\n.wigy-accordion-content{font-size:14.5px;color:rgba(255,255,255,0.88);line-height:1.6;padding:0 0 18px 38px}\n@media(max-width:768px){.wigy-faqs-body{padding:20px 16px 28px 16px}#wigy-shopify-faqs-standalone .wigy-accordion h2{font-size:14px}.wigy-accordion-content{padding-left:0}}\n.wigy-accordion-content p{margin:0 0 10px 0}\n.wigy-accordion-content p:last-child{margin-bottom:0}\n.wigy-accordion-content strong{color:#FFFFFF;font-weight:800}";
+      var css = "@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');\n#wigy-shopify-faqs-standalone{width:100%;margin-top:18px;--faq-bg:#2A5F35;--wave-color-1:rgba(107,163,66,0.3);--wave-color-2:rgba(107,163,66,0.6);--wave-color-3:#6BA342;font-family:inherit;clear:both}\n.wigy-section-divider{width:100%;line-height:0;display:block}\n.wigy-section-divider__svg{width:100%;display:block}\n.waves-animated-1{width:100%;height:25px;display:block}\n@media(min-width:768px){.waves-animated-1{height:35px}}\n.parallax1>use{animation:move-forever 25s cubic-bezier(.55,.5,.45,.5) infinite;animation-delay:-2s;animation-duration:7s}\n.parallax2>use{animation:move-forever 25s cubic-bezier(.55,.5,.45,.5) infinite;animation-delay:-3s;animation-duration:10s}\n.parallax3>use{animation:move-forever 25s cubic-bezier(.55,.5,.45,.5) infinite;animation-delay:-4s;animation-duration:13s}\n.parallax4>use{animation:move-forever 25s cubic-bezier(.55,.5,.45,.5) infinite;animation-delay:-5s;animation-duration:20s}\n@keyframes move-forever{0%{transform:translate3d(-90px,0,0)}100%{transform:translate3d(85px,0,0)}}\n.wigy-faqs-body{background-color:var(--faq-bg);padding:28px 20px 36px 20px;font-family:'Open Sans','Lato',sans-serif}\n.wigy-faqs-inner{max-width:720px;margin:0 auto}\n#wigy-shopify-faqs-standalone .wigy-faqs-title{text-align:center;font-size:12px!important;font-weight:600!important;color:#FFFFFF;margin:0 0 18px 0;letter-spacing:2px!important;text-transform:uppercase;opacity:.9}\n.wigy-accordion{border-top:1px solid rgba(255,255,255,0.15)}\n.wigy-accordion:last-child{border-bottom:1px solid rgba(255,255,255,0.15)}\n.wigy-accordion details{margin:0;padding:0}\n.wigy-accordion summary{display:flex;justify-content:space-between;align-items:center;padding:16px 0;cursor:pointer;list-style:none;outline:none;transition:opacity 0.2s ease}\n.wigy-accordion summary:hover{opacity:0.8}\n.wigy-accordion summary::-webkit-details-marker{display:none}\n.wigy-summary-title{display:flex;align-items:center;gap:12px}\n.wigy-summary-title{min-width:0;flex:1 1 auto}\n.wigy-summary-title .material-icon{font-size:22px;font-variation-settings:'FILL' 0,'wght' 300,'GRAD' 0,'opsz' 24;flex:0 0 26px;overflow:hidden;white-space:nowrap}\n.wigy-summary-title img,.wigy-summary-title .material-icon{width:26px;height:26px;object-fit:contain;color:#FFFFFF;display:flex;align-items:center;justify-content:center}\n.wigy-summary-title img{filter:brightness(0) invert(1)}\n#wigy-shopify-faqs-standalone .wigy-accordion h2{margin:0;font-size:15px;font-weight:500!important;letter-spacing:0!important;line-height:1.4;color:#FFFFFF}\n.wigy-icon-caret{width:14px;height:14px;transition:transform 0.3s cubic-bezier(0.4,0,0.2,1);color:#FFFFFF;flex:0 0 auto}\n.wigy-accordion details[open] summary .wigy-icon-caret{transform:rotate(180deg)}\n.wigy-accordion-content{font-size:14.5px;color:rgba(255,255,255,0.88);line-height:1.6;padding:0 0 18px 38px}\n@media(max-width:768px){.wigy-faqs-body{padding:20px 16px 28px 16px}#wigy-shopify-faqs-standalone .wigy-accordion h2{font-size:14px}.wigy-accordion-content{padding-left:0}}\n.wigy-accordion-content p{margin:0 0 10px 0}\n.wigy-accordion-content p:last-child{margin-bottom:0}\n.wigy-accordion-content strong{color:#FFFFFF;font-weight:800}";
 
       if (!document.querySelector('[data-wigy-style="' + STYLE_KEY + '"]')) {
         var style = document.createElement("style");
@@ -2135,7 +2166,7 @@ window.WIGY_DOM = {
         var selO = document.querySelector("#wigy-premium-bundles .kb-bar.sel .kb-op");
         return { price: selP.textContent.trim(), old: selO ? selO.textContent.trim() : "" };
       }
-      var root = document.querySelector("kaching-bundles-block, .kaching-bundles, [class^='kaching-bundles']");
+      var root = document.querySelector("kaching-bundle, kaching-bundles-block, .kaching-bundles__block, .shopify-app-block[id*='kaching']");
       if (root) {
         var sel = root.querySelector("[class*='bar--selected'], [class*='bar'][class*='selected'], [class*='bar'][aria-checked='true']");
         if (!sel) {
@@ -2148,7 +2179,12 @@ window.WIGY_DOM = {
       var pEl = document.querySelector(".js-price-display") ||
                 document.querySelector("[data-product-price]") ||
                 document.querySelector(".product__info-container .price-item--sale, .product__info-container .price-item--regular");
-      return { price: pEl ? pEl.textContent.trim() : "", old: "" };
+      if (pEl) return { price: pEl.textContent.trim(), old: "" };
+      try {
+        var cents = window.ShopifyAnalytics.meta.product.variants[0].price;
+        return { price: "$" + (cents / 100).toLocaleString("es-AR", { minimumFractionDigits: 2, maximumFractionDigits: 2 }), old: "" };
+      } catch (e) {}
+      return { price: "", old: "" };
     }
     var initial = getPrices();
     var priceText = initial.price;
