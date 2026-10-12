@@ -1,17 +1,24 @@
 <meta charset="utf-8">
+<!-- {% raw %} (Liquid: no interpretar este archivo; no borrar) -->
 <!-- ================================================================
      VERDEA — HUERTA DOMÉSTICA · LANDING PAGE PARA SHOPIFY
      "Tu rincón verde, tu momento de paz"
 
      📌 INSTRUCCIONES (Shopify):
-     1. Shopify Admin → Tienda online → Temas → Personalizar.
-     2. Abrí la plantilla de producto (ideal: una plantilla propia,
-        ej. "product.verdea") y agregá un bloque "Liquid personalizado"
-        (Custom Liquid) dentro de "Información del producto".
-     3. Pegá TODO este contenido en ese bloque y guardá.
-     4. Modificá SOLO la sección "PANEL DE CONFIGURACIÓN" de abajo
-        (precios, imágenes, testimonios, mensajes del banner).
-     5. Reemplazá cada marcador ⚠️...⚠️ por el dato/URL definitivo.
+     Este archivo pesa ~160 KB y el bloque "Liquid personalizado" acepta
+     como máximo ~50 KB, por eso se instala como SNIPPET del tema:
+     1. Shopify Admin → Tienda online → Temas → (⋯) → Editar código.
+     2. En la carpeta "Snippets" → "Agregar un nuevo snippet" →
+        nombre: verdea-landing  (se crea snippets/verdea-landing.liquid).
+     3. Pegá TODO este contenido en ese snippet y guardá.
+     4. Tienda online → Temas → Personalizar → plantilla del producto
+        → agregá un bloque "Liquid personalizado" dentro de
+        "Información del producto" y escribí SOLO esta línea:
+            {% render 'verdea-landing' %}
+     5. Para cambios futuros, editá SOLO el "PANEL DE CONFIGURACIÓN"
+        dentro del snippet (precios, imágenes, testimonios, banner).
+     6. Reemplazá cada marcador ⚠️...⚠️ por el dato/URL definitivo.
+     Vista local: abrí este archivo con doble clic (modo prueba).
 
      🎨 Identidad VERDEA:
         Verde Principal #2A5F35 · Verde Vivo #6BA342 · Tierra #4E382A
@@ -210,6 +217,12 @@ window.WIGY_CONFIG = {
       nombre: "Sofía. L",
       titulo: "Súper fácil de usar y efectivo!!",
       texto: "Recién estoy arrancando con mis primeras plantas y tenía miedo de mandarme una macana. Con este enraizante fue facilísimo, no quema nada y los resultados se re notan. Más que feliz."
+    },
+    {
+      foto: "⚠️IMAGEN-TESTIMONIO-MARIANA⚠️",
+      nombre: "Mariana. G",
+      titulo: "Muy buena compra, súper recomendable",
+      texto: "Aproveché el pack de 3 para tener el envío gratis y el descuento del 35%. Tenía un par de plantas medio trabadas con el crecimiento y la verdad que se nota un montón la diferencia desde que lo empecé a usar. La guía que mandan de regalo también suma un montón."
     }
   ],
 
@@ -1761,7 +1774,11 @@ window.WIGY_DOM = {
     });
 
     var cardsHTML = cards.map(function(c) {
-      return '<li class="splide__slide"><div class="multicolumn-card"><div class="multicolumn-card__image-wrapper"><img src="' + c.img + '" alt="' + c.alt + '" loading="eager" class="multicolumn-card__image"></div><div class="multicolumn-card__info">' + STARS_5 + '<h3>' + c.title + '</h3><div class="rte"><p>' + c.text + '</p></div><p class="testimonial-card__author">' + c.author + '</p><span class="testimonial-verified">' + VERIFIED_SVG + ' Compra verificada</span></div></div></li>';
+      var hasImg = c.img && c.img.indexOf('\u26A0\uFE0F') === -1;
+      var media = hasImg
+        ? '<img src="' + c.img + '" alt="' + c.alt + '" loading="eager" class="multicolumn-card__image">'
+        : '<div class="multicolumn-card__image" style="display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#2A5F35,#6BA342);color:#fff;font-size:72px;font-weight:700;font-family:var(--vd-font-title)">' + (c.author || '?').charAt(0).toUpperCase() + '</div>';
+      return '<li class="splide__slide"><div class="multicolumn-card"><div class="multicolumn-card__image-wrapper">' + media + '</div><div class="multicolumn-card__info">' + STARS_5 + '<h3>' + c.title + '</h3><div class="rte"><p>' + c.text + '</p></div><p class="testimonial-card__author">' + c.author + '</p><span class="testimonial-verified">' + VERIFIED_SVG + ' Compra verificada</span></div></div></li>';
     }).join('');
 
     var dotsHTML = cards.map(function(_, i) {
@@ -2521,3 +2538,4 @@ window.WIGY_DOM = {
 })();
 </script>
 </div>
+<!-- {% endraw %} -->
