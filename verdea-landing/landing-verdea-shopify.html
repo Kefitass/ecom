@@ -83,7 +83,8 @@ window.WIGY_CONFIG = {
   // ============================================================
   rating: {
     puntuacion: 4.9,
-    cantidadOpiniones: 54
+    cantidadOpiniones: 54,
+    clientes: 1083   // 👥 Total de clientes (se muestra como "+1.083 clientes felices"). 0 = ocultar
   },
 
   // ============================================================
@@ -553,7 +554,7 @@ window.WIGY_DOM = {
     el.innerHTML =
       '<div class="wr-stars">' + buildStars(cfg.puntuacion) + '</div>' +
       '<span class="wr-score">' + cfg.puntuacion.toFixed(1) + '</span>' +
-      '<span class="wr-count"><span>' + cfg.cantidadOpiniones + ' opiniones de clientes</span></span>';
+      '<span class="wr-count"><span>' + (cfg.clientes ? '+' + Number(cfg.clientes).toLocaleString("es-AR") + ' clientes felices' : cfg.cantidadOpiniones + ' opiniones de clientes') + '</span></span>';
     titleEl.insertAdjacentElement("afterend", el);
   }
 
@@ -1856,7 +1857,7 @@ window.WIGY_DOM = {
 
     var verifiedBarSvg = '<svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-1.09 14.41l-3.5-3.5 1.41-1.41 2.09 2.09 5.18-5.18 1.41 1.41-6.59 6.59z"/></svg>';
 
-    return '<h2 class="title-with-highlight">🌱 Nuestros clientes: raíces más fuertes, plantas más sanas</h2><div class="wigy-verified-clients-bar">' + verifiedBarSvg + ' Clientes verificados</div><div class="splide-wrapper"><button class="splide__arrow splide__arrow--prev" type="button">' + ARROW_SVG + '</button><button class="splide__arrow splide__arrow--next" type="button">' + ARROW_SVG + '</button><div class="splide__track"><ul class="splide__list">' + cardsHTML + '</ul></div><ul class="splide__pagination">' + dotsHTML + '</ul></div>';
+    return '<h2 class="title-with-highlight">🌱 Nuestros clientes: raíces más fuertes, plantas más sanas</h2><div class="wigy-verified-clients-bar">' + verifiedBarSvg + (window.WIGY_CONFIG.rating && window.WIGY_CONFIG.rating.clientes ? ' +' + Number(window.WIGY_CONFIG.rating.clientes).toLocaleString("es-AR") + ' clientes verificados' : ' Clientes verificados') + '</div><div class="splide-wrapper"><button class="splide__arrow splide__arrow--prev" type="button">' + ARROW_SVG + '</button><button class="splide__arrow splide__arrow--next" type="button">' + ARROW_SVG + '</button><div class="splide__track"><ul class="splide__list">' + cardsHTML + '</ul></div><ul class="splide__pagination">' + dotsHTML + '</ul></div>';
   }
 
   function initTestimonialsSlider(wrapper) {
