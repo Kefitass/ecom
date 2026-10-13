@@ -1,0 +1,207 @@
+VERDEA · PROMPTS PARA EL CARRUSEL "ANTES Y DESPUÉS" POR DOLOR (12 FOTOS)
+==========================================================================
+
+CÓMO USARLOS
+- Son 6 pares (ANTES + DESPUÉS), uno por cada dolor del carrusel.
+- Generá primero la foto ANTES de cada par.
+- Para la foto DESPUÉS, en el MISMO chat:
+    1) adjuntá la foto ANTES que acabás de generar (para que copie la escena), y
+    2) adjuntá la foto de tu producto (el frasco VERDEA).
+- Formato: vertical 4:5 en todas (en la tarjeta van lado a lado, cada una ocupa media tarjeta).
+- Lo más importante del par: MISMO ángulo, MISMA maceta/frasco, MISMO fondo y MISMA luz.
+  Lo único que cambia es el estado de la planta (y en el DESPUÉS aparece el frasco VERDEA al costado).
+- Si en el DESPUÉS te cambia el lugar, la maceta o el encuadre, respondé:
+  "Mantené exactamente la misma escena, maceta, encuadre y luz que la imagen de referencia; solo cambiá el estado de la planta".
+- Si la etiqueta del frasco sale con letras raras, descartala.
+
+
+BLOQUE DE ESTILO (ya está incluido en cada prompt)
+Foto real tomada con un celular de gama media, luz natural, colores reales sin filtro,
+leve ruido de celular, encuadre casero pero prolijo, sin iluminación de estudio,
+sin aspecto de render, sin texto ni logos agregados.
+
+
+==========================================================================
+PAR 1 · ESQUEJES QUE NO ENRAÍZAN
+==========================================================================
+
+--- 1A · ANTES ---
+Foto real vertical 4:5 tomada con un celular de gama media. Primer plano de un frasco de
+vidrio reciclado (de mermelada, sin etiqueta) con agua algo turbia y amarillenta, apoyado
+sobre una mesada de madera clara junto a una ventana con luz natural de mañana. Adentro,
+dos esquejes de potus: el tallo sumergido está marrón oscuro, blando y podrido en la
+punta, sin ninguna raíz; una de las hojas tiene bordes amarillos. Se ven algunas
+partículas flotando en el agua. Fondo desenfocado: azulejos blancos y una pava.
+Luz natural, colores reales, leve ruido de celular, sin texto, sin aspecto de render.
+
+--- 1B · DESPUÉS (adjuntá la foto 1A + la foto del producto) ---
+Usá la imagen de referencia de la escena (la foto ANTES) y mantené EXACTAMENTE el mismo
+frasco de vidrio, la misma mesada, el mismo encuadre, el mismo ángulo y la misma luz de
+ventana. Lo único que cambia: el agua está limpia y transparente, y los dos esquejes de
+potus tienen una mata abundante de raíces blancas, finas y sanas, bien visibles a través
+del vidrio; las hojas están verdes, firmes y brillantes.
+Agregá, apoyado en la mesada al costado derecho del frasco de vidrio (sin taparlo), el
+frasco VERDEA de la imagen del producto, de frente.
+INTEGRACIÓN DEL PRODUCTO: idéntico a la referencia (forma, color, tapa y etiqueta, sin
+inventar texto). Iluminado por la misma luz de ventana: reflejo suave del lado de la
+ventana, sombra hacia el lado opuesto en la misma dirección que la sombra del frasco de
+vidrio, sombra de contacto fina en la base. Mismo grano y balance de color que la escena.
+Foto real de celular, sin texto agregado, sin aspecto de render.
+
+
+==========================================================================
+PAR 2 · ESTRÉS Y GOLPE DE TRASPLANTE
+==========================================================================
+
+--- 2A · ANTES ---
+Foto real vertical 4:5 tomada con un celular de gama media. Patio con baldosas coloradas,
+luz de tarde suave. En primer plano, una maceta de barro mediana recién trasplantada con
+tierra negra húmeda y removida; adentro, una planta de tomate joven completamente caída:
+el tallo doblado hacia un costado, las hojas mustias, colgando y algunas amarillentas.
+Al lado de la maceta, sobre las baldosas, la maceta chica de plástico negro vacía de la
+que salió y un poco de tierra desparramada. Fondo desenfocado: pared de ladrillo y otras
+macetas. Luz natural, colores reales, leve ruido de celular, sin texto, sin aspecto de render.
+
+--- 2B · DESPUÉS (adjuntá la foto 2A + la foto del producto) ---
+Usá la imagen de referencia de la escena y mantené EXACTAMENTE la misma maceta de barro,
+las mismas baldosas, el mismo fondo, el mismo encuadre, ángulo y luz. Lo único que cambia:
+la planta de tomate está erguida, firme y recta, con hojas verdes, abiertas y sanas, y
+algún brote nuevo arriba. La maceta chica de plástico ya no está.
+Agregá, apoyado sobre las baldosas al costado de la maceta, el frasco VERDEA de la imagen
+del producto, de frente.
+INTEGRACIÓN DEL PRODUCTO: idéntico a la referencia (forma, color, tapa y etiqueta, sin
+inventar texto). Misma luz de tarde que la maceta: reflejo suave y cálido del mismo lado,
+sombra proyectada sobre las baldosas en la misma dirección que la sombra de la maceta,
+sombra de contacto en la base. Mismo grano y balance de color.
+Foto real de celular, sin texto agregado, sin aspecto de render.
+
+
+==========================================================================
+PAR 3 · HOJAS CAÍDAS O DECOLORADAS
+==========================================================================
+
+--- 3A · ANTES ---
+Foto real vertical 4:5 tomada con un celular de gama media. Una planta de interior
+(filodendro de hojas verdes medianas) en una maceta de cerámica blanca, apoyada sobre un
+estante de madera junto a una ventana con cortina de lino, luz natural suave de mañana.
+La planta se ve débil: varias hojas amarillas con manchas marrones, algunas caídas y
+colgando, y dos hojas secas apoyadas sobre el estante al lado de la maceta. Fondo
+desenfocado: pared blanca y un cuadro. Luz natural, colores reales, leve ruido de
+celular, sin texto, sin aspecto de render.
+
+--- 3B · DESPUÉS (adjuntá la foto 3A + la foto del producto) ---
+Usá la imagen de referencia de la escena y mantené EXACTAMENTE la misma maceta de cerámica
+blanca, el mismo estante, la misma ventana, el mismo encuadre, ángulo y luz. Lo único que
+cambia: la planta está frondosa, con todas las hojas verde intenso, brillantes, firmes y
+levantadas, y un par de hojas nuevas más claras saliendo. Ya no hay hojas secas en el estante.
+Agregá, apoyado en el estante al costado de la maceta, el frasco VERDEA de la imagen del
+producto, de frente.
+INTEGRACIÓN DEL PRODUCTO: idéntico a la referencia (forma, color, tapa y etiqueta, sin
+inventar texto). Misma luz de ventana: reflejo suave del lado de la ventana, sombra hacia
+el lado opuesto en la misma dirección que la sombra de la maceta, sombra de contacto en
+la base. Mismo grano y balance de color.
+Foto real de celular, sin texto agregado, sin aspecto de render.
+
+
+==========================================================================
+PAR 4 · CRECIMIENTO LENTO
+==========================================================================
+
+--- 4A · ANTES ---
+Foto real vertical 4:5 tomada con un celular de gama media. Un cantero de madera elevado
+en una huerta de patio, mañana soleada. En primer plano, una fila de tres plantas de
+lechuga muy chiquitas y raquíticas para su edad, con pocas hojas finas y pálidas, mucha
+tierra negra a la vista entre ellas. Un cartelito de palito de helado clavado en la
+tierra (sin texto legible). Fondo desenfocado: alambrado y otras plantas.
+Luz natural, colores reales, leve ruido de celular, sin texto, sin aspecto de render.
+
+--- 4B · DESPUÉS (adjuntá la foto 4A + la foto del producto) ---
+Usá la imagen de referencia de la escena y mantené EXACTAMENTE el mismo cantero de madera,
+el mismo palito de helado, el mismo fondo, el mismo encuadre, ángulo y luz. Lo único que
+cambia: las tres lechugas están grandes, frondosas y de un verde intenso, cubriendo casi
+toda la tierra, con hojas grandes y crocantes.
+Agregá, apoyado sobre el borde de madera del cantero, el frasco VERDEA de la imagen del
+producto, de frente.
+INTEGRACIÓN DEL PRODUCTO: idéntico a la referencia (forma, color, tapa y etiqueta, sin
+inventar texto). Misma luz de sol de mañana: reflejo del mismo lado que el sol, sombra
+corta en la misma dirección que las sombras de las lechugas, sombra de contacto en la
+base. Mismo grano y balance de color.
+Foto real de celular, sin texto agregado, sin aspecto de render.
+
+
+==========================================================================
+PAR 5 · MALA ABSORCIÓN DE AGUA Y NUTRIENTES (raíces)
+==========================================================================
+
+--- 5A · ANTES ---
+Foto real vertical 4:5 tomada con un celular de gama media. Una mano (piel trigueña,
+uñas cortas con un poco de tierra) sostiene un plantín recién sacado de su maceta de
+plástico, mostrando el pan de tierra a la cámara: casi no tiene raíces, apenas unas
+pocas finitas, cortas y marrones, la tierra se desarma. Las hojas del plantín están
+pálidas. Fondo desenfocado: mesa de trabajo de madera con macetas.
+Luz natural de día nublado, suave, colores reales, leve ruido de celular, sin texto,
+sin aspecto de render.
+
+--- 5B · DESPUÉS (adjuntá la foto 5A + la foto del producto) ---
+Usá la imagen de referencia de la escena y mantené EXACTAMENTE la misma mano, la misma
+pose, el mismo fondo, el mismo encuadre, ángulo y luz. Lo único que cambia: el pan de
+tierra está completamente envuelto por raíces blancas, abundantes, finas y sanas que lo
+sostienen firme, y las hojas del plantín están verde intenso.
+Agregá, apoyado sobre la mesa de trabajo detrás de la mano (un poco desenfocado, pero
+reconocible), el frasco VERDEA de la imagen del producto, de frente.
+INTEGRACIÓN DEL PRODUCTO: idéntico a la referencia (forma, color, tapa y etiqueta, sin
+inventar texto). Misma luz suave de día nublado: reflejo amplio y tenue, sombra difusa,
+sombra de contacto en la base. Mismo desenfoque que el resto del fondo, mismo grano y
+balance de color.
+Foto real de celular, sin texto agregado, sin aspecto de render.
+
+
+==========================================================================
+PAR 6 · PLANTAS DE INTERIOR DÉBILES
+==========================================================================
+
+--- 6A · ANTES ---
+Foto real vertical 4:5 tomada con un celular de gama media. Rincón de un living de
+departamento con piso de madera, luz natural de tarde entrando de costado. En una maceta
+de fibra gris, una monstera joven débil: pocas hojas, tallos largos, finos y doblados,
+hojas chicas sin los cortes característicos y una hoja amarilla. Al lado, un sillón con
+una manta tejida, desenfocado. Luz natural, colores reales, leve ruido de celular,
+sin texto, sin aspecto de render.
+
+--- 6B · DESPUÉS (adjuntá la foto 6A + la foto del producto) ---
+Usá la imagen de referencia de la escena y mantené EXACTAMENTE la misma maceta de fibra
+gris, el mismo rincón, el mismo sillón, el mismo encuadre, ángulo y luz. Lo único que
+cambia: la monstera está frondosa y firme, con más hojas, grandes, verde intenso y con
+sus cortes característicos, y una hoja nueva desenrollándose.
+Agregá, apoyado en el piso al costado de la maceta, el frasco VERDEA de la imagen del
+producto, de frente.
+INTEGRACIÓN DEL PRODUCTO: idéntico a la referencia (forma, color, tapa y etiqueta, sin
+inventar texto). Misma luz de tarde de costado: reflejo cálido del lado de la ventana,
+sombra larga sobre el piso en la misma dirección que la sombra de la maceta, sombra de
+contacto en la base. Mismo grano y balance de color.
+Foto real de celular, sin texto agregado, sin aspecto de render.
+
+
+==========================================================================
+TEXTOS DE CADA TARJETA (para el carrusel)
+==========================================================================
+1. Esquejes que no enraízan
+   "Semanas en el agua y terminan podridos."
+   ✓ Raíces nuevas, fuertes y blancas
+2. Golpe de trasplante
+   "La pasás a una maceta más grande y se cae."
+   ✓ Se adapta sin decaerse
+3. Hojas caídas o decoloradas
+   "Hojas amarillas que se caen una tras otra."
+   ✓ Hojas verdes y firmes
+4. Crecimiento lento
+   "Pasan las semanas y no crece."
+   ✓ Plantas que arrancan y se ponen frondosas
+5. Mala absorción de agua y nutrientes
+   "Le das de todo, pero no lo aprovecha."
+   ✓ Más raíz para absorber más
+6. Plantas de interior débiles
+   "Tallos flojos y pocas hojas."
+   ✓ Plantas de interior llenas de vida
+
+Debajo del carrusel, en letra muy chica y gris: "Imágenes ilustrativas."
