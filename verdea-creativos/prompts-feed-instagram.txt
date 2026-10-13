@@ -22,20 +22,10 @@ CÓMO USARLOS
    le pongo yo el texto exacto con la tipografía de la tienda.
 
 -----------------------------------------------------------------
-BLOQUE DE MARCA (va al final de cada prompt; ya está incluido)
+NOTA: cada prompt ya trae al final las indicaciones de tipografía, colores de la marca,
+integración del frasco y estilo. Copiá cada prompt COMPLETO, desde el título de la
+placa hasta "Formato vertical".
 -----------------------------------------------------------------
-TEXTO Y DISEÑO: tipografía sans serif redondeada y gruesa (estilo Poppins Bold) para
-títulos y Poppins Regular para textos chicos. Colores: blanco cremoso #F5F4EE sobre
-fotos, verde oscuro #2A5F35 sobre fondos claros, detalles en naranja #E88031. Texto con
-mucho aire, bien legible en celular, sombra muy suave si va sobre foto. Escribí cada
-palabra exactamente como está, con sus tildes, sin agregar otro texto ni logos.
-INTEGRACIÓN DEL PRODUCTO (si aparece el frasco): idéntico a la imagen adjunta (forma,
-color, tapa y etiqueta, sin inventar letras), apoyado físicamente en la escena, con la
-misma luz que el resto: reflejo del mismo lado que la fuente de luz, sombra en la misma
-dirección que las demás, sombra de contacto en la base, mismo grano y balance de color.
-ESTILO: fotografía publicitaria hiperrealista, luz natural, texturas reales, colores
-cálidos y naturales, nitidez alta, profundidad de campo suave, sin aspecto de render
-ni de ilustración. Formato vertical 4:5.
 
 
 =================================================================
@@ -51,7 +41,18 @@ escala), algunas con gotas de agua, transmitiendo "un frasco alcanza para todas 
 Hojas verdes sueltas y un poco de tierra negra decorando.
 TEXTO: arriba, centrado, grande, en verde oscuro #2A5F35: "1 frasco = hasta 80 litros"
 seguido de un emoji de gota de agua 💧. Debajo, chico: "Deslizá →".
-[+ BLOQUE DE MARCA]
+TEXTO Y DISEÑO: tipografía sans serif redondeada y gruesa (estilo Poppins Bold) para
+títulos y Poppins Regular para textos chicos. Colores: blanco cremoso #F5F4EE sobre
+fotos, verde oscuro #2A5F35 sobre fondos claros, detalles en naranja #E88031. Texto con
+mucho aire, bien legible en celular, sombra muy suave si va sobre foto. Escribí cada
+palabra exactamente como está, con sus tildes, sin agregar otro texto ni logos.
+INTEGRACIÓN DEL PRODUCTO (si aparece el frasco): idéntico a la imagen adjunta (forma,
+color, tapa y etiqueta, sin inventar letras), apoyado físicamente en la escena, con la
+misma luz que el resto: reflejo del mismo lado que la fuente de luz, sombra en la misma
+dirección que las demás, sombra de contacto en la base, mismo grano y balance de color.
+ESTILO: fotografía publicitaria hiperrealista, luz natural, texturas reales, colores
+cálidos y naturales, nitidez alta, profundidad de campo suave, sin aspecto de render
+ni de ilustración. Formato vertical 4:5.
 
 --- 2.2 · ¿POR QUÉ RINDE TANTO? ---
 Fotografía publicitaria hiperrealista vertical 4:5, primerísimo plano: la tapa
@@ -60,7 +61,18 @@ translúcido, sostenida por dedos de mujer sobre una regadera llena de agua cris
 una gota a punto de caer. Fondo desenfocado de plantas con luz cálida.
 TEXTO: arriba, en blanco cremoso: "¿Por qué rinde tanto?". Abajo, en dos líneas:
 "Es CONCENTRADO" (grande) y "Usás solo 3 a 4 ml por litro de agua" (chico).
-[+ BLOQUE DE MARCA]
+TEXTO Y DISEÑO: tipografía sans serif redondeada y gruesa (estilo Poppins Bold) para
+títulos y Poppins Regular para textos chicos. Colores: blanco cremoso #F5F4EE sobre
+fotos, verde oscuro #2A5F35 sobre fondos claros, detalles en naranja #E88031. Texto con
+mucho aire, bien legible en celular, sombra muy suave si va sobre foto. Escribí cada
+palabra exactamente como está, con sus tildes, sin agregar otro texto ni logos.
+INTEGRACIÓN DEL PRODUCTO (si aparece el frasco): idéntico a la imagen adjunta (forma,
+color, tapa y etiqueta, sin inventar letras), apoyado físicamente en la escena, con la
+misma luz que el resto: reflejo del mismo lado que la fuente de luz, sombra en la misma
+dirección que las demás, sombra de contacto en la base, mismo grano y balance de color.
+ESTILO: fotografía publicitaria hiperrealista, luz natural, texturas reales, colores
+cálidos y naturales, nitidez alta, profundidad de campo suave, sin aspecto de render
+ni de ilustración. Formato vertical 4:5.
 
 --- 2.3 · EQUIVALENCIAS ---
 Fotografía publicitaria hiperrealista vertical 4:5. Un balcón luminoso lleno de
@@ -71,7 +83,18 @@ título "Con 1 solo frasco:" y tres renglones con su emoji:
 "💧 Unas 15 regaderas de 5 litros"
 "🪴 Más de 60 macetas en un tratamiento completo"
 "🌱 Meses de esquejes"
-[+ BLOQUE DE MARCA]
+TEXTO Y DISEÑO: tipografía sans serif redondeada y gruesa (estilo Poppins Bold) para
+títulos y Poppins Regular para textos chicos. Colores: blanco cremoso #F5F4EE sobre
+fotos, verde oscuro #2A5F35 sobre fondos claros, detalles en naranja #E88031. Texto con
+mucho aire, bien legible en celular, sombra muy suave si va sobre foto. Escribí cada
+palabra exactamente como está, con sus tildes, sin agregar otro texto ni logos.
+INTEGRACIÓN DEL PRODUCTO (si aparece el frasco): idéntico a la imagen adjunta (forma,
+color, tapa y etiqueta, sin inventar letras), apoyado físicamente en la escena, con la
+misma luz que el resto: reflejo del mismo lado que la fuente de luz, sombra en la misma
+dirección que las demás, sombra de contacto en la base, mismo grano y balance de color.
+ESTILO: fotografía publicitaria hiperrealista, luz natural, texturas reales, colores
+cálidos y naturales, nitidez alta, profundidad de campo suave, sin aspecto de render
+ni de ilustración. Formato vertical 4:5.
 
 --- 2.4 · PRECIO POR LITRO (adjuntá la foto del producto) ---
 Fotografía publicitaria hiperrealista vertical 4:5. El frasco VERDEA de pie sobre una
@@ -80,7 +103,18 @@ apenas ámbar, con una etiqueta de papel kraft atada con hilo (sin texto). Fondo
 liso, luz suave de ventana.
 TEXTO arriba, en verde oscuro: "Sale menos de $1.000" (grande) "por litro preparado"
 (mediano). Abajo, chico: "*a precio de 1 frasco".
-[+ BLOQUE DE MARCA]
+TEXTO Y DISEÑO: tipografía sans serif redondeada y gruesa (estilo Poppins Bold) para
+títulos y Poppins Regular para textos chicos. Colores: blanco cremoso #F5F4EE sobre
+fotos, verde oscuro #2A5F35 sobre fondos claros, detalles en naranja #E88031. Texto con
+mucho aire, bien legible en celular, sombra muy suave si va sobre foto. Escribí cada
+palabra exactamente como está, con sus tildes, sin agregar otro texto ni logos.
+INTEGRACIÓN DEL PRODUCTO (si aparece el frasco): idéntico a la imagen adjunta (forma,
+color, tapa y etiqueta, sin inventar letras), apoyado físicamente en la escena, con la
+misma luz que el resto: reflejo del mismo lado que la fuente de luz, sombra en la misma
+dirección que las demás, sombra de contacto en la base, mismo grano y balance de color.
+ESTILO: fotografía publicitaria hiperrealista, luz natural, texturas reales, colores
+cálidos y naturales, nitidez alta, profundidad de campo suave, sin aspecto de render
+ni de ilustración. Formato vertical 4:5.
 
 --- 2.5 · CIERRE CON OFERTA (adjuntá la foto del producto) ---
 Fotografía publicitaria hiperrealista vertical 4:5. Dos frascos VERDEA juntos, de pie,
@@ -90,7 +124,18 @@ apoyada inclinada.
 TEXTO: arriba, grande en blanco cremoso: "Llevá 2 y ahorrá 30%". Debajo, en una
 etiqueta redondeada naranja #E88031 con letras blancas: "+ GUÍA DE REGALO 🎁".
 Abajo de todo, chico: "Link en el perfil".
-[+ BLOQUE DE MARCA]
+TEXTO Y DISEÑO: tipografía sans serif redondeada y gruesa (estilo Poppins Bold) para
+títulos y Poppins Regular para textos chicos. Colores: blanco cremoso #F5F4EE sobre
+fotos, verde oscuro #2A5F35 sobre fondos claros, detalles en naranja #E88031. Texto con
+mucho aire, bien legible en celular, sombra muy suave si va sobre foto. Escribí cada
+palabra exactamente como está, con sus tildes, sin agregar otro texto ni logos.
+INTEGRACIÓN DEL PRODUCTO (si aparece el frasco): idéntico a la imagen adjunta (forma,
+color, tapa y etiqueta, sin inventar letras), apoyado físicamente en la escena, con la
+misma luz que el resto: reflejo del mismo lado que la fuente de luz, sombra en la misma
+dirección que las demás, sombra de contacto en la base, mismo grano y balance de color.
+ESTILO: fotografía publicitaria hiperrealista, luz natural, texturas reales, colores
+cálidos y naturales, nitidez alta, profundidad de campo suave, sin aspecto de render
+ni de ilustración. Formato vertical 4:5.
 
 
 =================================================================
@@ -105,7 +150,18 @@ tarde cálida. En primer plano, una mano de mujer sostiene el frasco VERDEA de f
 con la tapa dosificadora en la otra mano, como a punto de medir. Fondo desenfocado.
 TEXTO en el centro de la imagen (zona que se ve en el recorte cuadrado), grande en
 blanco cremoso: "Cómo usar tu enraizante" y abajo "en 15 segundos ⏱".
-[+ BLOQUE DE MARCA, pero formato vertical 9:16]
+TEXTO Y DISEÑO: tipografía sans serif redondeada y gruesa (estilo Poppins Bold) para
+títulos y Poppins Regular para textos chicos. Colores: blanco cremoso #F5F4EE sobre
+fotos, verde oscuro #2A5F35 sobre fondos claros, detalles en naranja #E88031. Texto con
+mucho aire, bien legible en celular, sombra muy suave si va sobre foto. Escribí cada
+palabra exactamente como está, con sus tildes, sin agregar otro texto ni logos.
+INTEGRACIÓN DEL PRODUCTO (si aparece el frasco): idéntico a la imagen adjunta (forma,
+color, tapa y etiqueta, sin inventar letras), apoyado físicamente en la escena, con la
+misma luz que el resto: reflejo del mismo lado que la fuente de luz, sombra en la misma
+dirección que las demás, sombra de contacto en la base, mismo grano y balance de color.
+ESTILO: fotografía publicitaria hiperrealista, luz natural, texturas reales, colores
+cálidos y naturales, nitidez alta, profundidad de campo suave, sin aspecto de render
+ni de ilustración. Formato vertical 9:16.
 
 
 =================================================================
@@ -119,7 +175,18 @@ sobre una mesada, luz lateral de ventana que resalta el agua amarillenta. Fondo 
 y desenfocado.
 TEXTO arriba, grande en blanco cremoso: "3 errores que pudren tus esquejes" con el emoji
 🥀. Abajo, chico: "Deslizá →".
-[+ BLOQUE DE MARCA]
+TEXTO Y DISEÑO: tipografía sans serif redondeada y gruesa (estilo Poppins Bold) para
+títulos y Poppins Regular para textos chicos. Colores: blanco cremoso #F5F4EE sobre
+fotos, verde oscuro #2A5F35 sobre fondos claros, detalles en naranja #E88031. Texto con
+mucho aire, bien legible en celular, sombra muy suave si va sobre foto. Escribí cada
+palabra exactamente como está, con sus tildes, sin agregar otro texto ni logos.
+INTEGRACIÓN DEL PRODUCTO (si aparece el frasco): idéntico a la imagen adjunta (forma,
+color, tapa y etiqueta, sin inventar letras), apoyado físicamente en la escena, con la
+misma luz que el resto: reflejo del mismo lado que la fuente de luz, sombra en la misma
+dirección que las demás, sombra de contacto en la base, mismo grano y balance de color.
+ESTILO: fotografía publicitaria hiperrealista, luz natural, texturas reales, colores
+cálidos y naturales, nitidez alta, profundidad de campo suave, sin aspecto de render
+ni de ilustración. Formato vertical 4:5.
 
 --- 4.2 · ERROR 1 ---
 Fotografía publicitaria hiperrealista vertical 4:5, macro: unas manos cortando con una
@@ -128,7 +195,18 @@ hoja), con una pequeña raíz aérea visible en el nudo. Fondo desenfocado de pl
 TEXTO: arriba, etiqueta redondeada naranja con letras blancas: "ERROR 1". Debajo, grande
 en blanco cremoso: "Cortar sin nudo". Abajo, chico: "Las raíces salen del nudo.
 Cortá 1 cm debajo de uno."
-[+ BLOQUE DE MARCA]
+TEXTO Y DISEÑO: tipografía sans serif redondeada y gruesa (estilo Poppins Bold) para
+títulos y Poppins Regular para textos chicos. Colores: blanco cremoso #F5F4EE sobre
+fotos, verde oscuro #2A5F35 sobre fondos claros, detalles en naranja #E88031. Texto con
+mucho aire, bien legible en celular, sombra muy suave si va sobre foto. Escribí cada
+palabra exactamente como está, con sus tildes, sin agregar otro texto ni logos.
+INTEGRACIÓN DEL PRODUCTO (si aparece el frasco): idéntico a la imagen adjunta (forma,
+color, tapa y etiqueta, sin inventar letras), apoyado físicamente en la escena, con la
+misma luz que el resto: reflejo del mismo lado que la fuente de luz, sombra en la misma
+dirección que las demás, sombra de contacto en la base, mismo grano y balance de color.
+ESTILO: fotografía publicitaria hiperrealista, luz natural, texturas reales, colores
+cálidos y naturales, nitidez alta, profundidad de campo suave, sin aspecto de render
+ni de ilustración. Formato vertical 4:5.
 
 --- 4.3 · ERROR 2 ---
 Fotografía publicitaria hiperrealista vertical 4:5: unas manos vaciando agua turbia de
@@ -136,7 +214,18 @@ un frasco de vidrio con esquejes en una pileta de cocina, mientras al lado esper
 jarra con agua limpia. Luz natural de mañana.
 TEXTO: etiqueta naranja "ERROR 2". Grande: "No cambiar el agua". Chico: "El agua
 estancada junta bacterias. Cambiala cada 3 o 4 días."
-[+ BLOQUE DE MARCA]
+TEXTO Y DISEÑO: tipografía sans serif redondeada y gruesa (estilo Poppins Bold) para
+títulos y Poppins Regular para textos chicos. Colores: blanco cremoso #F5F4EE sobre
+fotos, verde oscuro #2A5F35 sobre fondos claros, detalles en naranja #E88031. Texto con
+mucho aire, bien legible en celular, sombra muy suave si va sobre foto. Escribí cada
+palabra exactamente como está, con sus tildes, sin agregar otro texto ni logos.
+INTEGRACIÓN DEL PRODUCTO (si aparece el frasco): idéntico a la imagen adjunta (forma,
+color, tapa y etiqueta, sin inventar letras), apoyado físicamente en la escena, con la
+misma luz que el resto: reflejo del mismo lado que la fuente de luz, sombra en la misma
+dirección que las demás, sombra de contacto en la base, mismo grano y balance de color.
+ESTILO: fotografía publicitaria hiperrealista, luz natural, texturas reales, colores
+cálidos y naturales, nitidez alta, profundidad de campo suave, sin aspecto de render
+ni de ilustración. Formato vertical 4:5.
 
 --- 4.4 · ERROR 3 ---
 Fotografía publicitaria hiperrealista vertical 4:5, macro a través del vidrio: un
@@ -144,7 +233,18 @@ esqueje en un frasco de agua con una hoja sumergida que empieza a pudrirse, oscu
 blanda, junto al tallo. Luz de ventana atravesando el agua.
 TEXTO: etiqueta naranja "ERROR 3". Grande: "Dejar hojas bajo el agua". Chico: "Se pudren
 y contagian al tallo. Sacalas antes de ponerlo en agua."
-[+ BLOQUE DE MARCA]
+TEXTO Y DISEÑO: tipografía sans serif redondeada y gruesa (estilo Poppins Bold) para
+títulos y Poppins Regular para textos chicos. Colores: blanco cremoso #F5F4EE sobre
+fotos, verde oscuro #2A5F35 sobre fondos claros, detalles en naranja #E88031. Texto con
+mucho aire, bien legible en celular, sombra muy suave si va sobre foto. Escribí cada
+palabra exactamente como está, con sus tildes, sin agregar otro texto ni logos.
+INTEGRACIÓN DEL PRODUCTO (si aparece el frasco): idéntico a la imagen adjunta (forma,
+color, tapa y etiqueta, sin inventar letras), apoyado físicamente en la escena, con la
+misma luz que el resto: reflejo del mismo lado que la fuente de luz, sombra en la misma
+dirección que las demás, sombra de contacto en la base, mismo grano y balance de color.
+ESTILO: fotografía publicitaria hiperrealista, luz natural, texturas reales, colores
+cálidos y naturales, nitidez alta, profundidad de campo suave, sin aspecto de render
+ni de ilustración. Formato vertical 4:5.
 
 --- 4.5 · EL SECRETO (adjuntá la foto del producto) ---
 Fotografía publicitaria hiperrealista vertical 4:5. El mismo tipo de frasco de vidrio,
@@ -153,7 +253,18 @@ en una ventana luminosa. A su lado, el frasco VERDEA de pie y unas gotas cayendo
 tapa dosificadora al agua.
 TEXTO: etiqueta verde #2A5F35 con letras blancas: "EL SECRETO". Grande: "Unas gotas de
 VERDEA en el agua". Chico: "Raíces más rápidas y más fuertes."
-[+ BLOQUE DE MARCA]
+TEXTO Y DISEÑO: tipografía sans serif redondeada y gruesa (estilo Poppins Bold) para
+títulos y Poppins Regular para textos chicos. Colores: blanco cremoso #F5F4EE sobre
+fotos, verde oscuro #2A5F35 sobre fondos claros, detalles en naranja #E88031. Texto con
+mucho aire, bien legible en celular, sombra muy suave si va sobre foto. Escribí cada
+palabra exactamente como está, con sus tildes, sin agregar otro texto ni logos.
+INTEGRACIÓN DEL PRODUCTO (si aparece el frasco): idéntico a la imagen adjunta (forma,
+color, tapa y etiqueta, sin inventar letras), apoyado físicamente en la escena, con la
+misma luz que el resto: reflejo del mismo lado que la fuente de luz, sombra en la misma
+dirección que las demás, sombra de contacto en la base, mismo grano y balance de color.
+ESTILO: fotografía publicitaria hiperrealista, luz natural, texturas reales, colores
+cálidos y naturales, nitidez alta, profundidad de campo suave, sin aspecto de render
+ni de ilustración. Formato vertical 4:5.
 
 --- 4.6 · CIERRE ---
 Fotografía publicitaria hiperrealista vertical 4:5: un estante de madera junto a una
@@ -162,7 +273,18 @@ con raíces blancas y hojas verdes brillantes, luz cálida. Aspecto de "propagac
 exitosa".
 TEXTO: grande en verde oscuro sobre franja crema: "Guardalo para tu próximo esqueje 📌".
 Abajo, chico: "VERDEA · huerta doméstica".
-[+ BLOQUE DE MARCA]
+TEXTO Y DISEÑO: tipografía sans serif redondeada y gruesa (estilo Poppins Bold) para
+títulos y Poppins Regular para textos chicos. Colores: blanco cremoso #F5F4EE sobre
+fotos, verde oscuro #2A5F35 sobre fondos claros, detalles en naranja #E88031. Texto con
+mucho aire, bien legible en celular, sombra muy suave si va sobre foto. Escribí cada
+palabra exactamente como está, con sus tildes, sin agregar otro texto ni logos.
+INTEGRACIÓN DEL PRODUCTO (si aparece el frasco): idéntico a la imagen adjunta (forma,
+color, tapa y etiqueta, sin inventar letras), apoyado físicamente en la escena, con la
+misma luz que el resto: reflejo del mismo lado que la fuente de luz, sombra en la misma
+dirección que las demás, sombra de contacto en la base, mismo grano y balance de color.
+ESTILO: fotografía publicitaria hiperrealista, luz natural, texturas reales, colores
+cálidos y naturales, nitidez alta, profundidad de campo suave, sin aspecto de render
+ni de ilustración. Formato vertical 4:5.
 
 
 =================================================================
@@ -175,7 +297,18 @@ trasplantada a una maceta de barro, completamente caída y mustia, con una mano 
 levanta una hoja amarilla con cuidado. Patio con baldosas, luz de tarde.
 TEXTO arriba, grande en blanco cremoso: "¿Tu planta se cae después de trasplantarla?"
 con 🥀. Abajo, chico: "Deslizá →".
-[+ BLOQUE DE MARCA]
+TEXTO Y DISEÑO: tipografía sans serif redondeada y gruesa (estilo Poppins Bold) para
+títulos y Poppins Regular para textos chicos. Colores: blanco cremoso #F5F4EE sobre
+fotos, verde oscuro #2A5F35 sobre fondos claros, detalles en naranja #E88031. Texto con
+mucho aire, bien legible en celular, sombra muy suave si va sobre foto. Escribí cada
+palabra exactamente como está, con sus tildes, sin agregar otro texto ni logos.
+INTEGRACIÓN DEL PRODUCTO (si aparece el frasco): idéntico a la imagen adjunta (forma,
+color, tapa y etiqueta, sin inventar letras), apoyado físicamente en la escena, con la
+misma luz que el resto: reflejo del mismo lado que la fuente de luz, sombra en la misma
+dirección que las demás, sombra de contacto en la base, mismo grano y balance de color.
+ESTILO: fotografía publicitaria hiperrealista, luz natural, texturas reales, colores
+cálidos y naturales, nitidez alta, profundidad de campo suave, sin aspecto de render
+ni de ilustración. Formato vertical 4:5.
 
 --- 6.2 · QUÉ ES ---
 Fotografía publicitaria hiperrealista vertical 4:5, macro: manos sacando una planta de su
@@ -183,7 +316,18 @@ maceta, el pan de tierra desarmándose y raíces finas cortadas y rotas colgando
 lateral que resalta las raíces.
 TEXTO: arriba, chico: "Se llama". Grande: "GOLPE DE TRASPLANTE". Abajo: "Al sacarla se
 rompen raíces finitas que no ves."
-[+ BLOQUE DE MARCA]
+TEXTO Y DISEÑO: tipografía sans serif redondeada y gruesa (estilo Poppins Bold) para
+títulos y Poppins Regular para textos chicos. Colores: blanco cremoso #F5F4EE sobre
+fotos, verde oscuro #2A5F35 sobre fondos claros, detalles en naranja #E88031. Texto con
+mucho aire, bien legible en celular, sombra muy suave si va sobre foto. Escribí cada
+palabra exactamente como está, con sus tildes, sin agregar otro texto ni logos.
+INTEGRACIÓN DEL PRODUCTO (si aparece el frasco): idéntico a la imagen adjunta (forma,
+color, tapa y etiqueta, sin inventar letras), apoyado físicamente en la escena, con la
+misma luz que el resto: reflejo del mismo lado que la fuente de luz, sombra en la misma
+dirección que las demás, sombra de contacto en la base, mismo grano y balance de color.
+ESTILO: fotografía publicitaria hiperrealista, luz natural, texturas reales, colores
+cálidos y naturales, nitidez alta, profundidad de campo suave, sin aspecto de render
+ni de ilustración. Formato vertical 4:5.
 
 --- 6.3 · POR QUÉ PASA ---
 Fotografía publicitaria hiperrealista vertical 4:5. Corte transversal de una maceta
@@ -191,7 +335,18 @@ mostrando una planta con pocas raíces cortas en tierra seca, y arriba sus hojas
 decaídas y amarillas. Fondo desenfocado de patio.
 TEXTO: grande: "Sin raíces, no puede tomar agua". Abajo, en tres renglones con flecha:
 "→ se decae" "→ se pone amarilla" "→ pierde hojas".
-[+ BLOQUE DE MARCA]
+TEXTO Y DISEÑO: tipografía sans serif redondeada y gruesa (estilo Poppins Bold) para
+títulos y Poppins Regular para textos chicos. Colores: blanco cremoso #F5F4EE sobre
+fotos, verde oscuro #2A5F35 sobre fondos claros, detalles en naranja #E88031. Texto con
+mucho aire, bien legible en celular, sombra muy suave si va sobre foto. Escribí cada
+palabra exactamente como está, con sus tildes, sin agregar otro texto ni logos.
+INTEGRACIÓN DEL PRODUCTO (si aparece el frasco): idéntico a la imagen adjunta (forma,
+color, tapa y etiqueta, sin inventar letras), apoyado físicamente en la escena, con la
+misma luz que el resto: reflejo del mismo lado que la fuente de luz, sombra en la misma
+dirección que las demás, sombra de contacto en la base, mismo grano y balance de color.
+ESTILO: fotografía publicitaria hiperrealista, luz natural, texturas reales, colores
+cálidos y naturales, nitidez alta, profundidad de campo suave, sin aspecto de render
+ni de ilustración. Formato vertical 4:5.
 
 --- 6.4 · CÓMO EVITARLO (adjuntá la foto del producto) ---
 Fotografía publicitaria hiperrealista vertical 4:5. Manos regando con una regadera de
@@ -203,7 +358,18 @@ con un tilde verde:
 "Tierra húmeda, no empapada"
 "Sin sol fuerte por 2 o 3 días"
 "Primer riego con VERDEA"
-[+ BLOQUE DE MARCA]
+TEXTO Y DISEÑO: tipografía sans serif redondeada y gruesa (estilo Poppins Bold) para
+títulos y Poppins Regular para textos chicos. Colores: blanco cremoso #F5F4EE sobre
+fotos, verde oscuro #2A5F35 sobre fondos claros, detalles en naranja #E88031. Texto con
+mucho aire, bien legible en celular, sombra muy suave si va sobre foto. Escribí cada
+palabra exactamente como está, con sus tildes, sin agregar otro texto ni logos.
+INTEGRACIÓN DEL PRODUCTO (si aparece el frasco): idéntico a la imagen adjunta (forma,
+color, tapa y etiqueta, sin inventar letras), apoyado físicamente en la escena, con la
+misma luz que el resto: reflejo del mismo lado que la fuente de luz, sombra en la misma
+dirección que las demás, sombra de contacto en la base, mismo grano y balance de color.
+ESTILO: fotografía publicitaria hiperrealista, luz natural, texturas reales, colores
+cálidos y naturales, nitidez alta, profundidad de campo suave, sin aspecto de render
+ni de ilustración. Formato vertical 4:5.
 
 --- 6.5 · CIERRE (adjuntá la foto del producto) ---
 Fotografía publicitaria hiperrealista vertical 4:5. La misma planta de tomate, ahora
@@ -211,7 +377,18 @@ erguida, verde y firme en su maceta de barro, con flores amarillas; al lado, el 
 VERDEA. Luz dorada.
 TEXTO: grande en blanco cremoso: "Se adapta sin sufrir 🌱". Chico: "VERDEA ayuda a
 regenerar raíces después del trasplante." Abajo: "Link en el perfil".
-[+ BLOQUE DE MARCA]
+TEXTO Y DISEÑO: tipografía sans serif redondeada y gruesa (estilo Poppins Bold) para
+títulos y Poppins Regular para textos chicos. Colores: blanco cremoso #F5F4EE sobre
+fotos, verde oscuro #2A5F35 sobre fondos claros, detalles en naranja #E88031. Texto con
+mucho aire, bien legible en celular, sombra muy suave si va sobre foto. Escribí cada
+palabra exactamente como está, con sus tildes, sin agregar otro texto ni logos.
+INTEGRACIÓN DEL PRODUCTO (si aparece el frasco): idéntico a la imagen adjunta (forma,
+color, tapa y etiqueta, sin inventar letras), apoyado físicamente en la escena, con la
+misma luz que el resto: reflejo del mismo lado que la fuente de luz, sombra en la misma
+dirección que las demás, sombra de contacto en la base, mismo grano y balance de color.
+ESTILO: fotografía publicitaria hiperrealista, luz natural, texturas reales, colores
+cálidos y naturales, nitidez alta, profundidad de campo suave, sin aspecto de render
+ni de ilustración. Formato vertical 4:5.
 
 
 =================================================================
@@ -224,20 +401,53 @@ mesa de madera, rodeado de: un frasco de vidrio con esqueje, una maceta recién
 trasplantada, una bandeja de almácigos, una planta algo decaída y una lechuga de la
 huerta, todo prolijo y bien iluminado con luz de mañana.
 TEXTO arriba, grande en verde oscuro: "5 formas de usar VERDEA 🌱". Abajo: "Deslizá →".
-[+ BLOQUE DE MARCA]
+TEXTO Y DISEÑO: tipografía sans serif redondeada y gruesa (estilo Poppins Bold) para
+títulos y Poppins Regular para textos chicos. Colores: blanco cremoso #F5F4EE sobre
+fotos, verde oscuro #2A5F35 sobre fondos claros, detalles en naranja #E88031. Texto con
+mucho aire, bien legible en celular, sombra muy suave si va sobre foto. Escribí cada
+palabra exactamente como está, con sus tildes, sin agregar otro texto ni logos.
+INTEGRACIÓN DEL PRODUCTO (si aparece el frasco): idéntico a la imagen adjunta (forma,
+color, tapa y etiqueta, sin inventar letras), apoyado físicamente en la escena, con la
+misma luz que el resto: reflejo del mismo lado que la fuente de luz, sombra en la misma
+dirección que las demás, sombra de contacto en la base, mismo grano y balance de color.
+ESTILO: fotografía publicitaria hiperrealista, luz natural, texturas reales, colores
+cálidos y naturales, nitidez alta, profundidad de campo suave, sin aspecto de render
+ni de ilustración. Formato vertical 4:5.
 
 --- 9.2 · USO 1: ESQUEJES ---
 Fotografía publicitaria hiperrealista vertical 4:5: frasco de vidrio con esquejes de
 potus llenos de raíces blancas a contraluz en una ventana.
 TEXTO: número grande naranja "1". Título: "Esquejes en agua". Chico: "Unas gotas en el
 frasco de agua."
-[+ BLOQUE DE MARCA]
+TEXTO Y DISEÑO: tipografía sans serif redondeada y gruesa (estilo Poppins Bold) para
+títulos y Poppins Regular para textos chicos. Colores: blanco cremoso #F5F4EE sobre
+fotos, verde oscuro #2A5F35 sobre fondos claros, detalles en naranja #E88031. Texto con
+mucho aire, bien legible en celular, sombra muy suave si va sobre foto. Escribí cada
+palabra exactamente como está, con sus tildes, sin agregar otro texto ni logos.
+INTEGRACIÓN DEL PRODUCTO (si aparece el frasco): idéntico a la imagen adjunta (forma,
+color, tapa y etiqueta, sin inventar letras), apoyado físicamente en la escena, con la
+misma luz que el resto: reflejo del mismo lado que la fuente de luz, sombra en la misma
+dirección que las demás, sombra de contacto en la base, mismo grano y balance de color.
+ESTILO: fotografía publicitaria hiperrealista, luz natural, texturas reales, colores
+cálidos y naturales, nitidez alta, profundidad de campo suave, sin aspecto de render
+ni de ilustración. Formato vertical 4:5.
 
 --- 9.3 · USO 2: TRASPLANTES ---
 Fotografía publicitaria hiperrealista vertical 4:5: manos colocando una planta en una
 maceta de barro más grande con tierra negra húmeda, luz de tarde.
 TEXTO: número naranja "2". Título: "Trasplantes". Chico: "En el primer riego."
-[+ BLOQUE DE MARCA]
+TEXTO Y DISEÑO: tipografía sans serif redondeada y gruesa (estilo Poppins Bold) para
+títulos y Poppins Regular para textos chicos. Colores: blanco cremoso #F5F4EE sobre
+fotos, verde oscuro #2A5F35 sobre fondos claros, detalles en naranja #E88031. Texto con
+mucho aire, bien legible en celular, sombra muy suave si va sobre foto. Escribí cada
+palabra exactamente como está, con sus tildes, sin agregar otro texto ni logos.
+INTEGRACIÓN DEL PRODUCTO (si aparece el frasco): idéntico a la imagen adjunta (forma,
+color, tapa y etiqueta, sin inventar letras), apoyado físicamente en la escena, con la
+misma luz que el resto: reflejo del mismo lado que la fuente de luz, sombra en la misma
+dirección que las demás, sombra de contacto en la base, mismo grano y balance de color.
+ESTILO: fotografía publicitaria hiperrealista, luz natural, texturas reales, colores
+cálidos y naturales, nitidez alta, profundidad de campo suave, sin aspecto de render
+ni de ilustración. Formato vertical 4:5.
 
 --- 9.4 · USO 3: ALMÁCIGOS ---
 Fotografía publicitaria hiperrealista vertical 4:5: bandeja de almácigos negra con
@@ -245,19 +455,52 @@ plantines chiquitos y verdes de tomate y lechuga, gotas de agua sobre las hojita
 suave de invernadero.
 TEXTO: número naranja "3". Título: "Almácigos". Chico: "Para que los plantines arranquen
 fuertes."
-[+ BLOQUE DE MARCA]
+TEXTO Y DISEÑO: tipografía sans serif redondeada y gruesa (estilo Poppins Bold) para
+títulos y Poppins Regular para textos chicos. Colores: blanco cremoso #F5F4EE sobre
+fotos, verde oscuro #2A5F35 sobre fondos claros, detalles en naranja #E88031. Texto con
+mucho aire, bien legible en celular, sombra muy suave si va sobre foto. Escribí cada
+palabra exactamente como está, con sus tildes, sin agregar otro texto ni logos.
+INTEGRACIÓN DEL PRODUCTO (si aparece el frasco): idéntico a la imagen adjunta (forma,
+color, tapa y etiqueta, sin inventar letras), apoyado físicamente en la escena, con la
+misma luz que el resto: reflejo del mismo lado que la fuente de luz, sombra en la misma
+dirección que las demás, sombra de contacto en la base, mismo grano y balance de color.
+ESTILO: fotografía publicitaria hiperrealista, luz natural, texturas reales, colores
+cálidos y naturales, nitidez alta, profundidad de campo suave, sin aspecto de render
+ni de ilustración. Formato vertical 4:5.
 
 --- 9.5 · USO 4: PLANTAS ESTRESADAS ---
 Fotografía publicitaria hiperrealista vertical 4:5: un potus en maceta blanca con
 algunas hojas amarillas pero también brotes nuevos verdes saliendo, junto a una ventana.
 TEXTO: número naranja "4". Título: "Plantas estresadas". Chico: "Ayudalas a recuperarse."
-[+ BLOQUE DE MARCA]
+TEXTO Y DISEÑO: tipografía sans serif redondeada y gruesa (estilo Poppins Bold) para
+títulos y Poppins Regular para textos chicos. Colores: blanco cremoso #F5F4EE sobre
+fotos, verde oscuro #2A5F35 sobre fondos claros, detalles en naranja #E88031. Texto con
+mucho aire, bien legible en celular, sombra muy suave si va sobre foto. Escribí cada
+palabra exactamente como está, con sus tildes, sin agregar otro texto ni logos.
+INTEGRACIÓN DEL PRODUCTO (si aparece el frasco): idéntico a la imagen adjunta (forma,
+color, tapa y etiqueta, sin inventar letras), apoyado físicamente en la escena, con la
+misma luz que el resto: reflejo del mismo lado que la fuente de luz, sombra en la misma
+dirección que las demás, sombra de contacto en la base, mismo grano y balance de color.
+ESTILO: fotografía publicitaria hiperrealista, luz natural, texturas reales, colores
+cálidos y naturales, nitidez alta, profundidad de campo suave, sin aspecto de render
+ni de ilustración. Formato vertical 4:5.
 
 --- 9.6 · USO 5: HUERTA ---
 Fotografía publicitaria hiperrealista vertical 4:5: cantero de huerta frondoso con
 tomates rojos, lechugas y albahaca, luz dorada de tarde.
 TEXTO: número naranja "5". Título: "Tu huerta". Chico: "Tomates, lechugas y aromáticas."
-[+ BLOQUE DE MARCA]
+TEXTO Y DISEÑO: tipografía sans serif redondeada y gruesa (estilo Poppins Bold) para
+títulos y Poppins Regular para textos chicos. Colores: blanco cremoso #F5F4EE sobre
+fotos, verde oscuro #2A5F35 sobre fondos claros, detalles en naranja #E88031. Texto con
+mucho aire, bien legible en celular, sombra muy suave si va sobre foto. Escribí cada
+palabra exactamente como está, con sus tildes, sin agregar otro texto ni logos.
+INTEGRACIÓN DEL PRODUCTO (si aparece el frasco): idéntico a la imagen adjunta (forma,
+color, tapa y etiqueta, sin inventar letras), apoyado físicamente en la escena, con la
+misma luz que el resto: reflejo del mismo lado que la fuente de luz, sombra en la misma
+dirección que las demás, sombra de contacto en la base, mismo grano y balance de color.
+ESTILO: fotografía publicitaria hiperrealista, luz natural, texturas reales, colores
+cálidos y naturales, nitidez alta, profundidad de campo suave, sin aspecto de render
+ni de ilustración. Formato vertical 4:5.
 
 --- 9.7 · CIERRE (adjuntá la foto del producto) ---
 Fotografía publicitaria hiperrealista vertical 4:5: el frasco VERDEA de pie sobre una
@@ -265,7 +508,18 @@ tabla de madera, con un chorrito de agua de regadera cayendo detrás desenfocado
 brillando a contraluz.
 TEXTO: grande en blanco cremoso: "Un frasco, todos estos usos". Debajo, en etiqueta
 naranja: "RINDE HASTA 80 LITROS 💧". Abajo, chico: "Link en el perfil".
-[+ BLOQUE DE MARCA]
+TEXTO Y DISEÑO: tipografía sans serif redondeada y gruesa (estilo Poppins Bold) para
+títulos y Poppins Regular para textos chicos. Colores: blanco cremoso #F5F4EE sobre
+fotos, verde oscuro #2A5F35 sobre fondos claros, detalles en naranja #E88031. Texto con
+mucho aire, bien legible en celular, sombra muy suave si va sobre foto. Escribí cada
+palabra exactamente como está, con sus tildes, sin agregar otro texto ni logos.
+INTEGRACIÓN DEL PRODUCTO (si aparece el frasco): idéntico a la imagen adjunta (forma,
+color, tapa y etiqueta, sin inventar letras), apoyado físicamente en la escena, con la
+misma luz que el resto: reflejo del mismo lado que la fuente de luz, sombra en la misma
+dirección que las demás, sombra de contacto en la base, mismo grano y balance de color.
+ESTILO: fotografía publicitaria hiperrealista, luz natural, texturas reales, colores
+cálidos y naturales, nitidez alta, profundidad de campo suave, sin aspecto de render
+ni de ilustración. Formato vertical 4:5.
 
 
 =================================================================
