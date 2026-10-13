@@ -115,6 +115,30 @@ stroke by stroke as if drawn by an invisible hand, static camera, no people, no 
 
 
 =====================================================================
+VERSIÓN MUJER (con foto real de referencia)
+=====================================================================
+⚠️ Solo con permiso de la persona de la foto. Sin nombre, título ni matrícula.
+
+Foto base (ChatGPT o Gemini, subiendo su foto):
+"Usando a la mujer de la foto adjunta, mantené exactamente su cara, rasgos, tono de
+piel, ojos, sonrisa y su pelo largo, oscuro y ondulado, sin rejuvenecerla ni
+retocarla. Cambiá solo la ropa y el fondo: camisa de trabajo de lino color crudo con
+mangas arremangadas y delantal de lona marrón claro, sin nada verde. Foto realista
+estilo celular, vertical 9:16, plano medio de la cintura para arriba, mirando a cámara
+con una sonrisa cálida. Fondo verde croma liso (#00B140), parejo, sin sombras. Luz
+suave de frente, pareja, sin contraluz. Sin texto."
+
+Descripción fija para Flow (reemplaza la del hombre):
+Same woman as the reference image: Argentine woman around 50, long wavy dark brown
+hair, warm smile, off-white linen work shirt with rolled-up sleeves, light brown canvas
+apron. Medium shot, waist up, vertical 9:16, static phone camera, UGC style. Solid flat
+chroma key green background (#00B140), evenly lit, no shadows, nothing green on her
+clothes. She speaks Spanish with a natural Argentine Rioplatense accent, warm and close,
+using "vos". No subtitles, no on-screen text, no music.
+(En las líneas de acción de los bloques, cambiá "He/his" por "She/her".)
+
+
+=====================================================================
 REGLAS
 =====================================================================
 - El botánico sin nombre, título ni matrícula.
