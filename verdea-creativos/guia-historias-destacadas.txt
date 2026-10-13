@@ -1,0 +1,124 @@
+VERDEA · GUÍA DE HISTORIAS DESTACADAS + PRUEBA SOCIAL
+=====================================================================
+
+PORTADAS
+- Te mando 6 portadas listas (fondo verde VERDEA, círculo crema e ícono verde), en
+  formato historia 1080x1920. Se suben así:
+  1. Subí la portada como historia (podés ocultarla de "mejores amigos" para que no la
+     vean todos) o directamente desde la destacada: "Editar destacada → Editar portada".
+  2. Elegí la portada de la galería y centrala en el círculo.
+- Orden de las destacadas (de izquierda a derecha):
+  ⭐ Reseñas · 📦 Pedidos · 🌱 Cómo usar · 🚚 Envíos · 💳 Pagos · ❓ Preguntas
+- Nombres cortos (se cortan después de 10-11 letras): "Reseñas", "Pedidos", "Cómo usar",
+  "Envíos", "Pagos", "Preguntas".
+
+Formato de todas las historias: vertical 9:16 (1080 x 1920). Dejá libres arriba y abajo
+unos 250 px: ahí Instagram pone el nombre y la barra de respuesta.
+
+
+=====================================================================
+⭐ RESEÑAS  (la más importante para la prueba social)
+=====================================================================
+REGLA DE ORO: solo reseñas REALES. Una reseña inventada, si se descubre, destruye la
+confianza; además es publicidad engañosa (Ley de Defensa del Consumidor) y Meta puede
+restringir tu cuenta publicitaria.
+
+Qué subir (a medida que lleguen):
+1. Capturas de mensajes de WhatsApp o Instagram de clientes contentos.
+   → Tapá el número/foto con un sticker o difuminado, dejá visible el nombre (inicial
+     del apellido) y el texto. Pedí permiso: "¿Te molesta si comparto tu mensaje?"
+2. Fotos que te manden de sus plantas o del paquete recibido. Repostealas con un
+   sticker "¡Gracias, [nombre]! 💚".
+3. Historias donde te etiqueten: compartilas directo.
+4. Reseñas de la tienda (cuando las tengas) en una placa limpia.
+
+Cómo conseguirlas rápido (sin inventar):
+- A los 15-20 días de cada entrega, mandá por WhatsApp:
+  "¡Hola [nombre]! ¿Cómo vienen tus plantas con VERDEA? 🌱 Si nos mandás una foto o
+  contás tu experiencia, te regalamos un 10% para tu próxima compra 💚"
+- Incluí en el paquete una tarjetita: "Mostranos tus raíces 🌱 Etiquetanos en
+  @huerta.verdea y participá por un frasco de regalo cada mes".
+- Primeras reseñas: regalale o vendele a costo el producto a 5-10 conocidos que tengan
+  plantas, con la condición de que te cuenten su experiencia real (buena o mala) con
+  fotos. Si lo usás en publicidad, aclará "Producto recibido de regalo".
+
+Mientras todavía no tengas reseñas: NO crees la destacada vacía ni con contenido
+inventado. Arrancá con las otras 5 y sumá Reseñas apenas tengas 3 reales.
+
+
+=====================================================================
+📦 PEDIDOS  (prueba social de que la tienda vende de verdad)
+=====================================================================
+Historias que muestran movimiento real:
+1. Paquetes armados listos para despachar (tapá nombres y direcciones de las etiquetas).
+2. "Hoy salieron pedidos a: Córdoba, Rosario, Mendoza 🚚" sobre la foto de los paquetes.
+3. El frasco entrando en la caja con la guía de regalo (video de 5 segundos).
+4. Llegada del stock: cajas abiertas con los frascos.
+Todo con tu producto y tus pedidos reales. Cuando todavía no tengas pedidos, esta
+destacada esperá: es mejor no tenerla que mostrar pedidos que no existen.
+
+
+=====================================================================
+🌱 CÓMO USAR
+=====================================================================
+4 historias (podés hacerlas con las fotos de la galería o con Gemini):
+1. Foto de la tapita dosificadora (la de la regadera).
+   Texto: "1. Medí 3 a 4 ml con la tapa"
+2. Foto volcando en la regadera. Texto: "2. Mezclá en 1 litro de agua · nunca puro"
+3. Foto regando la base. Texto: "3. Regá alrededor de la base de la planta"
+4. Foto del esqueje con raíces. Texto: "Repetí cada 7 días durante 4 semanas ✅
+   Rinde hasta 80 litros 💧"
++ el reel "Cómo se usa" cuando lo tengas.
+
+Prompt para Gemini (fondo de historia, si querés armar placas):
+"Fotografía realista vertical 9:16 de [escena]. Dejá libres los 250 px de arriba y de
+abajo. Texto centrado en blanco cremoso #F5F4EE, tipografía Poppins Bold, sombra suave:
+'[texto]'. Sin otro texto. Estilo natural, luz de día, sin aspecto de render."
+
+
+=====================================================================
+🚚 ENVÍOS
+=====================================================================
+3 historias (placas simples con fondo crema #F5F4EE y texto verde #2A5F35):
+1. "Enviamos a todo el país 🇦🇷"
+2. "Despacho en [24 hs hábiles / tu plazo real] · Entrega en 2 a 5 días hábiles"
+   ⚠️ Poné el plazo REAL. Si todavía no tenés stock, el plazo de tu proveedor.
+3. "Te mandamos el seguimiento por WhatsApp o mail 📲"
++ "Envío gratis llevando 3 🎁"
+
+
+=====================================================================
+💳 PAGOS
+=====================================================================
+3 historias:
+1. "3 cuotas sin interés 💳"
+2. "Pagá con Mercado Pago, tarjeta o débito · Compra 100% segura 🔒"
+   (podés sumar captura del checkout de Shopify con los medios de pago visibles)
+3. Placa de packs (la foto de packs con precios que ya tenés)
+
+
+=====================================================================
+❓ PREGUNTAS
+=====================================================================
+Usá el sticker "Preguntas" en una historia ("¿Qué querés saber de VERDEA? 🌱") y
+respondé cada una en una historia aparte. Hasta que lleguen, armá estas 6 con la
+respuesta (pregunta arriba, respuesta abajo):
+1. ¿Sirve para cualquier planta? → Sí: huerta, macetas, esquejes e interior.
+2. ¿Cuánto rinde? → Hasta 80 litros: unas 15 regaderas de 5 litros.
+3. ¿Cada cuánto lo uso? → Cada 7 días, durante 4 semanas.
+4. ¿Quema las plantas? → No, si respetás la dosis de 3 a 4 ml por litro.
+5. ¿Cuándo se ven resultados? → Desde los primeros usos se nota el estímulo en las raíces.
+6. ¿Cómo lo pago? → 3 cuotas sin interés, Mercado Pago o débito.
+(Revisá que lo de "orgánico" esté respaldado por la certificación antes de usarlo.)
+
+
+=====================================================================
+TRUCOS PARA QUE EL PERFIL TRANSMITA CONFIANZA
+=====================================================================
+- Subí historias casi todos los días aunque sean simples: el perfil "vivo" da confianza.
+- Respondé todos los comentarios y mensajes rápido; si alguien elogia, pedile permiso
+  para compartirlo en Reseñas.
+- Fijá arriba del feed los 3 posts que mejor explican el producto (comparativa, beneficios
+  y packs).
+- Cuando tengas el dominio propio (verdea.com.ar), cambialo en la bio.
+- No compres seguidores: se nota (muchos seguidores y pocos likes) y Meta penaliza.
