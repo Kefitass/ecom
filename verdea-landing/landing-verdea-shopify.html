@@ -107,13 +107,16 @@ window.WIGY_CONFIG = {
   // Imágenes de medios de comunicación debajo del FAQ del formulario
   // ⚠️ Mostrá solo medios donde VERDEA haya aparecido realmente.
   // ============================================================
-  logosMediaTicker: [
-    { src: "https://i.ibb.co/XHMz67b/Clar-n-logo-svg.png", alt: "Clarín" },
-    { src: "https://i.ibb.co/jPWFK8r1/Infobae-com-logo.png", alt: "Infobae" },
-    { src: "https://i.ibb.co/YFY7tGKH/TN-todo-noticias-logo-svg.png", alt: "TN" },
-    { src: "https://i.ibb.co/7tkX2qMZ/publicar-avisos-legales-en-diario-el-cronista-comercial-publicidad-edictos-judiciales-convocatorias.webp", alt: "El Cronista" },
-    { src: "https://i.ibb.co/LdmH8c0k/C5-N-2017-Alternate-svg.png", alt: "C5N" }
-  ],
+  // Vacío [] → la barra de medios NO se muestra. Para volver a mostrarla, poné acá solo
+  // medios donde VERDEA haya aparecido de verdad, con el formato de la lista comentada abajo.
+  logosMediaTicker: [],
+  // logosMediaTicker: [
+  // { src: "https://i.ibb.co/XHMz67b/Clar-n-logo-svg.png", alt: "Clarín" },
+  // { src: "https://i.ibb.co/jPWFK8r1/Infobae-com-logo.png", alt: "Infobae" },
+  // { src: "https://i.ibb.co/YFY7tGKH/TN-todo-noticias-logo-svg.png", alt: "TN" },
+  // { src: "https://i.ibb.co/7tkX2qMZ/publicar-avisos-legales-en-diario-el-cronista-comercial-publicidad-edictos-judiciales-convocatorias.webp", alt: "El Cronista" },
+  // { src: "https://i.ibb.co/LdmH8c0k/C5-N-2017-Alternate-svg.png", alt: "C5N" }
+  // ],
 
   // ============================================================
   // 💰 SECCIÓN 1: OFERTAS Y PRECIOS
@@ -1108,7 +1111,7 @@ window.WIGY_DOM = {
     var faqsBlock = document.getElementById("wigy-shopify-faqs-accordion");
     if (!faqsBlock) return false;
     var logos = window.WIGY_CONFIG && window.WIGY_CONFIG.logosMediaTicker;
-    if (!logos || !logos.length) return false;
+    if (!logos || !logos.length) return true; // sin logos: no se muestra la barra
 
     injectStyleOnce();
 
