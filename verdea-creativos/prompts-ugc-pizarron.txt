@@ -1,0 +1,251 @@
+VERDEA · PROMPTS UGC "BOTÁNICO CON PIZARRÓN" + VIDEOS CORTOS ESTILO REFERENCIA
+Para Google Flow (Veo 3.1) · vertical 9:16 · bloques de 8 segundos
+=====================================================================
+
+QUÉ HACEN LOS VIDEOS DE REFERENCIA (los 2 de orquídeas, 11 y 15 s)
+1. 0-3 s: una jardinera en un vivero, con el producto en la mano, tira la pregunta-gancho
+   ("¿Tu orquídea está pelona?"). Subtítulo grande en blanco.
+2. 3-11 s: casi todo es B-ROLL de manos: muestra el frasco, lo aplica en la maceta,
+   primer plano de la hoja dañada. La voz sigue sonando por encima.
+3. Últimos 2-3 s: el resultado (planta florecida) + oferta en texto:
+   "Adquiérelo desde $180 con envíos a toda la República".
+=> Formato: GANCHO CON PERSONA + DEMO CON MANOS + RESULTADO + PRECIO. Corto, directo,
+   sin explicar de más. Es el formato A de abajo.
+=> El "botánico con pizarrón" es el formato B: un poco más largo (25-40 s), explica
+   por qué pasa el problema. Sirve para gente que todavía no confía.
+Testeá los dos: el A suele ganar en costo por clic, el B en confianza y conversión.
+
+
+=====================================================================
+PASO 0 · LOS PERSONAJES (una sola vez, en ChatGPT o Gemini)
+=====================================================================
+Generá UNA foto de cada personaje y usala SIEMPRE como "ingrediente" en Flow.
+Descargala apenas te guste: si cambiás de cuenta, la subís de nuevo y listo.
+
+PERSONAJE 1 · EL BOTÁNICO (para el pizarrón)
+"Foto realista, tomada con celular, vertical 9:16. Hombre argentino de 45 años,
+barba corta canosa, pelo corto entrecano, camisa de trabajo beige con las mangas
+arremangadas y delantal marrón de lona. Plano medio, de la cintura para arriba,
+mirando a cámara con expresión amable. Está parado adentro de un vivero, delante de un
+pizarrón verde oscuro de escuela con marco de madera; en el pizarrón hay un dibujo en
+tiza blanca de una planta en maceta con sus raíces debajo de la tierra. Alrededor,
+plantas en macetas y estantes de madera. Luz natural de día, suave. Sin texto, sin
+logos. Aspecto natural, nada de modelo publicitario."
+
+PERSONAJE 2 · MARTA (la jardinera, ya la tenés)
+Usá tu foto de Marta (sombrero beige, camisa de jean, delantal arena). Es casi igual
+a la chica de los videos de referencia: ideal para el formato A.
+
+DESCRIPCIÓN FIJA DEL BOTÁNICO (pegala igual al principio de TODOS sus bloques)
+Same man as the reference image: 45-year-old Argentine botanist, short grey beard,
+beige work shirt with rolled-up sleeves, brown canvas apron. Medium shot, waist up,
+vertical 9:16, handheld phone camera with slight natural movement, UGC style. He stands
+inside a plant nursery in front of a dark green school chalkboard with a white chalk
+drawing of a potted plant and its roots. Soft natural daylight. He speaks Spanish with a
+natural Argentine Rioplatense accent, warm and calm voice, using "vos". No subtitles,
+no on-screen text, no music.
+
+DESCRIPCIÓN FIJA DE MARTA
+Same woman as the reference image, same beige hat, denim shirt and sand-colored apron.
+Medium shot, waist up, vertical 9:16, handheld phone camera, UGC style, inside a bright
+plant nursery with wooden tables and potted plants. Soft natural daylight. She speaks
+Spanish with a natural Argentine Rioplatense accent, fast and natural, using "vos".
+No subtitles, no on-screen text, no music.
+
+TRUCOS PARA QUE SALGA BIEN
+- Subí como ingredientes: foto del personaje + foto del frasco VERDEA (de frente, PNG
+  sin fondo si tenés). Así lo puede tener en la mano.
+- La etiqueta del frasco casi siempre sale deformada en Veo. Por eso: en los bloques
+  con persona que el frasco se vea chico o de costado, y los primeros planos del frasco
+  grabalos VOS con el celular (o usá tus fotos de galería con zoom en CapCut).
+- Cada diálogo: máximo 18-20 palabras por bloque de 8 s.
+- Probá primero en Lite o Fast. Quality solo para la versión final.
+- Si una palabra sale mal pronunciada (ej. "VERDEA"), escribila como suena: "Verdéa".
+
+
+=====================================================================
+PASO 1 · LOS DIBUJOS DEL PIZARRÓN (imágenes para B-roll, en Gemini)
+=====================================================================
+Gemini es el que mejor escribe texto. Si alguna palabra sale mal, pedí "sin texto" y
+ponés el texto en CapCut.
+
+P1 · Raíces débiles vs fuertes
+"Primer plano de un pizarrón verde oscuro de escuela con marco de madera, foto
+realista vertical 9:16. Dibujo en tiza blanca, estilo hecho a mano por un profesor:
+dos plantas en maceta lado a lado. La de la izquierda, chiquita y caída, con 3 raíces
+cortas y finitas; arriba dice 'SIN'. La de la derecha, grande y firme, con muchas
+raíces largas y ramificadas; arriba dice 'CON'. Detalles en tiza verde clara. Polvo de
+tiza y borrones reales. Sin otro texto."
+
+P2 · Golpe de trasplante
+"Primer plano de un pizarrón verde oscuro, foto realista vertical 9:16. Dibujo en tiza
+blanca hecho a mano: una planta sacada de su maceta con las raíces finitas cortadas
+(marcadas con pequeñas X en tiza roja), y una flecha hacia una planta caída con hojas
+mustias. Arriba escrito en tiza: 'GOLPE DE TRASPLANTE'. Sin otro texto."
+
+P3 · Esqueje en agua
+"Primer plano de un pizarrón verde oscuro, foto realista vertical 9:16. Dibujo en tiza
+blanca hecho a mano: un frasco con agua y un esqueje de potus. A la izquierda el tallo
+marrón y podrido; a la derecha el mismo esqueje con raíces blancas largas. Una flecha
+entre los dos. Sin texto."
+
+P4 · Cómo se usa
+"Primer plano de un pizarrón verde oscuro, foto realista vertical 9:16. Dibujo en tiza
+blanca hecho a mano de una regadera, una tapita y una gota. Escrito en tiza, en
+renglones: '3 a 4 ml', '1 litro de agua', 'cada 7 días'. Letra prolija de profesor.
+Sin otro texto."
+
+P5 · Rinde
+"Primer plano de un pizarrón verde oscuro, foto realista vertical 9:16. Dibujo en tiza
+blanca hecho a mano de un frasco chico, un signo igual y muchas regaderas en fila.
+Escrito en tiza: 'HASTA 80 LITROS'. Sin otro texto."
+
+En CapCut: zoom lento sobre la imagen (efecto "Ken Burns") = parece filmado.
+
+
+=====================================================================
+PASO 2 · B-ROLL CON VEO (si todavía no podés grabarlo vos)
+=====================================================================
+Ingrediente: foto del frasco VERDEA. Sin persona hablando, solo manos.
+Siempre agregá al final: "Vertical 9:16, handheld phone footage, natural daylight,
+realistic, no text, no music, ambient sound only."
+
+R1 · Frasco en la mano
+"A woman's hand with natural nails holds the VERDEA bottle from the reference image in
+front of lush potted plants in a nursery, slowly turning it toward the camera."
+R2 · Dosis en la tapa
+"Close-up of hands pouring a small amount of amber liquid from the VERDEA bottle into
+its measuring cap, over a wooden table with plants."
+R3 · A la regadera
+"Close-up of hands pouring the measuring cap of amber liquid into a metal watering can
+full of water, gently swirling it."
+R4 · Regando la base
+"Close-up of a watering can gently watering the soil at the base of a young tomato
+plant in a pot, water soaking into dark soil."
+R5 · Esqueje con raíces
+"Close-up of a glass jar with water and a pothos cutting full of long white roots,
+backlit by a sunny window, slow camera movement."
+R6 · Planta caída (problema)
+"Close-up of a drooping houseplant with yellow leaves right after being transplanted
+into a bigger pot, a hand lifting a yellow leaf."
+R7 · Huerta sana (resultado)
+"Slow handheld shot of a lush green home vegetable garden on a balcony in Buenos Aires:
+tomatoes, lettuce and herbs, morning light."
+
+⚠️ R5 y R7 son "ilustrativos": no los presentes como resultado real de VERDEA. Si un
+video muestra un antes/después, que sea tuyo y real, o poné "Imagen ilustrativa".
+
+
+=====================================================================
+FORMATO A · VIDEOS CORTOS ESTILO REFERENCIA (12-15 s) · uno por buyer persona
+=====================================================================
+Estructura: 1 bloque UGC de 8 s (gancho + frase) + B-roll + cierre con precio.
+La voz del bloque UGC sigue sonando sobre el B-roll; si te falta voz para el cierre,
+grabala vos o usá la voz de CapCut.
+
+A1 · LUCÍA (se le pudren los esquejes) · personaje: Marta o una chica joven
+ Bloque UGC (8 s) = [descripción fija] + :
+   She holds a glass jar with a rotten pothos cutting, looks at the camera surprised,
+   and says: "¿Se te pudren los esquejes en el agua? Probá con unas gotitas de esto y
+   mirá las raíces."
+ Montaje:
+   0-3 s   UGC · texto "¿Se te pudren los esquejes? 🥀"
+   3-6 s   R1 (frasco en la mano)
+   6-9 s   gotas en el frasco del esqueje (grabalo vos) · texto "unas gotas en el agua"
+   9-12 s  R5 (raíces blancas) · texto "raíces más rápidas y fuertes"
+   12-15 s frasco + texto "Llevá 2 a $40.600 c/u · envíos a todo el país 🇦🇷"
+
+A2 · RAÚL (la huerta no arranca) · personaje: el botánico
+ Bloque UGC (8 s):
+   He holds a small tomato seedling that looks weak, frowns, and says: "¿Le das agua,
+   le das sol, y la huerta no arranca? El problema está abajo de la tierra."
+ Montaje:
+   0-3 s   UGC · texto "¿Tu huerta no arranca? 🍅"
+   3-7 s   R2 + R3 · texto "3 a 4 ml por litro"
+   7-11 s  R4 · texto "regá la base, cada 7 días"
+   11-15 s R7 · texto "Rinde hasta 80 litros · 3 cuotas sin interés"
+
+A3 · MARTA (miedo a matar las plantas al trasplantar)
+ Bloque UGC (8 s):
+   She holds a potted plant that was just transplanted, tilts her head kindly, and
+   says: "Si cada vez que la cambiás de maceta se te cae, no es tu culpa. Hacé esto."
+ Montaje:
+   0-3 s   UGC · texto "¿Se te cae al trasplantar? 🥀"
+   3-6 s   R6 · texto "golpe de trasplante"
+   6-10 s  R3 + R4 · texto "primer riego con VERDEA"
+   10-15 s planta firme + texto "Fácil · no quema · guía de regalo con el pack x2"
+
+A4 · HÉCTOR (el escéptico que ya probó todo) · personaje: el botánico
+ Bloque UGC (8 s):
+   He raises an eyebrow, holds up the bottle at chest height, and says: "Planté ocho
+   esquejes y prendieron dos. Desde que uso este enraizante, el porcentaje cambió."
+ ⚠️ Usá esta frase SOLO si lo comprobaste vos (experimento B7/B8 de los guiones). Si no,
+   cambiala por: "¿Te prenden dos de cada ocho esquejes? Fijate en la dosis y en esto."
+ Montaje:
+   0-3 s   UGC · texto "2 de cada 8 esquejes… 🤔"
+   3-8 s   pizarrón P1 con zoom · texto "el secreto está en la raíz"
+   8-12 s  R2 · texto "concentrado: 3 a 4 ml por litro"
+   12-15 s frasco + texto "Llevá 3: 35% OFF + envío gratis"
+
+
+=====================================================================
+FORMATO B · EL BOTÁNICO CON PIZARRÓN (35-40 s, 5 bloques)
+=====================================================================
+Cada bloque = [descripción fija del botánico] + la línea de abajo.
+Ideal para retargeting (gente que ya vio la tienda) y para el perfil de Instagram.
+
+B1 · Gancho (0-8 s)
+   He points at the roots drawn on the chalkboard behind him, then looks back at the
+   camera and says: "Si tus plantas no crecen, no mires las hojas. El problema casi
+   siempre está acá abajo."
+   B-roll encima de la segunda mitad: R6.
+
+B2 · El problema (8-16 s)
+   He explains with open hands, like a teacher, and says: "Sin raíces fuertes la
+   planta no puede tomar agua ni nutrientes. Se estanca, se pone amarilla o se pudre."
+   B-roll: pizarrón P1 con zoom.
+
+B3 · Trasplante y esquejes (16-24 s)
+   He mimics pulling a plant out of a pot with his hands and says: "Cuando trasplantás
+   se rompen raíces finitas. Y un esqueje en agua sola no tiene con qué formarlas."
+   B-roll: pizarrón P2 y después P3.
+
+B4 · La solución (24-32 s)
+   He picks up the VERDEA bottle from a table, shows it to the camera and says: "Por
+   eso uso un enraizante orgánico: estimula raíces nuevas, más rápido y más fuertes."
+   B-roll: R1 y tu foto ANTES/DESPUÉS de la galería (con "Imagen ilustrativa").
+
+B5 · Uso y oferta (32-40 s)
+   He counts on his fingers, then points down and says: "Tres o cuatro mililitros por
+   litro, cada siete días. Llevando dos te ahorrás un treinta por ciento. Link abajo."
+   B-roll: pizarrón P4 → R3 → frasco + texto "Llevá 2: 30% OFF + guía de regalo".
+
+Ganchos alternativos para B1 (cambiás solo el diálogo y testeás cuál frena más):
+ - "Te explico en treinta segundos por qué se te pudren los esquejes."
+ - "Este dibujo explica por qué tu limonero no crece hace años."
+ - "El error que comete casi todo el mundo cuando cambia una planta de maceta."
+ - "Un frasco de este tamaño rinde hasta ochenta litros. Te explico cómo."
+
+
+=====================================================================
+EDICIÓN EN CAPCUT (los dos formatos)
+=====================================================================
+1. Lienzo 9:16 (1080x1920). Bloques UGC en la pista principal, B-roll encima.
+2. Cortá cada plano a 2-4 s: el ritmo rápido es lo que hace funcionar los de referencia.
+3. Subtítulos automáticos: letra gruesa blanca con borde negro, centrada, 2-4 palabras
+   por línea (como en los videos de referencia).
+4. Cierre con el precio en texto grande. Precios: x1 $58.000 · x2 $81.200 ($40.600 c/u)
+   · x3 $113.100 + envío gratis · 3 cuotas sin interés.
+5. Audio: voz bien al frente, música en tendencia muy bajita (10-15%).
+6. Exportá 1080p, 30 fps.
+
+
+=====================================================================
+REGLAS PARA NO TENER PROBLEMAS CON META
+=====================================================================
+- El botánico NO tiene nombre, título ni matrícula. No digas "soy ingeniero agrónomo".
+- Nada de "triplica tu cosecha", "garantizado", "100% de éxito".
+- Antes/después: solo los tuyos reales, o con "Imagen ilustrativa".
+- "Orgánico" solo si la etiqueta/certificación lo respalda.
+- Si Meta pregunta, el contenido es "generado con IA": activá la etiqueta de IA al subir
+  el anuncio.
