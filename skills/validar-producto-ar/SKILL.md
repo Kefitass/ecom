@@ -1,6 +1,6 @@
 ---
 name: validar-producto-ar
-description: Valida un producto de ecommerce ANTES de gastar plata testeándolo con anuncios, con foco en el mercado argentino. Investiga demanda real (Mercado Libre, Google Trends AR, redes), competencia y anuncios activos (Biblioteca de Anuncios de Meta), calcula la economía unitaria en pesos (margen, costo de cuotas, comisiones, CPA y ROAS de equilibrio) y devuelve un puntaje de 0 a 100 con veredicto TESTEAR / AJUSTAR / DESCARTAR, precio sugerido y plan de test. Usá esta skill siempre que alguien pregunte si un producto "sirve", "vende", "es ganador", "vale la pena testearlo", si conviene venderlo en Argentina, cuánto cobrarlo, qué margen deja, o pase un link de AliExpress/proveedor, una foto o el nombre de un producto pensando en dropshipping, Shopify, Tiendanube o Meta Ads, aunque no diga la palabra "validar".
+description: Valida un producto de ecommerce ANTES de gastar plata testeándolo con anuncios, con foco en el mercado argentino. Investiga demanda real (Mercado Libre, Google Trends AR, redes), competencia y anuncios activos (Biblioteca de Anuncios de Meta), calcula la economía unitaria en pesos (margen, costo de cuotas, comisiones, CPA y ROAS de equilibrio) y devuelve un puntaje de 0 a 100 con veredicto TESTEAR / AJUSTAR / DESCARTAR, precio sugerido y plan de test. Usá esta skill siempre que alguien pregunte si un producto "sirve", "vende", "es ganador", "vale la pena testearlo", si conviene venderlo en Argentina, cuánto cobrarlo, qué margen deja, o pase un link de AliExpress/proveedor, una foto o el nombre de un producto pensando en dropshipping, Shopify, Tiendanube o Meta Ads, aunque no diga la palabra "validar". Si el usuario manda solo un link de un producto (AliExpress, Temu, Alibaba, Mercado Libre, una tienda) sin más contexto, asumí que quiere esta validación.
 ---
 
 # Validar producto para Argentina
@@ -19,17 +19,26 @@ El valor de esta skill depende de que los datos sean reales. Por eso:
 
 ## Qué necesitás del usuario
 
-Pedí solo lo que falte, en un único mensaje corto:
-1. **El producto**: nombre, link (AliExpress, proveedor local, Mercado Libre) o foto.
-2. **Costo por unidad puesto en su casa/depósito** (en ARS o USD), si lo sabe. Si no lo sabe, estimalo con el precio del proveedor + envío/importación y marcalo [Estimado].
-3. **Dónde vende**: Shopify, Tiendanube, Mercado Libre o redes. Si no lo dice, asumí tienda propia + Meta Ads.
+Lo habitual es que el usuario mande **solo el link de la página del producto** (AliExpress, Temu, Alibaba, un proveedor local, una tienda de la competencia o una publicación de Mercado Libre) y espere el veredicto. No le pidas nada antes de arrancar: el link alcanza para empezar.
 
-Si el usuario solo da el nombre, arrancá igual con la investigación y pedí el costo al final.
+Lo que podés necesitar después, pedilo en un único mensaje corto al final del informe, en "Datos que me faltaron":
+- **Costo real por unidad puesto en su casa/depósito**, si el link no es de su proveedor o el precio no incluye envío/importación. Mientras tanto estimalo y marcalo [Estimado].
+- **Capturas** de las fuentes que no pudiste abrir.
+- **Dónde vende**: si no lo dice, asumí tienda propia (Shopify/Tiendanube) + Meta Ads.
 
 ## Proceso
 
-### Paso 1 · Entender el producto (2-3 líneas)
-Qué es, qué problema resuelve o qué deseo cumple, a quién le sirve y en qué categoría compite en Argentina. Esto define dónde buscar y qué comparar.
+### Paso 1 · Leer la página del producto y entenderlo
+Abrí el link con la herramienta para leer páginas web. Sacá de ahí:
+- **Qué es** exactamente (nombre comercial, variante, tamaño, materiales).
+- **Precio** y, si es un proveedor, **costo de envío a Argentina** y plazo.
+- **Pruebas sociales**: cantidad de pedidos/vendidos, puntaje y qué dicen las reseñas, sobre todo las negativas (fallas de calidad, talles, roturas).
+- **Fotos y videos** disponibles (sirven para juzgar si es demostrable en video).
+- **Qué tipo de página es**: si es de un **proveedor**, el precio es tu costo; si es de una **tienda que lo vende** (competencia), el precio es referencia de mercado y hay que buscar el costo del proveedor aparte (buscá el mismo producto en AliExpress/Alibaba).
+
+Si la página no se puede abrir (bloqueo, login, captcha), pedile al usuario una captura de la página con el precio, el envío y las reseñas, y mientras tanto avanzá con el nombre del producto que se ve en el link.
+
+Con eso escribí 2-3 líneas: qué problema resuelve o qué deseo cumple, a quién le sirve y en qué categoría compite en Argentina. Esto define dónde buscar y qué comparar.
 
 ### Paso 2 · Demanda en Argentina
 Buscá evidencia de que **la gente ya compra esto en Argentina**. Las fuentes, cómo consultarlas y qué hacer si están bloqueadas están en `references/fuentes-ar.md`; leelo antes de buscar.
