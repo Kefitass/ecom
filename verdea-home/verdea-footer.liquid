@@ -71,6 +71,12 @@
   body:not(#vf-x):not(#vf-y):not(#vf-z) .header__inline-menu [aria-current="page"]::before,
   body:not(#vf-x):not(#vf-y):not(#vf-z) .header__inline-menu [aria-current="page"]::after{background:transparent!important;display:none!important}
 
+  /* Encabezado fijo: fondo blanco sólido también mientras aparece al subir (celular) */
+  body:not(#vf-x) .section-header,
+  body:not(#vf-x) .shopify-section-header-sticky,
+  body:not(#vf-x) sticky-header,
+  body:not(#vf-x) .header-wrapper{background-color:#FFFFFF!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;opacity:1!important}
+
   /* Botón flotante de WhatsApp */
   .vf-float{position:fixed;right:20px;bottom:20px;z-index:9990;display:flex;align-items:center;gap:10px;transition:bottom .35s ease}
   .vf-float__btn{width:58px;height:58px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;
