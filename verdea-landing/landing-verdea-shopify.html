@@ -137,7 +137,7 @@ window.WIGY_CONFIG = {
     {
       nombre: "1 Enraizante",
       precio: "$58.000",
-      subtexto: "3 cuotas sin interés",
+      subtexto: "Rinde hasta 80 L · 3 cuotas sin interés",
       precioViejo: "",
       descuento: "",
       etiqueta: "",
@@ -148,7 +148,7 @@ window.WIGY_CONFIG = {
     {
       nombre: "2 Enraizantes",
       precio: "$81.200",
-      subtexto: "3 cuotas sin interés",
+      subtexto: "Rinde hasta 160 L · 3 cuotas sin interés",
       precioViejo: "$116.000",
       descuento: "30% OFF",
       etiqueta: "🌱 MÁS POPULAR",
@@ -159,7 +159,7 @@ window.WIGY_CONFIG = {
     {
       nombre: "3 Enraizantes",
       precio: "$113.100",
-      subtexto: "Envío gratis + 3 cuotas sin interés",
+      subtexto: "Rinde hasta 240 L · envío gratis + 3 cuotas",
       precioViejo: "$174.000",
       descuento: "35% OFF",
       etiqueta: "MEJOR VALOR",
@@ -580,7 +580,7 @@ window.WIGY_DOM = {
 
   function injectStyle() {
     if (document.getElementById(WRAPPER_ID + "-style")) return;
-    var css = ".benefits-list{list-style:none!important;padding:0!important;margin:10px 0 20px 0!important;display:flex;flex-direction:column;gap:4px}.benefits-list li{display:flex;align-items:flex-start;gap:10px;font-size:14.5px;color:#2b2b2b;line-height:1.4;margin:0!important;padding:0!important}.benefit-icon{flex:0 0 auto;width:18px;height:18px;margin-top:2px;display:block}.benefit-text{font-weight:500;font-family:inherit}@media (max-width:768px){.benefits-list li{font-size:13.5px}}";
+    var css = ".benefits-list{list-style:none!important;padding:0!important;margin:10px 0 20px 0!important;display:flex;flex-direction:column;gap:4px}.benefits-list li{display:flex;align-items:flex-start;gap:10px;font-size:14.5px;color:#2b2b2b;line-height:1.4;margin:0!important;padding:0!important}.benefit-icon{flex:0 0 auto;width:18px;height:18px;margin-top:2px;display:block}.benefit-text{font-weight:500;font-family:inherit}.benefits-rinde{display:flex;align-items:center;gap:10px;margin:-8px 0 18px 0;padding:10px 14px;border-radius:12px;background:#F1F6EC;border:1px dashed rgba(42,95,53,.35);font-size:14px;line-height:1.35;color:#2A5F35}.benefits-rinde b{font-weight:800}.benefits-rinde span:first-child{font-size:20px;line-height:1}@media (max-width:768px){.benefits-list li{font-size:13.5px}}";
     var st = document.createElement("style");
     st.id = WRAPPER_ID + "-style";
     st.innerHTML = css;
@@ -590,14 +590,16 @@ window.WIGY_DOM = {
   function buildHTML() {
     var items = [
       "Raíces fuertes desde el primer día",
-      "Concentrado: un frasco, muchos usos",
+      "Súper concentrado: 3 a 4 ml por litro, rinde hasta 80 litros",
+      "Sale menos de $1.000 por litro preparado",
       "Para huerta, macetas y plantas de interior",
       "Fórmula orgánica: cuida tus cultivos sin riesgos"
     ];
     var svg = '<svg class="benefit-icon" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#c1)"><mask id="m1" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="16" height="16"><path d="M7.99992 14.6668C8.87556 14.6679 9.74278 14.496 10.5518 14.1609C11.3607 13.8258 12.0955 13.3341 12.7139 12.7142C13.3339 12.0958 13.8255 11.361 14.1606 10.552C14.4957 9.74303 14.6677 8.8758 14.6666 8.00017C14.6677 7.12453 14.4957 6.25731 14.1606 5.44833C13.8255 4.63935 13.3339 3.90456 12.7139 3.28617C12.0955 2.66622 11.3607 2.17457 10.5518 1.83947C9.74278 1.50437 8.87556 1.33242 7.99992 1.3335C7.12429 1.33242 6.25707 1.50437 5.44809 1.83947C4.63911 2.17457 3.90431 2.66622 3.28592 3.28617C2.66598 3.90456 2.17433 4.63935 1.83923 5.44833C1.50413 6.25731 1.33218 7.12453 1.33326 8.00017C1.33218 8.8758 1.50413 9.74303 1.83923 10.552C2.17433 11.361 2.66598 12.0958 3.28592 12.7142C3.90431 13.3341 4.63911 13.8258 5.44809 14.1609C6.25707 14.496 7.12429 14.6679 7.99992 14.6668Z" fill="white" stroke="white" stroke-width="2" stroke-linejoin="round"></path><path d="M5.33325 8L7.33325 10L11.3333 6" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></mask><g mask="url(#m1)"><path d="M0 0H16V16H0V0Z" fill="#6BA342"></path></g></g><defs><clipPath id="c1"><rect width="16" height="16" fill="white"></rect></clipPath></defs></svg>';
     return '<ul class="benefits-list">' + items.map(function(text) {
       return '<li>' + svg + '<span class="benefit-text">' + text + '</span></li>';
-    }).join('') + '</ul>';
+    }).join('') + '</ul>' +
+      '<div class="benefits-rinde"><span aria-hidden="true">\u{1F4A7}</span><span><b>1 frasco de 250 ml = hasta 80 litros</b> \u00B7 unas 15 regaderas de 5 L</span></div>';
   }
 
   function mount() {
@@ -676,7 +678,7 @@ window.WIGY_DOM = {
       var gift = o.regalo ? '<div class="kb-gifts"><div class="kb-gift-row"><span class="kb-gift-check">' + giftCheckSVG + '</span><span>' + o.regalo + '</span><span class="kb-gift-tag">GRATIS</span></div></div>' : '';
       return '<div class="kb-bar' + sel + '" data-qty="' + o.cantidad + '">' + pop + '<div class="kb-main"><div class="kb-radio"></div><div class="kb-c"><div class="kb-r1"><span class="kb-t">' + o.nombre + bdg + '</span><span class="kb-p">' + o.precio + '</span></div><div class="kb-r2"><span class="kb-s">' + o.subtexto + '</span>' + oldP + '</div></div></div>' + gift + '</div>';
     }).join('');
-    w.innerHTML = '<div class="kaching-bundles__block-title kb-title">Cuidá tu huerta de la mejor manera</div>' + barsHTML;
+    w.innerHTML = '<div class="kaching-bundles__block-title kb-title">Elegí tu pack · 1 frasco rinde hasta 80 L \u{1F4A7}</div>' + barsHTML;
 
     pCol.parentNode.insertBefore(w, pCol);
 
@@ -1014,7 +1016,7 @@ window.WIGY_DOM = {
       {
         icon: '<svg class="wmf-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>',
         title: "Modo de uso",
-        text: "<p>Es una fórmula <strong>concentrada</strong>: diluí unos pocos mililitros por litro de agua según las indicaciones de la etiqueta.</p><ul><li><strong>Esquejes:</strong> para que prendan más rápido.</li><li><strong>Trasplantes:</strong> para evitar el estrés de trasplante.</li><li><strong>Riego:</strong> para raíces más fuertes en huerta y macetas.</li></ul>"
+        text: "<p>Es una fórmula <strong>concentrada</strong>: diluí <strong>3 a 4 ml por litro de agua</strong>. Así, un frasco de 250 ml rinde <strong>hasta 80 litros</strong>.</p><ul><li><strong>Esquejes:</strong> para que prendan más rápido.</li><li><strong>Trasplantes:</strong> para evitar el estrés de trasplante.</li><li><strong>Riego:</strong> para raíces más fuertes en huerta y macetas.</li></ul>"
       },
       {
         icon: '<svg class="wmf-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/><path d="M6 15h4"/></svg>',
@@ -1337,7 +1339,7 @@ window.WIGY_DOM = {
       { title: "Estimula ra\u00EDces m\u00E1s r\u00E1pidas y fuertes", desc: "Activa las c\u00E9lulas radiculares y la formaci\u00F3n de pelos absorbentes para que tus esquejes y brotes prendan en mucho menos tiempo, con ra\u00EDces visibles y sanas." },
       { title: "Mejora la absorci\u00F3n de nutrientes", desc: "Al aumentar el volumen de la ra\u00EDz, la planta aprovecha al m\u00E1ximo el agua y los minerales del suelo: crecimiento m\u00E1s verde, tupido y lleno de energ\u00EDa." },
       { title: "Protege contra el estr\u00E9s de trasplante", desc: "Acelera la regeneraci\u00F3n del tejido radicular y fortalece las defensas naturales para que la planta se adapte sin decaerse ni perder hojas." },
-      { title: "Org\u00E1nico y s\u00FAper concentrado", desc: "Seguro para huerta (verduras, arom\u00E1ticas y frutales), macetas, interior y ornamentales. Unos pocos ml por litro: un frasco rinde much\u00EDsimo." }
+      { title: "Org\u00E1nico y s\u00FAper concentrado", desc: "Seguro para huerta (verduras, arom\u00E1ticas y frutales), macetas, interior y ornamentales. Solo 3 a 4 ml por litro: un frasco de 250 ml rinde hasta 80 litros, unas 15 regaderas de 5 L." }
     ];
 
     var featsHTML = features.map(function(f, i) {
@@ -1488,7 +1490,7 @@ window.WIGY_DOM = {
   }
 
   function buildHTML() {
-    return '<div class="hf-header-timeline"><h2>As\u00ED de f\u00E1cil se usa</h2><span class="highlight">en 4 pasos, sin experiencia</span></div><div class="timeline-container-orange"><div class="timeline-track"><div class="timeline-progress-fill"></div></div><div class="timeline-row-orange"><div class="timeline-marker-orange"><div class="t-pill-orange">Paso 1</div></div><div class="t-content-orange"><h3>Diluilo en agua</h3><p>Unos pocos mililitros por litro de agua, seg\u00FAn la etiqueta. Al ser concentrado, el frasco de 250 ml rinde para much\u00EDsimas aplicaciones.</p></div></div><div class="timeline-row-orange"><div class="timeline-marker-orange"><div class="t-pill-orange">Paso 2</div></div><div class="t-content-orange"><h3>Aplicalo donde lo necesites</h3><p>En esquejes para que prendan, en trasplantes para evitar el golpe, o en el riego de tu huerta y tus macetas.</p></div></div><div class="timeline-row-orange"><div class="timeline-marker-orange"><div class="t-pill-orange">Paso 3</div></div><div class="t-content-orange"><h3>Ra\u00EDces en acci\u00F3n</h3><p>Desde los primeros usos vas a notar el est\u00EDmulo en el desarrollo de ra\u00EDces y m\u00E1s firmeza en tus plantas.</p></div></div><div class="timeline-row-orange"><div class="timeline-marker-orange"><div class="t-pill-orange">Resultado</div></div><div class="t-content-orange"><h3>Plantas m\u00E1s sanas</h3><p>Ra\u00EDces fuertes que absorben mejor el agua y los nutrientes: un crecimiento m\u00E1s verde, tupido y lleno de energ\u00EDa.</p></div></div></div>';
+    return '<div class="hf-header-timeline"><h2>As\u00ED de f\u00E1cil se usa</h2><span class="highlight">en 4 pasos, sin experiencia</span></div><div class="timeline-container-orange"><div class="timeline-track"><div class="timeline-progress-fill"></div></div><div class="timeline-row-orange"><div class="timeline-marker-orange"><div class="t-pill-orange">Paso 1</div></div><div class="t-content-orange"><h3>Diluilo en agua</h3><p>3 a 4 ml por litro de agua. Al ser concentrado, el frasco de 250 ml rinde hasta 80 litros.</p></div></div><div class="timeline-row-orange"><div class="timeline-marker-orange"><div class="t-pill-orange">Paso 2</div></div><div class="t-content-orange"><h3>Aplicalo donde lo necesites</h3><p>En esquejes para que prendan, en trasplantes para evitar el golpe, o en el riego de tu huerta y tus macetas.</p></div></div><div class="timeline-row-orange"><div class="timeline-marker-orange"><div class="t-pill-orange">Paso 3</div></div><div class="t-content-orange"><h3>Ra\u00EDces en acci\u00F3n</h3><p>Desde los primeros usos vas a notar el est\u00EDmulo en el desarrollo de ra\u00EDces y m\u00E1s firmeza en tus plantas.</p></div></div><div class="timeline-row-orange"><div class="timeline-marker-orange"><div class="t-pill-orange">Resultado</div></div><div class="t-content-orange"><h3>Plantas m\u00E1s sanas</h3><p>Ra\u00EDces fuertes que absorben mejor el agua y los nutrientes: un crecimiento m\u00E1s verde, tupido y lleno de energ\u00EDa.</p></div></div></div>';
   }
 
   function initTimelineScroll(wrapper) {
@@ -2012,8 +2014,8 @@ window.WIGY_DOM = {
         { icon: '<span class="material-icon material-symbols-outlined">potted_plant</span>', question: "¿Sirve para cualquier tipo de planta y huerta?", answer: '<p>Sí. Está formulado para ser seguro y efectivo tanto en <strong>huertas orgánicas</strong> (verduras, aromáticas y frutales) como en <strong>macetas, plantas de interior y ornamentales</strong>. Al ser un producto orgánico, cuida la salud de tus cultivos sin riesgos.</p>' },
         { icon: '<span class="material-icon material-symbols-outlined">schedule</span>', question: "¿Cuándo se empiezan a notar los resultados?", answer: '<p>Gracias a su fórmula de alta concentración y acción rápida, vas a notar un <strong>estímulo visible en el desarrollo de raíces</strong> y en la firmeza de tus plantas <strong>desde los primeros usos</strong>, ayudando a que los esquejes prendan.</p>' },
         { icon: '<span class="material-icon material-symbols-outlined">yard</span>', question: "¿Qué pasa si hago un trasplante a una maceta más grande?", answer: '<p>Es el <strong>momento ideal</strong> para usarlo. Acelera la regeneración del tejido radicular y fortalece las defensas naturales de la planta, evitando el clásico <strong>"choque o estrés de trasplante"</strong> para que no se decaiga ni pierda hojas.</p>' },
-        { icon: '<span class="material-icon material-symbols-outlined">water_drop</span>', question: "¿Rinde mucho cada frasco o se acaba rápido?", answer: '<p>Al ser una fórmula <strong>súper concentrada</strong>, rinde un montón. Solo necesitás diluir unos pocos mililitros por litro de agua según las indicaciones de la etiqueta, así que un frasco de 250 ml alcanza para <strong>muchísimas sesiones de riego, trasplantes y esquejes</strong>.</p>' },
-        { icon: '<span class="material-icon material-symbols-outlined">science</span>', question: "¿Cómo se usa?", answer: '<p>Diluí la dosis indicada en la etiqueta en agua y aplicalo en el <strong>remojo de esquejes</strong>, al momento del <strong>trasplante</strong> o en el <strong>riego</strong> de tu huerta y tus macetas. Es fácil de usar, aunque estés empezando.</p>' },
+        { icon: '<span class="material-icon material-symbols-outlined">water_drop</span>', question: "¿Rinde mucho cada frasco o se acaba rápido?", answer: '<p>Al ser una fórmula <strong>súper concentrada</strong>, rinde un montón. Usás solo <strong>3 a 4 ml por litro de agua</strong>, así que un frasco de 250 ml prepara <strong>hasta 80 litros</strong>: unas 15 regaderas de 5 L, o un tratamiento completo para más de 60 macetas medianas. Sale <strong>menos de $1.000 por litro preparado</strong>.</p>' },
+        { icon: '<span class="material-icon material-symbols-outlined">science</span>', question: "¿Cómo se usa?", answer: '<p>Diluí <strong>3 a 4 ml por litro de agua</strong> y aplicalo en el <strong>remojo de esquejes</strong>, al momento del <strong>trasplante</strong> o en el <strong>riego</strong> de tu huerta y tus macetas. Es fácil de usar, aunque estés empezando.</p>' },
         { icon: '<span class="material-icon material-symbols-outlined">local_shipping</span>', question: "¿Cuánto tarda en llegar mi pedido?", answer: '<p>Despachamos dentro de las <strong>24 hs hábiles</strong> posteriores a la compra. Enviamos a todo el país y la entrega suele demorar entre <strong>2 y 3 días hábiles</strong>. Una vez despachado, te mandamos por mail o WhatsApp el código de seguimiento.</p>' },
         { icon: '<span class="material-icon material-symbols-outlined">payments</span>', question: "¿Cómo puedo pagar?", answer: '<p>Con tarjeta de crédito en <strong>3 cuotas sin interés</strong>, débito o Mercado Pago, en el checkout 100% seguro de Shopify.</p>' },
         { icon: '<span class="material-icon material-symbols-outlined">verified_user</span>', question: "¿Mi compra está garantizada?", answer: '<p>Sí. Tenés <strong>' + (function(){var d=(window.WIGY_CONFIG&&window.WIGY_CONFIG.garantiaDias)||0;return d?'Garant\u00EDa de '+d+' d\u00EDas':'Garant\u00EDa 100%';})() + '</strong>, pagos seguros y <strong>atención al cliente 24/7</strong>. Si algo no está bien con tu pedido, escribinos y lo resolvemos.</p>' }
