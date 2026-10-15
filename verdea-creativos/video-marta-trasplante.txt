@@ -39,9 +39,14 @@ BLOQUE 4 · SOLUCIÓN
 Sonríe aliviada, señala hacia el costado como mostrando algo, y dice:
 "Ahora en el primer riego le pongo unas gotitas de VERDEA, y se adapta muchísimo mejor."
 
-BLOQUE 5 · OFERTA
-Cuenta con los dedos, después sonríe y señala hacia abajo, y dice:
-"Es re fácil y no quema. Llevando dos ahorrás un treinta por ciento. Tocá el botón."
+BLOQUE 5 · OFERTA (CTA)
+Al decir "llevando dos" levanta dos dedos a la altura del pecho, con una sonrisa
+cómplice. Al decir "guía de regalo" abre un poco los ojos y se inclina levemente hacia la
+cámara, como contando un secreto bueno. Al final asiente una vez, sonríe cálida y junta
+las manos frente al pecho. Manos siempre cerca del cuerpo y dentro del cuadro. Tono más
+enérgico y alegre que en los bloques anteriores. Dice:
+"Llevando dos ahorrás un treinta por ciento y te llevás la guía de regalo. Pedilo antes
+de tu próximo trasplante."
 
 Si "VERDEA" sale mal pronunciado, escribilo "Verdéa".
 
