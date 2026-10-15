@@ -111,3 +111,13 @@ de maceta, y sus raíces no dan abasto.
 Título: Que tu planta nueva no se arruine 🌱
 Descripción: Guía de regalo con el pack x2
 Botón: Comprar
+
+=====================================================================
+VERSIÓN CORTA ELEGIDA · 3 BLOQUES (~24 s) · estructura de prompt por secciones
+=====================================================================
+B1 (fondo: F1b planta decaída · texto "…y la pagaste carísima 💸"):
+"Mirá esta planta: la compré hermosa en el vivero y a las dos semanas está así. ¿Te pasó?"
+B2 (fondo: F3 raíces apretadas → dropeando · texto "luz, lugar y maceta nuevos"):
+"Llega estresada, y sus raíces no dan abasto. Por eso ahora la riego con unas gotitas de VERDEA."
+B3 (fondo: F5a planta adaptada → guía → grabación de pantalla · texto "LLEVÁ 2: 30% OFF + GUÍA 🎁 · El link está acá abajo 👇"):
+"Arma raíces nuevas y se adapta mucho mejor. Te dejo el link: llevando dos, viene con guía de regalo."
