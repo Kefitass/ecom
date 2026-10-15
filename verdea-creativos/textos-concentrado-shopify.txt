@@ -1,0 +1,36 @@
+VERDEA · TEXTOS PARA COPIAR Y PEGAR (énfasis en "concentrado")
+=====================================================================
+
+1) TÍTULO DEL PRODUCTO  (Shopify → Productos → el enraizante → Título)
+---------------------------------------------------------------------
+Enraizante Orgánico Concentrado para Huerta y Macetas 250 ml
+
+(No toques el "handle"/URL.)
+
+
+2) KACHING BUNDLES  (app Kaching → tu deal → textos)
+---------------------------------------------------------------------
+Título del bloque:
+Elegí tu pack · 1 frasco rinde hasta 80 L 💧
+
+Opción 1 · 1 Enraizante → subtítulo:
+Rinde hasta 80 L · 3 cuotas sin interés
+
+Opción 2 · 2 Enraizantes → subtítulo:
+Rinde hasta 160 L · 3 cuotas + guía de regalo
+
+Opción 3 · 3 Enraizantes → subtítulo:
+Rinde hasta 240 L · envío gratis + 3 cuotas + guía
+
+
+3) FOTO "1 FRASCO = HASTA 80 LITROS"  (galería, 2.ª posición → Texto alternativo)
+---------------------------------------------------------------------
+Enraizante VERDEA concentrado: 1 frasco rinde hasta 80 litros, 3 a 4 ml por litro
+
+
+4) LANDING  (Tienda online → Temas → Editar código → snippets/verdea-landing.liquid)
+---------------------------------------------------------------------
+Borrá todo el contenido y pegá el archivo completo:
+verdea-landing/landing-verdea-shopify.html
+Ya incluye: viñetas nuevas, recuadro "1 frasco de 250 ml = hasta 80 litros",
+y dosis 3-4 ml/L en Modo de uso, beneficios, paso a paso y preguntas frecuentes.
