@@ -39,11 +39,11 @@ Sonríe aliviada y se inclina un poco hacia la cámara, como contando un secreto
 "Ahora, cuando traigo una planta, la riego con unas gotitas de VERDEA, y arma raíces nuevas
 para adaptarse."
 
-BLOQUE 5 · CTA
-Sonríe cálida, levanta dos dedos al decir "dos", asiente y junta las manos frente al
-pecho. Tono alegre y enérgico. Dice:
-"Viene con una guía para no equivocarte, y llevando dos ahorrás un treinta por ciento.
-Pedilo hoy."
+BLOQUE 5 · CTA (suave, sin "comprá ya")
+Sonríe cálida, asiente despacio y junta las manos frente al pecho, como dando un consejo
+de amiga. Tono cálido y alegre. Dice:
+"La próxima planta que traigas, cuidala desde las raíces. Te dejo el link: llevando dos,
+viene con guía de regalo."
 
 ---------------------------------------------------------------------
 PASO 2 · FONDOS (Flow · Texto a video · Lite · 9:16 · x1 · nada seleccionado)
@@ -95,7 +95,7 @@ B1: "¿Tu planta nueva se arruina en casa? 🥀"
 B2: "...y la pagaste carísima 💸"
 B3: "LLEGA ESTRESADA: luz, lugar y maceta nuevos"
 B4: "unas gotas de VERDEA en el riego 💧"      (F5a: "Imagen ilustrativa", chiquito)
-B5: "GUÍA DE REGALO 🎁" → "LLEVÁ 2: 30% OFF" → "Tocá Comprar 👇 · 3 cuotas sin interés"
+B5: "Cuidala desde las raíces 🌱" → "LLEVÁ 2: 30% OFF + GUÍA DE REGALO 🎁" → "El link está acá abajo 👇 · 3 cuotas sin interés"
 
 ---------------------------------------------------------------------
 PASO 4 · COPY DEL ANUNCIO (Meta)
