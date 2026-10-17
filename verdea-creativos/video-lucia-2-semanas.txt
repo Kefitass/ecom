@@ -27,3 +27,16 @@ Título: Dale un empujoncito a tus esquejes 🌱
 Descripción: Rinde hasta 80 litros
 Botón: Comprar
 (Prompts completos: misma base por secciones que video-marta-2-vivero.txt; ver chat.)
+
+=====================================================================
+PROMPTS COMPLETOS (cada bloque autocontenido, sección VOZ idéntica en los 3)
+=====================================================================
+VOZ (idéntica en todos): mujer argentina de 50 años, nativa de Buenos Aires. Acento porteño
+rioplatense bien marcado: pronuncia la "ll" y la "y" como "sh" (dice "sho", "cashe"),
+entonación cantada típica de Buenos Aires, usa "vos". Timbre cálido, medio-grave, un poco
+ronco, nada agudo. Volumen medio, como hablando a una amiga a un metro. Velocidad natural,
+ni lenta ni apurada, con pausas cortas en las comas. Siempre la misma voz, el mismo tono y
+el mismo acento. Nunca acento neutro, mexicano, español ni extranjero; nunca tono de
+locutora ni de publicidad.
+(Bloques 1-3: ver el chat; usan esta VOZ + la base FORMATO/PERSONAJE/FRAMING/BACKGROUND/
+LIGHTING/AUDIO/RESTRICTIONS + ACTION AND DIALOGUE de cada bloque.)
