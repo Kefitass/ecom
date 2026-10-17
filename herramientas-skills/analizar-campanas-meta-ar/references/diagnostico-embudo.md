@@ -57,8 +57,12 @@ Revisá en este orden (de lo que más pesa a lo que menos):
 4. **Precio contra el mercado**: buscá el producto o uno parecido en Mercado Libre. Si el tuyo cuesta más del
    doble, la página tiene que justificarlo (cuánto rinde, precio por uso, garantía, regalo, pack) o hay que
    probar otra oferta. Con un CTR alto y casi ningún carrito, el precio es el primer sospechoso.
-5. **Confianza**: reseñas reales con foto (nunca inventadas), garantía de devolución clara, medios de pago y
-   cuotas visibles, WhatsApp a mano, envío y plazos de entrega claros.
+5. **Confianza**: reseñas reales con foto, garantía de devolución con días y condiciones, medios de pago y
+   cuotas visibles, WhatsApp a mano, envío y plazos de entrega claros. Revisá que no haya prueba social
+   inventada: estrellas y "+1.000 clientes" con pocas ventas reales, carteles de "Fulana compró hace 7 min"
+   que salen de una lista fija, sellos de "compra verificada" en reseñas de ejemplo, fotos de bancos de
+   imágenes. Es publicidad engañosa (Defensa del Consumidor, Lealtad Comercial), la clienta desconfiada lo nota
+   y deja de creer el resto: se saca antes de cualquier otra prueba.
 6. **Oferta**: los packs se entienden de un vistazo (el x2 marcado como el más elegido), las cuotas sin interés
    se ven arriba, y el envío gratis desde cierto monto está bien a la vista.
 7. **Velocidad** (sección 3).

@@ -1,0 +1,50 @@
+{
+  "expectations": [
+    {
+      "text": "Recomienda no tocar nada todavía porque todavía no alcanza para decidir",
+      "passed": true,
+      "evidence": "'VERDEA · Día 1: no toques nada todavía'"
+    },
+    {
+      "text": "No apaga Lucía 2 ahora: explica que tiene pocas impresiones (menos de 2.000) o poco gasto y da la condición para cortarlo más adelante",
+      "passed": true,
+      "evidence": "'Todavía no, pero es el primero en la fila para el martes'; 'Con $6.950 gastados lo normal es no tener ninguna venta'; tabla de corte para el martes"
+    },
+    {
+      "text": "No sube el presupuesto de Marta 1: 1 venta no alcanza (pide 3 ventas o más días)",
+      "passed": true,
+      "evidence": "'No. Una venta todavía no prueba que ese anuncio venda'; '3 ventas o más ... Recién ahí, +20%'"
+    },
+    {
+      "text": "El semáforo es AMARILLO",
+      "passed": false,
+      "evidence": "No hay semáforo"
+    },
+    {
+      "text": "Lee bien los números de la captura: gasto total ~$28.364, 4 anuncios, 1 compra (de Marta 1)",
+      "passed": true,
+      "evidence": "Lee $6.950 y CPC $1.158 de Lucía 2, CTR de cada anuncio y 1 venta de Marta 1; '~$113.000 en total' en 4 días = $28.364 por día"
+    },
+    {
+      "text": "No inventa datos que la captura no tiene (carritos, gancho, valor de la compra): los muestra como faltantes",
+      "passed": true,
+      "evidence": "No muestra carritos ni gancho; pide sumarlos el martes"
+    },
+    {
+      "text": "Pide el export completo o las columnas que faltan, con instrucciones de cómo sacarlas del Administrador de anuncios",
+      "passed": true,
+      "evidence": "'En Columnas → Personalizar columnas, sumá Visitas..., Artículos agregados al carrito, Pagos iniciados...' (pide captura, no export)"
+    },
+    {
+      "text": "Dice cuándo volver a mirar (p. ej. en 2-3 días o al llegar a 1 CPA de equilibrio por anuncio)",
+      "passed": true,
+      "evidence": "'decidí el martes 20/10 mirando los 4 días juntos'"
+    }
+  ],
+  "summary": {
+    "passed": 7,
+    "failed": 1,
+    "total": 8,
+    "pass_rate": 0.875
+  }
+}

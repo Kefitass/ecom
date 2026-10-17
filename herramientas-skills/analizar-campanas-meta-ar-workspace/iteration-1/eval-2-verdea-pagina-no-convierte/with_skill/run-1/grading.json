@@ -1,0 +1,55 @@
+{
+  "expectations": [
+    {
+      "text": "El semáforo es ROJO",
+      "passed": true,
+      "evidence": "'## Semáforo: ROJO · los anuncios traen gente de sobra, pero la página no vende'"
+    },
+    {
+      "text": "Dice que la venta se cae en la página o la oferta, no en los anuncios, citando CTR alto (~2,3%) y tasa de carrito muy baja (~1,1% o 9 carritos)",
+      "passed": true,
+      "evidence": "'de 785 visitas, solo 9 agregaron al carrito (1,1%)' con 'CTR 2,26%': 'Lo que falla es lo que pasa después del clic'"
+    },
+    {
+      "text": "No propone cortar los anuncios como solución: recomienda pausar o frenar el gasto mientras se arregla la página y reutilizar los mismos anuncios",
+      "passed": true,
+      "evidence": "'Frená el gasto hoy, sí. Pero pausá, no cortes'; los 3 en PAUSAR y 'reactivá los mismos 3 anuncios'"
+    },
+    {
+      "text": "Propone al menos 2 cambios concretos en la página u oferta (p. ej. primera pantalla, precio contra Mercado Libre, confianza/reseñas reales, packs, funcionamiento del botón en el celular)",
+      "passed": true,
+      "evidence": "Sacar la prueba social inventada (+1.083 clientes, cartel de Compra verificada), escalera de precios de prueba, primera pantalla alineada con los anuncios, garantía con días"
+    },
+    {
+      "text": "Calcula el CPA de equilibrio con costo $8.000 y precio $58.000: alrededor de $35.000 para 1 frasco",
+      "passed": true,
+      "evidence": "'CPA de equilibrio usado: $35.080 [Calculado: x1 a $58.000 − frasco $8.000 (Usuario) ...]'"
+    },
+    {
+      "text": "Las ideas de anuncios son solo para Lucía y Marta (no aparecen Raúl ni Héctor)",
+      "passed": true,
+      "evidence": "Las 3 ideas son 'Para Lucía'; no aparecen Raúl ni Héctor"
+    },
+    {
+      "text": "Las ideas de anuncios no usan CTA agresivos como 'comprá ya' o 'pedilo hoy'",
+      "passed": true,
+      "evidence": "'cierre suave (\"El link está acá abajo 👇\")'; sin 'comprá ya' ni 'pedilo hoy'"
+    },
+    {
+      "text": "Tiene en orden las secciones del formato: título '· Diagnóstico de campaña', Semáforo, Confianza en los datos, Qué hacer mañana, Resultados por anuncio, Dónde se cae la venta, Próximos anuncios para probar, Datos que me faltaron",
+      "passed": true,
+      "evidence": "Chequeo automático: las 8 secciones presentes y en orden"
+    },
+    {
+      "text": "Pide las ventas de Shopify o sugiere verificar que el evento de agregar al carrito se mida bien",
+      "passed": true,
+      "evidence": "'Fijate en Shopify cuántas sesiones agregaron al carrito'; Datos que me faltaron: pedidos y embudo de Shopify"
+    }
+  ],
+  "summary": {
+    "passed": 9,
+    "failed": 0,
+    "total": 9,
+    "pass_rate": 1.0
+  }
+}

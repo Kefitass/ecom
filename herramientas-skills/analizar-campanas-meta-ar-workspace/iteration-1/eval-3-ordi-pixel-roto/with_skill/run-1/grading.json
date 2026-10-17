@@ -1,0 +1,50 @@
+{
+  "expectations": [
+    {
+      "text": "Dice que el problema es de medición (píxel o API de conversiones) antes de opinar sobre los anuncios",
+      "passed": true,
+      "evidence": "'Lo que está roto es el píxel ... ve a la gente hasta el pago, pero no se entera de la compra'"
+    },
+    {
+      "text": "No recomienda apagar los anuncios por mostrar 0 compras en Meta",
+      "passed": true,
+      "evidence": "'¿Apago los anuncios? No.' y 'No apagues anuncios'"
+    },
+    {
+      "text": "Calcula el CPA real con las ventas de Shopify: $9.000 (unos $63.000 de gasto / 7 ventas)",
+      "passed": true,
+      "evidence": "'unos $9.000 de anuncios por venta ($63.000 ÷ 7) [Calculado]'"
+    },
+    {
+      "text": "Compara el CPA real con el CPA de equilibrio de ORDI (~$13.524) y concluye que la campaña probablemente es rentable",
+      "passed": true,
+      "evidence": "'~$9.000 por venta contra un máximo de $13.524': 'la campaña parece rentable'"
+    },
+    {
+      "text": "El semáforo es AMARILLO",
+      "passed": true,
+      "evidence": "'## Semáforo: AMARILLO · Meta no ve las compras...'"
+    },
+    {
+      "text": "Da pasos concretos para arreglar la medición (app de Meta en Shopify / uso compartido de datos / API de conversiones / Administrador de eventos / probar eventos)",
+      "passed": true,
+      "evidence": "Administrador de eventos → Información general; app Facebook & Instagram → Uso compartido de datos → Máximo; Probar eventos con compra real; UTM"
+    },
+    {
+      "text": "Lee bien el CSV con punto y coma y coma decimal: gasto total ~$63.000 y ~$21.000 por anuncio",
+      "passed": true,
+      "evidence": "Gasto total $63.000; $21.350 / $20.980 / $20.670 por anuncio"
+    },
+    {
+      "text": "Tiene en orden las secciones del formato: título '· Diagnóstico de campaña', Semáforo, Confianza en los datos, Qué hacer mañana, Resultados por anuncio, Dónde se cae la venta, Próximos anuncios para probar, Datos que me faltaron",
+      "passed": true,
+      "evidence": "Chequeo automático: las 8 secciones presentes y en orden"
+    }
+  ],
+  "summary": {
+    "passed": 8,
+    "failed": 0,
+    "total": 8,
+    "pass_rate": 1.0
+  }
+}

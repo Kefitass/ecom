@@ -53,7 +53,7 @@ Corré `scripts/metricas.py`: lee el archivo tal como lo baja Meta (CSV con coma
 python scripts/metricas.py export.csv --costo 12000 --packs 1:34900,2:59900,3:79900 --envio 8000 --envio-gratis-desde 3 --shopify-ventas 7
 ```
 
-- `--cpa-equilibrio 13524` si ya está calculado; o `--costo` con `--precio` o `--packs unidades:precio,...` para que lo calcule (misma fórmula que `economia.py` de validar-producto-ar). Con packs, el CPA de equilibrio se ajusta al ticket promedio real; sin ventas usa el pack que menos deja, que es lo prudente.
+- `--cpa-equilibrio 13524` si ya está calculado; o `--costo` con `--precio` o `--packs unidades:precio,...` para que lo calcule (misma fórmula que `economia.py` de validar-producto-ar). Con packs, el script deduce qué packs se vendieron a partir del valor de las compras de cada anuncio y usa el margen de esa mezcla (si no cierra, porque el valor incluye envío o descuentos, se ajusta al ticket promedio); sin ventas usa el pack que menos deja, que es lo prudente.
 - `--envio` (lo que te cuesta el envío cuando lo regalás) y `--envio-gratis-desde N` (desde cuántas unidades es gratis). Sin `--envio-gratis-desde`, asume que el envío lo paga el cliente.
 - `--shopify-ventas N` para controlar la medición; `--dias N` si el archivo no trae fechas; `--tipo-cambio` si la cuenta publicitaria está en dólares; `--recargo-anuncios 0.21` si los impuestos que Meta cobra arriba del gasto son costo para el usuario (ver `references/metricas-y-reglas.md`); `--json` para leer el resultado como datos.
 - Si no podés ejecutar código, hacé las cuentas con las fórmulas de `references/metricas-y-reglas.md` y mostralas.
@@ -109,7 +109,7 @@ Las reglas ordenan la decisión; el criterio sigue siendo tuyo. Si un caso no en
 1. **Qué hacer mañana**: de 3 a 6 acciones concretas, en orden, que se hagan en 10 minutos en el Administrador de anuncios ("Apagá Caro 2 · Pinterest", "Poné el conjunto Caro en $8.340 por día"). Primero lo que más plata ahorra o más plata hace; si la medición está rota, primero eso.
 2. **Presupuesto de los próximos 3-4 días**: la tabla del script, por conjunto, con el total por día. Con presupuesto por conjunto (ABO), cada conjunto lleva la suma de los anuncios que quedan: si el ganador comparte conjunto con perdedores, al apagarlos hay que bajar el conjunto a la cifra de la tabla; si no, el ganador recibe de golpe todo el presupuesto del conjunto. Con presupuesto de campaña (Advantage+), se sube la campaña. Los anuncios nuevos van en un conjunto aparte, con ~½ CPA de equilibrio por día cada uno (llegan a 2 CPA en 4 días) para no reiniciar el aprendizaje del ganador. Si el total no le da, que pruebe 2 en vez de 3, o de a uno; menos de ⅓ CPA por día por anuncio hace que tarde más de una semana en poder juzgarse.
 3. **3 anuncios nuevos para probar**, basados en el que mejor funciona (el ganador; si nadie vende, el de mejor CTR): mismo ángulo y misma buyer persona, **otro gancho en los primeros 3 segundos**. Para cada uno: para quién es, el gancho (texto exacto de los primeros 3 s), qué se ve, texto en pantalla y por qué (qué dato del ganador lo justifica). Respetá las reglas de la marca: en VERDEA, solo Lucía y Marta, CTA suave y emocional (nada de "comprá ya"), la oferta en el texto en pantalla y solo reseñas o antes/después reales. Si el problema es la página o la medición, aclará que las ideas son para cuando eso esté resuelto.
-4. **Cambios en la página o la oferta**, solo si el embudo dice que la venta se cae ahí: concretos, de a uno, con cómo se va a saber si funcionó.
+4. **Cambios en la página o la oferta**, solo si el embudo dice que la venta se cae ahí: concretos, de a uno, con cómo se va a saber si funcionó. Si el repo tiene la landing de la marca (`<MARCA>/landing/`: `info.txt` y el snippet), abrila antes de opinar y revisala con la lista de `references/diagnostico-embudo.md` (sección 4): que la primera pantalla cumpla la promesa de los anuncios, el precio contra el mercado, el envío y la garantía a la vista. Mirá especialmente la prueba social: estrellas, cantidad de opiniones o de clientes, carteles de "compró hace X min" y sellos de "compra verificada" que no salen de ventas reales. Si hay algo inventado, va primero en la lista: rompe la regla de la marca, es publicidad engañosa y espanta justo a la clienta desconfiada.
 
 Con días 1 o 2 la respuesta casi siempre es "no toques nada todavía": Meta está aprendiendo y un día de datos es ruido. Lo útil en ese caso es decir **cuándo** mirar de nuevo y **qué número** dispararía cada decisión ("si Lucía 2 pasa las 2.000 impresiones con CTR menor a 0,5%, se corta").
 
@@ -122,7 +122,7 @@ Con ROJO decí sin vueltas si conviene **frenar todo** y qué revisar antes de v
 
 ## Formato de la respuesta
 
-Usá esta estructura, en este orden, con estos títulos. El contenido, corto.
+Usá esta estructura, en este orden, con estos títulos. El contenido, corto: el informe entero se tiene que poder leer en el celular en 4-5 minutos (unas 900 a 1.300 palabras). Para lograrlo, cada término se explica una sola vez, cada número aparece en un solo lugar, cada anuncio lleva una línea de porqué, cada idea de anuncio entra en 3 líneas, y los supuestos y escenarios alternativos van en una línea ("con costo $15.000, Caro 3 queda justo"), no en párrafos. Si algo no cambia ninguna decisión, no va.
 
 ```
 # [Marca] · Diagnóstico de campaña ([fecha de inicio] al [fecha de fin], [N] días)
@@ -151,7 +151,7 @@ CPA de equilibrio usado: $... [origen] · ROAS de equilibrio: ...
 [presupuesto de los próximos 3-4 días: tabla corta por conjunto y total por día]
 
 ## Datos que me faltaron
-[cada dato que mejoraría el diagnóstico, con instrucciones exactas para sacarlo de Meta o de Shopify; "nada" si no faltó nada]
+[los 3-4 datos que más pueden cambiar una decisión, con instrucciones exactas para sacarlos de Meta o de Shopify; "nada" si no faltó nada]
 ```
 
 Confianza en los datos: **alta** con export completo y ventas de Shopify que coinciden; **media** si faltan las ventas de Shopify o columnas del embudo, o el costo es estimado; **baja** con capturas parciales, 1-2 días de datos o medición rota.

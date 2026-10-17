@@ -1,0 +1,18 @@
+{
+  "eval_id": 1,
+  "eval_name": "ordi-ganador-y-perdedores",
+  "prompt": "Ya pasaron 4 días de la campaña de ORDI. Te paso el export del Administrador de anuncios (ordi-4-dias.csv). ¿Qué corto, qué dejo y qué escalo? No quiero quemar plata.",
+  "assertions": [
+    "El semáforo es VERDE",
+    "Caro 1 (Placard caos) se escala, subiendo como máximo 20% por día",
+    "Caro 2 (Pinterest) se corta / apaga",
+    "Silvia 1 (Tornado) se corta / apaga",
+    "Caro 3 (Se arman en 10 s) no se corta ni se escala: se mantiene igual",
+    "Usa el CPA de equilibrio de ORDI basado en la validación o en costo $12.000 (menciona $13.524 o un valor ajustado al ticket de ~$19.300)",
+    "Tiene en orden las secciones del formato: título '· Diagnóstico de campaña', Semáforo, Confianza en los datos, Qué hacer mañana, Resultados por anuncio, Dónde se cae la venta, Próximos anuncios para probar, Datos que me faltaron",
+    "La tabla por anuncio tiene las columnas gasto, CTR, gancho, CPC, carritos, compras, CPA, ROAS y decisión",
+    "Marca el origen de los números con etiquetas como [Meta], [Calculado], [Usuario], [Shopify] o [Estimado]",
+    "Propone 3 anuncios nuevos basados en el ganador (ángulo dolor del placard / Caro) con un gancho distinto en los primeros 3 segundos",
+    "Pide las ventas de Shopify del período para controlar que el píxel mida bien"
+  ]
+}

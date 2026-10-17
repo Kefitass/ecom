@@ -61,9 +61,12 @@ Cambian seguido: si el usuario tiene sus porcentajes reales, van esos.
 
 **Con packs** (Kaching), cada pack tiene su propio CPA de equilibrio. Ejemplo ORDI, costo $12.000, envío gratis
 en x3 que cuesta $8.000: x1 $34.900 → margen $13.524 · x2 $59.900 → $20.524 · x3 $79.900 → ~$15.700 (la
-validación de ORDI dice $15.524: diferencia de supuestos de envío). Con ventas, el script interpola según el
-ticket promedio real (si la mayoría compra x2, el equilibrio sube); sin ventas, usa el pack que menos deja, que
-es lo prudente.
+validación de ORDI dice $15.524: diferencia de supuestos de envío). Con ventas, el script deduce qué packs se
+vendieron a partir del valor de las compras de cada anuncio (por ejemplo, 5 compras por $269.500 = 2 de x1, 2 de
+x2 y 1 de x3) y usa el margen promedio de esa mezcla: en el ejemplo de ORDI, $17.838. Si el valor no cierra
+exacto (incluye envío pagado por el cliente o cupones), interpola según el ticket promedio, que es una
+aproximación: si la mayoría compra x2, el equilibrio sube. Sin ventas, usa el pack que menos deja, que es lo
+prudente.
 
 **Margen cero o negativo**: el producto pierde plata antes de pagar un solo anuncio. Ningún anuncio lo arregla:
 hay que subir el precio, bajar el costo o cambiar la oferta (semáforo ROJO).

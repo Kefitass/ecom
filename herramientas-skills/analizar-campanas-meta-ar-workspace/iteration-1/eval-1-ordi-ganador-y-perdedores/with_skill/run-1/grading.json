@@ -1,0 +1,65 @@
+{
+  "expectations": [
+    {
+      "text": "El semáforo es VERDE",
+      "passed": true,
+      "evidence": "'## Semáforo: VERDE · cada venta te costó $15.786 ... menos que los ~$17.800'"
+    },
+    {
+      "text": "Caro 1 (Placard caos) se escala, subiendo como máximo 20% por día",
+      "passed": true,
+      "evidence": "Tabla: Caro 1 '**ESCALAR**'; 'Así Caro 1 sube solo 20%' y 'subí el conjunto Caro 20% por día: $10.000 → $12.000 → $14.400'"
+    },
+    {
+      "text": "Caro 2 (Pinterest) se corta / apaga",
+      "passed": true,
+      "evidence": "'Apagá Caro 2 · Pinterest (deseo)'; tabla: **CORTAR**"
+    },
+    {
+      "text": "Silvia 1 (Tornado) se corta / apaga",
+      "passed": true,
+      "evidence": "'Apagá Silvia 1 · Tornado (dolor)'; tabla: **CORTAR**"
+    },
+    {
+      "text": "Caro 3 (Se arman en 10 s) no se corta ni se escala: se mantiene igual",
+      "passed": true,
+      "evidence": "'Caro 3 → MANTENER, sin subirlo: 2 ventas a $13.450'; 'A Caro 3 no lo toques'"
+    },
+    {
+      "text": "Usa el CPA de equilibrio de ORDI basado en la validación o en costo $12.000 (menciona $13.524 o un valor ajustado al ticket de ~$19.300)",
+      "passed": true,
+      "evidence": "Usa ~$17.800 calculado por mezcla de packs con costo $12.000 de validacion-ordi.md; menciona también $19.324 (script) y $13.524 (x1)"
+    },
+    {
+      "text": "Tiene en orden las secciones del formato: título '· Diagnóstico de campaña', Semáforo, Confianza en los datos, Qué hacer mañana, Resultados por anuncio, Dónde se cae la venta, Próximos anuncios para probar, Datos que me faltaron",
+      "passed": true,
+      "evidence": "Chequeo automático: las 8 secciones presentes y en orden"
+    },
+    {
+      "text": "La tabla por anuncio tiene las columnas gasto, CTR, gancho, CPC, carritos, compras, CPA, ROAS y decisión",
+      "passed": true,
+      "evidence": "Tabla '| Anuncio | Gasto | CTR | Gancho | CPC | Carritos | Compras | CPA | ROAS | Decisión |'"
+    },
+    {
+      "text": "Marca el origen de los números con etiquetas como [Meta], [Calculado], [Usuario], [Shopify] o [Estimado]",
+      "passed": true,
+      "evidence": "16 etiquetas: [Meta], [Calculado], [Estimado]"
+    },
+    {
+      "text": "Propone 3 anuncios nuevos basados en el ganador (ángulo dolor del placard / Caro) con un gancho distinto en los primeros 3 segundos",
+      "passed": true,
+      "evidence": "3 ideas 'Caro 1 con otros primeros 3 segundos': '¿Tres días?', 'No es culpa tuya', '7 de la mañana', todas para Caro, ángulo dolor"
+    },
+    {
+      "text": "Pide las ventas de Shopify del período para controlar que el píxel mida bien",
+      "passed": true,
+      "evidence": "Datos que me faltaron 1: 'Ventas de Shopify del 13 al 16/10 ... Si son ~7, el píxel mide bien'"
+    }
+  ],
+  "summary": {
+    "passed": 11,
+    "failed": 0,
+    "total": 11,
+    "pass_rate": 1.0
+  }
+}

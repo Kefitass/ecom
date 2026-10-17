@@ -1,0 +1,50 @@
+{
+  "expectations": [
+    {
+      "text": "Recomienda no tocar nada todavía porque todavía no alcanza para decidir",
+      "passed": true,
+      "evidence": "Los 4 anuncios en 'NO TOCAR'; 'con 1 día y 1 venta todavía no alcanza para decidir nada'"
+    },
+    {
+      "text": "No apaga Lucía 2 ahora: explica que tiene pocas impresiones (menos de 2.000) o poco gasto y da la condición para cortarlo más adelante",
+      "passed": true,
+      "evidence": "'Lucía 2: no la apagues todavía ... Si ya pasó las 2.000 impresiones y su CTR ... sigue abajo de 0,5% ... apagá solo esa'"
+    },
+    {
+      "text": "No sube el presupuesto de Marta 1: 1 venta no alcanza (pide 3 ventas o más días)",
+      "passed": true,
+      "evidence": "'Marta 1: no le subas el presupuesto ... Se sube recién cuando tenga 3 ventas o más'"
+    },
+    {
+      "text": "El semáforo es AMARILLO",
+      "passed": true,
+      "evidence": "'## Semáforo: AMARILLO'"
+    },
+    {
+      "text": "Lee bien los números de la captura: gasto total ~$28.364, 4 anuncios, 1 compra (de Marta 1)",
+      "passed": true,
+      "evidence": "Total cuenta $28.364, 4 anuncios, 1 compra de Marta 1 ($7.121)"
+    },
+    {
+      "text": "No inventa datos que la captura no tiene (carritos, gancho, valor de la compra): los muestra como faltantes",
+      "passed": true,
+      "evidence": "Gancho, carritos y ROAS en '—': 'Donde dice — es porque la captura no trae ese dato'"
+    },
+    {
+      "text": "Pide el export completo o las columnas que faltan, con instrucciones de cómo sacarlas del Administrador de anuncios",
+      "passed": true,
+      "evidence": "Datos que me faltaron 3: Columnas → Personalizar columnas, lista de columnas, Guardar como preset, Exportar → .csv"
+    },
+    {
+      "text": "Dice cuándo volver a mirar (p. ej. en 2-3 días o al llegar a 1 CPA de equilibrio por anuncio)",
+      "passed": true,
+      "evidence": "'Próxima revisión completa: miércoles 21/10'; Lucía 2 'se define mañana (domingo 18/10)'"
+    }
+  ],
+  "summary": {
+    "passed": 8,
+    "failed": 0,
+    "total": 8,
+    "pass_rate": 1.0
+  }
+}

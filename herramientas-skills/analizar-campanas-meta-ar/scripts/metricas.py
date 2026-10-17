@@ -308,6 +308,44 @@ def cpa_eq_para(ticket, puntos):
             return m1 + (ticket - p1) / (p2 - p1) * (m2 - m1)
 
 
+def mezcla_packs(n, valor, puntos, tol=0.01):
+    """Combinaciones de packs (cuántos de cada uno) que suman n ventas y el valor de Meta (±1%)."""
+    n = int(round(n))
+    if n <= 0 or not valor or not puntos or n > 60:
+        return []
+    precios = [pr for pr, _, _ in puntos]
+    res = []
+
+    def rec(i, quedan, acum, combo):
+        if i == len(precios) - 1:
+            if abs(acum + quedan * precios[i] - valor) <= max(tol * valor, 1):
+                res.append(combo + [quedan])
+            return
+        for k in range(quedan + 1):
+            rec(i + 1, quedan - k, acum + k * precios[i], combo + [k])
+
+    rec(0, n, 0.0, [])
+    return res
+
+
+def cpa_eq_por_mezcla(ms, puntos):
+    """CPA de equilibrio con los packs que realmente se vendieron, deducidos anuncio por anuncio
+    del valor de las compras. None si en algún anuncio no cierra exacto o hay más de una opción."""
+    margen, ventas, vendidos = 0.0, 0, {}
+    for m in ms:
+        if not m["compras"]:
+            continue
+        combos = mezcla_packs(m["compras"], m["valor"], puntos)
+        margenes = {round(sum(k * mg for k, (_, mg, _) in zip(c, puntos))) for c in combos}
+        if len(margenes) != 1:
+            return None
+        margen += sum(k * mg for k, (_, mg, _) in zip(combos[0], puntos))
+        ventas += sum(combos[0])
+        for k, (_, _, nn) in zip(combos[0], puntos):
+            vendidos[nn] = vendidos.get(nn, 0) + k
+    return (margen / ventas, vendidos) if ventas else None
+
+
 # ---------------------------------------------------------------- métricas y reglas
 def div(a, b):
     return (a / b) if (a is not None and b) else None
@@ -507,8 +545,14 @@ def main():
         E, fuente_E = a.cpa_equilibrio, "[Usuario]"
     elif a.costo and (a.precio or a.packs):
         puntos = puntos_equilibrio(a)
-        E = cpa_eq_para(T["ticket"], puntos)
-        fuente_E = "[Calculado]" + (" con el ticket promedio real" if T["ticket"] else " con el pack de menor margen (todavía no hay ventas con valor)")
+        mezcla = cpa_eq_por_mezcla(ms, puntos) if ("valor" in cols and len(puntos) > 1) else None
+        if mezcla:
+            E = mezcla[0]
+            fuente_E = "[Calculado] con los packs vendidos (deducidos del valor de las compras: %s)" % " · ".join(
+                "x%d ×%d" % (nn, k) for nn, k in sorted(mezcla[1].items()) if k)
+        else:
+            E = cpa_eq_para(T["ticket"], puntos)
+            fuente_E = "[Calculado]" + (" con el ticket promedio real" if T["ticket"] else " con el pack de menor margen (todavía no hay ventas con valor)")
     else:
         E, fuente_E = None, "falta"
     if not moneda_ok:

@@ -1,0 +1,576 @@
+{
+  "metadata": {
+    "skill_name": "analizar-campanas-meta-ar",
+    "skill_path": "<path/to/skill>",
+    "executor_model": "subagente de Claude Code",
+    "analyzer_model": "Claude Code (corrección manual + chequeos con script)",
+    "timestamp": "2026-10-17T04:38:35Z",
+    "evals_run": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "runs_per_configuration": 1
+  },
+  "runs": [
+    {
+      "eval_id": 1,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 11,
+        "failed": 0,
+        "total": 11,
+        "time_seconds": 684.2,
+        "tokens": 189055,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "El semáforo es VERDE",
+          "passed": true,
+          "evidence": "'## Semáforo: VERDE · cada venta te costó $15.786 ... menos que los ~$17.800'"
+        },
+        {
+          "text": "Caro 1 (Placard caos) se escala, subiendo como máximo 20% por día",
+          "passed": true,
+          "evidence": "Tabla: Caro 1 '**ESCALAR**'; 'Así Caro 1 sube solo 20%' y 'subí el conjunto Caro 20% por día: $10.000 → $12.000 → $14.400'"
+        },
+        {
+          "text": "Caro 2 (Pinterest) se corta / apaga",
+          "passed": true,
+          "evidence": "'Apagá Caro 2 · Pinterest (deseo)'; tabla: **CORTAR**"
+        },
+        {
+          "text": "Silvia 1 (Tornado) se corta / apaga",
+          "passed": true,
+          "evidence": "'Apagá Silvia 1 · Tornado (dolor)'; tabla: **CORTAR**"
+        },
+        {
+          "text": "Caro 3 (Se arman en 10 s) no se corta ni se escala: se mantiene igual",
+          "passed": true,
+          "evidence": "'Caro 3 → MANTENER, sin subirlo: 2 ventas a $13.450'; 'A Caro 3 no lo toques'"
+        },
+        {
+          "text": "Usa el CPA de equilibrio de ORDI basado en la validación o en costo $12.000 (menciona $13.524 o un valor ajustado al ticket de ~$19.300)",
+          "passed": true,
+          "evidence": "Usa ~$17.800 calculado por mezcla de packs con costo $12.000 de validacion-ordi.md; menciona también $19.324 (script) y $13.524 (x1)"
+        },
+        {
+          "text": "Tiene en orden las secciones del formato: título '· Diagnóstico de campaña', Semáforo, Confianza en los datos, Qué hacer mañana, Resultados por anuncio, Dónde se cae la venta, Próximos anuncios para probar, Datos que me faltaron",
+          "passed": true,
+          "evidence": "Chequeo automático: las 8 secciones presentes y en orden"
+        },
+        {
+          "text": "La tabla por anuncio tiene las columnas gasto, CTR, gancho, CPC, carritos, compras, CPA, ROAS y decisión",
+          "passed": true,
+          "evidence": "Tabla '| Anuncio | Gasto | CTR | Gancho | CPC | Carritos | Compras | CPA | ROAS | Decisión |'"
+        },
+        {
+          "text": "Marca el origen de los números con etiquetas como [Meta], [Calculado], [Usuario], [Shopify] o [Estimado]",
+          "passed": true,
+          "evidence": "16 etiquetas: [Meta], [Calculado], [Estimado]"
+        },
+        {
+          "text": "Propone 3 anuncios nuevos basados en el ganador (ángulo dolor del placard / Caro) con un gancho distinto en los primeros 3 segundos",
+          "passed": true,
+          "evidence": "3 ideas 'Caro 1 con otros primeros 3 segundos': '¿Tres días?', 'No es culpa tuya', '7 de la mañana', todas para Caro, ángulo dolor"
+        },
+        {
+          "text": "Pide las ventas de Shopify del período para controlar que el píxel mida bien",
+          "passed": true,
+          "evidence": "Datos que me faltaron 1: 'Ventas de Shopify del 13 al 16/10 ... Si son ~7, el píxel mide bien'"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 9,
+        "failed": 0,
+        "total": 9,
+        "time_seconds": 878.3,
+        "tokens": 236687,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "El semáforo es ROJO",
+          "passed": true,
+          "evidence": "'## Semáforo: ROJO · los anuncios traen gente de sobra, pero la página no vende'"
+        },
+        {
+          "text": "Dice que la venta se cae en la página o la oferta, no en los anuncios, citando CTR alto (~2,3%) y tasa de carrito muy baja (~1,1% o 9 carritos)",
+          "passed": true,
+          "evidence": "'de 785 visitas, solo 9 agregaron al carrito (1,1%)' con 'CTR 2,26%': 'Lo que falla es lo que pasa después del clic'"
+        },
+        {
+          "text": "No propone cortar los anuncios como solución: recomienda pausar o frenar el gasto mientras se arregla la página y reutilizar los mismos anuncios",
+          "passed": true,
+          "evidence": "'Frená el gasto hoy, sí. Pero pausá, no cortes'; los 3 en PAUSAR y 'reactivá los mismos 3 anuncios'"
+        },
+        {
+          "text": "Propone al menos 2 cambios concretos en la página u oferta (p. ej. primera pantalla, precio contra Mercado Libre, confianza/reseñas reales, packs, funcionamiento del botón en el celular)",
+          "passed": true,
+          "evidence": "Sacar la prueba social inventada (+1.083 clientes, cartel de Compra verificada), escalera de precios de prueba, primera pantalla alineada con los anuncios, garantía con días"
+        },
+        {
+          "text": "Calcula el CPA de equilibrio con costo $8.000 y precio $58.000: alrededor de $35.000 para 1 frasco",
+          "passed": true,
+          "evidence": "'CPA de equilibrio usado: $35.080 [Calculado: x1 a $58.000 − frasco $8.000 (Usuario) ...]'"
+        },
+        {
+          "text": "Las ideas de anuncios son solo para Lucía y Marta (no aparecen Raúl ni Héctor)",
+          "passed": true,
+          "evidence": "Las 3 ideas son 'Para Lucía'; no aparecen Raúl ni Héctor"
+        },
+        {
+          "text": "Las ideas de anuncios no usan CTA agresivos como 'comprá ya' o 'pedilo hoy'",
+          "passed": true,
+          "evidence": "'cierre suave (\"El link está acá abajo 👇\")'; sin 'comprá ya' ni 'pedilo hoy'"
+        },
+        {
+          "text": "Tiene en orden las secciones del formato: título '· Diagnóstico de campaña', Semáforo, Confianza en los datos, Qué hacer mañana, Resultados por anuncio, Dónde se cae la venta, Próximos anuncios para probar, Datos que me faltaron",
+          "passed": true,
+          "evidence": "Chequeo automático: las 8 secciones presentes y en orden"
+        },
+        {
+          "text": "Pide las ventas de Shopify o sugiere verificar que el evento de agregar al carrito se mida bien",
+          "passed": true,
+          "evidence": "'Fijate en Shopify cuántas sesiones agregaron al carrito'; Datos que me faltaron: pedidos y embudo de Shopify"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 3,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 8,
+        "failed": 0,
+        "total": 8,
+        "time_seconds": 641.9,
+        "tokens": 186457,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Dice que el problema es de medición (píxel o API de conversiones) antes de opinar sobre los anuncios",
+          "passed": true,
+          "evidence": "'Lo que está roto es el píxel ... ve a la gente hasta el pago, pero no se entera de la compra'"
+        },
+        {
+          "text": "No recomienda apagar los anuncios por mostrar 0 compras en Meta",
+          "passed": true,
+          "evidence": "'¿Apago los anuncios? No.' y 'No apagues anuncios'"
+        },
+        {
+          "text": "Calcula el CPA real con las ventas de Shopify: $9.000 (unos $63.000 de gasto / 7 ventas)",
+          "passed": true,
+          "evidence": "'unos $9.000 de anuncios por venta ($63.000 ÷ 7) [Calculado]'"
+        },
+        {
+          "text": "Compara el CPA real con el CPA de equilibrio de ORDI (~$13.524) y concluye que la campaña probablemente es rentable",
+          "passed": true,
+          "evidence": "'~$9.000 por venta contra un máximo de $13.524': 'la campaña parece rentable'"
+        },
+        {
+          "text": "El semáforo es AMARILLO",
+          "passed": true,
+          "evidence": "'## Semáforo: AMARILLO · Meta no ve las compras...'"
+        },
+        {
+          "text": "Da pasos concretos para arreglar la medición (app de Meta en Shopify / uso compartido de datos / API de conversiones / Administrador de eventos / probar eventos)",
+          "passed": true,
+          "evidence": "Administrador de eventos → Información general; app Facebook & Instagram → Uso compartido de datos → Máximo; Probar eventos con compra real; UTM"
+        },
+        {
+          "text": "Lee bien el CSV con punto y coma y coma decimal: gasto total ~$63.000 y ~$21.000 por anuncio",
+          "passed": true,
+          "evidence": "Gasto total $63.000; $21.350 / $20.980 / $20.670 por anuncio"
+        },
+        {
+          "text": "Tiene en orden las secciones del formato: título '· Diagnóstico de campaña', Semáforo, Confianza en los datos, Qué hacer mañana, Resultados por anuncio, Dónde se cae la venta, Próximos anuncios para probar, Datos que me faltaron",
+          "passed": true,
+          "evidence": "Chequeo automático: las 8 secciones presentes y en orden"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 4,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 8,
+        "failed": 0,
+        "total": 8,
+        "time_seconds": 686.7,
+        "tokens": 202682,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Recomienda no tocar nada todavía porque todavía no alcanza para decidir",
+          "passed": true,
+          "evidence": "Los 4 anuncios en 'NO TOCAR'; 'con 1 día y 1 venta todavía no alcanza para decidir nada'"
+        },
+        {
+          "text": "No apaga Lucía 2 ahora: explica que tiene pocas impresiones (menos de 2.000) o poco gasto y da la condición para cortarlo más adelante",
+          "passed": true,
+          "evidence": "'Lucía 2: no la apagues todavía ... Si ya pasó las 2.000 impresiones y su CTR ... sigue abajo de 0,5% ... apagá solo esa'"
+        },
+        {
+          "text": "No sube el presupuesto de Marta 1: 1 venta no alcanza (pide 3 ventas o más días)",
+          "passed": true,
+          "evidence": "'Marta 1: no le subas el presupuesto ... Se sube recién cuando tenga 3 ventas o más'"
+        },
+        {
+          "text": "El semáforo es AMARILLO",
+          "passed": true,
+          "evidence": "'## Semáforo: AMARILLO'"
+        },
+        {
+          "text": "Lee bien los números de la captura: gasto total ~$28.364, 4 anuncios, 1 compra (de Marta 1)",
+          "passed": true,
+          "evidence": "Total cuenta $28.364, 4 anuncios, 1 compra de Marta 1 ($7.121)"
+        },
+        {
+          "text": "No inventa datos que la captura no tiene (carritos, gancho, valor de la compra): los muestra como faltantes",
+          "passed": true,
+          "evidence": "Gancho, carritos y ROAS en '—': 'Donde dice — es porque la captura no trae ese dato'"
+        },
+        {
+          "text": "Pide el export completo o las columnas que faltan, con instrucciones de cómo sacarlas del Administrador de anuncios",
+          "passed": true,
+          "evidence": "Datos que me faltaron 3: Columnas → Personalizar columnas, lista de columnas, Guardar como preset, Exportar → .csv"
+        },
+        {
+          "text": "Dice cuándo volver a mirar (p. ej. en 2-3 días o al llegar a 1 CPA de equilibrio por anuncio)",
+          "passed": true,
+          "evidence": "'Próxima revisión completa: miércoles 21/10'; Lucía 2 'se define mañana (domingo 18/10)'"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.5455,
+        "passed": 6,
+        "failed": 5,
+        "total": 11,
+        "time_seconds": 572.6,
+        "tokens": 132925,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "El semáforo es VERDE",
+          "passed": false,
+          "evidence": "No hay semáforo; solo 'tenés un ganador claro y ... la campaña ya se pagó sola'"
+        },
+        {
+          "text": "Caro 1 (Placard caos) se escala, subiendo como máximo 20% por día",
+          "passed": true,
+          "evidence": "'ESCALAR · Caro 1' y 'subí el conjunto Caro 20% por día: $14.000 → $16.800 → ...' (desde el martes 20)"
+        },
+        {
+          "text": "Caro 2 (Pinterest) se corta / apaga",
+          "passed": true,
+          "evidence": "'CORTAR · Caro 2 · Pinterest y Silvia 1 · Tornado'"
+        },
+        {
+          "text": "Silvia 1 (Tornado) se corta / apaga",
+          "passed": true,
+          "evidence": "'CORTAR · Caro 2 · Pinterest y Silvia 1 · Tornado'"
+        },
+        {
+          "text": "Caro 3 (Se arman en 10 s) no se corta ni se escala: se mantiene igual",
+          "passed": true,
+          "evidence": "'DEJAR · Caro 3 ... todavía no le metas más plata'; conjunto Silvia bajado a $7.000 para que siga igual"
+        },
+        {
+          "text": "Usa el CPA de equilibrio de ORDI basado en la validación o en costo $12.000 (menciona $13.524 o un valor ajustado al ticket de ~$19.300)",
+          "passed": true,
+          "evidence": "Usa $13.500 (plan, costo $12.000) y ~$17.800 ajustado a la mezcla de packs"
+        },
+        {
+          "text": "Tiene en orden las secciones del formato: título '· Diagnóstico de campaña', Semáforo, Confianza en los datos, Qué hacer mañana, Resultados por anuncio, Dónde se cae la venta, Próximos anuncios para probar, Datos que me faltaron",
+          "passed": false,
+          "evidence": "No usa el formato: títulos 'Los números', 'Qué hacer hoy', 'Próximos días', etc."
+        },
+        {
+          "text": "La tabla por anuncio tiene las columnas gasto, CTR, gancho, CPC, carritos, compras, CPA, ROAS y decisión",
+          "passed": false,
+          "evidence": "Tabla con Gasto, Ventas, Costo por venta, ROAS, CTR, Ganancia; faltan gancho, CPC y carritos"
+        },
+        {
+          "text": "Marca el origen de los números con etiquetas como [Meta], [Calculado], [Usuario], [Shopify] o [Estimado]",
+          "passed": false,
+          "evidence": "No etiqueta el origen de los números (solo aclara que el costo es estimado)"
+        },
+        {
+          "text": "Propone 3 anuncios nuevos basados en el ganador (ángulo dolor del placard / Caro) con un gancho distinto en los primeros 3 segundos",
+          "passed": false,
+          "evidence": "Propone 2 ganchos nuevos (A y B), no 3"
+        },
+        {
+          "text": "Pide las ventas de Shopify del período para controlar que el píxel mida bien",
+          "passed": true,
+          "evidence": "'Que las 7 ventas sean pedidos reales en Shopify' antes de subir presupuesto"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.5556,
+        "passed": 5,
+        "failed": 4,
+        "total": 9,
+        "time_seconds": 829.4,
+        "tokens": 193891,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "El semáforo es ROJO",
+          "passed": false,
+          "evidence": "No hay semáforo ('No cortes VERDEA todavía, pero apagá los anuncios hoy')"
+        },
+        {
+          "text": "Dice que la venta se cae en la página o la oferta, no en los anuncios, citando CTR alto (~2,3%) y tasa de carrito muy baja (~1,1% o 9 carritos)",
+          "passed": true,
+          "evidence": "'Agregan al carrito: 9 (1,1% de las visitas) · Acá se rompe' con CTR 2,26% 'Muy bien'"
+        },
+        {
+          "text": "No propone cortar los anuncios como solución: recomienda pausar o frenar el gasto mientras se arregla la página y reutilizar los mismos anuncios",
+          "passed": true,
+          "evidence": "'pausá los 3 anuncios (pausalos, no los borres)'; 'Los anuncios y el público no los toques: funcionan'; relanza Lucía 1 y Marta 1"
+        },
+        {
+          "text": "Propone al menos 2 cambios concretos en la página u oferta (p. ej. primera pantalla, precio contra Mercado Libre, confianza/reseñas reales, packs, funcionamiento del botón en el celular)",
+          "passed": true,
+          "evidence": "Precio de prueba, envío a la vista, garantía con días, sacar la prueba social inventada, primera pantalla que siga al anuncio, Clarity"
+        },
+        {
+          "text": "Calcula el CPA de equilibrio con costo $8.000 y precio $58.000: alrededor de $35.000 para 1 frasco",
+          "passed": true,
+          "evidence": "Tabla: 'x1 | $58.000 | $35.280' (empaque $800 de la calculadora)"
+        },
+        {
+          "text": "Las ideas de anuncios son solo para Lucía y Marta (no aparecen Raúl ni Héctor)",
+          "passed": false,
+          "evidence": "No propone anuncios nuevos: no se puede verificar"
+        },
+        {
+          "text": "Las ideas de anuncios no usan CTA agresivos como 'comprá ya' o 'pedilo hoy'",
+          "passed": false,
+          "evidence": "No propone anuncios nuevos: no se puede verificar"
+        },
+        {
+          "text": "Tiene en orden las secciones del formato: título '· Diagnóstico de campaña', Semáforo, Confianza en los datos, Qué hacer mañana, Resultados por anuncio, Dónde se cae la venta, Próximos anuncios para probar, Datos que me faltaron",
+          "passed": false,
+          "evidence": "No usa el formato del diagnóstico (títulos propios: 'Dónde se cae la venta', 'La cuenta con tu costo', 'El plan')"
+        },
+        {
+          "text": "Pide las ventas de Shopify o sugiere verificar que el evento de agregar al carrito se mida bien",
+          "passed": true,
+          "evidence": "'Compará Shopify con Meta ... cuántas agregaron al carrito'"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 3,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.75,
+        "passed": 6,
+        "failed": 2,
+        "total": 8,
+        "time_seconds": 533.1,
+        "tokens": 123925,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Dice que el problema es de medición (píxel o API de conversiones) antes de opinar sobre los anuncios",
+          "passed": true,
+          "evidence": "'Casi seguro lo que está roto es el píxel, no los anuncios'"
+        },
+        {
+          "text": "No recomienda apagar los anuncios por mostrar 0 compras en Meta",
+          "passed": true,
+          "evidence": "'No los apagues ni subas el presupuesto'"
+        },
+        {
+          "text": "Calcula el CPA real con las ventas de Shopify: $9.000 (unos $63.000 de gasto / 7 ventas)",
+          "passed": true,
+          "evidence": "Tabla: '5 a 7 | $9.000 – $12.600'; 'Si las 7 vinieron de los anuncios'"
+        },
+        {
+          "text": "Compara el CPA real con el CPA de equilibrio de ORDI (~$13.524) y concluye que la campaña probablemente es rentable",
+          "passed": true,
+          "evidence": "'Te dejan plata aunque todas sean de 1 set (el equilibrio es $13.524)'"
+        },
+        {
+          "text": "El semáforo es AMARILLO",
+          "passed": false,
+          "evidence": "No hay semáforo"
+        },
+        {
+          "text": "Da pasos concretos para arreglar la medición (app de Meta en Shopify / uso compartido de datos / API de conversiones / Administrador de eventos / probar eventos)",
+          "passed": true,
+          "evidence": "Administrador de eventos, app Facebook & Instagram con uso compartido Máximo, Eventos de clientes, Probar eventos, UTM"
+        },
+        {
+          "text": "Lee bien el CSV con punto y coma y coma decimal: gasto total ~$63.000 y ~$21.000 por anuncio",
+          "passed": true,
+          "evidence": "'gasto: $63.000'; 'Cada uno lleva unos $21.000'"
+        },
+        {
+          "text": "Tiene en orden las secciones del formato: título '· Diagnóstico de campaña', Semáforo, Confianza en los datos, Qué hacer mañana, Resultados por anuncio, Dónde se cae la venta, Próximos anuncios para probar, Datos que me faltaron",
+          "passed": false,
+          "evidence": "No usa el formato del diagnóstico (títulos propios: 'Por qué digo que es el píxel', 'Cómo arreglarlo'...)"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 4,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.875,
+        "passed": 7,
+        "failed": 1,
+        "total": 8,
+        "time_seconds": 435.3,
+        "tokens": 129229,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Recomienda no tocar nada todavía porque todavía no alcanza para decidir",
+          "passed": true,
+          "evidence": "'VERDEA · Día 1: no toques nada todavía'"
+        },
+        {
+          "text": "No apaga Lucía 2 ahora: explica que tiene pocas impresiones (menos de 2.000) o poco gasto y da la condición para cortarlo más adelante",
+          "passed": true,
+          "evidence": "'Todavía no, pero es el primero en la fila para el martes'; 'Con $6.950 gastados lo normal es no tener ninguna venta'; tabla de corte para el martes"
+        },
+        {
+          "text": "No sube el presupuesto de Marta 1: 1 venta no alcanza (pide 3 ventas o más días)",
+          "passed": true,
+          "evidence": "'No. Una venta todavía no prueba que ese anuncio venda'; '3 ventas o más ... Recién ahí, +20%'"
+        },
+        {
+          "text": "El semáforo es AMARILLO",
+          "passed": false,
+          "evidence": "No hay semáforo"
+        },
+        {
+          "text": "Lee bien los números de la captura: gasto total ~$28.364, 4 anuncios, 1 compra (de Marta 1)",
+          "passed": true,
+          "evidence": "Lee $6.950 y CPC $1.158 de Lucía 2, CTR de cada anuncio y 1 venta de Marta 1; '~$113.000 en total' en 4 días = $28.364 por día"
+        },
+        {
+          "text": "No inventa datos que la captura no tiene (carritos, gancho, valor de la compra): los muestra como faltantes",
+          "passed": true,
+          "evidence": "No muestra carritos ni gancho; pide sumarlos el martes"
+        },
+        {
+          "text": "Pide el export completo o las columnas que faltan, con instrucciones de cómo sacarlas del Administrador de anuncios",
+          "passed": true,
+          "evidence": "'En Columnas → Personalizar columnas, sumá Visitas..., Artículos agregados al carrito, Pagos iniciados...' (pide captura, no export)"
+        },
+        {
+          "text": "Dice cuándo volver a mirar (p. ej. en 2-3 días o al llegar a 1 CPA de equilibrio por anuncio)",
+          "passed": true,
+          "evidence": "'decidí el martes 20/10 mirando los 4 días juntos'"
+        }
+      ],
+      "notes": []
+    }
+  ],
+  "run_summary": {
+    "with_skill": {
+      "pass_rate": {
+        "mean": 1.0,
+        "stddev": 0.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "time_seconds": {
+        "mean": 722.775,
+        "stddev": 105.7012,
+        "min": 641.9,
+        "max": 878.3
+      },
+      "tokens": {
+        "mean": 203720.25,
+        "stddev": 23101.0384,
+        "min": 186457,
+        "max": 236687
+      }
+    },
+    "without_skill": {
+      "pass_rate": {
+        "mean": 0.6815,
+        "stddev": 0.1597,
+        "min": 0.5455,
+        "max": 0.875
+      },
+      "time_seconds": {
+        "mean": 592.6,
+        "stddev": 168.0851,
+        "min": 435.3,
+        "max": 829.4
+      },
+      "tokens": {
+        "mean": 144992.5,
+        "stddev": 32807.5974,
+        "min": 123925,
+        "max": 193891
+      }
+    },
+    "delta": {
+      "pass_rate": "+0.32",
+      "time_seconds": "+130.2",
+      "tokens": "+58728"
+    }
+  },
+  "notes": [
+    "Las aserciones que separan a las dos configuraciones son casi todas de formato (semáforo, secciones, tabla, etiquetas de origen) más la de '3 ideas'. En las de decisión (cortar, escalar, no tocar, píxel, página) el baseline acertó en los 4 casos: el repo ya tiene mucho contexto (validación y plan de testeo de ORDI, análisis de VERDEA). Sin esa carpeta de marca la diferencia de criterio probablemente sería mayor (no medido).",
+    "Costo de la skill: +22% de tiempo (+130 s) y +41% de tokens por corrida. Las respuestas con skill son más largas (11-13 mil caracteres contra 4,5-11 mil): se agregó un objetivo de 900-1.300 palabras.",
+    "En VERDEA, las dos configuraciones encontraron prueba social inventada en la landing (estrellas, '+1.083 clientes', cartel de 'compró hace X min'). La skill no lo pedía explícitamente: se agregó revisar la landing de la marca cuando la venta se cae en la página.",
+    "En ORDI, la corrida con skill recalculó el CPA de equilibrio con la mezcla real de packs ($17.800) en vez del valor interpolado por el script ($19.324): el script ahora deduce la mezcla de packs desde el valor de las compras.",
+    "Una sola corrida por configuración: no se puede medir la variación entre corridas."
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "expectations": [
+    {
+      "text": "Dice que el problema es de medición (píxel o API de conversiones) antes de opinar sobre los anuncios",
+      "passed": true,
+      "evidence": "'Casi seguro lo que está roto es el píxel, no los anuncios'"
+    },
+    {
+      "text": "No recomienda apagar los anuncios por mostrar 0 compras en Meta",
+      "passed": true,
+      "evidence": "'No los apagues ni subas el presupuesto'"
+    },
+    {
+      "text": "Calcula el CPA real con las ventas de Shopify: $9.000 (unos $63.000 de gasto / 7 ventas)",
+      "passed": true,
+      "evidence": "Tabla: '5 a 7 | $9.000 – $12.600'; 'Si las 7 vinieron de los anuncios'"
+    },
+    {
+      "text": "Compara el CPA real con el CPA de equilibrio de ORDI (~$13.524) y concluye que la campaña probablemente es rentable",
+      "passed": true,
+      "evidence": "'Te dejan plata aunque todas sean de 1 set (el equilibrio es $13.524)'"
+    },
+    {
+      "text": "El semáforo es AMARILLO",
+      "passed": false,
+      "evidence": "No hay semáforo"
+    },
+    {
+      "text": "Da pasos concretos para arreglar la medición (app de Meta en Shopify / uso compartido de datos / API de conversiones / Administrador de eventos / probar eventos)",
+      "passed": true,
+      "evidence": "Administrador de eventos, app Facebook & Instagram con uso compartido Máximo, Eventos de clientes, Probar eventos, UTM"
+    },
+    {
+      "text": "Lee bien el CSV con punto y coma y coma decimal: gasto total ~$63.000 y ~$21.000 por anuncio",
+      "passed": true,
+      "evidence": "'gasto: $63.000'; 'Cada uno lleva unos $21.000'"
+    },
+    {
+      "text": "Tiene en orden las secciones del formato: título '· Diagnóstico de campaña', Semáforo, Confianza en los datos, Qué hacer mañana, Resultados por anuncio, Dónde se cae la venta, Próximos anuncios para probar, Datos que me faltaron",
+      "passed": false,
+      "evidence": "No usa el formato del diagnóstico (títulos propios: 'Por qué digo que es el píxel', 'Cómo arreglarlo'...)"
+    }
+  ],
+  "summary": {
+    "passed": 6,
+    "failed": 2,
+    "total": 8,
+    "pass_rate": 0.75
+  }
+}

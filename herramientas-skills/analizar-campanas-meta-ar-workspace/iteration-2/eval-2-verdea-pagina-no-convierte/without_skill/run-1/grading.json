@@ -1,0 +1,55 @@
+{
+  "expectations": [
+    {
+      "text": "El semáforo es ROJO",
+      "passed": false,
+      "evidence": "No hay semáforo ('No cortes VERDEA todavía, pero apagá los anuncios hoy')"
+    },
+    {
+      "text": "Dice que la venta se cae en la página o la oferta, no en los anuncios, citando CTR alto (~2,3%) y tasa de carrito muy baja (~1,1% o 9 carritos)",
+      "passed": true,
+      "evidence": "'Agregan al carrito: 9 (1,1% de las visitas) · Acá se rompe' con CTR 2,26% 'Muy bien'"
+    },
+    {
+      "text": "No propone cortar los anuncios como solución: recomienda pausar o frenar el gasto mientras se arregla la página y reutilizar los mismos anuncios",
+      "passed": true,
+      "evidence": "'pausá los 3 anuncios (pausalos, no los borres)'; 'Los anuncios y el público no los toques: funcionan'; relanza Lucía 1 y Marta 1"
+    },
+    {
+      "text": "Propone al menos 2 cambios concretos en la página u oferta (p. ej. primera pantalla, precio contra Mercado Libre, confianza/reseñas reales, packs, funcionamiento del botón en el celular)",
+      "passed": true,
+      "evidence": "Precio de prueba, envío a la vista, garantía con días, sacar la prueba social inventada, primera pantalla que siga al anuncio, Clarity"
+    },
+    {
+      "text": "Calcula el CPA de equilibrio con costo $8.000 y precio $58.000: alrededor de $35.000 para 1 frasco",
+      "passed": true,
+      "evidence": "Tabla: 'x1 | $58.000 | $35.280' (empaque $800 de la calculadora)"
+    },
+    {
+      "text": "Las ideas de anuncios son solo para Lucía y Marta (no aparecen Raúl ni Héctor)",
+      "passed": false,
+      "evidence": "No propone anuncios nuevos: no se puede verificar"
+    },
+    {
+      "text": "Las ideas de anuncios no usan CTA agresivos como 'comprá ya' o 'pedilo hoy'",
+      "passed": false,
+      "evidence": "No propone anuncios nuevos: no se puede verificar"
+    },
+    {
+      "text": "Tiene en orden las secciones del formato: título '· Diagnóstico de campaña', Semáforo, Confianza en los datos, Qué hacer mañana, Resultados por anuncio, Dónde se cae la venta, Próximos anuncios para probar, Datos que me faltaron",
+      "passed": false,
+      "evidence": "No usa el formato del diagnóstico (títulos propios: 'Dónde se cae la venta', 'La cuenta con tu costo', 'El plan')"
+    },
+    {
+      "text": "Pide las ventas de Shopify o sugiere verificar que el evento de agregar al carrito se mida bien",
+      "passed": true,
+      "evidence": "'Compará Shopify con Meta ... cuántas agregaron al carrito'"
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 4,
+    "total": 9,
+    "pass_rate": 0.5556
+  }
+}
