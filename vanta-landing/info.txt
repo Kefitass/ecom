@@ -1,0 +1,37 @@
+INFO DEL PRODUCTO — VANTA · Zapatillas Urbanas Unisex
+(Landing, inicio, catálogo, contacto y footer copiados de VERDEA y adaptados a zapatillas.)
+
+=== IDENTIDAD ===
+Marca: VANTA
+Colores: Negro #0A0A0A · Gris Grafito #4A4A4A · Carbón #222222 · Fondo #F4F4F2 · Blanco #FFFFFF
+Acento: Rojo #E10600, SOLO para descuentos, "MÁS POPULAR" y botones de oferta.
+Tipografías: Poppins (títulos) · Open Sans (texto).
+
+=== PRODUCTO (lo que dice hoy la landing) ===
+- Comodidad de la mañana a la noche (plantilla acolchonada)
+- Livianas y respirables
+- Suela antideslizante, hechas para durar
+- Diseño unisex que combina con todo
+- Talles del 35 al 45 · calzan talle normal · cambio de talle gratis
+
+=== OFERTAS (precios de EJEMPLO, cambiarlos) ===
+1 Par — $69.999 — 3 cuotas sin interés
+2 Pares — $97.999 (antes $139.998, 30% OFF) — 3 cuotas + medias de regalo
+3 Pares — $136.499 (antes $209.997, 35% OFF) — envío gratis + 3 cuotas + medias de regalo
+
+=== ENVÍO / GARANTÍA ===
+Despacho en 24 hs hábiles, envío a todo el país, entrega 2-3 días hábiles, seguimiento por mail o WhatsApp.
+Cambio de talle gratis · Garantía 100% · Atención 24/7 · Pagos seguros.
+
+=== PENDIENTE (⚠️ antes de publicar) ===
+- slugURL: URL del producto en Shopify (mientras tenga ⚠️, la landing no carga en la tienda).
+- Handle del producto: el inicio y el footer buscan "zapatillas-urbanas-vanta"
+  (o elegí el producto desde el editor del tema).
+- Fotos: principal, carrusel 9:16 (está apagado: mostrarCarrusel: false), comparativa
+  y la foto de estadísticas.
+- Precios reales de los packs (en Kaching y en el panel de la landing).
+- Reseñas REALES (los 4 testimonios son de ejemplo) + puntuación y cantidad de reseñas reales.
+- Confirmar con el producto real: materiales, plantilla, suela, talles disponibles,
+  si calzan normal y cómo es el cambio de talle.
+- Contacto: el WhatsApp y el mail quedaron iguales a VERDEA; Instagram vacío. Cambiar si corresponde.
+- Regalo de los packs: puse "Medias de regalo"; cambialo si es otro.

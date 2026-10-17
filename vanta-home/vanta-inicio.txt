@@ -1,0 +1,513 @@
+{% comment %}
+  VANTA · Página de inicio (sección nativa de Shopify)
+  Instalación: Editar código → Sections → "Agregar una nueva sección" → nombre: vanta-inicio
+  → borrar todo lo que trae → pegar este archivo → Guardar.
+  Después: Personalizar → Página de inicio → Agregar sección → "VANTA · Inicio".
+  Todo lo editable (textos, fotos, testimonios, preguntas) se cambia desde el editor.
+{% endcomment %}
+
+{%- liquid
+  assign p = section.settings.producto
+  if p == blank
+    assign p = all_products['zapatillas-urbanas-vanta']
+  endif
+  assign url_producto = p.url | default: '/collections/all'
+-%}
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+  #vh-{{ section.id }}{
+    --vh-green:#0A0A0A;--vh-sprout:#4A4A4A;--vh-orange:#E10600;--vh-cream:#F4F4F2;--vh-white:#FFFFFF;--vh-earth:#222222;
+    --vh-text:#222222;--vh-muted:#666666;--vh-line:#E6E6E6;
+    --vh-title:'Poppins','Montserrat',sans-serif;--vh-body:'Open Sans','Lato',sans-serif;
+    background:var(--vh-cream);color:var(--vh-text);font-family:var(--vh-body);
+    overflow:hidden;
+  }
+  #vh-{{ section.id }} *{box-sizing:border-box;letter-spacing:normal}
+  #vh-{{ section.id }}{line-height:1.55}
+  #vh-{{ section.id }} .vh-trust__item b,#vh-{{ section.id }} .vh-pack b{line-height:1.3}
+  #vh-{{ section.id }} .vh-trust__item span,#vh-{{ section.id }} .vh-pack span,#vh-{{ section.id }} .vh-pill,#vh-{{ section.id }} .vh-hero__rating{line-height:1.35}
+  #vh-{{ section.id }} .vh-kicker{letter-spacing:.08em}
+  #vh-{{ section.id }} img{max-width:100%;height:auto;display:block}
+  #vh-{{ section.id }} h1,#vh-{{ section.id }} h2,#vh-{{ section.id }} h3{font-family:var(--vh-title);color:var(--vh-earth);margin:0;letter-spacing:0}
+  #vh-{{ section.id }} p{margin:0}
+  .vh-wrap{max-width:1160px;margin:0 auto;padding:0 20px}
+  .vh-sec{padding:64px 0}
+  .vh-sec--white{background:var(--vh-white)}
+  .vh-head{text-align:center;max-width:640px;margin:0 auto 36px}
+  .vh-kicker{display:inline-block;font-family:var(--vh-title);font-weight:600;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--vh-sprout);margin-bottom:10px}
+  .vh-h2{font-size:clamp(26px,3.2vw,36px);font-weight:700;line-height:1.2}
+  .vh-h2 em{font-style:normal;color:var(--vh-green)}
+  .vh-lead{font-size:16px;line-height:1.6;color:var(--vh-muted);margin-top:12px!important}
+
+  /* Botones */
+  .vh-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:54px;padding:0 34px;border-radius:999px;
+    background:var(--vh-green);color:#fff!important;font-family:var(--vh-title);font-weight:700;font-size:16px;text-decoration:none!important;
+    box-shadow:0 8px 20px rgba(17,17,17,.25);transition:transform .2s,box-shadow .2s,background .2s;border:0}
+  .vh-btn:hover{background:#000000;transform:translateY(-2px);box-shadow:0 12px 26px rgba(17,17,17,.32)}
+  .vh-btn svg{width:18px;height:18px;transition:transform .2s}
+  .vh-btn:hover svg{transform:translateX(4px)}
+  .vh-btn--orange{background:var(--vh-orange);box-shadow:0 8px 20px rgba(225,6,0,.3)}
+  .vh-btn--orange:hover{background:#B80500;box-shadow:0 12px 26px rgba(225,6,0,.38)}
+  .vh-stars{display:inline-flex;gap:2px;color:#F4B400}
+  .vh-stars svg{width:16px;height:16px}
+
+  /* 1 · Portada */
+  .vh-hero{padding:56px 0 64px}
+  .vh-hero__grid{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+  .vh-pill{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--vh-line);border-radius:999px;padding:7px 14px;font-size:13px;font-weight:600;color:var(--vh-green)}
+  .vh-pill b{color:var(--vh-earth)}
+  .vh-h1{font-size:clamp(34px,4.6vw,54px);font-weight:800;line-height:1.08;margin:18px 0 16px!important}
+  .vh-h1 em{font-style:normal;color:var(--vh-green);position:relative;white-space:nowrap}
+  .vh-h1 em:after{content:"";position:absolute;left:0;right:0;bottom:.04em;height:.22em;background:rgba(110,110,110,.28);border-radius:4px;z-index:-1}
+  .vh-hero__sub{font-size:17px;line-height:1.6;color:var(--vh-muted);max-width:520px}
+  .vh-hero__cta{display:flex;flex-wrap:wrap;align-items:center;gap:18px;margin-top:28px}
+  .vh-hero__rating{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--vh-muted)}
+  .vh-hero__rating b{color:var(--vh-earth)}
+  .vh-hero__checks{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:26px;padding:0;list-style:none}
+  .vh-hero__checks li{display:flex;align-items:center;gap:7px;font-size:14px;font-weight:600;color:var(--vh-earth)}
+  .vh-hero__checks svg{width:18px;height:18px;color:var(--vh-sprout);flex:none}
+  .vh-hero__media{position:relative;display:flex;justify-content:center}
+  .vh-hero__blob{position:absolute;inset:6% 4%;background:radial-gradient(circle at 50% 45%,#fff 0,#EBEBEB 55%,rgba(240,240,240,0) 72%);border-radius:50%}
+  .vh-hero__img{position:relative;width:100%;max-width:480px;aspect-ratio:1/1;object-fit:contain;filter:drop-shadow(0 24px 30px rgba(0,0,0,.18))}
+  .vh-hero__img--cover{object-fit:cover;border-radius:28px;filter:none;box-shadow:0 24px 50px rgba(0,0,0,.18)}
+  .vh-hero__badge{position:absolute;right:4%;top:8%;background:var(--vh-orange);color:#fff;font-family:var(--vh-title);font-weight:800;font-size:15px;line-height:1.1;text-align:center;width:96px;height:96px;border-radius:50%;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;transform:rotate(8deg);box-shadow:0 10px 22px rgba(225,6,0,.35)}
+  .vh-hero__badge small{font-size:11px;font-weight:600;opacity:.95}
+
+  /* 2 · Barra de confianza */
+  .vh-trust{background:var(--vh-green);color:#fff;padding:22px 0}
+  .vh-trust__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  .vh-trust__item{display:flex;align-items:center;justify-content:center;gap:12px;text-align:left}
+  .vh-trust__ico{width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;flex:none}
+  .vh-trust__ico svg{width:22px;height:22px;color:#fff}
+  .vh-trust__item b{display:block;font-family:var(--vh-title);font-size:15px;font-weight:700;color:#fff}
+  .vh-trust__item span{font-size:13px;opacity:.85}
+
+  /* 3 · Producto destacado */
+  .vh-prod{display:grid;grid-template-columns:1fr 1fr;gap:0;background:#fff;border:1px solid var(--vh-line);border-radius:28px;overflow:hidden;box-shadow:0 18px 40px rgba(0,0,0,.08)}
+  .vh-prod__media{background:linear-gradient(160deg,#F0F0F0,#F4F4F2);display:block;padding:0;position:relative;overflow:hidden;min-height:100%}
+  #vh-{{ section.id }} .vh-prod__media img{position:absolute;inset:0;width:100%;height:100%;max-width:none;object-fit:cover;transition:transform .6s ease}
+  .vh-prod__media:hover img{transform:scale(1.03)}
+  .vh-prod__tag{z-index:1;position:absolute;left:20px;top:20px;background:var(--vh-sprout);color:#fff;font-family:var(--vh-title);font-weight:700;font-size:12px;padding:6px 12px;border-radius:999px;letter-spacing:.04em}
+  .vh-prod__body{padding:40px 44px;display:flex;flex-direction:column;justify-content:center}
+  .vh-prod__title{font-size:clamp(22px,2.4vw,28px);font-weight:700;line-height:1.25}
+  .vh-prod__rating{display:flex;align-items:center;gap:8px;margin:10px 0 16px;font-size:14px;color:var(--vh-muted)}
+  .vh-prod__price{display:flex;align-items:baseline;flex-wrap:wrap;gap:10px}
+  .vh-prod__price strong{font-family:var(--vh-title);font-size:30px;font-weight:800;color:var(--vh-earth)}
+  .vh-prod__price s{color:#999999;font-size:17px}
+  .vh-prod__cuotas{font-size:14px;color:var(--vh-green);font-weight:600;margin-top:4px!important}
+  .vh-prod__list{list-style:none;padding:0;margin:20px 0!important;display:grid;gap:10px}
+  .vh-prod__list li{display:flex;gap:10px;align-items:flex-start;font-size:15px;line-height:1.45}
+  .vh-prod__list svg{width:20px;height:20px;color:var(--vh-sprout);flex:none;margin-top:1px}
+  .vh-packs{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:24px}
+  #vh-{{ section.id }} .vh-pack{display:block;border:1.5px solid var(--vh-line)!important;border-radius:14px;padding:12px 14px 12px 40px;position:relative;background:var(--vh-cream)!important;text-align:left;cursor:pointer;margin:0;
+    transition:border-color .2s,background .2s,box-shadow .2s,transform .15s;-webkit-tap-highlight-color:transparent;user-select:none}
+  #vh-{{ section.id }} .vh-pack:hover{border-color:#BBBBBB!important}
+  #vh-{{ section.id }} .vh-pack:active{transform:scale(.98)}
+  #vh-{{ section.id }} .vh-pack input{position:absolute;opacity:0;width:1px;height:1px;margin:0;pointer-events:none}
+  #vh-{{ section.id }} .vh-pack__dot{position:absolute;left:14px;top:50%;width:16px;height:16px;margin-top:-8px;border-radius:50%;border:2px solid #CCCCCC;background:#fff;box-sizing:border-box;transition:border .2s}
+  #vh-{{ section.id }} .vh-pack.is-sel,#vh-{{ section.id }} .vh-pack:has(input:checked){border-color:var(--vh-orange)!important;background:#FFF1F0!important;box-shadow:0 6px 16px rgba(225,6,0,.16)}
+  #vh-{{ section.id }} .vh-pack.is-sel .vh-pack__dot,#vh-{{ section.id }} .vh-pack:has(input:checked) .vh-pack__dot{border:5px solid var(--vh-orange)}
+  #vh-{{ section.id }} .vh-pack:has(input:focus-visible){outline:2px solid var(--vh-green);outline-offset:2px}
+  .vh-pack b{display:block;font-family:var(--vh-title);font-size:14px;color:var(--vh-earth)}
+  .vh-pack span{font-size:12.5px;color:var(--vh-muted)}
+  #vh-{{ section.id }} .vh-pack > span:not(.vh-pack__dot){display:block;margin-top:2px}
+  #vh-{{ section.id }} .vh-pack{line-height:1.35}
+  .vh-pack i{position:absolute;top:-10px;right:10px;background:var(--vh-orange);color:#fff;font-style:normal;font-family:var(--vh-title);font-weight:700;font-size:11px;padding:3px 9px;border-radius:999px}
+  .vh-prod .vh-btn{width:100%}
+
+  /* 4 · Beneficios */
+  .vh-ben{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .vh-card{background:#fff;border:1px solid var(--vh-line);border-radius:22px;padding:30px 26px;transition:transform .25s,box-shadow .25s}
+  .vh-card:hover{transform:translateY(-4px);box-shadow:0 16px 34px rgba(0,0,0,.09)}
+  .vh-card__ico{width:54px;height:54px;border-radius:16px;background:#F0F0F0;display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+  .vh-card__ico svg{width:28px;height:28px;color:var(--vh-green)}
+  .vh-card h3{font-size:18px;font-weight:700;margin-bottom:8px!important}
+  .vh-card p{font-size:15px;line-height:1.6;color:var(--vh-muted)}
+  .vh-compare{margin-top:40px;border-radius:24px;overflow:hidden;border:1px solid var(--vh-line);background:#fff}
+  .vh-compare img{width:100%;height:auto}
+
+  /* 5 · Cómo se usa */
+  .vh-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;counter-reset:vhstep;position:relative}
+  .vh-step{text-align:center;padding:0 10px;position:relative}
+  .vh-step__n{width:64px;height:64px;margin:0 auto 18px;border-radius:50%;background:var(--vh-green);color:#fff;font-family:var(--vh-title);font-weight:800;font-size:24px;
+    display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 8px #EBEBEB;position:relative;z-index:1}
+  .vh-step:not(:last-child):after{content:"";position:absolute;top:32px;left:calc(50% + 48px);right:calc(-50% + 48px);border-top:2px dashed #CCCCCC}
+  .vh-step h3{font-size:18px;font-weight:700;margin-bottom:8px!important}
+  .vh-step p{font-size:15px;line-height:1.6;color:var(--vh-muted);max-width:300px;margin:0 auto!important}
+
+  /* 6 · Testimonios */
+  .vh-revs{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  .vh-rev{background:#fff;border:1px solid var(--vh-line);border-radius:22px;overflow:hidden;display:flex;flex-direction:column}
+  .vh-rev__img{aspect-ratio:1/1;width:100%;object-fit:cover;background:#F0F0F0}
+  .vh-rev__body{padding:18px 18px 20px;display:flex;flex-direction:column;gap:8px;flex:1}
+  .vh-rev h3{font-size:16px;font-weight:700;line-height:1.3}
+  .vh-rev p{font-size:14px;line-height:1.55;color:var(--vh-muted);flex:1}
+  .vh-rev__who{display:flex;align-items:center;gap:6px;font-size:13px;font-weight:700;color:var(--vh-earth);margin-top:4px}
+  .vh-rev__who svg{width:16px;height:16px;color:var(--vh-sprout)}
+  .vh-rev__who span{font-weight:600;color:var(--vh-sprout)}
+
+  /* 7 · Preguntas */
+  .vh-faq{max-width:780px;margin:0 auto;display:grid;gap:12px}
+  .vh-faq details{background:#fff;border:1px solid var(--vh-line);border-radius:16px;overflow:hidden}
+  .vh-faq summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 22px;font-family:var(--vh-title);font-weight:600;font-size:16px;color:var(--vh-earth)}
+  .vh-faq summary::-webkit-details-marker{display:none}
+  .vh-faq summary::after{content:"";display:none}
+  .vh-faq__plus{width:28px;height:28px;border-radius:50%;background:#F0F0F0;flex:none;position:relative;transition:transform .25s,background .25s}
+  .vh-faq__plus:before,.vh-faq__plus:after{content:"";position:absolute;left:50%;top:50%;width:12px;height:2px;background:var(--vh-green);transform:translate(-50%,-50%);border-radius:2px}
+  .vh-faq__plus:after{transform:translate(-50%,-50%) rotate(90deg);transition:transform .25s}
+  .vh-faq details[open] .vh-faq__plus{background:var(--vh-green)}
+  .vh-faq details[open] .vh-faq__plus:before,.vh-faq details[open] .vh-faq__plus:after{background:#fff}
+  .vh-faq details[open] .vh-faq__plus:after{transform:translate(-50%,-50%) rotate(0deg)}
+  .vh-faq__a{padding:0 22px 20px;font-size:15px;line-height:1.65;color:var(--vh-muted)}
+
+  /* 8 · Cierre */
+  .vh-final{background:var(--vh-green);color:#fff;text-align:center;padding:64px 0;position:relative}
+  .vh-final:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 15% 20%,rgba(110,110,110,.35),transparent 45%),radial-gradient(circle at 85% 80%,rgba(110,110,110,.25),transparent 45%)}
+  .vh-final .vh-wrap{position:relative}
+  #vh-{{ section.id }} .vh-final h2{color:#fff;font-size:clamp(26px,3.4vw,38px);font-weight:800;line-height:1.2}
+  .vh-final p{opacity:.9;font-size:16px;margin:12px auto 28px!important;max-width:560px;line-height:1.6}
+  .vh-final small{display:block;margin-top:16px;font-size:13px;opacity:.8}
+
+  /* Animación suave al aparecer */
+  .vh-reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+  .vh-reveal.is-in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){.vh-reveal{opacity:1;transform:none;transition:none}}
+
+  /* Tablet */
+  @media (max-width:989px){
+    .vh-hero__grid{grid-template-columns:1fr;gap:28px;text-align:center}
+    .vh-hero__media{order:-1}
+    .vh-hero__img{max-width:340px}
+    .vh-hero__sub{margin:0 auto}
+    .vh-hero__cta,.vh-hero__checks{justify-content:center}
+    .vh-trust__grid{grid-template-columns:repeat(2,1fr);gap:18px 12px}
+    .vh-trust__item{justify-content:flex-start}
+    .vh-prod{grid-template-columns:1fr}
+    .vh-prod__media{aspect-ratio:1/1;min-height:0}
+    .vh-prod__body{padding:28px 24px 30px}
+    .vh-ben{grid-template-columns:1fr;max-width:560px;margin:0 auto}
+    .vh-revs{grid-template-columns:repeat(2,1fr)}
+  }
+  /* Celular */
+  @media (max-width:749px){
+    .vh-sec{padding:48px 0}
+    .vh-hero{padding:28px 0 44px}
+    .vh-hero__img{max-width:270px}
+    .vh-hero__badge{width:78px;height:78px;font-size:13px;right:2%}
+    .vh-hero__sub{font-size:16px}
+    .vh-hero__cta .vh-btn{width:100%}
+    .vh-hero__cta{gap:12px}
+    .vh-hero__checks{gap:8px 14px}
+    .vh-hero__checks li{font-size:13px}
+    .vh-trust__item b{font-size:13.5px}
+    .vh-trust__item span{font-size:12px}
+    .vh-trust__ico{width:36px;height:36px}
+    .vh-trust__ico svg{width:19px;height:19px}
+    .vh-steps{grid-template-columns:1fr;gap:30px}
+    .vh-step:not(:last-child):after{display:none}
+    .vh-revs{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;margin:0 -20px;padding:4px 20px 12px;scrollbar-width:none}
+    .vh-revs::-webkit-scrollbar{display:none}
+    .vh-rev{flex:0 0 78%;scroll-snap-align:center}
+    .vh-faq summary{padding:16px 18px;font-size:15px}
+    .vh-faq__a{padding:0 18px 18px}
+    .vh-final .vh-btn{width:100%}
+  }
+</style>
+
+{%- capture vh_check -%}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>{%- endcapture -%}
+{%- capture vh_arrow -%}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>{%- endcapture -%}
+{%- capture vh_star -%}<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg>{%- endcapture -%}
+{%- capture vh_stars -%}<span class="vh-stars" aria-label="5 estrellas">{{ vh_star }}{{ vh_star }}{{ vh_star }}{{ vh_star }}{{ vh_star }}</span>{%- endcapture -%}
+
+<div id="vh-{{ section.id }}">
+
+  {%- comment -%} 1 · PORTADA {%- endcomment -%}
+  <section class="vh-hero">
+    <div class="vh-wrap vh-hero__grid">
+      <div class="vh-reveal">
+        {%- if section.settings.etiqueta != blank -%}
+          <span class="vh-pill">👟 {{ section.settings.etiqueta }}</span>
+        {%- endif -%}
+        <h1 class="vh-h1">{{ section.settings.titulo }}</h1>
+        <p class="vh-hero__sub">{{ section.settings.subtitulo }}</p>
+        <div class="vh-hero__cta">
+          <a class="vh-btn" href="{{ url_producto }}">{{ section.settings.boton }} {{ vh_arrow }}</a>
+          <div class="vh-hero__rating">{{ vh_stars }} <span><b>{{ section.settings.puntuacion }}</b> · {{ section.settings.texto_clientes }}</span></div>
+        </div>
+        <ul class="vh-hero__checks">
+          <li>{{ vh_check }} Cómodas todo el día</li>
+          <li>{{ vh_check }} Talles 35 al 45</li>
+          <li>{{ vh_check }} Cambio de talle gratis</li>
+        </ul>
+      </div>
+      <div class="vh-hero__media vh-reveal">
+        {%- if section.settings.hero_imagen != blank -%}
+          {{ section.settings.hero_imagen | image_url: width: 1200 | image_tag: class: 'vh-hero__img vh-hero__img--cover', loading: 'eager', widths: '400, 600, 800, 1000, 1200', sizes: '(min-width: 990px) 480px, 90vw', alt: section.settings.titulo }}
+        {%- elsif p.featured_image -%}
+          <div class="vh-hero__blob"></div>
+          {{ p.featured_image | image_url: width: 1000 | image_tag: class: 'vh-hero__img', loading: 'eager', widths: '400, 600, 800, 1000', sizes: '(min-width: 990px) 480px, 80vw', alt: p.title }}
+        {%- endif -%}
+        {%- if section.settings.badge_top != blank -%}
+          <div class="vh-hero__badge">{{ section.settings.badge_top }}<small>{{ section.settings.badge_bottom }}</small></div>
+        {%- endif -%}
+      </div>
+    </div>
+  </section>
+
+  {%- comment -%} 2 · BARRA DE CONFIANZA {%- endcomment -%}
+  <section class="vh-trust">
+    <div class="vh-wrap vh-trust__grid">
+      <div class="vh-trust__item"><span class="vh-trust__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7z"/><circle cx="7" cy="18" r="1.8"/><circle cx="17" cy="18" r="1.8"/></svg></span><div><b>Despacho en 24 hs</b><span>A todo el país</span></div></div>
+      <div class="vh-trust__item"><span class="vh-trust__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="M2.5 10h19M6.5 15h4"/></svg></span><div><b>3 cuotas sin interés</b><span>Con todas las tarjetas</span></div></div>
+      <div class="vh-trust__item"><span class="vh-trust__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5 4 6v6c0 5 3.4 8.6 8 9.5 4.6-.9 8-4.5 8-9.5V6z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg></span><div><b>Garantía 100%</b><span>Compra protegida</span></div></div>
+      <div class="vh-trust__item"><span class="vh-trust__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8.5 8.5 0 0 1-12.4 7.6L3 21l1.4-5.4A8.5 8.5 0 1 1 21 12z"/><path d="M8.5 10.5h7M8.5 14h4.5"/></svg></span><div><b>Atención 24/7</b><span>Por WhatsApp y mail</span></div></div>
+    </div>
+  </section>
+
+  {%- comment -%} 3 · PRODUCTO DESTACADO {%- endcomment -%}
+  {%- if p != blank -%}
+  <section class="vh-sec">
+    <div class="vh-wrap">
+      <div class="vh-head vh-reveal">
+        <span class="vh-kicker">Nuestro producto estrella</span>
+        <h2 class="vh-h2">Las zapatillas que <em>no te vas a querer sacar</em></h2>
+      </div>
+      <div class="vh-prod vh-reveal">
+        <a class="vh-prod__media" href="{{ url_producto }}">
+          <span class="vh-prod__tag">👟 UNISEX</span>
+          {%- if section.settings.prod_imagen != blank -%}
+            {{ section.settings.prod_imagen | image_url: width: 1100 | image_tag: class: 'vh-prod__photo', loading: 'lazy', widths: '400, 600, 800, 1100', sizes: '(min-width: 990px) 560px, 100vw', alt: p.title }}
+          {%- elsif p.featured_image -%}
+            {{ p.featured_image | image_url: width: 900 | image_tag: loading: 'lazy', widths: '300, 500, 700, 900', sizes: '(min-width: 990px) 400px, 80vw', alt: p.title }}
+          {%- endif -%}
+        </a>
+        <div class="vh-prod__body">
+          <h3 class="vh-prod__title">{{ p.title }}</h3>
+          <div class="vh-prod__rating">{{ vh_stars }} <span><b>{{ section.settings.puntuacion }}</b> · {{ section.settings.texto_clientes }}</span></div>
+          <div class="vh-prod__price">
+            <strong>{{ p.price | money_without_trailing_zeros }}</strong>
+            {%- if p.compare_at_price > p.price -%}<s>{{ p.compare_at_price | money_without_trailing_zeros }}</s>{%- endif -%}
+          </div>
+          <p class="vh-prod__cuotas">3 cuotas sin interés</p>
+          <ul class="vh-prod__list">
+            <li>{{ vh_check }} Plantilla acolchonada: cómodas de la mañana a la noche</li>
+            <li>{{ vh_check }} Livianas, respirables y con suela antideslizante</li>
+            <li>{{ vh_check }} Talles del 35 al 45 y cambio de talle gratis</li>
+          </ul>
+          <div class="vh-packs" role="radiogroup" aria-label="Elegí tu pack">
+            <label class="vh-pack is-sel" data-pack="2" data-cta="Quiero el pack x2"><input type="radio" name="vhpack-{{ section.id }}" value="2" checked><span class="vh-pack__dot"></span><i>MÁS POPULAR</i><b>Llevá 2 pares: 30% OFF</b><span>+ medias de regalo</span></label>
+            <label class="vh-pack" data-pack="3" data-cta="Quiero el pack x3"><input type="radio" name="vhpack-{{ section.id }}" value="3"><span class="vh-pack__dot"></span><b>Llevá 3 pares: 35% OFF</b><span>+ envío gratis y medias</span></label>
+          </div>
+          <a class="vh-btn vh-btn--orange vh-pack-cta" href="{{ url_producto }}?pack=2" data-base="{{ url_producto }}"><span>Quiero el pack x2</span> {{ vh_arrow }}</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  {%- endif -%}
+
+  {%- comment -%} 4 · BENEFICIOS {%- endcomment -%}
+  <section class="vh-sec vh-sec--white">
+    <div class="vh-wrap">
+      <div class="vh-head vh-reveal">
+        <span class="vh-kicker">Por qué VANTA</span>
+        <h2 class="vh-h2">Cómodas, livianas y <em>con onda</em></h2>
+        <p class="vh-lead">Unas zapatillas se eligen por cómo se ven, pero se vuelven a usar por cómo se sienten. Por eso pensamos en las dos cosas.</p>
+      </div>
+      <div class="vh-ben">
+        <div class="vh-card vh-reveal"><div class="vh-card__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 16h20v2a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1z"/><path d="M2 16V9l5-2 2 3 3 1 5 1c3 .5 5 2 5 4"/></svg></div><h3>Comodidad todo el día</h3><p>Plantilla acolchonada que amortigua cada paso: caminás horas sin terminar con los pies cansados.</p></div>
+        <div class="vh-card vh-reveal"><div class="vh-card__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.7 7.7a2.5 2.5 0 1 1 1.8 4.3H2"/><path d="M9.6 4.6A2 2 0 1 1 11 8H2"/><path d="M12.6 19.4A2 2 0 1 0 14 16H2"/></svg></div><h3>Livianas y respirables</h3><p>Materiales que dejan respirar el pie: menos calor y menos transpiración, en invierno y en verano.</p></div>
+        <div class="vh-card vh-reveal"><div class="vh-card__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5 4 6v6c0 5 3.4 8.6 8 9.5 4.6-.9 8-4.5 8-9.5V6z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg></div><h3>Hechas para durar</h3><p>Suela antideslizante y terminaciones firmes para que no se despeguen ni se deformen a los pocos meses.</p></div>
+      </div>
+      {%- if section.settings.comparativa_url != blank -%}
+        <div class="vh-compare vh-reveal"><img src="{{ section.settings.comparativa_url }}" alt="Zapatillas comunes vs. VANTA" loading="lazy" width="1200" height="800"></div>
+      {%- endif -%}
+    </div>
+  </section>
+
+  {%- comment -%} 5 · CÓMO SE USA {%- endcomment -%}
+  <section class="vh-sec">
+    <div class="vh-wrap">
+      <div class="vh-head vh-reveal">
+        <span class="vh-kicker">Comprar online, sin miedo</span>
+        <h2 class="vh-h2">Así de fácil es tenerlas</h2>
+      </div>
+      <div class="vh-steps">
+        <div class="vh-step vh-reveal"><div class="vh-step__n">1</div><h3>Elegí tu talle</h3><p>Calzan talle normal: pedí el mismo que usás siempre. Del 35 al 45.</p></div>
+        <div class="vh-step vh-reveal"><div class="vh-step__n">2</div><h3>Recibilas en tu casa</h3><p>Despacho en 24 hs hábiles y entrega en 2 a 3 días a todo el país, con seguimiento.</p></div>
+        <div class="vh-step vh-reveal"><div class="vh-step__n">3</div><h3>Si no te quedan, se cambian</h3><p>El cambio de talle es gratis: nos escribís por WhatsApp y lo coordinamos.</p></div>
+      </div>
+    </div>
+  </section>
+
+  {%- comment -%} 6 · TESTIMONIOS (bloques editables) {%- endcomment -%}
+  {%- assign revs = section.blocks | where: 'type', 'testimonio' -%}
+  {%- if revs.size > 0 -%}
+  <section class="vh-sec vh-sec--white">
+    <div class="vh-wrap">
+      <div class="vh-head vh-reveal">
+        <span class="vh-kicker">Clientes reales</span>
+        <h2 class="vh-h2">Lo que dicen quienes <em>ya lo usan</em></h2>
+      </div>
+      <div class="vh-revs">
+        {%- for b in revs -%}
+          <article class="vh-rev vh-reveal" {{ b.shopify_attributes }}>
+            {%- if b.settings.foto != blank -%}
+              {{ b.settings.foto | image_url: width: 600 | image_tag: class: 'vh-rev__img', loading: 'lazy', widths: '300, 450, 600', sizes: '(min-width: 990px) 280px, 75vw', alt: b.settings.nombre }}
+            {%- elsif b.settings.foto_url != blank -%}
+              <img class="vh-rev__img" src="{{ b.settings.foto_url }}" alt="{{ b.settings.nombre | escape }}" loading="lazy" width="600" height="600">
+            {%- endif -%}
+            <div class="vh-rev__body">
+              {{ vh_stars }}
+              <h3>{{ b.settings.titulo }}</h3>
+              <p>{{ b.settings.texto }}</p>
+              <div class="vh-rev__who">{{ b.settings.nombre }} <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1 3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5zm-1.09 14.41-3.5-3.5 1.41-1.41 2.09 2.09 5.18-5.18 1.41 1.41z"/></svg><span>Compra verificada</span></div>
+            </div>
+          </article>
+        {%- endfor -%}
+      </div>
+    </div>
+  </section>
+  {%- endif -%}
+
+  {%- comment -%} 7 · PREGUNTAS FRECUENTES (bloques editables) {%- endcomment -%}
+  {%- assign faqs = section.blocks | where: 'type', 'pregunta' -%}
+  {%- if faqs.size > 0 -%}
+  <section class="vh-sec">
+    <div class="vh-wrap">
+      <div class="vh-head vh-reveal">
+        <span class="vh-kicker">Sacate las dudas</span>
+        <h2 class="vh-h2">Preguntas frecuentes</h2>
+      </div>
+      <div class="vh-faq">
+        {%- for b in faqs -%}
+          <details class="vh-reveal" {{ b.shopify_attributes }}>
+            <summary>{{ b.settings.pregunta }}<span class="vh-faq__plus" aria-hidden="true"></span></summary>
+            <div class="vh-faq__a">{{ b.settings.respuesta }}</div>
+          </details>
+        {%- endfor -%}
+      </div>
+    </div>
+  </section>
+  {%- endif -%}
+
+  {%- comment -%} 8 · CIERRE {%- endcomment -%}
+  <section class="vh-final">
+    <div class="vh-wrap vh-reveal">
+      <h2>{{ section.settings.cierre_titulo }}</h2>
+      <p>{{ section.settings.cierre_texto }}</p>
+      <a class="vh-btn vh-btn--orange" href="{{ url_producto }}">{{ section.settings.boton }} {{ vh_arrow }}</a>
+      <small>Despacho en 24 hs · 3 cuotas sin interés · Cambio de talle gratis</small>
+    </div>
+  </section>
+</div>
+
+<script>
+  (function () {
+    var root = document.getElementById('vh-{{ section.id }}');
+    if (!root) return;
+    /* Packs del producto destacado: se eligen y el botón lleva al producto con ese pack */
+    var cta = root.querySelector('.vh-pack-cta');
+    function pickPack(label) {
+      root.querySelectorAll('.vh-pack').forEach(function (o) { o.classList.remove('is-sel'); });
+      label.classList.add('is-sel');
+      var r = label.querySelector('input'); if (r) r.checked = true;
+      if (cta) {
+        cta.href = cta.getAttribute('data-base') + '?pack=' + label.getAttribute('data-pack');
+        var t = cta.querySelector('span'); if (t) t.textContent = label.getAttribute('data-cta');
+      }
+    }
+    root.addEventListener('change', function (e) {
+      var l = e.target.closest && e.target.closest('.vh-pack'); if (l) pickPack(l);
+    });
+    root.addEventListener('click', function (e) {
+      var l = e.target.closest && e.target.closest('.vh-pack'); if (l) pickPack(l);
+    });
+
+    var els = root.querySelectorAll('.vh-reveal');
+    if (!('IntersectionObserver' in window) || (window.Shopify && Shopify.designMode)) {
+      els.forEach(function (el) { el.classList.add('is-in'); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
+      });
+    }, { rootMargin: '0px 0px -8% 0px' });
+    els.forEach(function (el) { io.observe(el); });
+    /* Respaldo: si algo no se reveló en 2,5 s, se muestra igual */
+    setTimeout(function () { els.forEach(function (el) { el.classList.add('is-in'); }); }, 2500);
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "VANTA · Inicio",
+  "tag": "div",
+  "class": "vanta-inicio",
+  "enabled_on": { "templates": ["index"] },
+  "settings": [
+    { "type": "header", "content": "Producto" },
+    { "type": "product", "id": "producto", "label": "Producto destacado", "info": "Elegí las zapatillas. Si lo dejás vacío se busca el producto con handle zapatillas-urbanas-vanta." },
+    { "type": "image_picker", "id": "prod_imagen", "label": "Foto del producto destacado (opcional)", "info": "Cuadrada (1:1). Si no elegís una, se usa la foto principal del producto." },
+    { "type": "header", "content": "Portada" },
+    { "type": "image_picker", "id": "hero_imagen", "label": "Foto de portada (opcional)", "info": "Si no elegís una, se usa la foto del producto." },
+    { "type": "text", "id": "titulo", "label": "Título", "default": "Comodidad de la mañana a la noche" },
+    { "type": "textarea", "id": "subtitulo", "label": "Subtítulo", "default": "Zapatillas urbanas unisex con plantilla acolchonada, livianas y respirables. Te las ponés a la mañana y te olvidás que las tenés puestas." },
+    { "type": "text", "id": "boton", "label": "Texto del botón", "default": "Quiero mis VANTA" },
+    { "type": "text", "id": "badge_top", "label": "Sello naranja (arriba)", "default": "HASTA 35%", "info": "Dejalo vacío para ocultar el sello." },
+    { "type": "text", "id": "badge_bottom", "label": "Sello naranja (abajo)", "default": "OFF en packs" },
+    { "type": "header", "content": "Prueba social" },
+    { "type": "text", "id": "etiqueta", "label": "Etiqueta arriba del título", "default": "", "info": "Ej.: +1.000 clientes ya las usan (solo números reales). Dejala vacía para ocultarla." },
+    { "type": "text", "id": "puntuacion", "label": "Puntuación", "default": "4.9" },
+    { "type": "text", "id": "texto_clientes", "label": "Texto junto a las estrellas", "default": "Clientes felices", "info": "Usá números reales, ej.: +1.000 clientes felices." },
+    { "type": "header", "content": "Beneficios" },
+    { "type": "text", "id": "comparativa_url", "label": "Imagen comparativa (URL)", "default": "", "info": "Ej.: zapatilla común vs. VANTA. Dejala vacía para ocultarla." },
+    { "type": "header", "content": "Cierre" },
+    { "type": "text", "id": "cierre_titulo", "label": "Título", "default": "Tus pies te lo van a agradecer 👟" },
+    { "type": "textarea", "id": "cierre_texto", "label": "Texto", "default": "Llevá 2 pares y ahorrá 30%, o llevá 3 con 35% OFF y envío gratis. Medias de regalo y cambio de talle gratis." }
+  ],
+  "blocks": [
+    {
+      "type": "testimonio",
+      "name": "Testimonio",
+      "limit": 8,
+      "settings": [
+        { "type": "image_picker", "id": "foto", "label": "Foto" },
+        { "type": "text", "id": "foto_url", "label": "…o URL de la foto" },
+        { "type": "text", "id": "nombre", "label": "Nombre", "default": "Nombre. A" },
+        { "type": "text", "id": "titulo", "label": "Título", "default": "Excelente producto" },
+        { "type": "textarea", "id": "texto", "label": "Reseña", "default": "Escribí acá la reseña del cliente." }
+      ]
+    },
+    {
+      "type": "pregunta",
+      "name": "Pregunta frecuente",
+      "limit": 10,
+      "settings": [
+        { "type": "text", "id": "pregunta", "label": "Pregunta", "default": "¿Pregunta?" },
+        { "type": "richtext", "id": "respuesta", "label": "Respuesta", "default": "<p>Respuesta.</p>" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "VANTA · Inicio",
+      "blocks": [
+        { "type": "testimonio", "settings": { "nombre": "Carlos. Y", "titulo": "Ni me acuerdo que las tengo puestas", "texto": "⚠️ Reseña de ejemplo: reemplazala por una real. Trabajo muchas horas parado y con estas llego a casa sin dolor de pies." } },
+        { "type": "testimonio", "settings": { "nombre": "Nacho. R", "titulo": "Aproveché la promo y valió la pena", "texto": "⚠️ Reseña de ejemplo: reemplazala por una real. Llevé 2 pares, uno negro y uno blanco, y llegaron en 2 días." } },
+        { "type": "testimonio", "settings": { "nombre": "Sofía. L", "titulo": "Tenía miedo de errarle al talle", "texto": "⚠️ Reseña de ejemplo: reemplazala por una real. Seguí la guía de talles y me quedaron perfectas." } },
+        { "type": "testimonio", "settings": { "nombre": "Mariana. G", "titulo": "Muy buena compra, súper recomendable", "texto": "⚠️ Reseña de ejemplo: reemplazala por una real. Pack de 3 con envío gratis para toda la familia." } },
+        { "type": "pregunta", "settings": { "pregunta": "¿Cómo sé qué talle pedir?", "respuesta": "<p>Calzan <strong>talle normal</strong>: pedí el mismo que usás siempre. Hay del <strong>35 al 45</strong>. Si estás entre dos, elegí el más grande.</p>" } },
+        { "type": "pregunta", "settings": { "pregunta": "¿Y si no me quedan bien?", "respuesta": "<p>Tenés <strong>cambio de talle gratis</strong>. Escribinos por WhatsApp con tu número de pedido y lo coordinamos.</p>" } },
+        { "type": "pregunta", "settings": { "pregunta": "¿Cuánto tarda en llegar mi pedido?", "respuesta": "<p>Despachamos dentro de las <strong>24 hs hábiles</strong> a todo el país. La entrega suele demorar <strong>2 a 3 días hábiles</strong> y te mandamos el seguimiento por mail o WhatsApp.</p>" } },
+        { "type": "pregunta", "settings": { "pregunta": "¿Cómo puedo pagar?", "respuesta": "<p>Con tarjeta de crédito en <strong>3 cuotas sin interés</strong>, débito o Mercado Pago, en el checkout 100% seguro de Shopify.</p>" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
