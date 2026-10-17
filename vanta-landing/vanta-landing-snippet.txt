@@ -134,7 +134,10 @@ window.WIGY_CONFIG = {
   // Kaching Bundles (que es quien aplica descuentos y regalos). La barra fija
   // de abajo toma el precio del pack elegido en Kaching.
   // true → se usa este selector (solo si NO usás Kaching).
-  // ⚠️ Los precios de abajo son de ejemplo: poné los tuyos.
+  // Escalera de precios pensada para subir el ticket:
+  //   1 par a precio lleno (ancla) → 2 pares 30% OFF (más popular) →
+  //   3 pares "llevá 3, pagá 2" + envío gratis (mejor valor).
+  // ⚠️ Los precios de abajo son de ejemplo: poné los tuyos (y cargá lo mismo en Kaching).
   // ============================================================
   mostrarPacks: false,
   ofertas: [
@@ -158,18 +161,18 @@ window.WIGY_CONFIG = {
       etiqueta: "👟 MÁS POPULAR",
       cantidad: 2,
       seleccionado: true,
-      regalo: "Medias de regalo"
+      regalo: ""
     },
     {
       nombre: "3 Pares",
-      precio: "$136.499",
-      subtexto: "Combiná talles y colores · envío gratis + 3 cuotas",
+      precio: "$139.998",
+      subtexto: "Llevá 3, pagá 2 · combiná talles y colores",
       precioViejo: "$209.997",
-      descuento: "35% OFF",
+      descuento: "3x2",
       etiqueta: "MEJOR VALOR",
       cantidad: 3,
       seleccionado: false,
-      regalo: "Medias de regalo"
+      regalo: "Envío a todo el país"
     }
   ],
 
@@ -219,27 +222,27 @@ window.WIGY_CONFIG = {
   testimonios: [
     {
       foto: "",
-      nombre: "Carlos. Y",
+      nombre: "Martín. G",
       titulo: "Las uso todo el día y ni me acuerdo que las tengo puestas",
       texto: "Trabajo muchas horas parado y siempre terminaba con los pies destruidos. Con estas llego a casa sin dolor. Súper livianas y la plantilla es una nube."
     },
     {
       foto: "",
-      nombre: "Nacho. R",
+      nombre: "Lucas. P",
       titulo: "Aproveché la promo y valió 100% la pena",
       texto: "Súper contento con la compra. Aproveché el descuento llevando 2 pares, uno negro y uno blanco, y la verdad que un golazo. Llegaron en 2 días."
     },
     {
       foto: "",
-      nombre: "Sofía. L",
+      nombre: "Valentina. R",
       titulo: "Tenía miedo de errarle al talle",
       texto: "Es la primera vez que compro zapatillas online y tenía miedo con el talle. Seguí la guía y me quedaron perfectas. Además combinan con todo."
     },
     {
       foto: "",
-      nombre: "Mariana. G",
+      nombre: "Camila. S",
       titulo: "Muy buena compra, súper recomendable",
-      texto: "Aproveché el pack de 3 para tener el envío gratis y el 35%. Me compré para mí y para mis hijos. Son cómodas, lindas y se ven re resistentes. Las medias de regalo también suman."
+      texto: "Aproveché el 3x2 con envío gratis y me compré para mí y para mis hijos. Son cómodas, lindas y se ven re resistentes. Llegaron rapidísimo."
     }
   ],
 
@@ -250,7 +253,8 @@ window.WIGY_CONFIG = {
     "👟 COMODIDAD DE LA MAÑANA A LA NOCHE",
     "CAMBIO DE TALLE GRATIS",
     "3 CUOTAS SIN INTERÉS",
-    "LLEVÁ 2 PARES Y AHORRÁ 30%"
+    "LLEVÁ 2 PARES Y AHORRÁ 30%",
+    "LLEVÁ 3, PAGÁ 2"
   ],
 
   // ============================================================
@@ -1501,7 +1505,7 @@ window.WIGY_DOM = {
   }
 
   function buildHTML() {
-    return '<div class="hf-header-timeline"><h2>As\u00ED de f\u00E1cil es tenerlas</h2><span class="highlight">en 4 pasos, sin vueltas</span></div><div class="timeline-container-orange"><div class="timeline-track"><div class="timeline-progress-fill"></div></div><div class="timeline-row-orange"><div class="timeline-marker-orange"><div class="t-pill-orange">Paso 1</div></div><div class="t-content-orange"><h3>Eleg\u00ED tu talle</h3><p>Calzan talle normal: ped\u00ED el mismo que us\u00E1s siempre. Del 35 al 45.</p></div></div><div class="timeline-row-orange"><div class="timeline-marker-orange"><div class="t-pill-orange">Paso 2</div></div><div class="t-content-orange"><h3>Arm\u00E1 tu pack</h3><p>Llev\u00E1 1, 2 o 3 pares y combin\u00E1 talles y colores. Con 2 pares ya ahorr\u00E1s 30%.</p></div></div><div class="timeline-row-orange"><div class="timeline-marker-orange"><div class="t-pill-orange">Paso 3</div></div><div class="t-content-orange"><h3>Recibilas en tu casa</h3><p>Despachamos en 24 hs h\u00E1biles y llegan en 2 a 3 d\u00EDas h\u00E1biles a todo el pa\u00EDs, con seguimiento.</p></div></div><div class="timeline-row-orange"><div class="timeline-marker-orange"><div class="t-pill-orange">Resultado</div></div><div class="t-content-orange"><h3>Comodidad todo el d\u00EDa</h3><p>Te las pon\u00E9s a la ma\u00F1ana y te olvid\u00E1s. Y si el talle no te queda, el cambio es gratis.</p></div></div></div>';
+    return '<div class="hf-header-timeline"><h2>As\u00ED de f\u00E1cil es tenerlas</h2><span class="highlight">en 4 pasos, sin vueltas</span></div><div class="timeline-container-orange"><div class="timeline-track"><div class="timeline-progress-fill"></div></div><div class="timeline-row-orange"><div class="timeline-marker-orange"><div class="t-pill-orange">Paso 1</div></div><div class="t-content-orange"><h3>Eleg\u00ED tu talle</h3><p>Calzan talle normal: ped\u00ED el mismo que us\u00E1s siempre. Del 35 al 45.</p></div></div><div class="timeline-row-orange"><div class="timeline-marker-orange"><div class="t-pill-orange">Paso 2</div></div><div class="t-content-orange"><h3>Arm\u00E1 tu pack</h3><p>Llev\u00E1 1, 2 o 3 pares y combin\u00E1 talles y colores. Con 2 pares ahorr\u00E1s 30% y con 3 pag\u00E1s solo 2.</p></div></div><div class="timeline-row-orange"><div class="timeline-marker-orange"><div class="t-pill-orange">Paso 3</div></div><div class="t-content-orange"><h3>Recibilas en tu casa</h3><p>Despachamos en 24 hs h\u00E1biles y llegan en 2 a 3 d\u00EDas h\u00E1biles a todo el pa\u00EDs, con seguimiento.</p></div></div><div class="timeline-row-orange"><div class="timeline-marker-orange"><div class="t-pill-orange">Resultado</div></div><div class="t-content-orange"><h3>Comodidad todo el d\u00EDa</h3><p>Te las pon\u00E9s a la ma\u00F1ana y te olvid\u00E1s. Y si el talle no te queda, el cambio es gratis.</p></div></div></div>';
   }
 
   function initTimelineScroll(wrapper) {
