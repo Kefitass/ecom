@@ -1,28 +1,28 @@
 {% comment %}
-  VANTA · Página de inicio (sección nativa de Shopify)
-  Instalación: Editar código → Sections → "Agregar una nueva sección" → nombre: vanta-inicio
+  ORDI · Página de inicio (sección nativa de Shopify)
+  Instalación: Editar código → Sections → "Agregar una nueva sección" → nombre: ordi-inicio
   → borrar todo lo que trae → pegar este archivo → Guardar.
-  Después: Personalizar → Página de inicio → Agregar sección → "VANTA · Inicio".
+  Después: Personalizar → Página de inicio → Agregar sección → "ORDI · Inicio".
   Todo lo editable (textos, fotos, testimonios, preguntas) se cambia desde el editor.
 {% endcomment %}
 
 {%- liquid
   assign p = section.settings.producto
   if p == blank
-    assign p = all_products['zapatillas-urbanas-vanta']
+    assign p = all_products['cajas-organizadoras-ordi']
   endif
   assign url_producto = p.url | default: '/collections/all'
 -%}
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
   #vh-{{ section.id }}{
-    --vh-green:#0A0A0A;--vh-sprout:#4A4A4A;--vh-orange:#E10600;--vh-cream:#F4F4F2;--vh-white:#FFFFFF;--vh-earth:#222222;
-    --vh-text:#222222;--vh-muted:#666666;--vh-line:#E6E6E6;
-    --vh-title:'Archivo','Montserrat',sans-serif;--vh-body:'Inter','Lato',sans-serif;
+    --vh-green:#2F2A26;--vh-sprout:#A8896B;--vh-orange:#C65D3B;--vh-cream:#F5F0E8;--vh-white:#FFFFFF;--vh-earth:#3B342F;
+    --vh-text:#3B342F;--vh-muted:#666666;--vh-line:#E6E6E6;
+    --vh-title:'Fraunces',Georgia,serif;--vh-body:'DM Sans','Lato',sans-serif;
     background:var(--vh-cream);color:var(--vh-text);font-family:var(--vh-body);
     overflow:hidden;
   }
@@ -34,9 +34,9 @@
   #vh-{{ section.id }} img{max-width:100%;height:auto;display:block}
   #vh-{{ section.id }} h1,#vh-{{ section.id }} h2,#vh-{{ section.id }} h3{font-family:var(--vh-title);color:var(--vh-earth);margin:0;letter-spacing:0}
   #vh-{{ section.id }} p{margin:0}
-  #vh-{{ section.id }} .vh-h1,#vh-{{ section.id }} .vh-h2,#vh-{{ section.id }} .vh-final h2,#vh-{{ section.id }} .vh-prod__title,#vh-{{ section.id }} .vh-card h3,#vh-{{ section.id }} .vh-step h3{text-transform:uppercase;font-weight:900;letter-spacing:-.02em}
-  #vh-{{ section.id }} .vh-h1{letter-spacing:-.03em}
-  #vh-{{ section.id }} .vh-btn{text-transform:uppercase;letter-spacing:.04em;font-weight:800}
+  #vh-{{ section.id }} .vh-btn,#vh-{{ section.id }} .vh-pack i,#vh-{{ section.id }} .vh-pack b,#vh-{{ section.id }} .vh-trust__item b,#vh-{{ section.id }} .vh-sizes__label,#vh-{{ section.id }} .vh-size,#vh-{{ section.id }} .vh-kicker,#vh-{{ section.id }} .vh-faq summary,#vh-{{ section.id }} .vh-prod__tag,#vh-{{ section.id }} .vh-hero__badge{font-family:var(--vh-body)}
+  #vh-{{ section.id }} .vh-h1,#vh-{{ section.id }} .vh-h2,#vh-{{ section.id }} .vh-final h2,#vh-{{ section.id }} .vh-prod__title,#vh-{{ section.id }} .vh-card h3,#vh-{{ section.id }} .vh-step h3{font-weight:600;letter-spacing:-.01em}
+  #vh-{{ section.id }} .vh-btn{letter-spacing:.01em;font-weight:700}
   .vh-wrap{max-width:1160px;margin:0 auto;padding:0 20px}
   .vh-sec{padding:64px 0}
   .vh-sec--white{background:var(--vh-white)}
@@ -49,12 +49,12 @@
   /* Botones */
   .vh-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:54px;padding:0 34px;border-radius:999px;
     background:var(--vh-green);color:#fff!important;font-family:var(--vh-title);font-weight:700;font-size:16px;text-decoration:none!important;
-    box-shadow:0 8px 20px rgba(17,17,17,.25);transition:transform .2s,box-shadow .2s,background .2s;border:0}
-  .vh-btn:hover{background:#000000;transform:translateY(-2px);box-shadow:0 12px 26px rgba(17,17,17,.32)}
+    box-shadow:0 8px 20px rgba(47,42,38,.25);transition:transform .2s,box-shadow .2s,background .2s;border:0}
+  .vh-btn:hover{background:#000000;transform:translateY(-2px);box-shadow:0 12px 26px rgba(47,42,38,.32)}
   .vh-btn svg{width:18px;height:18px;transition:transform .2s}
   .vh-btn:hover svg{transform:translateX(4px)}
-  .vh-btn--orange{background:var(--vh-orange);box-shadow:0 8px 20px rgba(225,6,0,.3)}
-  .vh-btn--orange:hover{background:#B80500;box-shadow:0 12px 26px rgba(225,6,0,.38)}
+  .vh-btn--orange{background:var(--vh-orange);box-shadow:0 8px 20px rgba(198,93,59,.3)}
+  .vh-btn--orange:hover{background:#A84A2D;box-shadow:0 12px 26px rgba(198,93,59,.38)}
   .vh-stars{display:inline-flex;gap:2px;color:#F4B400}
   .vh-stars svg{width:16px;height:16px}
 
@@ -65,7 +65,7 @@
   .vh-pill b{color:var(--vh-earth)}
   .vh-h1{font-size:clamp(34px,4.6vw,54px);font-weight:800;line-height:1.08;margin:18px 0 16px!important}
   .vh-h1 em{font-style:normal;color:var(--vh-green);position:relative;white-space:nowrap}
-  .vh-h1 em:after{content:"";position:absolute;left:0;right:0;bottom:.04em;height:.22em;background:rgba(110,110,110,.28);border-radius:4px;z-index:-1}
+  .vh-h1 em:after{content:"";position:absolute;left:0;right:0;bottom:.04em;height:.22em;background:rgba(168,137,107,.28);border-radius:4px;z-index:-1}
   .vh-hero__sub{font-size:17px;line-height:1.6;color:var(--vh-muted);max-width:520px}
   .vh-hero__cta{display:flex;flex-wrap:wrap;align-items:center;gap:18px;margin-top:28px}
   .vh-hero__rating{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--vh-muted)}
@@ -74,11 +74,11 @@
   .vh-hero__checks li{display:flex;align-items:center;gap:7px;font-size:14px;font-weight:600;color:var(--vh-earth)}
   .vh-hero__checks svg{width:18px;height:18px;color:var(--vh-sprout);flex:none}
   .vh-hero__media{position:relative;display:flex;justify-content:center}
-  .vh-hero__blob{position:absolute;inset:6% 4%;background:radial-gradient(circle at 50% 45%,#fff 0,#EBEBEB 55%,rgba(240,240,240,0) 72%);border-radius:50%}
+  .vh-hero__blob{position:absolute;inset:6% 4%;background:radial-gradient(circle at 50% 45%,#fff 0,#EAE0D0 55%,rgba(239,231,218,0) 72%);border-radius:50%}
   .vh-hero__img{position:relative;width:100%;max-width:480px;aspect-ratio:1/1;object-fit:contain;filter:drop-shadow(0 24px 30px rgba(0,0,0,.18))}
-  .vh-hero__img--cover{object-fit:cover;border-radius:8px;filter:none;box-shadow:0 24px 50px rgba(0,0,0,.18)}
+  .vh-hero__img--cover{object-fit:cover;border-radius:16px;filter:none;box-shadow:0 24px 50px rgba(0,0,0,.18)}
   .vh-hero__badge{position:absolute;right:4%;top:8%;background:var(--vh-orange);color:#fff;font-family:var(--vh-title);font-weight:800;font-size:15px;line-height:1.1;text-align:center;width:96px;height:96px;border-radius:50%;
-    display:flex;flex-direction:column;align-items:center;justify-content:center;transform:rotate(8deg);box-shadow:0 10px 22px rgba(225,6,0,.35)}
+    display:flex;flex-direction:column;align-items:center;justify-content:center;transform:rotate(8deg);box-shadow:0 10px 22px rgba(198,93,59,.35)}
   .vh-hero__badge small{font-size:11px;font-weight:600;opacity:.95}
 
   /* 2 · Barra de confianza */
@@ -91,8 +91,8 @@
   .vh-trust__item span{font-size:13px;opacity:.85}
 
   /* 3 · Producto destacado */
-  .vh-prod{display:grid;grid-template-columns:1fr 1fr;gap:0;background:#fff;border:1px solid var(--vh-line);border-radius:8px;overflow:hidden;box-shadow:0 18px 40px rgba(0,0,0,.08)}
-  .vh-prod__media{background:linear-gradient(160deg,#F0F0F0,#F4F4F2);display:block;padding:0;position:relative;overflow:hidden;min-height:100%}
+  .vh-prod{display:grid;grid-template-columns:1fr 1fr;gap:0;background:#fff;border:1px solid var(--vh-line);border-radius:16px;overflow:hidden;box-shadow:0 18px 40px rgba(0,0,0,.08)}
+  .vh-prod__media{background:linear-gradient(160deg,#EFE7DA,#F5F0E8);display:block;padding:0;position:relative;overflow:hidden;min-height:100%}
   #vh-{{ section.id }} .vh-prod__media img{position:absolute;inset:0;width:100%;height:100%;max-width:none;object-fit:cover;transition:transform .6s ease}
   .vh-prod__media:hover img{transform:scale(1.03)}
   .vh-prod__tag{z-index:1;position:absolute;left:20px;top:20px;background:var(--vh-sprout);color:#fff;font-family:var(--vh-title);font-weight:700;font-size:12px;padding:6px 12px;border-radius:999px;letter-spacing:.04em}
@@ -107,13 +107,13 @@
   .vh-prod__list li{display:flex;gap:10px;align-items:flex-start;font-size:15px;line-height:1.45}
   .vh-prod__list svg{width:20px;height:20px;color:var(--vh-sprout);flex:none;margin-top:1px}
   .vh-packs{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:24px}
-  #vh-{{ section.id }} .vh-pack{display:block;border:1.5px solid var(--vh-line)!important;border-radius:8px;padding:12px 14px 12px 40px;position:relative;background:var(--vh-cream)!important;text-align:left;cursor:pointer;margin:0;
+  #vh-{{ section.id }} .vh-pack{display:block;border:1.5px solid var(--vh-line)!important;border-radius:16px;padding:12px 14px 12px 40px;position:relative;background:var(--vh-cream)!important;text-align:left;cursor:pointer;margin:0;
     transition:border-color .2s,background .2s,box-shadow .2s,transform .15s;-webkit-tap-highlight-color:transparent;user-select:none}
   #vh-{{ section.id }} .vh-pack:hover{border-color:#BBBBBB!important}
   #vh-{{ section.id }} .vh-pack:active{transform:scale(.98)}
   #vh-{{ section.id }} .vh-pack input{position:absolute;opacity:0;width:1px;height:1px;margin:0;pointer-events:none}
   #vh-{{ section.id }} .vh-pack__dot{position:absolute;left:14px;top:50%;width:16px;height:16px;margin-top:-8px;border-radius:50%;border:2px solid #CCCCCC;background:#fff;box-sizing:border-box;transition:border .2s}
-  #vh-{{ section.id }} .vh-pack.is-sel,#vh-{{ section.id }} .vh-pack:has(input:checked){border-color:var(--vh-orange)!important;background:#FFF1F0!important;box-shadow:0 6px 16px rgba(225,6,0,.16)}
+  #vh-{{ section.id }} .vh-pack.is-sel,#vh-{{ section.id }} .vh-pack:has(input:checked){border-color:var(--vh-orange)!important;background:#FBF1EC!important;box-shadow:0 6px 16px rgba(198,93,59,.16)}
   #vh-{{ section.id }} .vh-pack.is-sel .vh-pack__dot,#vh-{{ section.id }} .vh-pack:has(input:checked) .vh-pack__dot{border:5px solid var(--vh-orange)}
   #vh-{{ section.id }} .vh-pack:has(input:focus-visible){outline:2px solid var(--vh-green);outline-offset:2px}
   .vh-pack b{display:block;font-family:var(--vh-title);font-size:14px;color:var(--vh-earth)}
@@ -125,59 +125,64 @@
   .vh-sizes{margin:0 0 20px}
   .vh-sizes__label{display:block;font-family:var(--vh-title);font-weight:800;font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--vh-earth);margin-bottom:8px}
   .vh-sizes__list{display:flex;flex-wrap:wrap;gap:6px}
-  #vh-{{ section.id }} .vh-size{min-width:42px;height:38px;padding:0 8px;display:inline-flex;align-items:center;justify-content:center;border:1.5px solid var(--vh-line);border-radius:6px;font-family:var(--vh-title);font-weight:700;font-size:14px;color:var(--vh-earth);text-decoration:none;background:#fff;transition:border-color .2s,background .2s,color .2s}
+  #vh-{{ section.id }} .vh-size{min-width:42px;height:36px;padding:0 14px;display:inline-flex;align-items:center;justify-content:center;border:1.5px solid var(--vh-line);border-radius:6px;font-family:var(--vh-title);font-weight:700;font-size:14px;color:var(--vh-earth);text-decoration:none;background:#fff;transition:border-color .2s,background .2s,color .2s}
   #vh-{{ section.id }} .vh-size:hover{border-color:var(--vh-green);background:var(--vh-green);color:#fff}
 
   /* Lookbook */
-  .vh-look{background:#0A0A0A}
+  .vh-look{background:#3B342F}
   #vh-{{ section.id }} .vh-look .vh-h2{color:#fff}
   .vh-look .vh-kicker{color:#bdbdbd}
   .vh-look .vh-lead{color:rgba(255,255,255,.7)}
   .vh-look__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-  .vh-look__item{position:relative;aspect-ratio:3/4;border-radius:8px;overflow:hidden;background:#1c1c1c;margin:0;display:block}
+  .vh-look__item{position:relative;aspect-ratio:3/4;border-radius:16px;overflow:hidden;background:#3B342F;margin:0;display:block}
   #vh-{{ section.id }} .vh-look__item img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
   .vh-look__item:hover img{transform:scale(1.04)}
-  .vh-look__cap{position:absolute;left:10px;bottom:10px;background:#fff;color:#0A0A0A;font-family:var(--vh-title);font-weight:800;font-size:12px;text-transform:uppercase;letter-spacing:.05em;padding:6px 10px;border-radius:4px}
-  .vh-rev__fit{align-self:flex-start;background:var(--vh-cream);color:var(--vh-earth);font-family:var(--vh-title);font-weight:800;font-size:11px;text-transform:uppercase;letter-spacing:.05em;padding:4px 8px;border-radius:4px}
+  .vh-look__cap{position:absolute;left:10px;bottom:10px;background:#fff;color:#2F2A26;font-weight:600;font-size:13px;padding:6px 12px;border-radius:999px}
+  .vh-rev__fit{align-self:flex-start;background:var(--vh-cream);color:var(--vh-earth);font-weight:600;font-size:12px;padding:4px 10px;border-radius:999px}
 
   /* 4 · Beneficios */
   .vh-ben{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-  .vh-card{background:#fff;border:1px solid var(--vh-line);border-radius:8px;padding:30px 26px;transition:transform .25s,box-shadow .25s}
+  .vh-card{background:#fff;border:1px solid var(--vh-line);border-radius:16px;padding:30px 26px;transition:transform .25s,box-shadow .25s}
   .vh-card:hover{transform:translateY(-4px);box-shadow:0 16px 34px rgba(0,0,0,.09)}
-  .vh-card__ico{width:54px;height:54px;border-radius:8px;background:#F0F0F0;display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+  .vh-card__ico{width:54px;height:54px;border-radius:16px;background:#EFE7DA;display:flex;align-items:center;justify-content:center;margin-bottom:18px}
   .vh-card__ico svg{width:28px;height:28px;color:var(--vh-green)}
   .vh-card h3{font-size:18px;font-weight:700;margin-bottom:8px!important}
   .vh-card p{font-size:15px;line-height:1.6;color:var(--vh-muted)}
-  .vh-compare{margin-top:40px;border-radius:8px;overflow:hidden;border:1px solid var(--vh-line);background:#fff}
+  .vh-compare{margin-top:40px;border-radius:16px;overflow:hidden;border:1px solid var(--vh-line);background:#fff}
   .vh-compare img{width:100%;height:auto}
 
   /* 5 · Cómo se usa */
   .vh-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;counter-reset:vhstep;position:relative}
   .vh-step{text-align:center;padding:0 10px;position:relative}
   .vh-step__n{width:64px;height:64px;margin:0 auto 18px;border-radius:50%;background:var(--vh-green);color:#fff;font-family:var(--vh-title);font-weight:800;font-size:24px;
-    display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 8px #EBEBEB;position:relative;z-index:1}
+    display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 8px #EAE0D0;position:relative;z-index:1}
   .vh-step:not(:last-child):after{content:"";position:absolute;top:32px;left:calc(50% + 48px);right:calc(-50% + 48px);border-top:2px dashed #CCCCCC}
   .vh-step h3{font-size:18px;font-weight:700;margin-bottom:8px!important}
   .vh-step p{font-size:15px;line-height:1.6;color:var(--vh-muted);max-width:300px;margin:0 auto!important}
 
   /* 6 · Testimonios */
   .vh-revs{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-  .vh-rev{background:#fff;border:1px solid var(--vh-line);border-radius:8px;overflow:hidden;display:flex;flex-direction:column}
-  .vh-rev__img{aspect-ratio:1/1;width:100%;object-fit:cover;background:#F0F0F0}
+  .vh-rev{background:#fff;border:1px solid var(--vh-line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column}
+  .vh-rev__img{aspect-ratio:1/1;width:100%;object-fit:cover;background:#EFE7DA}
   .vh-rev__body{padding:18px 18px 20px;display:flex;flex-direction:column;gap:8px;flex:1}
   .vh-rev h3{font-size:16px;font-weight:700;line-height:1.3}
   .vh-rev p{font-size:14px;line-height:1.55;color:var(--vh-muted);flex:1}
   .vh-rev__who{display:flex;align-items:center;gap:6px;font-size:13px;font-weight:700;color:var(--vh-earth);margin-top:4px}
   .vh-rev__who svg{width:16px;height:16px;color:var(--vh-sprout)}
   .vh-rev__who span{font-weight:600;color:var(--vh-sprout)}
+  .vh-revsum{display:inline-flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:8px 12px;margin-top:16px;padding:10px 18px;background:#fff;border:1px solid var(--vh-line);border-radius:999px}
+  .vh-revsum__score{font-family:var(--vh-title);font-weight:800;font-size:22px;color:var(--vh-earth);line-height:1}
+  .vh-revsum__txt{font-size:14px;color:var(--vh-muted)}
+  .vh-revsum__txt b{color:var(--vh-earth)}
+  .vh-revsum__rec{font-size:13px;font-weight:700;color:var(--vh-green);background:var(--vh-cream);padding:4px 10px;border-radius:999px}
 
   /* 7 · Preguntas */
   .vh-faq{max-width:780px;margin:0 auto;display:grid;gap:12px}
-  .vh-faq details{background:#fff;border:1px solid var(--vh-line);border-radius:8px;overflow:hidden}
+  .vh-faq details{background:#fff;border:1px solid var(--vh-line);border-radius:16px;overflow:hidden}
   .vh-faq summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 22px;font-family:var(--vh-title);font-weight:600;font-size:16px;color:var(--vh-earth)}
   .vh-faq summary::-webkit-details-marker{display:none}
   .vh-faq summary::after{content:"";display:none}
-  .vh-faq__plus{width:28px;height:28px;border-radius:50%;background:#F0F0F0;flex:none;position:relative;transition:transform .25s,background .25s}
+  .vh-faq__plus{width:28px;height:28px;border-radius:50%;background:#EFE7DA;flex:none;position:relative;transition:transform .25s,background .25s}
   .vh-faq__plus:before,.vh-faq__plus:after{content:"";position:absolute;left:50%;top:50%;width:12px;height:2px;background:var(--vh-green);transform:translate(-50%,-50%);border-radius:2px}
   .vh-faq__plus:after{transform:translate(-50%,-50%) rotate(90deg);transition:transform .25s}
   .vh-faq details[open] .vh-faq__plus{background:var(--vh-green)}
@@ -187,7 +192,7 @@
 
   /* 8 · Cierre */
   .vh-final{background:var(--vh-green);color:#fff;text-align:center;padding:64px 0;position:relative}
-  .vh-final:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 15% 20%,rgba(110,110,110,.35),transparent 45%),radial-gradient(circle at 85% 80%,rgba(110,110,110,.25),transparent 45%)}
+  .vh-final:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 15% 20%,rgba(168,137,107,.35),transparent 45%),radial-gradient(circle at 85% 80%,rgba(168,137,107,.25),transparent 45%)}
   .vh-final .vh-wrap{position:relative}
   #vh-{{ section.id }} .vh-final h2{color:#fff;font-size:clamp(26px,3.4vw,38px);font-weight:800;line-height:1.2}
   .vh-final p{opacity:.9;font-size:16px;margin:12px auto 28px!important;max-width:560px;line-height:1.6}
@@ -252,7 +257,7 @@
     <div class="vh-wrap vh-hero__grid">
       <div class="vh-reveal">
         {%- if section.settings.etiqueta != blank -%}
-          <span class="vh-pill">👟 {{ section.settings.etiqueta }}</span>
+          <span class="vh-pill">✨ {{ section.settings.etiqueta }}</span>
         {%- endif -%}
         <h1 class="vh-h1">{{ section.settings.titulo }}</h1>
         <p class="vh-hero__sub">{{ section.settings.subtitulo }}</p>
@@ -261,9 +266,9 @@
           <div class="vh-hero__rating">{{ vh_stars }} <span><b>{{ section.settings.puntuacion }}</b> · {{ section.settings.texto_clientes }}</span></div>
         </div>
         <ul class="vh-hero__checks">
-          <li>{{ vh_check }} Cómodas todo el día</li>
-          <li>{{ vh_check }} Talles 35 al 45</li>
-          <li>{{ vh_check }} Cambio de talle gratis</li>
+          <li>{{ vh_check }} Set de 3 medidas</li>
+          <li>{{ vh_check }} Plegables</li>
+          <li>{{ vh_check }} Envío en 24 hs</li>
         </ul>
       </div>
       <div class="vh-hero__media vh-reveal">
@@ -286,7 +291,7 @@
       <div class="vh-trust__item"><span class="vh-trust__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7z"/><circle cx="7" cy="18" r="1.8"/><circle cx="17" cy="18" r="1.8"/></svg></span><div><b>Despacho en 24 hs</b><span>A todo el país</span></div></div>
       <div class="vh-trust__item"><span class="vh-trust__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="M2.5 10h19M6.5 15h4"/></svg></span><div><b>3 cuotas sin interés</b><span>Con todas las tarjetas</span></div></div>
       <div class="vh-trust__item"><span class="vh-trust__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5 4 6v6c0 5 3.4 8.6 8 9.5 4.6-.9 8-4.5 8-9.5V6z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg></span><div><b>Garantía 100%</b><span>Compra protegida</span></div></div>
-      <div class="vh-trust__item"><span class="vh-trust__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8.5 8.5 0 0 1-12.4 7.6L3 21l1.4-5.4A8.5 8.5 0 1 1 21 12z"/><path d="M8.5 10.5h7M8.5 14h4.5"/></svg></span><div><b>Cambio de talle gratis</b><span>Si no te quedan, se cambian</span></div></div>
+      <div class="vh-trust__item"><span class="vh-trust__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8.5 8.5 0 0 1-12.4 7.6L3 21l1.4-5.4A8.5 8.5 0 1 1 21 12z"/><path d="M8.5 10.5h7M8.5 14h4.5"/></svg></span><div><b>Atención 24/7</b><span>Por WhatsApp y mail</span></div></div>
     </div>
   </section>
 
@@ -296,11 +301,11 @@
     <div class="vh-wrap">
       <div class="vh-head vh-reveal">
         <span class="vh-kicker">Nuestro producto estrella</span>
-        <h2 class="vh-h2">Las zapatillas que <em>no te vas a querer sacar</em></h2>
+        <h2 class="vh-h2">El set que <em>ordena tu placard</em> en una tarde</h2>
       </div>
       <div class="vh-prod vh-reveal">
         <a class="vh-prod__media" href="{{ url_producto }}">
-          <span class="vh-prod__tag">👟 UNISEX</span>
+          <span class="vh-prod__tag">📦 SET x3</span>
           {%- if section.settings.prod_imagen != blank -%}
             {{ section.settings.prod_imagen | image_url: width: 1100 | image_tag: class: 'vh-prod__photo', loading: 'lazy', widths: '400, 600, 800, 1100', sizes: '(min-width: 990px) 560px, 100vw', alt: p.title }}
           {%- elsif p.featured_image -%}
@@ -316,13 +321,13 @@
           </div>
           <p class="vh-prod__cuotas">3 cuotas sin interés</p>
           <ul class="vh-prod__list">
-            <li>{{ vh_check }} Plantilla acolchonada: cómodas de la mañana a la noche</li>
-            <li>{{ vh_check }} Livianas, respirables y con suela antideslizante</li>
-            <li>{{ vh_check }} Talles del 35 al 45 y cambio de talle gratis</li>
+            <li>{{ vh_check }} 3 cajas por set: grande, mediana y chica</li>
+            <li>{{ vh_check }} Base rígida, manijas reforzadas y plegables</li>
+            <li>{{ vh_check }} Guía digital de orden de regalo en packs de 2 y 3</li>
           </ul>
           {%- if section.settings.talles != blank -%}
           <div class="vh-sizes">
-            <span class="vh-sizes__label">Talles disponibles</span>
+            <span class="vh-sizes__label">Ideal para</span>
             <div class="vh-sizes__list">
               {%- assign lista_talles = section.settings.talles | split: ',' -%}
               {%- for t in lista_talles -%}<a class="vh-size" href="{{ url_producto }}">{{ t | strip }}</a>{%- endfor -%}
@@ -330,8 +335,8 @@
           </div>
           {%- endif -%}
           <div class="vh-packs" role="radiogroup" aria-label="Elegí tu pack">
-            <label class="vh-pack is-sel" data-pack="2" data-cta="Quiero el pack x2"><input type="radio" name="vhpack-{{ section.id }}" value="2" checked><span class="vh-pack__dot"></span><i>MÁS POPULAR</i><b>Llevá 2 pares: 25% OFF</b><span>Combiná talles y colores</span></label>
-            <label class="vh-pack" data-pack="3" data-cta="Quiero el pack x3"><input type="radio" name="vhpack-{{ section.id }}" value="3"><span class="vh-pack__dot"></span><b>Llevá 3 pares: 21% OFF</b><span>+ envío gratis</span></label>
+            <label class="vh-pack is-sel" data-pack="2" data-cta="Quiero el pack x2"><input type="radio" name="vhpack-{{ section.id }}" value="2" checked><span class="vh-pack__dot"></span><i>MÁS POPULAR</i><b>Llevá 2 sets: 25% OFF</b><span>+ guía de regalo</span></label>
+            <label class="vh-pack" data-pack="3" data-cta="Quiero el pack x3"><input type="radio" name="vhpack-{{ section.id }}" value="3"><span class="vh-pack__dot"></span><b>Llevá 3 sets: 30% OFF</b><span>+ envío gratis y guía</span></label>
           </div>
           <a class="vh-btn vh-btn--orange vh-pack-cta" href="{{ url_producto }}?pack=2" data-base="{{ url_producto }}"><span>Quiero el pack x2</span> {{ vh_arrow }}</a>
         </div>
@@ -344,17 +349,17 @@
   <section class="vh-sec vh-sec--white">
     <div class="vh-wrap">
       <div class="vh-head vh-reveal">
-        <span class="vh-kicker">Por qué VANTA</span>
-        <h2 class="vh-h2">Cómodas, livianas y <em>con onda</em></h2>
-        <p class="vh-lead">Unas zapatillas se eligen por cómo se ven, pero se vuelven a usar por cómo se sienten. Por eso pensamos en las dos cosas.</p>
+        <span class="vh-kicker">Por qué ORDI</span>
+        <h2 class="vh-h2">Orden que <em>se mantiene</em></h2>
+        <p class="vh-lead">Ordenar una vez es fácil. Lo difícil es que dure. Por eso cada cosa tiene que tener su lugar.</p>
       </div>
       <div class="vh-ben">
-        <div class="vh-card vh-reveal"><div class="vh-card__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 16h20v2a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1z"/><path d="M2 16V9l5-2 2 3 3 1 5 1c3 .5 5 2 5 4"/></svg></div><h3>Comodidad todo el día</h3><p>Plantilla acolchonada que amortigua cada paso: caminás horas sin terminar con los pies cansados.</p></div>
-        <div class="vh-card vh-reveal"><div class="vh-card__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.7 7.7a2.5 2.5 0 1 1 1.8 4.3H2"/><path d="M9.6 4.6A2 2 0 1 1 11 8H2"/><path d="M12.6 19.4A2 2 0 1 0 14 16H2"/></svg></div><h3>Livianas y respirables</h3><p>Materiales que dejan respirar el pie: menos calor y menos transpiración, en invierno y en verano.</p></div>
-        <div class="vh-card vh-reveal"><div class="vh-card__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5 4 6v6c0 5 3.4 8.6 8 9.5 4.6-.9 8-4.5 8-9.5V6z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg></div><h3>Hechas para durar</h3><p>Suela antideslizante y terminaciones firmes para que no se despeguen ni se deformen a los pocos meses.</p></div>
+        <div class="vh-card vh-reveal"><div class="vh-card__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 12h18M12 3v18"/></svg></div><h3>Un lugar para cada cosa</h3><p>Separás por tipo y encontrás todo de un vistazo. El orden se mantiene solo.</p></div>
+        <div class="vh-card vh-reveal"><div class="vh-card__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M3.3 7 12 12l8.7-5M12 22V12"/></svg></div><h3>Aprovechás cada estante</h3><p>3 medidas por set para llenar el espacio que hoy queda desperdiciado.</p></div>
+        <div class="vh-card vh-reveal"><div class="vh-card__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5 4 6v6c0 5 3.4 8.6 8 9.5 4.6-.9 8-4.5 8-9.5V6z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg></div><h3>Firmes y lindas</h3><p>Base rígida, manijas reforzadas y tela símil lino que queda bien a la vista.</p></div>
       </div>
       {%- if section.settings.comparativa_url != blank -%}
-        <div class="vh-compare vh-reveal"><img src="{{ section.settings.comparativa_url }}" alt="Zapatillas comunes vs. VANTA" loading="lazy" width="1200" height="800"></div>
+        <div class="vh-compare vh-reveal"><img src="{{ section.settings.comparativa_url }}" alt="Placard antes y después de ORDI" loading="lazy" width="1200" height="800"></div>
       {%- endif -%}
     </div>
   </section>
@@ -365,9 +370,9 @@
   <section class="vh-sec vh-look">
     <div class="vh-wrap">
       <div class="vh-head vh-reveal">
-        <span class="vh-kicker">Lookbook</span>
-        <h2 class="vh-h2">Cómo combinarlas</h2>
-        <p class="vh-lead">Un par, mil looks. Así las usa nuestra comunidad.</p>
+        <span class="vh-kicker">Inspiración</span>
+        <h2 class="vh-h2">Ideas para cada ambiente</h2>
+        <p class="vh-lead">Del placard al lavadero: así las usa nuestra comunidad.</p>
       </div>
       <div class="vh-look__grid">
         {%- for b in looks -%}
@@ -389,13 +394,13 @@
   <section class="vh-sec">
     <div class="vh-wrap">
       <div class="vh-head vh-reveal">
-        <span class="vh-kicker">Comprar online, sin miedo</span>
-        <h2 class="vh-h2">Así de fácil es tenerlas</h2>
+        <span class="vh-kicker">Fácil, aunque nunca hayas ordenado</span>
+        <h2 class="vh-h2">Así de fácil es ordenar</h2>
       </div>
       <div class="vh-steps">
-        <div class="vh-step vh-reveal"><div class="vh-step__n">1</div><h3>Elegí tu talle</h3><p>Calzan talle normal: pedí el mismo que usás siempre. Del 35 al 45.</p></div>
-        <div class="vh-step vh-reveal"><div class="vh-step__n">2</div><h3>Recibilas en tu casa</h3><p>Despacho en 24 hs hábiles y entrega en 2 a 3 días a todo el país, con seguimiento.</p></div>
-        <div class="vh-step vh-reveal"><div class="vh-step__n">3</div><h3>Si no te quedan, se cambian</h3><p>El cambio de talle es gratis: nos escribís por WhatsApp y lo coordinamos.</p></div>
+        <div class="vh-step vh-reveal"><div class="vh-step__n">1</div><h3>Desplegalas</h3><p>Llegan planas y se arman en segundos, sin herramientas.</p></div>
+        <div class="vh-step vh-reveal"><div class="vh-step__n">2</div><h3>Clasificá</h3><p>Separá por tipo: remeras, jeans, ropa de cama, accesorios.</p></div>
+        <div class="vh-step vh-reveal"><div class="vh-step__n">3</div><h3>Disfrutá el orden</h3><p>Abrís el placard y encontrás todo. Y como cada cosa tiene su caja, el orden dura.</p></div>
       </div>
     </div>
   </section>
@@ -408,6 +413,14 @@
       <div class="vh-head vh-reveal">
         <span class="vh-kicker">Clientes reales</span>
         <h2 class="vh-h2">Lo que dicen quienes <em>ya lo usan</em></h2>
+        {%- if section.settings.resenas_total != blank -%}
+          <div class="vh-revsum">
+            <span class="vh-revsum__score">{{ section.settings.puntuacion }}</span>
+            {{ vh_stars }}
+            <span class="vh-revsum__txt">Basado en <b>{{ section.settings.resenas_total }}</b> reseñas</span>
+            {%- if section.settings.recomiendan != blank -%}<span class="vh-revsum__rec">👍 {{ section.settings.recomiendan }}% lo recomienda</span>{%- endif -%}
+          </div>
+        {%- endif -%}
       </div>
       <div class="vh-revs">
         {%- for b in revs -%}
@@ -419,7 +432,7 @@
             {%- endif -%}
             <div class="vh-rev__body">
               {{ vh_stars }}
-              {%- if b.settings.talle != blank or b.settings.calce != blank -%}<span class="vh-rev__fit">{% if b.settings.talle != blank %}Talle {{ b.settings.talle }}{% endif %}{% if b.settings.talle != blank and b.settings.calce != blank %} · {% endif %}{% if b.settings.calce != blank %}Calce {{ b.settings.calce | downcase }}{% endif %}</span>{%- endif -%}
+              {%- if b.settings.talle != blank -%}<span class="vh-rev__fit">Lo usa en: {{ b.settings.talle }}</span>{%- endif -%}
               <h3>{{ b.settings.titulo }}</h3>
               <p>{{ b.settings.texto }}</p>
               <div class="vh-rev__who">{{ b.settings.nombre }} <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1 3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5zm-1.09 14.41-3.5-3.5 1.41-1.41 2.09 2.09 5.18-5.18 1.41 1.41z"/></svg><span>Compra verificada</span></div>
@@ -458,7 +471,7 @@
       <h2>{{ section.settings.cierre_titulo }}</h2>
       <p>{{ section.settings.cierre_texto }}</p>
       <a class="vh-btn vh-btn--orange" href="{{ url_producto }}">{{ section.settings.boton }} {{ vh_arrow }}</a>
-      <small>Despacho en 24 hs · 3 cuotas sin interés · Cambio de talle gratis</small>
+      <small>Despacho en 24 hs · 3 cuotas sin interés · Garantía 100%</small>
     </div>
   </section>
 </div>
@@ -503,31 +516,33 @@
 
 {% schema %}
 {
-  "name": "VANTA · Inicio",
+  "name": "ORDI · Inicio",
   "tag": "div",
-  "class": "vanta-inicio",
+  "class": "ordi-inicio",
   "enabled_on": { "templates": ["index"] },
   "settings": [
     { "type": "header", "content": "Producto" },
-    { "type": "product", "id": "producto", "label": "Producto destacado", "info": "Elegí las zapatillas. Si lo dejás vacío se busca el producto con handle zapatillas-urbanas-vanta." },
+    { "type": "product", "id": "producto", "label": "Producto destacado", "info": "Elegí el producto. Si lo dejás vacío se busca el producto con handle cajas-organizadoras-ordi." },
     { "type": "image_picker", "id": "prod_imagen", "label": "Foto del producto destacado (opcional)", "info": "Cuadrada (1:1). Si no elegís una, se usa la foto principal del producto." },
-    { "type": "text", "id": "talles", "label": "Talles disponibles", "default": "35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45", "info": "Separados por coma. Dejalo vacío para ocultarlos." },
+    { "type": "text", "id": "talles", "label": "Ideal para (ambientes)", "default": "Placard, Ropa de cama, Juguetes, Lavadero, Baño", "info": "Separados por coma. Dejalo vacío para ocultarlos." },
     { "type": "header", "content": "Portada" },
     { "type": "image_picker", "id": "hero_imagen", "label": "Foto de portada (opcional)", "info": "Si no elegís una, se usa la foto del producto." },
-    { "type": "text", "id": "titulo", "label": "Título", "default": "Comodidad de la mañana a la noche" },
-    { "type": "textarea", "id": "subtitulo", "label": "Subtítulo", "default": "Zapatillas urbanas unisex con plantilla acolchonada, livianas y respirables. Te las ponés a la mañana y te olvidás que las tenés puestas." },
-    { "type": "text", "id": "boton", "label": "Texto del botón", "default": "Quiero mis VANTA" },
-    { "type": "text", "id": "badge_top", "label": "Sello naranja (arriba)", "default": "25% OFF", "info": "Dejalo vacío para ocultar el sello." },
-    { "type": "text", "id": "badge_bottom", "label": "Sello naranja (abajo)", "default": "en 2 pares" },
+    { "type": "text", "id": "titulo", "label": "Título", "default": "Cada cosa en su lugar" },
+    { "type": "textarea", "id": "subtitulo", "label": "Subtítulo", "default": "Cajas organizadoras de lino, firmes y plegables, en 3 medidas. Tu placard ordenado en una tarde, y que siga así." },
+    { "type": "text", "id": "boton", "label": "Texto del botón", "default": "Quiero ordenar mi casa" },
+    { "type": "text", "id": "badge_top", "label": "Sello naranja (arriba)", "default": "30% OFF", "info": "Dejalo vacío para ocultar el sello." },
+    { "type": "text", "id": "badge_bottom", "label": "Sello naranja (abajo)", "default": "en 3 sets" },
     { "type": "header", "content": "Prueba social" },
     { "type": "text", "id": "etiqueta", "label": "Etiqueta arriba del título", "default": "", "info": "Ej.: +1.000 clientes ya las usan (solo números reales). Dejala vacía para ocultarla." },
     { "type": "text", "id": "puntuacion", "label": "Puntuación", "default": "4.9" },
     { "type": "text", "id": "texto_clientes", "label": "Texto junto a las estrellas", "default": "Clientes felices", "info": "Usá números reales, ej.: +1.000 clientes felices." },
+    { "type": "text", "id": "resenas_total", "label": "Cantidad de reseñas (resumen)", "default": "236", "info": "⚠️ Número de ejemplo: poné tu cantidad real. Vacío oculta el resumen arriba de los testimonios." },
+    { "type": "text", "id": "recomiendan", "label": "% que lo recomienda", "default": "98", "info": "⚠️ Poné el dato real. Vacío lo oculta." },
     { "type": "header", "content": "Beneficios" },
-    { "type": "text", "id": "comparativa_url", "label": "Imagen comparativa (URL)", "default": "", "info": "Ej.: zapatilla común vs. VANTA. Dejala vacía para ocultarla." },
+    { "type": "text", "id": "comparativa_url", "label": "Imagen comparativa (URL)", "default": "", "info": "Ej.: placard antes y después. Dejala vacía para ocultarla." },
     { "type": "header", "content": "Cierre" },
-    { "type": "text", "id": "cierre_titulo", "label": "Título", "default": "Tus pies te lo van a agradecer 👟" },
-    { "type": "textarea", "id": "cierre_texto", "label": "Texto", "default": "Llevá 2 pares y ahorrá 25%, o llevá 3 con 21% OFF y envío gratis. Y si el talle no te queda, el cambio es gratis." }
+    { "type": "text", "id": "cierre_titulo", "label": "Título", "default": "Tu casa, como siempre la imaginaste ✨" },
+    { "type": "textarea", "id": "cierre_texto", "label": "Texto", "default": "Llevá 2 sets y ahorrá 25%, o llevá 3 con 30% OFF y envío gratis. Guía digital de orden de regalo." }
   ],
   "blocks": [
     {
@@ -538,20 +553,19 @@
         { "type": "image_picker", "id": "foto", "label": "Foto" },
         { "type": "text", "id": "foto_url", "label": "…o URL de la foto" },
         { "type": "text", "id": "nombre", "label": "Nombre", "default": "Nombre. A" },
-        { "type": "text", "id": "talle", "label": "Talle que compró", "default": "" },
-        { "type": "text", "id": "calce", "label": "Calce (ej.: Perfecto)", "default": "" },
+        { "type": "text", "id": "talle", "label": "Lo usa en (ej.: Placard)", "default": "" },
         { "type": "text", "id": "titulo", "label": "Título", "default": "Excelente producto" },
         { "type": "textarea", "id": "texto", "label": "Reseña", "default": "Escribí acá la reseña del cliente." }
       ]
     },
     {
       "type": "look",
-      "name": "Look (lookbook)",
+      "name": "Ambiente (inspiración)",
       "limit": 8,
       "settings": [
         { "type": "image_picker", "id": "foto", "label": "Foto (vertical 3:4)" },
         { "type": "text", "id": "foto_url", "label": "…o URL de la foto" },
-        { "type": "text", "id": "texto", "label": "Etiqueta", "default": "Con jean" }
+        { "type": "text", "id": "texto", "label": "Etiqueta", "default": "Placard" }
       ]
     },
     {
@@ -566,14 +580,14 @@
   ],
   "presets": [
     {
-      "name": "VANTA · Inicio",
+      "name": "ORDI · Inicio",
       "blocks": [
-        { "type": "testimonio", "settings": { "nombre": "Martín. G", "talle": "42", "calce": "Perfecto", "titulo": "Ni me acuerdo que las tengo puestas", "texto": "⚠️ Reseña de ejemplo: reemplazala por una real. Trabajo muchas horas parado y con estas llego a casa sin dolor de pies." } },
-        { "type": "testimonio", "settings": { "nombre": "Lucas. P", "talle": "41", "calce": "Perfecto", "titulo": "Aproveché la promo y valió la pena", "texto": "⚠️ Reseña de ejemplo: reemplazala por una real. Llevé 2 pares, uno negro y uno blanco, y llegaron en 2 días." } },
-        { "type": "testimonio", "settings": { "nombre": "Valentina. R", "talle": "37", "calce": "Perfecto", "titulo": "Tenía miedo de errarle al talle", "texto": "⚠️ Reseña de ejemplo: reemplazala por una real. Seguí la guía de talles y me quedaron perfectas." } },
-        { "type": "testimonio", "settings": { "nombre": "Camila. S", "talle": "38", "calce": "Perfecto", "titulo": "Muy buena compra, súper recomendable", "texto": "⚠️ Reseña de ejemplo: reemplazala por una real. Aproveché el pack de 3 con envío gratis para toda la familia." } },
-        { "type": "pregunta", "settings": { "pregunta": "¿Cómo sé qué talle pedir?", "respuesta": "<p>Calzan <strong>talle normal</strong>: pedí el mismo que usás siempre. Hay del <strong>35 al 45</strong>. Si estás entre dos, elegí el más grande.</p>" } },
-        { "type": "pregunta", "settings": { "pregunta": "¿Y si no me quedan bien?", "respuesta": "<p>Tenés <strong>cambio de talle gratis</strong>. Escribinos por WhatsApp con tu número de pedido y lo coordinamos.</p>" } },
+        { "type": "testimonio", "settings": { "nombre": "Florencia. M", "talle": "Placard", "titulo": "Mi placard cambió por completo", "texto": "⚠️ Reseña de ejemplo: reemplazala por una real. Separé por tipo de ropa y ahora abro el placard y da gusto." } },
+        { "type": "testimonio", "settings": { "nombre": "Agustina. R", "talle": "Cuarto de los chicos", "titulo": "Por fin los juguetes tienen su lugar", "texto": "⚠️ Reseña de ejemplo: reemplazala por una real. Cada caja tiene un tipo de juguete y ellos mismos ordenan." } },
+        { "type": "testimonio", "settings": { "nombre": "Julieta. P", "talle": "Dormitorio", "titulo": "Mejor de lo que esperaba", "texto": "⚠️ Reseña de ejemplo: reemplazala por una real. Son firmes y no se deforman. Ya pedí otro set." } },
+        { "type": "testimonio", "settings": { "nombre": "Paula. S", "talle": "Lavadero", "titulo": "Aproveché el pack de 3", "texto": "⚠️ Reseña de ejemplo: reemplazala por una real. Con la guía de regalo ordené todo en una tarde." } },
+        { "type": "pregunta", "settings": { "pregunta": "¿Qué medidas tienen?", "respuesta": "<p>Cada set trae <strong>3 cajas</strong>: grande (40 × 30 × 25 cm), mediana (35 × 25 × 20 cm) y chica (30 × 20 × 15 cm).</p>" } },
+        { "type": "pregunta", "settings": { "pregunta": "¿Vienen armadas?", "respuesta": "<p>Llegan <strong>plegadas</strong> y se arman en segundos, sin herramientas. Cuando no las usás, las volvés a plegar.</p>" } },
         { "type": "pregunta", "settings": { "pregunta": "¿Cuánto tarda en llegar mi pedido?", "respuesta": "<p>Despachamos dentro de las <strong>24 hs hábiles</strong> a todo el país. La entrega suele demorar <strong>2 a 3 días hábiles</strong> y te mandamos el seguimiento por mail o WhatsApp.</p>" } },
         { "type": "pregunta", "settings": { "pregunta": "¿Cómo puedo pagar?", "respuesta": "<p>Con tarjeta de crédito en <strong>3 cuotas sin interés</strong>, débito o Mercado Pago, en el checkout 100% seguro de Shopify.</p>" } }
       ]

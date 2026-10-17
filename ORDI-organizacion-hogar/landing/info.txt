@@ -1,0 +1,55 @@
+INFO DEL PRODUCTO — ORDI · Cajas Organizadoras de Lino (Set x3)
+(Landing, inicio, catálogo, contacto y footer armados sobre la base de VERDEA,
+ con todo lo que fuimos mejorando en VANTA, adaptados a organización del hogar.)
+
+=== IDENTIDAD ===
+Marca: ORDI · "Cada cosa en su lugar"
+Colores: Grafito cálido #2F2A26 · Caramelo #A8896B · Café #3B342F · Lino #F5F0E8 · Blanco #FFFFFF
+Acento: Terracota #C65D3B, SOLO para descuentos, "MÁS POPULAR" y botones de oferta.
+Tipografías: Fraunces (títulos) · DM Sans (texto y botones).
+
+=== PRODUCTO ===
+Set de 3 cajas organizadoras plegables, tela símil lino con base rígida y manijas.
+- Grande 40 × 30 × 25 cm · Mediana 35 × 25 × 20 cm · Chica 30 × 20 × 15 cm (⚠️ confirmar)
+- Plegables, se arman sin herramientas
+- Para placard, ropa de cama, juguetes, lavadero, baño, accesorios
+
+=== OFERTAS (cada set sale más barato cuanto más llevás) ===
+1 Set  — $29.900 — 3 cuotas sin interés
+2 Sets — $44.900 (antes $59.800, 25% OFF, $22.450 c/u) — guía digital de regalo · MÁS POPULAR
+3 Sets — $62.900 (antes $89.700, 30% OFF, $20.967 c/u) — guía + envío gratis · MEJOR VALOR
+En Kaching: pack 2 = 25% OFF; pack 3 = 30% OFF + envío gratis.
+
+=== VALOR AGREGADO Y PRUEBA SOCIAL ===
+- "Tu compra incluye" debajo del botón (panel: incluye).
+- Guía digital de regalo: ORDI-organizacion-hogar/guia-regalo-placard-ordenado.txt
+  (pasala a PDF con tu diseño y mandala por mail con los pedidos de 2 y 3 sets;
+  se puede automatizar con una app de descargas digitales o desde Shopify Flow).
+- Resumen de reseñas con barras por estrella y % que recomienda (panel: resumenResenas).
+- Muro de fotos de clientes (panel: fotosClientes) e ideas por ambiente (panel: lookbook).
+- 6 reseñas con "Lo usa en: …".
+
+=== ENVÍO / GARANTÍA ===
+Despacho en 24 hs hábiles, envío a todo el país, entrega 2-3 días hábiles, seguimiento por mail o WhatsApp.
+Garantía 100% (si llegan con defecto se cambian) · Atención 24/7 · Pagos seguros.
+
+=== INSTALACIÓN EN SHOPIFY (resumen) ===
+1. Landing: Editar código → Snippets → nuevo snippet "ordi-landing" → pegar
+   ORDI-organizacion-hogar/landing/ordi-landing-snippet.txt. En la plantilla del producto,
+   bloque "Liquid personalizado" con: {% render 'ordi-landing' %}
+2. Inicio, catálogo, contacto y pie de página: Editar código → Sections → nueva sección
+   con el nombre del archivo (ordi-inicio, ordi-catalogo, ordi-contacto, ordi-footer) →
+   pegar el archivo → Personalizar → agregar la sección "ORDI · ...".
+3. Snippet icon-discount: Snippets → "icon-discount" → pegar tienda/snippets/icon-discount.liquid.
+4. Inspiración del inicio: en "ORDI · Inicio" → Agregar bloque → "Ambiente (inspiración)".
+5. El catálogo está listo para muchos productos (bajo mesada, cajas de heladera,
+   separadores de cajones, etc.): cada uno lleva a su página de producto.
+
+=== PENDIENTE (⚠️ antes de publicar) ===
+- slugURL: URL del producto en Shopify (mientras tenga ⚠️, la landing no carga en la tienda).
+- Handle del producto: el inicio y el footer buscan "cajas-organizadoras-ordi"
+  (o elegí el producto desde el editor del tema).
+- Fotos: principal, antes/después del placard, 4 ambientes (3:4), fotos de clientes.
+- Reseñas REALES (las 6 son de ejemplo) + números reales del resumen (estrellas y %).
+- Confirmar medidas y materiales con el producto real.
+- Contacto: WhatsApp y mail quedaron los de VERDEA; Instagram vacío.

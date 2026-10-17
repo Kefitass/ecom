@@ -1,34 +1,34 @@
 <meta charset="utf-8">
 <!-- {% raw %} (Liquid: no interpretar este archivo; no borrar) -->
 <!-- ================================================================
-     VANTA — ZAPATILLAS URBANAS · LANDING PAGE PARA SHOPIFY
-     "Comodidad de la mañana a la noche"
-     (Misma estructura que la landing de VERDEA, adaptada a zapatillas.)
+     ORDI — ORGANIZACIÓN INTELIGENTE DEL HOGAR · LANDING PAGE PARA SHOPIFY
+     "Cada cosa en su lugar"
+     (Misma estructura que la landing de VERDEA, adaptada a organización del hogar.)
 
      📌 INSTRUCCIONES (Shopify):
-     Este archivo pesa ~160 KB y el bloque "Liquid personalizado" acepta
+     Este archivo pesa ~170 KB y el bloque "Liquid personalizado" acepta
      como máximo ~50 KB, por eso se instala como SNIPPET del tema:
      1. Shopify Admin → Tienda online → Temas → (⋯) → Editar código.
      2. En la carpeta "Snippets" → "Agregar un nuevo snippet" →
-        nombre: vanta-landing  (se crea snippets/vanta-landing.liquid).
+        nombre: ordi-landing  (se crea snippets/ordi-landing.liquid).
      3. Pegá TODO este contenido en ese snippet y guardá.
      4. Tienda online → Temas → Personalizar → plantilla del producto
         → agregá un bloque "Liquid personalizado" dentro de
         "Información del producto" y escribí SOLO esta línea:
-            {% render 'vanta-landing' %}
+            {% render 'ordi-landing' %}
      5. Para cambios futuros, editá SOLO el "PANEL DE CONFIGURACIÓN"
-        dentro del snippet (precios, imágenes, testimonios, banner).
+        dentro del snippet (precios, imágenes, reseñas, banner).
      6. Reemplazá cada marcador ⚠️...⚠️ por el dato/URL definitivo.
         Mientras slugURL tenga ⚠️, la landing NO carga en la tienda
         (así no se publica a medio terminar).
      Vista local: abrí este archivo con doble clic (modo prueba).
 
-     🎨 Identidad VANTA:
-        Negro #0A0A0A · Gris Grafito #4A4A4A · Carbón #222222
-        Rojo Oferta #E10600 (solo descuentos) · Fondo Neutro #F4F4F2 · Blanco #FFFFFF
-        Títulos: Archivo en mayúsculas (Montserrat de respaldo) · Cuerpo: Inter (Lato de respaldo)
+     🎨 Identidad ORDI:
+        Grafito cálido #2F2A26 · Caramelo #A8896B · Marrón café #3B342F
+        Terracota Oferta #C65D3B (solo descuentos) · Fondo Lino #F5F0E8 · Blanco #FFFFFF
+        Títulos: Fraunces (Georgia de respaldo) · Cuerpo: DM Sans (Lato de respaldo)
      ================================================================ -->
-<div id="wigy-vanta-scripts" style="display:none" aria-hidden="true">
+<div id="wigy-ordi-scripts" style="display:none" aria-hidden="true">
 <!-- ================================================================
      ⚙️ PANEL DE CONFIGURACIÓN — MODIFICÁ TODO ACÁ
 
@@ -41,21 +41,21 @@ window.WIGY_CONFIG = {
   // ============================================================
   // 🔗 SECCIÓN 0: SLUG — URL OBLIGATORIA
   // El código SOLO funciona en esta URL. Si no coincide, no carga.
-  // Pegá la URL completa del producto (ej: https://tutienda.com/products/zapatillas-urbanas-vanta).
+  // Pegá la URL completa del producto (ej: https://tutienda.com/products/cajas-organizadoras-ordi).
   // También funciona si el cliente entra desde /collections/.../products/...
   // ============================================================
   slugURL: "⚠️ PEGÁ ACÁ LA URL DEL PRODUCTO ⚠️",
 
   // ============================================================
-  // 👟 SECCIÓN 0A: DATOS DE MARCA Y GARANTÍA
+  // 🧺 SECCIÓN 0A: DATOS DE MARCA Y GARANTÍA
   // garantiaDias: dejalo en 0 para mostrar "Garantía 100%" sin días,
-  // o poné el número de días de tu política de cambios (ej. 30).
+  // o poné el número de días de tu política de devolución (ej. 30).
   // ============================================================
-  marca: "VANTA",
-  nombreProducto: "Zapatillas Urbanas VANTA · Unisex",
+  marca: "ORDI",
+  nombreProducto: "Cajas Organizadoras de Lino ORDI · Set x3",
   // Nombre corto que aparece en la notificación de compras recientes:
-  // "Susana de Corrientes · Compró Zapatillas VANTA 👟"
-  nombreToast: "Zapatillas VANTA",
+  // "Susana de Corrientes · Compró Cajas ORDI 📦"
+  nombreToast: "Cajas ORDI",
   // true → muestra la 3.ª línea "hace X min · Compra verificada" (false la oculta).
   toastMostrarHora: true,
   garantiaDias: 0,
@@ -73,10 +73,9 @@ window.WIGY_CONFIG = {
   // 📷 FOTOS DEL PRODUCTO (galería de la VISTA LOCAL / MODO PRUEBA)
   // En Shopify la galería la muestra tu tema con las fotos cargadas en el
   // producto; esta lista solo se usa al ver el archivo en modo prueba.
-  // La primera es la principal. Agregá más URLs y aparecen como miniaturas.
   // ============================================================
   fotosProducto: [
-    "⚠️ URL FOTO PRINCIPAL DE LAS ZAPATILLAS ⚠️"
+    "⚠️ URL FOTO PRINCIPAL DE LAS CAJAS ⚠️"
   ],
 
   // ============================================================
@@ -91,40 +90,32 @@ window.WIGY_CONFIG = {
   },
 
   // ============================================================
-  // 🧑‍⚕️ SECCIÓN 0C: VALIDACIÓN DE EXPERTO (OPCIONAL)
+  // 🧑‍💼 SECCIÓN 0C: VALIDACIÓN DE EXPERTO (OPCIONAL)
   // En null → el bloque no se muestra.
-  // Para activarlo, reemplazá null por un profesional REAL que avale el producto:
+  // Para activarlo, reemplazá null por una persona REAL que avale el producto:
   // experto: {
-  //   nombre: "Lic. Nombre Apellido",
-  //   profesion: "Podólogo/a",
-  //   matricula: "MP 0000",
-  //   matriculaDesc: "Matrícula profesional habilitada",
+  //   nombre: "Nombre Apellido",
+  //   profesion: "Organizadora profesional",
+  //   matricula: "",
+  //   matriculaDesc: "",
   //   foto: "URL-DE-LA-FOTO",
-  //   mensaje: "Su opinión sobre las zapatillas."
+  //   mensaje: "Su opinión sobre las cajas."
   // },
   // ============================================================
   experto: null,
 
   // ============================================================
   // 📰 SECCIÓN 0D: LOGOS DE MEDIOS (TICKER INFERIOR)
-  // Imágenes de medios de comunicación debajo del FAQ del formulario
-  // ⚠️ Mostrá solo medios donde VANTA haya aparecido realmente.
+  // ⚠️ Mostrá solo medios donde ORDI haya aparecido realmente.
+  // Vacío [] → la barra de medios NO se muestra.
+  // Formato: { src: "URL-DEL-LOGO", alt: "Nombre del medio" }
   // ============================================================
-  // Vacío [] → la barra de medios NO se muestra. Para volver a mostrarla, poné acá solo
-  // medios donde VANTA haya aparecido de verdad, con el formato de la lista comentada abajo.
   logosMediaTicker: [],
-  // logosMediaTicker: [
-  // { src: "https://i.ibb.co/XHMz67b/Clar-n-logo-svg.png", alt: "Clarín" },
-  // { src: "https://i.ibb.co/jPWFK8r1/Infobae-com-logo.png", alt: "Infobae" },
-  // { src: "https://i.ibb.co/YFY7tGKH/TN-todo-noticias-logo-svg.png", alt: "TN" },
-  // { src: "https://i.ibb.co/7tkX2qMZ/publicar-avisos-legales-en-diario-el-cronista-comercial-publicidad-edictos-judiciales-convocatorias.webp", alt: "El Cronista" },
-  // { src: "https://i.ibb.co/LdmH8c0k/C5-N-2017-Alternate-svg.png", alt: "C5N" }
-  // ],
 
   // ============================================================
   // 💰 SECCIÓN 1: OFERTAS Y PRECIOS
   // Paquetes que aparecen arriba del botón de compra.
-  // "etiqueta" → badge rojo (#E10600) arriba a la derecha.
+  // "etiqueta" → badge terracota (#C65D3B) arriba a la derecha.
   // "seleccionado: true" → la opción que viene marcada por defecto.
   // IMPORTANTE: este selector solo cambia la CANTIDAD que se agrega al carrito.
   // El precio con descuento lo tiene que aplicar Shopify (descuento automático
@@ -134,15 +125,16 @@ window.WIGY_CONFIG = {
   // Kaching Bundles (que es quien aplica descuentos y regalos). La barra fija
   // de abajo toma el precio del pack elegido en Kaching.
   // true → se usa este selector (solo si NO usás Kaching).
-  // Precios: 1 par $40.000 · 2 pares $60.000 (25% OFF) · 3 pares $95.000 (21% OFF + envío gratis).
+  // Escalera de precios para subir el ticket: cada set sale más barato
+  // cuanto más llevás (1 set $29.900 → 2 sets $22.450 c/u → 3 sets $20.967 c/u).
   // Cargá lo mismo en Kaching.
   // ============================================================
   mostrarPacks: false,
   ofertas: [
     {
-      nombre: "1 Par",
-      precio: "$40.000",
-      subtexto: "Elegís talle y color · 3 cuotas sin interés",
+      nombre: "1 Set",
+      precio: "$29.900",
+      subtexto: "3 cajas · ideal para 1 placard",
       precioViejo: "",
       descuento: "",
       etiqueta: "",
@@ -151,44 +143,50 @@ window.WIGY_CONFIG = {
       regalo: ""
     },
     {
-      nombre: "2 Pares",
-      precio: "$60.000",
-      subtexto: "$30.000 c/u · combiná talles y colores",
-      precioViejo: "$80.000",
+      nombre: "2 Sets",
+      precio: "$44.900",
+      subtexto: "6 cajas · $22.450 por set",
+      precioViejo: "$59.800",
       descuento: "25% OFF",
-      etiqueta: "👟 MÁS POPULAR",
+      etiqueta: "📦 MÁS POPULAR",
       cantidad: 2,
       seleccionado: true,
-      regalo: ""
+      regalo: "Guía digital \"Placard ordenado en 1 tarde\""
     },
     {
-      nombre: "3 Pares",
-      precio: "$95.000",
-      subtexto: "Combiná talles y colores · 3 cuotas sin interés",
-      precioViejo: "$120.000",
-      descuento: "21% OFF",
-      etiqueta: "ENVÍO GRATIS",
+      nombre: "3 Sets",
+      precio: "$62.900",
+      subtexto: "9 cajas · $20.967 por set + envío gratis",
+      precioViejo: "$89.700",
+      descuento: "30% OFF",
+      etiqueta: "MEJOR VALOR",
       cantidad: 3,
       seleccionado: false,
-      regalo: "Envío a todo el país"
+      regalo: "Guía digital + envío gratis"
     }
   ],
 
   // ============================================================
+  // 🎁 SECCIÓN 1B: "TU COMPRA INCLUYE" (valor agregado, debajo del botón)
+  // Lista de lo que recibe el cliente. Vacía [] → no se muestra.
+  // ============================================================
+  incluye: [
+    { icono: "📦", titulo: "3 cajas por set", texto: "Grande, mediana y chica, para aprovechar cada estante." },
+    { icono: "📘", titulo: "Guía digital de regalo", texto: "\"Placard ordenado en 1 tarde\": el paso a paso, en los packs de 2 y 3 sets." },
+    { icono: "🚚", titulo: "Envío gratis en 3 sets", texto: "Despacho en 24 hs hábiles a todo el país." },
+    { icono: "🛡️", titulo: "Garantía 100%", texto: "Si llegan con un defecto, te las cambiamos." }
+  ],
+
+  // ============================================================
   // 🖼️ SECCIÓN 2: CARRUSEL DE IMÁGENES (formato vertical 9:16)
-  // mostrarCarrusel: false → el carrusel NO se muestra (las URLs quedan
-  // guardadas abajo para cuando lo vuelvas a activar con true).
-  // Ideas: zapatillas puestas en la calle, clientes con sus pares, detalle de
-  // la suela, la plantilla, la caja/packaging, el envío.
+  // mostrarCarrusel: false → el carrusel NO se muestra.
   // ============================================================
   mostrarCarrusel: false,
   carruselImagenes: [
-    { src: "⚠️ URL FOTO 1 (9:16) ⚠️", alt: "Zapatillas VANTA puestas" },
-    { src: "⚠️ URL FOTO 2 (9:16) ⚠️", alt: "Detalle de la suela VANTA" },
-    { src: "⚠️ URL FOTO 3 (9:16) ⚠️", alt: "Plantilla acolchonada VANTA" },
-    { src: "⚠️ URL FOTO 4 (9:16) ⚠️", alt: "Clientes con sus VANTA" },
-    { src: "⚠️ URL FOTO 5 (9:16) ⚠️", alt: "Packaging VANTA" },
-    { src: "⚠️ URL FOTO 6 (9:16) ⚠️", alt: "Envío a todo el país" }
+    { src: "⚠️ URL FOTO 1 (9:16) ⚠️", alt: "Placard ordenado con cajas ORDI" },
+    { src: "⚠️ URL FOTO 2 (9:16) ⚠️", alt: "Cajas ORDI plegadas" },
+    { src: "⚠️ URL FOTO 3 (9:16) ⚠️", alt: "Ropa doblada dentro de una caja ORDI" },
+    { src: "⚠️ URL FOTO 4 (9:16) ⚠️", alt: "Clientes con sus cajas ORDI" }
   ],
 
   // ============================================================
@@ -196,89 +194,125 @@ window.WIGY_CONFIG = {
   // Si "estadisticas" queda vacío [], la sección no se muestra.
   // ⚠️ Cargá solo datos reales (ej. de una encuesta a tus clientes):
   // estadisticas: [
-  //   { porcentaje: 90, texto: "Las usa <strong>todo el día sin cansarse</strong>." },
+  //   { porcentaje: 90, texto: "Dice que ahora <strong>encuentra todo más rápido</strong>." },
   // ],
   // ============================================================
   fotoEstadisticas: "⚠️ URL FOTO PARA ESTADÍSTICAS ⚠️",
   estadisticas: [],
 
   // ============================================================
-  // 📏 SECCIÓN 4: TALLES, CALCE Y FICHA DEL PRODUCTO
-  // calce: "chico" | "normal" | "grande" → marca la barrita "Calce" debajo de
-  //        los beneficios (cómo calza respecto al talle que usás siempre).
-  // guiaTalles: tabla que aparece en "Guía de talles" (cm = largo del pie).
-  //   ⚠️ Son medidas de REFERENCIA: reemplazalas por las de tu proveedor.
+  // 🔄 SECCIÓN 4: ANTES / DESPUÉS
+  // Con dos fotos (placard desordenado y ordenado) → slider para arrastrar.
+  // Con UNA foto que ya trae el antes/después → dejá "comparadorAntes" vacío ("")
+  // y poné la foto en "comparadorDespues". Sin foto (vacía o con ⚠️) → no se muestra.
+  // ============================================================
+  comparadorAntes: "⚠️ URL FOTO PLACARD DESORDENADO ⚠️",
+  comparadorDespues: "⚠️ URL FOTO PLACARD ORDENADO ⚠️",
+
+  // ============================================================
+  // 📏 SECCIÓN 4B: MEDIDAS Y FICHA DEL PRODUCTO
+  // medidas: tabla de "Medidas" (cada caja del set y qué entra).
   // fichaTecnica: lo que aparece en "Detalles del producto".
   //   ⚠️ Confirmá cada dato con el producto real antes de publicar.
   // ============================================================
-  calce: "normal",
-  guiaTalles: [
-    { talle: 35, cm: "22,5" }, { talle: 36, cm: "23" },   { talle: 37, cm: "24" },
-    { talle: 38, cm: "24,5" }, { talle: 39, cm: "25,5" }, { talle: 40, cm: "26" },
-    { talle: 41, cm: "26,5" }, { talle: 42, cm: "27,5" }, { talle: 43, cm: "28" },
-    { talle: 44, cm: "29" },   { talle: 45, cm: "29,5" }
+  medidas: [
+    { caja: "Grande",  medidas: "40 × 30 × 25 cm", ideal: "Sábanas, toallas, abrigos" },
+    { caja: "Mediana", medidas: "35 × 25 × 20 cm", ideal: "Remeras, jeans, buzos" },
+    { caja: "Chica",   medidas: "30 × 20 × 15 cm", ideal: "Ropa interior, medias, accesorios" }
   ],
   fichaTecnica: [
-    ["Capellada", "Tela respirable"],
-    ["Plantilla", "Acolchonada"],
-    ["Suela", "Goma antideslizante"],
-    ["Horma", "Talle normal"],
-    ["Talles", "Del 35 al 45"],
-    ["Estilo", "Urbano · unisex"],
-    ["Cuidado", "Paño húmedo y jabón neutro. No usar lavarropas."]
+    ["Material", "Tela símil lino con base rígida"],
+    ["Manijas", "Cuero sintético reforzado"],
+    ["Armado", "Plegables, sin herramientas"],
+    ["Contenido", "3 cajas por set"],
+    ["Color", "Beige lino"],
+    ["Cuidado", "Paño húmedo. No lavar en lavarropas."]
   ],
 
   // ============================================================
-  // 🧥 SECCIÓN 4B: LOOKBOOK — "CÓMO COMBINARLAS"
-  // Fotos verticales (3:4) de las zapatillas puestas en distintos looks.
-  // "texto" es la etiqueta blanca sobre la foto. Sin fotos válidas → no se muestra.
+  // 🏡 SECCIÓN 4C: IDEAS POR AMBIENTE (lookbook)
+  // Fotos verticales (3:4) de las cajas en distintos ambientes.
+  // "texto" es la etiqueta sobre la foto. Sin fotos válidas → no se muestra.
   // ============================================================
   lookbook: [
-    { src: "⚠️ URL FOTO LOOK 1 ⚠️", texto: "Con jean" },
-    { src: "⚠️ URL FOTO LOOK 2 ⚠️", texto: "Con jogging" },
-    { src: "⚠️ URL FOTO LOOK 3 ⚠️", texto: "Look de salida" },
-    { src: "⚠️ URL FOTO LOOK 4 ⚠️", texto: "Día a día" }
+    { src: "⚠️ URL FOTO PLACARD ⚠️", texto: "Placard" },
+    { src: "⚠️ URL FOTO DORMITORIO ⚠️", texto: "Dormitorio" },
+    { src: "⚠️ URL FOTO CUARTO DE LOS CHICOS ⚠️", texto: "Cuarto de los chicos" },
+    { src: "⚠️ URL FOTO LAVADERO ⚠️", texto: "Lavadero" }
+  ],
+
+  // ============================================================
+  // 📊 SECCIÓN 5A: RESUMEN DE RESEÑAS (barras de estrellas)
+  // estrellas: cantidad de reseñas de 5, 4, 3, 2 y 1 estrella.
+  // recomiendan: % de clientes que lo recomienda.
+  // ⚠️ Son números de EJEMPLO: poné los reales. Todo en 0 → no se muestra.
+  // ============================================================
+  resumenResenas: {
+    estrellas: [212, 19, 4, 1, 0],
+    recomiendan: 98
+  },
+
+  // ============================================================
+  // 📷 SECCIÓN 5B: FOTOS DE CLIENTES (muro de fotos reales)
+  // Fotos que te mandaron tus clientes. Sin fotos válidas → no se muestra.
+  // ============================================================
+  fotosClientes: [
+    { src: "⚠️ URL FOTO CLIENTE 1 ⚠️", nombre: "Florencia" },
+    { src: "⚠️ URL FOTO CLIENTE 2 ⚠️", nombre: "Agustina" },
+    { src: "⚠️ URL FOTO CLIENTE 3 ⚠️", nombre: "Julieta" },
+    { src: "⚠️ URL FOTO CLIENTE 4 ⚠️", nombre: "Paula" },
+    { src: "⚠️ URL FOTO CLIENTE 5 ⚠️", nombre: "Romina" },
+    { src: "⚠️ URL FOTO CLIENTE 6 ⚠️", nombre: "Lorena" }
   ],
 
   // ============================================================
   // 💬 SECCIÓN 5: TESTIMONIOS DE CLIENTES
   // ⚠️ Son textos de EJEMPLO para ver el diseño: reemplazalos por reseñas
   // reales de tu tienda antes de publicar. Sin foto → aparece la inicial.
-  // "talle" y "calce" se muestran como etiqueta (ej. "Talle 40 · Calce perfecto");
-  // dejalos vacíos ("") para ocultarla.
+  // "ambiente" se muestra como etiqueta (ej. "Lo usa en: Placard"); "" la oculta.
   // ============================================================
   testimonios: [
     {
       foto: "",
-      nombre: "Martín. G",
-      talle: "42",
-      calce: "Perfecto",
-      titulo: "Las uso todo el día y ni me acuerdo que las tengo puestas",
-      texto: "Trabajo muchas horas parado y siempre terminaba con los pies destruidos. Con estas llego a casa sin dolor. Súper livianas y la plantilla es una nube."
+      nombre: "Florencia. M",
+      ambiente: "Placard",
+      titulo: "Mi placard cambió por completo",
+      texto: "Tenía todo amontonado y cada mañana era un caos para encontrar algo. Con las cajas separé por tipo de ropa y ahora abro el placard y da gusto. Son firmes y re lindas."
     },
     {
       foto: "",
-      nombre: "Lucas. P",
-      talle: "41",
-      calce: "Perfecto",
-      titulo: "Aproveché la promo y valió 100% la pena",
-      texto: "Súper contento con la compra. Aproveché el descuento llevando 2 pares, uno negro y uno blanco, y la verdad que un golazo. Llegaron en 2 días."
+      nombre: "Agustina. R",
+      ambiente: "Cuarto de los chicos",
+      titulo: "Por fin los juguetes tienen su lugar",
+      texto: "Compré 2 sets para el cuarto de mis hijos. Cada caja tiene un tipo de juguete y ellos mismos ordenan. Las manijas son súper prácticas."
     },
     {
       foto: "",
-      nombre: "Valentina. R",
-      talle: "37",
-      calce: "Perfecto",
-      titulo: "Tenía miedo de errarle al talle",
-      texto: "Es la primera vez que compro zapatillas online y tenía miedo con el talle. Seguí la guía y me quedaron perfectas. Además combinan con todo."
+      nombre: "Julieta. P",
+      ambiente: "Dormitorio",
+      titulo: "Calidad mejor de lo que esperaba",
+      texto: "Pensé que iban a ser endebles pero no, son firmes y no se deforman. Guardo las sábanas y toallas y quedan perfectas. Ya pedí otro set."
     },
     {
       foto: "",
-      nombre: "Camila. S",
-      talle: "38",
-      calce: "Perfecto",
-      titulo: "Muy buena compra, súper recomendable",
-      texto: "Aproveché el pack de 3 con envío gratis y me compré para mí y para mis hijos. Son cómodas, lindas y se ven re resistentes. Llegaron rapidísimo."
+      nombre: "Paula. S",
+      ambiente: "Lavadero",
+      titulo: "Aproveché el pack de 3 con envío gratis",
+      texto: "Ordené el placard, el lavadero y el baño. La guía de regalo está buenísima, la seguí paso a paso y en una tarde tenía todo listo."
+    },
+    {
+      foto: "",
+      nombre: "Romina. G",
+      ambiente: "Placard",
+      titulo: "Se arman en segundos",
+      texto: "Llegaron plegadas en una caja chiquita y se arman en un toque. Cuando no las uso las pliego y no ocupan lugar."
+    },
+    {
+      foto: "",
+      nombre: "Lorena. D",
+      ambiente: "Dormitorio",
+      titulo: "Quedan hermosas a la vista",
+      texto: "Las tengo arriba del ropero y combinan con todo el cuarto. Parecen de una tienda de deco y salen mucho menos."
     }
   ],
 
@@ -286,11 +320,11 @@ window.WIGY_CONFIG = {
   // 📢 SECCIÓN 6: MENSAJES DE LA BARRA SUPERIOR
   // ============================================================
   mensajesTicker: [
-    "👟 COMODIDAD DE LA MAÑANA A LA NOCHE",
-    "CAMBIO DE TALLE GRATIS",
+    "✨ CADA COSA EN SU LUGAR",
+    "DESPACHO EN 24 HS HÁBILES",
     "3 CUOTAS SIN INTERÉS",
-    "LLEVÁ 2 PARES Y AHORRÁ 25%",
-    "3 PARES CON ENVÍO GRATIS"
+    "LLEVÁ 2 SETS Y AHORRÁ 25%",
+    "3 SETS: 30% OFF + ENVÍO GRATIS"
   ],
 
   // ============================================================
@@ -376,36 +410,36 @@ window.WIGY_DOM = {
 };
 </script>
 <!-- ================================================================
-     FUENTES Y VARIABLES DE MARCA VANTA
+     FUENTES Y VARIABLES DE MARCA ORDI
      ================================================================ -->
 <script>
 (function() {
-  if (!document.getElementById("wigy-vanta-fonts")) {
+  if (!document.getElementById("wigy-ordi-fonts")) {
     var l = document.createElement("link");
-    l.id = "wigy-vanta-fonts";
+    l.id = "wigy-ordi-fonts";
     l.rel = "stylesheet";
-    l.href = "https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Montserrat:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap";
+    l.href = "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Montserrat:wght@600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap";
     document.head.appendChild(l);
   }
-  if (document.getElementById("wigy-vanta-brand")) return;
+  if (document.getElementById("wigy-ordi-brand")) return;
   var st = document.createElement("style");
-  st.id = "wigy-vanta-brand";
+  st.id = "wigy-ordi-brand";
   st.textContent =
-    ":root{--vd-green:#0A0A0A;--vd-sprout:#4A4A4A;--vd-earth:#222222;--vd-orange:#E10600;--vd-bg:#F4F4F2;--vd-white:#FFFFFF;" +
-    "--vd-font-title:'Archivo','Montserrat',sans-serif;--vd-font-body:'Inter','Lato',sans-serif}" +
+    ":root{--vd-green:#2F2A26;--vd-sprout:#A8896B;--vd-earth:#3B342F;--vd-orange:#C65D3B;--vd-bg:#F5F0E8;--vd-white:#FFFFFF;" +
+    "--vd-font-title:'Fraunces',Georgia,serif;--vd-font-body:'DM Sans','Lato',sans-serif}" +
     "[id^='wigy-'],.kb-wrap,.wigy-image-carousel{font-family:var(--vd-font-body)}" +
-    "[id^='wigy-'] h2,[id^='wigy-'] h3,.kb-title,.kb-t,.kb-p,.kb-pop,.kb-bdg,#wigy-ticker .ticker-item,#wigy-sticky-atc .sticky-btn{font-family:var(--vd-font-title)!important}" +
+    "[id^='wigy-'] h2,[id^='wigy-'] h3,.kb-title,.kb-t,.kb-p{font-family:var(--vd-font-title)!important}.kb-pop,.kb-bdg,#wigy-ticker .ticker-item,#wigy-sticky-atc .sticky-btn,.js-prod-submit-form,button[name='add'],.product-form__submit{font-family:var(--vd-font-body)!important}" +
     "#wigy-landing-full{width:100%;clear:both;display:block;box-sizing:border-box}" +
     "#wigy-landing-full h2,#wigy-landing-full h3{font-weight:700!important;letter-spacing:-0.3px!important}" +
     "#wigy-landing-full .t-content-orange h3{font-weight:600!important;letter-spacing:0!important}" +
     /* Todos los títulos de sección con el mismo estilo: verde liso, mismo tamaño */
-    "#wigy-landing-full .prob-title,#wigy-landing-full .sol-title,#wigy-landing-full .comp-heading,#wigy-landing-full .hf-header-timeline h2,#wigy-landing-full .concerns-gradient-title,#wigy-landing-full .clinical-title,#wigy-landing-full .comp-title,#wigy-landing-full .title-with-highlight{background:none!important;-webkit-text-fill-color:#0A0A0A!important;color:#0A0A0A!important;font-size:32px!important;line-height:1.2!important;display:block!important}" +
+    "#wigy-landing-full .prob-title,#wigy-landing-full .sol-title,#wigy-landing-full .comp-heading,#wigy-landing-full .hf-header-timeline h2,#wigy-landing-full .concerns-gradient-title,#wigy-landing-full .clinical-title,#wigy-landing-full .comp-title,#wigy-landing-full .title-with-highlight{background:none!important;-webkit-text-fill-color:#2F2A26!important;color:#2F2A26!important;font-size:32px!important;line-height:1.2!important;display:block!important}" +
     "@media(max-width:768px){#wigy-landing-full .prob-title,#wigy-landing-full .sol-title,#wigy-landing-full .comp-heading,#wigy-landing-full .hf-header-timeline h2,#wigy-landing-full .concerns-gradient-title,#wigy-landing-full .clinical-title,#wigy-landing-full .comp-title,#wigy-landing-full .title-with-highlight{font-size:25px!important}}" +
     "#wigy-landing-full .sol-feat-title,#wigy-landing-full .prob-card-title{font-family:var(--vd-font-title)!important;font-weight:600!important}" +
     /* Look de tienda de indumentaria: títulos en mayúsculas, esquinas rectas */
-    "#wigy-landing-full .prob-title,#wigy-landing-full .sol-title,#wigy-landing-full .comp-heading,#wigy-landing-full .hf-header-timeline h2,#wigy-landing-full .concerns-gradient-title,#wigy-landing-full .clinical-title,#wigy-landing-full .comp-title,#wigy-landing-full .title-with-highlight,#wigy-landing-full .t-content-orange h3,.kb-title,.kb-t,.wigy-faqs-title{text-transform:uppercase!important;font-weight:900!important;letter-spacing:-0.4px!important}" +
-    ".product__title,.product__title h1,.js-product-name,#wigy-preview-page h1{font-family:var(--vd-font-title)!important;text-transform:uppercase!important;font-weight:900!important;letter-spacing:-0.5px!important}" +
-    "#wigy-landing-full .prob-card,#wigy-landing-full .sol-features,#wigy-landing-full .multicolumn-card,#wigy-landing-full .comp-table-wrapper,.kb-bar,#wigy-garantia-box .wigy-garantia-content,.benefits-rinde{border-radius:8px!important}" +
+    "#wigy-landing-full .prob-title,#wigy-landing-full .sol-title,#wigy-landing-full .comp-heading,#wigy-landing-full .hf-header-timeline h2,#wigy-landing-full .concerns-gradient-title,#wigy-landing-full .clinical-title,#wigy-landing-full .comp-title,#wigy-landing-full .title-with-highlight,#wigy-landing-full .t-content-orange h3,.kb-title,.kb-t,.wigy-faqs-title{text-transform:none!important;font-weight:600!important;letter-spacing:-0.3px!important}" +
+    ".product__title,.product__title h1,.js-product-name,#wigy-preview-page h1{font-family:var(--vd-font-title)!important;text-transform:none!important;font-weight:600!important;letter-spacing:-0.3px!important}" +
+    "#wigy-landing-full .prob-card,#wigy-landing-full .sol-features,#wigy-landing-full .multicolumn-card,#wigy-landing-full .comp-table-wrapper,.kb-bar,#wigy-garantia-box .wigy-garantia-content,.benefits-rinde{border-radius:14px!important}" +
     ".kb-gift-row:last-child{border-radius:0 0 6px 6px!important}" +
     "#wigy-landing-full .prob-card-icon{border-radius:6px!important}";
   document.head.appendChild(st);
@@ -452,21 +486,21 @@ window.WIGY_DOM = {
     var st = document.createElement("style");
     st.id = "wigy-preview-style";
     st.textContent =
-      "body{margin:0;background:#fff;color:#1f1f1f;font-family:'Inter','Lato',sans-serif}" +
-      "#wigy-preview-banner{background:#E10600;color:#fff;text-align:center;font:600 12px/1.4 'Inter',sans-serif;padding:6px 12px}" +
+      "body{margin:0;background:#fff;color:#1f1f1f;font-family:'DM Sans','Lato',sans-serif}" +
+      "#wigy-preview-banner{background:#C65D3B;color:#fff;text-align:center;font:600 12px/1.4 'DM Sans',sans-serif;padding:6px 12px}" +
       "#wigy-preview-page{max-width:1200px;margin:0 auto;padding:24px 16px 40px;box-sizing:border-box}" +
       "#wigy-preview-page .wp-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:start}" +
       "#wigy-preview-page .wp-gallery{position:sticky;top:16px}" +
-      "#wigy-preview-page .wp-main{position:relative;width:100%;border-radius:16px;overflow:hidden;background:#F4F4F2;border:1px solid rgba(17,17,17,.12);display:flex;align-items:center;justify-content:center}" +
+      "#wigy-preview-page .wp-main{position:relative;width:100%;border-radius:16px;overflow:hidden;background:#F5F0E8;border:1px solid rgba(47,42,38,.12);display:flex;align-items:center;justify-content:center}" +
       "#wigy-preview-page .wp-main img{display:block;width:auto;max-width:100%;height:auto;max-height:80vh;object-fit:contain}" +
       "#wigy-preview-page .wp-thumbs{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}" +
-      "#wigy-preview-page .wp-thumbs button{width:68px;height:68px;padding:0;border:2px solid transparent;border-radius:10px;overflow:hidden;background:#F4F4F2;cursor:pointer}" +
-      "#wigy-preview-page .wp-thumbs button.active{border-color:#0A0A0A}" +
+      "#wigy-preview-page .wp-thumbs button{width:68px;height:68px;padding:0;border:2px solid transparent;border-radius:10px;overflow:hidden;background:#F5F0E8;cursor:pointer}" +
+      "#wigy-preview-page .wp-thumbs button.active{border-color:#2F2A26}" +
       "#wigy-preview-page .wp-thumbs img{width:100%;height:100%;object-fit:cover;display:block}" +
       "#wigy-preview-page .wp-info{min-width:0}" +
       "#wigy-preview-page .wp-grid.no-gallery{grid-template-columns:minmax(0,620px);justify-content:center}" +
       "@media(max-width:768px){#wigy-preview-page .wp-main img{width:auto;max-width:100%;max-height:min(85vw,360px)}#wigy-preview-page .wp-grid{display:block}#wigy-preview-page .wp-gallery{position:static;margin-bottom:20px}#wigy-preview-page .wp-thumbs button{width:56px;height:56px}}" +
-      "#wigy-preview-page h1{font:800 28px/1.2 'Archivo','Montserrat',sans-serif;color:#1f1f1f;margin:0 0 4px}" +
+      "#wigy-preview-page h1{font:800 28px/1.2 'Fraunces',Georgia,serif;color:#1f1f1f;margin:0 0 4px}" +
       "#wigy-preview-page .wp-form{margin:0}" +
       "@media(max-width:768px){#wigy-preview-page h1{font-size:23px}}";
     document.head.appendChild(st);
@@ -497,7 +531,7 @@ window.WIGY_DOM = {
         '</form>' +
       '</div></div>';
 
-    var anchor = document.getElementById("wigy-vanta-scripts");
+    var anchor = document.getElementById("wigy-ordi-scripts");
     if (anchor && anchor.parentNode) {
       anchor.parentNode.insertBefore(banner, anchor);
       anchor.parentNode.insertBefore(page, anchor);
@@ -574,7 +608,7 @@ window.WIGY_DOM = {
       "#" + ID + "{display:flex;align-items:center;gap:8px;margin:4px 0 10px 0;font-family:inherit}" +
       "#" + ID + " .wr-stars{display:flex;align-items:center;gap:1px}" +
       "#" + ID + " .wr-stars svg{width:16px;height:16px}" +
-      "#" + ID + " .wr-score{font-size:14px;font-weight:700;color:#0A0A0A;line-height:1}" +
+      "#" + ID + " .wr-score{font-size:14px;font-weight:700;color:#2F2A26;line-height:1}" +
       "#" + ID + " .wr-count{font-size:13px;font-weight:500;color:#666;line-height:1}" +
       "#" + ID + " .wr-count span{text-decoration:underline;cursor:pointer}" +
       "@media(max-width:768px){#" + ID + " .wr-stars svg{width:14px;height:14px}#" + ID + " .wr-score{font-size:13px}#" + ID + " .wr-count{font-size:12px}}";
@@ -587,8 +621,8 @@ window.WIGY_DOM = {
   function buildStars(rating) {
     var full = Math.floor(rating);
     var hasHalf = (rating - full) >= 0.3;
-    var starFull = '<svg viewBox="0 0 24 24" fill="#4A4A4A" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.27 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg>';
-    var starHalf = '<svg viewBox="0 0 24 24" fill="none" stroke="none"><defs><linearGradient id="wrh"><stop offset="50%" stop-color="#4A4A4A"/><stop offset="50%" stop-color="#E0E0E0"/></linearGradient></defs><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.27 5.82 22 7 14.14l-5-4.87 6.91-1.01z" fill="url(#wrh)"/></svg>';
+    var starFull = '<svg viewBox="0 0 24 24" fill="#A8896B" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.27 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg>';
+    var starHalf = '<svg viewBox="0 0 24 24" fill="none" stroke="none"><defs><linearGradient id="wrh"><stop offset="50%" stop-color="#A8896B"/><stop offset="50%" stop-color="#E0E0E0"/></linearGradient></defs><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.27 5.82 22 7 14.14l-5-4.87 6.91-1.01z" fill="url(#wrh)"/></svg>';
     var starEmpty = '<svg viewBox="0 0 24 24" fill="#E0E0E0" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.27 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg>';
     var html = '';
     for (var i = 0; i < full; i++) html += starFull;
@@ -601,6 +635,11 @@ window.WIGY_DOM = {
     if (document.getElementById(ID)) return;
     var cfg = window.WIGY_CONFIG && window.WIGY_CONFIG.rating;
     if (!cfg) return;
+    var rs = window.WIGY_CONFIG.resumenResenas;
+    if (rs && rs.estrellas && !cfg.cantidadOpiniones && !cfg.clientes) {
+      var e = rs.estrellas, tot = e.reduce(function(a, b) { return a + (+b || 0); }, 0);
+      if (tot) cfg = { puntuacion: Math.round((e[0] * 5 + e[1] * 4 + e[2] * 3 + e[3] * 2 + e[4]) / tot * 10) / 10, cantidadOpiniones: tot, clientes: 0 };
+    }
     var titleEl = window.WIGY_DOM.title();
     if (!titleEl) return;
     injectStyleOnce();
@@ -609,8 +648,13 @@ window.WIGY_DOM = {
     el.innerHTML =
       '<div class="wr-stars">' + buildStars(cfg.puntuacion) + '</div>' +
       '<span class="wr-score">' + cfg.puntuacion.toFixed(1) + '</span>' +
-      (cfg.clientes || cfg.cantidadOpiniones ? '<span class="wr-count"><span>' + (cfg.clientes ? '+' + Number(cfg.clientes).toLocaleString("es-AR") + ' clientes felices' : cfg.cantidadOpiniones + ' opiniones de clientes') + '</span></span>' : '');
+      (cfg.clientes || cfg.cantidadOpiniones ? '<span class="wr-count"><span>' + (cfg.clientes ? '+' + Number(cfg.clientes).toLocaleString("es-AR") + ' clientes felices' : Number(cfg.cantidadOpiniones).toLocaleString("es-AR") + ' rese\u00F1as') + '</span></span>' : '');
     titleEl.insertAdjacentElement("afterend", el);
+    el.style.cursor = "pointer";
+    el.addEventListener("click", function() {
+      var r = document.getElementById("wigy-testimonials-slider-standalone");
+      if (r) r.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
   }
 
   var tries = 0;
@@ -632,7 +676,7 @@ window.WIGY_DOM = {
 
   function injectStyle() {
     if (document.getElementById(WRAPPER_ID + "-style")) return;
-    var css = ".benefits-list{list-style:none!important;padding:0!important;margin:10px 0 20px 0!important;display:flex;flex-direction:column;gap:4px}.benefits-list li{display:flex;align-items:flex-start;gap:10px;font-size:14.5px;color:#2b2b2b;line-height:1.4;margin:0!important;padding:0!important}.benefit-icon{flex:0 0 auto;width:18px;height:18px;margin-top:2px;display:block}.benefit-text{font-weight:500;font-family:inherit}.benefits-rinde{display:flex;align-items:center;gap:10px;margin:-8px 0 18px 0;padding:10px 14px;border-radius:12px;background:#F0F0F0;border:1px dashed rgba(17,17,17,.35);font-size:14px;line-height:1.35;color:#0A0A0A}.benefits-rinde b{font-weight:800}.benefits-rinde span:first-child{font-size:20px;line-height:1}.wigy-fit{margin:-6px 0 18px 0}.wigy-fit-top{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-bottom:8px;font-size:13px;color:#222}.wigy-fit-top b{font-family:var(--vd-font-title);text-transform:uppercase;letter-spacing:.4px;font-weight:800}.wigy-fit-link{background:none;border:0;padding:0;font:inherit;font-size:13px;font-weight:600;color:#0A0A0A;text-decoration:underline;text-underline-offset:3px;cursor:pointer}.wigy-fit-bar{position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:4px}.wigy-fit-bar span{height:6px;border-radius:3px;background:#e2e2e2}.wigy-fit-bar span.on{background:#0A0A0A}.wigy-fit-labels{display:grid;grid-template-columns:repeat(3,1fr);margin-top:6px;font-size:11.5px;color:#888;text-align:center}.wigy-fit-labels span:first-child{text-align:left}.wigy-fit-labels span:last-child{text-align:right}.wigy-fit-labels span.on{color:#0A0A0A;font-weight:700}@media (max-width:768px){.benefits-list li{font-size:13.5px}}";
+    var css = ".benefits-list{list-style:none!important;padding:0!important;margin:10px 0 20px 0!important;display:flex;flex-direction:column;gap:4px}.benefits-list li{display:flex;align-items:flex-start;gap:10px;font-size:14.5px;color:#2b2b2b;line-height:1.4;margin:0!important;padding:0!important}.benefit-icon{flex:0 0 auto;width:18px;height:18px;margin-top:2px;display:block}.benefit-text{font-weight:500;font-family:inherit}.benefits-rinde{display:flex;align-items:center;gap:10px;margin:-8px 0 18px 0;padding:10px 14px;border-radius:12px;background:#EFE7DA;border:1px dashed rgba(47,42,38,.35);font-size:14px;line-height:1.35;color:#2F2A26}.benefits-rinde b{font-weight:800}.benefits-rinde span:first-child{font-size:20px;line-height:1}.wigy-fit{margin:-6px 0 18px 0}.wigy-fit-top{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-bottom:8px;font-size:13px;color:#222}.wigy-fit-top b{font-family:var(--vd-font-title);text-transform:uppercase;letter-spacing:.4px;font-weight:800}.wigy-fit-link{background:none;border:0;padding:0;font:inherit;font-size:13px;font-weight:600;color:#2F2A26;text-decoration:underline;text-underline-offset:3px;cursor:pointer}.wigy-fit-bar{position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:4px}.wigy-fit-bar span{height:6px;border-radius:3px;background:#E6DCCB}.wigy-fit-bar span.on{background:#2F2A26}.wigy-fit-labels{display:grid;grid-template-columns:repeat(3,1fr);margin-top:6px;font-size:11.5px;color:#888;text-align:center}.wigy-fit-labels span:first-child{text-align:left}.wigy-fit-labels span:last-child{text-align:right}.wigy-fit-labels span.on{color:#2F2A26;font-weight:700}@media (max-width:768px){.benefits-list li{font-size:13.5px}}";
     var st = document.createElement("style");
     st.id = WRAPPER_ID + "-style";
     st.innerHTML = css;
@@ -641,29 +685,23 @@ window.WIGY_DOM = {
 
   function buildHTML() {
     var items = [
-      "Comodidad de la mañana a la noche",
-      "Plantilla acolchonada que amortigua cada paso",
-      "Livianas y respirables: el pie no transpira",
-      "Suela antideslizante y resistente al uso diario",
-      "Diseño unisex que combina con todo"
+      "Placard ordenado en una tarde",
+      "Set de 3 medidas para aprovechar cada estante",
+      "Plegables: se guardan planas cuando no las usás",
+      "Tela símil lino firme, con manijas reforzadas",
+      "Lindas a la vista: combinan con cualquier ambiente"
     ];
-    var svg = '<svg class="benefit-icon" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#c1)"><mask id="m1" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="16" height="16"><path d="M7.99992 14.6668C8.87556 14.6679 9.74278 14.496 10.5518 14.1609C11.3607 13.8258 12.0955 13.3341 12.7139 12.7142C13.3339 12.0958 13.8255 11.361 14.1606 10.552C14.4957 9.74303 14.6677 8.8758 14.6666 8.00017C14.6677 7.12453 14.4957 6.25731 14.1606 5.44833C13.8255 4.63935 13.3339 3.90456 12.7139 3.28617C12.0955 2.66622 11.3607 2.17457 10.5518 1.83947C9.74278 1.50437 8.87556 1.33242 7.99992 1.3335C7.12429 1.33242 6.25707 1.50437 5.44809 1.83947C4.63911 2.17457 3.90431 2.66622 3.28592 3.28617C2.66598 3.90456 2.17433 4.63935 1.83923 5.44833C1.50413 6.25731 1.33218 7.12453 1.33326 8.00017C1.33218 8.8758 1.50413 9.74303 1.83923 10.552C2.17433 11.361 2.66598 12.0958 3.28592 12.7142C3.90431 13.3341 4.63911 13.8258 5.44809 14.1609C6.25707 14.496 7.12429 14.6679 7.99992 14.6668Z" fill="white" stroke="white" stroke-width="2" stroke-linejoin="round"></path><path d="M5.33325 8L7.33325 10L11.3333 6" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></mask><g mask="url(#m1)"><path d="M0 0H16V16H0V0Z" fill="#4A4A4A"></path></g></g><defs><clipPath id="c1"><rect width="16" height="16" fill="white"></rect></clipPath></defs></svg>';
+    var svg = '<svg class="benefit-icon" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#c1)"><mask id="m1" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="16" height="16"><path d="M7.99992 14.6668C8.87556 14.6679 9.74278 14.496 10.5518 14.1609C11.3607 13.8258 12.0955 13.3341 12.7139 12.7142C13.3339 12.0958 13.8255 11.361 14.1606 10.552C14.4957 9.74303 14.6677 8.8758 14.6666 8.00017C14.6677 7.12453 14.4957 6.25731 14.1606 5.44833C13.8255 4.63935 13.3339 3.90456 12.7139 3.28617C12.0955 2.66622 11.3607 2.17457 10.5518 1.83947C9.74278 1.50437 8.87556 1.33242 7.99992 1.3335C7.12429 1.33242 6.25707 1.50437 5.44809 1.83947C4.63911 2.17457 3.90431 2.66622 3.28592 3.28617C2.66598 3.90456 2.17433 4.63935 1.83923 5.44833C1.50413 6.25731 1.33218 7.12453 1.33326 8.00017C1.33218 8.8758 1.50413 9.74303 1.83923 10.552C2.17433 11.361 2.66598 12.0958 3.28592 12.7142C3.90431 13.3341 4.63911 13.8258 5.44809 14.1609C6.25707 14.496 7.12429 14.6679 7.99992 14.6668Z" fill="white" stroke="white" stroke-width="2" stroke-linejoin="round"></path><path d="M5.33325 8L7.33325 10L11.3333 6" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></mask><g mask="url(#m1)"><path d="M0 0H16V16H0V0Z" fill="#A8896B"></path></g></g><defs><clipPath id="c1"><rect width="16" height="16" fill="white"></rect></clipPath></defs></svg>';
     return '<ul class="benefits-list">' + items.map(function(text) {
       return '<li>' + svg + '<span class="benefit-text">' + text + '</span></li>';
     }).join('') + '</ul>' +
-      '<div class="benefits-rinde"><span aria-hidden="true">\u{1F45F}</span><span><b>Talles del 35 al 45</b> \u00B7 Si no te queda, el cambio de talle es gratis</span></div>' +
+      '<div class="benefits-rinde"><span aria-hidden="true">\u{1F4E6}</span><span><b>Cada set trae 3 cajas</b> \u00B7 grande, mediana y chica</span></div>' +
       buildFit();
   }
 
-  /* Barrita de calce: chico / normal / grande (WIGY_CONFIG.calce) */
+  /* Acceso rápido a la tabla de medidas */
   function buildFit() {
-    var c = (window.WIGY_CONFIG && window.WIGY_CONFIG.calce) || "normal";
-    var opts = ["chico", "normal", "grande"];
-    var idx = Math.max(0, opts.indexOf(c));
-    var txt = ["Calza chico: ped\u00ED un talle m\u00E1s", "Calza talle normal", "Calza grande: ped\u00ED un talle menos"][idx];
-    return '<div class="wigy-fit"><div class="wigy-fit-top"><span><b>Calce</b> \u00B7 ' + txt + '</span><button type="button" class="wigy-fit-link" data-wigy-open-sizes>Gu\u00EDa de talles</button></div>' +
-      '<div class="wigy-fit-bar">' + opts.map(function(o, i) { return '<span class="' + (i === idx ? 'on' : '') + '"></span>'; }).join('') + '</div>' +
-      '<div class="wigy-fit-labels">' + ["Chico", "Normal", "Grande"].map(function(o, i) { return '<span class="' + (i === idx ? 'on' : '') + '">' + o + '</span>'; }).join('') + '</div></div>';
+    return '<div class="wigy-fit"><div class="wigy-fit-top"><span><b>Medidas</b> \u00B7 Grande, mediana y chica</span><button type="button" class="wigy-fit-link" data-wigy-open-sizes>Ver medidas</button></div></div>';
   }
 
   function mount() {
@@ -708,7 +746,7 @@ window.WIGY_DOM = {
     if (!document.getElementById(ID + '-css')) {
       var s = document.createElement('style');
       s.id = ID + '-css';
-      s.innerHTML = ".kb-wrap{font-family:'Archivo','Montserrat',sans-serif;margin:15px auto 8px auto!important;width:100%;max-width:600px}.kb-title{display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:900;color:#0A0A0A;margin-bottom:20px;letter-spacing:.2px;white-space:nowrap;opacity:0}.kb-title::before,.kb-title::after{content:'';flex:1;border-bottom:2px solid rgba(110,110,110,.35);margin:0 12px}.kb-bar{border:2px solid rgba(17,17,17,.15);border-radius:16px;background:#fff;cursor:pointer;margin-bottom:12px;display:flex;flex-direction:column;position:relative;transition:.2s;box-sizing:border-box}.kb-bar.sel{border:2px solid #0A0A0A;background:#F0F0F0;z-index:2;box-shadow:0 8px 20px rgba(17,17,17,.1)}.kb-pop{position:absolute;top:-14px;right:18px;background:#E10600;color:#fff;font-size:12px;font-weight:800;padding:6px 12px;border-radius:6px;letter-spacing:.5px;line-height:1;opacity:0;box-shadow:0 4px 10px rgba(225,6,0,.35);transform-origin:center right}.kb-bdg{background:#E10600;color:#fff;font-size:12px;font-weight:800;padding:4px 8px;border-radius:99px;line-height:1.1;opacity:0;transform-origin:center center;white-space:nowrap;flex-shrink:0}.kb-main{display:flex;align-items:center;padding:18px 20px;box-sizing:border-box}.kb-radio{width:32px;height:32px;border-radius:50%;border:2px solid rgba(0,0,0,.2);margin-right:18px;display:flex;align-items:center;justify-content:center;background:#fff;flex:0 0 auto;transition:.2s;box-sizing:border-box}.kb-bar.sel .kb-radio{border-color:#0A0A0A;border-width:2px}.kb-radio::after{content:'';width:16px;height:16px;border-radius:50%;background:#4A4A4A;opacity:0;transform:scale(.5);transition:.25s cubic-bezier(0.175,0.885,0.32,1.275)}.kb-bar.sel .kb-radio::after{opacity:1;transform:scale(1)}.kb-c{flex:1;min-width:0;line-height:1.2}.kb-r1{display:flex;justify-content:space-between;align-items:center;gap:10px}.kb-r2{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-top:6px}.kb-t{font-size:18px;font-weight:800;color:#111;display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin:0}.kb-p{font-size:20px;font-weight:900;color:#111;margin:0;white-space:nowrap;flex-shrink:0}.kb-s{font-size:15px;color:#555;font-weight:600;margin:0;flex:1;min-width:0;line-height:1.3}.kb-op{font-size:15px;color:#888;text-decoration:line-through;margin:0;flex-shrink:0;white-space:nowrap;line-height:1.3}.kb-gifts{padding:0;overflow:hidden}.kb-gift-row{display:flex;align-items:center;gap:10px;padding:10px 20px;font-size:13px;font-weight:700;color:#333;background:rgba(110,110,110,.08);border-top:1px solid rgba(17,17,17,.1)}.kb-gift-row:last-child{border-radius:0 0 14px 14px}.kb-gift-check{width:20px;height:20px;border-radius:6px;background:#0A0A0A;color:#fff;display:flex;align-items:center;justify-content:center;flex:0 0 auto}.kb-gift-check svg{width:12px;height:12px}.kb-gift-tag{background:#0A0A0A;color:#fff;font-size:11px;font-weight:800;padding:3px 9px;border-radius:99px;margin-left:auto;white-space:nowrap}.js-quantity,.js-product-quantity,[data-component='product.quantity'],.product__info-container .product-form__quantity{display:none!important}.wigy-atc-col,.product-form__buttons{width:100%!important;max-width:600px!important;margin-left:auto!important;margin-right:auto!important;float:none!important;align-self:center!important;box-sizing:border-box!important}.js-prod-submit-form,button[name='add'],.btn-add-to-cart,.product-form__submit{background:linear-gradient(135deg,#0A0A0A 0%,#4A4A4A 100%)!important;color:#ffffff!important;border:none!important;border-radius:99px!important;font-family:'Archivo','Montserrat',sans-serif!important;font-size:20px!important;font-weight:900!important;text-transform:uppercase!important;letter-spacing:1px!important;padding:20px 24px!important;box-shadow:0 8px 24px rgba(17,17,17,0.3)!important;transition:transform 0.2s ease,background 0.3s ease!important;width:100%!important;max-width:600px!important;margin:0 auto 15px auto!important;display:flex!important;align-items:center!important;justify-content:center!important;text-align:center!important;box-sizing:border-box!important;min-height:0!important}.js-prod-submit-form::before,.js-prod-submit-form::after,button[name='add']::before,button[name='add']::after,.product-form__submit::before,.product-form__submit::after{display:none!important;content:none!important}.product-form__submit>span,button[name='add']>span{background:none!important;box-shadow:none!important;border:0!important}.js-prod-submit-form:hover,button[name='add']:hover,.btn-add-to-cart:hover,.product-form__submit:hover{transform:translateY(-3px)!important;background:linear-gradient(135deg,#000000 0%,#0A0A0A 100%)!important}@keyframes kbSlideIn{0%{opacity:0;transform:translateY(20px) scale(0.95)}60%{opacity:1;transform:translateY(-3px) scale(1.02)}100%{opacity:1;transform:translateY(0) scale(1)}}@keyframes kbPopBounce{0%{opacity:0;transform:scale(0.2) rotate(-5deg)}50%{opacity:1;transform:scale(1.35) rotate(4deg)}75%{opacity:1;transform:scale(0.9) rotate(-2deg)}100%{opacity:1;transform:scale(1) rotate(0deg)}}.kb-in-view .kb-title{animation:kbSlideIn 0.6s cubic-bezier(0.175,0.885,0.32,1.275) forwards}.kb-in-view .kb-pop{animation:kbPopBounce 0.7s cubic-bezier(0.175,0.885,0.32,1.275) forwards}.kb-in-view .kb-bdg{animation:kbPopBounce 0.7s cubic-bezier(0.175,0.885,0.32,1.275) forwards}.kb-in-view .kb-bar:nth-child(3) .kb-pop{animation-delay:0.15s}.kb-in-view .kb-bar:nth-child(4) .kb-pop{animation-delay:0.35s}.kb-in-view .kb-bar:nth-child(3) .kb-bdg{animation-delay:0.25s}.kb-in-view .kb-bar:nth-child(4) .kb-bdg{animation-delay:0.45s}@media(max-width:768px){.kb-t{font-size:16px}.kb-p{font-size:18px}.kb-s{font-size:13.5px}.kb-op{font-size:13.5px}.js-prod-submit-form,button[name='add'],.btn-add-to-cart,.product-form__submit{font-size:18px!important;padding:18px 20px!important}}@media(max-width:480px){.kb-title{white-space:normal;text-align:center;font-size:15px}}";
+      s.innerHTML = ".kb-wrap{font-family:var(--vd-font-body);margin:15px auto 8px auto!important;width:100%;max-width:600px}.kb-title{display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:900;color:#2F2A26;margin-bottom:20px;letter-spacing:.2px;white-space:nowrap;opacity:0}.kb-title::before,.kb-title::after{content:'';flex:1;border-bottom:2px solid rgba(168,137,107,.35);margin:0 12px}.kb-bar{border:2px solid rgba(47,42,38,.15);border-radius:16px;background:#fff;cursor:pointer;margin-bottom:12px;display:flex;flex-direction:column;position:relative;transition:.2s;box-sizing:border-box}.kb-bar.sel{border:2px solid #2F2A26;background:#EFE7DA;z-index:2;box-shadow:0 8px 20px rgba(47,42,38,.1)}.kb-pop{position:absolute;top:-14px;right:18px;background:#C65D3B;color:#fff;font-size:12px;font-weight:800;padding:6px 12px;border-radius:6px;letter-spacing:.5px;line-height:1;opacity:0;box-shadow:0 4px 10px rgba(198,93,59,.35);transform-origin:center right}.kb-bdg{background:#C65D3B;color:#fff;font-size:12px;font-weight:800;padding:4px 8px;border-radius:99px;line-height:1.1;opacity:0;transform-origin:center center;white-space:nowrap;flex-shrink:0}.kb-main{display:flex;align-items:center;padding:18px 20px;box-sizing:border-box}.kb-radio{width:32px;height:32px;border-radius:50%;border:2px solid rgba(0,0,0,.2);margin-right:18px;display:flex;align-items:center;justify-content:center;background:#fff;flex:0 0 auto;transition:.2s;box-sizing:border-box}.kb-bar.sel .kb-radio{border-color:#2F2A26;border-width:2px}.kb-radio::after{content:'';width:16px;height:16px;border-radius:50%;background:#A8896B;opacity:0;transform:scale(.5);transition:.25s cubic-bezier(0.175,0.885,0.32,1.275)}.kb-bar.sel .kb-radio::after{opacity:1;transform:scale(1)}.kb-c{flex:1;min-width:0;line-height:1.2}.kb-r1{display:flex;justify-content:space-between;align-items:center;gap:10px}.kb-r2{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-top:6px}.kb-t{font-size:18px;font-weight:800;color:#111;display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin:0}.kb-p{font-size:20px;font-weight:900;color:#111;margin:0;white-space:nowrap;flex-shrink:0}.kb-s{font-size:15px;color:#555;font-weight:600;margin:0;flex:1;min-width:0;line-height:1.3}.kb-op{font-size:15px;color:#888;text-decoration:line-through;margin:0;flex-shrink:0;white-space:nowrap;line-height:1.3}.kb-gifts{padding:0;overflow:hidden}.kb-gift-row{display:flex;align-items:center;gap:10px;padding:10px 20px;font-size:13px;font-weight:700;color:#333;background:rgba(168,137,107,.08);border-top:1px solid rgba(47,42,38,.1)}.kb-gift-row:last-child{border-radius:0 0 14px 14px}.kb-gift-check{width:20px;height:20px;border-radius:6px;background:#2F2A26;color:#fff;display:flex;align-items:center;justify-content:center;flex:0 0 auto}.kb-gift-check svg{width:12px;height:12px}.kb-gift-tag{background:#2F2A26;color:#fff;font-size:11px;font-weight:800;padding:3px 9px;border-radius:99px;margin-left:auto;white-space:nowrap}.js-quantity,.js-product-quantity,[data-component='product.quantity'],.product__info-container .product-form__quantity{display:none!important}.wigy-atc-col,.product-form__buttons{width:100%!important;max-width:600px!important;margin-left:auto!important;margin-right:auto!important;float:none!important;align-self:center!important;box-sizing:border-box!important}.js-prod-submit-form,button[name='add'],.btn-add-to-cart,.product-form__submit{background:linear-gradient(135deg,#2F2A26 0%,#A8896B 100%)!important;color:#ffffff!important;border:none!important;border-radius:99px!important;font-family:var(--vd-font-body)!important;font-size:20px!important;font-weight:900!important;text-transform:uppercase!important;letter-spacing:1px!important;padding:20px 24px!important;box-shadow:0 8px 24px rgba(47,42,38,0.3)!important;transition:transform 0.2s ease,background 0.3s ease!important;width:100%!important;max-width:600px!important;margin:0 auto 15px auto!important;display:flex!important;align-items:center!important;justify-content:center!important;text-align:center!important;box-sizing:border-box!important;min-height:0!important}.js-prod-submit-form::before,.js-prod-submit-form::after,button[name='add']::before,button[name='add']::after,.product-form__submit::before,.product-form__submit::after{display:none!important;content:none!important}.product-form__submit>span,button[name='add']>span{background:none!important;box-shadow:none!important;border:0!important}.js-prod-submit-form:hover,button[name='add']:hover,.btn-add-to-cart:hover,.product-form__submit:hover{transform:translateY(-3px)!important;background:linear-gradient(135deg,#000000 0%,#2F2A26 100%)!important}@keyframes kbSlideIn{0%{opacity:0;transform:translateY(20px) scale(0.95)}60%{opacity:1;transform:translateY(-3px) scale(1.02)}100%{opacity:1;transform:translateY(0) scale(1)}}@keyframes kbPopBounce{0%{opacity:0;transform:scale(0.2) rotate(-5deg)}50%{opacity:1;transform:scale(1.35) rotate(4deg)}75%{opacity:1;transform:scale(0.9) rotate(-2deg)}100%{opacity:1;transform:scale(1) rotate(0deg)}}.kb-in-view .kb-title{animation:kbSlideIn 0.6s cubic-bezier(0.175,0.885,0.32,1.275) forwards}.kb-in-view .kb-pop{animation:kbPopBounce 0.7s cubic-bezier(0.175,0.885,0.32,1.275) forwards}.kb-in-view .kb-bdg{animation:kbPopBounce 0.7s cubic-bezier(0.175,0.885,0.32,1.275) forwards}.kb-in-view .kb-bar:nth-child(3) .kb-pop{animation-delay:0.15s}.kb-in-view .kb-bar:nth-child(4) .kb-pop{animation-delay:0.35s}.kb-in-view .kb-bar:nth-child(3) .kb-bdg{animation-delay:0.25s}.kb-in-view .kb-bar:nth-child(4) .kb-bdg{animation-delay:0.45s}@media(max-width:768px){.kb-t{font-size:16px}.kb-p{font-size:18px}.kb-s{font-size:13.5px}.kb-op{font-size:13.5px}.js-prod-submit-form,button[name='add'],.btn-add-to-cart,.product-form__submit{font-size:18px!important;padding:18px 20px!important}}@media(max-width:480px){.kb-title{white-space:normal;text-align:center;font-size:15px}}";
       document.head.appendChild(s);
     }
 
@@ -742,7 +780,7 @@ window.WIGY_DOM = {
       var gift = o.regalo ? '<div class="kb-gifts"><div class="kb-gift-row"><span class="kb-gift-check">' + giftCheckSVG + '</span><span>' + o.regalo + '</span><span class="kb-gift-tag">GRATIS</span></div></div>' : '';
       return '<div class="kb-bar' + sel + '" data-qty="' + o.cantidad + '">' + pop + '<div class="kb-main"><div class="kb-radio"></div><div class="kb-c"><div class="kb-r1"><span class="kb-t">' + o.nombre + bdg + '</span><span class="kb-p">' + o.precio + '</span></div><div class="kb-r2"><span class="kb-s">' + o.subtexto + '</span>' + oldP + '</div></div></div>' + gift + '</div>';
     }).join('');
-    w.innerHTML = '<div class="kaching-bundles__block-title kb-title">Elegí tu pack · Combiná talles y colores \u{1F45F}</div>' + barsHTML;
+    w.innerHTML = '<div class="kaching-bundles__block-title kb-title">Elegí tu pack · Cada set trae 3 cajas \u{1F4E6}</div>' + barsHTML;
 
     pCol.parentNode.insertBefore(w, pCol);
 
@@ -814,13 +852,13 @@ window.WIGY_DOM = {
         "position:relative!important;overflow:hidden!important;" +
         "width:100%!important;max-width:520px!important;margin:0 auto!important;" +
         "display:flex!important;align-items:flex-start!important;gap:10px;" +
-        "padding:12px 14px;border:1px solid rgba(17,17,17,.25);border-radius:12px;" +
-        "background:#F4F4F2;box-shadow:0 2px 10px rgba(0,0,0,.06);box-sizing:border-box;" +
+        "padding:12px 14px;border:1px solid rgba(47,42,38,.25);border-radius:12px;" +
+        "background:#F5F0E8;box-shadow:0 2px 10px rgba(0,0,0,.06);box-sizing:border-box;" +
       "}" +
 
-      "#" + BOX_ID + " .wigy-garantia-icon{width:18px;height:18px;flex:0 0 auto;color:#0A0A0A;margin-top:2px}" +
+      "#" + BOX_ID + " .wigy-garantia-icon{width:18px;height:18px;flex:0 0 auto;color:#2F2A26;margin-top:2px}" +
       "#" + BOX_ID + " .wigy-garantia-text{display:flex;flex-direction:column;gap:4px}" +
-      "#" + BOX_ID + " .wigy-garantia-title{margin:0;font-size:14px;font-weight:800;line-height:1.1;color:#0A0A0A}" +
+      "#" + BOX_ID + " .wigy-garantia-title{margin:0;font-size:14px;font-weight:800;line-height:1.1;color:#2F2A26}" +
       "#" + BOX_ID + " .wigy-garantia-desc{margin:0;font-size:12.5px;font-weight:600;line-height:1.35;color:rgba(0,0,0,.72)}" +
 
       "#" + BOX_ID + " .wigy-garantia-shine{" +
@@ -859,7 +897,7 @@ window.WIGY_DOM = {
         '</svg>' +
         '<div class="wigy-garantia-text">' +
           '<p class="wigy-garantia-title">' + (function(){var d=(window.WIGY_CONFIG&&window.WIGY_CONFIG.garantiaDias)||0;return d?'Garant\u00EDa de '+d+' d\u00EDas':'Garant\u00EDa 100%';})() + ' \u00B7 Compra protegida</p>' +
-          '<p class="wigy-garantia-desc">Cambio de talle gratis, pagos seguros, despacho en 24 hs h\u00E1biles y atenci\u00F3n al cliente 24/7. Si algo no est\u00E1 bien con tu pedido, te lo resolvemos.</p>' +
+          '<p class="wigy-garantia-desc">Pagos seguros, despacho en 24 hs h\u00E1biles y atenci\u00F3n al cliente 24/7. Si llegan con un defecto, te las cambiamos. Si algo no est\u00E1 bien con tu pedido, te lo resolvemos.</p>' +
         '</div>' +
       '</div>';
     return box;
@@ -941,7 +979,7 @@ window.WIGY_DOM = {
     /* Foto del producto (temas tipo Dawn): siempre entera, sin recorte;
        en celular con altura máxima para que no ocupe toda la pantalla */
     ".product__media-wrapper .product__media img{object-fit:contain!important}" +
-    "@media(max-width:749px){.product__media-wrapper .product__media.media{padding-top:0!important;height:min(85vw,360px)!important;background:#F4F4F2}}" +
+    "@media(max-width:749px){.product__media-wrapper .product__media.media{padding-top:0!important;height:min(85vw,360px)!important;background:#F5F0E8}}" +
     ".product__info-container [id^='price-template']{display:none!important}" +
     ".product__info-container .product__view-details{display:none!important}";
   document.head.appendChild(style);
@@ -952,10 +990,10 @@ window.WIGY_DOM = {
   /* Si el código está en una sección "Liquid personalizado" propia, esa sección
      queda vacía (todo se ubica en otros lugares): se colapsa para no dejar un hueco. */
   function collapseHost() {
-    var holder = document.getElementById("wigy-vanta-scripts");
+    var holder = document.getElementById("wigy-ordi-scripts");
     var sec = holder && holder.closest(".shopify-section");
     var form = window.WIGY_DOM.form();
-    if (sec && !(form && sec.contains(form)) && !sec.querySelector("[id^='wigy-']:not(#wigy-vanta-scripts)")) {
+    if (sec && !(form && sec.contains(form)) && !sec.querySelector("[id^='wigy-']:not(#wigy-ordi-scripts)")) {
       sec.style.setProperty("display", "none", "important");
     }
   }
@@ -1053,7 +1091,7 @@ window.WIGY_DOM = {
       "#" + WRAP_ID + " .wmf-sum{display:flex!important;align-items:center;justify-content:space-between;gap:12px;width:100%;padding:15px 0;cursor:pointer;list-style:none;outline:none;box-sizing:border-box}" +
       "#" + WRAP_ID + " .wmf-sum::-webkit-details-marker{display:none}" +
       "#" + WRAP_ID + " .wmf-head{display:flex;align-items:center;gap:10px;flex:1 1 auto;min-width:0}" +
-      "#" + WRAP_ID + " .wmf-ico{flex:0 0 20px;width:20px;height:20px;color:#0A0A0A;display:block}" +
+      "#" + WRAP_ID + " .wmf-ico{flex:0 0 20px;width:20px;height:20px;color:#2F2A26;display:block}" +
       "#" + WRAP_ID + " .wmf-title{margin:0!important;padding:0;flex:1 1 auto;min-width:0;max-width:none!important;font-size:15px!important;font-weight:500!important;line-height:1.35!important;letter-spacing:0.2px;color:#111;white-space:normal;word-break:normal;font-family:var(--vd-font-title)}" +
       "#" + WRAP_ID + " .wmf-caret{flex:0 0 12px;width:12px;height:12px;transition:transform 0.3s ease;color:#111}" +
       "#" + WRAP_ID + " .wmf-item[open] .wmf-caret{transform:rotate(180deg)}" +
@@ -1063,11 +1101,11 @@ window.WIGY_DOM = {
       "#" + WRAP_ID + " .wmf-body ul{margin:0 0 0 18px;padding:0}" +
       "#" + WRAP_ID + " .wmf-body li{margin-bottom:6px}" +
       "#" + WRAP_ID + " .wmf-sizes{width:100%;border-collapse:collapse;margin:4px 0 12px;font-size:13.5px}" +
-      "#" + WRAP_ID + " .wmf-sizes th{background:#0A0A0A;color:#fff;font-weight:700;text-transform:uppercase;font-size:11.5px;letter-spacing:.5px;padding:8px 10px;text-align:left}" +
+      "#" + WRAP_ID + " .wmf-sizes th{background:#2F2A26;color:#fff;font-weight:700;text-transform:uppercase;font-size:11.5px;letter-spacing:.5px;padding:8px 10px;text-align:left}" +
       "#" + WRAP_ID + " .wmf-sizes td{padding:7px 10px;border-bottom:1px solid #eee}" +
-      "#" + WRAP_ID + " .wmf-sizes tr:nth-child(even) td{background:#F4F4F2}" +
+      "#" + WRAP_ID + " .wmf-sizes tr:nth-child(even) td{background:#F5F0E8}" +
       "#" + WRAP_ID + " .wmf-spec{display:grid;grid-template-columns:max-content 1fr;gap:8px 16px;margin:0}" +
-      "#" + WRAP_ID + " .wmf-spec dt{font-weight:700;color:#0A0A0A;text-transform:uppercase;font-size:12px;letter-spacing:.4px;padding-top:2px}" +
+      "#" + WRAP_ID + " .wmf-spec dt{font-weight:700;color:#2F2A26;text-transform:uppercase;font-size:12px;letter-spacing:.4px;padding-top:2px}" +
       "#" + WRAP_ID + " .wmf-spec dd{margin:0}" +
       "@media(max-width:768px){#" + WRAP_ID + " .wmf-body{padding-left:0}}";
     var st = document.createElement("style");
@@ -1081,13 +1119,13 @@ window.WIGY_DOM = {
     var items = [
       {
         icon: '<svg class="wmf-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21.3 8.7 15.3 2.7a1 1 0 0 0-1.4 0L2.7 13.9a1 1 0 0 0 0 1.4l6 6a1 1 0 0 0 1.4 0L21.3 10.1a1 1 0 0 0 0-1.4z"/><path d="m7.5 10.5 2 2M10.5 7.5l2 2M13.5 4.5l2 2M4.5 13.5l2 2"/></svg>',
-        title: "Guía de talles",
-        id: "talles",
+        title: "Medidas",
+        id: "medidas",
         text: (function() {
-          var rows = (window.WIGY_CONFIG && window.WIGY_CONFIG.guiaTalles) || [];
-          return "<p>Calzan <strong>talle normal</strong>: pedí el mismo que usás siempre. Si estás entre dos talles, elegí <strong>el más grande</strong>.</p>" +
-            (rows.length ? '<table class="wmf-sizes"><thead><tr><th>Talle AR</th><th>Largo del pie</th></tr></thead><tbody>' + rows.map(function(r) { return '<tr><td>' + r.talle + '</td><td>' + r.cm + ' cm</td></tr>'; }).join('') + '</tbody></table>' : '') +
-            "<p><strong>¿Cómo medirte?</strong> Apoyá el pie sobre una hoja contra la pared, marcá el dedo más largo y medí desde la pared hasta la marca.</p>";
+          var rows = (window.WIGY_CONFIG && window.WIGY_CONFIG.medidas) || [];
+          return "<p>Cada set trae <strong>3 cajas</strong> de distinto tamaño para aprovechar cada estante.</p>" +
+            (rows.length ? '<table class="wmf-sizes"><thead><tr><th>Caja</th><th>Medidas</th><th>Ideal para</th></tr></thead><tbody>' + rows.map(function(r) { return '<tr><td><strong>' + r.caja + '</strong></td><td>' + r.medidas + '</td><td>' + r.ideal + '</td></tr>'; }).join('') + '</tbody></table>' : '') +
+            "<p><strong>Tip:</strong> medí el alto y el fondo de tu estante antes de comprar. Medidas: largo × ancho × alto.</p>";
         })()
       },
       {
@@ -1100,8 +1138,8 @@ window.WIGY_DOM = {
       },
       {
         icon: '<svg class="wmf-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M1 4h13v11H1z"/><path d="M14 8h4l3 3v4h-7z"/><circle cx="5.5" cy="18" r="2"/><circle cx="17.5" cy="18" r="2"/></svg>',
-        title: "Envíos y cambios",
-        text: "<p>Despachamos dentro de las <strong>24 hs hábiles</strong> posteriores a la compra y enviamos a <strong>todo el país</strong>. La entrega suele demorar entre <strong>2 y 3 días hábiles</strong> y te mandamos el seguimiento por mail o WhatsApp.</p><p><strong>Cambio de talle gratis:</strong> si no te quedan, escribinos por WhatsApp con tu número de pedido y lo coordinamos.</p>"
+        title: "Envíos y garantía",
+        text: "<p>Despachamos dentro de las <strong>24 hs hábiles</strong> posteriores a la compra y enviamos a <strong>todo el país</strong>. La entrega suele demorar entre <strong>2 y 3 días hábiles</strong> y te mandamos el seguimiento por mail o WhatsApp.</p><p><strong>Garantía:</strong> si alguna caja llega con un defecto, escribinos por WhatsApp con tu número de pedido y te la cambiamos.</p>"
       },
       {
         icon: '<svg class="wmf-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/><path d="M6 15h4"/></svg>',
@@ -1134,7 +1172,7 @@ window.WIGY_DOM = {
     var details = faqsNode.querySelectorAll("details");
     document.addEventListener("click", function(e) {
       var b = e.target.closest && e.target.closest("[data-wigy-open-sizes]");
-      var d = faqsNode.querySelector('[data-wmf="talles"]');
+      var d = faqsNode.querySelector('[data-wmf="medidas"]');
       if (!b || !d) return;
       details.forEach(function(x) { x.removeAttribute("open"); });
       d.setAttribute("open", "");
@@ -1171,7 +1209,7 @@ window.WIGY_DOM = {
     var css = [
       "#" + ID + "{width:100%;max-width:1200px;margin:0 auto;padding:30px 0 40px 0;overflow:hidden;position:relative}",
 
-      "#" + ID + " .media-ticker-label{text-align:center;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:#222222;opacity:.7;margin-bottom:18px}",
+      "#" + ID + " .media-ticker-label{text-align:center;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:#3B342F;opacity:.7;margin-bottom:18px}",
 
       "#" + ID + " .media-ticker-track-wrap{overflow:hidden;width:100%;",
       "mask-image:linear-gradient(to right,transparent 0%,black 8%,black 92%,transparent 100%);",
@@ -1272,13 +1310,13 @@ window.WIGY_DOM = {
     var basePx = Math.round(260 * SIZE_FACTOR); var baseVw = Math.round(50 * SIZE_FACTOR);
     if (!document.querySelector("[data-wigy-style='img-916']")) {
       var st = document.createElement("style"); st.setAttribute("data-wigy-style", "img-916");
-      st.textContent = ".wigy-image-carousel { --gap: 8px; --slideW: min(" + basePx + "px, " + baseVw + "vw); width: 100%; position: relative; margin: 24px 0; z-index: 5; } .track-container { overflow: hidden; width: 100%; user-select: none; -webkit-user-select: none; cursor: grab; mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%); -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%); } .track { display: flex; gap: var(--gap); will-change: transform; } .wigy-slide { flex: 0 0 var(--slideW); } .wigy-slide .card { border-radius: 10px; overflow: hidden; background: none; box-shadow: none; border: none; padding: 0; margin: 0; line-height: 0; } .wigy-slide .card:hover { transform: scale(1.02); transition: transform 0.2s ease; } .wigy-slide .image-wrapper { position: relative; width: 100%; aspect-ratio: 9 / 16; line-height: 0; font-size: 0; overflow: hidden; border-radius: 10px; } .wigy-slide .image-wrapper img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; border: none; margin: 0; padding: 0; border-radius: 10px; } .wigy-carousel-verified { display: flex; align-items: center; justify-content: center; gap: 6px; margin-bottom: 8px; font-size: 13px; font-weight: 700; color: #0A0A0A; letter-spacing: 0.3px; font-family: inherit; } .wigy-carousel-verified svg { width: 16px; height: 16px; flex: 0 0 auto; }";
+      st.textContent = ".wigy-image-carousel { --gap: 8px; --slideW: min(" + basePx + "px, " + baseVw + "vw); width: 100%; position: relative; margin: 24px 0; z-index: 5; } .track-container { overflow: hidden; width: 100%; user-select: none; -webkit-user-select: none; cursor: grab; mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%); -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%); } .track { display: flex; gap: var(--gap); will-change: transform; } .wigy-slide { flex: 0 0 var(--slideW); } .wigy-slide .card { border-radius: 10px; overflow: hidden; background: none; box-shadow: none; border: none; padding: 0; margin: 0; line-height: 0; } .wigy-slide .card:hover { transform: scale(1.02); transition: transform 0.2s ease; } .wigy-slide .image-wrapper { position: relative; width: 100%; aspect-ratio: 9 / 16; line-height: 0; font-size: 0; overflow: hidden; border-radius: 10px; } .wigy-slide .image-wrapper img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; border: none; margin: 0; padding: 0; border-radius: 10px; } .wigy-carousel-verified { display: flex; align-items: center; justify-content: center; gap: 6px; margin-bottom: 8px; font-size: 13px; font-weight: 700; color: #2F2A26; letter-spacing: 0.3px; font-family: inherit; } .wigy-carousel-verified svg { width: 16px; height: 16px; flex: 0 0 auto; }";
       document.head.appendChild(st);
     }
 
     var root = document.createElement("section"); root.className = "wigy-image-carousel"; root.setAttribute("data-wigy-infinite", "1");
     var slidesHTML = IMAGE_ITEMS.map(function(item) { return '<div class="wigy-slide"><div class="card"><div class="image-wrapper"><img src="' + item.src + '" alt="' + (item.alt || '') + '" loading="eager" draggable="false" /></div></div></div>'; }).join("");
-    root.innerHTML = '<div class="wigy-carousel-verified"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-1.09 14.41l-3.5-3.5 1.41-1.41 2.09 2.09 5.18-5.18 1.41 1.41-6.59 6.59z"/></svg> Clientes reales con sus VANTA</div><div class="track-container" aria-label="Galería infinita"><div class="track">' + slidesHTML + '</div></div>';
+    root.innerHTML = '<div class="wigy-carousel-verified"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-1.09 14.41l-3.5-3.5 1.41-1.41 2.09 2.09 5.18-5.18 1.41 1.41-6.59 6.59z"/></svg> Casas reales de nuestra comunidad</div><div class="track-container" aria-label="Galería infinita"><div class="track">' + slidesHTML + '</div></div>';
     mediaTicker.insertAdjacentElement("afterend", root);
 
     var track = root.querySelector(".track");
@@ -1309,23 +1347,23 @@ window.WIGY_DOM = {
     var STYLE_KEY = "wigy-problem-style";
     if (!document.querySelector('[data-wigy-style="' + STYLE_KEY + '"]')) {
       var css =
-        "#" + ID + "{width:100%;box-sizing:border-box;clear:both;display:block;font-family:inherit;background:#F4F4F2;padding:50px 20px 50px 20px;border-top:1px solid #f0f0f0;border-bottom:1px solid #f0f0f0}" +
+        "#" + ID + "{width:100%;box-sizing:border-box;clear:both;display:block;font-family:inherit;background:#F5F0E8;padding:50px 20px 50px 20px;border-top:1px solid #EFE7DA;border-bottom:1px solid #EFE7DA}" +
         "#" + ID + " .prob-inner{max-width:720px;margin:0 auto;text-align:center}" +
-        "#" + ID + " .prob-eyebrow{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1.8px;color:#E10600;margin-bottom:16px}" +
+        "#" + ID + " .prob-eyebrow{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1.8px;color:#C65D3B;margin-bottom:16px}" +
         "#" + ID + " .prob-eyebrow svg{width:16px;height:16px;flex:0 0 auto}" +
-        "#" + ID + " .prob-title{font-size:30px;font-weight:900;color:#0A0A0A;margin:0 0 14px 0;line-height:1.25;letter-spacing:-0.5px}" +
+        "#" + ID + " .prob-title{font-size:30px;font-weight:900;color:#2F2A26;margin:0 0 14px 0;line-height:1.25;letter-spacing:-0.5px}" +
         "#" + ID + " .prob-subtitle{font-size:16.5px;color:#555;line-height:1.65;margin:0 auto 36px auto;max-width:620px}" +
         "#" + ID + " .prob-subtitle strong{color:#111;font-weight:700}" +
         "#" + ID + " .prob-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;max-width:600px;margin:0 auto}" +
         "#" + ID + " .prob-card{background:#fff;border:1px solid #eaeaea;border-radius:14px;padding:22px 18px;display:flex;align-items:flex-start;gap:14px;text-align:left;transition:box-shadow 0.25s ease,border-color 0.25s ease}" +
         "#" + ID + " .prob-card:hover{box-shadow:0 8px 24px rgba(0,0,0,0.06);border-color:#ddd}" +
-        "#" + ID + " .prob-card-icon{width:40px;height:40px;border-radius:10px;background:#FFEBEA;display:flex;align-items:center;justify-content:center;flex:0 0 auto}" +
-        "#" + ID + " .prob-card-icon svg{width:20px;height:20px;color:#E10600;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}" +
+        "#" + ID + " .prob-card-icon{width:40px;height:40px;border-radius:10px;background:#F8E6DE;display:flex;align-items:center;justify-content:center;flex:0 0 auto}" +
+        "#" + ID + " .prob-card-icon svg{width:20px;height:20px;color:#C65D3B;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}" +
         "#" + ID + " .prob-card-body{display:flex;flex-direction:column;gap:4px;min-width:0}" +
-        "#" + ID + " .prob-card-title{font-size:15px;font-weight:800;color:#222222;margin:0;line-height:1.25}" +
+        "#" + ID + " .prob-card-title{font-size:15px;font-weight:800;color:#3B342F;margin:0;line-height:1.25}" +
         "#" + ID + " .prob-card-text{font-size:13.5px;font-weight:500;color:#666;margin:0;line-height:1.45}" +
         "#" + ID + " .prob-bottom{margin-top:36px;font-size:15px;color:#888;font-weight:600;font-style:italic}" +
-        "#" + ID + " .prob-bottom strong{color:#E10600;font-style:normal;font-weight:800}" +
+        "#" + ID + " .prob-bottom strong{color:#C65D3B;font-style:normal;font-weight:800}" +
         "@media(max-width:768px){" +
           "#" + ID + "{padding:40px 16px}" +
           "#" + ID + " .prob-title{font-size:24px}" +
@@ -1342,10 +1380,10 @@ window.WIGY_DOM = {
     }
 
     var problems = [
-      { icon: '<svg viewBox="0 0 24 24"><rect x="2" y="7" width="17" height="10" rx="2"/><line x1="22" y1="11" x2="22" y2="13"/><line x1="6" y1="10" x2="6" y2="14"/></svg>', title: "Pies destruidos al final del d\u00EDa", desc: "Llegás a casa y lo primero que hac\u00E9s es sacarte las zapatillas porque ya no aguant\u00E1s." },
-      { icon: '<svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>', title: "Lindas pero lastiman", desc: "Te enamoraste del dise\u00F1o y terminaste con ampollas. Quedaron guardadas en el placard." },
-      { icon: '<svg viewBox="0 0 24 24"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"/><polyline points="17 18 23 18 23 12"/></svg>', title: "Se rompen en meses", desc: "Suela gastada, costuras abiertas o despegadas antes de terminar la temporada." },
-      { icon: '<svg viewBox="0 0 24 24"><path d="M21.3 8.7 15.3 2.7a1 1 0 0 0-1.4 0L2.7 13.9a1 1 0 0 0 0 1.4l6 6a1 1 0 0 0 1.4 0L21.3 10.1a1 1 0 0 0 0-1.4z"/><path d="m7.5 10.5 2 2M10.5 7.5l2 2M13.5 4.5l2 2M4.5 13.5l2 2"/></svg>', title: "Miedo a errarle al talle", desc: "Comprar zapatillas online da miedo: \u00BFy si no me quedan? \u00BFqui\u00E9n me las cambia?" }
+      { icon: '<svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>', title: "Busc\u00E1s y no encontr\u00E1s", desc: "Cada ma\u00F1ana revolv\u00E9s todo el placard para encontrar esa remera\u2026 y llegas tarde." },
+      { icon: '<svg viewBox="0 0 24 24"><polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/><polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/><line x1="4" y1="4" x2="9" y2="9"/></svg>', title: "Todo se mezcla", desc: "Dobl\u00E1s la ropa el domingo y para el mi\u00E9rcoles ya est\u00E1 todo revuelto otra vez." },
+      { icon: '<svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>', title: "Sent\u00EDs que no te entra nada", desc: "No es que falte espacio: est\u00E1 mal aprovechado. Estantes con aire arriba y pilas que se caen." },
+      { icon: '<svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>', title: "Cajas que no duran", desc: "Las de cart\u00F3n se rompen, las de pl\u00E1stico son feas y ocupan lugar aunque est\u00E9n vac\u00EDas." }
     ];
 
     var cardsHTML = problems.map(function(p) {
@@ -1357,10 +1395,10 @@ window.WIGY_DOM = {
     wrapper.innerHTML =
       '<div class="prob-inner">' +
 
-        '<h2 class="prob-title">Unas buenas zapatillas se sienten en cada paso.<br>Y una mala, tambi\u00E9n.</h2>' +
-        '<p class="prob-subtitle">Pod\u00E9s tener el mejor look, pero si las zapatillas no acompa\u00F1an, lo pag\u00E1s con los pies. Si te pas\u00F3 alguno de estos, <strong>no sos el \u00FAnico</strong>.</p>' +
+        '<h2 class="prob-title">Un placard desordenado te roba tiempo todos los d\u00EDas.<br>Y tranquilidad, tambi\u00E9n.</h2>' +
+        '<p class="prob-subtitle">El desorden no es falta de voluntad: es falta de un sistema. Si te pas\u00F3 alguno de estos, <strong>no sos la \u00FAnica persona</strong>.</p>' +
         '<div class="prob-grid">' + cardsHTML + '</div>' +
-        '<p class="prob-bottom">\u00BFCu\u00E1ntas zapatillas lindas dejaste de usar porque <strong>te lastimaban</strong>?</p>' +
+        '<p class="prob-bottom">\u00BFCu\u00E1ntas veces abriste el placard y lo volviste a cerrar <strong>sin encontrar nada</strong>?</p>' +
       '</div>';
 
     /* Primera sección del bloque de ancho completo (debajo del producto).
@@ -1399,20 +1437,20 @@ window.WIGY_DOM = {
       var css =
         "#" + ID + "{width:100%;box-sizing:border-box;clear:both;display:block;font-family:inherit;background:#fff;padding:50px 20px 50px 20px}" +
         "#" + ID + " .sol-inner{max-width:720px;margin:0 auto;text-align:center}" +
-        "#" + ID + " .sol-eyebrow{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1.8px;color:#0A0A0A;margin-bottom:16px}" +
+        "#" + ID + " .sol-eyebrow{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1.8px;color:#2F2A26;margin-bottom:16px}" +
         "#" + ID + " .sol-eyebrow svg{width:16px;height:16px;flex:0 0 auto}" +
-        "#" + ID + " .sol-title{font-size:30px;font-weight:900;color:#0A0A0A;margin:0 0 14px 0;line-height:1.25;letter-spacing:-0.5px}" +
+        "#" + ID + " .sol-title{font-size:30px;font-weight:900;color:#2F2A26;margin:0 0 14px 0;line-height:1.25;letter-spacing:-0.5px}" +
         "#" + ID + " .sol-subtitle{font-size:16.5px;color:#555;line-height:1.65;margin:0 auto 40px auto;max-width:620px}" +
-        "#" + ID + " .sol-subtitle strong{color:#0A0A0A;font-weight:800}" +
-        "#" + ID + " .sol-features{display:flex;flex-direction:column;gap:0;max-width:560px;margin:0 auto;border:1px solid rgba(17,17,17,.18);border-radius:16px;overflow:hidden;background:#fff}" +
+        "#" + ID + " .sol-subtitle strong{color:#2F2A26;font-weight:800}" +
+        "#" + ID + " .sol-features{display:flex;flex-direction:column;gap:0;max-width:560px;margin:0 auto;border:1px solid rgba(47,42,38,.18);border-radius:16px;overflow:hidden;background:#fff}" +
         "#" + ID + " .sol-feat{display:flex;align-items:flex-start;gap:16px;padding:20px 22px;border-bottom:1px solid #f3f3f3;text-align:left;transition:background 0.2s ease}" +
         "#" + ID + " .sol-feat:last-child{border-bottom:none}" +
-        "#" + ID + " .sol-feat:hover{background:#F4F4F2}" +
-        "#" + ID + " .sol-feat-num{width:36px;height:36px;border-radius:50%;background:#0A0A0A;color:#fff;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:800;flex:0 0 auto;line-height:1}" +
+        "#" + ID + " .sol-feat:hover{background:#F5F0E8}" +
+        "#" + ID + " .sol-feat-num{width:36px;height:36px;border-radius:50%;background:#2F2A26;color:#fff;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:800;flex:0 0 auto;line-height:1}" +
         "#" + ID + " .sol-feat-body{display:flex;flex-direction:column;gap:4px;min-width:0}" +
         "#" + ID + " .sol-feat-title{font-size:15px;font-weight:800;color:#111;margin:0;line-height:1.3}" +
         "#" + ID + " .sol-feat-text{font-size:13.5px;font-weight:500;color:#666;margin:0;line-height:1.5}" +
-        "#" + ID + " .sol-cta-line{margin-top:32px;display:flex;align-items:center;justify-content:center;gap:8px;font-size:14.5px;font-weight:700;color:#0A0A0A}" +
+        "#" + ID + " .sol-cta-line{margin-top:32px;display:flex;align-items:center;justify-content:center;gap:8px;font-size:14.5px;font-weight:700;color:#2F2A26}" +
         "#" + ID + " .sol-cta-line svg{width:18px;height:18px;flex:0 0 auto}" +
         "@media(max-width:768px){" +
           "#" + ID + "{padding:40px 16px}" +
@@ -1429,10 +1467,10 @@ window.WIGY_DOM = {
     }
 
     var features = [
-      { title: "Plantilla acolchonada", desc: "Plantilla acolchonada que amortigua cada paso: caminatas largas, muchas horas de pie o todo el d\u00EDa en la calle, sin terminar con los pies cansados." },
-      { title: "Capellada respirable", desc: "Capellada que deja respirar el pie: menos calor, menos transpiraci\u00F3n y una pisada m\u00E1s liviana, en invierno y en verano." },
-      { title: "Suela antideslizante", desc: "Suela antideslizante y resistente al uso diario, con terminaciones firmes para que no se despeguen ni se deformen a los pocos meses." },
-      { title: "Dise\u00F1o urbano unisex", desc: "Dise\u00F1o urbano y unisex que va con jean, jogging o look de salida. Talles del 35 al 45 y cambio de talle gratis si no te quedan." }
+      { title: "Un lugar para cada cosa", desc: "Separ\u00E1s por tipo (remeras, jeans, ropa de cama) y encontr\u00E1s todo de un vistazo. El orden se mantiene solo, semana tras semana." },
+      { title: "3 medidas que aprovechan cada estante", desc: "Grande, mediana y chica: llen\u00E1s el espacio que hoy queda desperdiciado arriba de las pilas y en los rincones del placard." },
+      { title: "Firmes, plegables y con manijas", desc: "Base r\u00EDgida que no se deforma, manijas reforzadas para sacarlas de estantes altos y se pliegan planas cuando no las us\u00E1s." },
+      { title: "Lindas a la vista", desc: "Tela s\u00EDmil lino en tono natural que queda bien en el placard, arriba del ropero o en el cuarto de los chicos." }
     ];
 
     var featsHTML = features.map(function(f, i) {
@@ -1444,8 +1482,8 @@ window.WIGY_DOM = {
     wrapper.innerHTML =
       '<div class="sol-inner">' +
 
-        '<h2 class="sol-title">Detalles que<br>se sienten en cada paso.</h2>' +
-        '<p class="sol-subtitle">Las zapatillas que te pon\u00E9s a la ma\u00F1ana y te olvid\u00E1s que las ten\u00E9s puestas. VANTA combina <strong>amortiguaci\u00F3n, materiales livianos y un dise\u00F1o que va con todo</strong> para que camines c\u00F3modo todo el d\u00EDa.</p>' +
+        '<h2 class="sol-title">Cajas ORDI:<br>cada cosa en su lugar.</h2>' +
+        '<p class="sol-subtitle">Un sistema simple para ordenar tu placard en una tarde y que <strong>siga ordenado</strong>. Cajas firmes, lindas y plegables, en 3 medidas pensadas para los estantes de verdad.</p>' +
         '<div class="sol-features">' + featsHTML + '</div>' +
       '</div>';
 
@@ -1467,30 +1505,135 @@ window.WIGY_DOM = {
 })();
 </script>
 <!-- ================================================================
-     BLOQUE 11C: LOOKBOOK — Cómo combinarlas (WIGY_CONFIG.lookbook)
-     Grilla de fotos con las zapatillas puestas en distintos looks.
+     BLOQUE 11C: SECCIÓN ANTES / DESPUÉS — Comparador
+     ================================================================ -->
+<script>
+(function() {
+  if (window.WIGY_SLUG_BLOCK) return;
+  if (document.getElementById('wigy-promo-comparison-standalone')) return;
+
+  var injectSection = function() {
+    var STYLE_KEY = "wigy-comparison-style-v2";
+    if (!document.querySelector('[data-wigy-style="' + STYLE_KEY + '"]')) {
+      var css =
+        "#wigy-promo-comparison-standalone{width:100%;box-sizing:border-box;clear:both;display:block;font-family:inherit;background:#F5F0E8;padding:50px 20px;border-top:1px solid #f0f0f0}" +
+        "#wigy-promo-comparison-standalone .comp-inner{max-width:720px;margin:0 auto;text-align:center}" +
+        "#wigy-promo-comparison-standalone .comp-eyebrow{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1.8px;color:#2F2A26;margin-bottom:16px}" +
+        "#wigy-promo-comparison-standalone .comp-eyebrow svg{width:16px;height:16px;flex:0 0 auto}" +
+        "#wigy-promo-comparison-standalone .comp-heading{font-size:30px;font-weight:900;color:#2F2A26;margin:0 0 6px 0;line-height:1.25;letter-spacing:-0.5px}" +
+        "#wigy-promo-comparison-standalone .comp-person{font-size:14.5px;color:#666;margin:0 0 24px 0;font-weight:500}" +
+        ".wigy-comparison-slider{--clip:50%;position:relative;width:100%;max-width:560px;margin:0 auto;border-radius:16px;overflow:hidden;box-shadow:0 12px 32px rgba(0,0,0,0.12);aspect-ratio:1/1;background:#f4f4f4;user-select:none;border:1px solid rgba(0,0,0,0.06)}" +
+        ".wigy-comparison-single{max-width:560px;margin:0 auto;border-radius:16px;overflow:hidden;box-shadow:0 12px 32px rgba(0,0,0,0.12);border:1px solid rgba(0,0,0,0.06);line-height:0;background:#F5F0E8}" +
+        ".wigy-comparison-single img{width:100%;height:auto;display:block}" +
+        ".wigy-comparison-img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;display:block;pointer-events:none}" +
+        ".wigy-comparison-before{clip-path:polygon(0 0,var(--clip) 0,var(--clip) 100%,0 100%);z-index:2}" +
+        ".wigy-comparison-input{position:absolute;top:0;left:0;width:100%;height:100%;opacity:0;cursor:ew-resize;z-index:10;margin:0;-webkit-appearance:none}" +
+        ".wigy-comparison-line{position:absolute;top:0;left:var(--clip);bottom:0;width:3px;background:#fff;transform:translateX(-50%);pointer-events:none;z-index:5;box-shadow:0 0 12px rgba(0,0,0,0.25)}" +
+        ".wigy-comparison-handle{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:44px;height:44px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(0,0,0,0.22);color:#111;gap:2px}" +
+        ".wigy-comparison-handle svg{width:16px;height:16px}" +
+        ".wigy-label{position:absolute;top:16px;padding:7px 14px;background:rgba(255,255,255,0.92);backdrop-filter:blur(8px);color:#111;font-size:11.5px;font-weight:800;text-transform:uppercase;letter-spacing:1px;border-radius:30px;z-index:4;pointer-events:none;box-shadow:0 2px 8px rgba(0,0,0,0.08)}" +
+        ".wigy-label-before{left:16px}" +
+        ".wigy-label-after{right:16px}" +
+        "#wigy-promo-comparison-standalone .comp-hint{display:flex;align-items:center;justify-content:center;gap:6px;margin-top:16px;font-size:13px;color:#999;font-weight:500}" +
+        "#wigy-promo-comparison-standalone .comp-hint svg{width:16px;height:16px;flex:0 0 auto;animation:wigy-hint-slide 1.5s ease-in-out infinite alternate}" +
+        "@keyframes wigy-hint-slide{0%{transform:translateX(-3px)}100%{transform:translateX(3px)}}" +
+        "@media(max-width:768px){" +
+          "#wigy-promo-comparison-standalone{padding:40px 16px}" +
+          "#wigy-promo-comparison-standalone .comp-heading{font-size:24px}" +
+          ".wigy-comparison-slider{max-width:100%;border-radius:12px}" +
+          ".wigy-comparison-handle{width:38px;height:38px}" +
+        "}";
+      var st = document.createElement("style");
+      st.setAttribute("data-wigy-style", STYLE_KEY);
+      st.textContent = css;
+      document.head.appendChild(st);
+    }
+
+    var cfgC = window.WIGY_CONFIG;
+    /* Modo imagen única: si "comparadorAntes" está vacío o es igual a "comparadorDespues"
+       (una foto que ya trae el antes/después), se muestra la imagen completa sin slider. */
+    var singleImg = !cfgC.comparadorAntes || cfgC.comparadorAntes === cfgC.comparadorDespues;
+    var wrapper = document.createElement("div");
+    wrapper.id = "wigy-promo-comparison-standalone";
+    wrapper.innerHTML = singleImg ?
+      '<div class="comp-inner">' +
+        '<h2 class="comp-heading">Mir\u00E1 la diferencia</h2>' +
+        '<p class="comp-person">El mismo placard, antes y despu\u00E9s de ORDI</p>' +
+        '<div class="wigy-comparison-single"><img src="' + cfgC.comparadorDespues + '" alt="Placard antes y despu\u00E9s de ordenarlo con cajas ORDI" loading="eager"></div>' +
+      '</div>'
+      :
+      '<div class="comp-inner">' +
+
+        '<h2 class="comp-heading">Mir\u00E1 la diferencia</h2>' +
+        '<p class="comp-person">El mismo placard, antes y despu\u00E9s de ORDI</p>' +
+        '<div class="wigy-comparison-slider">' +
+          '<div class="wigy-label wigy-label-before">Antes</div>' +
+          '<div class="wigy-label wigy-label-after">Despu\u00E9s</div>' +
+          '<img class="wigy-comparison-img" src="' + window.WIGY_CONFIG.comparadorDespues + '" alt="Despu\u00E9s" loading="eager">' +
+          '<img class="wigy-comparison-img wigy-comparison-before" src="' + window.WIGY_CONFIG.comparadorAntes + '" alt="Antes" loading="eager">' +
+          '<div class="wigy-comparison-line"><div class="wigy-comparison-handle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M15 18l-6-6 6-6"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg></div></div>' +
+          '<input type="range" class="wigy-comparison-input" min="0" max="100" value="50">' +
+        '</div>' +
+        '<p class="comp-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><polyline points="12 5 19 12 12 19"/></svg> Arrastr\u00E1 para comparar</p>' +
+      '</div>';
+
+    var valid = function(u) { return u && u.indexOf("\u26A0\uFE0F") === -1; };
+    if (!valid(cfgC.comparadorDespues)) {
+      wrapper.innerHTML = "";
+      wrapper.style.setProperty("display", "none", "important");
+    } else if (!valid(cfgC.comparadorAntes) && wrapper.querySelector(".wigy-comparison-slider")) {
+      /* Solo hay foto del "después": se muestra completa, sin slider */
+      wrapper.innerHTML = '<div class="comp-inner"><h2 class="comp-heading">Mir\u00E1 la diferencia</h2><p class="comp-person">El mismo placard, antes y despu\u00E9s de ORDI</p><div class="wigy-comparison-single"><img src="' + cfgC.comparadorDespues + '" alt="Placard ordenado con cajas ORDI" loading="eager"></div></div>';
+    }
+    var solution = document.getElementById("wigy-solution-section");
+    if (solution) {
+      solution.insertAdjacentElement("afterend", wrapper);
+    }
+
+    var comparisonSlider = wrapper.querySelector('.wigy-comparison-slider');
+    var comparisonInput = wrapper.querySelector('.wigy-comparison-input');
+    if (comparisonSlider && comparisonInput) {
+      var updateSlider = function(e) { comparisonSlider.style.setProperty('--clip', e.target.value + '%'); };
+      comparisonInput.addEventListener('input', updateSlider);
+      comparisonInput.addEventListener('touchmove', updateSlider, { passive: true });
+    }
+  };
+
+  var tries = 0;
+  var t = setInterval(function() {
+    tries++;
+    if (document.getElementById("wigy-solution-section")) {
+      clearInterval(t);
+      injectSection();
+    }
+    if (tries >= 140) clearInterval(t);
+  }, 150);
+})();
+</script>
+<!-- ================================================================
+     BLOQUE 11D: IDEAS POR AMBIENTE (WIGY_CONFIG.lookbook)
+     Grilla de fotos de las cajas en distintos ambientes.
      Sin fotos cargadas (vacías o con ⚠️) la sección queda oculta.
      ================================================================ -->
 <script>
 (function() {
   if (window.WIGY_SLUG_BLOCK) return;
-  /* Se conserva el id del antiguo comparador: las secciones siguientes se encadenan a él */
-  var ID = "wigy-promo-comparison-standalone";
+  var ID = "wigy-lookbook-standalone";
   if (document.getElementById(ID)) return;
 
   var injectSection = function() {
     var STYLE_KEY = "wigy-lookbook-style";
     if (!document.querySelector('[data-wigy-style="' + STYLE_KEY + '"]')) {
       var css =
-        "#" + ID + "{width:100%;box-sizing:border-box;clear:both;display:block;font-family:inherit;background:#F4F4F2;padding:50px 20px;border-top:1px solid #f0f0f0}" +
+        "#" + ID + "{width:100%;box-sizing:border-box;clear:both;display:block;font-family:inherit;background:#F5F0E8;padding:50px 20px;border-top:1px solid #EFE7DA}" +
         "#" + ID + " .lb-inner{max-width:1100px;margin:0 auto;text-align:center}" +
         "#" + ID + " .comp-heading{margin:0 0 6px 0}" +
         "#" + ID + " .comp-person{font-size:14.5px;color:#666;margin:0 0 28px 0;font-weight:500}" +
         "#" + ID + " .lb-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}" +
-        "#" + ID + " .lb-item{position:relative;border-radius:8px;overflow:hidden;background:#e9e9e7;aspect-ratio:3/4;margin:0}" +
+        "#" + ID + " .lb-item{position:relative;border-radius:8px;overflow:hidden;background:#EAE0D0;aspect-ratio:3/4;margin:0}" +
         "#" + ID + " .lb-item img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease}" +
         "#" + ID + " .lb-item:hover img{transform:scale(1.04)}" +
-        "#" + ID + " .lb-item figcaption{position:absolute;left:10px;bottom:10px;background:#fff;color:#0A0A0A;font-family:var(--vd-font-title);font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.6px;padding:6px 10px;border-radius:4px}" +
+        "#" + ID + " .lb-item figcaption{position:absolute;left:10px;bottom:10px;background:#fff;color:#2F2A26;font-family:var(--vd-font-title);font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.6px;padding:6px 10px;border-radius:4px}" +
         "@media(max-width:768px){" +
           "#" + ID + "{padding:40px 16px}" +
           "#" + ID + " .lb-grid{grid-template-columns:repeat(2,1fr);gap:8px}" +
@@ -1509,24 +1652,24 @@ window.WIGY_DOM = {
     if (looks.length) {
       wrapper.innerHTML =
         '<div class="lb-inner">' +
-          '<h2 class="comp-heading">Cómo combinarlas</h2>' +
-          '<p class="comp-person">Un par, mil looks. Así las usa nuestra comunidad.</p>' +
+          '<h2 class="comp-heading">Ideas para cada ambiente</h2>' +
+          '<p class="comp-person">Del placard al lavadero: as\u00ED las usa nuestra comunidad.</p>' +
           '<div class="lb-grid">' + looks.map(function(l) {
-            return '<figure class="lb-item"><img src="' + l.src + '" alt="' + (l.texto || 'Zapatillas VANTA') + '" loading="lazy">' + (l.texto ? '<figcaption>' + l.texto + '</figcaption>' : '') + '</figure>';
+            return '<figure class="lb-item"><img src="' + l.src + '" alt="' + (l.texto || 'Cajas ORDI') + '" loading="lazy">' + (l.texto ? '<figcaption>' + l.texto + '</figcaption>' : '') + '</figure>';
           }).join('') + '</div>' +
         '</div>';
     } else {
       wrapper.style.setProperty("display", "none", "important");
     }
 
-    var solution = document.getElementById("wigy-solution-section");
-    if (solution) solution.insertAdjacentElement("afterend", wrapper);
+    var comp = document.getElementById("wigy-promo-comparison-standalone");
+    if (comp) comp.insertAdjacentElement("afterend", wrapper);
   };
 
   var tries = 0;
   var t = setInterval(function() {
     tries++;
-    if (document.getElementById("wigy-solution-section")) {
+    if (document.getElementById("wigy-promo-comparison-standalone")) {
       clearInterval(t);
       injectSection();
     }
@@ -1545,7 +1688,7 @@ window.WIGY_DOM = {
 
   function injectStyleOnce() {
     if (document.getElementById(WRAPPER_ID + "-style")) return;
-    var css = "@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&display=swap');\n#" + WRAPPER_ID + "{width:100%;max-width:800px;margin:20px auto 0 auto;padding-top:10px;padding-bottom:40px;background:transparent;overflow:hidden;position:relative;z-index:10;font-family:'Archivo','Montserrat',sans-serif}\n#" + WRAPPER_ID + " .hf-header-timeline{text-align:center;max-width:800px;padding:0 20px;margin:0 auto 40px auto}\n#" + WRAPPER_ID + " .hf-header-timeline h2{color:#0A0A0A;font-size:32px;font-weight:800;margin:0;line-height:1.2;letter-spacing:-0.5px;font-family:'Archivo','Montserrat',sans-serif}\n#" + WRAPPER_ID + " .hf-header-timeline .highlight{color:#0A0A0A;display:block;font-family:'Archivo','Montserrat',sans-serif;font-size:20px;font-weight:800;margin-top:10px}\n#" + WRAPPER_ID + " .timeline-container-orange{max-width:800px;margin:0 auto;padding:0 20px;position:relative}\n#" + WRAPPER_ID + " .timeline-row-orange{display:flex;gap:30px;position:relative;align-items:stretch}\n#" + WRAPPER_ID + " .timeline-marker-orange{display:flex;flex-direction:column;align-items:center;min-width:130px;position:relative}\n#" + WRAPPER_ID + " .timeline-track{position:absolute;top:15px;bottom:50px;left:calc(20px + 65px - 3px);width:6px;background-color:#e2e8f0;border-radius:6px;z-index:1}\n#" + WRAPPER_ID + " .timeline-progress-fill{position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(to bottom,#0A0A0A,#4A4A4A);border-radius:6px;z-index:2;transform:scaleY(0);transform-origin:top center;will-change:transform;transition:transform 0.08s linear;box-shadow:0 0 12px rgba(110,110,110,0.45)}\n@keyframes wigy-pill-pop{0%{transform:scale(1);box-shadow:0 4px 10px rgba(17,17,17,0.25)}30%{transform:scale(1.22);box-shadow:0 12px 28px rgba(17,17,17,0.50)}55%{transform:scale(0.96);box-shadow:0 6px 14px rgba(17,17,17,0.30)}75%{transform:scale(1.10);box-shadow:0 10px 22px rgba(17,17,17,0.40)}100%{transform:scale(1);box-shadow:0 4px 10px rgba(17,17,17,0.25)}}\n#" + WRAPPER_ID + " .t-pill-orange{position:relative;z-index:3;border:2px solid #0A0A0A;color:#fff;background-color:#0A0A0A;padding:8px 18px;border-radius:50px;font-size:14px;font-weight:700;text-align:center;box-shadow:0 4px 10px rgba(17,17,17,0.25);margin-bottom:30px;white-space:nowrap;transform-origin:center center;will-change:transform}\n#" + WRAPPER_ID + " .t-pill-orange.pop{animation:wigy-pill-pop 0.55s cubic-bezier(0.36,0.07,0.19,0.97) forwards}\n#" + WRAPPER_ID + " .t-content-orange{flex:1;padding-bottom:50px}\n#" + WRAPPER_ID + " .timeline-row-orange:last-child .t-content-orange{padding-bottom:0}\n#" + WRAPPER_ID + " .t-content-orange h3{color:#0A0A0A;font-size:20px;font-weight:800;margin:5px 0 10px 0;line-height:1.2;text-transform:uppercase;font-family:'Archivo','Montserrat',sans-serif}\n#" + WRAPPER_ID + " .t-content-orange p{color:#3a3a3a;font-size:15px;line-height:1.6;margin:0;font-family:'Archivo','Montserrat',sans-serif}\n@media(max-width:768px){#" + WRAPPER_ID + "{margin-top:15px;padding-top:10px;padding-bottom:30px}#" + WRAPPER_ID + " .timeline-marker-orange{min-width:100px}#" + WRAPPER_ID + " .timeline-row-orange{gap:15px}#" + WRAPPER_ID + " .t-pill-orange{font-size:12px;padding:6px 12px}#" + WRAPPER_ID + " .t-content-orange h3{font-size:18px}#" + WRAPPER_ID + " .t-content-orange p{font-size:14px}#" + WRAPPER_ID + " .hf-header-timeline h2{font-size:26px}#" + WRAPPER_ID + " .timeline-track{left:calc(20px + 50px - 3px)}}";
+    var css = "@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&display=swap');\n#" + WRAPPER_ID + "{width:100%;max-width:800px;margin:20px auto 0 auto;padding-top:10px;padding-bottom:40px;background:transparent;overflow:hidden;position:relative;z-index:10;font-family:var(--vd-font-body)}\n#" + WRAPPER_ID + " .hf-header-timeline{text-align:center;max-width:800px;padding:0 20px;margin:0 auto 40px auto}\n#" + WRAPPER_ID + " .hf-header-timeline h2{color:#2F2A26;font-size:32px;font-weight:800;margin:0;line-height:1.2;letter-spacing:-0.5px;font-family:var(--vd-font-body)}\n#" + WRAPPER_ID + " .hf-header-timeline .highlight{color:#2F2A26;display:block;font-family:var(--vd-font-body);font-size:20px;font-weight:800;margin-top:10px}\n#" + WRAPPER_ID + " .timeline-container-orange{max-width:800px;margin:0 auto;padding:0 20px;position:relative}\n#" + WRAPPER_ID + " .timeline-row-orange{display:flex;gap:30px;position:relative;align-items:stretch}\n#" + WRAPPER_ID + " .timeline-marker-orange{display:flex;flex-direction:column;align-items:center;min-width:130px;position:relative}\n#" + WRAPPER_ID + " .timeline-track{position:absolute;top:15px;bottom:50px;left:calc(20px + 65px - 3px);width:6px;background-color:#e2e8f0;border-radius:6px;z-index:1}\n#" + WRAPPER_ID + " .timeline-progress-fill{position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(to bottom,#2F2A26,#A8896B);border-radius:6px;z-index:2;transform:scaleY(0);transform-origin:top center;will-change:transform;transition:transform 0.08s linear;box-shadow:0 0 12px rgba(168,137,107,0.45)}\n@keyframes wigy-pill-pop{0%{transform:scale(1);box-shadow:0 4px 10px rgba(47,42,38,0.25)}30%{transform:scale(1.22);box-shadow:0 12px 28px rgba(47,42,38,0.50)}55%{transform:scale(0.96);box-shadow:0 6px 14px rgba(47,42,38,0.30)}75%{transform:scale(1.10);box-shadow:0 10px 22px rgba(47,42,38,0.40)}100%{transform:scale(1);box-shadow:0 4px 10px rgba(47,42,38,0.25)}}\n#" + WRAPPER_ID + " .t-pill-orange{position:relative;z-index:3;border:2px solid #2F2A26;color:#fff;background-color:#2F2A26;padding:8px 18px;border-radius:50px;font-size:14px;font-weight:700;text-align:center;box-shadow:0 4px 10px rgba(47,42,38,0.25);margin-bottom:30px;white-space:nowrap;transform-origin:center center;will-change:transform}\n#" + WRAPPER_ID + " .t-pill-orange.pop{animation:wigy-pill-pop 0.55s cubic-bezier(0.36,0.07,0.19,0.97) forwards}\n#" + WRAPPER_ID + " .t-content-orange{flex:1;padding-bottom:50px}\n#" + WRAPPER_ID + " .timeline-row-orange:last-child .t-content-orange{padding-bottom:0}\n#" + WRAPPER_ID + " .t-content-orange h3{color:#2F2A26;font-size:20px;font-weight:800;margin:5px 0 10px 0;line-height:1.2;text-transform:uppercase;font-family:var(--vd-font-body)}\n#" + WRAPPER_ID + " .t-content-orange p{color:#3a3a3a;font-size:15px;line-height:1.6;margin:0;font-family:var(--vd-font-body)}\n@media(max-width:768px){#" + WRAPPER_ID + "{margin-top:15px;padding-top:10px;padding-bottom:30px}#" + WRAPPER_ID + " .timeline-marker-orange{min-width:100px}#" + WRAPPER_ID + " .timeline-row-orange{gap:15px}#" + WRAPPER_ID + " .t-pill-orange{font-size:12px;padding:6px 12px}#" + WRAPPER_ID + " .t-content-orange h3{font-size:18px}#" + WRAPPER_ID + " .t-content-orange p{font-size:14px}#" + WRAPPER_ID + " .hf-header-timeline h2{font-size:26px}#" + WRAPPER_ID + " .timeline-track{left:calc(20px + 50px - 3px)}}";
     var st = document.createElement("style");
     st.id = WRAPPER_ID + "-style";
     st.innerHTML = css;
@@ -1553,7 +1696,7 @@ window.WIGY_DOM = {
   }
 
   function buildHTML() {
-    return '<div class="hf-header-timeline"><h2>As\u00ED de f\u00E1cil es tenerlas</h2><span class="highlight">en 4 pasos, sin vueltas</span></div><div class="timeline-container-orange"><div class="timeline-track"><div class="timeline-progress-fill"></div></div><div class="timeline-row-orange"><div class="timeline-marker-orange"><div class="t-pill-orange">Paso 1</div></div><div class="t-content-orange"><h3>Eleg\u00ED tu talle</h3><p>Calzan talle normal: ped\u00ED el mismo que us\u00E1s siempre. Del 35 al 45.</p></div></div><div class="timeline-row-orange"><div class="timeline-marker-orange"><div class="t-pill-orange">Paso 2</div></div><div class="t-content-orange"><h3>Arm\u00E1 tu pack</h3><p>Llev\u00E1 1, 2 o 3 pares y combin\u00E1 talles y colores. Con 2 pares ahorr\u00E1s 25% y con 3 el env\u00EDo es gratis.</p></div></div><div class="timeline-row-orange"><div class="timeline-marker-orange"><div class="t-pill-orange">Paso 3</div></div><div class="t-content-orange"><h3>Recibilas en tu casa</h3><p>Despachamos en 24 hs h\u00E1biles y llegan en 2 a 3 d\u00EDas h\u00E1biles a todo el pa\u00EDs, con seguimiento.</p></div></div><div class="timeline-row-orange"><div class="timeline-marker-orange"><div class="t-pill-orange">Resultado</div></div><div class="t-content-orange"><h3>Comodidad todo el d\u00EDa</h3><p>Te las pon\u00E9s a la ma\u00F1ana y te olvid\u00E1s. Y si el talle no te queda, el cambio es gratis.</p></div></div></div>';
+    return '<div class="hf-header-timeline"><h2>As\u00ED de f\u00E1cil es ordenar</h2><span class="highlight">en una tarde, sin experiencia</span></div><div class="timeline-container-orange"><div class="timeline-track"><div class="timeline-progress-fill"></div></div><div class="timeline-row-orange"><div class="timeline-marker-orange"><div class="t-pill-orange">Paso 1</div></div><div class="t-content-orange"><h3>Desplegalas</h3><p>Llegan planas y se arman en segundos, sin herramientas. La base r\u00EDgida las deja firmes.</p></div></div><div class="timeline-row-orange"><div class="timeline-marker-orange"><div class="t-pill-orange">Paso 2</div></div><div class="t-content-orange"><h3>Clasific\u00E1</h3><p>Sac\u00E1 todo y separ\u00E1 por tipo: remeras, jeans, ropa de cama, accesorios. Lo que no us\u00E1s, afuera.</p></div></div><div class="timeline-row-orange"><div class="timeline-marker-orange"><div class="t-pill-orange">Paso 3</div></div><div class="t-content-orange"><h3>Guard\u00E1 en vertical</h3><p>Dobl\u00E1 en rollito o en vertical: as\u00ED ves todo de un vistazo y sac\u00E1s una prenda sin desarmar el resto.</p></div></div><div class="timeline-row-orange"><div class="timeline-marker-orange"><div class="t-pill-orange">Resultado</div></div><div class="t-content-orange"><h3>Cada cosa en su lugar</h3><p>Abr\u00EDs el placard y encontr\u00E1s todo. Y como cada cosa tiene su caja, el orden se mantiene.</p></div></div></div>';
   }
 
   function initTimelineScroll(wrapper) {
@@ -1594,7 +1737,7 @@ window.WIGY_DOM = {
 
   function mount() {
     if (document.getElementById(WRAPPER_ID)) return true;
-    var anchor = document.getElementById("wigy-promo-comparison-standalone");
+    var anchor = document.getElementById("wigy-lookbook-standalone");
     if (!anchor) return false;
     injectStyleOnce();
     var wrapper = document.createElement("div");
@@ -1620,7 +1763,7 @@ window.WIGY_DOM = {
 
   function injectStyleOnce() {
     if (document.getElementById(WRAPPER_ID + "-style")) return;
-    var css = "@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&display=swap');\n#wigy-recovery-standalone{padding-bottom:10px!important;margin-bottom:0!important}\n#" + WRAPPER_ID + "{width:100%;max-width:1000px;margin:0 auto;padding-top:15px;padding-bottom:60px;background:transparent;overflow:hidden;position:relative;z-index:10;font-family:'Archivo','Montserrat',sans-serif;text-align:center}\n#" + WRAPPER_ID + " .concerns-gradient-title{font-size:42px;font-weight:900;margin:0 0 16px 0;line-height:1.15;letter-spacing:-1px;background:linear-gradient(135deg,#4A4A4A 0%,#0A0A0A 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;color:transparent;display:inline-block;padding:0 15px}\n#" + WRAPPER_ID + " .intro-text{font-size:18px;color:#444444;margin:0 auto 45px auto;line-height:1.5;max-width:850px;padding:0 15px}\n#" + WRAPPER_ID + " .intro-text strong{color:#0A0A0A;font-weight:800}\n#" + WRAPPER_ID + " .glued-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:40px 25px;max-width:950px;margin:0 auto;padding:0 15px}\n#" + WRAPPER_ID + " .symbol-box{display:flex;flex-direction:column;align-items:center;justify-content:flex-start}\n#" + WRAPPER_ID + " .symbol-circle{width:120px;height:120px;border-radius:50%;background:#ffffff;border:2px solid rgba(110,110,110,0.15);box-shadow:0 10px 20px rgba(110,110,110,0.08);display:flex;justify-content:center;align-items:center;margin-bottom:16px;transition:all 0.3s cubic-bezier(0.4,0,0.2,1)}\n#" + WRAPPER_ID + " .symbol-box:hover .symbol-circle{transform:translateY(-8px) scale(1.05);border-color:#4A4A4A;box-shadow:0 16px 28px rgba(110,110,110,0.18);background:linear-gradient(135deg,#ffffff 0%,#F0F0F0 100%)}\n#" + WRAPPER_ID + " .symbol-circle svg{width:55px;height:55px;stroke:#4A4A4A;stroke-width:2.2;fill:none;stroke-linecap:round;stroke-linejoin:round;transition:stroke 0.3s ease}\n#" + WRAPPER_ID + " .symbol-box span{font-weight:800;font-size:15px;line-height:1.35;text-transform:uppercase;color:#222222;text-align:center;max-width:180px}\n@media(max-width:768px){#" + WRAPPER_ID + "{padding-top:10px;padding-bottom:45px}#" + WRAPPER_ID + " .concerns-gradient-title{font-size:32px;margin-bottom:15px}#" + WRAPPER_ID + " .intro-text{font-size:16px;margin-bottom:35px}#" + WRAPPER_ID + " .glued-grid{grid-template-columns:repeat(2,1fr);gap:30px 15px}#" + WRAPPER_ID + " .symbol-circle{width:95px;height:95px}#" + WRAPPER_ID + " .symbol-circle svg{width:45px;height:45px}#" + WRAPPER_ID + " .symbol-box span{font-size:13px;max-width:150px}}";
+    var css = "@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&display=swap');\n#wigy-recovery-standalone{padding-bottom:10px!important;margin-bottom:0!important}\n#" + WRAPPER_ID + "{width:100%;max-width:1000px;margin:0 auto;padding-top:15px;padding-bottom:60px;background:transparent;overflow:hidden;position:relative;z-index:10;font-family:var(--vd-font-body);text-align:center}\n#" + WRAPPER_ID + " .concerns-gradient-title{font-size:42px;font-weight:900;margin:0 0 16px 0;line-height:1.15;letter-spacing:-1px;background:linear-gradient(135deg,#A8896B 0%,#2F2A26 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;color:transparent;display:inline-block;padding:0 15px}\n#" + WRAPPER_ID + " .intro-text{font-size:18px;color:#444444;margin:0 auto 45px auto;line-height:1.5;max-width:850px;padding:0 15px}\n#" + WRAPPER_ID + " .intro-text strong{color:#2F2A26;font-weight:800}\n#" + WRAPPER_ID + " .glued-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:40px 25px;max-width:950px;margin:0 auto;padding:0 15px}\n#" + WRAPPER_ID + " .symbol-box{display:flex;flex-direction:column;align-items:center;justify-content:flex-start}\n#" + WRAPPER_ID + " .symbol-circle{width:120px;height:120px;border-radius:50%;background:#ffffff;border:2px solid rgba(168,137,107,0.15);box-shadow:0 10px 20px rgba(168,137,107,0.08);display:flex;justify-content:center;align-items:center;margin-bottom:16px;transition:all 0.3s cubic-bezier(0.4,0,0.2,1)}\n#" + WRAPPER_ID + " .symbol-box:hover .symbol-circle{transform:translateY(-8px) scale(1.05);border-color:#A8896B;box-shadow:0 16px 28px rgba(168,137,107,0.18);background:linear-gradient(135deg,#ffffff 0%,#EFE7DA 100%)}\n#" + WRAPPER_ID + " .symbol-circle svg{width:55px;height:55px;stroke:#A8896B;stroke-width:2.2;fill:none;stroke-linecap:round;stroke-linejoin:round;transition:stroke 0.3s ease}\n#" + WRAPPER_ID + " .symbol-box span{font-weight:800;font-size:15px;line-height:1.35;text-transform:uppercase;color:#3B342F;text-align:center;max-width:180px}\n@media(max-width:768px){#" + WRAPPER_ID + "{padding-top:10px;padding-bottom:45px}#" + WRAPPER_ID + " .concerns-gradient-title{font-size:32px;margin-bottom:15px}#" + WRAPPER_ID + " .intro-text{font-size:16px;margin-bottom:35px}#" + WRAPPER_ID + " .glued-grid{grid-template-columns:repeat(2,1fr);gap:30px 15px}#" + WRAPPER_ID + " .symbol-circle{width:95px;height:95px}#" + WRAPPER_ID + " .symbol-circle svg{width:45px;height:45px}#" + WRAPPER_ID + " .symbol-box span{font-size:13px;max-width:150px}}";
     var st = document.createElement("style");
     st.id = WRAPPER_ID + "-style";
     st.innerHTML = css;
@@ -1628,7 +1771,7 @@ window.WIGY_DOM = {
   }
 
   function buildHTML() {
-    return '<h2 class="concerns-gradient-title">Un solo par para todo tu día</h2><p class="intro-text">Las zapatillas que usás todos los días tienen que <strong>acompañarte en todo</strong>. Las VANTA están pensadas para:</p><div class="glued-grid"><div class="symbol-box"><div class="symbol-circle"><svg viewBox="0 0 24 24"><circle cx="6" cy="19" r="2"></circle><circle cx="18" cy="5" r="2"></circle><path d="M8 19h8.5a3.5 3.5 0 0 0 0-7h-9a3.5 3.5 0 0 1 0-7H16"></path></svg></div><span>Caminatas largas</span></div><div class="symbol-box"><div class="symbol-circle"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg></div><span>Muchas horas de pie</span></div><div class="symbol-box"><div class="symbol-circle"><svg viewBox="0 0 24 24"><path d="M3 21h18"></path><path d="M5 21V7l7-4 7 4v14"></path><path d="M9 21v-6h6v6"></path></svg></div><span>Día a día en la ciudad</span></div><div class="symbol-box"><div class="symbol-circle"><svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"></rect><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><path d="M3 13h18"></path></svg></div><span>Viajes y escapadas</span></div><div class="symbol-box"><div class="symbol-circle"><svg viewBox="0 0 24 24"><path d="M6.5 6.5v11M17.5 6.5v11M3 9v6M21 9v6M6.5 12h11"></path></svg></div><span>Entrenamiento liviano</span></div><div class="symbol-box"><div class="symbol-circle"><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 16.8l-5.9 3.3 1.3-6.6L2.5 8.9l6.6-.8z"></path></svg></div><span>Salidas y fin de semana</span></div></div>';
+    return '<h2 class="concerns-gradient-title">Una caja para cada rinc\u00F3n de tu casa</h2><p class="intro-text">El orden no termina en el placard. Las cajas ORDI <strong>funcionan en toda la casa</strong>:</p><div class="glued-grid"><div class="symbol-box"><div class="symbol-circle"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="1"></rect><line x1="12" y1="3" x2="12" y2="21"></line><line x1="10" y1="12" x2="10" y2="13"></line><line x1="14" y1="12" x2="14" y2="13"></line></svg></div><span>Placard y ropero</span></div><div class="symbol-box"><div class="symbol-circle"><svg viewBox="0 0 24 24"><path d="M2 18v-6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v6"></path><path d="M2 18h20"></path><path d="M6 10V7a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v3"></path></svg></div><span>Ropa de cama</span></div><div class="symbol-box"><div class="symbol-circle"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3"></circle><path d="M5 21v-2a7 7 0 0 1 14 0v2"></path></svg></div><span>Cuarto de los chicos</span></div><div class="symbol-box"><div class="symbol-circle"><svg viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"></rect><circle cx="12" cy="13" r="5"></circle><line x1="8" y1="5" x2="8.01" y2="5"></line></svg></div><span>Lavadero</span></div><div class="symbol-box"><div class="symbol-circle"><svg viewBox="0 0 24 24"><path d="M4 12h16a1 1 0 0 1 1 1v2a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5v-2a1 1 0 0 1 1-1z"></path><path d="M6 12V5a2 2 0 0 1 2-2h1"></path></svg></div><span>Baño y toallas</span></div><div class="symbol-box"><div class="symbol-circle"><svg viewBox="0 0 24 24"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg></div><span>Accesorios y carteras</span></div></div>';
   }
 
   function mount() {
@@ -1658,25 +1801,25 @@ window.WIGY_DOM = {
 
   function injectStyleOnce() {
     if (document.getElementById(WRAPPER_ID + "-style")) return;
-    var css = "@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&display=swap');" +
-      "#" + WRAPPER_ID + "{width:100%;max-width:1100px;margin:0 auto;padding:50px 20px;box-sizing:border-box;font-family:'Archivo','Montserrat',sans-serif;background:#ffffff}" +
+    var css = "@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&display=swap');" +
+      "#" + WRAPPER_ID + "{width:100%;max-width:1100px;margin:0 auto;padding:50px 20px;box-sizing:border-box;font-family:var(--vd-font-body);background:#ffffff}" +
       "#" + WRAPPER_ID + " .clinical-inner{display:flex;align-items:center;gap:50px;background:#ffffff;border-radius:20px}" +
       "#" + WRAPPER_ID + " .clinical-image-col{flex:1;width:100%;max-width:450px;border-radius:20px;overflow:hidden;box-shadow:0 20px 40px rgba(0,0,0,0.1);position:relative;background:#f4f4f4;line-height:0;border:1px solid rgba(0,0,0,0.05);margin:0 auto}" +
       "#" + WRAPPER_ID + " .clinical-image-col img{width:100%;height:auto;display:block;object-fit:cover}" +
       "#" + WRAPPER_ID + " .clinical-stats-col{flex:1.3;width:100%;display:flex;flex-direction:column;justify-content:center}" +
-      "#" + WRAPPER_ID + " .clinical-title{font-size:36px;font-weight:900;margin:0 0 35px 0;line-height:1.25;letter-spacing:-0.5px;background:linear-gradient(135deg,#4A4A4A 0%,#0A0A0A 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;color:transparent}" +
+      "#" + WRAPPER_ID + " .clinical-title{font-size:36px;font-weight:900;margin:0 0 35px 0;line-height:1.25;letter-spacing:-0.5px;background:linear-gradient(135deg,#A8896B 0%,#2F2A26 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;color:transparent}" +
       "#" + WRAPPER_ID + " .results__rows-container{display:flex;flex-direction:column;width:100%}" +
       "#" + WRAPPER_ID + " .results__row{display:flex;align-items:center;gap:25px;padding:20px 0;border-bottom:1px solid #eaeaea}" +
       "#" + WRAPPER_ID + " .results__row:last-child{border-bottom:none;padding-bottom:0}" +
       "#" + WRAPPER_ID + " .results__percentage{position:relative;width:75px;height:75px;border-radius:50%;" +
-      "background:conic-gradient(#4A4A4A 0deg,#f1f5f9 0deg 360deg);" +
+      "background:conic-gradient(#A8896B 0deg,#f1f5f9 0deg 360deg);" +
       "display:flex;align-items:center;justify-content:center;flex:0 0 auto;" +
-      "box-shadow:0 6px 14px rgba(110,110,110,0.20)}" +
+      "box-shadow:0 6px 14px rgba(168,137,107,0.20)}" +
       "#" + WRAPPER_ID + " .results__percentage::before{content:'';position:absolute;inset:6px;background:#ffffff;border-radius:50%}" +
-      "#" + WRAPPER_ID + " .results__percentage p{position:relative;z-index:1;margin:0;font-weight:800;font-size:20px;color:#0A0A0A}" +
+      "#" + WRAPPER_ID + " .results__percentage p{position:relative;z-index:1;margin:0;font-weight:800;font-size:20px;color:#2F2A26}" +
       "#" + WRAPPER_ID + " .results__text{flex:1}" +
       "#" + WRAPPER_ID + " .results__text p{font-size:18px;color:#444444;line-height:1.5;margin:0}" +
-      "#" + WRAPPER_ID + " .results__text strong{color:#0A0A0A;font-weight:800}" +
+      "#" + WRAPPER_ID + " .results__text strong{color:#2F2A26;font-weight:800}" +
       "@media(max-width:768px){" +
         "#" + WRAPPER_ID + "{padding:40px 15px}" +
         "#" + WRAPPER_ID + " .clinical-inner{flex-direction:column;gap:35px}" +
@@ -1695,10 +1838,10 @@ window.WIGY_DOM = {
   function buildHTML() {
     return '<div class="clinical-inner">' +
       '<div class="clinical-image-col">' +
-        '<img src="' + window.WIGY_CONFIG.fotoEstadisticas + '" alt="Zapatillas VANTA" loading="eager">' +
+        '<img src="' + window.WIGY_CONFIG.fotoEstadisticas + '" alt="Cajas ORDI" loading="eager">' +
       '</div>' +
       '<div class="clinical-stats-col">' +
-        '<h3 class="clinical-title">Lo que notan quienes ya usan VANTA</h3>' +
+        '<h3 class="clinical-title">Lo que notan quienes ya usan ORDI</h3>' +
         '<div class="results__rows-container">' +
           (window.WIGY_CONFIG.estadisticas || []).map(function(e) { return '<div class="results__row"><div class="results__percentage" data-target="' + parseInt(e.porcentaje, 10) + '"><p>0%</p></div><div class="results__text"><p>' + e.texto + '</p></div></div>'; }).join('') +
         '</div>' +
@@ -1726,7 +1869,7 @@ window.WIGY_DOM = {
           var currentVal = Math.round(eased * target);
           var currentDeg = (eased * target / 100) * 360;
           numEl.textContent = currentVal + "%";
-          ring.style.background = "conic-gradient(#4A4A4A " + currentDeg + "deg, #f1f5f9 " + currentDeg + "deg 360deg)";
+          ring.style.background = "conic-gradient(#A8896B " + currentDeg + "deg, #f1f5f9 " + currentDeg + "deg 360deg)";
           if (progress < 1) requestAnimationFrame(tick);
         }
         requestAnimationFrame(tick);
@@ -1774,9 +1917,9 @@ window.WIGY_DOM = {
 
   function injectStyleOnce() {
     if (document.getElementById(WRAPPER_ID + "-style")) return;
-    var css = "@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&display=swap');\n" +
-      "#" + WRAPPER_ID + "{width:100%;max-width:900px;margin:20px auto 50px auto;padding:20px 15px;box-sizing:border-box;font-family:'Archivo','Montserrat',sans-serif}\n" +
-      "#" + WRAPPER_ID + " .comp-title{font-size:38px;font-weight:900;text-align:center;margin:0 0 10px 0;line-height:1.2;letter-spacing:-1px;background:linear-gradient(135deg,#4A4A4A 0%,#0A0A0A 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;color:transparent}\n" +
+    var css = "@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&display=swap');\n" +
+      "#" + WRAPPER_ID + "{width:100%;max-width:900px;margin:20px auto 50px auto;padding:20px 15px;box-sizing:border-box;font-family:var(--vd-font-body)}\n" +
+      "#" + WRAPPER_ID + " .comp-title{font-size:38px;font-weight:900;text-align:center;margin:0 0 10px 0;line-height:1.2;letter-spacing:-1px;background:linear-gradient(135deg,#A8896B 0%,#2F2A26 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;color:transparent}\n" +
       "#" + WRAPPER_ID + " .comp-subtitle{font-size:16px;color:#555555;text-align:center;max-width:600px;margin:0 auto 35px auto;line-height:1.5}\n" +
       "#" + WRAPPER_ID + " .comp-table-wrapper{background:#ffffff;border-radius:20px;box-shadow:0 15px 35px rgba(0,0,0,0.08);border:1px solid rgba(0,0,0,0.05);padding:10px 0;position:relative;overflow:hidden}\n" +
       "#" + WRAPPER_ID + " table.wigy-cmp-table{width:100%!important;border-collapse:separate!important;border-spacing:0!important;border:0!important;box-shadow:none!important;table-layout:auto!important;margin:0!important;text-align:center;position:relative;z-index:2;background:transparent!important}\n" +
@@ -1784,8 +1927,8 @@ window.WIGY_DOM = {
       "#" + WRAPPER_ID + " th,#" + WRAPPER_ID + " td{padding:16px 12px;vertical-align:middle}\n" +
       "#" + WRAPPER_ID + " th{font-size:20px;font-weight:900;border-bottom:2px solid #eaeaea}\n" +
       "#" + WRAPPER_ID + " .th-empty{width:50%;border-bottom:none}\n" +
-      "#" + WRAPPER_ID + " .th-other{color:#0A0A0A;width:25%}\n" +
-      "#" + WRAPPER_ID + " .th-brand,#" + WRAPPER_ID + " .cell-brand{background:linear-gradient(#0A0A0A,#0A0A0A) top center/100% 0% no-repeat!important;transition:background-size 0.35s linear}\n" +
+      "#" + WRAPPER_ID + " .th-other{color:#2F2A26;width:25%}\n" +
+      "#" + WRAPPER_ID + " .th-brand,#" + WRAPPER_ID + " .cell-brand{background:linear-gradient(#2F2A26,#2F2A26) top center/100% 0% no-repeat!important;transition:background-size 0.35s linear}\n" +
       "#" + WRAPPER_ID + " .th-brand{color:#ffffff;width:25%;padding-top:24px;border-radius:16px 16px 0 0}\n" +
       "#" + WRAPPER_ID + " tr:last-child .cell-brand{padding-bottom:24px;border-radius:0 0 16px 16px}\n" +
       "#" + WRAPPER_ID + ".wigy-revealed .th-brand,#" + WRAPPER_ID + ".wigy-revealed .cell-brand{background-size:100% 100%!important}\n" +
@@ -1807,12 +1950,12 @@ window.WIGY_DOM = {
       "#" + WRAPPER_ID + ".wigy-revealed tr:nth-child(4) .cell-brand .icon-box{transition-delay:1.6s}\n" +
       "#" + WRAPPER_ID + ".wigy-revealed tr:nth-child(5) .cell-brand .icon-box{transition-delay:1.95s}\n" +
       "#" + WRAPPER_ID + ".wigy-revealed tr:nth-child(6) .cell-brand .icon-box{transition-delay:2.3s}\n" +
-      "#" + WRAPPER_ID + " .row-label{text-align:left;font-weight:800;font-size:15px;color:#222222;border-bottom:1px solid #f0f0f0;padding-left:25px}\n" +
-      "#" + WRAPPER_ID + " .cell-other{border-bottom:1px solid #f0f0f0}\n" +
+      "#" + WRAPPER_ID + " .row-label{text-align:left;font-weight:800;font-size:15px;color:#3B342F;border-bottom:1px solid #EFE7DA;padding-left:25px}\n" +
+      "#" + WRAPPER_ID + " .cell-other{border-bottom:1px solid #EFE7DA}\n" +
       "#" + WRAPPER_ID + " tr:last-child .row-label,#" + WRAPPER_ID + " tr:last-child .cell-other{border-bottom:none}\n" +
       "#" + WRAPPER_ID + " .icon-box{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%}\n" +
-      "#" + WRAPPER_ID + " .icon-check{background:#ffffff;color:#0A0A0A;box-shadow:0 4px 10px rgba(0,0,0,0.15)}\n" +
-      "#" + WRAPPER_ID + " .icon-cross{background:#f1f5f9;color:#E10600}\n" +
+      "#" + WRAPPER_ID + " .icon-check{background:#ffffff;color:#2F2A26;box-shadow:0 4px 10px rgba(0,0,0,0.15)}\n" +
+      "#" + WRAPPER_ID + " .icon-cross{background:#f1f5f9;color:#C65D3B}\n" +
       "#" + WRAPPER_ID + " .icon-box svg{width:16px;height:16px}\n" +
       "@media(max-width:768px){#" + WRAPPER_ID + "{padding:15px 10px 40px 10px}#" + WRAPPER_ID + " .comp-title{font-size:28px}#" + WRAPPER_ID + " .comp-subtitle{font-size:14px;margin-bottom:25px;padding:0 10px}#" + WRAPPER_ID + " th,#" + WRAPPER_ID + " td{padding:14px 6px}#" + WRAPPER_ID + " th{font-size:17px}#" + WRAPPER_ID + " .row-label{font-size:13.5px;padding-left:12px}}";
     var st = document.createElement("style");
@@ -1824,12 +1967,12 @@ window.WIGY_DOM = {
   function buildHTML() {
     var iconCheck = '<div class="icon-box icon-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>';
     var iconCross = '<div class="icon-box icon-cross"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></div>';
-    var rows = ["Cómodas todo el día", "Plantilla que amortigua", "Livianas y respirables", "Suela antideslizante", "No se despegan a los meses", "Cambio de talle gratis"];
+    var rows = ["Base rígida que no se deforma", "Manijas reforzadas", "Plegables: no ocupan lugar vacías", "3 medidas por set", "Lindas a la vista", "Guía de orden de regalo"];
     var rowsHTML = "";
     rows.forEach(function(label) {
       rowsHTML += '<tr><td class="row-label">' + label + '</td><td class="cell-brand">' + iconCheck + '</td><td class="cell-other">' + iconCross + '</td></tr>';
     });
-    return '<h2 class="comp-title">¿Por qué elegir VANTA?</h2><p class="comp-subtitle">La diferencia entre unas zapatillas que usás una vez y unas que no te querés sacar.</p><div class="comp-table-wrapper"><table class="wigy-cmp-table"><thead><tr><th class="th-empty">&nbsp;</th><th class="th-brand">VANTA</th><th class="th-other">Comunes</th></tr></thead><tbody>' + rowsHTML + '</tbody></table></div>';
+    return '<h2 class="comp-title">¿Por qué elegir ORDI?</h2><p class="comp-subtitle">La diferencia entre ordenar una vez y que el orden dure.</p><div class="comp-table-wrapper"><table class="wigy-cmp-table"><thead><tr><th class="th-empty">&nbsp;</th><th class="th-brand">ORDI</th><th class="th-other">Cajas comunes</th></tr></thead><tbody>' + rowsHTML + '</tbody></table></div>';
   }
 
   function positionOverlay(wrapper) {
@@ -1892,7 +2035,7 @@ window.WIGY_DOM = {
 
   function injectStyleOnce() {
     if (document.getElementById(WRAPPER_ID + "-style")) return;
-    var css = "@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&display=swap');\n#" + WRAPPER_ID + "{width:100%;max-width:1200px;margin:40px auto 60px auto;padding:0 15px;box-sizing:border-box;font-family:'Archivo','Montserrat',sans-serif;overflow:hidden}\n#" + WRAPPER_ID + " .title-with-highlight{font-family:'Archivo','Montserrat',sans-serif;font-size:38px;font-weight:900;text-align:center;margin-bottom:45px;line-height:1.25;letter-spacing:-1px;background:linear-gradient(135deg,#0A0A0A 0%,#4A4A4A 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;color:transparent;display:block;padding:0 15px}\n#" + WRAPPER_ID + " .splide-wrapper{position:relative;padding:0 60px}\n#" + WRAPPER_ID + " .splide__track{overflow:hidden;width:100%;padding:10px 0}\n#" + WRAPPER_ID + " .splide__list{display:flex;transition:transform 0.5s cubic-bezier(0.25,1,0.5,1);margin:0;padding:0;list-style:none;touch-action:pan-y}\n#" + WRAPPER_ID + " .splide__slide{flex:0 0 100%;padding:0 15px;box-sizing:border-box;opacity:0;transform:translateY(50px) scale(0.95);transition:opacity 0.6s ease,transform 0.6s cubic-bezier(0.175,0.885,0.32,1.275)}\n@media(min-width:768px){#" + WRAPPER_ID + " .splide__slide{flex:0 0 33.3333%}}\n#" + WRAPPER_ID + " .splide__slide.is-visible-animated{opacity:1;transform:none}\n#" + WRAPPER_ID + " .multicolumn-card{background:#ffffff;border-radius:20px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,0.06);border:1px solid rgba(0,0,0,0.04);display:flex;flex-direction:column;height:100%;transition:transform 0.3s ease,box-shadow 0.3s ease}\n#" + WRAPPER_ID + " .multicolumn-card:hover{transform:translateY(-8px);box-shadow:0 16px 40px rgba(17,17,17,0.15);border-color:rgba(110,110,110,0.3)}\n#" + WRAPPER_ID + " .multicolumn-card__image-wrapper{position:relative;width:100%;padding-top:100%;background:#f4f4f4}\n#" + WRAPPER_ID + " .multicolumn-card__image{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover}\n#" + WRAPPER_ID + " .multicolumn-card__info{padding:25px 20px;flex:1;display:flex;flex-direction:column;text-align:center;background:#ffffff}\n#" + WRAPPER_ID + " .rating-stars-and-text{display:flex;justify-content:center;margin-bottom:15px;color:#4A4A4A}\n#" + WRAPPER_ID + " .rating-stars__container{display:flex;gap:4px}\n#" + WRAPPER_ID + " .rating-stars__container svg{width:18px;height:18px}\n#" + WRAPPER_ID + " h3{font-size:20px;font-weight:800;color:#0A0A0A;margin:0 0 10px 0}\n#" + WRAPPER_ID + " .rte p{font-size:15px;color:#555555;line-height:1.6;margin:0 0 18px 0}\n#" + WRAPPER_ID + " .testimonial-card__author{font-size:15px;font-weight:800;color:#0A0A0A;margin-top:auto}\n#" + WRAPPER_ID + " .splide__arrow{position:absolute;top:50%;transform:translateY(-50%);width:50px;height:50px;border-radius:50%;background:#ffffff;border:1px solid #eaeaea;box-shadow:0 8px 20px rgba(0,0,0,0.12);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.2s;padding:0;z-index:10}\n#" + WRAPPER_ID + " .splide__arrow--prev{left:0}\n#" + WRAPPER_ID + " .splide__arrow--next{right:0}\n#" + WRAPPER_ID + " .splide__arrow:hover:not(:disabled){background:#0A0A0A;border-color:#0A0A0A;transform:translateY(-50%) scale(1.1)}\n#" + WRAPPER_ID + " .splide__arrow svg{width:18px;height:18px;transition:0.2s;fill:#111}\n#" + WRAPPER_ID + " .splide__arrow:hover:not(:disabled) svg{fill:#ffffff}\n#" + WRAPPER_ID + " .splide__arrow:disabled{opacity:0.3;cursor:not-allowed}\n#" + WRAPPER_ID + " .splide__arrow--prev svg{transform:rotate(180deg)}\n#" + WRAPPER_ID + " .splide__pagination{display:flex;justify-content:center;gap:10px;list-style:none;padding:0;margin-top:25px}\n#" + WRAPPER_ID + " .splide__pagination__page{width:10px;height:10px;border-radius:50%;background:#d1d5db;border:none;cursor:pointer;transition:0.3s;padding:0}\n#" + WRAPPER_ID + " .splide__pagination__page.is-active{background:#0A0A0A;transform:scale(1.4)}\n#" + WRAPPER_ID + " .testimonial-verified{display:inline-flex;align-self:center;justify-content:center;align-items:center;gap:4px;margin-top:8px;font-size:12px;font-weight:700;color:#0A0A0A;line-height:1}\n#" + WRAPPER_ID + " .testimonial-verified svg{width:14px;height:14px;flex:0 0 auto}\n#" + WRAPPER_ID + " .testimonial-fit{display:inline-block;align-self:center;margin:0 0 10px 0;padding:4px 10px;border-radius:4px;background:#F4F4F2;color:#0A0A0A;font-size:11.5px;font-weight:700;text-transform:uppercase;letter-spacing:.4px}\n#" + WRAPPER_ID + " .wigy-verified-clients-bar{display:flex;align-items:center;justify-content:center;gap:6px;margin-bottom:12px;font-size:13px;font-weight:700;color:#0A0A0A;letter-spacing:0.3px}\n#" + WRAPPER_ID + " .wigy-verified-clients-bar svg{width:16px;height:16px;flex:0 0 auto}\n@media(max-width:768px){#" + WRAPPER_ID + "{margin:30px auto 40px auto}#" + WRAPPER_ID + " .title-with-highlight{font-size:28px;margin-bottom:25px}#" + WRAPPER_ID + " .splide-wrapper{padding:0 15px}#" + WRAPPER_ID + " .splide__arrow{width:40px;height:40px}#" + WRAPPER_ID + " .splide__arrow--prev{left:-5px}#" + WRAPPER_ID + " .splide__arrow--next{right:-5px}#" + WRAPPER_ID + " h3{font-size:18px}#" + WRAPPER_ID + " .rte p{font-size:14.5px}}";
+    var css = "@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&display=swap');\n#" + WRAPPER_ID + "{width:100%;max-width:1200px;margin:40px auto 60px auto;padding:0 15px;box-sizing:border-box;font-family:var(--vd-font-body);overflow:hidden}\n#" + WRAPPER_ID + " .title-with-highlight{font-family:var(--vd-font-body);font-size:38px;font-weight:900;text-align:center;margin-bottom:45px;line-height:1.25;letter-spacing:-1px;background:linear-gradient(135deg,#2F2A26 0%,#A8896B 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;color:transparent;display:block;padding:0 15px}\n#" + WRAPPER_ID + " .splide-wrapper{position:relative;padding:0 60px}\n#" + WRAPPER_ID + " .splide__track{overflow:hidden;width:100%;padding:10px 0}\n#" + WRAPPER_ID + " .splide__list{display:flex;transition:transform 0.5s cubic-bezier(0.25,1,0.5,1);margin:0;padding:0;list-style:none;touch-action:pan-y}\n#" + WRAPPER_ID + " .splide__slide{flex:0 0 100%;padding:0 15px;box-sizing:border-box;opacity:0;transform:translateY(50px) scale(0.95);transition:opacity 0.6s ease,transform 0.6s cubic-bezier(0.175,0.885,0.32,1.275)}\n@media(min-width:768px){#" + WRAPPER_ID + " .splide__slide{flex:0 0 33.3333%}}\n#" + WRAPPER_ID + " .splide__slide.is-visible-animated{opacity:1;transform:none}\n#" + WRAPPER_ID + " .multicolumn-card{background:#ffffff;border-radius:20px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,0.06);border:1px solid rgba(0,0,0,0.04);display:flex;flex-direction:column;height:100%;transition:transform 0.3s ease,box-shadow 0.3s ease}\n#" + WRAPPER_ID + " .multicolumn-card:hover{transform:translateY(-8px);box-shadow:0 16px 40px rgba(47,42,38,0.15);border-color:rgba(168,137,107,0.3)}\n#" + WRAPPER_ID + " .multicolumn-card__image-wrapper{position:relative;width:100%;padding-top:100%;background:#f4f4f4}\n#" + WRAPPER_ID + " .multicolumn-card__image{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover}\n#" + WRAPPER_ID + " .multicolumn-card__info{padding:25px 20px;flex:1;display:flex;flex-direction:column;text-align:center;background:#ffffff}\n#" + WRAPPER_ID + " .rating-stars-and-text{display:flex;justify-content:center;margin-bottom:15px;color:#A8896B}\n#" + WRAPPER_ID + " .rating-stars__container{display:flex;gap:4px}\n#" + WRAPPER_ID + " .rating-stars__container svg{width:18px;height:18px}\n#" + WRAPPER_ID + " h3{font-size:20px;font-weight:800;color:#2F2A26;margin:0 0 10px 0}\n#" + WRAPPER_ID + " .rte p{font-size:15px;color:#555555;line-height:1.6;margin:0 0 18px 0}\n#" + WRAPPER_ID + " .testimonial-card__author{font-size:15px;font-weight:800;color:#2F2A26;margin-top:auto}\n#" + WRAPPER_ID + " .splide__arrow{position:absolute;top:50%;transform:translateY(-50%);width:50px;height:50px;border-radius:50%;background:#ffffff;border:1px solid #eaeaea;box-shadow:0 8px 20px rgba(0,0,0,0.12);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.2s;padding:0;z-index:10}\n#" + WRAPPER_ID + " .splide__arrow--prev{left:0}\n#" + WRAPPER_ID + " .splide__arrow--next{right:0}\n#" + WRAPPER_ID + " .splide__arrow:hover:not(:disabled){background:#2F2A26;border-color:#2F2A26;transform:translateY(-50%) scale(1.1)}\n#" + WRAPPER_ID + " .splide__arrow svg{width:18px;height:18px;transition:0.2s;fill:#111}\n#" + WRAPPER_ID + " .splide__arrow:hover:not(:disabled) svg{fill:#ffffff}\n#" + WRAPPER_ID + " .splide__arrow:disabled{opacity:0.3;cursor:not-allowed}\n#" + WRAPPER_ID + " .splide__arrow--prev svg{transform:rotate(180deg)}\n#" + WRAPPER_ID + " .splide__pagination{display:flex;justify-content:center;gap:10px;list-style:none;padding:0;margin-top:25px}\n#" + WRAPPER_ID + " .splide__pagination__page{width:10px;height:10px;border-radius:50%;background:#d1d5db;border:none;cursor:pointer;transition:0.3s;padding:0}\n#" + WRAPPER_ID + " .splide__pagination__page.is-active{background:#2F2A26;transform:scale(1.4)}\n#" + WRAPPER_ID + " .testimonial-verified{display:inline-flex;align-self:center;justify-content:center;align-items:center;gap:4px;margin-top:8px;font-size:12px;font-weight:700;color:#2F2A26;line-height:1}\n#" + WRAPPER_ID + " .testimonial-verified svg{width:14px;height:14px;flex:0 0 auto}\n#" + WRAPPER_ID + " .testimonial-fit{display:inline-block;align-self:center;margin:0 0 10px 0;padding:4px 10px;border-radius:99px;background:#F5F0E8;color:#2F2A26;font-size:12px;font-weight:600}\n#" + WRAPPER_ID + " .wigy-verified-clients-bar{display:flex;align-items:center;justify-content:center;gap:6px;margin-bottom:12px;font-size:13px;font-weight:700;color:#2F2A26;letter-spacing:0.3px}\n#" + WRAPPER_ID + " .wigy-verified-clients-bar svg{width:16px;height:16px;flex:0 0 auto}\n@media(max-width:768px){#" + WRAPPER_ID + "{margin:30px auto 40px auto}#" + WRAPPER_ID + " .title-with-highlight{font-size:28px;margin-bottom:25px}#" + WRAPPER_ID + " .splide-wrapper{padding:0 15px}#" + WRAPPER_ID + " .splide__arrow{width:40px;height:40px}#" + WRAPPER_ID + " .splide__arrow--prev{left:-5px}#" + WRAPPER_ID + " .splide__arrow--next{right:-5px}#" + WRAPPER_ID + " h3{font-size:18px}#" + WRAPPER_ID + " .rte p{font-size:14.5px}}";
     var st = document.createElement("style");
     st.id = WRAPPER_ID + "-style";
     st.innerHTML = css;
@@ -1908,14 +2051,14 @@ window.WIGY_DOM = {
   function buildHTML() {
     var cfgTest = window.WIGY_CONFIG.testimonios;
     var cards = cfgTest.map(function(t) {
-      return { img: t.foto, alt: t.nombre, title: t.titulo, text: t.texto, author: t.nombre, fit: [t.talle ? 'Talle ' + t.talle : '', t.calce ? 'Calce ' + t.calce.toLowerCase() : ''].filter(Boolean).join(' \u00B7 ') };
+      return { img: t.foto, alt: t.nombre, title: t.titulo, text: t.texto, author: t.nombre, fit: t.ambiente ? 'Lo usa en: ' + t.ambiente : '' };
     });
 
     var cardsHTML = cards.map(function(c) {
       var hasImg = c.img && c.img.indexOf('\u26A0\uFE0F') === -1;
       var media = hasImg
         ? '<img src="' + c.img + '" alt="' + c.alt + '" loading="eager" class="multicolumn-card__image">'
-        : '<div class="multicolumn-card__image" style="display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#0A0A0A,#4A4A4A);color:#fff;font-size:72px;font-weight:700;font-family:var(--vd-font-title)">' + (c.author || '?').charAt(0).toUpperCase() + '</div>';
+        : '<div class="multicolumn-card__image" style="display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#2F2A26,#A8896B);color:#fff;font-size:72px;font-weight:700;font-family:var(--vd-font-title)">' + (c.author || '?').charAt(0).toUpperCase() + '</div>';
       return '<li class="splide__slide"><div class="multicolumn-card"><div class="multicolumn-card__image-wrapper">' + media + '</div><div class="multicolumn-card__info">' + STARS_5 + (c.fit ? '<span class="testimonial-fit">' + c.fit + '</span>' : '') + '<h3>' + c.title + '</h3><div class="rte"><p>' + c.text + '</p></div><p class="testimonial-card__author">' + c.author + '</p><span class="testimonial-verified">' + VERIFIED_SVG + ' Compra verificada</span></div></div></li>';
     }).join('');
 
@@ -1925,7 +2068,7 @@ window.WIGY_DOM = {
 
     var verifiedBarSvg = '<svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-1.09 14.41l-3.5-3.5 1.41-1.41 2.09 2.09 5.18-5.18 1.41 1.41-6.59 6.59z"/></svg>';
 
-    return '<h2 class="title-with-highlight">👟 Nuestros clientes: comodidad que se nota en cada paso</h2><div class="wigy-verified-clients-bar">' + verifiedBarSvg + (window.WIGY_CONFIG.rating && window.WIGY_CONFIG.rating.clientes ? ' +' + Number(window.WIGY_CONFIG.rating.clientes).toLocaleString("es-AR") + ' clientes verificados' : ' Clientes verificados') + '</div><div class="splide-wrapper"><button class="splide__arrow splide__arrow--prev" type="button">' + ARROW_SVG + '</button><button class="splide__arrow splide__arrow--next" type="button">' + ARROW_SVG + '</button><div class="splide__track"><ul class="splide__list">' + cardsHTML + '</ul></div><ul class="splide__pagination">' + dotsHTML + '</ul></div>';
+    return '<h2 class="title-with-highlight">Casas más ordenadas, gente más tranquila</h2><div class="wigy-verified-clients-bar">' + verifiedBarSvg + (window.WIGY_CONFIG.rating && window.WIGY_CONFIG.rating.clientes ? ' +' + Number(window.WIGY_CONFIG.rating.clientes).toLocaleString("es-AR") + ' clientes verificados' : ' Clientes verificados') + '</div><div class="splide-wrapper"><button class="splide__arrow splide__arrow--prev" type="button">' + ARROW_SVG + '</button><button class="splide__arrow splide__arrow--next" type="button">' + ARROW_SVG + '</button><div class="splide__track"><ul class="splide__list">' + cardsHTML + '</ul></div><ul class="splide__pagination">' + dotsHTML + '</ul></div>';
   }
 
   function initTestimonialsSlider(wrapper) {
@@ -2024,7 +2167,161 @@ window.WIGY_DOM = {
 })();
 </script>
 <!-- ================================================================
-     BLOQUE 17: FAQs CON DISEÑO DE OLAS VANTA (al final)
+     BLOQUE 3B: "TU COMPRA INCLUYE" (WIGY_CONFIG.incluye)
+     Caja de valor agregado arriba de la garantía. Lista vacía → no se muestra.
+     ================================================================ -->
+<script>
+(function() {
+  if (window.WIGY_SLUG_BLOCK) return;
+  var ID = "wigy-incluye-box";
+
+  function injectStyleOnce() {
+    if (document.getElementById(ID + "-style")) return;
+    var css =
+      "#" + ID + "{width:100%;max-width:520px;margin:10px auto 6px auto;border:1px solid rgba(0,0,0,.08);border-radius:12px;background:#fff;overflow:hidden;box-sizing:border-box}" +
+      "#" + ID + " .inc-head{background:var(--vd-green);color:#fff;font-family:var(--vd-font-title);font-weight:700;font-size:13px;letter-spacing:.4px;text-transform:uppercase;padding:9px 14px}" +
+      "#" + ID + " .inc-list{list-style:none;margin:0;padding:6px 14px;display:grid;grid-template-columns:1fr 1fr;gap:4px 14px}" +
+      "#" + ID + " .inc-item{display:flex;gap:10px;align-items:flex-start;padding:8px 0;margin:0}" +
+      "#" + ID + " .inc-ico{font-size:20px;line-height:1;flex:0 0 auto}" +
+      "#" + ID + " .inc-t{display:block;font-size:13px;font-weight:700;color:#111;line-height:1.25}" +
+      "#" + ID + " .inc-d{display:block;font-size:12px;color:#666;line-height:1.35;margin-top:2px}" +
+      "@media(max-width:480px){#" + ID + " .inc-list{grid-template-columns:1fr}}";
+    var st = document.createElement("style");
+    st.id = ID + "-style";
+    st.textContent = css;
+    document.head.appendChild(st);
+  }
+
+  function mount() {
+    if (document.getElementById(ID)) return true;
+    var items = (window.WIGY_CONFIG && window.WIGY_CONFIG.incluye) || [];
+    if (!items.length) return true;
+    var warranty = document.getElementById("wigy-garantia-box");
+    if (!warranty) return false;
+    injectStyleOnce();
+    var box = document.createElement("div");
+    box.id = ID;
+    box.innerHTML = '<div class="inc-head">Tu compra incluye</div><ul class="inc-list">' + items.map(function(i) {
+      return '<li class="inc-item"><span class="inc-ico" aria-hidden="true">' + (i.icono || '✔️') + '</span><span><span class="inc-t">' + i.titulo + '</span>' + (i.texto ? '<span class="inc-d">' + i.texto + '</span>' : '') + '</span></li>';
+    }).join('') + '</ul>';
+    warranty.insertAdjacentElement("beforebegin", box);
+    return true;
+  }
+
+  var tries = 0;
+  var t = setInterval(function() { tries++; if (mount() || tries >= 80) clearInterval(t); }, 250);
+})();
+</script>
+<!-- ================================================================
+     BLOQUE 16B: PRUEBA SOCIAL — Resumen de reseñas + Fotos de clientes
+     · Resumen (WIGY_CONFIG.resumenResenas): promedio, barras por estrella
+       y "% lo recomienda". Arriba del slider de testimonios.
+     · Fotos de clientes (WIGY_CONFIG.fotosClientes): muro de fotos,
+       debajo del slider. Sin datos/fotos válidas → no se muestran.
+     ================================================================ -->
+<script>
+(function() {
+  if (window.WIGY_SLUG_BLOCK) return;
+  var SUM_ID = "wigy-reviews-summary";
+  var UGC_ID = "wigy-ugc-wall";
+
+  function injectStyleOnce() {
+    if (document.getElementById(SUM_ID + "-style")) return;
+    var css =
+      "#" + SUM_ID + "{max-width:760px;margin:0 auto 34px auto;padding:22px 24px;background:#fff;border:1px solid rgba(0,0,0,.07);border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.05);display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center;box-sizing:border-box;font-family:var(--vd-font-body)}" +
+      "#" + SUM_ID + " .rs-score{text-align:center;min-width:150px}" +
+      "#" + SUM_ID + " .rs-num{font-family:var(--vd-font-title);font-size:52px;font-weight:800;line-height:1;color:#111}" +
+      "#" + SUM_ID + " .rs-stars{display:flex;justify-content:center;gap:2px;margin:8px 0 6px;color:#F4B400}" +
+      "#" + SUM_ID + " .rs-stars svg{width:18px;height:18px}" +
+      "#" + SUM_ID + " .rs-total{font-size:13px;color:#666}" +
+      "#" + SUM_ID + " .rs-rec{display:inline-flex;align-items:center;gap:6px;margin-top:10px;padding:5px 10px;border-radius:99px;background:var(--vd-bg);color:var(--vd-green);font-size:12.5px;font-weight:700}" +
+      "#" + SUM_ID + " .rs-rows{display:flex;flex-direction:column;gap:7px}" +
+      "#" + SUM_ID + " .rs-row{display:grid;grid-template-columns:34px 1fr 38px;align-items:center;gap:10px;font-size:13px;color:#444}" +
+      "#" + SUM_ID + " .rs-row b{font-weight:700;white-space:nowrap}" +
+      "#" + SUM_ID + " .rs-bar{height:8px;border-radius:99px;background:#eee;overflow:hidden}" +
+      "#" + SUM_ID + " .rs-fill{display:block;height:100%;width:0;border-radius:99px;background:#F4B400;transition:width 1.1s cubic-bezier(.2,.8,.2,1)}" +
+      "#" + SUM_ID + " .rs-n{text-align:right;color:#888}" +
+      "#" + UGC_ID + "{max-width:1100px;margin:34px auto 0 auto;padding:0 15px;box-sizing:border-box;text-align:center}" +
+      "#" + UGC_ID + " .ugc-title{font-family:var(--vd-font-title);font-size:20px;font-weight:700;color:#111;margin:0 0 4px}" +
+      "#" + UGC_ID + " .ugc-sub{font-size:14px;color:#666;margin:0 0 16px}" +
+      "#" + UGC_ID + " .ugc-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:8px}" +
+      "#" + UGC_ID + " .ugc-item{position:relative;aspect-ratio:1/1;border-radius:10px;overflow:hidden;background:#eee;margin:0}" +
+      "#" + UGC_ID + " .ugc-item img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}" +
+      "#" + UGC_ID + " .ugc-item figcaption{position:absolute;left:6px;bottom:6px;background:rgba(255,255,255,.92);color:#111;font-size:11px;font-weight:700;padding:3px 7px;border-radius:99px}" +
+      "@media(max-width:768px){" +
+        "#" + SUM_ID + "{grid-template-columns:1fr;gap:18px;padding:18px 16px;margin-bottom:26px}" +
+        "#" + UGC_ID + " .ugc-grid{grid-template-columns:repeat(3,1fr);gap:6px}" +
+      "}";
+    var st = document.createElement("style");
+    st.id = SUM_ID + "-style";
+    st.textContent = css;
+    document.head.appendChild(st);
+  }
+
+  var STAR = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.27 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg>';
+
+  function buildSummary(cfg) {
+    var counts = (cfg.estrellas || []).slice(0, 5);
+    while (counts.length < 5) counts.push(0);
+    var total = counts.reduce(function(a, b) { return a + (+b || 0); }, 0);
+    if (!total) return null;
+    var avg = (counts[0] * 5 + counts[1] * 4 + counts[2] * 3 + counts[3] * 2 + counts[4]) / total;
+    var el = document.createElement("div");
+    el.id = SUM_ID;
+    el.innerHTML =
+      '<div class="rs-score"><div class="rs-num">' + avg.toFixed(1).replace(".", ",") + '</div>' +
+        '<div class="rs-stars">' + STAR.repeat(5) + '</div>' +
+        '<div class="rs-total">Basado en ' + total.toLocaleString("es-AR") + ' reseñas</div>' +
+        (cfg.recomiendan ? '<div class="rs-rec">\u{1F44D} ' + cfg.recomiendan + '% lo recomienda</div>' : '') +
+      '</div>' +
+      '<div class="rs-rows">' + counts.map(function(c, i) {
+        var pct = Math.round((+c || 0) * 100 / total);
+        return '<div class="rs-row"><b>' + (5 - i) + ' ★</b><span class="rs-bar"><span class="rs-fill" data-w="' + pct + '%"></span></span><span class="rs-n">' + (+c || 0) + '</span></div>';
+      }).join('') + '</div>';
+    return el;
+  }
+
+  function buildUgc(fotos) {
+    var ok = (fotos || []).filter(function(f) { return f && f.src && f.src.indexOf("⚠️") === -1; });
+    if (!ok.length) return null;
+    var el = document.createElement("div");
+    el.id = UGC_ID;
+    el.innerHTML = '<p class="ugc-title">Fotos de nuestros clientes</p><p class="ugc-sub">Compras reales, en casas reales \u{1F4F8}</p>' +
+      '<div class="ugc-grid">' + ok.map(function(f) {
+        return '<figure class="ugc-item"><img src="' + f.src + '" alt="Foto de ' + (f.nombre || 'cliente') + '" loading="lazy">' + (f.nombre ? '<figcaption>' + f.nombre + '</figcaption>' : '') + '</figure>';
+      }).join('') + '</div>';
+    return el;
+  }
+
+  function mount() {
+    if (document.getElementById(SUM_ID) || document.getElementById(UGC_ID) || window.__wigySocialDone) return true;
+    var wrap = document.getElementById("wigy-testimonials-slider-standalone");
+    if (!wrap) return false;
+    window.__wigySocialDone = true;
+    var cfg = window.WIGY_CONFIG || {};
+    injectStyleOnce();
+    var sum = cfg.resumenResenas ? buildSummary(cfg.resumenResenas) : null;
+    if (sum) {
+      var slider = wrap.querySelector(".splide-wrapper");
+      wrap.insertBefore(sum, slider || wrap.firstChild);
+      var io = new IntersectionObserver(function(entries, o) {
+        if (!entries[0].isIntersecting) return;
+        o.disconnect();
+        sum.querySelectorAll(".rs-fill").forEach(function(f) { f.style.width = f.getAttribute("data-w"); });
+      }, { threshold: 0.3 });
+      io.observe(sum);
+    }
+    var ugc = buildUgc(cfg.fotosClientes);
+    if (ugc) wrap.appendChild(ugc);
+    return true;
+  }
+
+  var tries = 0;
+  var t = setInterval(function() { tries++; if (mount() || tries >= 120) clearInterval(t); }, 250);
+})();
+</script>
+<!-- ================================================================
+     BLOQUE 17: FAQs CON DISEÑO DE OLAS ORDI (al final)
      ================================================================ -->
 <script>
 (function() {
@@ -2061,7 +2358,7 @@ window.WIGY_DOM = {
       loadMaterialIcons();
 
       var STYLE_KEY = "wigy-shopify-faqs-style-standalone";
-      var css = "@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');\n#wigy-shopify-faqs-standalone{width:100%;margin-top:18px;--faq-bg:#0A0A0A;--wave-color-1:rgba(110,110,110,0.3);--wave-color-2:rgba(110,110,110,0.6);--wave-color-3:#4A4A4A;font-family:inherit;clear:both}\n.wigy-section-divider{width:100%;line-height:0;display:block}\n.wigy-section-divider__svg{width:100%;display:block}\n.waves-animated-1{width:100%;height:25px;display:block}\n@media(min-width:768px){.waves-animated-1{height:35px}}\n.parallax1>use{animation:move-forever 25s cubic-bezier(.55,.5,.45,.5) infinite;animation-delay:-2s;animation-duration:7s}\n.parallax2>use{animation:move-forever 25s cubic-bezier(.55,.5,.45,.5) infinite;animation-delay:-3s;animation-duration:10s}\n.parallax3>use{animation:move-forever 25s cubic-bezier(.55,.5,.45,.5) infinite;animation-delay:-4s;animation-duration:13s}\n.parallax4>use{animation:move-forever 25s cubic-bezier(.55,.5,.45,.5) infinite;animation-delay:-5s;animation-duration:20s}\n@keyframes move-forever{0%{transform:translate3d(-90px,0,0)}100%{transform:translate3d(85px,0,0)}}\n.wigy-faqs-body{background-color:var(--faq-bg);padding:28px 20px 36px 20px;font-family:'Inter','Lato',sans-serif}\n.wigy-faqs-inner{max-width:720px;margin:0 auto}\n#wigy-shopify-faqs-standalone .wigy-faqs-title{text-align:center;font-size:12px!important;font-weight:600!important;color:#FFFFFF;margin:0 0 18px 0;letter-spacing:2px!important;text-transform:uppercase;opacity:.9}\n.wigy-accordion{border-top:1px solid rgba(255,255,255,0.15)}\n.wigy-accordion:last-child{border-bottom:1px solid rgba(255,255,255,0.15)}\n.wigy-accordion details{margin:0;padding:0}\n.wigy-accordion summary{display:flex;justify-content:space-between;align-items:center;padding:16px 0;cursor:pointer;list-style:none;outline:none;transition:opacity 0.2s ease}\n.wigy-accordion summary:hover{opacity:0.8}\n.wigy-accordion summary::-webkit-details-marker{display:none}\n.wigy-summary-title{display:flex;align-items:center;gap:12px}\n.wigy-summary-title{min-width:0;flex:1 1 auto}\n.wigy-summary-title .material-icon{font-size:22px;font-variation-settings:'FILL' 0,'wght' 300,'GRAD' 0,'opsz' 24;flex:0 0 26px;overflow:hidden;white-space:nowrap}\n.wigy-summary-title img,.wigy-summary-title .material-icon{width:26px;height:26px;object-fit:contain;color:#FFFFFF;display:flex;align-items:center;justify-content:center}\n.wigy-summary-title img{filter:brightness(0) invert(1)}\n#wigy-shopify-faqs-standalone .wigy-accordion h2{margin:0;font-size:15px;font-weight:500!important;letter-spacing:0!important;line-height:1.4;color:#FFFFFF}\n.wigy-icon-caret{width:14px;height:14px;transition:transform 0.3s cubic-bezier(0.4,0,0.2,1);color:#FFFFFF;flex:0 0 auto}\n.wigy-accordion details[open] summary .wigy-icon-caret{transform:rotate(180deg)}\n.wigy-accordion-content{font-size:14.5px;color:rgba(255,255,255,0.88);line-height:1.6;padding:0 0 18px 38px}\n@media(max-width:768px){.wigy-faqs-body{padding:20px 16px 28px 16px}#wigy-shopify-faqs-standalone .wigy-accordion h2{font-size:14px}.wigy-accordion-content{padding-left:0}}\n.wigy-accordion-content p{margin:0 0 10px 0}\n.wigy-accordion-content p:last-child{margin-bottom:0}\n.wigy-accordion-content strong{color:#FFFFFF;font-weight:800}";
+      var css = "@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');\n#wigy-shopify-faqs-standalone{width:100%;margin-top:18px;--faq-bg:#2F2A26;--wave-color-1:rgba(168,137,107,0.3);--wave-color-2:rgba(168,137,107,0.6);--wave-color-3:#A8896B;font-family:inherit;clear:both}\n.wigy-section-divider{width:100%;line-height:0;display:block}\n.wigy-section-divider__svg{width:100%;display:block}\n.waves-animated-1{width:100%;height:25px;display:block}\n@media(min-width:768px){.waves-animated-1{height:35px}}\n.parallax1>use{animation:move-forever 25s cubic-bezier(.55,.5,.45,.5) infinite;animation-delay:-2s;animation-duration:7s}\n.parallax2>use{animation:move-forever 25s cubic-bezier(.55,.5,.45,.5) infinite;animation-delay:-3s;animation-duration:10s}\n.parallax3>use{animation:move-forever 25s cubic-bezier(.55,.5,.45,.5) infinite;animation-delay:-4s;animation-duration:13s}\n.parallax4>use{animation:move-forever 25s cubic-bezier(.55,.5,.45,.5) infinite;animation-delay:-5s;animation-duration:20s}\n@keyframes move-forever{0%{transform:translate3d(-90px,0,0)}100%{transform:translate3d(85px,0,0)}}\n.wigy-faqs-body{background-color:var(--faq-bg);padding:28px 20px 36px 20px;font-family:'DM Sans','Lato',sans-serif}\n.wigy-faqs-inner{max-width:720px;margin:0 auto}\n#wigy-shopify-faqs-standalone .wigy-faqs-title{text-align:center;font-size:12px!important;font-weight:600!important;color:#FFFFFF;margin:0 0 18px 0;letter-spacing:2px!important;text-transform:uppercase;opacity:.9}\n.wigy-accordion{border-top:1px solid rgba(255,255,255,0.15)}\n.wigy-accordion:last-child{border-bottom:1px solid rgba(255,255,255,0.15)}\n.wigy-accordion details{margin:0;padding:0}\n.wigy-accordion summary{display:flex;justify-content:space-between;align-items:center;padding:16px 0;cursor:pointer;list-style:none;outline:none;transition:opacity 0.2s ease}\n.wigy-accordion summary:hover{opacity:0.8}\n.wigy-accordion summary::-webkit-details-marker{display:none}\n.wigy-summary-title{display:flex;align-items:center;gap:12px}\n.wigy-summary-title{min-width:0;flex:1 1 auto}\n.wigy-summary-title .material-icon{font-size:22px;font-variation-settings:'FILL' 0,'wght' 300,'GRAD' 0,'opsz' 24;flex:0 0 26px;overflow:hidden;white-space:nowrap}\n.wigy-summary-title img,.wigy-summary-title .material-icon{width:26px;height:26px;object-fit:contain;color:#FFFFFF;display:flex;align-items:center;justify-content:center}\n.wigy-summary-title img{filter:brightness(0) invert(1)}\n#wigy-shopify-faqs-standalone .wigy-accordion h2{margin:0;font-size:15px;font-weight:500!important;letter-spacing:0!important;line-height:1.4;color:#FFFFFF}\n.wigy-icon-caret{width:14px;height:14px;transition:transform 0.3s cubic-bezier(0.4,0,0.2,1);color:#FFFFFF;flex:0 0 auto}\n.wigy-accordion details[open] summary .wigy-icon-caret{transform:rotate(180deg)}\n.wigy-accordion-content{font-size:14.5px;color:rgba(255,255,255,0.88);line-height:1.6;padding:0 0 18px 38px}\n@media(max-width:768px){.wigy-faqs-body{padding:20px 16px 28px 16px}#wigy-shopify-faqs-standalone .wigy-accordion h2{font-size:14px}.wigy-accordion-content{padding-left:0}}\n.wigy-accordion-content p{margin:0 0 10px 0}\n.wigy-accordion-content p:last-child{margin-bottom:0}\n.wigy-accordion-content strong{color:#FFFFFF;font-weight:800}";
 
       if (!document.querySelector('[data-wigy-style="' + STYLE_KEY + '"]')) {
         var style = document.createElement("style");
@@ -2074,11 +2371,11 @@ window.WIGY_DOM = {
       var caretSvg = '<svg aria-hidden="true" focusable="false" class="wigy-icon-caret" viewBox="0 0 10 6"><path fill-rule="evenodd" clip-rule="evenodd" d="M9.354.646a.5.5 0 00-.708 0L5 4.293 1.354.646a.5.5 0 00-.708.708l4 4a.5.5 0 00.708 0l4-4a.5.5 0 000-.708z" fill="currentColor"></path></svg>';
 
       var faqItems = [
-        { icon: '<span class="material-icon material-symbols-outlined">straighten</span>', question: "¿Cómo sé qué talle pedir?", answer: '<p>Calzan <strong>talle normal</strong>: pedí el mismo número que usás siempre. Hay talles del <strong>35 al 45</strong>. Si estás entre dos talles, te recomendamos <strong>el más grande</strong>. Y si igual no te queda, el <strong>cambio de talle es gratis</strong>.</p>' },
-        { icon: '<span class="material-icon material-symbols-outlined">swap_horiz</span>', question: "¿Y si no me quedan bien?", answer: '<p>Tranqui: tenés <strong>cambio de talle gratis</strong>. Escribinos por WhatsApp con tu número de pedido, coordinamos el retiro y te mandamos el talle correcto.</p>' },
-        { icon: '<span class="material-icon material-symbols-outlined">directions_walk</span>', question: "¿Son cómodas para estar todo el día?", answer: '<p>Sí, están pensadas para eso. Tienen <strong>plantilla acolchonada</strong> que amortigua cada paso y son <strong>livianas y respirables</strong>, así que podés usarlas para caminar, trabajar de pie o salir <strong>sin terminar con los pies cansados</strong>.</p>' },
-        { icon: '<span class="material-icon material-symbols-outlined">group</span>', question: "¿Son unisex? ¿Puedo combinar talles en un pack?", answer: '<p>Sí. El diseño es <strong>unisex</strong> y en los packs de 2 o 3 pares podés <strong>combinar talles y colores</strong>: ideal para compartir la promo con tu pareja, amigos o familia.</p>' },
-        { icon: '<span class="material-icon material-symbols-outlined">local_laundry_service</span>', question: "¿Cómo las limpio?", answer: '<p>Con un paño o cepillo suave, agua tibia y jabón neutro. Dejalas secar a la sombra. <strong>No uses lavarropas ni secarropas</strong> para que duren mucho más.</p>' },
+        { icon: '<span class="material-icon material-symbols-outlined">straighten</span>', question: "¿Qué medidas tienen? ¿Entran en mi placard?", answer: '<p>Cada set trae <strong>3 cajas</strong>: grande (40 × 30 × 25 cm), mediana (35 × 25 × 20 cm) y chica (30 × 20 × 15 cm). Te recomendamos <strong>medir el alto y el fondo</strong> de tus estantes: con esas 3 medidas se aprovecha casi cualquier placard.</p>' },
+        { icon: '<span class="material-icon material-symbols-outlined">inventory_2</span>', question: "¿Son firmes o se desarman?", answer: '<p>Son firmes: tienen <strong>base rígida</strong> que mantiene la forma aunque las llenes, y <strong>manijas reforzadas</strong> para sacarlas de estantes altos sin que se doblen.</p>' },
+        { icon: '<span class="material-icon material-symbols-outlined">unfold_less</span>', question: "¿Vienen armadas?", answer: '<p>Llegan <strong>plegadas</strong> para que el envío sea más barato y seguro. Se arman en segundos y sin herramientas. Y cuando no las usás, las volvés a plegar y no ocupan lugar.</p>' },
+        { icon: '<span class="material-icon material-symbols-outlined">menu_book</span>', question: "¿Qué es la guía de regalo?", answer: '<p>Es una <strong>guía digital paso a paso</strong> para ordenar tu placard en una tarde: cómo clasificar, cómo doblar en vertical y cómo mantener el orden. Viene de regalo con los <strong>packs de 2 y 3 sets</strong>.</p>' },
+        { icon: '<span class="material-icon material-symbols-outlined">cleaning_services</span>', question: "¿Cómo se limpian?", answer: '<p>Con un <strong>paño húmedo</strong> y, si hace falta, un poco de jabón neutro. No las metas en el lavarropas para que mantengan la forma.</p>' },
         { icon: '<span class="material-icon material-symbols-outlined">local_shipping</span>', question: "¿Cuánto tarda en llegar mi pedido?", answer: '<p>Despachamos dentro de las <strong>24 hs hábiles</strong> posteriores a la compra. Enviamos a todo el país y la entrega suele demorar entre <strong>2 y 3 días hábiles</strong>. Una vez despachado, te mandamos por mail o WhatsApp el código de seguimiento.</p>' },
         { icon: '<span class="material-icon material-symbols-outlined">payments</span>', question: "¿Cómo puedo pagar?", answer: '<p>Con tarjeta de crédito en <strong>3 cuotas sin interés</strong>, débito o Mercado Pago, en el checkout 100% seguro de Shopify.</p>' },
         { icon: '<span class="material-icon material-symbols-outlined">verified_user</span>', question: "¿Mi compra está garantizada?", answer: '<p>Sí. Tenés <strong>' + (function(){var d=(window.WIGY_CONFIG&&window.WIGY_CONFIG.garantiaDias)||0;return d?'Garant\u00EDa de '+d+' d\u00EDas':'Garant\u00EDa 100%';})() + '</strong>, pagos seguros y <strong>atención al cliente 24/7</strong>. Si algo no está bien con tu pedido, escribinos y lo resolvemos.</p>' }
@@ -2157,8 +2454,8 @@ window.WIGY_DOM = {
   var ID = "wigy-sticky-atc";
   if (document.getElementById(ID)) return;
 
-  var ACCENT = "#0A0A0A";
-  var ACCENT_END = "#4A4A4A";
+  var ACCENT = "#2F2A26";
+  var ACCENT_END = "#A8896B";
 
   var css = [
     "#" + ID + "{position:fixed;bottom:0;left:0;right:0;z-index:9999;",
@@ -2167,7 +2464,7 @@ window.WIGY_DOM = {
     "box-shadow:0 -8px 30px rgba(0,0,0,0.08);",
     "padding:12px 20px;display:flex;align-items:center;justify-content:center;gap:16px;",
     "transform:translateY(100%);transition:transform 0.35s cubic-bezier(0.4,0,0.2,1);",
-    "font-family:'Archivo','Montserrat',sans-serif}",
+    "font-family:var(--vd-font-body)}",
 
     "#" + ID + ".visible{transform:translateY(0)}",
 
@@ -2193,7 +2490,7 @@ window.WIGY_DOM = {
     "color:#fff;border:none;border-radius:99px;padding:14px 28px;",
     "font-size:15px;font-weight:800;cursor:pointer;text-transform:uppercase;",
     "letter-spacing:0.8px;white-space:nowrap;flex-shrink:0;",
-    "box-shadow:0 6px 20px rgba(17,17,17,0.3);",
+    "box-shadow:0 6px 20px rgba(47,42,38,0.3);",
     "transition:transform 0.2s ease,box-shadow 0.2s ease;position:relative;overflow:hidden}",
 
     "#" + ID + " .sticky-btn:active{transform:scale(0.97)}",
@@ -2353,8 +2650,8 @@ window.WIGY_DOM = {
       "width:100%;max-width:520px;margin:0 auto;",
       "display:flex;align-items:flex-start;gap:14px;",
       "padding:16px 18px;",
-      "border:1px solid rgba(17,17,17,.18);border-radius:12px;",
-      "background:#F4F4F2;",
+      "border:1px solid rgba(47,42,38,.18);border-radius:12px;",
+      "background:#F5F0E8;",
       "box-shadow:0 1px 4px rgba(0,0,0,.04);",
       "box-sizing:border-box;position:relative}",
 
@@ -2370,14 +2667,14 @@ window.WIGY_DOM = {
       "#" + ID + " .expert-avatar{",
       "width:52px;height:52px;border-radius:50%;",
       "object-fit:cover;flex:0 0 auto;",
-      "border:2px solid #4A4A4A;",
+      "border:2px solid #A8896B;",
       "filter:grayscale(15%)}",
 
       "#" + ID + " .expert-body{display:flex;flex-direction:column;gap:6px;min-width:0;flex:1}",
 
       "#" + ID + " .expert-header{display:flex;flex-direction:column;gap:2px;padding-right:100px}",
 
-      "#" + ID + " .expert-name{margin:0;font-size:14px;font-weight:800;color:#0A0A0A;line-height:1.2}",
+      "#" + ID + " .expert-name{margin:0;font-size:14px;font-weight:800;color:#2F2A26;line-height:1.2}",
 
       "#" + ID + " .expert-role{margin:0;font-size:12px;font-weight:600;color:#666;line-height:1.2}",
 
@@ -2392,7 +2689,7 @@ window.WIGY_DOM = {
       "margin-top:4px;",
       "font-size:11px;font-weight:700;color:#444;line-height:1}",
 
-      "#" + ID + " .expert-badge svg{width:14px;height:14px;color:#4A4A4A;flex:0 0 auto}",
+      "#" + ID + " .expert-badge svg{width:14px;height:14px;color:#A8896B;flex:0 0 auto}",
 
       "@media(max-width:768px){",
       "#" + ID + " .expert-avatar{width:44px;height:44px}",
@@ -2424,7 +2721,7 @@ window.WIGY_DOM = {
 
     var avatarHTML = cfg.foto && cfg.foto.indexOf("\u26A0\uFE0F") === -1
       ? '<img class="expert-avatar" src="' + cfg.foto + '" alt="' + cfg.nombre + '">'
-      : '<div class="expert-avatar" style="background:#0A0A0A;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:800;color:#fff;border:2px solid #4A4A4A">' + (cfg.nombre.indexOf('\u26A0\uFE0F') === -1 ? cfg.nombre.replace(/^(Ing\.?|Agr\.?|Dra?\.?|Lic\.?)\s*/gi,'').charAt(0).toUpperCase() : 'V') + '</div>';
+      : '<div class="expert-avatar" style="background:#2F2A26;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:800;color:#fff;border:2px solid #A8896B">' + (cfg.nombre.indexOf('\u26A0\uFE0F') === -1 ? cfg.nombre.replace(/^(Ing\.?|Agr\.?|Dra?\.?|Lic\.?)\s*/gi,'').charAt(0).toUpperCase() : 'V') + '</div>';
 
     var box = document.createElement("div");
     box.id = ID;
@@ -2498,7 +2795,7 @@ window.WIGY_DOM = {
   var css = [
     "#" + ID + "{position:fixed;bottom:20px;left:20px;z-index:99999;",
     "max-width:320px;width:calc(100% - 40px);",
-    "background:#fff;border-radius:14px;border-left:4px solid #4A4A4A;",
+    "background:#fff;border-radius:14px;border-left:4px solid #A8896B;",
     "box-shadow:0 10px 40px rgba(0,0,0,0.12),0 2px 8px rgba(0,0,0,0.06);",
     "border:1px solid rgba(0,0,0,0.06);",
     "padding:14px 16px;",
@@ -2512,9 +2809,9 @@ window.WIGY_DOM = {
     "#" + ID + ".toast-out{transform:translateY(120%);opacity:0;pointer-events:none}",
 
     "#" + ID + " .toast-avatar{width:44px;height:44px;border-radius:50%;",
-    "background:linear-gradient(135deg,#0A0A0A,#4A4A4A);",
+    "background:linear-gradient(135deg,#2F2A26,#A8896B);",
     "display:flex;align-items:center;justify-content:center;flex:0 0 auto;",
-    "overflow:hidden;border:2px solid rgba(17,17,17,0.15)}",
+    "overflow:hidden;border:2px solid rgba(47,42,38,0.15)}",
 
     "#" + ID + " .toast-avatar span{color:#fff;font-size:18px;font-weight:800;line-height:1}",
 
@@ -2530,7 +2827,7 @@ window.WIGY_DOM = {
     "#" + ID + " .toast-time{font-size:11.5px;color:#999;font-weight:600;line-height:1.3}",
 
     "#" + ID + " .toast-verified{display:inline-flex;align-items:center;gap:3px;",
-    "color:#0A0A0A;font-size:11px;font-weight:700}",
+    "color:#2F2A26;font-size:11px;font-weight:700}",
 
     "#" + ID + " .toast-verified svg{width:12px;height:12px}",
 
@@ -2588,7 +2885,7 @@ window.WIGY_DOM = {
       avatarHTML +
       '<div class="toast-body">' +
         '<span class="toast-name">' + buyer.name + ' de ' + buyer.city + '</span>' +
-        '<span class="toast-action">Compró ' + productName + ' 👟</span>' +
+        '<span class="toast-action">Compró ' + productName + ' \u{1F4E6}</span>' +
         (window.WIGY_CONFIG && window.WIGY_CONFIG.toastMostrarHora ? '<span class="toast-time">' + time + ' · <span class="toast-verified">' + checkSvg + ' Compra verificada</span></span>' : '') +
       '</div>';
 
@@ -2641,7 +2938,7 @@ window.WIGY_DOM = {
 
   var MESSAGES = window.WIGY_CONFIG.mensajesTicker;
 
-  var BG_COLOR = "#0A0A0A";
+  var BG_COLOR = "#2F2A26";
   var TEXT_COLOR = "#ffffff";
   var GAP_MOBILE = 60;
   var GAP_DESKTOP = 100;
