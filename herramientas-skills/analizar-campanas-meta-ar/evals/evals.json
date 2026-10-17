@@ -1,0 +1,77 @@
+{
+  "skill_name": "analizar-campanas-meta-ar",
+  "evals": [
+    {
+      "id": 1,
+      "name": "ordi-ganador-y-perdedores",
+      "prompt": "Ya pasaron 4 días de la campaña de ORDI. Te paso el export del Administrador de anuncios (ordi-4-dias.csv). ¿Qué corto, qué dejo y qué escalo? No quiero quemar plata.",
+      "expected_output": "Semáforo VERDE. Caro 1 (Placard caos) se escala +20% por día (5 ventas, CPA $5.560). Caro 2 (Pinterest) y Silvia 1 (Tornado) se cortan: sin ventas, CTR menor a 0,8% y gancho menor a 25% con ~1,4-1,5 CPA de equilibrio gastados. Caro 3 se mantiene (2 ventas, CPA debajo del equilibrio). Usa el CPA de equilibrio de ORDI-organizacion-hogar/validacion ($13.524 x1 / $20.524 x2, ~$19.300 con el ticket real). Presupuesto por conjunto, 3 anuncios nuevos basados en Caro 1 con otro gancho, pide las ventas de Shopify.",
+      "files": ["evals/files/ordi-4-dias.csv"],
+      "assertions": [
+        {"id": "semaforo-verde", "text": "El semáforo es VERDE"},
+        {"id": "caro1-escalar-20", "text": "Caro 1 (Placard caos) se escala, subiendo como máximo 20% por día"},
+        {"id": "caro2-cortar", "text": "Caro 2 (Pinterest) se corta / apaga"},
+        {"id": "silvia1-cortar", "text": "Silvia 1 (Tornado) se corta / apaga"},
+        {"id": "caro3-mantener", "text": "Caro 3 (Se arman en 10 s) no se corta ni se escala: se mantiene igual"},
+        {"id": "cpa-eq-ordi", "text": "Usa el CPA de equilibrio de ORDI basado en la validación o en costo $12.000 (menciona $13.524 o un valor ajustado al ticket de ~$19.300)"},
+        {"id": "formato-secciones", "text": "Tiene en orden las secciones del formato: título '· Diagnóstico de campaña', Semáforo, Confianza en los datos, Qué hacer mañana, Resultados por anuncio, Dónde se cae la venta, Próximos anuncios para probar, Datos que me faltaron"},
+        {"id": "tabla-columnas", "text": "La tabla por anuncio tiene las columnas gasto, CTR, gancho, CPC, carritos, compras, CPA, ROAS y decisión"},
+        {"id": "origen-numeros", "text": "Marca el origen de los números con etiquetas como [Meta], [Calculado], [Usuario], [Shopify] o [Estimado]"},
+        {"id": "tres-ideas-ganador", "text": "Propone 3 anuncios nuevos basados en el ganador (ángulo dolor del placard / Caro) con un gancho distinto en los primeros 3 segundos"},
+        {"id": "pide-shopify", "text": "Pide las ventas de Shopify del período para controlar que el píxel mida bien"}
+      ]
+    },
+    {
+      "id": 2,
+      "name": "verdea-pagina-no-convierte",
+      "prompt": "Llevo 5 días con VERDEA, gasté como 180 lucas y vendí UNA sola. Los anuncios parecen andar, me entran un montón de clics, pero no compra nadie. ¿Corto todo? Te adjunto el Excel que bajé de Meta (verdea-5-dias.xlsx). Cada frasco me cuesta $8.000 puesto.",
+      "expected_output": "Semáforo ROJO. El problema está en la página o la oferta, no en los anuncios: CTR 2,26% (muy bueno) pero solo 1,1% de las visitas agrega al carrito (9 de 785). No cortar los anuncios como solución: pausar o frenar el gasto, arreglar la página (que funcione el botón en el celular, primera pantalla, precio de $58.000 contra el mercado, confianza, packs) y reactivar los mismos anuncios. CPA de equilibrio ~$35.080 (x1 $58.000 con costo $8.000). Ideas solo para Lucía y Marta, CTA suave. Pide ventas de Shopify y chequear el evento de carrito.",
+      "files": ["evals/files/verdea-5-dias.xlsx"],
+      "assertions": [
+        {"id": "semaforo-rojo", "text": "El semáforo es ROJO"},
+        {"id": "problema-pagina", "text": "Dice que la venta se cae en la página o la oferta, no en los anuncios, citando CTR alto (~2,3%) y tasa de carrito muy baja (~1,1% o 9 carritos)"},
+        {"id": "no-cortar-anuncios", "text": "No propone cortar los anuncios como solución: recomienda pausar o frenar el gasto mientras se arregla la página y reutilizar los mismos anuncios"},
+        {"id": "cambios-pagina", "text": "Propone al menos 2 cambios concretos en la página u oferta (p. ej. primera pantalla, precio contra Mercado Libre, confianza/reseñas reales, packs, funcionamiento del botón en el celular)"},
+        {"id": "cpa-eq-verdea", "text": "Calcula el CPA de equilibrio con costo $8.000 y precio $58.000: alrededor de $35.000 para 1 frasco"},
+        {"id": "solo-lucia-marta", "text": "Las ideas de anuncios son solo para Lucía y Marta (no aparecen Raúl ni Héctor)"},
+        {"id": "cta-suave", "text": "Las ideas de anuncios no usan CTA agresivos como 'comprá ya' o 'pedilo hoy'"},
+        {"id": "formato-secciones", "text": "Tiene en orden las secciones del formato: título '· Diagnóstico de campaña', Semáforo, Confianza en los datos, Qué hacer mañana, Resultados por anuncio, Dónde se cae la venta, Próximos anuncios para probar, Datos que me faltaron"},
+        {"id": "pide-shopify-o-evento", "text": "Pide las ventas de Shopify o sugiere verificar que el evento de agregar al carrito se mida bien"}
+      ]
+    },
+    {
+      "id": 3,
+      "name": "ordi-pixel-roto",
+      "prompt": "Algo raro pasa con ORDI: Meta me dice 0 compras en 3 días, pero en Shopify tengo 7 ventas de esos mismos días (del 7 al 9 de octubre). ¿Apago los anuncios? Te paso el CSV que exporté (ordi-pixel-3-dias.csv).",
+      "expected_output": "Detecta primero que es un problema de medición (píxel / API de conversiones), no de los anuncios. No apagar nada por no vender en Meta. CPA real con Shopify: $63.000 / 7 = $9.000, por debajo del CPA de equilibrio de ORDI ($13.524): probablemente rentable. Semáforo AMARILLO. Decisión por anuncio: no decidir por ventas. Pasos para arreglar: app Facebook & Instagram en Shopify con uso compartido de datos máximo (API de conversiones), Administrador de eventos, probar eventos con una compra de prueba, revisar píxel duplicado; Mercado Pago que no vuelve a la página de gracias; UTM para atribuir ventas por anuncio.",
+      "files": ["evals/files/ordi-pixel-3-dias.csv"],
+      "assertions": [
+        {"id": "detecta-medicion", "text": "Dice que el problema es de medición (píxel o API de conversiones) antes de opinar sobre los anuncios"},
+        {"id": "no-apagar", "text": "No recomienda apagar los anuncios por mostrar 0 compras en Meta"},
+        {"id": "cpa-real-9000", "text": "Calcula el CPA real con las ventas de Shopify: $9.000 (unos $63.000 de gasto / 7 ventas)"},
+        {"id": "compara-equilibrio", "text": "Compara el CPA real con el CPA de equilibrio de ORDI (~$13.524) y concluye que la campaña probablemente es rentable"},
+        {"id": "semaforo-amarillo", "text": "El semáforo es AMARILLO"},
+        {"id": "pasos-arreglo", "text": "Da pasos concretos para arreglar la medición (app de Meta en Shopify / uso compartido de datos / API de conversiones / Administrador de eventos / probar eventos)"},
+        {"id": "lee-formato-ar", "text": "Lee bien el CSV con punto y coma y coma decimal: gasto total ~$63.000 y ~$21.000 por anuncio"},
+        {"id": "formato-secciones", "text": "Tiene en orden las secciones del formato: título '· Diagnóstico de campaña', Semáforo, Confianza en los datos, Qué hacer mañana, Resultados por anuncio, Dónde se cae la venta, Próximos anuncios para probar, Datos que me faltaron"}
+      ]
+    },
+    {
+      "id": 4,
+      "name": "verdea-dia-1-no-tocar",
+      "prompt": "Ayer arranqué la campaña de VERDEA con 4 anuncios, te paso la captura de cómo quedó (verdea-dia-1.png). El de Lucía 2 tiene un CTR horrible, ¿lo apago ya? Y el de Marta 1 ya vendió, ¿le subo el presupuesto?",
+      "expected_output": "Semáforo AMARILLO: todavía no alcanza para decidir, no tocar nada. Cada anuncio gastó ~$7.000, muy por debajo de 1 CPA de equilibrio (~$35.000). Lucía 2 (CTR 0,41%) tiene 1.448 impresiones, menos de 2.000: no se apaga todavía; se corta si al pasar 2.000 impresiones sigue con CTR menor a 0,5%. Marta 1: 1 venta no alcanza para escalar (hacen falta 3 ventas y 3 días); no subir presupuesto. Explica la fase de aprendizaje. Lee bien la captura (gasto total $28.363,55; 6.280 impresiones; 90 clics; 1 compra). No inventa carritos ni gancho; pide el export completo con instrucciones.",
+      "files": ["evals/files/verdea-dia-1.png"],
+      "assertions": [
+        {"id": "no-tocar", "text": "Recomienda no tocar nada todavía porque todavía no alcanza para decidir"},
+        {"id": "lucia2-no-apagar-aun", "text": "No apaga Lucía 2 ahora: explica que tiene pocas impresiones (menos de 2.000) o poco gasto y da la condición para cortarlo más adelante"},
+        {"id": "marta1-no-escalar", "text": "No sube el presupuesto de Marta 1: 1 venta no alcanza (pide 3 ventas o más días)"},
+        {"id": "semaforo-amarillo", "text": "El semáforo es AMARILLO"},
+        {"id": "lee-captura", "text": "Lee bien los números de la captura: gasto total ~$28.364, 4 anuncios, 1 compra (de Marta 1)"},
+        {"id": "no-inventa", "text": "No inventa datos que la captura no tiene (carritos, gancho, valor de la compra): los muestra como faltantes"},
+        {"id": "pide-export", "text": "Pide el export completo o las columnas que faltan, con instrucciones de cómo sacarlas del Administrador de anuncios"},
+        {"id": "cuando-mirar", "text": "Dice cuándo volver a mirar (p. ej. en 2-3 días o al llegar a 1 CPA de equilibrio por anuncio)"}
+      ]
+    }
+  ]
+}
