@@ -28,3 +28,9 @@ Con VERDEA no hay que adivinar: es orgánico y la dosis es clara, 3 a 4 ml por l
 Título: Cuidá tus plantas sin miedo 💚
 Descripción: Guía de regalo con el pack x2
 Botón: Comprar
+
+ANTISUBTÍTULOS (aprendido): empezar cada prompt con
+"CRITICAL RULE: clean video with NO subtitles, NO captions, NO burned-in text, NO words written
+anywhere on screen. The dialogue is AUDIO ONLY and must never appear as text."
+usar "Spoken line (audio only, never shown as text):" en vez de "Exact line:" y en RESTRICTIONS
+"absolutely no subtitles, no captions, no on-screen text, no lower thirds, no logos, no watermarks".
