@@ -134,16 +134,14 @@ window.WIGY_CONFIG = {
   // Kaching Bundles (que es quien aplica descuentos y regalos). La barra fija
   // de abajo toma el precio del pack elegido en Kaching.
   // true → se usa este selector (solo si NO usás Kaching).
-  // Escalera de precios pensada para subir el ticket:
-  //   1 par a precio lleno (ancla) → 2 pares 30% OFF (más popular) →
-  //   3 pares "llevá 3, pagá 2" + envío gratis (mejor valor).
-  // ⚠️ Los precios de abajo son de ejemplo: poné los tuyos (y cargá lo mismo en Kaching).
+  // Precios: 1 par $40.000 · 2 pares $60.000 (25% OFF) · 3 pares $95.000 (21% OFF + envío gratis).
+  // Cargá lo mismo en Kaching.
   // ============================================================
   mostrarPacks: false,
   ofertas: [
     {
       nombre: "1 Par",
-      precio: "$69.999",
+      precio: "$40.000",
       subtexto: "Elegís talle y color · 3 cuotas sin interés",
       precioViejo: "",
       descuento: "",
@@ -154,10 +152,10 @@ window.WIGY_CONFIG = {
     },
     {
       nombre: "2 Pares",
-      precio: "$97.999",
-      subtexto: "Combiná talles y colores · 3 cuotas sin interés",
-      precioViejo: "$139.998",
-      descuento: "30% OFF",
+      precio: "$60.000",
+      subtexto: "$30.000 c/u · combiná talles y colores",
+      precioViejo: "$80.000",
+      descuento: "25% OFF",
       etiqueta: "👟 MÁS POPULAR",
       cantidad: 2,
       seleccionado: true,
@@ -165,11 +163,11 @@ window.WIGY_CONFIG = {
     },
     {
       nombre: "3 Pares",
-      precio: "$139.998",
-      subtexto: "Llevá 3, pagá 2 · combiná talles y colores",
-      precioViejo: "$209.997",
-      descuento: "3x2",
-      etiqueta: "MEJOR VALOR",
+      precio: "$95.000",
+      subtexto: "Combiná talles y colores · 3 cuotas sin interés",
+      precioViejo: "$120.000",
+      descuento: "21% OFF",
+      etiqueta: "ENVÍO GRATIS",
       cantidad: 3,
       seleccionado: false,
       regalo: "Envío a todo el país"
@@ -242,7 +240,7 @@ window.WIGY_CONFIG = {
       foto: "",
       nombre: "Camila. S",
       titulo: "Muy buena compra, súper recomendable",
-      texto: "Aproveché el 3x2 con envío gratis y me compré para mí y para mis hijos. Son cómodas, lindas y se ven re resistentes. Llegaron rapidísimo."
+      texto: "Aproveché el pack de 3 con envío gratis y me compré para mí y para mis hijos. Son cómodas, lindas y se ven re resistentes. Llegaron rapidísimo."
     }
   ],
 
@@ -253,8 +251,8 @@ window.WIGY_CONFIG = {
     "👟 COMODIDAD DE LA MAÑANA A LA NOCHE",
     "CAMBIO DE TALLE GRATIS",
     "3 CUOTAS SIN INTERÉS",
-    "LLEVÁ 2 PARES Y AHORRÁ 30%",
-    "LLEVÁ 3, PAGÁ 2"
+    "LLEVÁ 2 PARES Y AHORRÁ 25%",
+    "3 PARES CON ENVÍO GRATIS"
   ],
 
   // ============================================================
@@ -1505,7 +1503,7 @@ window.WIGY_DOM = {
   }
 
   function buildHTML() {
-    return '<div class="hf-header-timeline"><h2>As\u00ED de f\u00E1cil es tenerlas</h2><span class="highlight">en 4 pasos, sin vueltas</span></div><div class="timeline-container-orange"><div class="timeline-track"><div class="timeline-progress-fill"></div></div><div class="timeline-row-orange"><div class="timeline-marker-orange"><div class="t-pill-orange">Paso 1</div></div><div class="t-content-orange"><h3>Eleg\u00ED tu talle</h3><p>Calzan talle normal: ped\u00ED el mismo que us\u00E1s siempre. Del 35 al 45.</p></div></div><div class="timeline-row-orange"><div class="timeline-marker-orange"><div class="t-pill-orange">Paso 2</div></div><div class="t-content-orange"><h3>Arm\u00E1 tu pack</h3><p>Llev\u00E1 1, 2 o 3 pares y combin\u00E1 talles y colores. Con 2 pares ahorr\u00E1s 30% y con 3 pag\u00E1s solo 2.</p></div></div><div class="timeline-row-orange"><div class="timeline-marker-orange"><div class="t-pill-orange">Paso 3</div></div><div class="t-content-orange"><h3>Recibilas en tu casa</h3><p>Despachamos en 24 hs h\u00E1biles y llegan en 2 a 3 d\u00EDas h\u00E1biles a todo el pa\u00EDs, con seguimiento.</p></div></div><div class="timeline-row-orange"><div class="timeline-marker-orange"><div class="t-pill-orange">Resultado</div></div><div class="t-content-orange"><h3>Comodidad todo el d\u00EDa</h3><p>Te las pon\u00E9s a la ma\u00F1ana y te olvid\u00E1s. Y si el talle no te queda, el cambio es gratis.</p></div></div></div>';
+    return '<div class="hf-header-timeline"><h2>As\u00ED de f\u00E1cil es tenerlas</h2><span class="highlight">en 4 pasos, sin vueltas</span></div><div class="timeline-container-orange"><div class="timeline-track"><div class="timeline-progress-fill"></div></div><div class="timeline-row-orange"><div class="timeline-marker-orange"><div class="t-pill-orange">Paso 1</div></div><div class="t-content-orange"><h3>Eleg\u00ED tu talle</h3><p>Calzan talle normal: ped\u00ED el mismo que us\u00E1s siempre. Del 35 al 45.</p></div></div><div class="timeline-row-orange"><div class="timeline-marker-orange"><div class="t-pill-orange">Paso 2</div></div><div class="t-content-orange"><h3>Arm\u00E1 tu pack</h3><p>Llev\u00E1 1, 2 o 3 pares y combin\u00E1 talles y colores. Con 2 pares ahorr\u00E1s 25% y con 3 el env\u00EDo es gratis.</p></div></div><div class="timeline-row-orange"><div class="timeline-marker-orange"><div class="t-pill-orange">Paso 3</div></div><div class="t-content-orange"><h3>Recibilas en tu casa</h3><p>Despachamos en 24 hs h\u00E1biles y llegan en 2 a 3 d\u00EDas h\u00E1biles a todo el pa\u00EDs, con seguimiento.</p></div></div><div class="timeline-row-orange"><div class="timeline-marker-orange"><div class="t-pill-orange">Resultado</div></div><div class="t-content-orange"><h3>Comodidad todo el d\u00EDa</h3><p>Te las pon\u00E9s a la ma\u00F1ana y te olvid\u00E1s. Y si el talle no te queda, el cambio es gratis.</p></div></div></div>';
   }
 
   function initTimelineScroll(wrapper) {

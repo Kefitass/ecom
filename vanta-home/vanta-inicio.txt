@@ -300,8 +300,8 @@
             <li>{{ vh_check }} Talles del 35 al 45 y cambio de talle gratis</li>
           </ul>
           <div class="vh-packs" role="radiogroup" aria-label="Elegí tu pack">
-            <label class="vh-pack is-sel" data-pack="2" data-cta="Quiero el pack x2"><input type="radio" name="vhpack-{{ section.id }}" value="2" checked><span class="vh-pack__dot"></span><i>MÁS POPULAR</i><b>Llevá 2 pares: 30% OFF</b><span>Combiná talles y colores</span></label>
-            <label class="vh-pack" data-pack="3" data-cta="Quiero el 3x2"><input type="radio" name="vhpack-{{ section.id }}" value="3"><span class="vh-pack__dot"></span><b>Llevá 3, pagá 2</b><span>+ envío gratis</span></label>
+            <label class="vh-pack is-sel" data-pack="2" data-cta="Quiero el pack x2"><input type="radio" name="vhpack-{{ section.id }}" value="2" checked><span class="vh-pack__dot"></span><i>MÁS POPULAR</i><b>Llevá 2 pares: 25% OFF</b><span>Combiná talles y colores</span></label>
+            <label class="vh-pack" data-pack="3" data-cta="Quiero el pack x3"><input type="radio" name="vhpack-{{ section.id }}" value="3"><span class="vh-pack__dot"></span><b>Llevá 3 pares: 21% OFF</b><span>+ envío gratis</span></label>
           </div>
           <a class="vh-btn vh-btn--orange vh-pack-cta" href="{{ url_producto }}?pack=2" data-base="{{ url_producto }}"><span>Quiero el pack x2</span> {{ vh_arrow }}</a>
         </div>
@@ -459,8 +459,8 @@
     { "type": "text", "id": "titulo", "label": "Título", "default": "Comodidad de la mañana a la noche" },
     { "type": "textarea", "id": "subtitulo", "label": "Subtítulo", "default": "Zapatillas urbanas unisex con plantilla acolchonada, livianas y respirables. Te las ponés a la mañana y te olvidás que las tenés puestas." },
     { "type": "text", "id": "boton", "label": "Texto del botón", "default": "Quiero mis VANTA" },
-    { "type": "text", "id": "badge_top", "label": "Sello naranja (arriba)", "default": "3x2", "info": "Dejalo vacío para ocultar el sello." },
-    { "type": "text", "id": "badge_bottom", "label": "Sello naranja (abajo)", "default": "+ envío gratis" },
+    { "type": "text", "id": "badge_top", "label": "Sello naranja (arriba)", "default": "25% OFF", "info": "Dejalo vacío para ocultar el sello." },
+    { "type": "text", "id": "badge_bottom", "label": "Sello naranja (abajo)", "default": "en 2 pares" },
     { "type": "header", "content": "Prueba social" },
     { "type": "text", "id": "etiqueta", "label": "Etiqueta arriba del título", "default": "", "info": "Ej.: +1.000 clientes ya las usan (solo números reales). Dejala vacía para ocultarla." },
     { "type": "text", "id": "puntuacion", "label": "Puntuación", "default": "4.9" },
@@ -469,7 +469,7 @@
     { "type": "text", "id": "comparativa_url", "label": "Imagen comparativa (URL)", "default": "", "info": "Ej.: zapatilla común vs. VANTA. Dejala vacía para ocultarla." },
     { "type": "header", "content": "Cierre" },
     { "type": "text", "id": "cierre_titulo", "label": "Título", "default": "Tus pies te lo van a agradecer 👟" },
-    { "type": "textarea", "id": "cierre_texto", "label": "Texto", "default": "Llevá 2 pares y ahorrá 30%, o llevá 3 y pagá 2 con envío gratis. Y si el talle no te queda, el cambio es gratis." }
+    { "type": "textarea", "id": "cierre_texto", "label": "Texto", "default": "Llevá 2 pares y ahorrá 25%, o llevá 3 con 21% OFF y envío gratis. Y si el talle no te queda, el cambio es gratis." }
   ],
   "blocks": [
     {
@@ -501,7 +501,7 @@
         { "type": "testimonio", "settings": { "nombre": "Martín. G", "titulo": "Ni me acuerdo que las tengo puestas", "texto": "⚠️ Reseña de ejemplo: reemplazala por una real. Trabajo muchas horas parado y con estas llego a casa sin dolor de pies." } },
         { "type": "testimonio", "settings": { "nombre": "Lucas. P", "titulo": "Aproveché la promo y valió la pena", "texto": "⚠️ Reseña de ejemplo: reemplazala por una real. Llevé 2 pares, uno negro y uno blanco, y llegaron en 2 días." } },
         { "type": "testimonio", "settings": { "nombre": "Valentina. R", "titulo": "Tenía miedo de errarle al talle", "texto": "⚠️ Reseña de ejemplo: reemplazala por una real. Seguí la guía de talles y me quedaron perfectas." } },
-        { "type": "testimonio", "settings": { "nombre": "Camila. S", "titulo": "Muy buena compra, súper recomendable", "texto": "⚠️ Reseña de ejemplo: reemplazala por una real. Aproveché el 3x2 con envío gratis para toda la familia." } },
+        { "type": "testimonio", "settings": { "nombre": "Camila. S", "titulo": "Muy buena compra, súper recomendable", "texto": "⚠️ Reseña de ejemplo: reemplazala por una real. Aproveché el pack de 3 con envío gratis para toda la familia." } },
         { "type": "pregunta", "settings": { "pregunta": "¿Cómo sé qué talle pedir?", "respuesta": "<p>Calzan <strong>talle normal</strong>: pedí el mismo que usás siempre. Hay del <strong>35 al 45</strong>. Si estás entre dos, elegí el más grande.</p>" } },
         { "type": "pregunta", "settings": { "pregunta": "¿Y si no me quedan bien?", "respuesta": "<p>Tenés <strong>cambio de talle gratis</strong>. Escribinos por WhatsApp con tu número de pedido y lo coordinamos.</p>" } },
         { "type": "pregunta", "settings": { "pregunta": "¿Cuánto tarda en llegar mi pedido?", "respuesta": "<p>Despachamos dentro de las <strong>24 hs hábiles</strong> a todo el país. La entrega suele demorar <strong>2 a 3 días hábiles</strong> y te mandamos el seguimiento por mail o WhatsApp.</p>" } },

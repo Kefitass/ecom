@@ -14,12 +14,11 @@ Tipografías: Poppins (títulos) · Open Sans (texto).
 - Diseño unisex que combina con todo
 - Talles del 35 al 45 · calzan talle normal · cambio de talle gratis
 
-=== OFERTAS (precios de EJEMPLO, cambiarlos) ===
-Escalera para subir el ticket: 1 par = ancla · 2 pares = más popular · 3x2 = mejor valor.
-1 Par — $69.999 — 3 cuotas sin interés
-2 Pares — $97.999 (antes $139.998, 30% OFF) — 3 cuotas sin interés · MÁS POPULAR
-3 Pares, pagás 2 — $139.998 (antes $209.997, 3x2) — envío gratis + 3 cuotas · MEJOR VALOR
-(Sin regalo físico. En Kaching: pack 2 con 30% OFF; pack 3 con descuento del 33,33% + envío gratis.)
+=== OFERTAS ===
+1 Par — $40.000 — 3 cuotas sin interés
+2 Pares — $60.000 (antes $80.000, 25% OFF, $30.000 c/u) — 3 cuotas sin interés · MÁS POPULAR
+3 Pares — $95.000 (antes $120.000, ~21% OFF, $31.667 c/u) — envío gratis + 3 cuotas
+(Sin regalo físico. En Kaching: pack 2 = 25% OFF; pack 3 = 20,83% OFF + envío gratis.)
 
 === ENVÍO / GARANTÍA ===
 Despacho en 24 hs hábiles, envío a todo el país, entrega 2-3 días hábiles, seguimiento por mail o WhatsApp.
@@ -31,7 +30,7 @@ Cambio de talle gratis · Garantía 100% · Atención 24/7 · Pagos seguros.
   (o elegí el producto desde el editor del tema).
 - Fotos: principal, carrusel 9:16 (está apagado: mostrarCarrusel: false), comparativa
   y la foto de estadísticas.
-- Precios reales de los packs (en Kaching y en el panel de la landing).
+- Cargar los mismos precios de los packs en Kaching.
 - Reseñas REALES (los 4 testimonios son de ejemplo) + puntuación y cantidad de reseñas reales.
 - Confirmar con el producto real: materiales, plantilla, suela, talles disponibles,
   si calzan normal y cómo es el cambio de talle.
