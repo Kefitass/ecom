@@ -1,0 +1,193 @@
+{% comment %}
+  VERDEA · Contacto (sección nativa de Shopify para la página de contacto)
+  Instalación: Editar código → Sections → "Agregar una nueva sección" → nombre: verdea-contacto
+  → borrar todo lo que trae → pegar este archivo → Guardar.
+  Después: Personalizar → elegir "Páginas" → "contact" arriba al medio → ocultar las secciones
+  del tema → Agregar sección (dentro de Plantilla) → "VERDEA · Contacto".
+  El formulario es el de Shopify: los mensajes llegan al mail de la tienda.
+{% endcomment %}
+
+{%- liquid
+  assign wa = section.settings.whatsapp | remove: '+' | remove: ' ' | remove: '-'
+  assign wa_msg = section.settings.whatsapp_mensaje | url_encode
+  assign wa_url = 'https://wa.me/' | append: wa | append: '?text=' | append: wa_msg
+  assign mail = section.settings.email | default: 'gardenfreeportfolio@gmail.com'
+-%}
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+  #vct-{{ section.id }}{
+    --c-green:#2A5F35;--c-sprout:#6BA342;--c-orange:#E88031;--c-cream:#F5F4EE;--c-earth:#4E382A;--c-muted:#6E6157;--c-line:#E5E2D6;
+    --c-title:'Poppins','Montserrat',sans-serif;--c-body:'Open Sans','Lato',sans-serif;
+    background:var(--c-cream);color:var(--c-earth);font-family:var(--c-body);padding:48px 0 64px;overflow:hidden;
+  }
+  #vct-{{ section.id }} *{box-sizing:border-box;letter-spacing:normal}
+  #vct-{{ section.id }}{line-height:1.55}
+  #vct-{{ section.id }} .vct-info__row b,#vct-{{ section.id }} .vct-info__row span,#vct-{{ section.id }} .vct-info__row a,#vct-{{ section.id }} .vct-field label{line-height:1.35}
+  #vct-{{ section.id }} .vct-kicker,#vct-{{ section.id }} .vct-wa__tag{letter-spacing:.06em}
+  #vct-{{ section.id }} h1,#vct-{{ section.id }} h2,#vct-{{ section.id }} h3{font-family:var(--c-title);color:var(--c-earth);margin:0;letter-spacing:0}
+  #vct-{{ section.id }} p{margin:0}
+  #vct-{{ section.id }} a{text-decoration:none}
+  .vct-wrap{max-width:1100px;margin:0 auto;padding:0 20px}
+
+  .vct-head{text-align:center;max-width:640px;margin:0 auto 36px}
+  .vct-kicker{display:inline-block;font-family:var(--c-title);font-weight:600;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--c-sprout);margin-bottom:10px}
+  #vct-{{ section.id }} .vct-h1{font-size:clamp(30px,4vw,44px);font-weight:800;line-height:1.15}
+  .vct-sub{font-size:16px;line-height:1.6;color:var(--c-muted);margin-top:12px!important}
+
+  .vct-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:28px;align-items:start}
+
+  /* Columna de contacto rápido */
+  .vct-side{display:grid;gap:14px}
+  .vct-wa{display:block;background:var(--c-green);border-radius:22px;padding:26px 24px;color:#fff;position:relative;overflow:hidden}
+  .vct-wa:before{content:"";position:absolute;right:-40px;top:-40px;width:160px;height:160px;border-radius:50%;background:rgba(107,163,66,.35)}
+  .vct-wa__tag{display:inline-block;background:rgba(255,255,255,.16);color:#fff;font-family:var(--c-title);font-weight:700;font-size:11.5px;letter-spacing:.05em;padding:5px 10px;border-radius:999px;margin-bottom:12px;position:relative}
+  #vct-{{ section.id }} .vct-wa h2{color:#fff;font-size:21px;font-weight:700;position:relative}
+  .vct-wa p{color:rgba(255,255,255,.85);font-size:14.5px;line-height:1.55;margin:6px 0 18px!important;position:relative}
+  #vct-{{ section.id }} .vct-wa__btn{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:10px;width:100%;min-height:52px;border-radius:999px;background:#25D366;color:#fff;font-family:var(--c-title);font-weight:700;font-size:16px;box-shadow:0 8px 20px rgba(0,0,0,.18);transition:transform .2s,background .2s}
+  #vct-{{ section.id }} .vct-wa__btn:hover{background:#1ebe5b;transform:translateY(-2px)}
+  .vct-wa__btn svg{width:22px;height:22px;fill:#fff}
+  .vct-info{background:#fff;border:1px solid var(--c-line);border-radius:22px;padding:8px 22px}
+  .vct-info__row{display:flex;gap:14px;align-items:center;padding:14px 0;border-bottom:1px solid var(--c-line)}
+  .vct-info__row:last-child{border-bottom:0}
+  .vct-info__ico{width:42px;height:42px;border-radius:12px;background:#EEF4E6;display:flex;align-items:center;justify-content:center;flex:none}
+  .vct-info__ico svg{width:21px;height:21px;color:var(--c-green)}
+  .vct-info__row b{display:block;font-family:var(--c-title);font-size:14.5px;color:var(--c-earth)}
+  .vct-info__row span,.vct-info__row a{font-size:14px;color:var(--c-muted);word-break:break-word}
+  #vct-{{ section.id }} .vct-info__row a:hover{color:var(--c-green)}
+
+  /* Formulario */
+  .vct-card{background:#fff;border:1px solid var(--c-line);border-radius:22px;padding:30px 28px;box-shadow:0 18px 40px rgba(78,56,42,.06)}
+  #vct-{{ section.id }} .vct-card h2{font-size:21px;font-weight:700}
+  .vct-card__sub{font-size:14.5px;color:var(--c-muted);margin:6px 0 22px!important}
+  .vct-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .vct-field{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
+  .vct-field label{font-family:var(--c-title);font-weight:600;font-size:13.5px;color:var(--c-earth)}
+  .vct-field label i{font-style:normal;color:var(--c-orange)}
+  #vct-{{ section.id }} .vct-input{width:100%!important;min-height:50px;padding:12px 16px!important;border-radius:14px!important;border:1.5px solid var(--c-line)!important;background:var(--c-cream)!important;
+    color:var(--c-earth)!important;font-family:var(--c-body)!important;font-size:16px!important;line-height:1.4;box-shadow:none!important;outline:none;transition:border-color .2s,background .2s,box-shadow .2s;-webkit-appearance:none;appearance:none;margin:0}
+  #vct-{{ section.id }} textarea.vct-input{min-height:130px;resize:vertical}
+  #vct-{{ section.id }} .vct-input::placeholder{color:#A39A90;opacity:1}
+  #vct-{{ section.id }} .vct-input:focus{border-color:var(--c-sprout)!important;background:#fff!important;box-shadow:0 0 0 4px rgba(107,163,66,.15)!important}
+  #vct-{{ section.id }} .vct-submit{display:flex!important;align-items:center;justify-content:center;gap:10px;width:100%;min-height:54px;margin-top:6px;border:0!important;border-radius:999px!important;
+    background:var(--c-orange)!important;color:#fff!important;font-family:var(--c-title)!important;font-weight:700!important;font-size:16px!important;letter-spacing:0!important;cursor:pointer;
+    box-shadow:0 8px 20px rgba(232,128,49,.3)!important;transition:transform .2s,background .2s;padding:0 24px!important;text-transform:none!important}
+  #vct-{{ section.id }} .vct-submit:hover{background:#d4701f!important;transform:translateY(-2px)}
+  #vct-{{ section.id }} .vct-submit::before,#vct-{{ section.id }} .vct-submit::after{display:none!important;content:none!important}
+  .vct-submit svg{width:18px;height:18px}
+  .vct-note{display:flex;align-items:center;justify-content:center;gap:6px;font-size:12.5px;color:var(--c-muted);margin-top:12px!important;text-align:center}
+  .vct-note svg{width:14px;height:14px;color:var(--c-sprout);flex:none}
+  .vct-ok,.vct-err{border-radius:14px;padding:14px 16px;font-size:14.5px;margin-bottom:18px;display:flex;gap:10px;align-items:flex-start}
+  .vct-ok{background:#EEF4E6;color:var(--c-green);border:1px solid #CFE0BF}
+  .vct-err{background:#FDEEE6;color:#9A3F12;border:1px solid #F4C9B1}
+  .vct-ok svg,.vct-err svg{width:20px;height:20px;flex:none}
+  .vct-err ul{margin:4px 0 0;padding-left:18px}
+
+  @media (max-width:899px){
+    .vct-grid{grid-template-columns:1fr}
+  }
+  @media (max-width:749px){
+    #vct-{{ section.id }}{padding:32px 0 48px}
+    .vct-head{margin-bottom:26px}
+    .vct-row{grid-template-columns:1fr;gap:0}
+    .vct-card{padding:24px 18px}
+    .vct-wa{padding:22px 20px}
+  }
+</style>
+
+{%- capture wa_svg -%}<svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16.04 3C9 3 3.3 8.7 3.3 15.73c0 2.25.59 4.44 1.7 6.37L3.2 28.8l6.87-1.8a12.7 12.7 0 0 0 5.97 1.52h.01c7.03 0 12.74-5.7 12.74-12.74 0-3.4-1.33-6.6-3.73-9A12.66 12.66 0 0 0 16.04 3zm0 23.37h-.01c-1.9 0-3.77-.51-5.4-1.48l-.39-.23-4.08 1.07 1.09-3.97-.25-.41a10.56 10.56 0 0 1-1.62-5.62c0-5.84 4.75-10.6 10.6-10.6 2.83 0 5.49 1.1 7.49 3.11a10.53 10.53 0 0 1 3.1 7.5c0 5.84-4.76 10.6-10.53 10.6zm5.81-7.94c-.32-.16-1.88-.93-2.17-1.03-.29-.11-.5-.16-.71.16-.21.32-.82 1.03-1 1.24-.19.21-.37.24-.69.08-.32-.16-1.34-.5-2.56-1.58-.95-.85-1.59-1.89-1.77-2.21-.19-.32-.02-.49.14-.65.14-.14.32-.37.48-.56.16-.19.21-.32.32-.53.1-.21.05-.4-.03-.56-.08-.16-.71-1.72-.98-2.35-.26-.62-.52-.53-.71-.54h-.61c-.21 0-.56.08-.85.4-.29.32-1.11 1.09-1.11 2.65s1.14 3.08 1.3 3.29c.16.21 2.24 3.42 5.43 4.8.76.33 1.35.52 1.81.67.76.24 1.45.21 2 .13.61-.09 1.88-.77 2.14-1.51.27-.74.27-1.38.19-1.51-.08-.13-.29-.21-.61-.37z"/></svg>{%- endcapture -%}
+
+<div id="vct-{{ section.id }}">
+  <div class="vct-wrap">
+    <div class="vct-head">
+      <span class="vct-kicker">{{ section.settings.kicker }}</span>
+      <h1 class="vct-h1">{{ section.settings.titulo }}</h1>
+      <p class="vct-sub">{{ section.settings.subtitulo }}</p>
+    </div>
+
+    <div class="vct-grid">
+      <div class="vct-side">
+        {%- if wa != blank -%}
+          <div class="vct-wa">
+            <span class="vct-wa__tag">⚡ RESPUESTA MÁS RÁPIDA</span>
+            <h2>Escribinos por WhatsApp</h2>
+            <p>{{ section.settings.whatsapp_texto }}</p>
+            <a class="vct-wa__btn" href="{{ wa_url }}" target="_blank" rel="noopener">{{ wa_svg }} Abrir WhatsApp</a>
+          </div>
+        {%- endif -%}
+        <div class="vct-info">
+          {%- if wa != blank -%}
+          <div class="vct-info__row"><span class="vct-info__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8.5 8.5 0 0 1-12.4 7.6L3 21l1.4-5.4A8.5 8.5 0 1 1 21 12z"/></svg></span><div><b>WhatsApp</b><a href="{{ wa_url }}" target="_blank" rel="noopener">{{ section.settings.whatsapp_visible }}</a></div></div>
+          {%- endif -%}
+          <div class="vct-info__row"><span class="vct-info__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span><div><b>Email</b><a href="mailto:{{ mail }}">{{ mail }}</a></div></div>
+          {%- if section.settings.horario != blank -%}
+          <div class="vct-info__row"><span class="vct-info__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><div><b>Horario de atención</b><span>{{ section.settings.horario }}</span></div></div>
+          {%- endif -%}
+          <div class="vct-info__row"><span class="vct-info__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7z"/><circle cx="7" cy="18" r="1.8"/><circle cx="17" cy="18" r="1.8"/></svg></span><div><b>Envíos</b><span>{{ section.settings.envios }}</span></div></div>
+        </div>
+      </div>
+
+      <div class="vct-card">
+        <h2>Dejanos tu mensaje</h2>
+        <p class="vct-card__sub">{{ section.settings.form_texto }}</p>
+        {%- form 'contact', id: 'VerdeaContact', class: 'vct-form' -%}
+          {%- if form.posted_successfully? -%}
+            <div class="vct-ok" role="status"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>¡Gracias! Recibimos tu mensaje y te respondemos en menos de 24 hs hábiles. 🌱</span></div>
+          {%- elsif form.errors -%}
+            <div class="vct-err" role="alert"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16.5v.01"/></svg><div>Revisá estos datos:<ul>{%- for field in form.errors -%}<li>{%- if field == 'form' -%}{{ form.errors.messages[field] }}{%- else -%}{{ form.errors.translated_fields[field] | capitalize }} {{ form.errors.messages[field] }}{%- endif -%}</li>{%- endfor -%}</ul></div></div>
+          {%- endif -%}
+          <div class="vct-row">
+            <div class="vct-field">
+              <label for="VerdeaContact-name">Nombre</label>
+              <input class="vct-input" type="text" id="VerdeaContact-name" name="contact[name]" autocomplete="name" placeholder="Tu nombre" value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}">
+            </div>
+            <div class="vct-field">
+              <label for="VerdeaContact-email">Email <i>*</i></label>
+              <input class="vct-input" type="email" id="VerdeaContact-email" name="contact[email]" autocomplete="email" placeholder="tu@email.com" required value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}">
+            </div>
+          </div>
+          <div class="vct-field">
+            <label for="VerdeaContact-phone">Teléfono / WhatsApp</label>
+            <input class="vct-input" type="tel" id="VerdeaContact-phone" name="contact[phone]" autocomplete="tel" placeholder="Ej: 11 2345-6789" value="{{ form.phone }}">
+          </div>
+          <div class="vct-field">
+            <label for="VerdeaContact-body">¿En qué te ayudamos? <i>*</i></label>
+            <textarea class="vct-input" id="VerdeaContact-body" name="contact[body]" rows="5" required placeholder="Contanos tu consulta: tu pedido, cómo usar el enraizante, tus plantas...">{{- form.body -}}</textarea>
+          </div>
+          <button type="submit" class="vct-submit">Enviar mensaje <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+          <p class="vct-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>Tus datos son privados. Solo los usamos para responderte.</p>
+        {%- endform -%}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "VERDEA · Contacto",
+  "tag": "section",
+  "class": "verdea-contacto",
+  "enabled_on": { "templates": ["page"] },
+  "settings": [
+    { "type": "header", "content": "Encabezado" },
+    { "type": "text", "id": "kicker", "label": "Texto chico de arriba", "default": "Contacto" },
+    { "type": "text", "id": "titulo", "label": "Título", "default": "¡Estamos para ayudarte! 🌱" },
+    { "type": "textarea", "id": "subtitulo", "label": "Subtítulo", "default": "¿Tenés alguna duda sobre tu pedido, cómo usar nuestros productos o el cuidado de tus plantas? Escribinos y te respondemos en menos de 24 hs hábiles." },
+    { "type": "header", "content": "WhatsApp" },
+    { "type": "text", "id": "whatsapp", "label": "WhatsApp (solo números, con 549)", "default": "5491139448089" },
+    { "type": "text", "id": "whatsapp_visible", "label": "WhatsApp (como se muestra)", "default": "+54 9 11 3944-8089" },
+    { "type": "text", "id": "whatsapp_mensaje", "label": "Mensaje que se escribe solo", "default": "¡Hola VERDEA! 🌱 Tengo una consulta." },
+    { "type": "textarea", "id": "whatsapp_texto", "label": "Texto de la tarjeta de WhatsApp", "default": "Consultas sobre tu pedido, el uso del enraizante o tus plantas. Te respondemos rapidísimo." },
+    { "type": "header", "content": "Datos de contacto" },
+    { "type": "text", "id": "email", "label": "Email", "default": "gardenfreeportfolio@gmail.com" },
+    { "type": "text", "id": "horario", "label": "Horario de atención", "default": "Lunes a viernes de 9 a 18 hs" },
+    { "type": "text", "id": "envios", "label": "Texto de envíos", "default": "Despacho en 24 hs hábiles a todo el país" },
+    { "type": "header", "content": "Formulario" },
+    { "type": "text", "id": "form_texto", "label": "Texto debajo del título", "default": "Completá el formulario y te contestamos por mail." }
+  ],
+  "presets": [{ "name": "VERDEA · Contacto" }]
+}
+{% endschema %}

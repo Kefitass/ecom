@@ -1,0 +1,115 @@
+VERDEA · VIDEO DE TESTEO · BUYER PERSONA: MARTA ("la que tiene miedo de matar las plantas")
+Ángulo: emocional "no es tu culpa" · golpe de trasplante · 35-40 s · 9:16
+=====================================================================
+
+MISMA AVATAR Y MISMA VOZ QUE EL VIDEO DE LUCÍA
+Para que el test compare buyer personas (y no caras ni voces), usá la misma mujer, la
+misma foto de referencia y la misma voz de ElevenLabs ("VERDEA – Voz principal").
+
+---------------------------------------------------------------------
+PASO 1 · LOS 5 BLOQUES DE LA AVATAR EN FLOW (fondo verde)
+---------------------------------------------------------------------
+Flow → "Ingredientes a video" (o "Frames a video") → subí la foto de ella sobre verde.
+Modelo: Lite para probar, Fast/Quality para la versión final · 9:16 · x1.
+Cada bloque = DESCRIPCIÓN FIJA + la línea del bloque.
+
+DESCRIPCIÓN FIJA (igual en los 5):
+La misma mujer de la imagen de referencia: argentina de unos 50 años, pelo largo oscuro y
+ondulado, sonrisa cálida, camisa de lino color crudo con mangas arremangadas y delantal de
+lona marrón claro. Ocupa el cuadro completo: plano medio de la cintura para arriba,
+centrada, vertical 9:16, cámara de celular fija, estilo UGC. Fondo verde croma liso
+(#00B140), parejo, sin sombras, nada verde en la ropa. Habla con acento porteño de Buenos
+Aires bien marcado, usando "vos", tono cálido y cercano, como una vecina que te da un
+consejo. Gestos chicos con las manos, siempre dentro del cuadro. Sin subtítulos, sin texto
+en pantalla, sin música.
+
+BLOQUE 1 · GANCHO
+Mira a cámara con ternura, inclina un poco la cabeza y dice:
+"Si cada vez que cambiás una planta de maceta se te cae toda… no es tu culpa, eh."
+
+BLOQUE 2 · IDENTIFICACIÓN
+Se ríe de sí misma, se lleva una mano al pecho y dice:
+"Yo pensaba que tenía la mano mala. La pasaba de maceta y al otro día, triste y amarilla."
+
+BLOQUE 3 · EXPLICACIÓN
+Explica tranquila, juntando los dedos como mostrando algo muy chiquito, y dice:
+"Al trasplantar se rompen raicitas que no ves, y la planta se queda sin con qué tomar agua."
+
+BLOQUE 4 · SOLUCIÓN
+Sonríe aliviada, señala hacia el costado como mostrando algo, y dice:
+"Ahora en el primer riego le pongo unas gotitas de VERDEA, y se adapta muchísimo mejor."
+
+BLOQUE 5 · OFERTA (CTA)
+Al decir "llevando dos" levanta dos dedos a la altura del pecho, con una sonrisa
+cómplice. Al decir "guía de regalo" abre un poco los ojos y se inclina levemente hacia la
+cámara, como contando un secreto bueno. Al final asiente una vez, sonríe cálida y junta
+las manos frente al pecho. Manos siempre cerca del cuerpo y dentro del cuadro. Tono más
+enérgico y alegre que en los bloques anteriores. Dice:
+"Llevando dos ahorrás un treinta por ciento y te llevás la guía de regalo. Pedilo antes
+de tu próximo trasplante."
+
+Si "VERDEA" sale mal pronunciado, escribilo "Verdéa".
+
+---------------------------------------------------------------------
+PASO 2 · VOZ
+---------------------------------------------------------------------
+CapCut: uní los 5 bloques, recortá silencios → exportá solo audio → ElevenLabs Voice
+Changer con "VERDEA – Voz principal" → volvé a poner el audio desde el segundo 0.
+Después exportá a ella sola, a pantalla completa (escala 100%), con el verde.
+
+---------------------------------------------------------------------
+PASO 3 · FONDOS (Flow, Texto a video, Lite, 9:16, x1)
+---------------------------------------------------------------------
+Al final de cada prompt: "Evitar: barro, agua sucia, tierra mojada, manos deformes,
+caras, personas, texto, subtítulos, música. Solo sonido ambiente suave."
+
+F1 · Bloque 1 · planta caída después del trasplante
+Video vertical 9:16, 8 segundos, estilo celular, realista. Escena: living luminoso de un
+departamento argentino, luz natural de ventana. Un potus recién trasplantado a una maceta
+de barro nueva, sobre una mesa de madera: las hojas están caídas y mustias, dos amarillas.
+Acción: una mano de mujer, limpia, levanta suavemente una hoja amarilla y la suelta.
+Cámara: primer plano, acercamiento muy lento. Tierra seca en la superficie de la maceta.
+
+F2 · Bloque 2 · hojas amarillas
+Video vertical 9:16, 6 segundos, estilo celular, realista. Primer plano macro de las
+hojas de una planta de interior en maceta: varias hojas amarillas y caídas, una se
+desprende y cae sobre la mesa de madera. Luz natural de ventana, fondo desenfocado.
+Cámara casi quieta.
+
+F3 · Bloque 3 · raíces rotas → YA LO TENÉS ("raices rotas.mp4")
+
+F4 · Bloque 4 · solución
+  a) "dropeando el liquido.mp4" (ya lo tenés): solo 2 segundos del chorro + las gotas.
+  b) Regando la base:
+Video vertical 9:16, 6 segundos, estilo celular, realista. Primer plano de una regadera
+de metal regando despacio la base de un potus recién trasplantado en una maceta de barro
+nueva; el agua clara se absorbe en la tierra oscura. Luz natural de tarde. Cámara quieta.
+
+F5 · Bloque 5 · resultado + oferta
+  a) Planta firme:
+Video vertical 9:16, 6 segundos, estilo celular, realista. El mismo tipo de potus en
+maceta de barro nueva, ahora firme, con hojas verdes brillantes y erguidas, junto a una
+ventana con sol de mañana; al lado, apoyado en la mesa, un frasco de vidrio ámbar sin
+etiqueta visible. Cámara que gira muy lento alrededor de la planta.
+  b) Tu foto de los 3 productos / packs con zoom lento.
+
+---------------------------------------------------------------------
+PASO 4 · TEXTOS EN PANTALLA
+---------------------------------------------------------------------
+B1: "¿Se te cae al trasplantarla? 🥀"   → "no es tu culpa 💚"
+B2: "yo creía que tenía la mano mala"
+B3: "GOLPE DE TRASPLANTE"
+B4: "unas gotas en el primer riego 💧"  (F5a: "Imagen ilustrativa", chiquito)
+B5: "LLEVÁ 2: 30% OFF + GUÍA DE REGALO 🎁" · "3 cuotas sin interés · envíos a todo el país"
+
+---------------------------------------------------------------------
+PASO 5 · TEXTO DEL ANUNCIO (Meta)
+---------------------------------------------------------------------
+Texto principal:
+¿Cada vez que trasplantás una planta se te cae toda? 🥀 No es que tengas la mano mala:
+es el golpe de trasplante. Al cambiarla de maceta se rompen raicitas que no ves.
+Con unas gotas de VERDEA en el primer riego, la ayudás a regenerar raíces y adaptarse
+mejor 🌱 Fácil de usar, apto huerta y plantas de interior.
+🎁 Llevá 2 y ahorrá 30% + guía de cuidado de regalo · 💳 3 cuotas sin interés
+Título: Trasplantá sin miedo 🌱
+Botón: Comprar

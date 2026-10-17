@@ -23,7 +23,7 @@ Precios validados para un costo de hasta ~$12.000 por set: ver validacion/valida
 
 === VALOR AGREGADO Y PRUEBA SOCIAL ===
 - "Tu compra incluye" debajo del botón (panel: incluye).
-- Guía digital de regalo: ORDI-organizacion-hogar/guia-regalo-placard-ordenado.txt
+- Guía digital de regalo: ORDI-organizacion-hogar/regalos/guia-regalo-placard-ordenado.txt
   (pasala a PDF con tu diseño y mandala por mail con los pedidos de 2 y 3 sets;
   se puede automatizar con una app de descargas digitales o desde Shopify Flow).
 - Resumen de reseñas con barras por estrella y % que recomienda (panel: resumenResenas).

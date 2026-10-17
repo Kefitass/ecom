@@ -1,0 +1,211 @@
+VERDEA · PROMPTS · 4 CARRUSELES NUEVOS PARA INSTAGRAM
+============================================================
+
+CÓMO USARLOS
+- Gemini (mejor con texto). Un chat nuevo por carrusel.
+- Primera placa: pegá el prompt. Siguientes: empezá con "Siguiente placa del mismo carrusel,
+  con el mismo estilo visual, tipografía y colores que la anterior:" y pegá el prompt.
+- Donde dice "(adjuntá la foto del producto)", adjuntá el frasco.
+- Copiá cada prompt completo. Revisá tildes y la etiqueta del frasco.
+
+
+============================================================
+CARRUSEL 1 · 3 MITOS SOBRE LOS ENRAIZANTES (la portada ya la tenés)
+============================================================
+
+--- 1.2 · MITO 1 ---
+Foto vertical 4:5. Frasco de vidrio sobre una mesada de cocina con agua algo turbia y un esqueje de potus con el tallo marrón y blando, sin raíces. Luz de ventana lateral, fondo desenfocado.
+TEXTO: arriba, etiqueta redondeada naranja con letras blancas: "MITO 1". Grande, en blanco cremoso: "Con agua sola alcanza" tachado con una línea. Abajo, chico: "Muchas plantas tardan semanas o se pudren antes de echar raíz. Un enraizante acelera y fortalece ese proceso."
+TEXTO Y DISEÑO: tipografía sans serif redondeada y gruesa (estilo Poppins Bold) para títulos y Poppins Regular para textos chicos. Colores: blanco cremoso #F5F4EE sobre fotos, verde oscuro #2A5F35 sobre fondos claros, detalles en naranja #E88031. Texto con mucho aire, bien legible en celular, sombra muy suave si va sobre foto. Escribí cada palabra exactamente como está, con sus tildes, sin agregar otro texto ni logos.
+INTEGRACIÓN DEL PRODUCTO (si aparece el frasco): idéntico a la imagen adjunta (forma, color, tapa y etiqueta, sin inventar ni deformar letras), tamaño real de 250 ml, apoyado físicamente en la escena, con la misma luz que el resto: reflejo del mismo lado que la fuente de luz, sombra en la misma dirección que las demás, sombra de contacto en la base, mismo grano y balance de color.
+ESTILO: fotografía realista y natural, como de una marca chica de jardinería: luz natural, texturas reales, colores naturales sin saturar, pequeñas imperfecciones cotidianas (tierra, hojas no perfectas), nada de luz dorada de catálogo ni plantas perfectas, sin aspecto de render ni de ilustración. Formato vertical 4:5.
+
+--- 1.3 · MITO 2 ---
+Foto vertical 4:5. Primer plano de una tapa dosificadora verde oscuro desbordando de líquido ámbar que chorrea por el costado sobre una mesa de madera, junto a una jarra de agua. Luz natural.
+TEXTO: etiqueta naranja "MITO 2". Grande: "Más dosis = más raíces" tachado con una línea. Abajo, chico: "Pasarse puede dañar la planta. Con 3 a 4 ml por litro alcanza."
+TEXTO Y DISEÑO: tipografía sans serif redondeada y gruesa (estilo Poppins Bold) para títulos y Poppins Regular para textos chicos. Colores: blanco cremoso #F5F4EE sobre fotos, verde oscuro #2A5F35 sobre fondos claros, detalles en naranja #E88031. Texto con mucho aire, bien legible en celular, sombra muy suave si va sobre foto. Escribí cada palabra exactamente como está, con sus tildes, sin agregar otro texto ni logos.
+INTEGRACIÓN DEL PRODUCTO (si aparece el frasco): idéntico a la imagen adjunta (forma, color, tapa y etiqueta, sin inventar ni deformar letras), tamaño real de 250 ml, apoyado físicamente en la escena, con la misma luz que el resto: reflejo del mismo lado que la fuente de luz, sombra en la misma dirección que las demás, sombra de contacto en la base, mismo grano y balance de color.
+ESTILO: fotografía realista y natural, como de una marca chica de jardinería: luz natural, texturas reales, colores naturales sin saturar, pequeñas imperfecciones cotidianas (tierra, hojas no perfectas), nada de luz dorada de catálogo ni plantas perfectas, sin aspecto de render ni de ilustración. Formato vertical 4:5.
+
+--- 1.4 · MITO 3 ---
+Foto vertical 4:5. Mesa de trabajo de madera en un patio con: una maceta recién trasplantada, una bandeja de almácigos con plantines chicos y un potus algo decaído. Luz de tarde suave.
+TEXTO: etiqueta naranja "MITO 3". Grande: "Solo sirve para esquejes" tachado con una línea. Abajo, chico: "También para trasplantes, almácigos y plantas estresadas."
+TEXTO Y DISEÑO: tipografía sans serif redondeada y gruesa (estilo Poppins Bold) para títulos y Poppins Regular para textos chicos. Colores: blanco cremoso #F5F4EE sobre fotos, verde oscuro #2A5F35 sobre fondos claros, detalles en naranja #E88031. Texto con mucho aire, bien legible en celular, sombra muy suave si va sobre foto. Escribí cada palabra exactamente como está, con sus tildes, sin agregar otro texto ni logos.
+INTEGRACIÓN DEL PRODUCTO (si aparece el frasco): idéntico a la imagen adjunta (forma, color, tapa y etiqueta, sin inventar ni deformar letras), tamaño real de 250 ml, apoyado físicamente en la escena, con la misma luz que el resto: reflejo del mismo lado que la fuente de luz, sombra en la misma dirección que las demás, sombra de contacto en la base, mismo grano y balance de color.
+ESTILO: fotografía realista y natural, como de una marca chica de jardinería: luz natural, texturas reales, colores naturales sin saturar, pequeñas imperfecciones cotidianas (tierra, hojas no perfectas), nada de luz dorada de catálogo ni plantas perfectas, sin aspecto de render ni de ilustración. Formato vertical 4:5.
+
+--- 1.5 · CIERRE (adjuntá la foto del producto) ---
+Foto vertical 4:5. El frasco VERDEA de pie sobre una mesa de madera junto a un frasco de vidrio con un esqueje lleno de raíces blancas, luz de ventana de mañana.
+TEXTO: arriba, grande en verde oscuro sobre franja crema: "Orgánico, concentrado y fácil de usar". Debajo, etiqueta naranja con letras blancas: "RINDE HASTA 80 LITROS 💧". Abajo, chico: "Link en el perfil".
+TEXTO Y DISEÑO: tipografía sans serif redondeada y gruesa (estilo Poppins Bold) para títulos y Poppins Regular para textos chicos. Colores: blanco cremoso #F5F4EE sobre fotos, verde oscuro #2A5F35 sobre fondos claros, detalles en naranja #E88031. Texto con mucho aire, bien legible en celular, sombra muy suave si va sobre foto. Escribí cada palabra exactamente como está, con sus tildes, sin agregar otro texto ni logos.
+INTEGRACIÓN DEL PRODUCTO (si aparece el frasco): idéntico a la imagen adjunta (forma, color, tapa y etiqueta, sin inventar ni deformar letras), tamaño real de 250 ml, apoyado físicamente en la escena, con la misma luz que el resto: reflejo del mismo lado que la fuente de luz, sombra en la misma dirección que las demás, sombra de contacto en la base, mismo grano y balance de color.
+ESTILO: fotografía realista y natural, como de una marca chica de jardinería: luz natural, texturas reales, colores naturales sin saturar, pequeñas imperfecciones cotidianas (tierra, hojas no perfectas), nada de luz dorada de catálogo ni plantas perfectas, sin aspecto de render ni de ilustración. Formato vertical 4:5.
+
+
+============================================================
+CARRUSEL 2 · QUÉ PLANTAR EN PRIMAVERA EN TU HUERTA
+============================================================
+
+--- 2.1 · PORTADA ---
+Foto vertical 4:5. Cantero de huerta de patio recién armado en primavera, con plantines chicos en fila, tierra negra húmeda, una pala de mano y una bolsa de plantines de vivero al costado. Luz de mañana.
+TEXTO: arriba, grande en blanco cremoso: "Qué plantar en primavera 🍅". Debajo: "en tu huerta". Abajo, chico: "Deslizá →".
+TEXTO Y DISEÑO: tipografía sans serif redondeada y gruesa (estilo Poppins Bold) para títulos y Poppins Regular para textos chicos. Colores: blanco cremoso #F5F4EE sobre fotos, verde oscuro #2A5F35 sobre fondos claros, detalles en naranja #E88031. Texto con mucho aire, bien legible en celular, sombra muy suave si va sobre foto. Escribí cada palabra exactamente como está, con sus tildes, sin agregar otro texto ni logos.
+INTEGRACIÓN DEL PRODUCTO (si aparece el frasco): idéntico a la imagen adjunta (forma, color, tapa y etiqueta, sin inventar ni deformar letras), tamaño real de 250 ml, apoyado físicamente en la escena, con la misma luz que el resto: reflejo del mismo lado que la fuente de luz, sombra en la misma dirección que las demás, sombra de contacto en la base, mismo grano y balance de color.
+ESTILO: fotografía realista y natural, como de una marca chica de jardinería: luz natural, texturas reales, colores naturales sin saturar, pequeñas imperfecciones cotidianas (tierra, hojas no perfectas), nada de luz dorada de catálogo ni plantas perfectas, sin aspecto de render ni de ilustración. Formato vertical 4:5.
+
+--- 2.2 · TOMATE ---
+Foto vertical 4:5, primer plano. Planta de tomate joven atada a una caña, con flores amarillas. En una huerta de patio, luz natural de día.
+TEXTO: arriba, grande en blanco cremoso: "Tomate". Abajo, chico: "Necesita 6 horas de sol directo.".
+TEXTO Y DISEÑO: tipografía sans serif redondeada y gruesa (estilo Poppins Bold) para títulos y Poppins Regular para textos chicos. Colores: blanco cremoso #F5F4EE sobre fotos, verde oscuro #2A5F35 sobre fondos claros, detalles en naranja #E88031. Texto con mucho aire, bien legible en celular, sombra muy suave si va sobre foto. Escribí cada palabra exactamente como está, con sus tildes, sin agregar otro texto ni logos.
+INTEGRACIÓN DEL PRODUCTO (si aparece el frasco): idéntico a la imagen adjunta (forma, color, tapa y etiqueta, sin inventar ni deformar letras), tamaño real de 250 ml, apoyado físicamente en la escena, con la misma luz que el resto: reflejo del mismo lado que la fuente de luz, sombra en la misma dirección que las demás, sombra de contacto en la base, mismo grano y balance de color.
+ESTILO: fotografía realista y natural, como de una marca chica de jardinería: luz natural, texturas reales, colores naturales sin saturar, pequeñas imperfecciones cotidianas (tierra, hojas no perfectas), nada de luz dorada de catálogo ni plantas perfectas, sin aspecto de render ni de ilustración. Formato vertical 4:5.
+
+--- 2.3 · MORRÓN ---
+Foto vertical 4:5, primer plano. Planta de morrón con un morrón verde chico colgando. En una huerta de patio, luz natural de día.
+TEXTO: arriba, grande en blanco cremoso: "Morrón". Abajo, chico: "Le gusta el calor y el riego parejo.".
+TEXTO Y DISEÑO: tipografía sans serif redondeada y gruesa (estilo Poppins Bold) para títulos y Poppins Regular para textos chicos. Colores: blanco cremoso #F5F4EE sobre fotos, verde oscuro #2A5F35 sobre fondos claros, detalles en naranja #E88031. Texto con mucho aire, bien legible en celular, sombra muy suave si va sobre foto. Escribí cada palabra exactamente como está, con sus tildes, sin agregar otro texto ni logos.
+INTEGRACIÓN DEL PRODUCTO (si aparece el frasco): idéntico a la imagen adjunta (forma, color, tapa y etiqueta, sin inventar ni deformar letras), tamaño real de 250 ml, apoyado físicamente en la escena, con la misma luz que el resto: reflejo del mismo lado que la fuente de luz, sombra en la misma dirección que las demás, sombra de contacto en la base, mismo grano y balance de color.
+ESTILO: fotografía realista y natural, como de una marca chica de jardinería: luz natural, texturas reales, colores naturales sin saturar, pequeñas imperfecciones cotidianas (tierra, hojas no perfectas), nada de luz dorada de catálogo ni plantas perfectas, sin aspecto de render ni de ilustración. Formato vertical 4:5.
+
+--- 2.4 · ALBAHACA ---
+Foto vertical 4:5, primer plano. Mata de albahaca frondosa en una maceta de barro. En una huerta de patio, luz natural de día.
+TEXTO: arriba, grande en blanco cremoso: "Albahaca". Abajo, chico: "Cortá las puntas para que se ramifique.".
+TEXTO Y DISEÑO: tipografía sans serif redondeada y gruesa (estilo Poppins Bold) para títulos y Poppins Regular para textos chicos. Colores: blanco cremoso #F5F4EE sobre fotos, verde oscuro #2A5F35 sobre fondos claros, detalles en naranja #E88031. Texto con mucho aire, bien legible en celular, sombra muy suave si va sobre foto. Escribí cada palabra exactamente como está, con sus tildes, sin agregar otro texto ni logos.
+INTEGRACIÓN DEL PRODUCTO (si aparece el frasco): idéntico a la imagen adjunta (forma, color, tapa y etiqueta, sin inventar ni deformar letras), tamaño real de 250 ml, apoyado físicamente en la escena, con la misma luz que el resto: reflejo del mismo lado que la fuente de luz, sombra en la misma dirección que las demás, sombra de contacto en la base, mismo grano y balance de color.
+ESTILO: fotografía realista y natural, como de una marca chica de jardinería: luz natural, texturas reales, colores naturales sin saturar, pequeñas imperfecciones cotidianas (tierra, hojas no perfectas), nada de luz dorada de catálogo ni plantas perfectas, sin aspecto de render ni de ilustración. Formato vertical 4:5.
+
+--- 2.5 · LECHUGA ---
+Foto vertical 4:5, primer plano. Lechugas en un cantero, verdes y crocantes, con algo de media sombra. En una huerta de patio, luz natural de día.
+TEXTO: arriba, grande en blanco cremoso: "Lechuga". Abajo, chico: "Mejor con sol de mañana y sombra a la tarde.".
+TEXTO Y DISEÑO: tipografía sans serif redondeada y gruesa (estilo Poppins Bold) para títulos y Poppins Regular para textos chicos. Colores: blanco cremoso #F5F4EE sobre fotos, verde oscuro #2A5F35 sobre fondos claros, detalles en naranja #E88031. Texto con mucho aire, bien legible en celular, sombra muy suave si va sobre foto. Escribí cada palabra exactamente como está, con sus tildes, sin agregar otro texto ni logos.
+INTEGRACIÓN DEL PRODUCTO (si aparece el frasco): idéntico a la imagen adjunta (forma, color, tapa y etiqueta, sin inventar ni deformar letras), tamaño real de 250 ml, apoyado físicamente en la escena, con la misma luz que el resto: reflejo del mismo lado que la fuente de luz, sombra en la misma dirección que las demás, sombra de contacto en la base, mismo grano y balance de color.
+ESTILO: fotografía realista y natural, como de una marca chica de jardinería: luz natural, texturas reales, colores naturales sin saturar, pequeñas imperfecciones cotidianas (tierra, hojas no perfectas), nada de luz dorada de catálogo ni plantas perfectas, sin aspecto de render ni de ilustración. Formato vertical 4:5.
+
+--- 2.6 · ZAPALLITO ---
+Foto vertical 4:5, primer plano. Planta de zapallito con hojas grandes y una flor amarilla. En una huerta de patio, luz natural de día.
+TEXTO: arriba, grande en blanco cremoso: "Zapallito". Abajo, chico: "Dejale espacio: crece mucho.".
+TEXTO Y DISEÑO: tipografía sans serif redondeada y gruesa (estilo Poppins Bold) para títulos y Poppins Regular para textos chicos. Colores: blanco cremoso #F5F4EE sobre fotos, verde oscuro #2A5F35 sobre fondos claros, detalles en naranja #E88031. Texto con mucho aire, bien legible en celular, sombra muy suave si va sobre foto. Escribí cada palabra exactamente como está, con sus tildes, sin agregar otro texto ni logos.
+INTEGRACIÓN DEL PRODUCTO (si aparece el frasco): idéntico a la imagen adjunta (forma, color, tapa y etiqueta, sin inventar ni deformar letras), tamaño real de 250 ml, apoyado físicamente en la escena, con la misma luz que el resto: reflejo del mismo lado que la fuente de luz, sombra en la misma dirección que las demás, sombra de contacto en la base, mismo grano y balance de color.
+ESTILO: fotografía realista y natural, como de una marca chica de jardinería: luz natural, texturas reales, colores naturales sin saturar, pequeñas imperfecciones cotidianas (tierra, hojas no perfectas), nada de luz dorada de catálogo ni plantas perfectas, sin aspecto de render ni de ilustración. Formato vertical 4:5.
+
+--- 2.7 · FRUTILLAS ---
+Foto vertical 4:5, primer plano. Plantas de frutilla en una maceta colgante con frutillas rojas. En una huerta de patio, luz natural de día.
+TEXTO: arriba, grande en blanco cremoso: "Frutillas". Abajo, chico: "Ideales para macetas y balcones.".
+TEXTO Y DISEÑO: tipografía sans serif redondeada y gruesa (estilo Poppins Bold) para títulos y Poppins Regular para textos chicos. Colores: blanco cremoso #F5F4EE sobre fotos, verde oscuro #2A5F35 sobre fondos claros, detalles en naranja #E88031. Texto con mucho aire, bien legible en celular, sombra muy suave si va sobre foto. Escribí cada palabra exactamente como está, con sus tildes, sin agregar otro texto ni logos.
+INTEGRACIÓN DEL PRODUCTO (si aparece el frasco): idéntico a la imagen adjunta (forma, color, tapa y etiqueta, sin inventar ni deformar letras), tamaño real de 250 ml, apoyado físicamente en la escena, con la misma luz que el resto: reflejo del mismo lado que la fuente de luz, sombra en la misma dirección que las demás, sombra de contacto en la base, mismo grano y balance de color.
+ESTILO: fotografía realista y natural, como de una marca chica de jardinería: luz natural, texturas reales, colores naturales sin saturar, pequeñas imperfecciones cotidianas (tierra, hojas no perfectas), nada de luz dorada de catálogo ni plantas perfectas, sin aspecto de render ni de ilustración. Formato vertical 4:5.
+
+--- 2.8 · CIERRE (adjuntá la foto del producto) ---
+Foto vertical 4:5. Manos regando con una regadera de metal plantines recién trasplantados en un cantero; el frasco VERDEA apoyado sobre el borde de madera del cantero. Luz de tarde.
+TEXTO: grande en blanco cremoso: "Al trasplantar, primer riego con VERDEA 🌱". Abajo, chico: "Guardalo para no olvidarte 📌".
+TEXTO Y DISEÑO: tipografía sans serif redondeada y gruesa (estilo Poppins Bold) para títulos y Poppins Regular para textos chicos. Colores: blanco cremoso #F5F4EE sobre fotos, verde oscuro #2A5F35 sobre fondos claros, detalles en naranja #E88031. Texto con mucho aire, bien legible en celular, sombra muy suave si va sobre foto. Escribí cada palabra exactamente como está, con sus tildes, sin agregar otro texto ni logos.
+INTEGRACIÓN DEL PRODUCTO (si aparece el frasco): idéntico a la imagen adjunta (forma, color, tapa y etiqueta, sin inventar ni deformar letras), tamaño real de 250 ml, apoyado físicamente en la escena, con la misma luz que el resto: reflejo del mismo lado que la fuente de luz, sombra en la misma dirección que las demás, sombra de contacto en la base, mismo grano y balance de color.
+ESTILO: fotografía realista y natural, como de una marca chica de jardinería: luz natural, texturas reales, colores naturales sin saturar, pequeñas imperfecciones cotidianas (tierra, hojas no perfectas), nada de luz dorada de catálogo ni plantas perfectas, sin aspecto de render ni de ilustración. Formato vertical 4:5.
+
+
+============================================================
+CARRUSEL 3 · ESQUEJES DE POTUS PASO A PASO
+============================================================
+
+--- 3.1 · PORTADA ---
+Foto vertical 4:5. Un potus grande colgando de un estante junto a una ventana, y en primer plano tres frascos de vidrio con esquejes de potus en agua. Luz de mañana.
+TEXTO: arriba, grande en blanco cremoso: "Multiplicá tu potus gratis 🪴". Debajo: "paso a paso". Abajo, chico: "Deslizá →".
+TEXTO Y DISEÑO: tipografía sans serif redondeada y gruesa (estilo Poppins Bold) para títulos y Poppins Regular para textos chicos. Colores: blanco cremoso #F5F4EE sobre fotos, verde oscuro #2A5F35 sobre fondos claros, detalles en naranja #E88031. Texto con mucho aire, bien legible en celular, sombra muy suave si va sobre foto. Escribí cada palabra exactamente como está, con sus tildes, sin agregar otro texto ni logos.
+INTEGRACIÓN DEL PRODUCTO (si aparece el frasco): idéntico a la imagen adjunta (forma, color, tapa y etiqueta, sin inventar ni deformar letras), tamaño real de 250 ml, apoyado físicamente en la escena, con la misma luz que el resto: reflejo del mismo lado que la fuente de luz, sombra en la misma dirección que las demás, sombra de contacto en la base, mismo grano y balance de color.
+ESTILO: fotografía realista y natural, como de una marca chica de jardinería: luz natural, texturas reales, colores naturales sin saturar, pequeñas imperfecciones cotidianas (tierra, hojas no perfectas), nada de luz dorada de catálogo ni plantas perfectas, sin aspecto de render ni de ilustración. Formato vertical 4:5.
+
+--- 3.2 · PASO 1 ---
+Foto vertical 4:5, primer plano. Manos señalando un tallo de potus sano con 3 hojas verdes en la planta madre. Luz natural de ventana.
+TEXTO: arriba a la izquierda, número grande en un círculo naranja con número blanco: "1". Al lado, grande en blanco cremoso: "Elegí un tallo sano". Abajo, chico: "Que tenga 2 o 3 hojas.".
+TEXTO Y DISEÑO: tipografía sans serif redondeada y gruesa (estilo Poppins Bold) para títulos y Poppins Regular para textos chicos. Colores: blanco cremoso #F5F4EE sobre fotos, verde oscuro #2A5F35 sobre fondos claros, detalles en naranja #E88031. Texto con mucho aire, bien legible en celular, sombra muy suave si va sobre foto. Escribí cada palabra exactamente como está, con sus tildes, sin agregar otro texto ni logos.
+INTEGRACIÓN DEL PRODUCTO (si aparece el frasco): idéntico a la imagen adjunta (forma, color, tapa y etiqueta, sin inventar ni deformar letras), tamaño real de 250 ml, apoyado físicamente en la escena, con la misma luz que el resto: reflejo del mismo lado que la fuente de luz, sombra en la misma dirección que las demás, sombra de contacto en la base, mismo grano y balance de color.
+ESTILO: fotografía realista y natural, como de una marca chica de jardinería: luz natural, texturas reales, colores naturales sin saturar, pequeñas imperfecciones cotidianas (tierra, hojas no perfectas), nada de luz dorada de catálogo ni plantas perfectas, sin aspecto de render ni de ilustración. Formato vertical 4:5.
+
+--- 3.3 · PASO 2 ---
+Foto vertical 4:5, primer plano. Primer plano de una tijera cortando un tallo de potus justo debajo de un nudo (el bulto donde nace la hoja). Luz natural de ventana.
+TEXTO: arriba a la izquierda, número grande en un círculo naranja con número blanco: "2". Al lado, grande en blanco cremoso: "Cortá debajo del nudo". Abajo, chico: "1 cm abajo: de ahí salen las raíces.".
+TEXTO Y DISEÑO: tipografía sans serif redondeada y gruesa (estilo Poppins Bold) para títulos y Poppins Regular para textos chicos. Colores: blanco cremoso #F5F4EE sobre fotos, verde oscuro #2A5F35 sobre fondos claros, detalles en naranja #E88031. Texto con mucho aire, bien legible en celular, sombra muy suave si va sobre foto. Escribí cada palabra exactamente como está, con sus tildes, sin agregar otro texto ni logos.
+INTEGRACIÓN DEL PRODUCTO (si aparece el frasco): idéntico a la imagen adjunta (forma, color, tapa y etiqueta, sin inventar ni deformar letras), tamaño real de 250 ml, apoyado físicamente en la escena, con la misma luz que el resto: reflejo del mismo lado que la fuente de luz, sombra en la misma dirección que las demás, sombra de contacto en la base, mismo grano y balance de color.
+ESTILO: fotografía realista y natural, como de una marca chica de jardinería: luz natural, texturas reales, colores naturales sin saturar, pequeñas imperfecciones cotidianas (tierra, hojas no perfectas), nada de luz dorada de catálogo ni plantas perfectas, sin aspecto de render ni de ilustración. Formato vertical 4:5.
+
+--- 3.4 · PASO 3 ---
+Foto vertical 4:5, primer plano. Manos sacando la hoja de abajo de un esqueje de potus sobre una mesa de madera. Luz natural de ventana.
+TEXTO: arriba a la izquierda, número grande en un círculo naranja con número blanco: "3". Al lado, grande en blanco cremoso: "Sacá las hojas de abajo". Abajo, chico: "Si quedan bajo el agua, se pudren.".
+TEXTO Y DISEÑO: tipografía sans serif redondeada y gruesa (estilo Poppins Bold) para títulos y Poppins Regular para textos chicos. Colores: blanco cremoso #F5F4EE sobre fotos, verde oscuro #2A5F35 sobre fondos claros, detalles en naranja #E88031. Texto con mucho aire, bien legible en celular, sombra muy suave si va sobre foto. Escribí cada palabra exactamente como está, con sus tildes, sin agregar otro texto ni logos.
+INTEGRACIÓN DEL PRODUCTO (si aparece el frasco): idéntico a la imagen adjunta (forma, color, tapa y etiqueta, sin inventar ni deformar letras), tamaño real de 250 ml, apoyado físicamente en la escena, con la misma luz que el resto: reflejo del mismo lado que la fuente de luz, sombra en la misma dirección que las demás, sombra de contacto en la base, mismo grano y balance de color.
+ESTILO: fotografía realista y natural, como de una marca chica de jardinería: luz natural, texturas reales, colores naturales sin saturar, pequeñas imperfecciones cotidianas (tierra, hojas no perfectas), nada de luz dorada de catálogo ni plantas perfectas, sin aspecto de render ni de ilustración. Formato vertical 4:5.
+
+--- 3.5 · PASO 4 (adjuntá la foto del producto) ---
+Foto vertical 4:5, primer plano. Esqueje de potus dentro de un frasco de vidrio con agua; unas gotas de una tapa dosificadora verde oscuro cayendo en el agua; el frasco VERDEA al lado. Luz natural de ventana.
+TEXTO: arriba a la izquierda, número grande en un círculo naranja con número blanco: "4". Al lado, grande en blanco cremoso: "Agua + unas gotas de VERDEA". Abajo, chico: "Para que enraíce más rápido y fuerte.".
+TEXTO Y DISEÑO: tipografía sans serif redondeada y gruesa (estilo Poppins Bold) para títulos y Poppins Regular para textos chicos. Colores: blanco cremoso #F5F4EE sobre fotos, verde oscuro #2A5F35 sobre fondos claros, detalles en naranja #E88031. Texto con mucho aire, bien legible en celular, sombra muy suave si va sobre foto. Escribí cada palabra exactamente como está, con sus tildes, sin agregar otro texto ni logos.
+INTEGRACIÓN DEL PRODUCTO (si aparece el frasco): idéntico a la imagen adjunta (forma, color, tapa y etiqueta, sin inventar ni deformar letras), tamaño real de 250 ml, apoyado físicamente en la escena, con la misma luz que el resto: reflejo del mismo lado que la fuente de luz, sombra en la misma dirección que las demás, sombra de contacto en la base, mismo grano y balance de color.
+ESTILO: fotografía realista y natural, como de una marca chica de jardinería: luz natural, texturas reales, colores naturales sin saturar, pequeñas imperfecciones cotidianas (tierra, hojas no perfectas), nada de luz dorada de catálogo ni plantas perfectas, sin aspecto de render ni de ilustración. Formato vertical 4:5.
+
+--- 3.6 · PASO 5 ---
+Foto vertical 4:5, primer plano. Manos vaciando el agua de un frasco con esquejes en una pileta y una jarra de agua limpia al lado. Luz natural de ventana.
+TEXTO: arriba a la izquierda, número grande en un círculo naranja con número blanco: "5". Al lado, grande en blanco cremoso: "Cambiá el agua". Abajo, chico: "Cada 3 o 4 días.".
+TEXTO Y DISEÑO: tipografía sans serif redondeada y gruesa (estilo Poppins Bold) para títulos y Poppins Regular para textos chicos. Colores: blanco cremoso #F5F4EE sobre fotos, verde oscuro #2A5F35 sobre fondos claros, detalles en naranja #E88031. Texto con mucho aire, bien legible en celular, sombra muy suave si va sobre foto. Escribí cada palabra exactamente como está, con sus tildes, sin agregar otro texto ni logos.
+INTEGRACIÓN DEL PRODUCTO (si aparece el frasco): idéntico a la imagen adjunta (forma, color, tapa y etiqueta, sin inventar ni deformar letras), tamaño real de 250 ml, apoyado físicamente en la escena, con la misma luz que el resto: reflejo del mismo lado que la fuente de luz, sombra en la misma dirección que las demás, sombra de contacto en la base, mismo grano y balance de color.
+ESTILO: fotografía realista y natural, como de una marca chica de jardinería: luz natural, texturas reales, colores naturales sin saturar, pequeñas imperfecciones cotidianas (tierra, hojas no perfectas), nada de luz dorada de catálogo ni plantas perfectas, sin aspecto de render ni de ilustración. Formato vertical 4:5.
+
+--- 3.7 · PASO 6 ---
+Foto vertical 4:5, primer plano. Frasco de vidrio con esqueje de potus con una mata de raíces blancas, a contraluz en una ventana. Luz natural de ventana.
+TEXTO: arriba a la izquierda, número grande en un círculo naranja con número blanco: "6". Al lado, grande en blanco cremoso: "En 2 o 3 semanas: raíces". Abajo, chico: "Ya lo podés pasar a tierra.".
+TEXTO Y DISEÑO: tipografía sans serif redondeada y gruesa (estilo Poppins Bold) para títulos y Poppins Regular para textos chicos. Colores: blanco cremoso #F5F4EE sobre fotos, verde oscuro #2A5F35 sobre fondos claros, detalles en naranja #E88031. Texto con mucho aire, bien legible en celular, sombra muy suave si va sobre foto. Escribí cada palabra exactamente como está, con sus tildes, sin agregar otro texto ni logos.
+INTEGRACIÓN DEL PRODUCTO (si aparece el frasco): idéntico a la imagen adjunta (forma, color, tapa y etiqueta, sin inventar ni deformar letras), tamaño real de 250 ml, apoyado físicamente en la escena, con la misma luz que el resto: reflejo del mismo lado que la fuente de luz, sombra en la misma dirección que las demás, sombra de contacto en la base, mismo grano y balance de color.
+ESTILO: fotografía realista y natural, como de una marca chica de jardinería: luz natural, texturas reales, colores naturales sin saturar, pequeñas imperfecciones cotidianas (tierra, hojas no perfectas), nada de luz dorada de catálogo ni plantas perfectas, sin aspecto de render ni de ilustración. Formato vertical 4:5.
+
+--- 3.8 · CIERRE ---
+Foto vertical 4:5. Estante de madera con varios frascos de vidrio con esquejes de potus enraizados y, al lado, dos macetas chicas con potus nuevos ya plantados. Luz cálida de tarde.
+TEXTO: grande en verde oscuro sobre franja crema: "Guardalo para tu próximo esqueje 📌". Abajo, chico: "VERDEA · huerta doméstica".
+TEXTO Y DISEÑO: tipografía sans serif redondeada y gruesa (estilo Poppins Bold) para títulos y Poppins Regular para textos chicos. Colores: blanco cremoso #F5F4EE sobre fotos, verde oscuro #2A5F35 sobre fondos claros, detalles en naranja #E88031. Texto con mucho aire, bien legible en celular, sombra muy suave si va sobre foto. Escribí cada palabra exactamente como está, con sus tildes, sin agregar otro texto ni logos.
+INTEGRACIÓN DEL PRODUCTO (si aparece el frasco): idéntico a la imagen adjunta (forma, color, tapa y etiqueta, sin inventar ni deformar letras), tamaño real de 250 ml, apoyado físicamente en la escena, con la misma luz que el resto: reflejo del mismo lado que la fuente de luz, sombra en la misma dirección que las demás, sombra de contacto en la base, mismo grano y balance de color.
+ESTILO: fotografía realista y natural, como de una marca chica de jardinería: luz natural, texturas reales, colores naturales sin saturar, pequeñas imperfecciones cotidianas (tierra, hojas no perfectas), nada de luz dorada de catálogo ni plantas perfectas, sin aspecto de render ni de ilustración. Formato vertical 4:5.
+
+
+============================================================
+CARRUSEL 4 · 4 SEÑALES DE QUE TU PLANTA NECESITA TRASPLANTE
+============================================================
+
+--- 4.1 · PORTADA ---
+Foto vertical 4:5. Una planta grande en una maceta chica que le queda apretada, con raíces asomando por arriba de la tierra, sobre un piso de baldosas de patio. Luz de tarde.
+TEXTO: arriba, grande en blanco cremoso: "¿Tu planta necesita una maceta nueva? 👀". Abajo, chico: "4 señales · Deslizá →".
+TEXTO Y DISEÑO: tipografía sans serif redondeada y gruesa (estilo Poppins Bold) para títulos y Poppins Regular para textos chicos. Colores: blanco cremoso #F5F4EE sobre fotos, verde oscuro #2A5F35 sobre fondos claros, detalles en naranja #E88031. Texto con mucho aire, bien legible en celular, sombra muy suave si va sobre foto. Escribí cada palabra exactamente como está, con sus tildes, sin agregar otro texto ni logos.
+INTEGRACIÓN DEL PRODUCTO (si aparece el frasco): idéntico a la imagen adjunta (forma, color, tapa y etiqueta, sin inventar ni deformar letras), tamaño real de 250 ml, apoyado físicamente en la escena, con la misma luz que el resto: reflejo del mismo lado que la fuente de luz, sombra en la misma dirección que las demás, sombra de contacto en la base, mismo grano y balance de color.
+ESTILO: fotografía realista y natural, como de una marca chica de jardinería: luz natural, texturas reales, colores naturales sin saturar, pequeñas imperfecciones cotidianas (tierra, hojas no perfectas), nada de luz dorada de catálogo ni plantas perfectas, sin aspecto de render ni de ilustración. Formato vertical 4:5.
+
+--- 4.2 · SEÑAL 1 ---
+Foto vertical 4:5, primer plano. Vista de abajo de una maceta de plástico con raíces saliendo por los agujeros de drenaje. Luz natural.
+TEXTO: arriba a la izquierda, número grande en un círculo naranja con número blanco: "1". Al lado, grande en blanco cremoso: "Le salen raíces por abajo".
+TEXTO Y DISEÑO: tipografía sans serif redondeada y gruesa (estilo Poppins Bold) para títulos y Poppins Regular para textos chicos. Colores: blanco cremoso #F5F4EE sobre fotos, verde oscuro #2A5F35 sobre fondos claros, detalles en naranja #E88031. Texto con mucho aire, bien legible en celular, sombra muy suave si va sobre foto. Escribí cada palabra exactamente como está, con sus tildes, sin agregar otro texto ni logos.
+INTEGRACIÓN DEL PRODUCTO (si aparece el frasco): idéntico a la imagen adjunta (forma, color, tapa y etiqueta, sin inventar ni deformar letras), tamaño real de 250 ml, apoyado físicamente en la escena, con la misma luz que el resto: reflejo del mismo lado que la fuente de luz, sombra en la misma dirección que las demás, sombra de contacto en la base, mismo grano y balance de color.
+ESTILO: fotografía realista y natural, como de una marca chica de jardinería: luz natural, texturas reales, colores naturales sin saturar, pequeñas imperfecciones cotidianas (tierra, hojas no perfectas), nada de luz dorada de catálogo ni plantas perfectas, sin aspecto de render ni de ilustración. Formato vertical 4:5.
+
+--- 4.3 · SEÑAL 2 ---
+Foto vertical 4:5, primer plano. Agua de riego saliendo enseguida por el plato de una maceta, con la tierra seca y compacta arriba. Luz natural.
+TEXTO: arriba a la izquierda, número grande en un círculo naranja con número blanco: "2". Al lado, grande en blanco cremoso: "El agua pasa de largo".
+TEXTO Y DISEÑO: tipografía sans serif redondeada y gruesa (estilo Poppins Bold) para títulos y Poppins Regular para textos chicos. Colores: blanco cremoso #F5F4EE sobre fotos, verde oscuro #2A5F35 sobre fondos claros, detalles en naranja #E88031. Texto con mucho aire, bien legible en celular, sombra muy suave si va sobre foto. Escribí cada palabra exactamente como está, con sus tildes, sin agregar otro texto ni logos.
+INTEGRACIÓN DEL PRODUCTO (si aparece el frasco): idéntico a la imagen adjunta (forma, color, tapa y etiqueta, sin inventar ni deformar letras), tamaño real de 250 ml, apoyado físicamente en la escena, con la misma luz que el resto: reflejo del mismo lado que la fuente de luz, sombra en la misma dirección que las demás, sombra de contacto en la base, mismo grano y balance de color.
+ESTILO: fotografía realista y natural, como de una marca chica de jardinería: luz natural, texturas reales, colores naturales sin saturar, pequeñas imperfecciones cotidianas (tierra, hojas no perfectas), nada de luz dorada de catálogo ni plantas perfectas, sin aspecto de render ni de ilustración. Formato vertical 4:5.
+
+--- 4.4 · SEÑAL 3 ---
+Foto vertical 4:5, primer plano. Planta mediana en maceta con hojas viejas y sin brotes nuevos, junto a una ventana. Luz natural.
+TEXTO: arriba a la izquierda, número grande en un círculo naranja con número blanco: "3". Al lado, grande en blanco cremoso: "Dejó de crecer".
+TEXTO Y DISEÑO: tipografía sans serif redondeada y gruesa (estilo Poppins Bold) para títulos y Poppins Regular para textos chicos. Colores: blanco cremoso #F5F4EE sobre fotos, verde oscuro #2A5F35 sobre fondos claros, detalles en naranja #E88031. Texto con mucho aire, bien legible en celular, sombra muy suave si va sobre foto. Escribí cada palabra exactamente como está, con sus tildes, sin agregar otro texto ni logos.
+INTEGRACIÓN DEL PRODUCTO (si aparece el frasco): idéntico a la imagen adjunta (forma, color, tapa y etiqueta, sin inventar ni deformar letras), tamaño real de 250 ml, apoyado físicamente en la escena, con la misma luz que el resto: reflejo del mismo lado que la fuente de luz, sombra en la misma dirección que las demás, sombra de contacto en la base, mismo grano y balance de color.
+ESTILO: fotografía realista y natural, como de una marca chica de jardinería: luz natural, texturas reales, colores naturales sin saturar, pequeñas imperfecciones cotidianas (tierra, hojas no perfectas), nada de luz dorada de catálogo ni plantas perfectas, sin aspecto de render ni de ilustración. Formato vertical 4:5.
+
+--- 4.5 · SEÑAL 4 ---
+Foto vertical 4:5, primer plano. Planta alta y pesada en una maceta chica, inclinada y a punto de volcarse sobre un estante. Luz natural.
+TEXTO: arriba a la izquierda, número grande en un círculo naranja con número blanco: "4". Al lado, grande en blanco cremoso: "La maceta se vuelca".
+TEXTO Y DISEÑO: tipografía sans serif redondeada y gruesa (estilo Poppins Bold) para títulos y Poppins Regular para textos chicos. Colores: blanco cremoso #F5F4EE sobre fotos, verde oscuro #2A5F35 sobre fondos claros, detalles en naranja #E88031. Texto con mucho aire, bien legible en celular, sombra muy suave si va sobre foto. Escribí cada palabra exactamente como está, con sus tildes, sin agregar otro texto ni logos.
+INTEGRACIÓN DEL PRODUCTO (si aparece el frasco): idéntico a la imagen adjunta (forma, color, tapa y etiqueta, sin inventar ni deformar letras), tamaño real de 250 ml, apoyado físicamente en la escena, con la misma luz que el resto: reflejo del mismo lado que la fuente de luz, sombra en la misma dirección que las demás, sombra de contacto en la base, mismo grano y balance de color.
+ESTILO: fotografía realista y natural, como de una marca chica de jardinería: luz natural, texturas reales, colores naturales sin saturar, pequeñas imperfecciones cotidianas (tierra, hojas no perfectas), nada de luz dorada de catálogo ni plantas perfectas, sin aspecto de render ni de ilustración. Formato vertical 4:5.
+
+--- 4.6 · CIERRE (adjuntá la foto del producto) ---
+Foto vertical 4:5. Manos colocando una planta en una maceta de barro más grande con tierra negra húmeda; el frasco VERDEA apoyado al lado sobre una mesa de trabajo de madera. Luz de tarde.
+TEXTO: grande en blanco cremoso: "¿Vas a trasplantar?". Debajo: "Primer riego con VERDEA para que no sufra el cambio 🌱". Abajo, chico: "Link en el perfil".
+TEXTO Y DISEÑO: tipografía sans serif redondeada y gruesa (estilo Poppins Bold) para títulos y Poppins Regular para textos chicos. Colores: blanco cremoso #F5F4EE sobre fotos, verde oscuro #2A5F35 sobre fondos claros, detalles en naranja #E88031. Texto con mucho aire, bien legible en celular, sombra muy suave si va sobre foto. Escribí cada palabra exactamente como está, con sus tildes, sin agregar otro texto ni logos.
+INTEGRACIÓN DEL PRODUCTO (si aparece el frasco): idéntico a la imagen adjunta (forma, color, tapa y etiqueta, sin inventar ni deformar letras), tamaño real de 250 ml, apoyado físicamente en la escena, con la misma luz que el resto: reflejo del mismo lado que la fuente de luz, sombra en la misma dirección que las demás, sombra de contacto en la base, mismo grano y balance de color.
+ESTILO: fotografía realista y natural, como de una marca chica de jardinería: luz natural, texturas reales, colores naturales sin saturar, pequeñas imperfecciones cotidianas (tierra, hojas no perfectas), nada de luz dorada de catálogo ni plantas perfectas, sin aspecto de render ni de ilustración. Formato vertical 4:5.

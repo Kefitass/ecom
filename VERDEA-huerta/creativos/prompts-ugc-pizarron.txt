@@ -1,0 +1,148 @@
+VERDEA · UGC "BOTÁNICO CON PIZARRÓN" · FONDO VERDE PARA CAPCUT
+Google Flow (Veo 3.1) · 9:16 · bloques de 8 s
+=====================================================================
+
+CÓMO FUNCIONA
+- El botánico se genera SIEMPRE sobre fondo verde croma.
+- El pizarrón y las tomas de apoyo se generan APARTE, sin persona.
+- En CapCut: avatar arriba → Croma (verde) → abajo de la pantalla; fondo detrás.
+- Un mismo bloque del avatar sirve con cualquier fondo.
+
+
+=====================================================================
+1 · FOTO DEL PERSONAJE (ChatGPT o Gemini, una sola vez)
+=====================================================================
+"Foto realista estilo celular, vertical 9:16. Hombre argentino de 45 años, barba corta
+canosa, pelo corto entrecano, camisa de trabajo beige con mangas arremangadas, delantal
+marrón de lona. Plano medio de la cintura para arriba, mirando a cámara, expresión
+amable. Fondo verde croma liso (#00B140), iluminado parejo, sin sombras. Nada verde en
+la ropa ni en el cuerpo. Luz suave de frente."
+→ Descargala y subila como ingrediente en TODOS los bloques.
+
+
+=====================================================================
+2 · DESCRIPCIÓN FIJA (va igual al principio de cada bloque)
+=====================================================================
+Same man as the reference image: 45-year-old Argentine botanist, short grey beard,
+beige work shirt with rolled-up sleeves, brown canvas apron. Medium shot, waist up,
+vertical 9:16, static phone camera, UGC style. Solid flat chroma key green background
+(#00B140), evenly lit, no shadows, no objects behind him, nothing green on his clothes.
+He speaks Spanish with a natural Argentine Rioplatense accent, warm and calm, using
+"vos". No subtitles, no on-screen text, no music.
+
+Cuidados del croma:
+- Que no mueva mucho las manos fuera del cuadro ni se tape con objetos verdes.
+- La etiqueta de VERDEA es verde: si tiene el frasco en la mano, puede "agujerearse"
+  al recortar. Mejor mostrar el frasco en el fondo (B-roll) y que él lo señale.
+- Si al recortar quedan bordes verdes: CapCut → Croma → subí "Sombra"/"Intensidad".
+
+
+=====================================================================
+3 · BLOQUES DEL BOTÁNICO (descripción fija + línea de abajo)
+=====================================================================
+Gestos pensados para el fondo: "señala hacia atrás" = parece que señala el pizarrón.
+
+1 · Gancho
+He points back over his shoulder with his thumb, then looks at the camera and says:
+"Si tus plantas no crecen, no mires las hojas. El problema casi siempre está abajo."
+   Fondo: pizarrón P1
+
+2 · Problema
+He explains with open hands, like a teacher, and says:
+"Sin raíces fuertes la planta no toma agua ni nutrientes. Se estanca, se amarilla o se pudre."
+   Fondo: P1 → planta caída
+
+3 · Trasplante / esquejes
+He mimics pulling a plant out of a pot and says:
+"Al trasplantar se rompen raíces finitas. Y un esqueje en agua sola no tiene con qué formarlas."
+   Fondo: P2 → P3
+
+4 · Solución
+He points to the side, as if showing something next to him, and says:
+"Por eso uso un enraizante orgánico. Estimula raíces nuevas, más rápido y más fuertes."
+   Fondo: frasco VERDEA (tu foto o video) + tu ANTES/DESPUÉS ("Imagen ilustrativa")
+
+5 · Uso + oferta
+He counts on his fingers, then points down and says:
+"Tres o cuatro mililitros por litro, cada siete días. Llevando dos ahorrás un treinta por ciento."
+   Fondo: P4 → regadera → frasco + "Llevá 2: 30% OFF + guía de regalo"
+
+Ganchos alternativos (cambiás solo el diálogo del bloque 1):
+- "Te explico en treinta segundos por qué se te pudren los esquejes."
+- "Este dibujo explica por qué tu limonero no crece hace años."
+- "El error que comete casi todo el mundo al cambiar una planta de maceta."
+- "Un frasco así de chiquito rinde hasta ochenta litros. Te explico."
+
+
+=====================================================================
+4 · FONDOS DE PIZARRÓN (Gemini, imagen 9:16, SIN persona)
+=====================================================================
+Base para todos: "Pizarrón verde oscuro de escuela que ocupa toda la imagen, foto
+realista vertical 9:16, dibujo en tiza blanca hecho a mano, polvo y borrones de tiza.
+El dibujo ocupa la MITAD DE ARRIBA; la mitad de abajo, pizarrón vacío. Sin otro texto."
+(La mitad de abajo queda libre porque ahí va el botánico.)
+
+P1 + "Dos plantas en maceta: izquierda chica y caída con 3 raíces cortas ('SIN'),
+      derecha grande con muchas raíces largas ('CON')."
+P2 + "Planta sacada de la maceta con raíces cortadas marcadas con X roja, flecha a una
+      planta mustia. Título: 'GOLPE DE TRASPLANTE'."
+P3 + "Frasco con esqueje de potus: tallo podrido a la izquierda, raíces blancas a la
+      derecha, flecha en el medio."
+P4 + "Regadera, tapita y gota. Texto: '3 a 4 ml', '1 litro de agua', 'cada 7 días'."
+P5 + "Frasco chico = fila de regaderas. Texto: 'HASTA 80 LITROS'."
+
+Versión animada (Veo, más llamativa): misma descripción + "The chalk drawing appears
+stroke by stroke as if drawn by an invisible hand, static camera, no people, no music."
+
+
+=====================================================================
+5 · IDEAS PARA SUMAR
+=====================================================================
+1. RESPONDER COMENTARIOS: el botánico en croma + captura de un comentario REAL arriba
+   ("¿sirve para potus?"). Formato muy visto y genera confianza.
+2. MITO O VERDAD: serie con el pizarrón. "¿Agua con aspirina enraíza? ¿Canela? ¿Miel?"
+   Un video por mito, cierra con VERDEA. Se guarda y comparte mucho.
+3. DÚO MARTA + BOTÁNICO: Marta (croma) pregunta con su problema, el botánico (croma)
+   responde. Dos personajes = más dinámico, mismo método.
+4. DIAGNÓSTICO POR FOTO: "Mandame foto de tu planta y te digo qué le pasa". Fondo = foto
+   que te manden (con permiso). Te llena el DM de clientes.
+5. CIERRE CON LA TIENDA: último fondo = grabación de pantalla de tu celular eligiendo el
+   pack x2 en la tienda. Muestra lo fácil que es comprar.
+6. SERIE "1 ERROR POR DÍA": 5 videos cortos (8-16 s) con el mismo avatar y distinto
+   pizarrón. Barato en créditos y sostiene el perfil.
+7. EXPERIMENTO EN VIVO: fondo = tu frasco SIN/CON real día 1, 7, 14; el botánico comenta
+   cada etapa. Cuando lo tengas, es tu mejor anuncio.
+
+
+=====================================================================
+VERSIÓN MUJER (con foto real de referencia)
+=====================================================================
+⚠️ Solo con permiso de la persona de la foto. Sin nombre, título ni matrícula.
+
+Foto base (ChatGPT o Gemini, subiendo su foto):
+"Usando a la mujer de la foto adjunta, mantené exactamente su cara, rasgos, tono de
+piel, ojos, sonrisa y su pelo largo, oscuro y ondulado, sin rejuvenecerla ni
+retocarla. Cambiá solo la ropa y el fondo: camisa de trabajo de lino color crudo con
+mangas arremangadas y delantal de lona marrón claro, sin nada verde. Foto realista
+estilo celular, vertical 9:16, plano medio de la cintura para arriba, mirando a cámara
+con una sonrisa cálida. Fondo verde croma liso (#00B140), parejo, sin sombras. Luz
+suave de frente, pareja, sin contraluz. Sin texto."
+
+Descripción fija para Flow (reemplaza la del hombre):
+Same woman as the reference image: Argentine woman around 50, long wavy dark brown
+hair, warm smile, off-white linen work shirt with rolled-up sleeves, light brown canvas
+apron. Medium shot, waist up, vertical 9:16, static phone camera, UGC style. Solid flat
+chroma key green background (#00B140), evenly lit, no shadows, nothing green on her
+clothes. She speaks Spanish with a natural Argentine Rioplatense accent, warm and close,
+using "vos". No subtitles, no on-screen text, no music.
+(En las líneas de acción de los bloques, cambiá "He/his" por "She/her".)
+
+
+=====================================================================
+REGLAS
+=====================================================================
+- El botánico sin nombre, título ni matrícula.
+- Nada de "garantizado" ni "triplica la cosecha".
+- Antes/después reales, o con "Imagen ilustrativa".
+- Al subir el anuncio, marcá que tiene contenido hecho con IA.
+- Probá en Lite/Fast; Quality solo para la versión final.

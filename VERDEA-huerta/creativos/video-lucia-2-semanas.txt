@@ -1,0 +1,29 @@
+VERDEA · VIDEO DE TESTEO · BUYER PERSONA: LUCÍA ("la que ya tiró demasiados esquejes")
+Video 2 de Lucía · Dolor: "Hace un mes que el esqueje está en agua y no largó ni una raíz"
+3 bloques de 8 s (~24 s) · avatar sobre verde · CTA emocional, sin "comprá ya"
+=====================================================================
+
+BLOQUE 1 · "Mirá este esqueje: hace un mes que está en agua y no largó ni una raíz. ¿Te pasa?"
+BLOQUE 2 · "Es que el agua sola no le da nada para arrancar. Por eso ahora le pongo unas gotitas de VERDEA."
+BLOQUE 3 · "Un esqueje es una planta nueva esperando arrancar. Dale ese empujoncito desde el comienzo."
+
+FONDOS
+B1: F1 frasco con esqueje pelado (usalo 2 veces: "DÍA 1" y "DÍA 30") → F1b mano lo saca, sin raíces
+B2: "tallo sin raiz.mp4" (ya lo tenés) → F2 gotas de VERDEA cayendo en el frasco del esqueje
+B3: F3 timelapse de raíces blancas naciendo en el frasco ("Imagen ilustrativa") → packs → grabación de pantalla
+
+TEXTOS EN PANTALLA
+B1: "DÍA 1" → "DÍA 30… ni una raíz 😩"
+B2: "el agua sola no alcanza" → "unas gotas de VERDEA 💧"
+B3: "dale un empujoncito 🌱" → "LLEVÁ 2: 30% OFF + GUÍA DE REGALO 🎁" → "El link está acá abajo 👇"
+
+COPY (Meta)
+¿Hace semanas que tenés un esqueje en agua y no largó ni una raíz? 🌱
+No es que esté mal cortado: el agua sola no le da nada para arrancar.
+💧 Unas gotitas de VERDEA en el frasco estimulan raíces nuevas, más rápido y más fuertes.
+⚗️ Es concentrado: un frasco rinde hasta 80 litros, tenés esquejes para meses.
+🎁 Llevá 2 y ahorrá 30% + guía de regalo · 💳 3 cuotas sin interés
+Título: Dale un empujoncito a tus esquejes 🌱
+Descripción: Rinde hasta 80 litros
+Botón: Comprar
+(Prompts completos: misma base por secciones que video-marta-2-vivero.txt; ver chat.)

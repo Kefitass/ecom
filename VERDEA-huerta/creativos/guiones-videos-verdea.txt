@@ -1,0 +1,398 @@
+VERDEA · GUIONES DE VIDEO CON ESCENAS PARA CREATIVOS
+Enraizante Orgánico 250 ml · Meta Ads / TikTok Ads · formato vertical 9:16
+=====================================================================
+
+CÓMO LEER CADA GUION
+- Cada guion está dividido en ESCENAS. Cada escena tiene:
+  TIEMPO · TIPO DE TOMA · QUÉ SE VE · TEXTO EN PANTALLA · VOZ.
+- Tipos de toma:
+  [UGC]    = la persona hablando a cámara. Se genera en Google Flow con fondo verde,
+             en bloques de máximo 8 segundos (cada bloque UGC está numerado: BLOQUE A, B, C).
+  [B-ROLL] = imagen de apoyo, sin la persona. Mientras se ve, la VOZ del bloque UGC
+             sigue sonando de fondo. Lo ideal es grabarlo vos con el celular y el producto real.
+  [FOTO]   = una imagen fija (foto generada con IA o tuya) con un leve zoom en CapCut.
+- La columna VOZ es lo que se escucha. Si la voz cae sobre un B-ROLL, sale del bloque
+  UGC que se está reproduciendo por debajo (la persona habla, pero no se la ve).
+- Cada BLOQUE UGC tiene como máximo unas 20 palabras, para que entre en 8 segundos
+  hablando a ritmo natural.
+
+PERSONAJES (avatares UGC)
+- LUCÍA (guiones 1, 2 y 3): mujer argentina de unos 32 años, porteña, pelo castaño oscuro
+  en rodete desprolijo, pecas, buzo bordó con capucha. Departamento con muchas plantas.
+- MARTA (guiones 4, 5 y 6): tu personaje de jardinera de unos 50 años (sombrero beige,
+  camisa de jean, delantal color arena) que ya armaste en Flow.
+- Los dos siempre sobre FONDO VERDE CROMA parejo (#00B140), plano medio de la cintura
+  para arriba, cámara fija, acento argentino rioplatense con "vos", sin subtítulos ni
+  música en la generación.
+
+PROMPT BASE PARA CADA BLOQUE UGC EN FLOW
+(pegás esto + la línea de acción y diálogo de cada bloque)
+"La misma mujer del personaje, misma ropa, plano medio de la cintura para arriba, cámara
+fija de celular, formato vertical 9:16. Fondo verde croma liso de un solo tono (#00B140),
+parejo, sin sombras. Habla rápido y natural, como un audio de WhatsApp, con acento
+porteño de Buenos Aires bien marcado, usando "vos". Sin subtítulos, sin texto en
+pantalla, sin música."
+
+
+=====================================================================
+LISTA DE TOMAS B-ROLL PARA GRABAR UNA SOLA VEZ (sirven para los 6 guiones)
+=====================================================================
+Grabalas en vertical, con luz de día, de 3 a 5 segundos cada una, varias veces cada una.
+
+B1  Mano sacando de un frasco de vidrio un esqueje de potus con el tallo marrón/podrido.
+B2  Ese esqueje podrido cayendo al tacho de basura.
+B3  Sobrecito o frasco de "polvo enraizante" genérico (sin marca visible) yendo a la basura.
+B4  Gotas de VERDEA cayendo en un frasco de vidrio con agua y esquejes (primer plano).
+B5  Frasco de vidrio con esqueje lleno de raíces blancas, a contraluz en una ventana.
+B6  Frasco VERDEA en la mano, girándolo despacio para mostrar la etiqueta.
+B7  Dos frascos de vidrio iguales con esquejes y cartelitos "SIN" y "CON" (día 1).
+B8  Los mismos dos frascos 2-3 semanas después, el "CON" con más raíces (EXPERIMENTO REAL).
+B9  Plantas de interior frondosas en un estante (potus, monstera) para cerrar.
+B10 Planta recién trasplantada, caída, y una mano levantando una hoja amarilla.
+B11 Manos sacando una planta de su maceta con cuidado (trasplante).
+B12 Manos poniendo la planta en una maceta más grande con tierra húmeda.
+B13 Manos echando VERDEA en una regadera con agua y mezclando.
+B14 Regando la planta recién trasplantada con esa regadera.
+B15 La misma planta, firme y verde, unos días después (REAL).
+B16 La guía digital de regalo en la pantalla de un celular, pasando las páginas.
+B17 Unboxing: abrir la caja del envío y sacar el frasco VERDEA.
+B18 Tu foto de ANTES / DESPUÉS de raíces (la que ya usás en la tienda).
+
+⚠️ B8 y B15 tienen que ser reales. Un "antes y después" inventado, si se nota,
+destruye la confianza en la marca y Meta puede rechazar el anuncio.
+
+
+=====================================================================
+GUION 1 – LUCÍA, la que ya tiró demasiados esquejes – Ángulo: EMOCIONAL
+=====================================================================
+Duración estimada: 35 segundos
+Tono: cercano y confesional, como contándole algo a una amiga por audio; arranca
+      bajoneada y termina entusiasmada.
+Visual del hook: manos sacando un esqueje podrido de un frasco y tirándolo al tacho.
+
+BLOQUES UGC A GENERAR EN FLOW (fondo verde):
+ BLOQUE A (8 s) – Acción: mira a cámara con cara de resignación, suspira y niega con la
+   cabeza. Diálogo: "Este es el esqueje número… ni sé. Perdí la cuenta de cuántos tiré.
+   Agua, tierra, el polvito ese… probé todo."
+ BLOQUE B (8 s) – Acción: se acerca un poco a cámara, cómplice, bajando la voz.
+   Diálogo: "Hasta que una amiga que tiene la casa como una selva me pasó su secreto: un
+   enraizante orgánico líquido."
+ BLOQUE C (8 s) – Acción: sonríe orgullosa, levanta las cejas.
+   Diálogo: "Ahora los esquejes me prenden con raíces blancas y gruesas, y hasta el
+   gomero, que nunca me salía."
+ BLOQUE D (8 s) – Acción: señala hacia abajo con el dedo, entusiasmada.
+   Diálogo: "Llevando dos te ahorrás un treinta por ciento, y llevando tres el envío es
+   gratis. Tocá el botón."
+
+ESCENAS:
+ E1 · 0–3 s · [B-ROLL B1+B2] · Esqueje podrido saliendo del frasco y cayendo al tacho
+      Texto: "esqueje N° … ya perdí la cuenta 😩"
+      Voz (Bloque A): "Este es el esqueje número… ni sé."
+ E2 · 3–8 s · [UGC Bloque A] · Lucía sobre fondo de una cocina con plantas
+      Texto: —
+      Voz: "Perdí la cuenta de cuántos tiré. Agua, tierra, el polvito ese… probé todo."
+ E3 · 8–12 s · [UGC Bloque B] · Lucía, cómplice, sobre fondo de un living con plantas
+      Texto: "el secreto de mi amiga 👀"
+      Voz: "Hasta que una amiga que tiene la casa como una selva me pasó su secreto…"
+ E4 · 12–16 s · [B-ROLL B4] · Gotas de VERDEA cayendo en el frasco con esquejes
+      Texto: "ENRAIZANTE ORGÁNICO"
+      Voz (Bloque B): "…un enraizante orgánico líquido."
+ E5 · 16–20 s · [B-ROLL B5] · Esqueje con muchas raíces a contraluz
+      Texto: "raíces en pocas semanas 🌱"
+      Voz (Bloque C): "Ahora los esquejes me prenden con raíces blancas y gruesas…"
+ E6 · 20–24 s · [UGC Bloque C] · Lucía sonriendo
+      Texto: "hasta el gomero 🙌"
+      Voz: "…y hasta el gomero, que nunca me salía."
+ E7 · 24–28 s · [B-ROLL B9] · Estante lleno de plantas frondosas
+      Texto: "+1.000 personas ya lo usan"
+      Voz (sumá este audio grabado por vos o en otro bloque): "Y no soy la única: ya son
+      más de mil las personas que lo usan."
+ E8 · 28–35 s · [UGC Bloque D] + [B-ROLL B6] al final
+      Texto: "LLEVÁ 2: 30% OFF · LLEVÁ 3: ENVÍO GRATIS · 3 CUOTAS SIN INTERÉS"
+      Voz: "Llevando dos te ahorrás un treinta por ciento, y llevando tres el envío es
+      gratis. Tocá el botón."
+
+
+=====================================================================
+GUION 2 – LUCÍA, la que ya tiró demasiados esquejes – Ángulo: POLÉMICO
+=====================================================================
+Duración estimada: 30 segundos
+Tono: directo, canchero, un poco provocador; ritmo rápido.
+Visual del hook: mano tirando un sobrecito de polvo enraizante a la basura + texto
+      "DEJÁ DE HACER ESTO".
+
+BLOQUES UGC A GENERAR EN FLOW (fondo verde):
+ BLOQUE A (8 s) – Acción: mira a cámara seria, señala con el dedo, provocadora.
+   Diálogo: "Si seguís poniendo los esquejes en agua sola y rezando, sos parte del
+   problema."
+ BLOQUE B (8 s) – Acción: explica con las manos abiertas, tono didáctico.
+   Diálogo: "El agua sola no le da nada para formar raíces. Por eso se te pudren. No es
+   que no tengas mano."
+ BLOQUE C (8 s) – Acción: sonríe y asiente, tranquila.
+   Diálogo: "¿Miedo de pasarte con la dosis? Es orgánico, no quema, y la guía de regalo
+   te dice cuánto usar."
+ BLOQUE D (6 s) – Acción: señala hacia abajo.
+   Diálogo: "Treinta por ciento off llevando dos. Tocá el botón."
+
+ESCENAS:
+ E1 · 0–3 s · [B-ROLL B3] · Polvo enraizante genérico a la basura
+      Texto: "DEJÁ DE HACER ESTO ❌"
+      Voz (Bloque A): "Si seguís poniendo los esquejes en agua sola y rezando…"
+ E2 · 3–8 s · [UGC Bloque A] · Lucía señalando, fondo de cocina con frascos de esquejes
+      Texto: "sos parte del problema"
+      Voz: "…sos parte del problema."
+ E3 · 8–12 s · [B-ROLL B1] · Esqueje podrido en el agua
+      Texto: "agua sola = esqueje podrido"
+      Voz (Bloque B): "El agua sola no le da nada para formar raíces. Por eso se te pudren."
+ E4 · 12–16 s · [UGC Bloque B] · Lucía explicando
+      Texto: "no es tu mano 🙅‍♀️"
+      Voz: "No es que no tengas mano."
+ E5 · 16–20 s · [B-ROLL B6 + B4] · Frasco VERDEA girando, después gotas en el frasco
+      Texto: "ACTIVA LA FORMACIÓN DE RAÍCES"
+      Voz (grabá vos o sumá como bloque extra): "El Enraizante Orgánico VERDEA activa la
+      formación de raíces. Unas gotas y listo."
+ E6 · 20–24 s · [B-ROLL B7→B8] · Comparación SIN / CON
+      Texto: "SIN vs. CON"
+      Voz: "Raíces más rápidas y fuertes, en agua o en tierra."
+ E7 · 24–28 s · [UGC Bloque C] · Lucía tranquila
+      Texto: "orgánico · no quema · guía de regalo"
+      Voz: "¿Miedo de pasarte con la dosis? Es orgánico, no quema, y la guía te dice cuánto usar."
+ E8 · 28–30 s · [UGC Bloque D]
+      Texto: "LLEVÁ 2: 30% OFF · 3 CUOTAS SIN INTERÉS"
+      Voz: "Treinta por ciento off llevando dos. Tocá el botón."
+
+
+=====================================================================
+GUION 3 – LUCÍA, la que ya tiró demasiados esquejes – Ángulo: DEMOSTRATIVO
+=====================================================================
+Duración estimada: 35 segundos
+Tono: curioso, de experimento casero, con un toque de sorpresa.
+Visual del hook: dos frascos iguales con esquejes, cartelitos "SIN" y "CON", texto
+      "Hice este experimento…".
+
+BLOQUES UGC A GENERAR EN FLOW (fondo verde):
+ BLOQUE A (8 s) – Acción: mira a cámara con curiosidad, levanta un dedo.
+   Diálogo: "Mismo potus, misma ventana, mismo día. Lo único distinto es esto. Mirá lo que
+   pasó."
+ BLOQUE B (8 s) – Acción: sorprendida, se tapa la boca un segundo y se ríe.
+   Diálogo: "El de VERDEA largó raíces más rápido y más fuertes. Ahora lo uso en todas mis
+   plantas."
+ BLOQUE C (8 s) – Acción: honesta, encoge los hombros.
+   Diálogo: "¿Te dan desconfianza los antes y después? Lógico. Hacé la prueba vos: tenés
+   garantía."
+ BLOQUE D (6 s) – Acción: señala hacia abajo, sonriendo.
+   Diálogo: "Hacé tu propio experimento. Tocá el botón."
+
+ESCENAS:
+ E1 · 0–3 s · [B-ROLL B7] · Los dos frascos "SIN" y "CON", día 1
+      Texto: "Hice este experimento 🧪"
+      Voz (Bloque A): "Mismo potus, misma ventana, mismo día."
+ E2 · 3–8 s · [UGC Bloque A] · Lucía curiosa, fondo de ventana con plantas
+      Texto: "lo único distinto 👇"
+      Voz: "Lo único distinto es esto. Mirá lo que pasó."
+ E3 · 8–12 s · [B-ROLL B4] · Gotas de VERDEA solo en el frasco "CON"
+      Texto: "unas gotas de VERDEA"
+      Voz (grabá vos): "En uno, agua sola. En el otro, agua con unas gotas de VERDEA."
+ E4 · 12–18 s · [B-ROLL B8] · Los dos frascos semanas después
+      Texto: "DÍA 1 → DÍA 21" (poné los días reales de tu experimento)
+      Voz (Bloque B): "El de VERDEA largó raíces más rápido y más fuertes."
+ E5 · 18–22 s · [UGC Bloque B] · Lucía sorprendida
+      Texto: "😱"
+      Voz: "Ahora lo uso en todas mis plantas."
+ E6 · 22–26 s · [B-ROLL B9] · Plantas frondosas
+      Texto: "+1.000 personas ya lo usan"
+      Voz (grabá vos): "Y no me pasó solo a mí: más de mil personas ya lo usan."
+ E7 · 26–31 s · [UGC Bloque C] · Lucía honesta
+      Texto: "GARANTÍA 100%"
+      Voz: "¿Te dan desconfianza los antes y después? Lógico. Hacé la prueba vos: tenés garantía."
+ E8 · 31–35 s · [UGC Bloque D] + [B-ROLL B6]
+      Texto: "LLEVÁ 2: 30% OFF · LLEVÁ 3: ENVÍO GRATIS · 3 CUOTAS"
+      Voz: "Hacé tu propio experimento. Tocá el botón."
+
+
+=====================================================================
+GUION 4 – MARTA, la que tiene miedo de matar las plantas – Ángulo: EMOCIONAL
+=====================================================================
+Duración estimada: 35 segundos
+Tono: tierno, comprensivo y tranquilizador, como una amiga que te dice "tranqui, a mí
+      también me pasaba".
+Visual del hook: planta recién trasplantada, caída, y una mano levantando una hoja amarilla.
+
+BLOQUES UGC A GENERAR EN FLOW (fondo verde):
+ BLOQUE A (8 s) – Acción: mira a cámara con ternura, inclina la cabeza.
+   Diálogo: "Si cada vez que cambiás una planta de maceta se te cae toda… no es tu culpa,
+   eh."
+ BLOQUE B (8 s) – Acción: se ríe de sí misma, mueve las manos.
+   Diálogo: "Yo creía que tenía la mano mala. La pasaba de maceta y al otro día estaba
+   triste, amarilla."
+ BLOQUE C (8 s) – Acción: explica tranquila, como enseñando.
+   Diálogo: "Es el golpe de trasplante: pierde raíces y se estresa. Por eso uso el
+   enraizante orgánico VERDEA."
+ BLOQUE D (8 s) – Acción: sonríe aliviada.
+   Diálogo: "Ahora riego con esto cuando trasplanto y la planta ni se entera. Es re fácil,
+   no quema."
+ BLOQUE E (6 s) – Acción: señala hacia abajo, cálida.
+   Diálogo: "Treinta por ciento off llevando dos. Tocá el botón."
+
+ESCENAS:
+ E1 · 0–3 s · [B-ROLL B10] · Planta caída y hoja amarilla
+      Texto: "¿se te cae después del trasplante? 🥀"
+      Voz (Bloque A): "Si cada vez que cambiás una planta de maceta se te cae toda…"
+ E2 · 3–8 s · [UGC Bloque A] · Marta sobre fondo de vivero
+      Texto: "no es tu culpa 💚"
+      Voz: "…no es tu culpa, eh."
+ E3 · 8–16 s · [UGC Bloque B] con [B-ROLL B11] en la mitad
+      Texto: "yo creía que tenía la mano mala"
+      Voz: "Yo creía que tenía la mano mala. La pasaba de maceta y al otro día estaba triste, amarilla."
+ E4 · 16–20 s · [UGC Bloque C, primera mitad]
+      Texto: "GOLPE DE TRASPLANTE"
+      Voz: "Es el golpe de trasplante: pierde raíces y se estresa."
+ E5 · 20–24 s · [B-ROLL B13] · Echando VERDEA en la regadera
+      Texto: "unas gotas en el riego"
+      Voz (Bloque C): "Por eso uso el enraizante orgánico VERDEA."
+ E6 · 24–28 s · [B-ROLL B14 → B15] · Regando, y la planta firme días después
+      Texto: "ni se entera del cambio 🌿"
+      Voz (Bloque D): "Ahora riego con esto cuando trasplanto y la planta ni se entera."
+ E7 · 28–31 s · [UGC Bloque D, final]
+      Texto: "fácil · orgánico · no quema"
+      Voz: "Es re fácil, no quema."
+ E8 · 31–35 s · [UGC Bloque E] + [B-ROLL B16]
+      Texto: "GUÍA DE REGALO · LLEVÁ 2: 30% OFF · 3 CUOTAS"
+      Voz: "Treinta por ciento off llevando dos. Tocá el botón."
+
+
+=====================================================================
+GUION 5 – MARTA, la que tiene miedo de matar las plantas – Ángulo: POLÉMICO
+=====================================================================
+Duración estimada: 30 segundos
+Tono: firme pero amable, de "te voy a decir algo que nadie te dice".
+Visual del hook: alguien trasplantando a una maceta más grande + texto
+      "EL ERROR QUE CASI TODOS COMETEN".
+
+BLOQUES UGC A GENERAR EN FLOW (fondo verde):
+ BLOQUE A (8 s) – Acción: mira a cámara seria, levanta una ceja.
+   Diálogo: "Trasplantar tus plantas para ayudarlas puede ser justo lo que las está
+   matando. Te explico."
+ BLOQUE B (8 s) – Acción: explica con las manos, como mostrando raíces chiquitas.
+   Diálogo: "Al sacarla se rompen raíces finitas que no ves. Queda sin con qué tomar agua
+   y se cae."
+ BLOQUE C (8 s) – Acción: sonríe, tranquilizadora.
+   Diálogo: "Y no, no es de expertos. Si sabés regar, sabés usarlo. Viene con una guía de
+   regalo."
+ BLOQUE D (6 s) – Acción: señala hacia abajo.
+   Diálogo: "Tocá el botón antes de tu próximo trasplante."
+
+ESCENAS:
+ E1 · 0–3 s · [B-ROLL B11] · Sacando la planta de la maceta
+      Texto: "EL ERROR QUE CASI TODOS COMETEN ⚠️"
+      Voz (Bloque A): "Trasplantar tus plantas para ayudarlas…"
+ E2 · 3–8 s · [UGC Bloque A] · Marta seria
+      Texto: "puede estar matándolas"
+      Voz: "…puede ser justo lo que las está matando. Te explico."
+ E3 · 8–12 s · [B-ROLL B11, primer plano de raíces] · Raíces rotas al sacar la planta
+      Texto: "raíces rotas = planta caída"
+      Voz (Bloque B): "Al sacarla se rompen raíces finitas que no ves."
+ E4 · 12–16 s · [UGC Bloque B, final] con [B-ROLL B10]
+      Texto: —
+      Voz: "Queda sin con qué tomar agua y se cae."
+ E5 · 16–21 s · [B-ROLL B6 + B13] · Frasco VERDEA y mezcla en la regadera
+      Texto: "AYUDALA A RECUPERAR RAÍCES"
+      Voz (grabá vos): "La solución es ayudarla a recuperar raíces. Para eso está VERDEA:
+      unas gotas en el primer riego."
+ E6 · 21–24 s · [B-ROLL B15] · Planta firme y verde
+      Texto: "+1.000 personas ya lo usan"
+      Voz (grabá vos): "Más de mil personas ya lo usan."
+ E7 · 24–28 s · [UGC Bloque C]
+      Texto: "fácil · guía de regalo"
+      Voz: "Y no, no es de expertos. Si sabés regar, sabés usarlo. Viene con una guía de regalo."
+ E8 · 28–30 s · [UGC Bloque D]
+      Texto: "LLEVÁ 2: 30% OFF · LLEVÁ 3: ENVÍO GRATIS"
+      Voz: "Tocá el botón antes de tu próximo trasplante."
+
+
+=====================================================================
+GUION 6 – MARTA, la que tiene miedo de matar las plantas – Ángulo: DEMOSTRATIVO (tutorial)
+=====================================================================
+Duración estimada: 40 segundos
+Tono: didáctico y simple, paso a paso, como un tutorial corto de TikTok.
+Visual del hook: texto grande "Cómo trasplantar sin que tu planta se caiga (3 pasos)",
+      con la planta y la maceta nueva sobre una mesa.
+
+BLOQUES UGC A GENERAR EN FLOW (fondo verde):
+ BLOQUE A (8 s) – Acción: mira a cámara entusiasta, levanta tres dedos.
+   Diálogo: "Te muestro cómo trasplantar una planta sin que se te caiga al otro día. Son
+   tres pasos."
+ BLOQUE B (8 s) – Acción: cuenta con los dedos, tranquila.
+   Diálogo: "Uno: sacala con cuidado, sin tironear. Dos: ponela en la maceta nueva con
+   tierra húmeda."
+ BLOQUE C (8 s) – Acción: baja la voz como contando un secreto, sonríe.
+   Diálogo: "Y tres, el secreto: regala con unas gotas de enraizante orgánico VERDEA."
+ BLOQUE D (8 s) – Acción: explica tranquila.
+   Diálogo: "Eso la ayuda a regenerar raíces rápido y no sufre el cambio. Viene con guía
+   de regalo."
+ BLOQUE E (6 s) – Acción: señala hacia abajo.
+   Diálogo: "Animate a trasplantar sin miedo. Tocá el botón."
+
+ESCENAS:
+ E1 · 0–3 s · [FOTO o B-ROLL] · Planta y maceta nueva sobre una mesa
+      Texto: "CÓMO TRASPLANTAR SIN QUE SE CAIGA (3 PASOS)"
+      Voz (Bloque A): "Te muestro cómo trasplantar una planta…"
+ E2 · 3–8 s · [UGC Bloque A] · Marta con tres dedos levantados
+      Texto: "3 pasos 👇"
+      Voz: "…sin que se te caiga al otro día. Son tres pasos."
+ E3 · 8–12 s · [B-ROLL B11] · Sacando la planta con cuidado
+      Texto: "1. SACALA CON CUIDADO"
+      Voz (Bloque B): "Uno: sacala con cuidado, sin tironear."
+ E4 · 12–16 s · [B-ROLL B12] · Poniéndola en la maceta nueva
+      Texto: "2. TIERRA HÚMEDA"
+      Voz (Bloque B): "Dos: ponela en la maceta nueva con tierra húmeda."
+ E5 · 16–20 s · [UGC Bloque C, primera mitad]
+      Texto: "3. EL SECRETO 🤫"
+      Voz: "Y tres, el secreto…"
+ E6 · 20–24 s · [B-ROLL B13 + B14] · VERDEA en la regadera y regando
+      Texto: "unas gotas de VERDEA en el riego"
+      Voz (Bloque C): "…regala con unas gotas de enraizante orgánico VERDEA."
+ E7 · 24–30 s · [B-ROLL B15] y después [UGC Bloque D]
+      Texto: "regenera raíces · no sufre el cambio"
+      Voz (Bloque D): "Eso la ayuda a regenerar raíces rápido y no sufre el cambio."
+ E8 · 30–34 s · [B-ROLL B16] · Guía de regalo en el celular
+      Texto: "GUÍA PASO A PASO DE REGALO 🎁"
+      Voz (Bloque D): "Viene con guía de regalo."
+ E9 · 34–40 s · [UGC Bloque E] + [B-ROLL B6]
+      Texto: "LLEVÁ 2: 30% OFF · LLEVÁ 3: ENVÍO GRATIS · 3 CUOTAS SIN INTERÉS"
+      Voz: "Animate a trasplantar sin miedo. Tocá el botón."
+
+
+=====================================================================
+ARMADO EN CAPCUT (igual para los 6)
+=====================================================================
+1. Pista principal: los BLOQUES UGC en orden (de ahí sale la voz).
+2. Cada bloque UGC: Recortar → Croma → tocá el verde. Debajo, un fondo de casa o vivero
+   con plantas (puede ser un B-ROLL de B9 o una foto).
+3. Pista de arriba: los B-ROLL en el tiempo de cada escena, tapando por completo al UGC.
+   La voz sigue sonando de fondo.
+4. Las frases marcadas "grabá vos" las podés grabar con tu voz con el micrófono de
+   CapCut, o generar un bloque UGC extra con esa línea y usar solo su audio.
+5. Texto en pantalla de cada escena: letra gruesa, blanca con borde negro, en la mitad
+   de arriba (la de abajo queda para los subtítulos y los botones de la app).
+6. Subtítulos automáticos (Texto → Subtítulos automáticos), resaltando en verde
+   "raíces", "trasplante" y "30%".
+7. Música suave de fondo al 10-15% de volumen, para que no tape la voz.
+8. Exportar en 9:16, 1080×1920.
+
+TEXTO DEL ANUNCIO EN META (sirve para los 6; cambiá la primera línea por el hook de cada video)
+Texto principal:
+"[Hook del video] 🌱
+El Enraizante Orgánico VERDEA estimula raíces nuevas, más rápidas y más fuertes. En agua
+o en tierra, para esquejes y trasplantes. Orgánico, no quema.
+🎁 Llevá 2 y ahorrá 30% + guía de regalo · Llevá 3: 35% OFF y envío gratis.
+💳 3 cuotas sin interés con Mercado Pago."
+Título: "Raíces fuertes desde el primer día"
+Botón: "Comprar"
+
+RECORDATORIOS
+- "Más de mil personas" se basa en tu dato de +1.083 clientes. Si no es real, cambialo
+  por "cada vez más gente lo usa".
+- El envío gratis siempre es "llevando 3", que es tu oferta real.
+- B8 y B15 (resultados) tienen que ser grabaciones reales; en la escena 4 del guion 3,
+  poné los días reales de tu experimento.

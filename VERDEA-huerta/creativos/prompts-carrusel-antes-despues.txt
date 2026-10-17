@@ -1,0 +1,180 @@
+VERDEA · PROMPTS PARA EL CARRUSEL "ANTES Y DESPUÉS" POR DOLOR (6 FOTOS)
+==========================================================================
+
+ESTILO: como el carrusel de Instagram "con VERDEA / con enraizante químico":
+UNA sola foto realista, de una sola escena continua, dividida al medio.
+- MITAD IZQUIERDA = ANTES (el problema)
+- MITAD DERECHA  = DESPUÉS (con VERDEA), con el frasco VERDEA apoyado de ese lado
+Sin texto en la imagen: las etiquetas "ANTES" y "CON VERDEA" las pongo yo en el carrusel.
+
+CÓMO USARLOS
+- 6 prompts, una foto por dolor.
+- En cada uno adjuntá la foto de tu producto (el frasco VERDEA de frente).
+- Formato cuadrado 1:1.
+- Revisá que el corte entre las dos mitades sea natural (una sola foto, no dos pegadas)
+  y que la etiqueta del frasco no tenga letras raras. Si algo falla, pedile:
+  "Misma imagen, pero que la transición entre las dos mitades sea continua y natural,
+  como una sola foto; no cambies nada más".
+
+
+BLOQUE FIJO (ya incluido en cada prompt)
+INTEGRACIÓN DEL PRODUCTO: el frasco VERDEA de la imagen adjunta, idéntico (forma, color,
+tapa y etiqueta, sin inventar texto), apoyado físicamente en la mitad derecha, de frente.
+Iluminado por la misma luz que el resto de la escena: reflejo del mismo lado que la luz,
+sombra en la misma dirección que las demás sombras, sombra de contacto fina en la base,
+mismo grano y balance de color. Nada flotando.
+ESTILO: fotografía hiperrealista natural, luz natural, colores reales, texturas reales,
+nitidez alta, sin texto, sin logos agregados, sin aspecto de render ni de ilustración.
+
+
+==========================================================================
+1 · ESQUEJES QUE NO ENRAÍZAN
+==========================================================================
+Fotografía hiperrealista cuadrada 1:1 de una sola escena continua, dividida verticalmente
+al medio. Sobre una mesada de madera clara junto a una ventana, con luz natural de
+mañana, hay un único frasco de vidrio grande, ancho, con agua, ubicado justo en el centro
+de la imagen, de modo que la línea central lo divide en dos mitades.
+MITAD IZQUIERDA (ANTES): el agua es turbia y amarillenta, con partículas flotando; el
+esqueje de potus de ese lado tiene el tallo sumergido marrón, blando y podrido, sin
+ninguna raíz, y una hoja con bordes amarillos.
+MITAD DERECHA (DESPUÉS): el agua es limpia y transparente; el esqueje de ese lado tiene
+una mata abundante de raíces blancas, finas y sanas, bien visibles a través del vidrio,
+y hojas verdes, firmes y brillantes. A la derecha del frasco de vidrio, apoyado en la
+mesada, el frasco VERDEA.
+La transición entre las dos mitades es gradual y natural, como una sola foto.
+INTEGRACIÓN DEL PRODUCTO: el frasco VERDEA de la imagen adjunta, idéntico (forma, color,
+tapa y etiqueta, sin inventar texto), apoyado físicamente en la mitad derecha, de frente.
+Iluminado por la misma luz que el resto de la escena: reflejo del mismo lado que la luz,
+sombra en la misma dirección que las demás sombras, sombra de contacto fina en la base,
+mismo grano y balance de color. Nada flotando.
+ESTILO: fotografía hiperrealista natural, luz natural, colores reales, texturas reales,
+nitidez alta, sin texto, sin logos agregados, sin aspecto de render ni de ilustración.
+
+
+==========================================================================
+2 · ESTRÉS Y GOLPE DE TRASPLANTE
+==========================================================================
+Fotografía hiperrealista cuadrada 1:1 de una sola escena continua, dividida verticalmente
+al medio. Corte transversal de una maceta grande de barro, vista de frente y cortada a la
+mitad para mostrar la tierra y las raíces por dentro, apoyada sobre baldosas coloradas de
+un patio, con luz de tarde suave. Una sola planta de tomate joven crece en el centro, y
+la línea central de la imagen pasa por su tallo.
+MITAD IZQUIERDA (ANTES): la mitad de la planta de ese lado está caída y mustia, con
+hojas colgando y amarillentas; debajo, en la tierra seca y compacta, las raíces de ese
+lado son pocas, cortas y rotas.
+MITAD DERECHA (DESPUÉS): la mitad de la planta de ese lado está erguida, con hojas verdes,
+abiertas y sanas; debajo, en la tierra negra y húmeda, las raíces de ese lado son
+abundantes, blancas, largas y ramificadas. Sobre las baldosas, a la derecha de la maceta,
+el frasco VERDEA.
+La transición entre las dos mitades es gradual y natural, como una sola foto.
+INTEGRACIÓN DEL PRODUCTO: el frasco VERDEA de la imagen adjunta, idéntico (forma, color,
+tapa y etiqueta, sin inventar texto), apoyado físicamente en la mitad derecha, de frente.
+Iluminado por la misma luz que el resto de la escena: reflejo del mismo lado que la luz,
+sombra en la misma dirección que las demás sombras, sombra de contacto fina en la base,
+mismo grano y balance de color. Nada flotando.
+ESTILO: fotografía hiperrealista natural, luz natural, colores reales, texturas reales,
+nitidez alta, sin texto, sin logos agregados, sin aspecto de render ni de ilustración.
+
+
+==========================================================================
+3 · HOJAS CAÍDAS O DECOLORADAS
+==========================================================================
+Fotografía hiperrealista cuadrada 1:1 de una sola escena continua, dividida verticalmente
+al medio. Un filodendro grande en una maceta de cerámica blanca, apoyado sobre un estante
+de madera junto a una ventana con cortina de lino, luz natural suave de mañana. La maceta
+está en el centro y la línea central de la imagen la divide.
+MITAD IZQUIERDA (ANTES): las hojas de ese lado de la planta están amarillas, con manchas
+marrones, caídas y colgando; dos hojas secas apoyadas sobre el estante.
+MITAD DERECHA (DESPUÉS): las hojas de ese lado están verde intenso, brillantes, firmes y
+levantadas, con una hoja nueva más clara saliendo. Sobre el estante, a la derecha de la
+maceta, el frasco VERDEA.
+La transición entre las dos mitades es gradual y natural, como una sola foto.
+INTEGRACIÓN DEL PRODUCTO: el frasco VERDEA de la imagen adjunta, idéntico (forma, color,
+tapa y etiqueta, sin inventar texto), apoyado físicamente en la mitad derecha, de frente.
+Iluminado por la misma luz que el resto de la escena: reflejo del mismo lado que la luz,
+sombra en la misma dirección que las demás sombras, sombra de contacto fina en la base,
+mismo grano y balance de color. Nada flotando.
+ESTILO: fotografía hiperrealista natural, luz natural, colores reales, texturas reales,
+nitidez alta, sin texto, sin logos agregados, sin aspecto de render ni de ilustración.
+
+
+==========================================================================
+4 · CRECIMIENTO LENTO
+==========================================================================
+Fotografía hiperrealista cuadrada 1:1 de una sola escena continua, dividida verticalmente
+al medio. Un cantero de madera elevado en una huerta de patio, visto de frente, con una
+fila de lechugas plantadas a la misma distancia, mañana soleada, alambrado y vegetación
+desenfocados al fondo.
+MITAD IZQUIERDA (ANTES): las lechugas de ese lado son muy chiquitas y raquíticas, con
+pocas hojas finas y pálidas, y mucha tierra a la vista entre ellas.
+MITAD DERECHA (DESPUÉS): las lechugas de ese lado son grandes, frondosas y verde intenso,
+con hojas grandes y crocantes que cubren casi toda la tierra. Sobre el borde de madera
+del cantero, en ese lado, el frasco VERDEA.
+La transición entre las dos mitades es gradual y natural, como una sola foto.
+INTEGRACIÓN DEL PRODUCTO: el frasco VERDEA de la imagen adjunta, idéntico (forma, color,
+tapa y etiqueta, sin inventar texto), apoyado físicamente en la mitad derecha, de frente.
+Iluminado por la misma luz que el resto de la escena: reflejo del mismo lado que la luz,
+sombra en la misma dirección que las demás sombras, sombra de contacto fina en la base,
+mismo grano y balance de color. Nada flotando.
+ESTILO: fotografía hiperrealista natural, luz natural, colores reales, texturas reales,
+nitidez alta, sin texto, sin logos agregados, sin aspecto de render ni de ilustración.
+
+
+==========================================================================
+5 · MALA ABSORCIÓN DE AGUA Y NUTRIENTES
+==========================================================================
+Fotografía hiperrealista cuadrada 1:1 de una sola escena continua, dividida verticalmente
+al medio, en el mismo estilo que un corte transversal del suelo. Vista de frente del suelo
+cortado de forma limpia a ras de tierra, con un único plantín joven creciendo en el
+centro; la línea central de la imagen pasa por su tallo. Fondo: vegetación desenfocada,
+luz natural de día nublado brillante.
+MITAD IZQUIERDA (ANTES): tierra seca, compacta y agrietada; las raíces de ese lado son
+escasas, cortas y finas; las hojas de ese lado están pálidas y caídas.
+MITAD DERECHA (DESPUÉS): tierra negra, húmeda y esponjosa; las raíces de ese lado son
+abundantes, blancas, largas y muy ramificadas, con muchos pelos absorbentes; las hojas
+de ese lado están verde intenso y firmes. Apoyado sobre la superficie de la tierra, en
+ese lado, el frasco VERDEA.
+La transición entre las dos mitades es gradual y natural, como una sola foto.
+INTEGRACIÓN DEL PRODUCTO: el frasco VERDEA de la imagen adjunta, idéntico (forma, color,
+tapa y etiqueta, sin inventar texto), apoyado físicamente en la mitad derecha, de frente.
+Iluminado por la misma luz que el resto de la escena: reflejo del mismo lado que la luz,
+sombra en la misma dirección que las demás sombras, sombra de contacto fina en la base,
+mismo grano y balance de color. Nada flotando.
+ESTILO: fotografía hiperrealista natural, luz natural, colores reales, texturas reales,
+nitidez alta, sin texto, sin logos agregados, sin aspecto de render ni de ilustración.
+
+
+==========================================================================
+6 · PLANTAS DE INTERIOR DÉBILES
+==========================================================================
+Fotografía hiperrealista cuadrada 1:1 de una sola escena continua, dividida verticalmente
+al medio. Rincón de un living de departamento con piso de madera, luz natural de tarde
+entrando de costado. Una monstera en una maceta de fibra gris en el centro; la línea
+central de la imagen divide la planta.
+MITAD IZQUIERDA (ANTES): la parte de la planta de ese lado es débil: tallos largos, finos
+y doblados, pocas hojas chicas sin cortes y una hoja amarilla.
+MITAD DERECHA (DESPUÉS): la parte de la planta de ese lado es frondosa y firme, con hojas
+grandes, verde intenso, con sus cortes característicos y una hoja nueva desenrollándose.
+En el piso, a la derecha de la maceta, el frasco VERDEA.
+La transición entre las dos mitades es gradual y natural, como una sola foto.
+INTEGRACIÓN DEL PRODUCTO: el frasco VERDEA de la imagen adjunta, idéntico (forma, color,
+tapa y etiqueta, sin inventar texto), apoyado físicamente en la mitad derecha, de frente.
+Iluminado por la misma luz que el resto de la escena: reflejo del mismo lado que la luz,
+sombra en la misma dirección que las demás sombras, sombra de contacto fina en la base,
+mismo grano y balance de color. Nada flotando.
+ESTILO: fotografía hiperrealista natural, luz natural, colores reales, texturas reales,
+nitidez alta, sin texto, sin logos agregados, sin aspecto de render ni de ilustración.
+
+
+==========================================================================
+TEXTOS DE CADA TARJETA (los pongo yo en el carrusel)
+==========================================================================
+1. Esquejes que no enraízan · "Semanas en el agua y terminan podridos." · ✓ Raíces nuevas, fuertes y blancas
+2. Golpe de trasplante · "La pasás a una maceta más grande y se cae." · ✓ Se adapta sin decaerse
+3. Hojas caídas o decoloradas · "Hojas amarillas que se caen una tras otra." · ✓ Hojas verdes y firmes
+4. Crecimiento lento · "Pasan las semanas y no crece." · ✓ Plantas que arrancan y se ponen frondosas
+5. Mala absorción · "Le das de todo, pero no lo aprovecha." · ✓ Más raíz para absorber más
+6. Plantas de interior débiles · "Tallos flojos y pocas hojas." · ✓ Plantas de interior llenas de vida
+
+Sobre cada foto: etiqueta "ANTES" abajo a la izquierda y "CON VERDEA" abajo a la derecha.
+Debajo del carrusel, en letra muy chica y gris: "Imágenes ilustrativas."

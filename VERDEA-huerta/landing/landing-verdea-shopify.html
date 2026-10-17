@@ -1,0 +1,2701 @@
+<meta charset="utf-8">
+<!-- {% raw %} (Liquid: no interpretar este archivo; no borrar) -->
+<!-- ================================================================
+     VERDEA — HUERTA DOMÉSTICA · LANDING PAGE PARA SHOPIFY
+     "Tu rincón verde, tu momento de paz"
+
+     📌 INSTRUCCIONES (Shopify):
+     Este archivo pesa ~160 KB y el bloque "Liquid personalizado" acepta
+     como máximo ~50 KB, por eso se instala como SNIPPET del tema:
+     1. Shopify Admin → Tienda online → Temas → (⋯) → Editar código.
+     2. En la carpeta "Snippets" → "Agregar un nuevo snippet" →
+        nombre: verdea-landing  (se crea snippets/verdea-landing.liquid).
+     3. Pegá TODO este contenido en ese snippet y guardá.
+     4. Tienda online → Temas → Personalizar → plantilla del producto
+        → agregá un bloque "Liquid personalizado" dentro de
+        "Información del producto" y escribí SOLO esta línea:
+            {% render 'verdea-landing' %}
+     5. Para cambios futuros, editá SOLO el "PANEL DE CONFIGURACIÓN"
+        dentro del snippet (precios, imágenes, testimonios, banner).
+     6. Reemplazá cada marcador ⚠️...⚠️ por el dato/URL definitivo.
+     Vista local: abrí este archivo con doble clic (modo prueba).
+
+     🎨 Identidad VERDEA:
+        Verde Principal #2A5F35 · Verde Vivo #6BA342 · Tierra #4E382A
+        Naranja Zanahoria #E88031 · Fondo Neutro #F5F4EE · Blanco #FFFFFF
+        Títulos: Poppins (igual que la tienda; Montserrat de respaldo) · Cuerpo: Open Sans (Lato de respaldo)
+     ================================================================ -->
+<div id="wigy-verdea-scripts" style="display:none" aria-hidden="true">
+<!-- ================================================================
+     ⚙️ PANEL DE CONFIGURACIÓN — MODIFICÁ TODO ACÁ
+
+     Solo tocá esta sección para personalizar la landing.
+     No hace falta tocar nada más abajo.
+     ================================================================ -->
+<script>
+window.WIGY_CONFIG = {
+
+  // ============================================================
+  // 🔗 SECCIÓN 0: SLUG — URL OBLIGATORIA
+  // El código SOLO funciona en esta URL. Si no coincide, no carga.
+  // Pegá la URL completa del producto (ej: https://tutienda.com/products/kit-huerta-verdea).
+  // También funciona si el cliente entra desde /collections/.../products/...
+  // ============================================================
+  slugURL: "https://syf1mp-tn.myshopify.com/products/enraizante-organico-para-huerta-y-macetas-250-ml",
+
+  // ============================================================
+  // 🌱 SECCIÓN 0A: DATOS DE MARCA Y GARANTÍA
+  // garantiaDias: dejalo en 0 para mostrar "Garantía 100%" sin días,
+  // o poné el número de días de tu política de devolución (ej. 30).
+  // ============================================================
+  marca: "VERDEA",
+  nombreProducto: "Enraizante Orgánico Concentrado para Huerta y Macetas 250 ml",
+  // Nombre corto que aparece en la notificación de compras recientes:
+  // "Susana de Corrientes · Compró Enraizante VERDEA 🌱"
+  nombreToast: "Enraizante VERDEA",
+  // true → muestra la 3.ª línea "hace X min · Compra verificada" (false la oculta).
+  toastMostrarHora: true,
+  garantiaDias: 0,
+
+  // ============================================================
+  // 🧪 MODO PRUEBA
+  // false → normal (en Shopify solo carga en slugURL).
+  // Al abrir el archivo localmente (file://) o en localhost se activa SOLO,
+  // sin validar la URL. En true fuerza el modo prueba en cualquier lado
+  // (no lo dejes en true en la tienda publicada).
+  // ============================================================
+  modoPrueba: false,
+
+  // ============================================================
+  // 📷 FOTOS DEL PRODUCTO (galería de la VISTA LOCAL / MODO PRUEBA)
+  // En Shopify la galería la muestra tu tema con las fotos cargadas en el
+  // producto; esta lista solo se usa al ver el archivo en modo prueba.
+  // La primera es la principal. Agregá más URLs y aparecen como miniaturas.
+  // ============================================================
+  fotosProducto: [
+    "https://cdn.shopify.com/s/files/1/0815/0338/7880/files/verdea_enraizante_1024x1024_eabf64f8-9195-4e1d-b669-630989637b5a.png?v=1791546738"
+  ],
+
+  // ============================================================
+  // ⭐ SECCIÓN 0B: RATING GENERAL
+  // Calificación que aparece debajo del título
+  // ⚠️ Usá tu puntuación y cantidad de reseñas reales.
+  // ============================================================
+  rating: {
+    puntuacion: 4.9,
+    cantidadOpiniones: 54,
+    clientes: 1083   // 👥 Total de clientes (se muestra como "+1.083 clientes felices"). 0 = ocultar
+  },
+
+  // ============================================================
+  // 🧑‍🌾 SECCIÓN 0C: VALIDACIÓN DE EXPERTO (OPCIONAL)
+  // En null → el bloque no se muestra.
+  // Para activarlo, reemplazá null por un profesional REAL que avale el producto:
+  // experto: {
+  //   nombre: "Ing. Agr. Nombre Apellido",
+  //   profesion: "Ingeniero/a Agrónomo/a",
+  //   matricula: "MP 0000",
+  //   matriculaDesc: "Matrícula profesional habilitada",
+  //   foto: "URL-DE-LA-FOTO",
+  //   mensaje: "Su opinión sobre el producto."
+  // },
+  // ============================================================
+  experto: null,
+
+  // ============================================================
+  // 📰 SECCIÓN 0D: LOGOS DE MEDIOS (TICKER INFERIOR)
+  // Imágenes de medios de comunicación debajo del FAQ del formulario
+  // ⚠️ Mostrá solo medios donde VERDEA haya aparecido realmente.
+  // ============================================================
+  // Vacío [] → la barra de medios NO se muestra. Para volver a mostrarla, poné acá solo
+  // medios donde VERDEA haya aparecido de verdad, con el formato de la lista comentada abajo.
+  logosMediaTicker: [],
+  // logosMediaTicker: [
+  // { src: "https://i.ibb.co/XHMz67b/Clar-n-logo-svg.png", alt: "Clarín" },
+  // { src: "https://i.ibb.co/jPWFK8r1/Infobae-com-logo.png", alt: "Infobae" },
+  // { src: "https://i.ibb.co/YFY7tGKH/TN-todo-noticias-logo-svg.png", alt: "TN" },
+  // { src: "https://i.ibb.co/7tkX2qMZ/publicar-avisos-legales-en-diario-el-cronista-comercial-publicidad-edictos-judiciales-convocatorias.webp", alt: "El Cronista" },
+  // { src: "https://i.ibb.co/LdmH8c0k/C5-N-2017-Alternate-svg.png", alt: "C5N" }
+  // ],
+
+  // ============================================================
+  // 💰 SECCIÓN 1: OFERTAS Y PRECIOS
+  // Paquetes que aparecen arriba del botón de compra.
+  // "etiqueta" → badge naranja (#E88031) arriba a la derecha.
+  // "seleccionado: true" → la opción que viene marcada por defecto.
+  // IMPORTANTE: este selector solo cambia la CANTIDAD que se agrega al carrito.
+  // El precio con descuento lo tiene que aplicar Shopify (descuento automático
+  // por cantidad o tu app de bundles).
+  //
+  // mostrarPacks: false → NO se muestra este selector: los packs los muestra
+  // Kaching Bundles (que es quien aplica descuentos y regalos). La barra fija
+  // de abajo toma el precio del pack elegido en Kaching.
+  // true → se usa este selector (solo si NO usás Kaching).
+  // ============================================================
+  mostrarPacks: false,
+  ofertas: [
+    {
+      nombre: "1 Enraizante",
+      precio: "$58.000",
+      subtexto: "Rinde hasta 80 L · 3 cuotas sin interés",
+      precioViejo: "",
+      descuento: "",
+      etiqueta: "",
+      cantidad: 1,
+      seleccionado: false,
+      regalo: ""
+    },
+    {
+      nombre: "2 Enraizantes",
+      precio: "$81.200",
+      subtexto: "Rinde hasta 160 L · 3 cuotas sin interés",
+      precioViejo: "$116.000",
+      descuento: "30% OFF",
+      etiqueta: "🌱 MÁS POPULAR",
+      cantidad: 2,
+      seleccionado: true,
+      regalo: "Guía de regalo"
+    },
+    {
+      nombre: "3 Enraizantes",
+      precio: "$113.100",
+      subtexto: "Rinde hasta 240 L · envío gratis + 3 cuotas",
+      precioViejo: "$174.000",
+      descuento: "35% OFF",
+      etiqueta: "MEJOR VALOR",
+      cantidad: 3,
+      seleccionado: false,
+      regalo: "Guía de regalo"
+    }
+  ],
+
+  // ============================================================
+  // 🖼️ SECCIÓN 2: CARRUSEL DE IMÁGENES (formato vertical 9:16)
+  // mostrarCarrusel: false → el carrusel NO se muestra (las URLs quedan
+  // guardadas abajo para cuando lo vuelvas a activar con true).
+  // ============================================================
+  mostrarCarrusel: false,
+  carruselImagenes: [
+    { src: "https://cdn.shopify.com/s/files/1/0815/0338/7880/files/Enraizante_Verdea__raices_mas_fuertes.png?v=1791636371", alt: "Enraizante VERDEA: raíces más fuertes" },
+    { src: "https://cdn.shopify.com/s/files/1/0815/0338/7880/files/Verdea_beneficios_2_el_mejor.png?v=1791636066", alt: "Beneficios del enraizante VERDEA" },
+    { src: "https://cdn.shopify.com/s/files/1/0815/0338/7880/files/Demostracion_de_enraizante_en_el_jardin.png?v=1791601399", alt: "Enraizante VERDEA en el jardín" },
+    { src: "https://cdn.shopify.com/s/files/1/0815/0338/7880/files/Hombre_promocionando_enraizante_organico_en_jardin.png?v=1791594511", alt: "Enraizante orgánico VERDEA en la huerta" },
+    { src: "https://cdn.shopify.com/s/files/1/0815/0338/7880/files/imagen_apara_landing.jpg?v=1791599554", alt: "Enraizante VERDEA" },
+    { src: "https://cdn.shopify.com/s/files/1/0815/0338/7880/files/Foto_productos_verdea.png?v=1791594191", alt: "Productos VERDEA" },
+    { src: "https://cdn.shopify.com/s/files/1/0815/0338/7880/files/GuiaVerdeaRaiz10241024.png?v=1791546130", alt: "Guía VERDEA de regalo" },
+    { src: "https://cdn.shopify.com/s/files/1/0815/0338/7880/files/Camion_ecologico_volando_con_envio_gratis.png?v=1791599207", alt: "Envío a todo el país" }
+  ],
+
+  // ============================================================
+  // 📸 SECCIÓN 3: ESTADÍSTICAS (OPCIONAL) + FOTO
+  // Si "estadisticas" queda vacío [], la sección no se muestra.
+  // ⚠️ Cargá solo datos reales (ej. de una encuesta a tus clientes):
+  // estadisticas: [
+  //   { porcentaje: 90, texto: "Notó <strong>raíces más fuertes</strong> en sus esquejes." },
+  // ],
+  // ============================================================
+  fotoEstadisticas: "https://cdn.shopify.com/s/files/1/0815/0338/7880/files/FotoProductoenraizante.png?v=1791498186",
+  estadisticas: [],
+
+  // ============================================================
+  // 🔄 SECCIÓN 4: IMÁGENES DEL COMPARADOR ANTES / DESPUÉS
+  // Con dos fotos (antes y después) → slider para arrastrar.
+  // Con UNA foto que ya trae el antes/después → dejá "comparadorAntes" vacío ("")
+  // y poné la foto en "comparadorDespues": se muestra completa, sin slider.
+  // ============================================================
+  comparadorAntes: "",
+  comparadorDespues: "https://cdn.shopify.com/s/files/1/0815/0338/7880/files/Comparativa_de_raices_antes_y_despues_muy_pero_muy_pro.png?v=1791600542",
+
+  // ============================================================
+  // 💬 SECCIÓN 5: TESTIMONIOS DE CLIENTES (reseñas reales de la tienda)
+  // ============================================================
+  testimonios: [
+    {
+      foto: "https://cdn.shopify.com/s/files/1/0815/0338/7880/files/Foto_persona_verdea.jpg?v=1791768505",
+      nombre: "Carlos. Y",
+      titulo: "Chau estrés por trasplante",
+      texto: "Cada vez que pasaba una planta a una maceta más grande terminaba sufriendo. Con este Enraizante prenden enseguida y no sienten el cambio. Súper recomendado para los que aman la jardinería."
+    },
+    {
+      foto: "https://cdn.shopify.com/s/files/1/0815/0338/7880/files/testimonio_nachit.png?v=1791602984",
+      nombre: "Nacho. R",
+      titulo: "Aproveché la promo y valió 100% la pena",
+      texto: "Súper contento con la compra. Aproveché el descuento llevando el pack x2 y la verdad que un golazo. Las plantas respondieron re bien y me ahorré unos pesos."
+    },
+    {
+      foto: "https://cdn.shopify.com/s/files/1/0815/0338/7880/files/selfie_mujer_verdea.png?v=1791605310",
+      nombre: "Sofía. L",
+      titulo: "Súper fácil de usar y efectivo!!",
+      texto: "Recién estoy arrancando con mis primeras plantas y tenía miedo de mandarme una macana. Con este enraizante fue facilísimo, no quema nada y los resultados se re notan. Más que feliz."
+    },
+    {
+      foto: "https://cdn.shopify.com/s/files/1/0815/0338/7880/files/selfie_mujer_realista_resena.png?v=1791770061",
+      nombre: "Mariana. G",
+      titulo: "Muy buena compra, súper recomendable",
+      texto: "Aproveché el pack de 3 para tener el envío gratis y el descuento del 35%. Tenía un par de plantas medio trabadas con el crecimiento y la verdad que se nota un montón la diferencia desde que lo empecé a usar. La guía que mandan de regalo también suma un montón."
+    }
+  ],
+
+  // ============================================================
+  // 📢 SECCIÓN 6: MENSAJES DE LA BARRA SUPERIOR
+  // ============================================================
+  mensajesTicker: [
+    "🌱 RAÍCES FUERTES DESDE EL PRIMER DÍA",
+    "DESPACHO EN 24 HS HÁBILES",
+    "3 CUOTAS SIN INTERÉS",
+    "LLEVÁ 2 Y AHORRÁ 30%"
+  ],
+
+  // ============================================================
+  // 🛒 SECCIÓN 7: COMPRADORES DEL TOAST (notificación abajo izquierda)
+  // Cada comprador tiene: nombre, ciudad y foto (opcional).
+  // Si la foto queda vacía, aparece la inicial del nombre.
+  // ============================================================
+  compradoresToast: [
+    { name: "Graciela",   city: "Buenos Aires",  img: "https://i.ibb.co/xKrs1PY1/600292755-1392930902374432-6696620409313093103-n.jpg" },
+    { name: "Marta",      city: "Córdoba",        img: "https://i.ibb.co/PZpWcqsH/6155e6240e933cd5db277f62846aa3fd.jpg" },
+    { name: "Silvia",     city: "Rosario",        img: "https://i.ibb.co/20STDMyx/0b8d566cd0855a20489ad4d8268a35d1.jpg" },
+    { name: "Patricia",   city: "Mendoza",        img: "https://i.ibb.co/zW5gLw3y/a2a7689e0c7aa9c8db15d86169850448.jpg" },
+    { name: "Claudia",    city: "Tucumán",        img: "https://i.ibb.co/27d2D0bs/a38e027e5557965801d468e95fb94c8f.jpg" },
+    { name: "Roberto",    city: "La Plata",       img: "https://i.ibb.co/4RCYHDbB/istockphoto-1417870932-612x612.jpg" },
+    { name: "Gustavo",    city: "Mar del Plata",  img: "https://i.ibb.co/Z1cF2nd3/449360781-18441255721031385-6031991862974048955-n.jpg" },
+    { name: "Eduardo",    city: "Salta",          img: "https://i.ibb.co/CKrq9tS9/c5192ef1e977409445895f8c6e41a329.jpg" },
+    { name: "Ricardo",    city: "Santa Fe",       img: "https://i.ibb.co/J6BYqs1/299791675-445721547572040-1904041769060427545-n.jpg" },
+    { name: "Adriana",    city: "San Juan",       img: "https://i.ibb.co/v68mv5ph/a526ea345e6fc9735d28af9c397580f0.jpg" },
+    { name: "Alejandro",  city: "Neuquén",        img: "https://i.ibb.co/0R2Xm5Qy/cfdfecf476834f9aa394bd218c5260b8.jpg" },
+    { name: "Marcela",    city: "Bahía Blanca",   img: "https://i.ibb.co/mVytv3wY/2c184c3839a5e1067512e1ab944b2e8e.jpg" },
+    { name: "Gabriela",   city: "Resistencia",    img: "https://i.ibb.co/sJqysHS4/8012c73d854f90714f7a031e5cfe676e.jpg" },
+    { name: "Jorge",      city: "Posadas",        img: "https://i.ibb.co/v4MS1SkM/87ecd34ed891133685d65ed3673ead01.jpg" },
+    { name: "Fernando",   city: "Paraná",         img: "https://i.ibb.co/Zz5Y0LTw/6b214f9bc9d34e70a7146fcc59db35c0.jpg" },
+    { name: "Norma",      city: "San Luis",       img: "https://i.ibb.co/S4MJKDSp/acff6ea4459a4b8dd994cf860889dcb8.jpg" },
+    { name: "Susana",     city: "Corrientes",     img: "https://i.ibb.co/ccKjVdbZ/0faf5aee63f0ba09699b29f5bb6d5804.jpg" },
+    { name: "Daniel",     city: "Formosa",        img: "https://i.ibb.co/jkpNj4ps/5420fb41e38b47b80107a296d20f536a.jpg" },
+    { name: "Hugo",       city: "Bariloche",      img: "https://i.ibb.co/Y7Q8JB6z/164d0dc3336761968586bb70de344420.jpg" },
+    { name: "Andrea",     city: "Ushuaia",        img: "https://i.ibb.co/Dgg4JT6B/f1555ba99ad8798915ddad164cbfd8f5.jpg" }
+  ]
+
+};
+</script>
+<!-- ================================================================
+     HELPER DOM — Selectores compatibles con Shopify (Dawn y temas 2.0)
+     y con el markup original. Todos los bloques lo usan.
+     ================================================================ -->
+<script>
+window.WIGY_DOM = {
+  form: function() {
+    return document.querySelector(".js-product-form") ||
+           document.getElementById("product_form") ||
+           document.querySelector("product-form form[action*='/cart/add']") ||
+           document.querySelector("form[id^='product-form-template']") ||
+           document.querySelector("form.product-form[action*='/cart/add']") ||
+           document.querySelector("form[action*='/cart/add']:not(.installment)");
+  },
+  btn: function() {
+    var f = this.form();
+    return document.querySelector(".js-prod-submit-form") ||
+           (f && f.querySelector(".product-form__submit, button[name='add'], [type='submit']")) ||
+           document.querySelector("button[name='add']");
+  },
+  title: function() {
+    return document.querySelector(".js-product-name") ||
+           document.querySelector("[data-store='product-name']") ||
+           document.querySelector(".product__title h1") ||
+           document.querySelector(".product__title") ||
+           document.querySelector("h1");
+  },
+  qty: function() {
+    return document.querySelector(".js-quantity-input") ||
+           document.querySelector(".product-form__quantity input[name='quantity']") ||
+           document.querySelector("input[name='quantity']");
+  },
+  /* Contenedor de ANCHO COMPLETO para las secciones largas de la landing.
+     Se crea justo DEBAJO de la sección del producto (foto + columna de compra),
+     así las secciones ocupan todo el ancho en PC en lugar de la columna derecha. */
+  fullWidth: function() {
+    var c = document.getElementById("wigy-landing-full");
+    if (c) return c;
+    var f = this.form();
+    if (!f) return null;
+    var host = document.getElementById("wigy-preview-page") ||
+               f.closest(".shopify-section") ||
+               f.closest("section") ||
+               f.closest(".product, product-info");
+    c = document.createElement("div");
+    c.id = "wigy-landing-full";
+    if (host && host.parentNode) host.insertAdjacentElement("afterend", c);
+    else f.appendChild(c);
+    return c;
+  }
+};
+</script>
+<!-- ================================================================
+     FUENTES Y VARIABLES DE MARCA VERDEA
+     ================================================================ -->
+<script>
+(function() {
+  if (!document.getElementById("wigy-verdea-fonts")) {
+    var l = document.createElement("link");
+    l.id = "wigy-verdea-fonts";
+    l.rel = "stylesheet";
+    l.href = "https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800;900&family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;500;600;700&display=swap";
+    document.head.appendChild(l);
+  }
+  if (document.getElementById("wigy-verdea-brand")) return;
+  var st = document.createElement("style");
+  st.id = "wigy-verdea-brand";
+  st.textContent =
+    ":root{--vd-green:#2A5F35;--vd-sprout:#6BA342;--vd-earth:#4E382A;--vd-orange:#E88031;--vd-bg:#F5F4EE;--vd-white:#FFFFFF;" +
+    "--vd-font-title:'Poppins','Montserrat',sans-serif;--vd-font-body:'Open Sans','Lato',sans-serif}" +
+    "[id^='wigy-'],.kb-wrap,.wigy-image-carousel{font-family:var(--vd-font-body)}" +
+    "[id^='wigy-'] h2,[id^='wigy-'] h3,.kb-title,.kb-t,.kb-p,.kb-pop,.kb-bdg,#wigy-ticker .ticker-item,#wigy-sticky-atc .sticky-btn{font-family:var(--vd-font-title)!important}" +
+    "#wigy-landing-full{width:100%;clear:both;display:block;box-sizing:border-box}" +
+    "#wigy-landing-full h2,#wigy-landing-full h3{font-weight:700!important;letter-spacing:-0.3px!important}" +
+    "#wigy-landing-full .t-content-orange h3{font-weight:600!important;letter-spacing:0!important}" +
+    /* Todos los títulos de sección con el mismo estilo: verde liso, mismo tamaño */
+    "#wigy-landing-full .prob-title,#wigy-landing-full .sol-title,#wigy-landing-full .comp-heading,#wigy-landing-full .hf-header-timeline h2,#wigy-landing-full .concerns-gradient-title,#wigy-landing-full .clinical-title,#wigy-landing-full .comp-title,#wigy-landing-full .title-with-highlight{background:none!important;-webkit-text-fill-color:#2A5F35!important;color:#2A5F35!important;font-size:32px!important;line-height:1.2!important;display:block!important}" +
+    "@media(max-width:768px){#wigy-landing-full .prob-title,#wigy-landing-full .sol-title,#wigy-landing-full .comp-heading,#wigy-landing-full .hf-header-timeline h2,#wigy-landing-full .concerns-gradient-title,#wigy-landing-full .clinical-title,#wigy-landing-full .comp-title,#wigy-landing-full .title-with-highlight{font-size:25px!important}}" +
+    "#wigy-landing-full .sol-feat-title,#wigy-landing-full .prob-card-title{font-family:var(--vd-font-title)!important;font-weight:600!important}";
+  document.head.appendChild(st);
+})();
+</script>
+<!-- ================================================================
+     VALIDACIÓN DE SLUG + MODO PRUEBA
+     · En Shopify: solo carga en la URL del producto (compara por handle
+       /products/xxx, funciona desde /collections/... y con ?variant=...).
+     · MODO PRUEBA (sin validación de URL): se activa solo cuando el archivo
+       se abre localmente (file://), en localhost/127.0.0.1, con ?wigy_preview=1
+       en la URL, o con modoPrueba: true en el panel. Si la página no tiene
+       formulario de producto, crea uno simulado para ver la landing completa.
+     ================================================================ -->
+<script>
+(function() {
+  var cfg = window.WIGY_CONFIG || {};
+  var loc = window.location;
+  var isLocal = loc.protocol === "file:" ||
+                /^(localhost|127\.0\.0\.1|0\.0\.0\.0|\[::1\])$/.test(loc.hostname);
+  var forced = cfg.modoPrueba === true || /[?&]wigy_preview=1\b/.test(loc.search);
+  window.WIGY_PREVIEW = isLocal || forced;
+
+  if (!window.WIGY_PREVIEW) {
+    var slugURL = cfg.slugURL;
+    if (!slugURL || slugURL.indexOf("⚠️") !== -1) return;
+    try {
+      var configPath = new URL(slugURL).pathname.replace(/\/+$/, "");
+      var currentPath = loc.pathname.replace(/\/+$/, "");
+      var m = configPath.match(/\/products\/[^\/]+$/);
+      var ok = m ? (currentPath.slice(-m[0].length) === m[0]) : (currentPath === configPath);
+      if (!ok) window.WIGY_SLUG_BLOCK = true;
+    } catch(e) {
+      window.WIGY_SLUG_BLOCK = true;
+    }
+    return;
+  }
+
+  /* ---------- MODO PRUEBA: página de producto simulada ---------- */
+  window.WIGY_SLUG_BLOCK = false;
+  function buildMock() {
+    if (document.getElementById("wigy-preview-page") || window.WIGY_DOM.form()) return;
+    if (!document.body) return;
+    var st = document.createElement("style");
+    st.id = "wigy-preview-style";
+    st.textContent =
+      "body{margin:0;background:#fff;color:#1f1f1f;font-family:'Open Sans','Lato',sans-serif}" +
+      "#wigy-preview-banner{background:#E88031;color:#fff;text-align:center;font:600 12px/1.4 'Open Sans',sans-serif;padding:6px 12px}" +
+      "#wigy-preview-page{max-width:1200px;margin:0 auto;padding:24px 16px 40px;box-sizing:border-box}" +
+      "#wigy-preview-page .wp-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:start}" +
+      "#wigy-preview-page .wp-gallery{position:sticky;top:16px}" +
+      "#wigy-preview-page .wp-main{position:relative;width:100%;border-radius:16px;overflow:hidden;background:#F5F4EE;border:1px solid rgba(42,95,53,.12);display:flex;align-items:center;justify-content:center}" +
+      "#wigy-preview-page .wp-main img{display:block;width:auto;max-width:100%;height:auto;max-height:80vh;object-fit:contain}" +
+      "#wigy-preview-page .wp-thumbs{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}" +
+      "#wigy-preview-page .wp-thumbs button{width:68px;height:68px;padding:0;border:2px solid transparent;border-radius:10px;overflow:hidden;background:#F5F4EE;cursor:pointer}" +
+      "#wigy-preview-page .wp-thumbs button.active{border-color:#2A5F35}" +
+      "#wigy-preview-page .wp-thumbs img{width:100%;height:100%;object-fit:cover;display:block}" +
+      "#wigy-preview-page .wp-info{min-width:0}" +
+      "#wigy-preview-page .wp-grid.no-gallery{grid-template-columns:minmax(0,620px);justify-content:center}" +
+      "@media(max-width:768px){#wigy-preview-page .wp-main img{width:auto;max-width:100%;max-height:min(85vw,360px)}#wigy-preview-page .wp-grid{display:block}#wigy-preview-page .wp-gallery{position:static;margin-bottom:20px}#wigy-preview-page .wp-thumbs button{width:56px;height:56px}}" +
+      "#wigy-preview-page h1{font:800 28px/1.2 'Poppins','Montserrat',sans-serif;color:#1f1f1f;margin:0 0 4px}" +
+      "#wigy-preview-page .wp-form{margin:0}" +
+      "@media(max-width:768px){#wigy-preview-page h1{font-size:23px}}";
+    document.head.appendChild(st);
+
+    var banner = document.createElement("div");
+    banner.id = "wigy-preview-banner";
+    banner.textContent = "MODO PRUEBA — vista local de la landing (en Shopify este aviso no aparece)";
+
+    var page = document.createElement("div");
+    page.id = "wigy-preview-page";
+    var fotos = (cfg.fotosProducto || []).filter(function(u) { return u && u.indexOf("\u26A0\uFE0F") === -1; });
+    var galleryHTML = fotos.length ?
+      '<div class="wp-gallery">' +
+        '<div class="wp-main"><img src="' + fotos[0] + '" alt="' + (cfg.nombreProducto || "") + '"></div>' +
+        (fotos.length > 1 ? '<div class="wp-thumbs">' + fotos.map(function(u, i) {
+          return '<button type="button" class="' + (i === 0 ? 'active' : '') + '" data-src="' + u + '"><img src="' + u + '" alt="Foto ' + (i + 1) + '"></button>';
+        }).join('') + '</div>' : '') +
+      '</div>' : '';
+    page.innerHTML =
+      '<div class="wp-grid' + (fotos.length ? '' : ' no-gallery') + '">' + galleryHTML +
+      '<div class="wp-info">' +
+        '<h1 class="product__title">' + (cfg.nombreProducto || "Producto") + '</h1>' +
+        '<form class="wp-form product-form" action="/cart/add" method="post" id="product-form-preview">' +
+          '<input type="hidden" name="quantity" value="1">' +
+          '<div class="product-form__buttons">' +
+            '<button type="submit" name="add" class="product-form__submit">Agregar al carrito</button>' +
+          '</div>' +
+        '</form>' +
+      '</div></div>';
+
+    var anchor = document.getElementById("wigy-verdea-scripts");
+    if (anchor && anchor.parentNode) {
+      anchor.parentNode.insertBefore(banner, anchor);
+      anchor.parentNode.insertBefore(page, anchor);
+    } else {
+      document.body.appendChild(banner);
+      document.body.appendChild(page);
+    }
+
+    page.querySelectorAll(".wp-thumbs button").forEach(function(t) {
+      t.addEventListener("click", function() {
+        page.querySelector(".wp-main img").src = t.getAttribute("data-src");
+        page.querySelectorAll(".wp-thumbs button").forEach(function(x) { x.classList.remove("active"); });
+        t.classList.add("active");
+      });
+    });
+
+    page.querySelector("form").addEventListener("submit", function(e) {
+      e.preventDefault();
+      var q = page.querySelector("input[name='quantity']").value;
+      alert("Modo prueba: se agregarían " + q + " unidad(es) al carrito.");
+    });
+  }
+  buildMock();
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", buildMock);
+})();
+</script>
+<!-- ================================================================
+     BLOQUE PRECARGA: Carga anticipada de TODAS las imágenes
+     ================================================================ -->
+<script>
+(function() {
+  if (window.WIGY_SLUG_BLOCK) return;
+  var cfg = window.WIGY_CONFIG;
+  if (!cfg) return;
+
+  /* Imágenes CRÍTICAS — preload con <link> en el <head> (máxima prioridad del navegador) */
+  var critical = [];
+  if (cfg.comparadorAntes) critical.push(cfg.comparadorAntes);
+  if (cfg.comparadorDespues) critical.push(cfg.comparadorDespues);
+  if (cfg.fotoEstadisticas) critical.push(cfg.fotoEstadisticas);
+  if (cfg.experto && cfg.experto.foto) critical.push(cfg.experto.foto);
+  critical.forEach(function(url) {
+    if (!url || url.indexOf("\u26A0\uFE0F") !== -1) return;
+    var link = document.createElement("link");
+    link.rel = "preload";
+    link.as = "image";
+    link.href = url;
+    document.head.appendChild(link);
+  });
+
+  /* Resto de imágenes — preload con new Image() */
+  var urls = [];
+  if (cfg.carruselImagenes && cfg.mostrarCarrusel !== false) cfg.carruselImagenes.forEach(function(item) { urls.push(item.src); });
+  if (cfg.testimonios) cfg.testimonios.forEach(function(t) { if (t.foto) urls.push(t.foto); });
+  if (cfg.logosMediaTicker) cfg.logosMediaTicker.forEach(function(l) { urls.push(l.src); });
+  urls.forEach(function(url) {
+    if (!url || url.indexOf("\u26A0\uFE0F") !== -1) return;
+    var img = new Image();
+    img.src = url;
+  });
+})();
+</script>
+<!-- ================================================================
+     BLOQUE 0A: RATING GENERAL (ESTRELLAS + CALIFICACIONES)
+     ================================================================ -->
+<script>
+(function() {
+  if (window.WIGY_SLUG_BLOCK) return;
+  var ID = "wigy-product-rating";
+  var STYLE_ID = ID + "-style";
+
+  function injectStyleOnce() {
+    if (document.getElementById(STYLE_ID)) return;
+    var css =
+      "#" + ID + "{display:flex;align-items:center;gap:8px;margin:4px 0 10px 0;font-family:inherit}" +
+      "#" + ID + " .wr-stars{display:flex;align-items:center;gap:1px}" +
+      "#" + ID + " .wr-stars svg{width:16px;height:16px}" +
+      "#" + ID + " .wr-score{font-size:14px;font-weight:700;color:#2A5F35;line-height:1}" +
+      "#" + ID + " .wr-count{font-size:13px;font-weight:500;color:#666;line-height:1}" +
+      "#" + ID + " .wr-count span{text-decoration:underline;cursor:pointer}" +
+      "@media(max-width:768px){#" + ID + " .wr-stars svg{width:14px;height:14px}#" + ID + " .wr-score{font-size:13px}#" + ID + " .wr-count{font-size:12px}}";
+    var st = document.createElement("style");
+    st.id = STYLE_ID;
+    st.innerHTML = css;
+    document.head.appendChild(st);
+  }
+
+  function buildStars(rating) {
+    var full = Math.floor(rating);
+    var hasHalf = (rating - full) >= 0.3;
+    var starFull = '<svg viewBox="0 0 24 24" fill="#6BA342" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.27 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg>';
+    var starHalf = '<svg viewBox="0 0 24 24" fill="none" stroke="none"><defs><linearGradient id="wrh"><stop offset="50%" stop-color="#6BA342"/><stop offset="50%" stop-color="#E0E0E0"/></linearGradient></defs><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.27 5.82 22 7 14.14l-5-4.87 6.91-1.01z" fill="url(#wrh)"/></svg>';
+    var starEmpty = '<svg viewBox="0 0 24 24" fill="#E0E0E0" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.27 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg>';
+    var html = '';
+    for (var i = 0; i < full; i++) html += starFull;
+    if (hasHalf) { html += starHalf; full++; }
+    for (var j = full; j < 5; j++) html += starEmpty;
+    return html;
+  }
+
+  function mount() {
+    if (document.getElementById(ID)) return;
+    var cfg = window.WIGY_CONFIG && window.WIGY_CONFIG.rating;
+    if (!cfg) return;
+    var titleEl = window.WIGY_DOM.title();
+    if (!titleEl) return;
+    injectStyleOnce();
+    var el = document.createElement("div");
+    el.id = ID;
+    el.innerHTML =
+      '<div class="wr-stars">' + buildStars(cfg.puntuacion) + '</div>' +
+      '<span class="wr-score">' + cfg.puntuacion.toFixed(1) + '</span>' +
+      '<span class="wr-count"><span>' + (cfg.clientes ? '+' + Number(cfg.clientes).toLocaleString("es-AR") + ' clientes felices' : cfg.cantidadOpiniones + ' opiniones de clientes') + '</span></span>';
+    titleEl.insertAdjacentElement("afterend", el);
+  }
+
+  var tries = 0;
+  var t = setInterval(function() {
+    tries++;
+    mount();
+    if (document.getElementById(ID) || tries >= 60) clearInterval(t);
+  }, 250);
+})();
+</script>
+<!-- ================================================================
+     BLOQUE 1: LISTA DE BENEFICIOS
+     Aparece: Justo ARRIBA del formulario de compra
+     ================================================================ -->
+<script>
+(function() {
+  if (window.WIGY_SLUG_BLOCK) return;
+  var WRAPPER_ID = "wigy-shopify-benefits";
+
+  function injectStyle() {
+    if (document.getElementById(WRAPPER_ID + "-style")) return;
+    var css = ".benefits-list{list-style:none!important;padding:0!important;margin:10px 0 20px 0!important;display:flex;flex-direction:column;gap:4px}.benefits-list li{display:flex;align-items:flex-start;gap:10px;font-size:14.5px;color:#2b2b2b;line-height:1.4;margin:0!important;padding:0!important}.benefit-icon{flex:0 0 auto;width:18px;height:18px;margin-top:2px;display:block}.benefit-text{font-weight:500;font-family:inherit}.benefits-rinde{display:flex;align-items:center;gap:10px;margin:-8px 0 18px 0;padding:10px 14px;border-radius:12px;background:#F1F6EC;border:1px dashed rgba(42,95,53,.35);font-size:14px;line-height:1.35;color:#2A5F35}.benefits-rinde b{font-weight:800}.benefits-rinde span:first-child{font-size:20px;line-height:1}@media (max-width:768px){.benefits-list li{font-size:13.5px}}";
+    var st = document.createElement("style");
+    st.id = WRAPPER_ID + "-style";
+    st.innerHTML = css;
+    document.head.appendChild(st);
+  }
+
+  function buildHTML() {
+    var items = [
+      "Raíces fuertes desde el primer día",
+      "Súper concentrado: 3 a 4 ml por litro, rinde hasta 80 litros",
+      "Sale menos de $1.000 por litro preparado",
+      "Para huerta, macetas y plantas de interior",
+      "Fórmula orgánica: cuida tus cultivos sin riesgos"
+    ];
+    var svg = '<svg class="benefit-icon" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#c1)"><mask id="m1" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="16" height="16"><path d="M7.99992 14.6668C8.87556 14.6679 9.74278 14.496 10.5518 14.1609C11.3607 13.8258 12.0955 13.3341 12.7139 12.7142C13.3339 12.0958 13.8255 11.361 14.1606 10.552C14.4957 9.74303 14.6677 8.8758 14.6666 8.00017C14.6677 7.12453 14.4957 6.25731 14.1606 5.44833C13.8255 4.63935 13.3339 3.90456 12.7139 3.28617C12.0955 2.66622 11.3607 2.17457 10.5518 1.83947C9.74278 1.50437 8.87556 1.33242 7.99992 1.3335C7.12429 1.33242 6.25707 1.50437 5.44809 1.83947C4.63911 2.17457 3.90431 2.66622 3.28592 3.28617C2.66598 3.90456 2.17433 4.63935 1.83923 5.44833C1.50413 6.25731 1.33218 7.12453 1.33326 8.00017C1.33218 8.8758 1.50413 9.74303 1.83923 10.552C2.17433 11.361 2.66598 12.0958 3.28592 12.7142C3.90431 13.3341 4.63911 13.8258 5.44809 14.1609C6.25707 14.496 7.12429 14.6679 7.99992 14.6668Z" fill="white" stroke="white" stroke-width="2" stroke-linejoin="round"></path><path d="M5.33325 8L7.33325 10L11.3333 6" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></mask><g mask="url(#m1)"><path d="M0 0H16V16H0V0Z" fill="#6BA342"></path></g></g><defs><clipPath id="c1"><rect width="16" height="16" fill="white"></rect></clipPath></defs></svg>';
+    return '<ul class="benefits-list">' + items.map(function(text) {
+      return '<li>' + svg + '<span class="benefit-text">' + text + '</span></li>';
+    }).join('') + '</ul>' +
+      '<div class="benefits-rinde"><span aria-hidden="true">\u{1F4A7}</span><span><b>1 frasco de 250 ml = hasta 80 litros</b> \u00B7 unas 15 regaderas de 5 L</span></div>';
+  }
+
+  function mount() {
+    if (document.getElementById(WRAPPER_ID)) return;
+    var form = window.WIGY_DOM.form();
+    if (!form) return;
+    injectStyle();
+    var wrapper = document.createElement("div");
+    wrapper.id = WRAPPER_ID;
+    wrapper.innerHTML = buildHTML();
+    /* Si está Kaching Bundles, la lista va ARRIBA de su widget */
+    var k = document.querySelector("kaching-bundle, kaching-bundles-block, .kaching-bundles__block, .shopify-app-block[id*='kaching']");
+    var anchor = k ? (k.closest(".shopify-app-block, [id^='shopify-block-']") || k) : form;
+    anchor.parentNode.insertBefore(wrapper, anchor);
+  }
+
+  var tries = 0;
+  var t = setInterval(function() {
+    tries++;
+    mount();
+    if (document.getElementById(WRAPPER_ID) || tries >= 60) clearInterval(t);
+  }, 250);
+})();
+</script>
+<!-- ================================================================
+     BLOQUE 2: PAQUETES / BUNDLES DE OFERTA
+     ================================================================ -->
+<script>
+(function() {
+  if (window.WIGY_SLUG_BLOCK) return;
+  var ID = "wigy-premium-bundles";
+
+  var inject = function() {
+    if (document.getElementById(ID)) return;
+
+    var btn = window.WIGY_DOM.btn();
+    if (!btn) return;
+
+    var pCol = btn.closest('.col-12') || btn.parentNode;
+    if (!pCol) return;
+
+    if (!document.getElementById(ID + '-css')) {
+      var s = document.createElement('style');
+      s.id = ID + '-css';
+      s.innerHTML = ".kb-wrap{font-family:'Poppins','Montserrat',sans-serif;margin:15px auto 8px auto!important;width:100%;max-width:600px}.kb-title{display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:900;color:#2A5F35;margin-bottom:20px;letter-spacing:.2px;white-space:nowrap;opacity:0}.kb-title::before,.kb-title::after{content:'';flex:1;border-bottom:2px solid rgba(107,163,66,.35);margin:0 12px}.kb-bar{border:2px solid rgba(42,95,53,.15);border-radius:16px;background:#fff;cursor:pointer;margin-bottom:12px;display:flex;flex-direction:column;position:relative;transition:.2s;box-sizing:border-box}.kb-bar.sel{border:2px solid #2A5F35;background:#F1F6EC;z-index:2;box-shadow:0 8px 20px rgba(42,95,53,.1)}.kb-pop{position:absolute;top:-14px;right:18px;background:#E88031;color:#fff;font-size:12px;font-weight:800;padding:6px 12px;border-radius:6px;letter-spacing:.5px;line-height:1;opacity:0;box-shadow:0 4px 10px rgba(232,128,49,.35);transform-origin:center right}.kb-bdg{background:#E88031;color:#fff;font-size:12px;font-weight:800;padding:4px 8px;border-radius:99px;line-height:1.1;opacity:0;transform-origin:center center;white-space:nowrap;flex-shrink:0}.kb-main{display:flex;align-items:center;padding:18px 20px;box-sizing:border-box}.kb-radio{width:32px;height:32px;border-radius:50%;border:2px solid rgba(0,0,0,.2);margin-right:18px;display:flex;align-items:center;justify-content:center;background:#fff;flex:0 0 auto;transition:.2s;box-sizing:border-box}.kb-bar.sel .kb-radio{border-color:#2A5F35;border-width:2px}.kb-radio::after{content:'';width:16px;height:16px;border-radius:50%;background:#6BA342;opacity:0;transform:scale(.5);transition:.25s cubic-bezier(0.175,0.885,0.32,1.275)}.kb-bar.sel .kb-radio::after{opacity:1;transform:scale(1)}.kb-c{flex:1;min-width:0;line-height:1.2}.kb-r1{display:flex;justify-content:space-between;align-items:center;gap:10px}.kb-r2{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-top:6px}.kb-t{font-size:18px;font-weight:800;color:#111;display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin:0}.kb-p{font-size:20px;font-weight:900;color:#111;margin:0;white-space:nowrap;flex-shrink:0}.kb-s{font-size:15px;color:#555;font-weight:600;margin:0;flex:1;min-width:0;line-height:1.3}.kb-op{font-size:15px;color:#888;text-decoration:line-through;margin:0;flex-shrink:0;white-space:nowrap;line-height:1.3}.kb-gifts{padding:0;overflow:hidden}.kb-gift-row{display:flex;align-items:center;gap:10px;padding:10px 20px;font-size:13px;font-weight:700;color:#333;background:rgba(107,163,66,.08);border-top:1px solid rgba(42,95,53,.1)}.kb-gift-row:last-child{border-radius:0 0 14px 14px}.kb-gift-check{width:20px;height:20px;border-radius:6px;background:#2A5F35;color:#fff;display:flex;align-items:center;justify-content:center;flex:0 0 auto}.kb-gift-check svg{width:12px;height:12px}.kb-gift-tag{background:#2A5F35;color:#fff;font-size:11px;font-weight:800;padding:3px 9px;border-radius:99px;margin-left:auto;white-space:nowrap}.js-quantity,.js-product-quantity,[data-component='product.quantity'],.product__info-container .product-form__quantity{display:none!important}.wigy-atc-col,.product-form__buttons{width:100%!important;max-width:600px!important;margin-left:auto!important;margin-right:auto!important;float:none!important;align-self:center!important;box-sizing:border-box!important}.js-prod-submit-form,button[name='add'],.btn-add-to-cart,.product-form__submit{background:linear-gradient(135deg,#2A5F35 0%,#6BA342 100%)!important;color:#ffffff!important;border:none!important;border-radius:99px!important;font-family:'Poppins','Montserrat',sans-serif!important;font-size:20px!important;font-weight:900!important;text-transform:uppercase!important;letter-spacing:1px!important;padding:20px 24px!important;box-shadow:0 8px 24px rgba(42,95,53,0.3)!important;transition:transform 0.2s ease,background 0.3s ease!important;width:100%!important;max-width:600px!important;margin:0 auto 15px auto!important;display:flex!important;align-items:center!important;justify-content:center!important;text-align:center!important;box-sizing:border-box!important;min-height:0!important}.js-prod-submit-form::before,.js-prod-submit-form::after,button[name='add']::before,button[name='add']::after,.product-form__submit::before,.product-form__submit::after{display:none!important;content:none!important}.product-form__submit>span,button[name='add']>span{background:none!important;box-shadow:none!important;border:0!important}.js-prod-submit-form:hover,button[name='add']:hover,.btn-add-to-cart:hover,.product-form__submit:hover{transform:translateY(-3px)!important;background:linear-gradient(135deg,#1F4727 0%,#2A5F35 100%)!important}@keyframes kbSlideIn{0%{opacity:0;transform:translateY(20px) scale(0.95)}60%{opacity:1;transform:translateY(-3px) scale(1.02)}100%{opacity:1;transform:translateY(0) scale(1)}}@keyframes kbPopBounce{0%{opacity:0;transform:scale(0.2) rotate(-5deg)}50%{opacity:1;transform:scale(1.35) rotate(4deg)}75%{opacity:1;transform:scale(0.9) rotate(-2deg)}100%{opacity:1;transform:scale(1) rotate(0deg)}}.kb-in-view .kb-title{animation:kbSlideIn 0.6s cubic-bezier(0.175,0.885,0.32,1.275) forwards}.kb-in-view .kb-pop{animation:kbPopBounce 0.7s cubic-bezier(0.175,0.885,0.32,1.275) forwards}.kb-in-view .kb-bdg{animation:kbPopBounce 0.7s cubic-bezier(0.175,0.885,0.32,1.275) forwards}.kb-in-view .kb-bar:nth-child(3) .kb-pop{animation-delay:0.15s}.kb-in-view .kb-bar:nth-child(4) .kb-pop{animation-delay:0.35s}.kb-in-view .kb-bar:nth-child(3) .kb-bdg{animation-delay:0.25s}.kb-in-view .kb-bar:nth-child(4) .kb-bdg{animation-delay:0.45s}@media(max-width:768px){.kb-t{font-size:16px}.kb-p{font-size:18px}.kb-s{font-size:13.5px}.kb-op{font-size:13.5px}.js-prod-submit-form,button[name='add'],.btn-add-to-cart,.product-form__submit{font-size:18px!important;padding:18px 20px!important}}@media(max-width:480px){.kb-title{white-space:normal;text-align:center;font-size:15px}}";
+      document.head.appendChild(s);
+    }
+
+    /* Packs desactivados (los maneja Kaching): solo se aplica el estilo y
+       centrado del botón; se deja un marcador oculto para cortar la espera. */
+    /* En la vista local (modo prueba) no hay Kaching: se muestran nuestros packs como referencia */
+    var hasKaching = !!document.querySelector("kaching-bundle, kaching-bundles-block, .kaching-bundles__block, .shopify-app-block[id*='kaching']");
+    if (window.WIGY_CONFIG.mostrarPacks === false && (hasKaching || !window.WIGY_PREVIEW)) {
+      var marker = document.createElement('div');
+      marker.id = ID;
+      marker.style.display = 'none';
+      pCol.parentNode.insertBefore(marker, pCol);
+      pCol.classList.add('wigy-atc-col');
+      pCol.style.setProperty('margin-left', 'auto', 'important');
+      pCol.style.setProperty('margin-right', 'auto', 'important');
+      pCol.style.setProperty('width', '100%', 'important');
+      pCol.style.setProperty('max-width', '600px', 'important');
+      return;
+    }
+
+    var giftCheckSVG = '<svg width="12" height="10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.334 1 4 8.333 1.667 5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>';
+    var w = document.createElement('div');
+    w.id = ID;
+    w.className = 'kb-wrap';
+    var cfg = window.WIGY_CONFIG.ofertas;
+    var barsHTML = cfg.map(function(o) {
+      var sel = o.seleccionado ? ' sel' : '';
+      var pop = o.etiqueta ? '<div class="kb-pop">' + o.etiqueta + '</div>' : '';
+      var bdg = o.descuento ? ' <span class="kb-bdg">' + o.descuento + '</span>' : '';
+      var oldP = o.precioViejo ? '<span class="kb-op">' + o.precioViejo + '</span>' : '';
+      var gift = o.regalo ? '<div class="kb-gifts"><div class="kb-gift-row"><span class="kb-gift-check">' + giftCheckSVG + '</span><span>' + o.regalo + '</span><span class="kb-gift-tag">GRATIS</span></div></div>' : '';
+      return '<div class="kb-bar' + sel + '" data-qty="' + o.cantidad + '">' + pop + '<div class="kb-main"><div class="kb-radio"></div><div class="kb-c"><div class="kb-r1"><span class="kb-t">' + o.nombre + bdg + '</span><span class="kb-p">' + o.precio + '</span></div><div class="kb-r2"><span class="kb-s">' + o.subtexto + '</span>' + oldP + '</div></div></div>' + gift + '</div>';
+    }).join('');
+    w.innerHTML = '<div class="kaching-bundles__block-title kb-title">Elegí tu pack · 1 frasco rinde hasta 80 L \u{1F4A7}</div>' + barsHTML;
+
+    pCol.parentNode.insertBefore(w, pCol);
+
+    /* FIX: botón centrado en escritorio.
+       Antes se forzaba display:flex en el padre solo si la ventana medía >768px al cargar,
+       y la columna del botón quedaba con max-width:600px pero SIN margin auto → pegada a la izquierda.
+       Ahora la columna se centra con margin auto (CSS .wigy-atc-col) en cualquier ancho. */
+    pCol.classList.add('wigy-atc-col');
+    pCol.style.setProperty('margin-left', 'auto', 'important');
+    pCol.style.setProperty('margin-right', 'auto', 'important');
+    pCol.style.setProperty('margin-top', '0px', 'important');
+    pCol.style.setProperty('padding-top', '0px', 'important');
+    pCol.style.setProperty('margin-bottom', '15px', 'important');
+    pCol.style.setProperty('width', '100%', 'important');
+    pCol.style.setProperty('max-width', '600px', 'important');
+
+    var viewTimer;
+    var observer = new IntersectionObserver(function(entries, obs) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          viewTimer = setTimeout(function() { w.classList.add('kb-in-view'); obs.unobserve(w); }, 300);
+        } else {
+          clearTimeout(viewTimer);
+        }
+      });
+    }, { threshold: 0.3 });
+    observer.observe(w);
+
+    w.querySelectorAll('.kb-bar').forEach(function(el) {
+      el.onclick = function() {
+        w.querySelectorAll('.kb-bar').forEach(function(i) { i.classList.remove('sel'); });
+        el.classList.add('sel');
+        var qt = parseInt(el.dataset.qty);
+        var inp = window.WIGY_DOM.qty();
+        var bP = document.querySelector('.js-quantity-up');
+        var bM = document.querySelector('.js-quantity-down');
+        if (inp) { inp.value = qt; inp.dispatchEvent(new Event('change', { bubbles: true })); }
+        if (inp && bP && bM) {
+          var c = parseInt(inp.value) || 1;
+          while (c < qt) { bP.click(); c++; }
+          while (c > qt) { bM.click(); c--; }
+        }
+      };
+    });
+
+    setTimeout(function() { var def = w.querySelector('.kb-bar.sel'); if (def) def.click(); }, 400);
+  };
+
+  var t = setInterval(function() { inject(); if (document.getElementById(ID)) clearInterval(t); }, 250);
+})();
+</script>
+<!-- ================================================================
+     BLOQUE 3: CAJA DE GARANTÍA (WIGY_CONFIG.garantiaDias)
+     ================================================================ -->
+<script>
+(function() {
+  if (window.WIGY_SLUG_BLOCK) return;
+  var BOX_ID   = "wigy-garantia-box";
+  var STYLE_ID = "wigy-garantia-style";
+
+
+  function injectStyleOnce() {
+    if (document.getElementById(STYLE_ID)) return;
+
+    var css =
+      "#" + BOX_ID + "{display:block!important;width:100%!important;margin:10px 0 16px 0!important}" +
+
+      "#" + BOX_ID + " .wigy-garantia-content{" +
+        "position:relative!important;overflow:hidden!important;" +
+        "width:100%!important;max-width:520px!important;margin:0 auto!important;" +
+        "display:flex!important;align-items:flex-start!important;gap:10px;" +
+        "padding:12px 14px;border:1px solid rgba(42,95,53,.25);border-radius:12px;" +
+        "background:#F5F4EE;box-shadow:0 2px 10px rgba(0,0,0,.06);box-sizing:border-box;" +
+      "}" +
+
+      "#" + BOX_ID + " .wigy-garantia-icon{width:18px;height:18px;flex:0 0 auto;color:#2A5F35;margin-top:2px}" +
+      "#" + BOX_ID + " .wigy-garantia-text{display:flex;flex-direction:column;gap:4px}" +
+      "#" + BOX_ID + " .wigy-garantia-title{margin:0;font-size:14px;font-weight:800;line-height:1.1;color:#2A5F35}" +
+      "#" + BOX_ID + " .wigy-garantia-desc{margin:0;font-size:12.5px;font-weight:600;line-height:1.35;color:rgba(0,0,0,.72)}" +
+
+      "#" + BOX_ID + " .wigy-garantia-shine{" +
+        "pointer-events:none;position:absolute;" +
+        "top:-80%;left:-160%;width:80%;height:260%;" +
+        "background:linear-gradient(105deg,transparent 15%,rgba(255,255,255,0.25) 30%,rgba(255,255,255,0.92) 50%,rgba(255,255,255,0.25) 70%,transparent 85%);" +
+        "transform:skewX(-12deg);opacity:0;" +
+      "}" +
+
+      "@keyframes wigy-shine-sweep{" +
+        "0%{left:-160%;opacity:0}" +
+        "6%{opacity:1}" +
+        "90%{opacity:1}" +
+        "100%{left:190%;opacity:0}" +
+      "}" +
+
+      "#" + BOX_ID + ".wigy-animate .wigy-garantia-shine{" +
+        "animation:wigy-shine-sweep 2.6s cubic-bezier(0.25,0.46,0.45,0.94) 0.4s forwards;" +
+      "}";
+
+    var st = document.createElement("style");
+    st.id = STYLE_ID;
+    st.type = "text/css";
+    st.appendChild(document.createTextNode(css));
+    document.head.appendChild(st);
+  }
+
+  function createBox() {
+    var box = document.createElement("div");
+    box.id = BOX_ID;
+    box.innerHTML =
+      '<div class="wigy-garantia-content">' +
+        '<div class="wigy-garantia-shine" aria-hidden="true"></div>' +
+        '<svg class="wigy-garantia-icon" viewBox="0 0 24 24" aria-hidden="true">' +
+          '<path fill="currentColor" d="M12 2l8 4v6c0 5-3.4 9.4-8 10-4.6-.6-8-5-8-10V6l8-4zm-1 14l6-6-1.4-1.4L11 13.2 8.4 10.6 7 12l4 4z"/>' +
+        '</svg>' +
+        '<div class="wigy-garantia-text">' +
+          '<p class="wigy-garantia-title">' + (function(){var d=(window.WIGY_CONFIG&&window.WIGY_CONFIG.garantiaDias)||0;return d?'Garant\u00EDa de '+d+' d\u00EDas':'Garant\u00EDa 100%';})() + ' \u00B7 Compra protegida</p>' +
+          '<p class="wigy-garantia-desc">Pagos seguros, despacho en 24 hs h\u00E1biles y atenci\u00F3n al cliente 24/7. Si algo no est\u00E1 bien con tu pedido, te lo resolvemos.</p>' +
+        '</div>' +
+      '</div>';
+    return box;
+  }
+
+  function attachShineObserver(box) {
+    if (!window.IntersectionObserver) {
+      setTimeout(function() { box.classList.add("wigy-animate"); }, 700);
+      return;
+    }
+    var io = new IntersectionObserver(function(entries, obs) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          box.classList.add("wigy-animate");
+          obs.unobserve(box);
+        }
+      });
+    }, { threshold: 0.5 });
+    io.observe(box);
+  }
+
+  function mount() {
+    if (document.getElementById(BOX_ID)) return;
+    var form = window.WIGY_DOM.form();
+    if (!form) return;
+    injectStyleOnce();
+    var box = createBox();
+    var urgency = document.getElementById("js-urgency-last-units");
+    if (urgency && urgency.parentNode === form) {
+      urgency.insertAdjacentElement("afterend", box);
+    } else {
+      form.appendChild(box);
+    }
+    attachShineObserver(box);
+  }
+
+  mount();
+  var tries = 0;
+  var t = setInterval(function() {
+    tries++;
+    mount();
+    if (document.getElementById(BOX_ID) || tries >= 80) clearInterval(t);
+  }, 250);
+})();
+</script>
+<!-- ================================================================
+     BLOQUE 4: OCULTAR ELEMENTOS NO DESEADOS
+     ================================================================ -->
+<script>
+(function() {
+  if (window.WIGY_SLUG_BLOCK) return;
+  function runHide() {
+    var form = window.WIGY_DOM.form();
+    if (!form) return;
+    var accordions = form.querySelectorAll(".js-accordion-container");
+    accordions.forEach(function(acc) {
+      var text = (acc.innerText || "").toLowerCase();
+      if (text.includes("pago") || text.includes("envío") || text.includes("envio") || text.includes("calcular") || text.includes("tarjeta") || text.includes("zipcode")) {
+        acc.setAttribute("style", "display:none!important");
+      }
+    });
+    var extras = form.querySelectorAll(".js-shipping-calculator-container, #shipping-calculator");
+    extras.forEach(function(el) { el.setAttribute("style", "display:none!important"); });
+  }
+  runHide(); setTimeout(runHide, 500); setTimeout(runHide, 1500);
+})();
+
+(function() {
+  if (window.WIGY_SLUG_BLOCK) return;
+  if (document.getElementById('wigy-hide-elements-css')) return;
+  var style = document.createElement('style');
+  style.id = 'wigy-hide-elements-css';
+  style.innerHTML =
+    ".breadcrumbs{display:none!important}" +
+    "[data-store='product-item-promotion-label'][data-promotion-type='quantity-discounts'],.js-promotion-label-private[data-promotion-type='quantity-discounts']{display:none!important}" +
+    ".js-product-promo-container[data-promotion-type='quantity-discounts'],[data-store='product-promotion-info'][data-promotion-type='quantity-discounts']{display:none!important}" +
+    "#wigy-payments-clean-box{display:none!important}" +
+    "[data-store^='product-price-']{display:none!important}" +
+    /* Foto del producto (temas tipo Dawn): siempre entera, sin recorte;
+       en celular con altura máxima para que no ocupe toda la pantalla */
+    ".product__media-wrapper .product__media img{object-fit:contain!important}" +
+    "@media(max-width:749px){.product__media-wrapper .product__media.media{padding-top:0!important;height:min(85vw,360px)!important;background:#F5F4EE}}" +
+    ".product__info-container [id^='price-template']{display:none!important}" +
+    ".product__info-container .product__view-details{display:none!important}";
+  document.head.appendChild(style);
+})();
+
+(function() {
+  if (window.WIGY_SLUG_BLOCK || window.WIGY_PREVIEW) return;
+  /* Si el código está en una sección "Liquid personalizado" propia, esa sección
+     queda vacía (todo se ubica en otros lugares): se colapsa para no dejar un hueco. */
+  function collapseHost() {
+    var holder = document.getElementById("wigy-verdea-scripts");
+    var sec = holder && holder.closest(".shopify-section");
+    var form = window.WIGY_DOM.form();
+    if (sec && !(form && sec.contains(form)) && !sec.querySelector("[id^='wigy-']:not(#wigy-verdea-scripts)")) {
+      sec.style.setProperty("display", "none", "important");
+    }
+  }
+  setTimeout(collapseHost, 1500);
+})();
+
+(function() {
+  if (window.WIGY_SLUG_BLOCK) return;
+  if (!document.getElementById('capsacare-collapse-style')) {
+    var style = document.createElement("style");
+    style.id = "capsacare-collapse-style";
+    style.innerHTML = "h5.font-big,.product-description-title,.description-title{display:none!important}.product-description,.js-product-description,.user-content,.row.m-bottom-half-xs{margin-top:0!important;padding-top:0!important}.product-detail .row{margin-top:0!important}";
+    document.head.appendChild(style);
+  }
+})();
+</script>
+<!-- BLOQUE 6: ELIMINADO (Contador de visitas) -->
+<!-- BLOQUE 6B: ELIMINADO — Se usa el layout nativo del tema -->
+<!-- ================================================================
+     BLOQUE 7: AJUSTES VISUALES GLOBALES
+     ================================================================ -->
+<script>
+(function() {
+  if (window.WIGY_SLUG_BLOCK) return;
+  var STYLE_ID = "wigy-ui-tweaks-v1";
+  function injectStylesOnce() {
+    if (document.getElementById(STYLE_ID)) return;
+    var css =
+      ".js-price-container{margin-bottom:0!important}" +
+      "#wigy-payments-clean-box{margin-top:-5px!important;padding:10px 14px!important}" +
+      "#wigy-payments-clean-box > div{margin-top:4px!important}" +
+      "#wigy-payments-clean-box + .d-block{display:none!important}";
+    var st = document.createElement("style");
+    st.id = STYLE_ID;
+    st.type = "text/css";
+    st.appendChild(document.createTextNode(css));
+    document.head.appendChild(st);
+  }
+  injectStylesOnce();
+  setTimeout(injectStylesOnce, 300);
+  setTimeout(injectStylesOnce, 1200);
+  new MutationObserver(injectStylesOnce).observe(document.documentElement, { childList: true, subtree: true });
+})();
+</script>
+<!-- ================================================================
+     BLOQUE 8: LIMPIADOR DE ESPACIOS EN BLANCO
+     ================================================================ -->
+<script>
+(function() {
+  if (window.WIGY_SLUG_BLOCK) return;
+  function cleanSpaces() {
+    var h5 = document.querySelector('.user-content h5.font-big');
+    if (h5 && h5.innerText.trim().toLowerCase() === 'descripción') {
+      h5.style.setProperty('display', 'none', 'important');
+    }
+    var userContent = document.querySelector('.user-content');
+    if (userContent) {
+      userContent.style.setProperty('margin-top', '0', 'important');
+      userContent.style.setProperty('padding-top', '0', 'important');
+    }
+    document.querySelectorAll('.user-content p').forEach(function(p) {
+      var text = p.innerHTML.replace(/\s|&nbsp;|<br\/?>/gi, '').trim();
+      if (text === '') {
+        p.style.setProperty('display', 'none', 'important');
+        p.style.setProperty('margin', '0', 'important');
+        p.style.setProperty('padding', '0', 'important');
+      }
+    });
+  }
+  cleanSpaces();
+  setInterval(cleanSpaces, 500);
+})();
+</script>
+<!-- ================================================================
+     BLOQUE 9: ACORDEÓN DE FAQS (dentro del formulario de compra)
+     ================================================================ -->
+<script>
+(function() {
+  if (window.WIGY_SLUG_BLOCK) return;
+  var WRAP_ID = "wigy-shopify-faqs-accordion";
+  var STYLE_ID = "wigy-shopify-faqs-accordion-style";
+
+  function injectStyleOnce() {
+    if (!document.getElementById('material-symbols-font')) {
+      var fontLink = document.createElement('link');
+      fontLink.id = 'material-symbols-font';
+      fontLink.rel = 'stylesheet';
+      fontLink.href = 'https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200';
+      document.head.appendChild(fontLink);
+    }
+    if (document.getElementById(STYLE_ID)) return;
+    var css =
+      "#" + WRAP_ID + "{width:100%!important;max-width:100%!important;margin:20px 0 0 0;font-family:inherit;border-top:1px solid rgba(0,0,0,0.08);box-sizing:border-box}" +
+      "#" + WRAP_ID + " .wmf-item{border-bottom:1px solid rgba(0,0,0,0.08);margin:0;padding:0;width:100%}" +
+      "#" + WRAP_ID + " .wmf-sum{display:flex!important;align-items:center;justify-content:space-between;gap:12px;width:100%;padding:15px 0;cursor:pointer;list-style:none;outline:none;box-sizing:border-box}" +
+      "#" + WRAP_ID + " .wmf-sum::-webkit-details-marker{display:none}" +
+      "#" + WRAP_ID + " .wmf-head{display:flex;align-items:center;gap:10px;flex:1 1 auto;min-width:0}" +
+      "#" + WRAP_ID + " .wmf-ico{flex:0 0 20px;width:20px;height:20px;color:#2A5F35;display:block}" +
+      "#" + WRAP_ID + " .wmf-title{margin:0!important;padding:0;flex:1 1 auto;min-width:0;max-width:none!important;font-size:15px!important;font-weight:500!important;line-height:1.35!important;letter-spacing:0.2px;color:#111;white-space:normal;word-break:normal;font-family:var(--vd-font-title)}" +
+      "#" + WRAP_ID + " .wmf-caret{flex:0 0 12px;width:12px;height:12px;transition:transform 0.3s ease;color:#111}" +
+      "#" + WRAP_ID + " .wmf-item[open] .wmf-caret{transform:rotate(180deg)}" +
+      "#" + WRAP_ID + " .wmf-body{padding:0 0 15px 30px;font-size:14px;color:#444;line-height:1.5}" +
+      "#" + WRAP_ID + " .wmf-body p{margin:0 0 10px 0}" +
+      "#" + WRAP_ID + " .wmf-body p:last-child{margin-bottom:0}" +
+      "#" + WRAP_ID + " .wmf-body ul{margin:0 0 0 18px;padding:0}" +
+      "#" + WRAP_ID + " .wmf-body li{margin-bottom:6px}" +
+      "@media(max-width:768px){#" + WRAP_ID + " .wmf-body{padding-left:0}}";
+    var st = document.createElement("style");
+    st.id = STYLE_ID;
+    st.type = "text/css";
+    st.appendChild(document.createTextNode(css));
+    document.head.appendChild(st);
+  }
+
+  function buildHTML() {
+    var items = [
+      {
+        icon: '<svg class="wmf-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M1 4h13v11H1z"/><path d="M14 8h4l3 3v4h-7z"/><circle cx="5.5" cy="18" r="2"/><circle cx="17.5" cy="18" r="2"/></svg>',
+        title: "Envíos",
+        text: "<p>Despachamos dentro de las <strong>24 hs hábiles</strong> posteriores a la compra y enviamos a <strong>todo el país</strong>.</p><p>La entrega suele demorar entre <strong>2 y 3 días hábiles</strong>. Te mandamos el código de seguimiento por mail o WhatsApp.</p>"
+      },
+      {
+        icon: '<svg class="wmf-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>',
+        title: "Modo de uso",
+        text: "<p>Es una fórmula <strong>concentrada</strong>: diluí <strong>3 a 4 ml por litro de agua</strong>. Así, un frasco de 250 ml rinde <strong>hasta 80 litros</strong>.</p><ul><li><strong>Esquejes:</strong> para que prendan más rápido.</li><li><strong>Trasplantes:</strong> para evitar el estrés de trasplante.</li><li><strong>Riego:</strong> para raíces más fuertes en huerta y macetas.</li></ul>"
+      },
+      {
+        icon: '<svg class="wmf-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/><path d="M6 15h4"/></svg>',
+        title: "Medios de Pago",
+        text: "<ul><li><strong>Tarjeta de crédito:</strong> <strong>3 cuotas sin interés</strong>.</li><li><strong>Tarjeta de débito:</strong> un pago.</li><li><strong>Mercado Pago:</strong> pagá de forma 100% segura.</li></ul><p>Todos los pagos se procesan en el checkout seguro de Shopify.</p>"
+      }
+    ];
+
+    var caretSvg = '<svg aria-hidden="true" focusable="false" class="wmf-caret" viewBox="0 0 10 6"><path fill-rule="evenodd" clip-rule="evenodd" d="M9.354.646a.5.5 0 00-.708 0L5 4.293 1.354.646a.5.5 0 00-.708.708l4 4a.5.5 0 00.708 0l4-4a.5.5 0 000-.708z" fill="currentColor"></path></svg>';
+
+    var html = '<div id="' + WRAP_ID + '">';
+    items.forEach(function(it) {
+      html += '<details class="wmf-item"><summary class="wmf-sum"><span class="wmf-head">' + it.icon + '<span class="wmf-title">' + it.title + '</span></span>' + caretSvg + '</summary><div class="wmf-body">' + it.text + '</div></details>';
+    });
+    html += '</div>';
+    return html;
+  }
+
+  function mount() {
+    if (document.getElementById(WRAP_ID)) return true;
+    var form = window.WIGY_DOM.form();
+    if (!form) return false;
+    var warranty = document.getElementById("wigy-garantia-box");
+    if (!warranty || !warranty.parentNode) return false;
+    injectStyleOnce();
+    var wrapper = document.createElement("div");
+    wrapper.innerHTML = buildHTML();
+    var faqsNode = wrapper.firstElementChild;
+    warranty.insertAdjacentElement("afterend", faqsNode);
+    var details = faqsNode.querySelectorAll("details");
+    details.forEach(function(detail) {
+      detail.addEventListener("click", function() {
+        if (!detail.hasAttribute("open")) {
+          details.forEach(function(d) { if (d !== detail) d.removeAttribute("open"); });
+        }
+      });
+    });
+    return true;
+  }
+
+  mount();
+  var tries = 0;
+  var t = setInterval(function() { tries++; if (mount() || tries >= 80) clearInterval(t); }, 250);
+  new MutationObserver(function() { mount(); }).observe(document.documentElement, { childList: true, subtree: true });
+})();
+</script>
+<!-- ================================================================
+     BLOQUE 9B: TICKER INFINITO DE LOGOS DE MEDIOS
+     Se posiciona debajo del FAQs de 3 preguntas (acordeón del formulario)
+     ================================================================ -->
+<script>
+(function() {
+  if (window.WIGY_SLUG_BLOCK) return;
+  var ID = "wigy-media-ticker";
+  var STYLE_ID = ID + "-style";
+
+  function injectStyleOnce() {
+    if (document.getElementById(STYLE_ID)) return;
+    var css = [
+      "#" + ID + "{width:100%;max-width:1200px;margin:0 auto;padding:30px 0 40px 0;overflow:hidden;position:relative}",
+
+      "#" + ID + " .media-ticker-label{text-align:center;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:#4E382A;opacity:.7;margin-bottom:18px}",
+
+      "#" + ID + " .media-ticker-track-wrap{overflow:hidden;width:100%;",
+      "mask-image:linear-gradient(to right,transparent 0%,black 8%,black 92%,transparent 100%);",
+      "-webkit-mask-image:linear-gradient(to right,transparent 0%,black 8%,black 92%,transparent 100%)}",
+
+      "#" + ID + " .media-ticker-track{display:flex;align-items:center;gap:60px;width:max-content;",
+      "animation:wigy-media-scroll 20s linear infinite;animation-play-state:paused}",
+
+      "#" + ID + " .media-ticker-track.running{animation-play-state:running}",
+
+      "#" + ID + " .media-ticker-track img{height:28px;width:auto;object-fit:contain;",
+      "filter:grayscale(100%) opacity(0.5);transition:filter 0.3s ease;flex:0 0 auto}",
+
+      "#" + ID + " .media-ticker-track img:hover{filter:grayscale(0%) opacity(1)}",
+
+      "@keyframes wigy-media-scroll{to{transform:translateX(calc(-50% - 30px))}}",
+
+      "@media(max-width:768px){",
+      "#" + ID + "{padding:20px 0 30px 0}",
+      "#" + ID + " .media-ticker-track{gap:40px;animation-duration:15s}",
+      "#" + ID + " .media-ticker-track img{height:22px}",
+      "#" + ID + " .media-ticker-label{font-size:11px;letter-spacing:1.2px}}"
+    ].join("");
+    var st = document.createElement("style");
+    st.id = STYLE_ID;
+    st.innerHTML = css;
+    document.head.appendChild(st);
+  }
+
+  function mount() {
+    if (document.getElementById(ID)) return true;
+    var faqsBlock = document.getElementById("wigy-shopify-faqs-accordion");
+    if (!faqsBlock) return false;
+    var logos = window.WIGY_CONFIG && window.WIGY_CONFIG.logosMediaTicker;
+    if (!logos || !logos.length) return true; // sin logos: no se muestra la barra
+
+    injectStyleOnce();
+
+    var REPEATS = 8;
+    var imgsHTML = "";
+    for (var r = 0; r < REPEATS; r++) {
+      for (var i = 0; i < logos.length; i++) {
+        imgsHTML += '<img src="' + logos[i].src + '" alt="' + (logos[i].alt || '') + '" draggable="false">';
+      }
+    }
+
+    var wrapper = document.createElement("div");
+    wrapper.id = ID;
+    wrapper.innerHTML =
+      '<p class="media-ticker-label">Visto en medios de comunicaci\u00F3n</p>' +
+      '<div class="media-ticker-track-wrap"><div class="media-ticker-track">' + imgsHTML + '</div></div>';
+
+    faqsBlock.insertAdjacentElement("afterend", wrapper);
+
+    /* Esperar a que las primeras N imágenes carguen antes de animar */
+    var track = wrapper.querySelector(".media-ticker-track");
+    var uniqueCount = logos.length;
+    var loaded = 0;
+    var firstBatch = track.querySelectorAll("img");
+    function checkReady() {
+      loaded++;
+      if (loaded >= uniqueCount) track.classList.add("running");
+    }
+    for (var j = 0; j < Math.min(uniqueCount, firstBatch.length); j++) {
+      if (firstBatch[j].complete) { checkReady(); }
+      else { firstBatch[j].onload = firstBatch[j].onerror = checkReady; }
+    }
+    /* Fallback: forzar arranque a los 3 segundos */
+    setTimeout(function() { track.classList.add("running"); }, 3000);
+
+    return true;
+  }
+
+  var tries = 0;
+  var t = setInterval(function() {
+    tries++;
+    if (mount() || tries >= 120) clearInterval(t);
+  }, 200);
+})();
+</script>
+<!-- ================================================================
+     BLOQUE 10: CARRUSEL INFINITO DE IMÁGENES
+     ================================================================ -->
+<script>
+(function() {
+  if (window.WIGY_SLUG_BLOCK) return;
+  var ID = "wigy-image-carousel-wrap";
+  var SIZE_FACTOR = 1; var SPEED_PX_PER_SEC = 60;
+
+  function inject() {
+    if (document.querySelector("[data-wigy-infinite]")) return true;
+    if (window.WIGY_CONFIG && window.WIGY_CONFIG.mostrarCarrusel === false) return true; /* Carrusel desactivado */
+    var mediaTicker = document.getElementById("wigy-media-ticker");
+    if (!mediaTicker) return false;
+    var IMAGE_ITEMS = window.WIGY_CONFIG && window.WIGY_CONFIG.carruselImagenes;
+    if (!IMAGE_ITEMS || !IMAGE_ITEMS.length) return false;
+
+    var basePx = Math.round(260 * SIZE_FACTOR); var baseVw = Math.round(50 * SIZE_FACTOR);
+    if (!document.querySelector("[data-wigy-style='img-916']")) {
+      var st = document.createElement("style"); st.setAttribute("data-wigy-style", "img-916");
+      st.textContent = ".wigy-image-carousel { --gap: 8px; --slideW: min(" + basePx + "px, " + baseVw + "vw); width: 100%; position: relative; margin: 24px 0; z-index: 5; } .track-container { overflow: hidden; width: 100%; user-select: none; -webkit-user-select: none; cursor: grab; mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%); -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%); } .track { display: flex; gap: var(--gap); will-change: transform; } .wigy-slide { flex: 0 0 var(--slideW); } .wigy-slide .card { border-radius: 10px; overflow: hidden; background: none; box-shadow: none; border: none; padding: 0; margin: 0; line-height: 0; } .wigy-slide .card:hover { transform: scale(1.02); transition: transform 0.2s ease; } .wigy-slide .image-wrapper { position: relative; width: 100%; aspect-ratio: 9 / 16; line-height: 0; font-size: 0; overflow: hidden; border-radius: 10px; } .wigy-slide .image-wrapper img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; border: none; margin: 0; padding: 0; border-radius: 10px; } .wigy-carousel-verified { display: flex; align-items: center; justify-content: center; gap: 6px; margin-bottom: 8px; font-size: 13px; font-weight: 700; color: #2A5F35; letter-spacing: 0.3px; font-family: inherit; } .wigy-carousel-verified svg { width: 16px; height: 16px; flex: 0 0 auto; }";
+      document.head.appendChild(st);
+    }
+
+    var root = document.createElement("section"); root.className = "wigy-image-carousel"; root.setAttribute("data-wigy-infinite", "1");
+    var slidesHTML = IMAGE_ITEMS.map(function(item) { return '<div class="wigy-slide"><div class="card"><div class="image-wrapper"><img src="' + item.src + '" alt="' + (item.alt || '') + '" loading="eager" draggable="false" /></div></div></div>'; }).join("");
+    root.innerHTML = '<div class="wigy-carousel-verified"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-1.09 14.41l-3.5-3.5 1.41-1.41 2.09 2.09 5.18-5.18 1.41 1.41-6.59 6.59z"/></svg> Plantas reales de nuestra comunidad</div><div class="track-container" aria-label="Galería infinita"><div class="track">' + slidesHTML + '</div></div>';
+    mediaTicker.insertAdjacentElement("afterend", root);
+
+    var track = root.querySelector(".track");
+    var cloneSets = function() { Array.from(track.querySelectorAll("[data-clone='1']")).forEach(function(n) { n.remove(); }); var bs = Array.from(track.children); var bc = bs.length; for (var s = 0; s < 3; s++) { for (var i = 0; i < bc; i++) { var c = bs[i].cloneNode(true); c.setAttribute("data-clone", "1"); var img = c.querySelector("img"); if (img) img.loading = "eager"; track.appendChild(c); } } };
+    var getOneSetWidth = function() { var set = Array.from(track.children).slice(0, IMAGE_ITEMS.length); if (!set.length) return 0; var first = set[0]; var last = set[set.length - 1]; var gap = parseInt(getComputedStyle(root).getPropertyValue("--gap")) || 0; return (last.offsetLeft - first.offsetLeft) + last.getBoundingClientRect().width + gap; };
+    cloneSets(); var oneSetWidth = 0; var x = 0; var lastT = 0;
+    var recalc = function() { oneSetWidth = getOneSetWidth(); if (oneSetWidth > 0) x = -((Math.abs(x) % oneSetWidth)); };
+    var tick = function(t) { if (!lastT) lastT = t; var dt = (t - lastT) / 1000; lastT = t; x -= SPEED_PX_PER_SEC * dt; if (oneSetWidth > 0 && Math.abs(x) >= oneSetWidth) x += oneSetWidth; track.style.transform = 'translateX(' + x + 'px)'; requestAnimationFrame(tick); };
+    setTimeout(function() { recalc(); requestAnimationFrame(tick); }, 500);
+    window.addEventListener("resize", recalc);
+    return true;
+  }
+
+  var tries = 0;
+  var t = setInterval(function() { tries++; if (inject() || tries >= 80) clearInterval(t); }, 250);
+})();
+</script>
+<!-- ================================================================
+     BLOQUE 11A: SECCIÓN PROBLEMA — Agitación
+     ================================================================ -->
+<script>
+(function() {
+  if (window.WIGY_SLUG_BLOCK) return;
+  var ID = "wigy-problem-section";
+  if (document.getElementById(ID)) return;
+
+  var injectSection = function() {
+    var STYLE_KEY = "wigy-problem-style";
+    if (!document.querySelector('[data-wigy-style="' + STYLE_KEY + '"]')) {
+      var css =
+        "#" + ID + "{width:100%;box-sizing:border-box;clear:both;display:block;font-family:inherit;background:#F5F4EE;padding:50px 20px 50px 20px;border-top:1px solid #f0f0f0;border-bottom:1px solid #f0f0f0}" +
+        "#" + ID + " .prob-inner{max-width:720px;margin:0 auto;text-align:center}" +
+        "#" + ID + " .prob-eyebrow{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1.8px;color:#E88031;margin-bottom:16px}" +
+        "#" + ID + " .prob-eyebrow svg{width:16px;height:16px;flex:0 0 auto}" +
+        "#" + ID + " .prob-title{font-size:30px;font-weight:900;color:#2A5F35;margin:0 0 14px 0;line-height:1.25;letter-spacing:-0.5px}" +
+        "#" + ID + " .prob-subtitle{font-size:16.5px;color:#555;line-height:1.65;margin:0 auto 36px auto;max-width:620px}" +
+        "#" + ID + " .prob-subtitle strong{color:#111;font-weight:700}" +
+        "#" + ID + " .prob-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;max-width:600px;margin:0 auto}" +
+        "#" + ID + " .prob-card{background:#fff;border:1px solid #eaeaea;border-radius:14px;padding:22px 18px;display:flex;align-items:flex-start;gap:14px;text-align:left;transition:box-shadow 0.25s ease,border-color 0.25s ease}" +
+        "#" + ID + " .prob-card:hover{box-shadow:0 8px 24px rgba(0,0,0,0.06);border-color:#ddd}" +
+        "#" + ID + " .prob-card-icon{width:40px;height:40px;border-radius:10px;background:#FDF0E6;display:flex;align-items:center;justify-content:center;flex:0 0 auto}" +
+        "#" + ID + " .prob-card-icon svg{width:20px;height:20px;color:#E88031;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}" +
+        "#" + ID + " .prob-card-body{display:flex;flex-direction:column;gap:4px;min-width:0}" +
+        "#" + ID + " .prob-card-title{font-size:15px;font-weight:800;color:#4E382A;margin:0;line-height:1.25}" +
+        "#" + ID + " .prob-card-text{font-size:13.5px;font-weight:500;color:#666;margin:0;line-height:1.45}" +
+        "#" + ID + " .prob-bottom{margin-top:36px;font-size:15px;color:#888;font-weight:600;font-style:italic}" +
+        "#" + ID + " .prob-bottom strong{color:#E88031;font-style:normal;font-weight:800}" +
+        "@media(max-width:768px){" +
+          "#" + ID + "{padding:40px 16px}" +
+          "#" + ID + " .prob-title{font-size:24px}" +
+          "#" + ID + " .prob-subtitle{font-size:15px;margin-bottom:28px}" +
+          "#" + ID + " .prob-grid{grid-template-columns:1fr;gap:10px}" +
+          "#" + ID + " .prob-card{padding:18px 14px;gap:12px}" +
+          "#" + ID + " .prob-card-icon{width:36px;height:36px}" +
+          "#" + ID + " .prob-bottom{font-size:14px;margin-top:28px}" +
+        "}";
+      var st = document.createElement("style");
+      st.setAttribute("data-wigy-style", STYLE_KEY);
+      st.textContent = css;
+      document.head.appendChild(st);
+    }
+
+    var problems = [
+      { icon: '<svg viewBox="0 0 24 24"><path d="M11 20A7 7 0 019.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/><line x1="4" y1="4" x2="20" y2="20"/></svg>', title: "Esquejes que no prenden", desc: "Semanas esperando que echen ra\u00EDz\u2026 y terminan pudri\u00E9ndose en el agua." },
+      { icon: '<svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>', title: "Golpe de trasplante", desc: "La pas\u00E1s a una maceta m\u00E1s grande y se decolora, se cae o pierde hojas." },
+      { icon: '<svg viewBox="0 0 24 24"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"/><polyline points="17 18 23 18 23 12"/></svg>', title: "Crecimiento lento", desc: "Ten\u00E9s buen sustrato, pero la planta no termina de arrancar ni se pone frondosa." },
+      { icon: '<svg viewBox="0 0 24 24"><path d="M8.5 14.5A2.5 2.5 0 0011 12c0-1.38-.5-2-1-3-1.07-2.14-.22-4.05 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 11-14 0c0-1.15.43-2.29 1-3a2.5 2.5 0 002.5 2.5z"/></svg>', title: "Miedo a quemarla", desc: "No quer\u00E9s usar productos agresivos en la huerta donde cultiv\u00E1s lo que com\u00E9s." }
+    ];
+
+    var cardsHTML = problems.map(function(p) {
+      return '<div class="prob-card"><div class="prob-card-icon">' + p.icon + '</div><div class="prob-card-body"><p class="prob-card-title">' + p.title + '</p><p class="prob-card-text">' + p.desc + '</p></div></div>';
+    }).join('');
+
+    var wrapper = document.createElement("div");
+    wrapper.id = ID;
+    wrapper.innerHTML =
+      '<div class="prob-inner">' +
+
+        '<h2 class="prob-title">Una planta saludable empieza por sus ra\u00EDces.<br>Y ah\u00ED es donde casi siempre falla.</h2>' +
+        '<p class="prob-subtitle">Pod\u00E9s tener el mejor sustrato, regar perfecto y darle sol\u2026 pero si las ra\u00EDces no se desarrollan, la planta no crece. Si te pas\u00F3 alguno de estos, <strong>no sos el \u00FAnico</strong>.</p>' +
+        '<div class="prob-grid">' + cardsHTML + '</div>' +
+        '<p class="prob-bottom">\u00BFCu\u00E1ntos esquejes perdiste esperando que <strong>echen ra\u00EDz</strong>?</p>' +
+      '</div>';
+
+    /* Primera sección del bloque de ancho completo (debajo del producto).
+       Las demás secciones se encadenan después de esta. */
+    var full = window.WIGY_DOM.fullWidth();
+    if (full) full.insertBefore(wrapper, full.firstChild);
+  };
+
+  function getAnchor() {
+    return window.WIGY_DOM.form();
+  }
+
+  var tries = 0;
+  var t = setInterval(function() {
+    tries++;
+    if (document.getElementById(ID)) { clearInterval(t); return; }
+    if (getAnchor() || tries >= 100) {
+      clearInterval(t);
+      injectSection();
+    }
+  }, 150);
+})();
+</script>
+<!-- ================================================================
+     BLOQUE 11B: SECCIÓN SOLUCIÓN — Presentación del producto
+     ================================================================ -->
+<script>
+(function() {
+  if (window.WIGY_SLUG_BLOCK) return;
+  var ID = "wigy-solution-section";
+  if (document.getElementById(ID)) return;
+
+  var injectSection = function() {
+    var STYLE_KEY = "wigy-solution-style";
+    if (!document.querySelector('[data-wigy-style="' + STYLE_KEY + '"]')) {
+      var css =
+        "#" + ID + "{width:100%;box-sizing:border-box;clear:both;display:block;font-family:inherit;background:#fff;padding:50px 20px 50px 20px}" +
+        "#" + ID + " .sol-inner{max-width:720px;margin:0 auto;text-align:center}" +
+        "#" + ID + " .sol-eyebrow{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1.8px;color:#2A5F35;margin-bottom:16px}" +
+        "#" + ID + " .sol-eyebrow svg{width:16px;height:16px;flex:0 0 auto}" +
+        "#" + ID + " .sol-title{font-size:30px;font-weight:900;color:#2A5F35;margin:0 0 14px 0;line-height:1.25;letter-spacing:-0.5px}" +
+        "#" + ID + " .sol-subtitle{font-size:16.5px;color:#555;line-height:1.65;margin:0 auto 40px auto;max-width:620px}" +
+        "#" + ID + " .sol-subtitle strong{color:#2A5F35;font-weight:800}" +
+        "#" + ID + " .sol-features{display:flex;flex-direction:column;gap:0;max-width:560px;margin:0 auto;border:1px solid rgba(42,95,53,.18);border-radius:16px;overflow:hidden;background:#fff}" +
+        "#" + ID + " .sol-feat{display:flex;align-items:flex-start;gap:16px;padding:20px 22px;border-bottom:1px solid #f3f3f3;text-align:left;transition:background 0.2s ease}" +
+        "#" + ID + " .sol-feat:last-child{border-bottom:none}" +
+        "#" + ID + " .sol-feat:hover{background:#F5F4EE}" +
+        "#" + ID + " .sol-feat-num{width:36px;height:36px;border-radius:50%;background:#2A5F35;color:#fff;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:800;flex:0 0 auto;line-height:1}" +
+        "#" + ID + " .sol-feat-body{display:flex;flex-direction:column;gap:4px;min-width:0}" +
+        "#" + ID + " .sol-feat-title{font-size:15px;font-weight:800;color:#111;margin:0;line-height:1.3}" +
+        "#" + ID + " .sol-feat-text{font-size:13.5px;font-weight:500;color:#666;margin:0;line-height:1.5}" +
+        "#" + ID + " .sol-cta-line{margin-top:32px;display:flex;align-items:center;justify-content:center;gap:8px;font-size:14.5px;font-weight:700;color:#2A5F35}" +
+        "#" + ID + " .sol-cta-line svg{width:18px;height:18px;flex:0 0 auto}" +
+        "@media(max-width:768px){" +
+          "#" + ID + "{padding:40px 16px}" +
+          "#" + ID + " .sol-title{font-size:24px}" +
+          "#" + ID + " .sol-subtitle{font-size:15px;margin-bottom:30px}" +
+          "#" + ID + " .sol-feat{padding:16px 16px;gap:12px}" +
+          "#" + ID + " .sol-feat-num{width:32px;height:32px;font-size:13px}" +
+          "#" + ID + " .sol-cta-line{font-size:13.5px;margin-top:24px}" +
+        "}";
+      var st = document.createElement("style");
+      st.setAttribute("data-wigy-style", STYLE_KEY);
+      st.textContent = css;
+      document.head.appendChild(st);
+    }
+
+    var features = [
+      { title: "Estimula ra\u00EDces m\u00E1s r\u00E1pidas y fuertes", desc: "Activa las c\u00E9lulas radiculares y la formaci\u00F3n de pelos absorbentes para que tus esquejes y brotes prendan en mucho menos tiempo, con ra\u00EDces visibles y sanas." },
+      { title: "Mejora la absorci\u00F3n de nutrientes", desc: "Al aumentar el volumen de la ra\u00EDz, la planta aprovecha al m\u00E1ximo el agua y los minerales del suelo: crecimiento m\u00E1s verde, tupido y lleno de energ\u00EDa." },
+      { title: "Protege contra el estr\u00E9s de trasplante", desc: "Acelera la regeneraci\u00F3n del tejido radicular y fortalece las defensas naturales para que la planta se adapte sin decaerse ni perder hojas." },
+      { title: "Org\u00E1nico y s\u00FAper concentrado", desc: "Seguro para huerta (verduras, arom\u00E1ticas y frutales), macetas, interior y ornamentales. Solo 3 a 4 ml por litro: un frasco de 250 ml rinde hasta 80 litros, unas 15 regaderas de 5 L." }
+    ];
+
+    var featsHTML = features.map(function(f, i) {
+      return '<div class="sol-feat"><span class="sol-feat-num">' + (i + 1) + '</span><div class="sol-feat-body"><p class="sol-feat-title">' + f.title + '</p><p class="sol-feat-text">' + f.desc + '</p></div></div>';
+    }).join('');
+
+    var wrapper = document.createElement("div");
+    wrapper.id = ID;
+    wrapper.innerHTML =
+      '<div class="sol-inner">' +
+
+        '<h2 class="sol-title">Enraizante VERDEA:<br>ra\u00EDces fuertes, plantas m\u00E1s sanas.</h2>' +
+        '<p class="sol-subtitle">Dale a tus plantas el impulso que necesitan. El enraizante VERDEA <strong>estimula el desarrollo de las ra\u00EDces, favorece la absorci\u00F3n de nutrientes y acompa\u00F1a el trasplante</strong> para que crezcan fuertes desde el primer d\u00EDa.</p>' +
+        '<div class="sol-features">' + featsHTML + '</div>' +
+      '</div>';
+
+    var problem = document.getElementById("wigy-problem-section");
+    if (problem) {
+      problem.insertAdjacentElement("afterend", wrapper);
+    }
+  };
+
+  var tries = 0;
+  var t = setInterval(function() {
+    tries++;
+    if (document.getElementById("wigy-problem-section")) {
+      clearInterval(t);
+      injectSection();
+    }
+    if (tries >= 120) clearInterval(t);
+  }, 150);
+})();
+</script>
+<!-- ================================================================
+     BLOQUE 11C: SECCIÓN ANTES / DESPUÉS — Comparador
+     ================================================================ -->
+<script>
+(function() {
+  if (window.WIGY_SLUG_BLOCK) return;
+  if (document.getElementById('wigy-promo-comparison-standalone')) return;
+
+  var injectSection = function() {
+    var STYLE_KEY = "wigy-comparison-style-v2";
+    if (!document.querySelector('[data-wigy-style="' + STYLE_KEY + '"]')) {
+      var css =
+        "#wigy-promo-comparison-standalone{width:100%;box-sizing:border-box;clear:both;display:block;font-family:inherit;background:#F5F4EE;padding:50px 20px;border-top:1px solid #f0f0f0}" +
+        "#wigy-promo-comparison-standalone .comp-inner{max-width:720px;margin:0 auto;text-align:center}" +
+        "#wigy-promo-comparison-standalone .comp-eyebrow{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1.8px;color:#2A5F35;margin-bottom:16px}" +
+        "#wigy-promo-comparison-standalone .comp-eyebrow svg{width:16px;height:16px;flex:0 0 auto}" +
+        "#wigy-promo-comparison-standalone .comp-heading{font-size:30px;font-weight:900;color:#2A5F35;margin:0 0 6px 0;line-height:1.25;letter-spacing:-0.5px}" +
+        "#wigy-promo-comparison-standalone .comp-person{font-size:14.5px;color:#666;margin:0 0 24px 0;font-weight:500}" +
+        ".wigy-comparison-slider{--clip:50%;position:relative;width:100%;max-width:560px;margin:0 auto;border-radius:16px;overflow:hidden;box-shadow:0 12px 32px rgba(0,0,0,0.12);aspect-ratio:1/1;background:#f4f4f4;user-select:none;border:1px solid rgba(0,0,0,0.06)}" +
+        ".wigy-comparison-single{max-width:560px;margin:0 auto;border-radius:16px;overflow:hidden;box-shadow:0 12px 32px rgba(0,0,0,0.12);border:1px solid rgba(0,0,0,0.06);line-height:0;background:#F5F4EE}" +
+        ".wigy-comparison-single img{width:100%;height:auto;display:block}" +
+        ".wigy-comparison-img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;display:block;pointer-events:none}" +
+        ".wigy-comparison-before{clip-path:polygon(0 0,var(--clip) 0,var(--clip) 100%,0 100%);z-index:2}" +
+        ".wigy-comparison-input{position:absolute;top:0;left:0;width:100%;height:100%;opacity:0;cursor:ew-resize;z-index:10;margin:0;-webkit-appearance:none}" +
+        ".wigy-comparison-line{position:absolute;top:0;left:var(--clip);bottom:0;width:3px;background:#fff;transform:translateX(-50%);pointer-events:none;z-index:5;box-shadow:0 0 12px rgba(0,0,0,0.25)}" +
+        ".wigy-comparison-handle{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:44px;height:44px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(0,0,0,0.22);color:#111;gap:2px}" +
+        ".wigy-comparison-handle svg{width:16px;height:16px}" +
+        ".wigy-label{position:absolute;top:16px;padding:7px 14px;background:rgba(255,255,255,0.92);backdrop-filter:blur(8px);color:#111;font-size:11.5px;font-weight:800;text-transform:uppercase;letter-spacing:1px;border-radius:30px;z-index:4;pointer-events:none;box-shadow:0 2px 8px rgba(0,0,0,0.08)}" +
+        ".wigy-label-before{left:16px}" +
+        ".wigy-label-after{right:16px}" +
+        "#wigy-promo-comparison-standalone .comp-hint{display:flex;align-items:center;justify-content:center;gap:6px;margin-top:16px;font-size:13px;color:#999;font-weight:500}" +
+        "#wigy-promo-comparison-standalone .comp-hint svg{width:16px;height:16px;flex:0 0 auto;animation:wigy-hint-slide 1.5s ease-in-out infinite alternate}" +
+        "@keyframes wigy-hint-slide{0%{transform:translateX(-3px)}100%{transform:translateX(3px)}}" +
+        "@media(max-width:768px){" +
+          "#wigy-promo-comparison-standalone{padding:40px 16px}" +
+          "#wigy-promo-comparison-standalone .comp-heading{font-size:24px}" +
+          ".wigy-comparison-slider{max-width:100%;border-radius:12px}" +
+          ".wigy-comparison-handle{width:38px;height:38px}" +
+        "}";
+      var st = document.createElement("style");
+      st.setAttribute("data-wigy-style", STYLE_KEY);
+      st.textContent = css;
+      document.head.appendChild(st);
+    }
+
+    var cfgC = window.WIGY_CONFIG;
+    /* Modo imagen única: si "comparadorAntes" está vacío o es igual a "comparadorDespues"
+       (una foto que ya trae el antes/después), se muestra la imagen completa sin slider. */
+    var singleImg = !cfgC.comparadorAntes || cfgC.comparadorAntes === cfgC.comparadorDespues;
+    var wrapper = document.createElement("div");
+    wrapper.id = "wigy-promo-comparison-standalone";
+    wrapper.innerHTML = singleImg ?
+      '<div class="comp-inner">' +
+        '<h2 class="comp-heading">Mir\u00E1 la diferencia en las ra\u00EDces</h2>' +
+        '<p class="comp-person">Sin enraizante vs. con el Enraizante VERDEA</p>' +
+        '<div class="wigy-comparison-single"><img src="' + cfgC.comparadorDespues + '" alt="Ra\u00EDces antes y despu\u00E9s de usar el Enraizante VERDEA" loading="eager"></div>' +
+      '</div>'
+      :
+      '<div class="comp-inner">' +
+
+        '<h2 class="comp-heading">Mir\u00E1 la diferencia en las ra\u00EDces</h2>' +
+        '<p class="comp-person">Sin enraizante vs. con el Enraizante VERDEA</p>' +
+        '<div class="wigy-comparison-slider">' +
+          '<div class="wigy-label wigy-label-before">Antes</div>' +
+          '<div class="wigy-label wigy-label-after">Despu\u00E9s</div>' +
+          '<img class="wigy-comparison-img" src="' + window.WIGY_CONFIG.comparadorDespues + '" alt="Despu\u00E9s" loading="eager">' +
+          '<img class="wigy-comparison-img wigy-comparison-before" src="' + window.WIGY_CONFIG.comparadorAntes + '" alt="Antes" loading="eager">' +
+          '<div class="wigy-comparison-line"><div class="wigy-comparison-handle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M15 18l-6-6 6-6"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg></div></div>' +
+          '<input type="range" class="wigy-comparison-input" min="0" max="100" value="50">' +
+        '</div>' +
+        '<p class="comp-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><polyline points="12 5 19 12 12 19"/></svg> Arrastr\u00E1 para comparar</p>' +
+      '</div>';
+
+    var solution = document.getElementById("wigy-solution-section");
+    if (solution) {
+      solution.insertAdjacentElement("afterend", wrapper);
+    }
+
+    var comparisonSlider = wrapper.querySelector('.wigy-comparison-slider');
+    var comparisonInput = wrapper.querySelector('.wigy-comparison-input');
+    if (comparisonSlider && comparisonInput) {
+      var updateSlider = function(e) { comparisonSlider.style.setProperty('--clip', e.target.value + '%'); };
+      comparisonInput.addEventListener('input', updateSlider);
+      comparisonInput.addEventListener('touchmove', updateSlider, { passive: true });
+    }
+  };
+
+  var tries = 0;
+  var t = setInterval(function() {
+    tries++;
+    if (document.getElementById("wigy-solution-section")) {
+      clearInterval(t);
+      injectSection();
+    }
+    if (tries >= 140) clearInterval(t);
+  }, 150);
+})();
+</script>
+<!-- ================================================================
+     BLOQUE 12: LÍNEA DE TIEMPO — Cómo usarlo
+     ================================================================ -->
+<script>
+(function() {
+  if (window.WIGY_SLUG_BLOCK) return;
+
+  var WRAPPER_ID = "wigy-timeline-standalone";
+
+  function injectStyleOnce() {
+    if (document.getElementById(WRAPPER_ID + "-style")) return;
+    var css = "@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800;900&display=swap');\n#" + WRAPPER_ID + "{width:100%;max-width:800px;margin:20px auto 0 auto;padding-top:10px;padding-bottom:40px;background:transparent;overflow:hidden;position:relative;z-index:10;font-family:'Poppins','Montserrat',sans-serif}\n#" + WRAPPER_ID + " .hf-header-timeline{text-align:center;max-width:800px;padding:0 20px;margin:0 auto 40px auto}\n#" + WRAPPER_ID + " .hf-header-timeline h2{color:#2A5F35;font-size:32px;font-weight:800;margin:0;line-height:1.2;letter-spacing:-0.5px;font-family:'Poppins','Montserrat',sans-serif}\n#" + WRAPPER_ID + " .hf-header-timeline .highlight{color:#2A5F35;display:block;font-family:'Poppins','Montserrat',sans-serif;font-size:20px;font-weight:800;margin-top:10px}\n#" + WRAPPER_ID + " .timeline-container-orange{max-width:800px;margin:0 auto;padding:0 20px;position:relative}\n#" + WRAPPER_ID + " .timeline-row-orange{display:flex;gap:30px;position:relative;align-items:stretch}\n#" + WRAPPER_ID + " .timeline-marker-orange{display:flex;flex-direction:column;align-items:center;min-width:130px;position:relative}\n#" + WRAPPER_ID + " .timeline-track{position:absolute;top:15px;bottom:50px;left:calc(20px + 65px - 3px);width:6px;background-color:#e2e8f0;border-radius:6px;z-index:1}\n#" + WRAPPER_ID + " .timeline-progress-fill{position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(to bottom,#2A5F35,#6BA342);border-radius:6px;z-index:2;transform:scaleY(0);transform-origin:top center;will-change:transform;transition:transform 0.08s linear;box-shadow:0 0 12px rgba(107,163,66,0.45)}\n@keyframes wigy-pill-pop{0%{transform:scale(1);box-shadow:0 4px 10px rgba(42,95,53,0.25)}30%{transform:scale(1.22);box-shadow:0 12px 28px rgba(42,95,53,0.50)}55%{transform:scale(0.96);box-shadow:0 6px 14px rgba(42,95,53,0.30)}75%{transform:scale(1.10);box-shadow:0 10px 22px rgba(42,95,53,0.40)}100%{transform:scale(1);box-shadow:0 4px 10px rgba(42,95,53,0.25)}}\n#" + WRAPPER_ID + " .t-pill-orange{position:relative;z-index:3;border:2px solid #2A5F35;color:#fff;background-color:#2A5F35;padding:8px 18px;border-radius:50px;font-size:14px;font-weight:700;text-align:center;box-shadow:0 4px 10px rgba(42,95,53,0.25);margin-bottom:30px;white-space:nowrap;transform-origin:center center;will-change:transform}\n#" + WRAPPER_ID + " .t-pill-orange.pop{animation:wigy-pill-pop 0.55s cubic-bezier(0.36,0.07,0.19,0.97) forwards}\n#" + WRAPPER_ID + " .t-content-orange{flex:1;padding-bottom:50px}\n#" + WRAPPER_ID + " .timeline-row-orange:last-child .t-content-orange{padding-bottom:0}\n#" + WRAPPER_ID + " .t-content-orange h3{color:#2A5F35;font-size:20px;font-weight:800;margin:5px 0 10px 0;line-height:1.2;text-transform:uppercase;font-family:'Poppins','Montserrat',sans-serif}\n#" + WRAPPER_ID + " .t-content-orange p{color:#3a3a3a;font-size:15px;line-height:1.6;margin:0;font-family:'Poppins','Montserrat',sans-serif}\n@media(max-width:768px){#" + WRAPPER_ID + "{margin-top:15px;padding-top:10px;padding-bottom:30px}#" + WRAPPER_ID + " .timeline-marker-orange{min-width:100px}#" + WRAPPER_ID + " .timeline-row-orange{gap:15px}#" + WRAPPER_ID + " .t-pill-orange{font-size:12px;padding:6px 12px}#" + WRAPPER_ID + " .t-content-orange h3{font-size:18px}#" + WRAPPER_ID + " .t-content-orange p{font-size:14px}#" + WRAPPER_ID + " .hf-header-timeline h2{font-size:26px}#" + WRAPPER_ID + " .timeline-track{left:calc(20px + 50px - 3px)}}";
+    var st = document.createElement("style");
+    st.id = WRAPPER_ID + "-style";
+    st.innerHTML = css;
+    document.head.appendChild(st);
+  }
+
+  function buildHTML() {
+    return '<div class="hf-header-timeline"><h2>As\u00ED de f\u00E1cil se usa</h2><span class="highlight">en 4 pasos, sin experiencia</span></div><div class="timeline-container-orange"><div class="timeline-track"><div class="timeline-progress-fill"></div></div><div class="timeline-row-orange"><div class="timeline-marker-orange"><div class="t-pill-orange">Paso 1</div></div><div class="t-content-orange"><h3>Diluilo en agua</h3><p>3 a 4 ml por litro de agua. Al ser concentrado, el frasco de 250 ml rinde hasta 80 litros.</p></div></div><div class="timeline-row-orange"><div class="timeline-marker-orange"><div class="t-pill-orange">Paso 2</div></div><div class="t-content-orange"><h3>Aplicalo donde lo necesites</h3><p>En esquejes para que prendan, en trasplantes para evitar el golpe, o en el riego de tu huerta y tus macetas.</p></div></div><div class="timeline-row-orange"><div class="timeline-marker-orange"><div class="t-pill-orange">Paso 3</div></div><div class="t-content-orange"><h3>Ra\u00EDces en acci\u00F3n</h3><p>Desde los primeros usos vas a notar el est\u00EDmulo en el desarrollo de ra\u00EDces y m\u00E1s firmeza en tus plantas.</p></div></div><div class="timeline-row-orange"><div class="timeline-marker-orange"><div class="t-pill-orange">Resultado</div></div><div class="t-content-orange"><h3>Plantas m\u00E1s sanas</h3><p>Ra\u00EDces fuertes que absorben mejor el agua y los nutrientes: un crecimiento m\u00E1s verde, tupido y lleno de energ\u00EDa.</p></div></div></div>';
+  }
+
+  function initTimelineScroll(wrapper) {
+    var track = wrapper.querySelector('.timeline-track');
+    var fillLine = wrapper.querySelector('.timeline-progress-fill');
+    if (!track || !fillLine) return;
+    var pills = Array.prototype.slice.call(wrapper.querySelectorAll('.t-pill-orange'));
+    var popped = pills.map(function() { return false; });
+    var maxFill = 0;
+    var rafId = null;
+
+    function triggerPop(pill) {
+      pill.classList.remove('pop'); void pill.offsetWidth; pill.classList.add('pop');
+      pill.addEventListener('animationend', function() { pill.classList.remove('pop'); }, { once: true });
+    }
+
+    function update() {
+      rafId = null;
+      var rect = track.getBoundingClientRect();
+      var triggerPt = window.innerHeight * 0.65;
+      var pct = Math.max(0, Math.min(1, (triggerPt - rect.top) / rect.height));
+      if (pct > maxFill) {
+        maxFill = pct;
+        fillLine.style.transform = 'scaleY(' + maxFill + ')';
+        pills.forEach(function(pill, i) {
+          if (popped[i]) return;
+          var pr = pill.getBoundingClientRect();
+          var center = pr.top + pr.height / 2 - rect.top;
+          if (maxFill >= center / rect.height) { popped[i] = true; triggerPop(pill); }
+        });
+      }
+    }
+
+    window.addEventListener('scroll', function() { if (!rafId) rafId = requestAnimationFrame(update); }, { passive: true });
+    window.addEventListener('resize', function() { rafId = requestAnimationFrame(update); }, { passive: true });
+    requestAnimationFrame(update);
+  }
+
+  function mount() {
+    if (document.getElementById(WRAPPER_ID)) return true;
+    var anchor = document.getElementById("wigy-promo-comparison-standalone");
+    if (!anchor) return false;
+    injectStyleOnce();
+    var wrapper = document.createElement("div");
+    wrapper.id = WRAPPER_ID;
+    wrapper.innerHTML = buildHTML();
+    anchor.insertAdjacentElement("afterend", wrapper);
+    initTimelineScroll(wrapper);
+    return true;
+  }
+
+  var tries = 0;
+  var t = setInterval(function() { tries++; if (mount() || tries >= 80) clearInterval(t); }, 250);
+})();
+</script>
+<!-- ================================================================
+     BLOQUE 13: GRILLA DE BENEFICIOS
+     ================================================================ -->
+<script>
+(function() {
+  if (window.WIGY_SLUG_BLOCK) return;
+
+  var WRAPPER_ID = "wigy-concerns-standalone";
+
+  function injectStyleOnce() {
+    if (document.getElementById(WRAPPER_ID + "-style")) return;
+    var css = "@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800;900&display=swap');\n#wigy-recovery-standalone{padding-bottom:10px!important;margin-bottom:0!important}\n#" + WRAPPER_ID + "{width:100%;max-width:1000px;margin:0 auto;padding-top:15px;padding-bottom:60px;background:transparent;overflow:hidden;position:relative;z-index:10;font-family:'Poppins','Montserrat',sans-serif;text-align:center}\n#" + WRAPPER_ID + " .concerns-gradient-title{font-size:42px;font-weight:900;margin:0 0 16px 0;line-height:1.15;letter-spacing:-1px;background:linear-gradient(135deg,#6BA342 0%,#2A5F35 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;color:transparent;display:inline-block;padding:0 15px}\n#" + WRAPPER_ID + " .intro-text{font-size:18px;color:#444444;margin:0 auto 45px auto;line-height:1.5;max-width:850px;padding:0 15px}\n#" + WRAPPER_ID + " .intro-text strong{color:#2A5F35;font-weight:800}\n#" + WRAPPER_ID + " .glued-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:40px 25px;max-width:950px;margin:0 auto;padding:0 15px}\n#" + WRAPPER_ID + " .symbol-box{display:flex;flex-direction:column;align-items:center;justify-content:flex-start}\n#" + WRAPPER_ID + " .symbol-circle{width:120px;height:120px;border-radius:50%;background:#ffffff;border:2px solid rgba(107,163,66,0.15);box-shadow:0 10px 20px rgba(107,163,66,0.08);display:flex;justify-content:center;align-items:center;margin-bottom:16px;transition:all 0.3s cubic-bezier(0.4,0,0.2,1)}\n#" + WRAPPER_ID + " .symbol-box:hover .symbol-circle{transform:translateY(-8px) scale(1.05);border-color:#6BA342;box-shadow:0 16px 28px rgba(107,163,66,0.18);background:linear-gradient(135deg,#ffffff 0%,#F1F6EC 100%)}\n#" + WRAPPER_ID + " .symbol-circle svg{width:55px;height:55px;stroke:#6BA342;stroke-width:2.2;fill:none;stroke-linecap:round;stroke-linejoin:round;transition:stroke 0.3s ease}\n#" + WRAPPER_ID + " .symbol-box span{font-weight:800;font-size:15px;line-height:1.35;text-transform:uppercase;color:#4E382A;text-align:center;max-width:180px}\n@media(max-width:768px){#" + WRAPPER_ID + "{padding-top:10px;padding-bottom:45px}#" + WRAPPER_ID + " .concerns-gradient-title{font-size:32px;margin-bottom:15px}#" + WRAPPER_ID + " .intro-text{font-size:16px;margin-bottom:35px}#" + WRAPPER_ID + " .glued-grid{grid-template-columns:repeat(2,1fr);gap:30px 15px}#" + WRAPPER_ID + " .symbol-circle{width:95px;height:95px}#" + WRAPPER_ID + " .symbol-circle svg{width:45px;height:45px}#" + WRAPPER_ID + " .symbol-box span{font-size:13px;max-width:150px}}";
+    var st = document.createElement("style");
+    st.id = WRAPPER_ID + "-style";
+    st.innerHTML = css;
+    document.head.appendChild(st);
+  }
+
+  function buildHTML() {
+    return '<h2 class="concerns-gradient-title">Un solo frasco para el problema que más plantas mata</h2><p class="intro-text">Cuando las raíces no se desarrollan, <strong>la planta no puede crecer</strong>. El enraizante VERDEA trabaja desde abajo para ayudarte con:</p><div class="glued-grid"><div class="symbol-box"><div class="symbol-circle"><svg viewBox="0 0 24 24"><path d="M12 22V12"></path><path d="M12 12c-2 0-4-1-5-3 2 0 4 1 5 3z"></path><path d="M12 12c2 0 4-1 5-3-2 0-4 1-5 3z"></path><path d="M12 22c-1.5-1-3-1-4 0M12 22c1.5-1 3-1 4 0"></path></svg></div><span>Esquejes que no enraízan</span></div><div class="symbol-box"><div class="symbol-circle"><svg viewBox="0 0 24 24"><path d="M7 10h10l-1 11H8z"></path><path d="M12 10V4"></path><path d="M12 6c-2 0-3-1-4-2 2 0 3 1 4 2z"></path></svg></div><span>Estrés y golpe de trasplante</span></div><div class="symbol-box"><div class="symbol-circle"><svg viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"></path><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path></svg></div><span>Hojas caídas o decoloradas</span></div><div class="symbol-box"><div class="symbol-circle"><svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg></div><span>Crecimiento lento</span></div><div class="symbol-box"><div class="symbol-circle"><svg viewBox="0 0 24 24"><path d="M12 2c0 0-6 4-6 10a6 6 0 0 0 12 0c0-6-6-10-6-10z"></path></svg></div><span>Mala absorción de agua y nutrientes</span></div><div class="symbol-box"><div class="symbol-circle"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg></div><span>Plantas de interior débiles</span></div></div>';
+  }
+
+  function mount() {
+    if (document.getElementById(WRAPPER_ID)) return true;
+    var timelineWidget = document.getElementById("wigy-timeline-standalone");
+    if (!timelineWidget) return false;
+    injectStyleOnce();
+    var wrapper = document.createElement("section");
+    wrapper.id = WRAPPER_ID;
+    wrapper.innerHTML = buildHTML();
+    timelineWidget.insertAdjacentElement("afterend", wrapper);
+    return true;
+  }
+
+  var tries = 0;
+  var t = setInterval(function() { tries++; if (mount() || tries >= 80) clearInterval(t); }, 250);
+})();
+</script>
+<!-- ================================================================
+     BLOQUE 14: ESTADÍSTICAS CON ANILLOS ANIMADOS
+     ================================================================ -->
+<script>
+(function() {
+  if (window.WIGY_SLUG_BLOCK) return;
+
+  var WRAPPER_ID = "wigy-clinical-results-standalone";
+
+  function injectStyleOnce() {
+    if (document.getElementById(WRAPPER_ID + "-style")) return;
+    var css = "@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800;900&display=swap');" +
+      "#" + WRAPPER_ID + "{width:100%;max-width:1100px;margin:0 auto;padding:50px 20px;box-sizing:border-box;font-family:'Poppins','Montserrat',sans-serif;background:#ffffff}" +
+      "#" + WRAPPER_ID + " .clinical-inner{display:flex;align-items:center;gap:50px;background:#ffffff;border-radius:20px}" +
+      "#" + WRAPPER_ID + " .clinical-image-col{flex:1;width:100%;max-width:450px;border-radius:20px;overflow:hidden;box-shadow:0 20px 40px rgba(0,0,0,0.1);position:relative;background:#f4f4f4;line-height:0;border:1px solid rgba(0,0,0,0.05);margin:0 auto}" +
+      "#" + WRAPPER_ID + " .clinical-image-col img{width:100%;height:auto;display:block;object-fit:cover}" +
+      "#" + WRAPPER_ID + " .clinical-stats-col{flex:1.3;width:100%;display:flex;flex-direction:column;justify-content:center}" +
+      "#" + WRAPPER_ID + " .clinical-title{font-size:36px;font-weight:900;margin:0 0 35px 0;line-height:1.25;letter-spacing:-0.5px;background:linear-gradient(135deg,#6BA342 0%,#2A5F35 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;color:transparent}" +
+      "#" + WRAPPER_ID + " .results__rows-container{display:flex;flex-direction:column;width:100%}" +
+      "#" + WRAPPER_ID + " .results__row{display:flex;align-items:center;gap:25px;padding:20px 0;border-bottom:1px solid #eaeaea}" +
+      "#" + WRAPPER_ID + " .results__row:last-child{border-bottom:none;padding-bottom:0}" +
+      "#" + WRAPPER_ID + " .results__percentage{position:relative;width:75px;height:75px;border-radius:50%;" +
+      "background:conic-gradient(#6BA342 0deg,#f1f5f9 0deg 360deg);" +
+      "display:flex;align-items:center;justify-content:center;flex:0 0 auto;" +
+      "box-shadow:0 6px 14px rgba(107,163,66,0.20)}" +
+      "#" + WRAPPER_ID + " .results__percentage::before{content:'';position:absolute;inset:6px;background:#ffffff;border-radius:50%}" +
+      "#" + WRAPPER_ID + " .results__percentage p{position:relative;z-index:1;margin:0;font-weight:800;font-size:20px;color:#2A5F35}" +
+      "#" + WRAPPER_ID + " .results__text{flex:1}" +
+      "#" + WRAPPER_ID + " .results__text p{font-size:18px;color:#444444;line-height:1.5;margin:0}" +
+      "#" + WRAPPER_ID + " .results__text strong{color:#111111;font-weight:800}" +
+      "@media(max-width:768px){" +
+        "#" + WRAPPER_ID + "{padding:40px 15px}" +
+        "#" + WRAPPER_ID + " .clinical-inner{flex-direction:column;gap:35px}" +
+        "#" + WRAPPER_ID + " .clinical-title{font-size:28px;text-align:center;margin-bottom:25px}" +
+        "#" + WRAPPER_ID + " .results__row{gap:20px;padding:16px 0}" +
+        "#" + WRAPPER_ID + " .results__percentage{width:65px;height:65px}" +
+        "#" + WRAPPER_ID + " .results__percentage p{font-size:18px}" +
+        "#" + WRAPPER_ID + " .results__text p{font-size:16px}" +
+      "}";
+    var st = document.createElement("style");
+    st.id = WRAPPER_ID + "-style";
+    st.innerHTML = css;
+    document.head.appendChild(st);
+  }
+
+  function buildHTML() {
+    return '<div class="clinical-inner">' +
+      '<div class="clinical-image-col">' +
+        '<img src="' + window.WIGY_CONFIG.fotoEstadisticas + '" alt="Enraizante VERDEA" loading="eager">' +
+      '</div>' +
+      '<div class="clinical-stats-col">' +
+        '<h3 class="clinical-title">Lo que notan quienes ya usan VERDEA</h3>' +
+        '<div class="results__rows-container">' +
+          (window.WIGY_CONFIG.estadisticas || []).map(function(e) { return '<div class="results__row"><div class="results__percentage" data-target="' + parseInt(e.porcentaje, 10) + '"><p>0%</p></div><div class="results__text"><p>' + e.texto + '</p></div></div>'; }).join('') +
+        '</div>' +
+      '</div>' +
+    '</div>';
+  }
+
+  function animateRings(wrapper) {
+    var rings = wrapper.querySelectorAll(".results__percentage");
+    var DURATION = 1800;
+    var STAGGER = 200;
+
+    rings.forEach(function(ring, index) {
+      var target = parseInt(ring.getAttribute("data-target"));
+      var numEl = ring.querySelector("p");
+      var startTime = null;
+      var delay = index * STAGGER;
+
+      setTimeout(function() {
+        function tick(timestamp) {
+          if (!startTime) startTime = timestamp;
+          var elapsed = timestamp - startTime;
+          var progress = Math.min(elapsed / DURATION, 1);
+          var eased = 1 - Math.pow(1 - progress, 3);
+          var currentVal = Math.round(eased * target);
+          var currentDeg = (eased * target / 100) * 360;
+          numEl.textContent = currentVal + "%";
+          ring.style.background = "conic-gradient(#6BA342 " + currentDeg + "deg, #f1f5f9 " + currentDeg + "deg 360deg)";
+          if (progress < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+      }, delay);
+    });
+  }
+
+  function mount() {
+    if (document.getElementById(WRAPPER_ID)) return true;
+    var concernsWidget = document.getElementById("wigy-concerns-standalone");
+    if (!concernsWidget) return false;
+    var stats = window.WIGY_CONFIG && window.WIGY_CONFIG.estadisticas;
+    if (!stats || !stats.length) return true; /* Sin datos reales → no se muestra */
+    injectStyleOnce();
+    var wrapper = document.createElement("section");
+    wrapper.id = WRAPPER_ID;
+    wrapper.innerHTML = buildHTML();
+    concernsWidget.insertAdjacentElement("afterend", wrapper);
+
+    var animated = false;
+    var obs = new IntersectionObserver(function(entries, o) {
+      if (entries[0].isIntersecting && !animated) {
+        animated = true;
+        o.unobserve(wrapper);
+        animateRings(wrapper);
+      }
+    }, { threshold: 0.4 });
+    obs.observe(wrapper);
+
+    return true;
+  }
+
+  var tries = 0;
+  var t = setInterval(function() { tries++; if (mount() || tries >= 80) clearInterval(t); }, 250);
+})();
+</script>
+<!-- ================================================================
+     BLOQUE 15: TABLA DE COMPARACIÓN
+     ================================================================ -->
+<script>
+(function() {
+  if (window.WIGY_SLUG_BLOCK) return;
+
+  var WRAPPER_ID = "wigy-comparison-table-standalone";
+
+  function injectStyleOnce() {
+    if (document.getElementById(WRAPPER_ID + "-style")) return;
+    var css = "@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800;900&display=swap');\n" +
+      "#" + WRAPPER_ID + "{width:100%;max-width:900px;margin:20px auto 50px auto;padding:20px 15px;box-sizing:border-box;font-family:'Poppins','Montserrat',sans-serif}\n" +
+      "#" + WRAPPER_ID + " .comp-title{font-size:38px;font-weight:900;text-align:center;margin:0 0 10px 0;line-height:1.2;letter-spacing:-1px;background:linear-gradient(135deg,#6BA342 0%,#2A5F35 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;color:transparent}\n" +
+      "#" + WRAPPER_ID + " .comp-subtitle{font-size:16px;color:#555555;text-align:center;max-width:600px;margin:0 auto 35px auto;line-height:1.5}\n" +
+      "#" + WRAPPER_ID + " .comp-table-wrapper{background:#ffffff;border-radius:20px;box-shadow:0 15px 35px rgba(0,0,0,0.08);border:1px solid rgba(0,0,0,0.05);padding:10px 0;position:relative;overflow:hidden}\n" +
+      "#" + WRAPPER_ID + " table.wigy-cmp-table{width:100%!important;border-collapse:separate!important;border-spacing:0!important;border:0!important;box-shadow:none!important;table-layout:auto!important;margin:0!important;text-align:center;position:relative;z-index:2;background:transparent!important}\n" +
+      "#" + WRAPPER_ID + " table.wigy-cmp-table th,#" + WRAPPER_ID + " table.wigy-cmp-table td{border:0!important;box-shadow:none!important;background-clip:padding-box}\n" +
+      "#" + WRAPPER_ID + " th,#" + WRAPPER_ID + " td{padding:16px 12px;vertical-align:middle}\n" +
+      "#" + WRAPPER_ID + " th{font-size:20px;font-weight:900;border-bottom:2px solid #eaeaea}\n" +
+      "#" + WRAPPER_ID + " .th-empty{width:50%;border-bottom:none}\n" +
+      "#" + WRAPPER_ID + " .th-other{color:#111111;width:25%}\n" +
+      "#" + WRAPPER_ID + " .th-brand,#" + WRAPPER_ID + " .cell-brand{background:linear-gradient(#2A5F35,#2A5F35) top center/100% 0% no-repeat!important;transition:background-size 0.35s linear}\n" +
+      "#" + WRAPPER_ID + " .th-brand{color:#ffffff;width:25%;padding-top:24px;border-radius:16px 16px 0 0}\n" +
+      "#" + WRAPPER_ID + " tr:last-child .cell-brand{padding-bottom:24px;border-radius:0 0 16px 16px}\n" +
+      "#" + WRAPPER_ID + ".wigy-revealed .th-brand,#" + WRAPPER_ID + ".wigy-revealed .cell-brand{background-size:100% 100%!important}\n" +
+      "#" + WRAPPER_ID + ".wigy-revealed tr:nth-child(1) .cell-brand{transition-delay:0.35s}\n" +
+      "#" + WRAPPER_ID + ".wigy-revealed tr:nth-child(2) .cell-brand{transition-delay:0.7s}\n" +
+      "#" + WRAPPER_ID + ".wigy-revealed tr:nth-child(3) .cell-brand{transition-delay:1.05s}\n" +
+      "#" + WRAPPER_ID + ".wigy-revealed tr:nth-child(4) .cell-brand{transition-delay:1.4s}\n" +
+      "#" + WRAPPER_ID + ".wigy-revealed tr:nth-child(5) .cell-brand{transition-delay:1.75s}\n" +
+      "#" + WRAPPER_ID + ".wigy-revealed tr:nth-child(6) .cell-brand{transition-delay:2.1s}\n" +
+
+      "#" + WRAPPER_ID + " .cell-brand .icon-box{opacity:0;transform:scale(0.5);" +
+      "transition:opacity 0.35s ease,transform 0.35s cubic-bezier(0.175,0.885,0.32,1.275)}\n" +
+      "#" + WRAPPER_ID + " .th-brand{opacity:0;transition:opacity 0.4s ease}\n" +
+      "#" + WRAPPER_ID + ".wigy-revealed .th-brand{opacity:1;transition-delay:0.15s}\n" +
+      "#" + WRAPPER_ID + ".wigy-revealed .cell-brand .icon-box{opacity:1;transform:scale(1)}\n" +
+      "#" + WRAPPER_ID + ".wigy-revealed tr:nth-child(1) .cell-brand .icon-box{transition-delay:0.55s}\n" +
+      "#" + WRAPPER_ID + ".wigy-revealed tr:nth-child(2) .cell-brand .icon-box{transition-delay:0.9s}\n" +
+      "#" + WRAPPER_ID + ".wigy-revealed tr:nth-child(3) .cell-brand .icon-box{transition-delay:1.25s}\n" +
+      "#" + WRAPPER_ID + ".wigy-revealed tr:nth-child(4) .cell-brand .icon-box{transition-delay:1.6s}\n" +
+      "#" + WRAPPER_ID + ".wigy-revealed tr:nth-child(5) .cell-brand .icon-box{transition-delay:1.95s}\n" +
+      "#" + WRAPPER_ID + ".wigy-revealed tr:nth-child(6) .cell-brand .icon-box{transition-delay:2.3s}\n" +
+      "#" + WRAPPER_ID + " .row-label{text-align:left;font-weight:800;font-size:15px;color:#4E382A;border-bottom:1px solid #f0f0f0;padding-left:25px}\n" +
+      "#" + WRAPPER_ID + " .cell-other{border-bottom:1px solid #f0f0f0}\n" +
+      "#" + WRAPPER_ID + " tr:last-child .row-label,#" + WRAPPER_ID + " tr:last-child .cell-other{border-bottom:none}\n" +
+      "#" + WRAPPER_ID + " .icon-box{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%}\n" +
+      "#" + WRAPPER_ID + " .icon-check{background:#ffffff;color:#2A5F35;box-shadow:0 4px 10px rgba(0,0,0,0.15)}\n" +
+      "#" + WRAPPER_ID + " .icon-cross{background:#f1f5f9;color:#E88031}\n" +
+      "#" + WRAPPER_ID + " .icon-box svg{width:16px;height:16px}\n" +
+      "@media(max-width:768px){#" + WRAPPER_ID + "{padding:15px 10px 40px 10px}#" + WRAPPER_ID + " .comp-title{font-size:28px}#" + WRAPPER_ID + " .comp-subtitle{font-size:14px;margin-bottom:25px;padding:0 10px}#" + WRAPPER_ID + " th,#" + WRAPPER_ID + " td{padding:14px 6px}#" + WRAPPER_ID + " th{font-size:17px}#" + WRAPPER_ID + " .row-label{font-size:13.5px;padding-left:12px}}";
+    var st = document.createElement("style");
+    st.id = WRAPPER_ID + "-style";
+    st.innerHTML = css;
+    document.head.appendChild(st);
+  }
+
+  function buildHTML() {
+    var iconCheck = '<div class="icon-box icon-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>';
+    var iconCross = '<div class="icon-box icon-cross"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></div>';
+    var rows = ["Raíces más rápidas y fuertes", "Esquejes que prenden mejor", "Menos estrés de trasplante", "Mejor absorción de nutrientes", "Crecimiento más verde y tupido", "Cuidado orgánico de tus cultivos"];
+    var rowsHTML = "";
+    rows.forEach(function(label) {
+      rowsHTML += '<tr><td class="row-label">' + label + '</td><td class="cell-brand">' + iconCheck + '</td><td class="cell-other">' + iconCross + '</td></tr>';
+    });
+    return '<h2 class="comp-title">¿Por qué elegir nuestro enraizante?</h2><p class="comp-subtitle">La diferencia entre una planta que sobrevive y una que crece con fuerza está en sus raíces.</p><div class="comp-table-wrapper"><table class="wigy-cmp-table"><thead><tr><th class="th-empty">&nbsp;</th><th class="th-brand">Con VERDEA</th><th class="th-other">Sin enraizante</th></tr></thead><tbody>' + rowsHTML + '</tbody></table></div>';
+  }
+
+  function positionOverlay(wrapper) {
+    var thBrand = wrapper.querySelector(".th-brand");
+    var lastBrand = wrapper.querySelectorAll(".cell-brand");
+    var lastCell = lastBrand[lastBrand.length - 1];
+    var tableWrapper = wrapper.querySelector(".comp-table-wrapper");
+    var overlay = wrapper.querySelector(".comp-brand-bg");
+    if (!thBrand || !lastCell || !tableWrapper || !overlay) return;
+    var wrapperRect = tableWrapper.getBoundingClientRect();
+    var thRect = thBrand.getBoundingClientRect();
+    var lastRect = lastCell.getBoundingClientRect();
+    overlay.style.top = (thRect.top - wrapperRect.top) + "px";
+    overlay.style.left = (thRect.left - wrapperRect.left) + "px";
+    overlay.style.width = thRect.width + "px";
+    overlay.style.height = (lastRect.bottom - thRect.top) + "px";
+  }
+
+  function mount() {
+    if (document.getElementById(WRAPPER_ID)) return true;
+    var statsWidget = document.getElementById("wigy-clinical-results-standalone") || document.getElementById("wigy-concerns-standalone");
+    if (!statsWidget) return false;
+    injectStyleOnce();
+    var wrapper = document.createElement("section");
+    wrapper.id = WRAPPER_ID;
+    wrapper.innerHTML = buildHTML();
+    statsWidget.insertAdjacentElement("afterend", wrapper);
+
+    setTimeout(function() { positionOverlay(wrapper); }, 100);
+    window.addEventListener("resize", function() { positionOverlay(wrapper); });
+
+    var animated = false;
+    var obs = new IntersectionObserver(function(entries, o) {
+      if (entries[0].isIntersecting && !animated) {
+        animated = true;
+        o.unobserve(wrapper);
+        positionOverlay(wrapper);
+        setTimeout(function() {
+          wrapper.classList.add("wigy-revealed");
+        }, 300);
+      }
+    }, { threshold: 0.2 });
+    obs.observe(wrapper);
+
+    return true;
+  }
+
+  var tries = 0;
+  var t = setInterval(function() { tries++; if (mount() || tries >= 80) clearInterval(t); }, 250);
+})();
+</script>
+<!-- ================================================================
+     BLOQUE 16: SLIDER DE TESTIMONIOS
+     ================================================================ -->
+<script>
+(function() {
+  if (window.WIGY_SLUG_BLOCK) return;
+
+  var WRAPPER_ID = "wigy-testimonials-slider-standalone";
+
+  function injectStyleOnce() {
+    if (document.getElementById(WRAPPER_ID + "-style")) return;
+    var css = "@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800;900&display=swap');\n#" + WRAPPER_ID + "{width:100%;max-width:1200px;margin:40px auto 60px auto;padding:0 15px;box-sizing:border-box;font-family:'Poppins','Montserrat',sans-serif;overflow:hidden}\n#" + WRAPPER_ID + " .title-with-highlight{font-family:'Poppins','Montserrat',sans-serif;font-size:38px;font-weight:900;text-align:center;margin-bottom:45px;line-height:1.25;letter-spacing:-1px;background:linear-gradient(135deg,#2A5F35 0%,#6BA342 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;color:transparent;display:block;padding:0 15px}\n#" + WRAPPER_ID + " .splide-wrapper{position:relative;padding:0 60px}\n#" + WRAPPER_ID + " .splide__track{overflow:hidden;width:100%;padding:10px 0}\n#" + WRAPPER_ID + " .splide__list{display:flex;transition:transform 0.5s cubic-bezier(0.25,1,0.5,1);margin:0;padding:0;list-style:none;touch-action:pan-y}\n#" + WRAPPER_ID + " .splide__slide{flex:0 0 100%;padding:0 15px;box-sizing:border-box;opacity:0;transform:translateY(50px) scale(0.95);transition:opacity 0.6s ease,transform 0.6s cubic-bezier(0.175,0.885,0.32,1.275)}\n@media(min-width:768px){#" + WRAPPER_ID + " .splide__slide{flex:0 0 33.3333%}}\n#" + WRAPPER_ID + " .splide__slide.is-visible-animated{opacity:1;transform:none}\n#" + WRAPPER_ID + " .multicolumn-card{background:#ffffff;border-radius:20px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,0.06);border:1px solid rgba(0,0,0,0.04);display:flex;flex-direction:column;height:100%;transition:transform 0.3s ease,box-shadow 0.3s ease}\n#" + WRAPPER_ID + " .multicolumn-card:hover{transform:translateY(-8px);box-shadow:0 16px 40px rgba(42,95,53,0.15);border-color:rgba(107,163,66,0.3)}\n#" + WRAPPER_ID + " .multicolumn-card__image-wrapper{position:relative;width:100%;padding-top:100%;background:#f4f4f4}\n#" + WRAPPER_ID + " .multicolumn-card__image{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover}\n#" + WRAPPER_ID + " .multicolumn-card__info{padding:25px 20px;flex:1;display:flex;flex-direction:column;text-align:center;background:#ffffff}\n#" + WRAPPER_ID + " .rating-stars-and-text{display:flex;justify-content:center;margin-bottom:15px;color:#6BA342}\n#" + WRAPPER_ID + " .rating-stars__container{display:flex;gap:4px}\n#" + WRAPPER_ID + " .rating-stars__container svg{width:18px;height:18px}\n#" + WRAPPER_ID + " h3{font-size:20px;font-weight:800;color:#111111;margin:0 0 10px 0}\n#" + WRAPPER_ID + " .rte p{font-size:15px;color:#555555;line-height:1.6;margin:0 0 18px 0}\n#" + WRAPPER_ID + " .testimonial-card__author{font-size:15px;font-weight:800;color:#2A5F35;margin-top:auto}\n#" + WRAPPER_ID + " .splide__arrow{position:absolute;top:50%;transform:translateY(-50%);width:50px;height:50px;border-radius:50%;background:#ffffff;border:1px solid #eaeaea;box-shadow:0 8px 20px rgba(0,0,0,0.12);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.2s;padding:0;z-index:10}\n#" + WRAPPER_ID + " .splide__arrow--prev{left:0}\n#" + WRAPPER_ID + " .splide__arrow--next{right:0}\n#" + WRAPPER_ID + " .splide__arrow:hover:not(:disabled){background:#2A5F35;border-color:#2A5F35;transform:translateY(-50%) scale(1.1)}\n#" + WRAPPER_ID + " .splide__arrow svg{width:18px;height:18px;transition:0.2s;fill:#111}\n#" + WRAPPER_ID + " .splide__arrow:hover:not(:disabled) svg{fill:#ffffff}\n#" + WRAPPER_ID + " .splide__arrow:disabled{opacity:0.3;cursor:not-allowed}\n#" + WRAPPER_ID + " .splide__arrow--prev svg{transform:rotate(180deg)}\n#" + WRAPPER_ID + " .splide__pagination{display:flex;justify-content:center;gap:10px;list-style:none;padding:0;margin-top:25px}\n#" + WRAPPER_ID + " .splide__pagination__page{width:10px;height:10px;border-radius:50%;background:#d1d5db;border:none;cursor:pointer;transition:0.3s;padding:0}\n#" + WRAPPER_ID + " .splide__pagination__page.is-active{background:#2A5F35;transform:scale(1.4)}\n#" + WRAPPER_ID + " .testimonial-verified{display:inline-flex;align-self:center;justify-content:center;align-items:center;gap:4px;margin-top:8px;font-size:12px;font-weight:700;color:#2A5F35;line-height:1}\n#" + WRAPPER_ID + " .testimonial-verified svg{width:14px;height:14px;flex:0 0 auto}\n#" + WRAPPER_ID + " .wigy-verified-clients-bar{display:flex;align-items:center;justify-content:center;gap:6px;margin-bottom:12px;font-size:13px;font-weight:700;color:#2A5F35;letter-spacing:0.3px}\n#" + WRAPPER_ID + " .wigy-verified-clients-bar svg{width:16px;height:16px;flex:0 0 auto}\n@media(max-width:768px){#" + WRAPPER_ID + "{margin:30px auto 40px auto}#" + WRAPPER_ID + " .title-with-highlight{font-size:28px;margin-bottom:25px}#" + WRAPPER_ID + " .splide-wrapper{padding:0 15px}#" + WRAPPER_ID + " .splide__arrow{width:40px;height:40px}#" + WRAPPER_ID + " .splide__arrow--prev{left:-5px}#" + WRAPPER_ID + " .splide__arrow--next{right:-5px}#" + WRAPPER_ID + " h3{font-size:18px}#" + WRAPPER_ID + " .rte p{font-size:14.5px}}";
+    var st = document.createElement("style");
+    st.id = WRAPPER_ID + "-style";
+    st.innerHTML = css;
+    document.head.appendChild(st);
+  }
+
+  var STAR_SVG = '<svg viewBox="0 0 576 512" fill="currentColor"><path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"></path></svg>';
+  var STARS_5 = '<div class="rating-stars-and-text"><div class="rating-stars__container">' + STAR_SVG.repeat(5) + '</div></div>';
+  var ARROW_SVG = '<svg viewBox="0 0 40 40"><path d="m15.5 0.932-4.3 4.38 14.5 14.6-14.5 14.5 4.3 4.4 14.6-14.6 4.4-4.3-4.4-4.4-14.6-14.6z"></path></svg>';
+
+  var VERIFIED_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>';
+
+  function buildHTML() {
+    var cfgTest = window.WIGY_CONFIG.testimonios;
+    var cards = cfgTest.map(function(t) {
+      return { img: t.foto, alt: t.nombre, title: t.titulo, text: t.texto, author: t.nombre };
+    });
+
+    var cardsHTML = cards.map(function(c) {
+      var hasImg = c.img && c.img.indexOf('\u26A0\uFE0F') === -1;
+      var media = hasImg
+        ? '<img src="' + c.img + '" alt="' + c.alt + '" loading="eager" class="multicolumn-card__image">'
+        : '<div class="multicolumn-card__image" style="display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#2A5F35,#6BA342);color:#fff;font-size:72px;font-weight:700;font-family:var(--vd-font-title)">' + (c.author || '?').charAt(0).toUpperCase() + '</div>';
+      return '<li class="splide__slide"><div class="multicolumn-card"><div class="multicolumn-card__image-wrapper">' + media + '</div><div class="multicolumn-card__info">' + STARS_5 + '<h3>' + c.title + '</h3><div class="rte"><p>' + c.text + '</p></div><p class="testimonial-card__author">' + c.author + '</p><span class="testimonial-verified">' + VERIFIED_SVG + ' Compra verificada</span></div></div></li>';
+    }).join('');
+
+    var dotsHTML = cards.map(function(_, i) {
+      return '<li><button class="splide__pagination__page' + (i === 0 ? ' is-active' : '') + '" type="button"></button></li>';
+    }).join('');
+
+    var verifiedBarSvg = '<svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-1.09 14.41l-3.5-3.5 1.41-1.41 2.09 2.09 5.18-5.18 1.41 1.41-6.59 6.59z"/></svg>';
+
+    return '<h2 class="title-with-highlight">🌱 Nuestros clientes: raíces más fuertes, plantas más sanas</h2><div class="wigy-verified-clients-bar">' + verifiedBarSvg + (window.WIGY_CONFIG.rating && window.WIGY_CONFIG.rating.clientes ? ' +' + Number(window.WIGY_CONFIG.rating.clientes).toLocaleString("es-AR") + ' clientes verificados' : ' Clientes verificados') + '</div><div class="splide-wrapper"><button class="splide__arrow splide__arrow--prev" type="button">' + ARROW_SVG + '</button><button class="splide__arrow splide__arrow--next" type="button">' + ARROW_SVG + '</button><div class="splide__track"><ul class="splide__list">' + cardsHTML + '</ul></div><ul class="splide__pagination">' + dotsHTML + '</ul></div>';
+  }
+
+  function initTestimonialsSlider(wrapper) {
+    var trackList = wrapper.querySelector('.splide__list');
+    var slides = Array.from(wrapper.querySelectorAll('.splide__slide'));
+    var prevBtn = wrapper.querySelector('.splide__arrow--prev');
+    var nextBtn = wrapper.querySelector('.splide__arrow--next');
+    var pagination = wrapper.querySelector('.splide__pagination');
+    var dots = [];
+    var currentIndex = 0;
+
+    /* Un punto por POSICIÓN posible (no por tarjeta). Si todas las tarjetas
+       entran en pantalla, se ocultan puntos y flechas. */
+    function rebuildDots(positions) {
+      if (!pagination || dots.length === positions) return;
+      pagination.innerHTML = '';
+      dots = [];
+      for (var i = 0; i < positions; i++) {
+        var li = document.createElement('li');
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'splide__pagination__page';
+        b.setAttribute('aria-label', 'Ir a la posici\u00F3n ' + (i + 1));
+        (function(idx) { b.addEventListener('click', function() { currentIndex = idx; updateSlider(); }); })(i);
+        li.appendChild(b);
+        pagination.appendChild(li);
+        dots.push(b);
+      }
+    }
+
+    function getSlidesPerView() { return window.innerWidth >= 768 ? 3 : 1; }
+
+    function updateSlider() {
+      var slidesPerView = getSlidesPerView();
+      var maxIndex = Math.max(0, slides.length - slidesPerView);
+      if (currentIndex > maxIndex) currentIndex = maxIndex;
+      /* Desplazamiento en píxeles enteros: evita que las fotos se vean borrosas */
+      var target = slides[currentIndex];
+      var offset = target ? target.offsetLeft - slides[0].offsetLeft : 0;
+      trackList.style.transform = 'translate3d(-' + Math.round(offset) + 'px,0,0)';
+      rebuildDots(maxIndex + 1);
+      dots.forEach(function(dot, i) { dot.classList.toggle('is-active', i === currentIndex); });
+      var scrollable = maxIndex > 0;
+      if (pagination) pagination.style.display = scrollable ? '' : 'none';
+      if (prevBtn) { prevBtn.disabled = currentIndex === 0; prevBtn.style.visibility = scrollable ? '' : 'hidden'; }
+      if (nextBtn) { nextBtn.disabled = currentIndex >= maxIndex; nextBtn.style.visibility = scrollable ? '' : 'hidden'; }
+    }
+
+    if (prevBtn) prevBtn.addEventListener('click', function() { if (currentIndex > 0) { currentIndex--; updateSlider(); } });
+    if (nextBtn) nextBtn.addEventListener('click', function() {
+      var maxIndex = Math.max(0, slides.length - getSlidesPerView());
+      if (currentIndex < maxIndex) { currentIndex++; updateSlider(); }
+    });
+
+    var startX = 0;
+    trackList.addEventListener('touchstart', function(e) { startX = e.touches[0].clientX; }, { passive: true });
+    trackList.addEventListener('touchend', function(e) {
+      var diff = e.changedTouches[0].clientX - startX;
+      var maxIndex = Math.max(0, slides.length - getSlidesPerView());
+      if (diff < -40 && currentIndex < maxIndex) currentIndex++;
+      else if (diff > 40 && currentIndex > 0) currentIndex--;
+      updateSlider();
+    });
+
+    window.addEventListener('resize', updateSlider);
+    updateSlider();
+
+    var observer = new IntersectionObserver(function(entries, obs) {
+      if (entries[0].isIntersecting) {
+        obs.unobserve(entries[0].target);
+        slides.forEach(function(slide, index) {
+          setTimeout(function() { slide.classList.add('is-visible-animated'); }, index * 150);
+        });
+      }
+    }, { threshold: 0.15 });
+    observer.observe(wrapper);
+  }
+
+  function mount() {
+    if (document.getElementById(WRAPPER_ID)) return true;
+    var comparisonWidget = document.getElementById("wigy-comparison-table-standalone");
+    var statsWidget = document.getElementById("wigy-clinical-results-standalone");
+    var target = comparisonWidget || statsWidget || document.getElementById("wigy-concerns-standalone");
+    if (!target) return false;
+    injectStyleOnce();
+    var wrapper = document.createElement("section");
+    wrapper.id = WRAPPER_ID;
+    wrapper.innerHTML = buildHTML();
+    target.insertAdjacentElement("afterend", wrapper);
+    initTestimonialsSlider(wrapper);
+    return true;
+  }
+
+  var tries = 0;
+  var t = setInterval(function() { tries++; if (mount() || tries >= 80) clearInterval(t); }, 250);
+})();
+</script>
+<!-- ================================================================
+     BLOQUE 17: FAQs CON DISEÑO DE OLAS VERDEA (al final)
+     ================================================================ -->
+<script>
+(function() {
+  if (window.WIGY_SLUG_BLOCK) return;
+  if (document.getElementById('wigy-shopify-faqs-standalone')) return;
+
+  var mountSelector = "#wigy-testimonials-slider-standalone";
+
+  var waitForMount = function(selector, timeout, interval) {
+    timeout = timeout || 15000; interval = interval || 200;
+    return new Promise(function(resolve) {
+      var start = Date.now();
+      var timer = setInterval(function() {
+        var el = document.querySelector(selector);
+        if (el) { clearInterval(timer); resolve(el); return; }
+        if (Date.now() - start > timeout) { clearInterval(timer); resolve(null); }
+      }, interval);
+    });
+  };
+
+  var loadMaterialIcons = function() {
+    if (!document.getElementById('material-symbols-font')) {
+      var fontLink = document.createElement('link');
+      fontLink.id = 'material-symbols-font';
+      fontLink.rel = 'stylesheet';
+      fontLink.href = 'https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200';
+      document.head.appendChild(fontLink);
+    }
+  };
+
+  var injectFaqs = function() {
+    waitForMount(mountSelector, 8000, 100).then(function(mount) {
+      if (!mount) return;
+      loadMaterialIcons();
+
+      var STYLE_KEY = "wigy-shopify-faqs-style-standalone";
+      var css = "@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');\n#wigy-shopify-faqs-standalone{width:100%;margin-top:18px;--faq-bg:#2A5F35;--wave-color-1:rgba(107,163,66,0.3);--wave-color-2:rgba(107,163,66,0.6);--wave-color-3:#6BA342;font-family:inherit;clear:both}\n.wigy-section-divider{width:100%;line-height:0;display:block}\n.wigy-section-divider__svg{width:100%;display:block}\n.waves-animated-1{width:100%;height:25px;display:block}\n@media(min-width:768px){.waves-animated-1{height:35px}}\n.parallax1>use{animation:move-forever 25s cubic-bezier(.55,.5,.45,.5) infinite;animation-delay:-2s;animation-duration:7s}\n.parallax2>use{animation:move-forever 25s cubic-bezier(.55,.5,.45,.5) infinite;animation-delay:-3s;animation-duration:10s}\n.parallax3>use{animation:move-forever 25s cubic-bezier(.55,.5,.45,.5) infinite;animation-delay:-4s;animation-duration:13s}\n.parallax4>use{animation:move-forever 25s cubic-bezier(.55,.5,.45,.5) infinite;animation-delay:-5s;animation-duration:20s}\n@keyframes move-forever{0%{transform:translate3d(-90px,0,0)}100%{transform:translate3d(85px,0,0)}}\n.wigy-faqs-body{background-color:var(--faq-bg);padding:28px 20px 36px 20px;font-family:'Open Sans','Lato',sans-serif}\n.wigy-faqs-inner{max-width:720px;margin:0 auto}\n#wigy-shopify-faqs-standalone .wigy-faqs-title{text-align:center;font-size:12px!important;font-weight:600!important;color:#FFFFFF;margin:0 0 18px 0;letter-spacing:2px!important;text-transform:uppercase;opacity:.9}\n.wigy-accordion{border-top:1px solid rgba(255,255,255,0.15)}\n.wigy-accordion:last-child{border-bottom:1px solid rgba(255,255,255,0.15)}\n.wigy-accordion details{margin:0;padding:0}\n.wigy-accordion summary{display:flex;justify-content:space-between;align-items:center;padding:16px 0;cursor:pointer;list-style:none;outline:none;transition:opacity 0.2s ease}\n.wigy-accordion summary:hover{opacity:0.8}\n.wigy-accordion summary::-webkit-details-marker{display:none}\n.wigy-summary-title{display:flex;align-items:center;gap:12px}\n.wigy-summary-title{min-width:0;flex:1 1 auto}\n.wigy-summary-title .material-icon{font-size:22px;font-variation-settings:'FILL' 0,'wght' 300,'GRAD' 0,'opsz' 24;flex:0 0 26px;overflow:hidden;white-space:nowrap}\n.wigy-summary-title img,.wigy-summary-title .material-icon{width:26px;height:26px;object-fit:contain;color:#FFFFFF;display:flex;align-items:center;justify-content:center}\n.wigy-summary-title img{filter:brightness(0) invert(1)}\n#wigy-shopify-faqs-standalone .wigy-accordion h2{margin:0;font-size:15px;font-weight:500!important;letter-spacing:0!important;line-height:1.4;color:#FFFFFF}\n.wigy-icon-caret{width:14px;height:14px;transition:transform 0.3s cubic-bezier(0.4,0,0.2,1);color:#FFFFFF;flex:0 0 auto}\n.wigy-accordion details[open] summary .wigy-icon-caret{transform:rotate(180deg)}\n.wigy-accordion-content{font-size:14.5px;color:rgba(255,255,255,0.88);line-height:1.6;padding:0 0 18px 38px}\n@media(max-width:768px){.wigy-faqs-body{padding:20px 16px 28px 16px}#wigy-shopify-faqs-standalone .wigy-accordion h2{font-size:14px}.wigy-accordion-content{padding-left:0}}\n.wigy-accordion-content p{margin:0 0 10px 0}\n.wigy-accordion-content p:last-child{margin-bottom:0}\n.wigy-accordion-content strong{color:#FFFFFF;font-weight:800}";
+
+      if (!document.querySelector('[data-wigy-style="' + STYLE_KEY + '"]')) {
+        var style = document.createElement("style");
+        style.setAttribute("data-wigy-style", STYLE_KEY);
+        style.textContent = css;
+        document.head.appendChild(style);
+      }
+
+      var waveSvg = '<svg class="waves-animated-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none"><defs><path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path></defs><g class="parallax1"><use xlink:href="#gentle-wave" x="50" y="3" fill="var(--wave-color-1)"></use></g><g class="parallax2"><use xlink:href="#gentle-wave" x="50" y="0" fill="var(--wave-color-2)"></use></g><g class="parallax3"><use xlink:href="#gentle-wave" x="50" y="9" fill="var(--wave-color-3)"></use></g><g class="parallax4"><use xlink:href="#gentle-wave" x="50" y="6" fill="var(--faq-bg)"></use></g></svg>';
+      var caretSvg = '<svg aria-hidden="true" focusable="false" class="wigy-icon-caret" viewBox="0 0 10 6"><path fill-rule="evenodd" clip-rule="evenodd" d="M9.354.646a.5.5 0 00-.708 0L5 4.293 1.354.646a.5.5 0 00-.708.708l4 4a.5.5 0 00.708 0l4-4a.5.5 0 000-.708z" fill="currentColor"></path></svg>';
+
+      var faqItems = [
+        { icon: '<span class="material-icon material-symbols-outlined">potted_plant</span>', question: "¿Sirve para cualquier tipo de planta y huerta?", answer: '<p>Sí. Está formulado para ser seguro y efectivo tanto en <strong>huertas orgánicas</strong> (verduras, aromáticas y frutales) como en <strong>macetas, plantas de interior y ornamentales</strong>. Al ser un producto orgánico, cuida la salud de tus cultivos sin riesgos.</p>' },
+        { icon: '<span class="material-icon material-symbols-outlined">schedule</span>', question: "¿Cuándo se empiezan a notar los resultados?", answer: '<p>Gracias a su fórmula de alta concentración y acción rápida, vas a notar un <strong>estímulo visible en el desarrollo de raíces</strong> y en la firmeza de tus plantas <strong>desde los primeros usos</strong>, ayudando a que los esquejes prendan.</p>' },
+        { icon: '<span class="material-icon material-symbols-outlined">yard</span>', question: "¿Qué pasa si hago un trasplante a una maceta más grande?", answer: '<p>Es el <strong>momento ideal</strong> para usarlo. Acelera la regeneración del tejido radicular y fortalece las defensas naturales de la planta, evitando el clásico <strong>"choque o estrés de trasplante"</strong> para que no se decaiga ni pierda hojas.</p>' },
+        { icon: '<span class="material-icon material-symbols-outlined">water_drop</span>', question: "¿Rinde mucho cada frasco o se acaba rápido?", answer: '<p>Al ser una fórmula <strong>súper concentrada</strong>, rinde un montón. Usás solo <strong>3 a 4 ml por litro de agua</strong>, así que un frasco de 250 ml prepara <strong>hasta 80 litros</strong>: unas 15 regaderas de 5 L, o un tratamiento completo para más de 60 macetas medianas. Sale <strong>menos de $1.000 por litro preparado</strong>.</p>' },
+        { icon: '<span class="material-icon material-symbols-outlined">science</span>', question: "¿Cómo se usa?", answer: '<p>Diluí <strong>3 a 4 ml por litro de agua</strong> y aplicalo en el <strong>remojo de esquejes</strong>, al momento del <strong>trasplante</strong> o en el <strong>riego</strong> de tu huerta y tus macetas. Es fácil de usar, aunque estés empezando.</p>' },
+        { icon: '<span class="material-icon material-symbols-outlined">local_shipping</span>', question: "¿Cuánto tarda en llegar mi pedido?", answer: '<p>Despachamos dentro de las <strong>24 hs hábiles</strong> posteriores a la compra. Enviamos a todo el país y la entrega suele demorar entre <strong>2 y 3 días hábiles</strong>. Una vez despachado, te mandamos por mail o WhatsApp el código de seguimiento.</p>' },
+        { icon: '<span class="material-icon material-symbols-outlined">payments</span>', question: "¿Cómo puedo pagar?", answer: '<p>Con tarjeta de crédito en <strong>3 cuotas sin interés</strong>, débito o Mercado Pago, en el checkout 100% seguro de Shopify.</p>' },
+        { icon: '<span class="material-icon material-symbols-outlined">verified_user</span>', question: "¿Mi compra está garantizada?", answer: '<p>Sí. Tenés <strong>' + (function(){var d=(window.WIGY_CONFIG&&window.WIGY_CONFIG.garantiaDias)||0;return d?'Garant\u00EDa de '+d+' d\u00EDas':'Garant\u00EDa 100%';})() + '</strong>, pagos seguros y <strong>atención al cliente 24/7</strong>. Si algo no está bien con tu pedido, escribinos y lo resolvemos.</p>' }
+      ];
+
+      var accordionsHTML = faqItems.map(function(item) {
+        return '<div class="wigy-accordion"><details><summary><div class="wigy-summary-title">' + item.icon + '<h2>' + item.question + '</h2></div>' + caretSvg + '</summary><div class="wigy-accordion-content">' + item.answer + '</div></details></div>';
+      }).join('');
+
+      var faqsHTML =
+        '<div class="wigy-section-divider" style="transform:scaleX(1) scaleY(1)"><div class="wigy-section-divider__svg">' + waveSvg + '</div></div>' +
+        '<div class="wigy-faqs-body"><div class="wigy-faqs-inner"><h2 class="wigy-faqs-title">Preguntas Frecuentes</h2>' + accordionsHTML + '</div></div>' +
+        '<div class="wigy-section-divider" style="transform:scaleX(1) scaleY(-1);margin-bottom:12px"><div class="wigy-section-divider__svg">' + waveSvg + '</div></div>';
+
+      var faqsWrapper = document.createElement("div");
+      faqsWrapper.id = "wigy-shopify-faqs-standalone";
+      faqsWrapper.innerHTML = faqsHTML;
+
+      var placeFaqsAfterTestimonials = function() {
+        if (document.getElementById('wigy-shopify-faqs-standalone')) return true;
+        var testimonios = document.getElementById('wigy-testimonials-slider-standalone');
+        if (testimonios) { testimonios.insertAdjacentElement('afterend', faqsWrapper); return true; }
+        return false;
+      };
+
+      if (!placeFaqsAfterTestimonials()) {
+        var faqTries = 0;
+        var faqTimer = setInterval(function() {
+          faqTries++;
+          if (placeFaqsAfterTestimonials() || faqTries >= 200) clearInterval(faqTimer);
+        }, 100);
+      }
+
+      var faqDetails = faqsWrapper.querySelectorAll('details');
+      faqDetails.forEach(function(detail) {
+        detail.addEventListener('click', function() {
+          if (!detail.open) { faqDetails.forEach(function(d) { if (d !== detail) d.removeAttribute('open'); }); }
+        });
+      });
+    }).catch(function() {});
+  };
+
+  injectFaqs();
+})();
+</script>
+<!-- ================================================================
+     BLOQUE 18: ELIMINAR ESPACIO DEBAJO DEL BOTÓN DE COMPRA
+     ================================================================ -->
+<script>
+(function() {
+  if (window.WIGY_SLUG_BLOCK) return;
+  if (!document.getElementById('wigy-remove-cart-space-css')) {
+    var st = document.createElement('style');
+    st.id = 'wigy-remove-cart-space-css';
+    st.innerHTML = ".js-prod-submit-form,.js-addtocart-placeholder{margin-bottom:0!important}.js-added-to-cart-product-message{margin-bottom:0!important;padding-bottom:0!important}form[action*='/cart'] .form-row.mb-4{margin-bottom:0!important}";
+    document.head.appendChild(st);
+  }
+  function removeBottomSpace() {
+    var btn = window.WIGY_DOM.btn();
+    if (btn) {
+      btn.style.setProperty('margin-bottom', '0', 'important');
+      var col = btn.closest('.col-12');
+      if (col) { col.style.setProperty('margin-bottom', '0', 'important'); col.style.setProperty('padding-bottom', '0', 'important'); }
+      var formRow = btn.closest('.form-row');
+      if (formRow) { formRow.style.setProperty('margin-bottom', '0', 'important'); formRow.classList.remove('mb-4'); }
+    }
+  }
+  removeBottomSpace();
+  setInterval(removeBottomSpace, 250);
+})();
+</script>
+<!-- BLOQUE: STICKY ADD TO CART BAR -->
+<script>
+(function() {
+  if (window.WIGY_SLUG_BLOCK) return;
+  var ID = "wigy-sticky-atc";
+  if (document.getElementById(ID)) return;
+
+  var ACCENT = "#2A5F35";
+  var ACCENT_END = "#6BA342";
+
+  var css = [
+    "#" + ID + "{position:fixed;bottom:0;left:0;right:0;z-index:9999;",
+    "background:rgba(255,255,255,0.97);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);",
+    "border-top:1px solid rgba(0,0,0,0.06);",
+    "box-shadow:0 -8px 30px rgba(0,0,0,0.08);",
+    "padding:12px 20px;display:flex;align-items:center;justify-content:center;gap:16px;",
+    "transform:translateY(100%);transition:transform 0.35s cubic-bezier(0.4,0,0.2,1);",
+    "font-family:'Poppins','Montserrat',sans-serif}",
+
+    "#" + ID + ".visible{transform:translateY(0)}",
+
+    "#" + ID + ".dismiss{transform:translateY(100%);opacity:0;",
+    "transition:transform 0.45s cubic-bezier(0.6,0,0.4,1),opacity 0.4s ease}",
+
+    "#" + ID + " .sticky-inner{display:flex;align-items:center;justify-content:space-between;",
+    "gap:16px;width:100%;max-width:600px}",
+
+    "#" + ID + " .sticky-info{display:flex;flex-direction:column;gap:2px;min-width:0;flex:1 1 auto;overflow:visible}",
+
+    "#" + ID + " .sticky-name{font-size:13px;font-weight:700;color:#111;",
+    "white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:1.2}",
+
+    "#" + ID + " .sticky-prices{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}",
+
+    "#" + ID + " .sticky-price{font-size:18px;font-weight:900;color:" + ACCENT + ";line-height:1.2}",
+
+    "#" + ID + " .sticky-old-price{font-size:13px;font-weight:600;color:#999;",
+    "text-decoration:line-through;line-height:1.2}",
+
+    "#" + ID + " .sticky-btn{background:linear-gradient(135deg," + ACCENT + " 0%," + ACCENT_END + " 100%);",
+    "color:#fff;border:none;border-radius:99px;padding:14px 28px;",
+    "font-size:15px;font-weight:800;cursor:pointer;text-transform:uppercase;",
+    "letter-spacing:0.8px;white-space:nowrap;flex-shrink:0;",
+    "box-shadow:0 6px 20px rgba(42,95,53,0.3);",
+    "transition:transform 0.2s ease,box-shadow 0.2s ease;position:relative;overflow:hidden}",
+
+    "#" + ID + " .sticky-btn:active{transform:scale(0.97)}",
+
+    "#" + ID + " .sticky-btn::after{content:'';position:absolute;top:-50%;left:-60%;",
+    "width:40%;height:200%;background:linear-gradient(105deg,transparent 20%,",
+    "rgba(255,255,255,0.15) 50%,transparent 80%);transform:skewX(-15deg);",
+    "animation:wigy-sticky-shine 3s ease-in-out infinite}",
+
+    "@keyframes wigy-sticky-shine{0%{left:-60%}40%{left:120%}100%{left:120%}}",
+
+    "@media(max-width:768px){",
+    "#" + ID + "{padding:10px 14px}",
+    "#" + ID + " .sticky-inner{gap:12px}",
+    "#" + ID + " .sticky-name{font-size:12px}",
+    "#" + ID + " .sticky-price{font-size:16px}",
+    "#" + ID + " .sticky-btn{padding:12px 20px;font-size:13px;letter-spacing:0.5px}}",
+
+    "@media(max-width:380px){",
+    "#" + ID + " .sticky-btn{padding:12px 16px;font-size:12px}}"
+  ].join("");
+
+  var st = document.createElement("style");
+  st.id = ID + "-css";
+  st.innerHTML = css;
+  document.head.appendChild(st);
+
+  function mount() {
+    if (document.getElementById(ID)) return true;
+
+    var realBtn = window.WIGY_DOM.btn();
+    if (!realBtn) return false;
+
+    var nameEl = window.WIGY_DOM.title();
+
+    var productName = nameEl ? nameEl.textContent.trim() : "";
+
+    /* Precio a mostrar: 1) pack elegido en nuestro selector, 2) pack elegido
+       en Kaching Bundles, 3) precio nativo del producto. */
+    function getPrices() {
+      var selP = document.querySelector("#wigy-premium-bundles .kb-bar.sel .kb-p");
+      if (selP) {
+        var selO = document.querySelector("#wigy-premium-bundles .kb-bar.sel .kb-op");
+        return { price: selP.textContent.trim(), old: selO ? selO.textContent.trim() : "" };
+      }
+      var root = document.querySelector("kaching-bundle, kaching-bundles-block, .kaching-bundles__block, .shopify-app-block[id*='kaching']");
+      if (root) {
+        var sel = root.querySelector("[class*='bar--selected'], [class*='bar'][class*='selected'], [class*='bar'][aria-checked='true']");
+        if (!sel) {
+          var radio = root.querySelector("input[type='radio']:checked");
+          if (radio) sel = radio.closest("[class*='bar']") || radio.parentElement;
+        }
+        var amounts = sel ? ((sel.innerText || "").match(/\$\s?\d[\d.,]*/g) || []) : [];
+        if (amounts.length) return { price: amounts[0], old: amounts[1] || "" };
+      }
+      var pEl = document.querySelector(".js-price-display") ||
+                document.querySelector("[data-product-price]") ||
+                document.querySelector(".product__info-container .price-item--sale, .product__info-container .price-item--regular");
+      if (pEl) return { price: pEl.textContent.trim(), old: "" };
+      try {
+        var cents = window.ShopifyAnalytics.meta.product.variants[0].price;
+        return { price: "$" + (cents / 100).toLocaleString("es-AR", { minimumFractionDigits: 2, maximumFractionDigits: 2 }), old: "" };
+      } catch (e) {}
+      return { price: "", old: "" };
+    }
+    var initial = getPrices();
+    var priceText = initial.price;
+    var oldPriceText = initial.old;
+
+    var bar = document.createElement("div");
+    bar.id = ID;
+    bar.innerHTML =
+      '<div class="sticky-inner">' +
+        '<div class="sticky-info">' +
+          (productName ? '<span class="sticky-name">' + productName + '</span>' : '') +
+          '<div class="sticky-prices">' +
+            '<span class="sticky-price">' + priceText + '</span>' +
+            '<span class="sticky-old-price">' + oldPriceText + '</span>' +
+          '</div>' +
+        '</div>' +
+        '<button class="sticky-btn" type="button">Agregar al carrito</button>' +
+      '</div>';
+
+    document.body.appendChild(bar);
+
+    /* Cuando la barra fija está visible, el aviso de compras sube por encima */
+    function setVis(on) {
+      bar.classList.toggle("visible", on);
+      document.documentElement.style.setProperty("--wigy-sticky-h", bar.offsetHeight + "px");
+      document.body.classList.toggle("wigy-sticky-on", on);
+    }
+
+    var dismissed = false;
+    bar.querySelector(".sticky-btn").addEventListener("click", function() {
+      var btn = window.WIGY_DOM.btn();
+      if (btn) btn.click();
+
+      dismissed = true;
+      setVis(false);
+      bar.classList.add("dismiss");
+
+      setTimeout(function() {
+        bar.remove();
+      }, 500);
+    });
+
+    /* Al elegir otro pack (nuestro o de Kaching), se actualiza el precio */
+    function refreshPrices() {
+      var pr = getPrices();
+      if (pr.price) bar.querySelector(".sticky-price").textContent = pr.price;
+      bar.querySelector(".sticky-old-price").textContent = pr.old;
+    }
+    document.addEventListener("click", function() { setTimeout(refreshPrices, 150); }, true);
+    document.addEventListener("change", function() { setTimeout(refreshPrices, 150); }, true);
+    setTimeout(refreshPrices, 1500);
+
+    /* Visible cuando el botón original quedó por ENCIMA de la pantalla.
+       Se chequea en cada scroll (no solo al cruzar el botón), así funciona
+       también con scroll rápido o saltos directos a una sección. */
+    var raf = null;
+    function check() {
+      raf = null;
+      if (dismissed) return;
+      var shouldShow = realBtn.getBoundingClientRect().bottom < 0;
+      if (shouldShow !== bar.classList.contains("visible")) setVis(shouldShow);
+    }
+    function onScroll() { if (!raf) raf = requestAnimationFrame(check); }
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll, { passive: true });
+    check();
+    return true;
+  }
+
+  var tries = 0;
+  var t = setInterval(function() {
+    tries++;
+    if (mount() || tries >= 80) clearInterval(t);
+  }, 250);
+})();
+</script>
+<!-- ================================================================
+     BLOQUE: VALIDACIÓN DE EXPERTO PROFESIONAL
+     Reemplaza el temporizador de envío. Se posiciona debajo de la garantía.
+     ================================================================ -->
+<script>
+(function() {
+  if (window.WIGY_SLUG_BLOCK) return;
+  var ID = "wigy-expert-endorsement";
+  var STYLE_ID = ID + "-style";
+
+  function injectStyleOnce() {
+    if (document.getElementById(STYLE_ID)) return;
+    var css = [
+      "#" + ID + "{display:block!important;width:100%!important;margin:12px 0!important}",
+
+      "#" + ID + " .expert-card{",
+      "width:100%;max-width:520px;margin:0 auto;",
+      "display:flex;align-items:flex-start;gap:14px;",
+      "padding:16px 18px;",
+      "border:1px solid rgba(42,95,53,.18);border-radius:12px;",
+      "background:#F5F4EE;",
+      "box-shadow:0 1px 4px rgba(0,0,0,.04);",
+      "box-sizing:border-box;position:relative}",
+
+      "#" + ID + " .expert-mp{",
+      "position:absolute;top:12px;right:14px;",
+      "display:flex;flex-direction:column;align-items:flex-end;gap:1px;",
+      "line-height:1;white-space:nowrap;text-align:right;max-width:45%}",
+
+      "#" + ID + " .expert-mp-code{font-size:11.5px;font-weight:800;color:#111;letter-spacing:0.3px}",
+
+      "#" + ID + " .expert-mp-label{font-size:9px;font-weight:600;color:#888}",
+
+      "#" + ID + " .expert-avatar{",
+      "width:52px;height:52px;border-radius:50%;",
+      "object-fit:cover;flex:0 0 auto;",
+      "border:2px solid #6BA342;",
+      "filter:grayscale(15%)}",
+
+      "#" + ID + " .expert-body{display:flex;flex-direction:column;gap:6px;min-width:0;flex:1}",
+
+      "#" + ID + " .expert-header{display:flex;flex-direction:column;gap:2px;padding-right:100px}",
+
+      "#" + ID + " .expert-name{margin:0;font-size:14px;font-weight:800;color:#2A5F35;line-height:1.2}",
+
+      "#" + ID + " .expert-role{margin:0;font-size:12px;font-weight:600;color:#666;line-height:1.2}",
+
+      "#" + ID + " .expert-quote{",
+      "margin:0;font-size:13px;font-weight:500;",
+      "line-height:1.55;color:#333;",
+      "font-style:italic;",
+      "position:relative;padding-left:0}",
+
+      "#" + ID + " .expert-badge{",
+      "display:inline-flex;align-items:center;gap:4px;",
+      "margin-top:4px;",
+      "font-size:11px;font-weight:700;color:#444;line-height:1}",
+
+      "#" + ID + " .expert-badge svg{width:14px;height:14px;color:#6BA342;flex:0 0 auto}",
+
+      "@media(max-width:768px){",
+      "#" + ID + " .expert-avatar{width:44px;height:44px}",
+      "#" + ID + " .expert-card{padding:14px 14px;gap:12px}",
+      "#" + ID + " .expert-name{font-size:13px}",
+      "#" + ID + " .expert-role{font-size:11px}",
+      "#" + ID + " .expert-quote{font-size:12.5px}",
+      "#" + ID + " .expert-mp{top:10px;right:12px}",
+      "#" + ID + " .expert-mp-code{font-size:10px}",
+      "#" + ID + " .expert-mp-label{font-size:8px}",
+      "#" + ID + " .expert-header{padding-right:80px}}"
+    ].join("");
+    var st = document.createElement("style");
+    st.id = STYLE_ID;
+    st.innerHTML = css;
+    document.head.appendChild(st);
+  }
+
+  function mount() {
+    if (document.getElementById(ID)) return true;
+    var anchor = document.getElementById("wigy-garantia-box");
+    if (!anchor) return false;
+    var cfg = window.WIGY_CONFIG && window.WIGY_CONFIG.experto;
+    if (!cfg) return false;
+
+    injectStyleOnce();
+
+    var verifiedSvg = '<svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-1.09 14.41l-3.5-3.5 1.41-1.41 2.09 2.09 5.18-5.18 1.41 1.41-6.59 6.59z"/></svg>';
+
+    var avatarHTML = cfg.foto && cfg.foto.indexOf("\u26A0\uFE0F") === -1
+      ? '<img class="expert-avatar" src="' + cfg.foto + '" alt="' + cfg.nombre + '">'
+      : '<div class="expert-avatar" style="background:#2A5F35;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:800;color:#fff;border:2px solid #6BA342">' + (cfg.nombre.indexOf('\u26A0\uFE0F') === -1 ? cfg.nombre.replace(/^(Ing\.?|Agr\.?|Dra?\.?|Lic\.?)\s*/gi,'').charAt(0).toUpperCase() : 'V') + '</div>';
+
+    var box = document.createElement("div");
+    box.id = ID;
+    box.innerHTML =
+      '<div class="expert-card">' +
+        '<div class="expert-mp"><span class="expert-mp-code">' + (cfg.matricula || '') + '</span><span class="expert-mp-label">' + (cfg.matriculaDesc || '') + '</span></div>' +
+        avatarHTML +
+        '<div class="expert-body">' +
+          '<div class="expert-header">' +
+            '<p class="expert-name">' + cfg.nombre + '</p>' +
+            '<p class="expert-role">' + cfg.profesion + '</p>' +
+          '</div>' +
+          '<p class="expert-quote">\u201C' + cfg.mensaje + '\u201D</p>' +
+          '<span class="expert-badge">' + verifiedSvg + ' Profesional verificado</span>' +
+        '</div>' +
+      '</div>';
+
+    anchor.insertAdjacentElement("afterend", box);
+    return true;
+  }
+
+  var tries = 0;
+  var t = setInterval(function() {
+    tries++;
+    if (mount() || tries >= 80) clearInterval(t);
+  }, 250);
+})();
+</script>
+<!-- BLOQUE: TOAST COMPRAS RECIENTES -->
+<script>
+(function() {
+  if (window.WIGY_SLUG_BLOCK) return;
+  var ID = "wigy-social-toast";
+  if (document.getElementById(ID + "-css")) return;
+
+  var BASE_SHOW_DURATION = 4500;
+  var EXTRA_PER_TOAST = 3000;
+  var PAUSE_BETWEEN = 12000;
+  var INITIAL_DELAY = 8000;
+
+  var BUYERS = (window.WIGY_CONFIG && window.WIGY_CONFIG.compradoresToast) || [
+    { name: "Graciela",   city: "Buenos Aires",  img: "" },
+    { name: "Marta",      city: "Córdoba",        img: "" },
+    { name: "Silvia",     city: "Rosario",        img: "" },
+    { name: "Patricia",   city: "Mendoza",        img: "" },
+    { name: "Claudia",    city: "Tucumán",        img: "" },
+    { name: "Roberto",    city: "La Plata",       img: "" },
+    { name: "Gustavo",    city: "Mar del Plata",  img: "" },
+    { name: "Eduardo",    city: "Salta",          img: "" },
+    { name: "Ricardo",    city: "Santa Fe",       img: "" },
+    { name: "Adriana",    city: "San Juan",       img: "" },
+    { name: "Alejandro",  city: "Neuquén",        img: "" },
+    { name: "Marcela",    city: "Bahía Blanca",   img: "" },
+    { name: "Gabriela",   city: "Resistencia",    img: "" },
+    { name: "Jorge",      city: "Posadas",        img: "" },
+    { name: "Fernando",   city: "Paraná",         img: "" },
+    { name: "Norma",      city: "San Luis",       img: "" },
+    { name: "Susana",     city: "Corrientes",     img: "" },
+    { name: "Daniel",     city: "Formosa",        img: "" },
+    { name: "Hugo",       city: "Bariloche",      img: "" },
+    { name: "Andrea",     city: "Ushuaia",        img: "" }
+  ];
+
+  var TIMES = [
+    "hace 2 min", "hace 4 min", "hace 7 min", "hace 11 min",
+    "hace 15 min", "hace 18 min", "hace 23 min", "hace 28 min"
+  ];
+
+  function pick(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
+
+  var css = [
+    "#" + ID + "{position:fixed;bottom:20px;left:20px;z-index:99999;",
+    "max-width:320px;width:calc(100% - 40px);",
+    "background:#fff;border-radius:14px;border-left:4px solid #6BA342;",
+    "box-shadow:0 10px 40px rgba(0,0,0,0.12),0 2px 8px rgba(0,0,0,0.06);",
+    "border:1px solid rgba(0,0,0,0.06);",
+    "padding:14px 16px;",
+    "display:flex;align-items:center;gap:12px;",
+    "font-family:inherit;",
+    "transform:translateY(120%);opacity:0;",
+    "transition:transform 0.5s cubic-bezier(0.4,0,0.2,1),opacity 0.4s ease,bottom 0.35s ease;",
+    "pointer-events:none}",
+
+    "#" + ID + ".toast-in{transform:translateY(0);opacity:1;pointer-events:auto}",
+    "#" + ID + ".toast-out{transform:translateY(120%);opacity:0;pointer-events:none}",
+
+    "#" + ID + " .toast-avatar{width:44px;height:44px;border-radius:50%;",
+    "background:linear-gradient(135deg,#2A5F35,#6BA342);",
+    "display:flex;align-items:center;justify-content:center;flex:0 0 auto;",
+    "overflow:hidden;border:2px solid rgba(42,95,53,0.15)}",
+
+    "#" + ID + " .toast-avatar span{color:#fff;font-size:18px;font-weight:800;line-height:1}",
+
+    "#" + ID + " .toast-avatar img{width:100%;height:100%;object-fit:cover;display:block}",
+
+    "#" + ID + " .toast-body{display:flex;flex-direction:column;gap:2px;min-width:0}",
+
+    "#" + ID + " .toast-name{font-size:13.5px;font-weight:700;color:#111;line-height:1.3;",
+    "white-space:nowrap;overflow:hidden;text-overflow:ellipsis}",
+
+    "#" + ID + " .toast-action{font-size:12.5px;color:#555;font-weight:500;line-height:1.3}",
+
+    "#" + ID + " .toast-time{font-size:11.5px;color:#999;font-weight:600;line-height:1.3}",
+
+    "#" + ID + " .toast-verified{display:inline-flex;align-items:center;gap:3px;",
+    "color:#2A5F35;font-size:11px;font-weight:700}",
+
+    "#" + ID + " .toast-verified svg{width:12px;height:12px}",
+
+    "@media(max-width:768px){",
+    "#" + ID + "{bottom:14px;left:14px;max-width:290px;width:calc(100% - 28px);",
+    "padding:12px 14px;gap:10px}",
+    "#" + ID + " .toast-avatar{width:40px;height:40px}",
+    "#" + ID + " .toast-avatar span{font-size:16px}",
+    "#" + ID + " .toast-name{font-size:13px}",
+    "#" + ID + " .toast-action{font-size:12px}}",
+
+    "@media(min-width:769px){",
+    "#" + ID + "{left:32px;bottom:28px;max-width:340px;width:340px}}",
+
+    "body.wigy-sticky-on #" + ID + "{bottom:calc(var(--wigy-sticky-h,72px) + 12px)!important}"
+  ].join("");
+
+  var st = document.createElement("style");
+  st.id = ID + "-css";
+  st.innerHTML = css;
+  document.head.appendChild(st);
+
+  var toast = document.createElement("div");
+  toast.id = ID;
+  document.body.appendChild(toast);
+
+  var checkSvg = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>';
+
+  function getProductName() {
+    var cfgName = window.WIGY_CONFIG && window.WIGY_CONFIG.nombreToast;
+    if (cfgName) return cfgName;
+    var el = window.WIGY_DOM.title();
+    if (el) {
+      var text = el.textContent.trim();
+      return text.length > 30 ? text.substring(0, 30) + "…" : text;
+    }
+    return (window.WIGY_CONFIG && window.WIGY_CONFIG.nombreProducto) || "este producto";
+  }
+
+  var toastCount = 0;
+
+  function showToast() {
+    var buyer = pick(BUYERS);
+    var time = pick(TIMES);
+    var productName = getProductName();
+
+    var avatarHTML;
+    if (buyer.img && buyer.img.length > 0 && buyer.img.indexOf("\u26A0\uFE0F") === -1) {
+      avatarHTML = '<div class="toast-avatar"><img src="' + buyer.img + '" alt="' + buyer.name + '"></div>';
+    } else {
+      avatarHTML = '<div class="toast-avatar"><span>' + buyer.name.charAt(0).toUpperCase() + '</span></div>';
+    }
+
+    toast.innerHTML =
+      avatarHTML +
+      '<div class="toast-body">' +
+        '<span class="toast-name">' + buyer.name + ' de ' + buyer.city + '</span>' +
+        '<span class="toast-action">Compró ' + productName + ' 🌱</span>' +
+        (window.WIGY_CONFIG && window.WIGY_CONFIG.toastMostrarHora ? '<span class="toast-time">' + time + ' · <span class="toast-verified">' + checkSvg + ' Compra verificada</span></span>' : '') +
+      '</div>';
+
+    toast.classList.remove("toast-in", "toast-out");
+    void toast.offsetWidth;
+    toast.classList.add("toast-in");
+
+    var currentDuration = BASE_SHOW_DURATION + (toastCount * EXTRA_PER_TOAST);
+    toastCount++;
+
+    setTimeout(function() {
+      toast.classList.remove("toast-in");
+      toast.classList.add("toast-out");
+    }, currentDuration);
+  }
+
+  function scheduleNext() {
+    var currentDuration = BASE_SHOW_DURATION + (toastCount * EXTRA_PER_TOAST);
+    setTimeout(function() {
+      showToast();
+      scheduleNext();
+    }, currentDuration + PAUSE_BETWEEN);
+  }
+
+  setTimeout(function() {
+    showToast();
+    scheduleNext();
+  }, INITIAL_DELAY);
+
+})();
+</script>
+<!-- OCULTAR ETIQUETA ENVÍO GRATIS -->
+<script>
+(function() {
+  if (window.WIGY_SLUG_BLOCK) return;
+  if (!document.getElementById('wigy-hide-shipping-label-css')) {
+    var st = document.createElement('style');
+    st.id = 'wigy-hide-shipping-label-css';
+    st.innerHTML = ".js-shipping-label-private[data-promotion-type='free-shipping']{display:none!important}";
+    document.head.appendChild(st);
+  }
+})();
+</script>
+<!-- TICKER HORIZONTAL INFINITO — REEMPLAZO BARRA ANUNCIOS -->
+<script>
+(function() {
+  if (window.WIGY_SLUG_BLOCK) return;
+  var ID = "wigy-ticker";
+  if (document.getElementById(ID + "-css")) return;
+
+  var MESSAGES = window.WIGY_CONFIG.mensajesTicker;
+
+  var BG_COLOR = "#2A5F35";
+  var TEXT_COLOR = "#ffffff";
+  var GAP_MOBILE = 60;
+  var GAP_DESKTOP = 100;
+  var SPEED = 50;
+  var REPEATS = 12;
+
+  var css = [
+    ".section-adbar,.announcement-bar-section{display:none!important}",
+    ".horizontal-ticker{display:none!important}",
+
+    "#" + ID + "{width:100%;background:" + BG_COLOR + ";overflow:hidden;",
+    "padding:14px 0;position:relative;z-index:100}",
+
+    "#" + ID + " .ticker-track{display:flex;align-items:center;",
+    "column-gap:" + GAP_MOBILE + "px;width:max-content;",
+    "animation:wigy-ticker-scroll " + SPEED + "s linear infinite}",
+
+    "#" + ID + " .ticker-item{font-size:14px;font-weight:700;",
+    "font-style:italic;text-transform:uppercase;",
+    "color:" + TEXT_COLOR + ";white-space:nowrap;line-height:1;flex-shrink:0;",
+    "margin:0;padding:0}",
+
+    "@keyframes wigy-ticker-scroll{to{transform:translateX(calc(-50% - " + (GAP_MOBILE / 2) + "px))}}",
+
+    "@media(min-width:750px){",
+    "#" + ID + "{padding:18px 0}",
+    "#" + ID + " .ticker-track{column-gap:" + GAP_DESKTOP + "px}",
+    "#" + ID + " .ticker-item{font-size:16px}",
+    "@keyframes wigy-ticker-scroll{to{transform:translateX(calc(-50% - " + (GAP_DESKTOP / 2) + "px))}}}"
+  ].join("");
+
+  var st = document.createElement("style");
+  st.id = ID + "-css";
+  st.innerHTML = css;
+  document.head.appendChild(st);
+
+  var itemsHTML = "";
+  for (var r = 0; r < REPEATS; r++) {
+    for (var i = 0; i < MESSAGES.length; i++) {
+      itemsHTML += '<p class="ticker-item">' + MESSAGES[i] + '</p>';
+    }
+  }
+
+  var bar = document.createElement("div");
+  bar.id = ID;
+  bar.innerHTML = '<div class="ticker-track">' + itemsHTML + '</div>';
+
+  var originalAdbar = document.querySelector(".section-adbar") || document.querySelector(".announcement-bar-section") || document.querySelector("[id*='announcement-bar']");
+  if (originalAdbar && originalAdbar.parentNode) {
+    originalAdbar.parentNode.insertBefore(bar, originalAdbar);
+  } else {
+    document.body.insertBefore(bar, document.body.firstChild);
+  }
+})();
+</script>
+<!-- ================================================================
+     BLOQUE: PACK PRESELECCIONADO DESDE EL INICIO (?pack=2 / ?pack=3)
+     Si el cliente llega desde el inicio con un pack elegido, se marca
+     ese pack en Kaching automáticamente.
+     ================================================================ -->
+<script>
+(function() {
+  if (window.WIGY_SLUG_BLOCK) return;
+  var m = location.search.match(/[?&]pack=(\d)/);
+  if (!m) return;
+  var idx = parseInt(m[1], 10) - 1;
+  if (idx < 0) return;
+
+  /* Busca las opciones de Kaching (también dentro de shadow DOM) */
+  function getBars() {
+    var hosts = document.querySelectorAll("kaching-bundle, kaching-bundles-block, .kaching-bundles__block, .kaching-bundles, [id*='kaching']");
+    for (var h = 0; h < hosts.length; h++) {
+      var scope = hosts[h].shadowRoot || hosts[h];
+      var bars = scope.querySelectorAll(".kaching-bundles__bar");
+      if (!bars.length) bars = scope.querySelectorAll("[class*='bundles__bar']:not([class*='bundles__bar-']):not([class*='bundles__bars'])");
+      if (!bars.length) {
+        var radios = scope.querySelectorAll("input[type='radio']");
+        if (radios.length) bars = Array.prototype.map.call(radios, function(r) { return r.closest("label") || r.parentElement; });
+      }
+      if (bars.length) return bars;
+    }
+    return [];
+  }
+  function isSelected(bar) {
+    var r = bar.querySelector && bar.querySelector("input[type='radio']");
+    if (r) return r.checked;
+    return /selected|active|checked/.test(bar.className || "") || bar.getAttribute("aria-checked") === "true";
+  }
+  function selectBar(bar) {
+    var r = bar.querySelector("input[type='radio']");
+    bar.click();
+    if (r && !r.checked) { r.click(); }
+    if (r && !r.checked) {
+      r.checked = true;
+      r.dispatchEvent(new Event("input", { bubbles: true }));
+      r.dispatchEvent(new Event("change", { bubbles: true }));
+    }
+  }
+
+  /* Kaching puede cargar tarde o volver a marcar su opción por defecto,
+     así que se insiste hasta que el pack elegido quede marcado y estable. */
+  var tries = 0, stable = 0;
+  var timer = setInterval(function() {
+    tries++;
+    var bars = getBars();
+    if (bars.length > idx) {
+      if (isSelected(bars[idx])) {
+        stable++;
+        if (stable >= 8) clearInterval(timer);
+      } else {
+        stable = 0;
+        selectBar(bars[idx]);
+      }
+    }
+    if (tries > 75) clearInterval(timer);
+  }, 200);
+})();
+</script>
+</div>
+<!-- {% endraw %} -->

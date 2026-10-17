@@ -1,0 +1,123 @@
+VERDEA · VIDEO DE TESTEO 2 · BUYER PERSONA: MARTA ("la que tiene miedo de matar las plantas")
+Estructura: PROBLEMA → AGITACIÓN → POR QUÉ PASA → SOLUCIÓN → CTA · ~35 s · 9:16
+Dolor: "Compro una planta linda en el vivero y a las dos semanas está fea. Todo lo que toco lo mato."
+(El video 1 de Marta ataca el golpe de trasplante. Este ataca la planta nueva que se arruina en casa.)
+=====================================================================
+
+PASO 1 · BLOQUES DE LA AVATAR EN FLOW (o Hedra + ElevenLabs)
+Ingredientes a video · foto de ella sobre verde · 9:16 · 8 s · x1
+Cada bloque = DESCRIPCIÓN FIJA + VOZ + la línea del bloque.
+
+DESCRIPCIÓN FIJA:
+La misma mujer de la imagen de referencia: argentina de unos 50 años, pelo largo oscuro y
+ondulado, sonrisa cálida, camisa de lino color crudo con mangas arremangadas y delantal de
+lona marrón claro. Ocupa el cuadro completo: plano medio de la cintura para arriba,
+centrada, vertical 9:16, cámara de celular fija, estilo UGC. Fondo verde croma liso
+(#00B140), parejo, sin sombras, nada verde en la ropa. Luz frontal pareja. Gestos chicos
+con las manos, siempre cerca del cuerpo y dentro del cuadro. Sin subtítulos, sin texto en
+pantalla, sin música.
+
+VOZ:
+Voz: mujer argentina nativa de Buenos Aires, acento porteño rioplatense bien marcado
+(pronuncia la "ll" y la "y" como "sh"), usa "vos". Voz cálida y cercana, como una vecina
+que le da un consejo a una amiga. Ritmo natural con pequeñas pausas.
+
+BLOQUE 1 · PROBLEMA (gancho)
+Mira a cámara con cara de "¿a vos también te pasa?", levanta las cejas. Dice:
+"¿Te comprás una planta hermosa en el vivero y a las dos semanas está fea? Me pasaba siempre."
+
+BLOQUE 2 · AGITACIÓN
+Se ríe con resignación, se lleva una mano al pecho y niega con la cabeza. Dice:
+"Y encima la pagaste un montón. Yo ya pensaba que todo lo que tocaba lo mataba."
+
+BLOQUE 3 · POR QUÉ PASA
+Explica tranquila, como enseñando, con las manos juntas a la altura del pecho. Dice:
+"Pasa que llega estresada: cambia de luz, de lugar, de maceta… y sus raíces no dan abasto."
+
+BLOQUE 4 · SOLUCIÓN
+Sonríe aliviada y se inclina un poco hacia la cámara, como contando un secreto. Dice:
+"Ahora, cuando traigo una planta, la riego con unas gotitas de VERDEA, y arma raíces nuevas
+para adaptarse."
+
+BLOQUE 5 · CTA (suave, sin "comprá ya")
+Sonríe cálida, asiente despacio y junta las manos frente al pecho, como dando un consejo
+de amiga. Tono cálido y alegre. Dice:
+"La próxima planta que traigas, cuidala desde las raíces. Te dejo el link: llevando dos,
+viene con guía de regalo."
+
+---------------------------------------------------------------------
+PASO 2 · FONDOS (Flow · Texto a video · Lite · 9:16 · x1 · nada seleccionado)
+Al final de cada uno: "Evitar: barro, tierra mojada, agua sucia, hojas secas, crocantes
+o marrones, manos deformes, caras, personas, texto, subtítulos, música. Solo sonido
+ambiente suave."
+---------------------------------------------------------------------
+F1a · Bloque 1 · la planta linda del vivero
+Video vertical 9:16, 4 segundos, estilo celular, realista. Una mujer, vista solo de los
+hombros para abajo, sale de un vivero luminoso llevando en brazos una planta frondosa y
+verde (un potus grande y sano) en maceta de plástico. Luz natural de día.
+
+F1b · Bloque 1 · la misma planta, dos semanas después
+Video vertical 9:16, 4 segundos, estilo celular, realista. Living de un departamento
+argentino, luz suave de ventana. El mismo potus en su maceta sobre una mesa de madera,
+ahora decaído: hojas amarillo verdoso pálido, blandas y caídas, colgando por el borde.
+Planta viva pero triste, NO seca. Cámara con acercamiento muy lento.
+
+F2 · Bloque 2 · "la pagaste un montón"
+Video vertical 9:16, 4 segundos, estilo celular, realista. Primer plano de la maceta de
+plástico de esa planta decaída, con una etiqueta de precio de vivero pegada en el costado
+(sin números legibles). Hojas caídas y pálidas arriba. Cámara quieta.
+
+F3 · Bloque 3 · raíces que no dan abasto
+Video vertical 9:16, 5 segundos, estilo celular, realista. Primer plano de dos manos
+limpias sosteniendo un potus recién sacado de su maceta de plástico: el pan de tierra seco
+está lleno de raíces apretadas y enredadas en espiral, tomando la forma de la maceta.
+Fondo desenfocado, luz natural. Sustrato seco, sin barro.
+
+F4 · Bloque 4 · solución
+  a) "dropeando el liquido.mp4" (ya lo tenés): 2 segundos del chorro + las gotas.
+  b) Regando:
+Video vertical 9:16, 5 segundos, estilo celular, realista. Una regadera de metal riega
+despacio la base de un potus en una maceta de barro, junto a una ventana luminosa; el agua
+clara se absorbe en la tierra oscura. Luz natural de mañana. Cámara quieta.
+
+F5 · Bloque 5 · resultado + CTA
+  a) Planta adaptada:
+Video vertical 9:16, 4 segundos, estilo celular, realista. El potus en su maceta de barro
+junto a una ventana con sol de mañana, ahora frondoso, con hojas verdes brillantes y
+erguidas. Cámara que gira muy lento alrededor.
+  b) Imagen de la guía (verdea-guia-preview-1080.jpg) con zoom lento.
+  c) Tu grabación de pantalla (pack x2 → carrito).
+
+---------------------------------------------------------------------
+PASO 3 · TEXTOS EN PANTALLA
+---------------------------------------------------------------------
+B1: "¿Tu planta nueva se arruina en casa? 🥀"
+B2: "...y la pagaste carísima 💸"
+B3: "LLEGA ESTRESADA: luz, lugar y maceta nuevos"
+B4: "unas gotas de VERDEA en el riego 💧"      (F5a: "Imagen ilustrativa", chiquito)
+B5: "Cuidala desde las raíces 🌱" → "LLEVÁ 2: 30% OFF + GUÍA DE REGALO 🎁" → "El link está acá abajo 👇 · 3 cuotas sin interés"
+
+---------------------------------------------------------------------
+PASO 4 · COPY DEL ANUNCIO (Meta)
+---------------------------------------------------------------------
+Texto principal:
+¿Te comprás una planta hermosa en el vivero y a las dos semanas está fea? 🥀
+No es que tengas la mano mala. Cuando llega a tu casa cambia de luz, de lugar y muchas veces
+de maceta, y sus raíces no dan abasto.
+🌱 Con unas gotas de VERDEA en el riego la ayudás a armar raíces nuevas y adaptarse.
+💧 Es concentrado: 3 a 4 ml por litro, rinde hasta 80 litros.
+🎁 Llevá 2 y ahorrá 30% + guía de cuidado para no equivocarte · 💳 3 cuotas sin interés
+👉 Cuidá la próxima planta que compres.
+Título: Que tu planta nueva no se arruine 🌱
+Descripción: Guía de regalo con el pack x2
+Botón: Comprar
+
+=====================================================================
+VERSIÓN CORTA ELEGIDA · 3 BLOQUES (~24 s) · estructura de prompt por secciones
+=====================================================================
+B1 (fondo: F1b planta decaída · texto "…y la pagaste carísima 💸"):
+"Mirá esta planta: la compré hermosa en el vivero y a las dos semanas está así. ¿Te pasó?"
+B2 (fondo: F3 raíces apretadas → dropeando · texto "luz, lugar y maceta nuevos"):
+"Llega estresada, y sus raíces no dan abasto. Por eso ahora la riego con unas gotitas de VERDEA."
+B3 (fondo: F5a planta adaptada → guía → grabación de pantalla · texto "LLEVÁ 2: 30% OFF + GUÍA 🎁 · El link está acá abajo 👇"):
+"Arma raíces nuevas y se adapta mucho mejor. Te dejo el link: llevando dos, viene con guía de regalo."
