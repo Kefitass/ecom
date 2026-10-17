@@ -1,0 +1,23 @@
+ORDI · CARRUSELES DE INSTAGRAM (1080 × 1350, 4:5)
+Estética: fondo lino #F5F0E8, títulos en Fraunces, texto en DM Sans, acento terracota #C65D3B.
+=====================================================================
+
+CARRUSEL 1 · "5 errores que hacen que tu placard se desordene" (para Caro)
+Slide 1 (portada): "Tu placard no se desordena solo. Estos 5 errores lo desordenan." + foto de placard revuelto.
+Slide 2: "1 · Apilar en vez de guardar en vertical" → cuando sacás una remera, se cae la pila.
+Slide 3: "2 · No tener una categoría por caja" → todo se mezcla.
+Slide 4: "3 · Llenarlo al 100%" → dejá un 20% de aire.
+Slide 5: "4 · Desaprovechar la altura" → cajas arriba para lo de otra temporada.
+Slide 6: "5 · No tener un día de mantenimiento" → 5 minutos los domingos.
+Slide 7 (CTA suave): foto del placard ordenado con cajas ORDI + "Te armamos una guía paso a paso. Viene de regalo con 2 o 3 sets."
+Prompt de foto para slide 1: placard de madera clara con ropa revuelta y pilas caídas, luz de mañana, sin personas, 4:5.
+Prompt de foto para slide 7: el mismo placard ordenado con 3 cajas de lino beige con manijas de cuero, luz cálida, 4:5.
+
+CARRUSEL 2 · "Una caja para cada rincón" (para Silvia)
+Slide 1: "No es solo el placard ✨" + collage de 4 ambientes.
+Slide 2: "Cuarto de los chicos: una caja por tipo de juguete."
+Slide 3: "Lavadero: productos en la grande, repuestos en la mediana."
+Slide 4: "Baño: toallas enrolladas en la mediana."
+Slide 5: "Arriba del ropero: ropa de otra temporada, protegida del polvo."
+Slide 6: "¿Cuántos sets necesitás? 1 ambiente = 1 set · Toda la casa = 3 sets (con envío gratis)."
+Prompts de foto: cada ambiente con cajas de lino beige con manijas de cuero, estilo deco luminoso, sin personas, 4:5.

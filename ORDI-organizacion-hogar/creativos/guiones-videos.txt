@@ -1,0 +1,113 @@
+ORDI · GUIONES DE VIDEOS DE TESTEO (3 por buyer persona)
+Formato fijo: 3 bloques de 8 s (máx. ~20 palabras cada uno), misma avatar mujer ~35 sobre verde
+croma, cámara fija, voz porteña. Fondos B-roll por bloque. CTA suave; la oferta va en texto en
+pantalla ("2 sets 14% OFF + guía · 3 sets 24% OFF + envío gratis · 3 cuotas"). Sin música.
+=====================================================================
+
+DESCRIPCIÓN FIJA DE LA AVATAR (para Flow / Hedra):
+Mujer argentina de unos 35 años, pelo castaño atado en un rodete desprolijo, remera blanca lisa
+y camisa de lino beige abierta encima. Plano medio de la cintura para arriba, centrada, vertical
+9:16, cámara de celular fija, estilo UGC. Fondo verde croma liso (#00B140), parejo, sin sombras,
+nada verde en la ropa. Luz frontal pareja. Gestos chicos con las manos, dentro del cuadro.
+Sin subtítulos, sin texto en pantalla, sin música.
+
+VOZ: mujer porteña, "vos", acento rioplatense marcado, tono de amiga contando algo que le funcionó.
+
+FONDOS (Flow · Texto a video · 9:16 · 4 s). Agregar al final de cada uno:
+"Evitar: caras, personas enteras, texto, logos, subtítulos, manos deformes, ropa sucia, música.
+Solo sonido ambiente suave."
+
+---------------------------------------------------------------------
+CARO 1 · "El placard que se desarma en 3 días"  (dolor)
+---------------------------------------------------------------------
+B1 · Mira a cámara, cara de "te entiendo", levanta las cejas:
+"¿Doblás todo el domingo y para el miércoles tu placard ya es un caos? A mí me pasaba siempre."
+B2 · Explica con las manos juntas, tranquila:
+"No era falta de ganas: me faltaba un sistema. Cada cosa en una caja, en vertical, a la vista."
+B3 · Sonríe aliviada, consejo de amiga:
+"Ahora abro el placard y encuentro todo. Si te pasa lo mismo, te dejo el link."
+Fondos:
+F1 · Placard de madera clara abierto, estantes con pilas de remeras derrumbadas y mezcladas,
+luz de mañana. Cámara fija frontal.
+F2 · Manos de mujer guardando remeras dobladas en vertical dentro de una caja de lino beige con
+manijas de cuero marrón, sobre una cama con sábanas blancas.
+F3 · El mismo placard, ahora con 3 cajas de lino beige alineadas en el estante, prolijo,
+luz cálida. Cámara hace un leve acercamiento.
+Texto en pantalla: "Set x3 · 2 sets 14% OFF + guía de regalo"
+
+---------------------------------------------------------------------
+CARO 2 · "El placard de Pinterest, en tu casa"  (deseo)
+---------------------------------------------------------------------
+B1 · Muestra el celular (gesto chico) y lo baja, sonriendo:
+"¿Viste esos placards de Pinterest que guardás y decís 'algún día'? Bueno, el mío ahora es así."
+B2 · Cuenta con entusiasmo contenido:
+"Tres cajas de lino, una para cada cosa. Lo hice en una tarde, siguiendo una guía paso a paso."
+B3 · Cálida:
+"No hace falta un placard enorme, hace falta que cada cosa tenga su lugar."
+Fondos:
+F1 · Detalle de 3 cajas de lino beige con manijas de cuero en un estante blanco, luz natural
+suave, plano cenital lento.
+F2 · Time-lapse de manos ordenando ropa en rollitos de colores neutros dentro de las cajas.
+F3 · Puerta de placard que se abre y muestra todo ordenado en cajas, plano frontal.
+Texto en pantalla: "Guía 'Placard ordenado en 1 tarde' de regalo"
+
+---------------------------------------------------------------------
+CARO 3 · "Se arman en 10 segundos"  (demostración + objeción "se desarman")
+---------------------------------------------------------------------
+B1 · Levanta un dedo, como contando un dato:
+"Lo que más me preocupaba es que las cajas de tela se desarman. Estas no: tienen base rígida."
+B2 · Gesto de abrir con las manos:
+"Llegan planas, las desplegás en segundos y quedan firmes. Y cuando no las usás, se pliegan."
+B3 · Sonríe:
+"Firmes, lindas y no ocupan lugar. Te dejo el link."
+Fondos:
+F1 · Manos desplegando una caja de lino plegada sobre una mesa de madera clara, se arma en
+2 segundos y queda firme. Plano cenital.
+F2 · Caja llena de jeans doblados, manos la levantan por las manijas de cuero: no se deforma.
+F3 · Tres cajas plegadas, planas, apiladas, que caben en un cajón.
+Texto en pantalla: "3 sets: 24% OFF + envío gratis"
+
+---------------------------------------------------------------------
+SILVIA 1 · "Ordeno el sábado y el lunes es un tornado"  (dolor)
+---------------------------------------------------------------------
+B1 · Se ríe con resignación:
+"¿Ordenás toda la casa el sábado y el lunes parece que pasó un tornado? Bienvenida al club."
+B2 · Explica:
+"Lo que me cambió fue darle a cada cosa una caja: juguetes, toallas, ropa de cama. Nada suelto."
+B3 · Consejo de amiga:
+"Ahora los chicos guardan solos porque saben dónde va cada cosa. Te dejo el link."
+Fondos:
+F1 · Piso de un cuarto infantil luminoso con juguetes de madera desparramados, sin personas.
+F2 · Manos de un nene guardando bloques de colores en una caja de lino con manijas.
+F3 · Estante bajo con 3 cajas de lino alineadas, cuarto ordenado, luz de tarde.
+Texto en pantalla: "Set x3 · grande, mediana y chica"
+
+---------------------------------------------------------------------
+SILVIA 2 · "Una caja para cada rincón"  (deseo, toda la casa)
+---------------------------------------------------------------------
+B1 · Señala alrededor con un gesto chico:
+"No es solo el placard: lavadero, baño, el cuarto de los chicos. Todo tenía su montoncito."
+B2 · Contando:
+"Compré tres sets y ordené la casa en un fin de semana. Cada ambiente con sus cajas."
+B3 · Satisfecha:
+"Y como son lindas, las dejo a la vista. Te dejo el link, con tres sets el envío es gratis."
+Fondos:
+F1 · Lavadero blanco con productos de limpieza guardados en una caja de lino beige.
+F2 · Baño con toallas enrolladas dentro de una caja de lino sobre un estante.
+F3 · Arriba de un ropero, tres cajas de lino alineadas, plano contrapicado.
+Texto en pantalla: "3 sets: 24% OFF + envío gratis + guía"
+
+---------------------------------------------------------------------
+SILVIA 3 · "¿Los chicos las rompen?"  (objeción)
+---------------------------------------------------------------------
+B1 · Cara de "yo también lo pensé":
+"Yo pensaba que con mis hijos no iban a durar ni una semana."
+B2 · Mostrando con las manos la firmeza:
+"Tienen base rígida y manijas reforzadas. Las tiran, las arrastran… y siguen enteras."
+B3 · Cálida:
+"Si querés que cada cosa tenga su lugar, empezá por una caja. Te dejo el link."
+Fondos:
+F1 · Manos infantiles tirando de una manija de cuero de una caja de lino llena de juguetes.
+F2 · Caja de lino apoyada en el piso, se le apoya un peluche grande encima, mantiene la forma.
+F3 · Cuarto infantil ordenado al atardecer.
+Texto en pantalla: "Garantía 100% · 3 cuotas sin interés"

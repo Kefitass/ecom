@@ -1,0 +1,48 @@
+ORDI · PROMPTS PARA LAS FOTOS DE LA GALERÍA DEL PRODUCTO
+==============================================================
+CÓMO USARLOS
+- Adjuntá una foto real de tus cajas (de frente, que se vean la tela y las manijas).
+- Formato cuadrado 1:1. Generá 2-3 versiones y quedate con la mejor.
+- Si cambia el color de la tela o las manijas, respondé: "Las cajas tienen que ser idénticas a la
+  imagen adjunta, no las modifiques".
+
+ORDEN DE LA GALERÍA EN SHOPIFY
+1. Packshot del set x3 sobre fondo lino .......... PROMPT A
+2. Placard ordenado con las cajas ................ PROMPT B
+3. Antes / después del placard ................... PROMPT C (+ textos "ANTES" / "DESPUÉS")
+4. Medidas de cada caja .......................... PROMPT D (+ medidas en texto después)
+5. Plegadas (no ocupan lugar) .................... PROMPT E
+6. Packs 1, 2 y 3 sets + guía .................... PROMPT F (+ textos después)
+
+PROMPT A · Packshot
+REFERENCIA: usá las cajas de la imagen adjunta como referencia exacta (misma tela beige lino,
+mismas manijas de cuero marrón, mismas costuras). No las rediseñes.
+Fotografía de producto profesional, 1:1. Tres cajas (grande, mediana y chica) escalonadas de
+izquierda a derecha sobre una superficie lisa color lino (#F5F0E8) con fondo infinito. Una
+remera blanca doblada en rollito asoma de la caja mediana. Luz suave de ventana desde la
+izquierda, sombras suaves. Las cajas ocupan el 70% del ancho. Sin texto, sin logos.
+
+PROMPT B · Placard ordenado
+Misma referencia de cajas. Foto realista 1:1 de un placard de madera clara abierto, con las 3
+cajas en el estante del medio: dentro, ropa en colores neutros doblada en vertical. Arriba, una
+pila prolija de toallas. Luz cálida de tarde. Estilo revista de deco, sin personas.
+
+PROMPT C · Antes / después
+Imagen 1:1 dividida al medio con una línea vertical fina. Izquierda: el mismo estante con ropa
+revuelta, pilas caídas, mezcla de colores. Derecha: el mismo estante con las 3 cajas de la
+referencia y la ropa ordenada en vertical. Misma luz y mismo encuadre en las dos mitades.
+Sin texto (los rótulos se agregan después).
+
+PROMPT D · Medidas
+Las 3 cajas de la referencia en fila, de frente, sobre fondo lino liso, con espacio arriba y a
+los costados para agregar después las medidas en texto. Luz pareja, sin sombras duras.
+
+PROMPT E · Plegadas
+Las 3 cajas de la referencia plegadas, planas, apiladas sobre una mesa de madera clara, al lado
+de una caja armada para comparar. Plano cenital, luz natural.
+
+PROMPT F · Packs
+Composición 1:1 en 3 columnas sobre fondo lino: izquierda 1 set (3 cajas), centro 2 sets
+(6 cajas), derecha 3 sets (9 cajas), cada grupo apilado prolijo. En el centro y la derecha, una
+tablet con una portada de guía en tonos beige. Espacio arriba de cada columna para el texto del
+pack. Sin texto.
