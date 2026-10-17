@@ -20,8 +20,9 @@
   trasplante (`video-marta-trasplante.txt`) · Marta 2 planta del vivero, 3 bloques
   (`video-marta-2-vivero.txt`).
 - GUION LISTO: Lucía 2 "semanas sin raíz" (`video-lucia-2-semanas.txt`).
-- EN CURSO: Marta 3 "miedo a hacerle daño" (`video-marta-3-miedo.txt`).
-- PENDIENTE: Lucía 3 "multiplicá en vez de comprar" (`videos-pendientes-lucia3-marta3.txt`).
+- GUION LISTO: Marta 3 "miedo a hacerle daño" (`video-marta-3-miedo.txt`).
+- GUION LISTO: Lucía 3 "multiplicá en vez de comprar" (`video-lucia-3-multiplicar.txt`).
+  Con esto están guionados los 6.
 - Generador actual de la avatar: APIMart, prompts con secciones en inglés (FORMAT/CHARACTER/
   FRAMING/BACKGROUND/LIGHTING/VOICE/ACTION AND DIALOGUE/AUDIO/RESTRICTIONS), diálogo en
   español, sección VOICE idéntica en todos los bloques. Siempre con la regla antisubtítulos
