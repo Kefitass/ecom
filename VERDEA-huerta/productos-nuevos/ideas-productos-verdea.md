@@ -1,4 +1,6 @@
 # VERDEA · Productos nuevos (ideas validadas)
+
+> ⚠️ **Actualizado el 17/10/2026:** con datos nuevos cambió el orden. El producto #2 recomendado es el **fertilizante orgánico** (recompra) y la estación queda para **kit y regalo** (69/100). Ver `segundo-producto-analisis.md`.
 *(octubre 2026 · skill validar-producto-ar · pensado para Lucía y Marta)*
 
 ## Resumen: qué haría yo
