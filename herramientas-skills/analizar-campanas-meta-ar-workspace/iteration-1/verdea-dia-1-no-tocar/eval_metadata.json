@@ -1,0 +1,15 @@
+{
+  "eval_id": 4,
+  "eval_name": "verdea-dia-1-no-tocar",
+  "prompt": "Ayer arranqué la campaña de VERDEA con 4 anuncios, te paso la captura de cómo quedó (verdea-dia-1.png). El de Lucía 2 tiene un CTR horrible, ¿lo apago ya? Y el de Marta 1 ya vendió, ¿le subo el presupuesto?",
+  "assertions": [
+    "Recomienda no tocar nada todavía porque todavía no alcanza para decidir",
+    "No apaga Lucía 2 ahora: explica que tiene pocas impresiones (menos de 2.000) o poco gasto y da la condición para cortarlo más adelante",
+    "No sube el presupuesto de Marta 1: 1 venta no alcanza (pide 3 ventas o más días)",
+    "El semáforo es AMARILLO",
+    "Lee bien los números de la captura: gasto total ~$28.364, 4 anuncios, 1 compra (de Marta 1)",
+    "No inventa datos que la captura no tiene (carritos, gancho, valor de la compra): los muestra como faltantes",
+    "Pide el export completo o las columnas que faltan, con instrucciones de cómo sacarlas del Administrador de anuncios",
+    "Dice cuándo volver a mirar (p. ej. en 2-3 días o al llegar a 1 CPA de equilibrio por anuncio)"
+  ]
+}

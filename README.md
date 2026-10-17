@@ -23,5 +23,8 @@ Cada marca tiene su propia carpeta con todo lo suyo. Abrí la carpeta de la marc
 
 `herramientas/calculadora-rentabilidad.html`: abrila con doble clic para calcular margen, CPA y ROAS de equilibrio de cada pack.
 `herramientas/imagenes/`: generador de las imágenes de galería y carruseles (`bash herramientas/imagenes/generar.sh`). Si cambiás precios o textos, editá `generar_imagenes.py` y volvé a generar.
-`herramientas-skills/` tiene la skill de validación de productos y `prompts-nuevas-skills.md`, con los prompts para pedir skills nuevas.
+`herramientas-skills/` tiene las skills (cada una en su carpeta y empaquetada en un `.skill` para subir a Claude):
+- `validar-producto-ar`: valida un producto antes de testearlo (demanda, competencia, números en pesos, puntaje).
+- `analizar-campanas-meta-ar`: lee el export o las capturas de Meta Ads y te dice qué anuncio cortar, cuál escalar y qué probar mañana (semáforo, presupuesto e ideas de anuncios). Cómo exportar el informe: `analizar-campanas-meta-ar/references/exportar-informe-meta.md`.
+- `prompts-nuevas-skills.md`: los prompts para pedir skills nuevas.
 `VERDEA-huerta/CLAUDE.md` tiene las reglas de los creativos de VERDEA.

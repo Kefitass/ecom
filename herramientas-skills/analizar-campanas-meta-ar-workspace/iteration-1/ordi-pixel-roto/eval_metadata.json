@@ -1,0 +1,15 @@
+{
+  "eval_id": 3,
+  "eval_name": "ordi-pixel-roto",
+  "prompt": "Algo raro pasa con ORDI: Meta me dice 0 compras en 3 días, pero en Shopify tengo 7 ventas de esos mismos días (del 7 al 9 de octubre). ¿Apago los anuncios? Te paso el CSV que exporté (ordi-pixel-3-dias.csv).",
+  "assertions": [
+    "Dice que el problema es de medición (píxel o API de conversiones) antes de opinar sobre los anuncios",
+    "No recomienda apagar los anuncios por mostrar 0 compras en Meta",
+    "Calcula el CPA real con las ventas de Shopify: $9.000 (unos $63.000 de gasto / 7 ventas)",
+    "Compara el CPA real con el CPA de equilibrio de ORDI (~$13.524) y concluye que la campaña probablemente es rentable",
+    "El semáforo es AMARILLO",
+    "Da pasos concretos para arreglar la medición (app de Meta en Shopify / uso compartido de datos / API de conversiones / Administrador de eventos / probar eventos)",
+    "Lee bien el CSV con punto y coma y coma decimal: gasto total ~$63.000 y ~$21.000 por anuncio",
+    "Tiene en orden las secciones del formato: título '· Diagnóstico de campaña', Semáforo, Confianza en los datos, Qué hacer mañana, Resultados por anuncio, Dónde se cae la venta, Próximos anuncios para probar, Datos que me faltaron"
+  ]
+}

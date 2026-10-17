@@ -1,0 +1,16 @@
+{
+  "eval_id": 2,
+  "eval_name": "verdea-pagina-no-convierte",
+  "prompt": "Llevo 5 días con VERDEA, gasté como 180 lucas y vendí UNA sola. Los anuncios parecen andar, me entran un montón de clics, pero no compra nadie. ¿Corto todo? Te adjunto el Excel que bajé de Meta (verdea-5-dias.xlsx). Cada frasco me cuesta $8.000 puesto.",
+  "assertions": [
+    "El semáforo es ROJO",
+    "Dice que la venta se cae en la página o la oferta, no en los anuncios, citando CTR alto (~2,3%) y tasa de carrito muy baja (~1,1% o 9 carritos)",
+    "No propone cortar los anuncios como solución: recomienda pausar o frenar el gasto mientras se arregla la página y reutilizar los mismos anuncios",
+    "Propone al menos 2 cambios concretos en la página u oferta (p. ej. primera pantalla, precio contra Mercado Libre, confianza/reseñas reales, packs, funcionamiento del botón en el celular)",
+    "Calcula el CPA de equilibrio con costo $8.000 y precio $58.000: alrededor de $35.000 para 1 frasco",
+    "Las ideas de anuncios son solo para Lucía y Marta (no aparecen Raúl ni Héctor)",
+    "Las ideas de anuncios no usan CTA agresivos como 'comprá ya' o 'pedilo hoy'",
+    "Tiene en orden las secciones del formato: título '· Diagnóstico de campaña', Semáforo, Confianza en los datos, Qué hacer mañana, Resultados por anuncio, Dónde se cae la venta, Próximos anuncios para probar, Datos que me faltaron",
+    "Pide las ventas de Shopify o sugiere verificar que el evento de agregar al carrito se mida bien"
+  ]
+}
