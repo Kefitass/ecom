@@ -19,9 +19,12 @@
 - HECHOS: Lucía 1 esquejes podridos (`guiones-videos-verdea.txt` / pizarrón) · Marta 1 golpe de
   trasplante (`video-marta-trasplante.txt`) · Marta 2 planta del vivero, 3 bloques
   (`video-marta-2-vivero.txt`).
-- EN CURSO: Lucía 2 "semanas sin raíz" (`video-lucia-2-semanas.txt`).
-- PENDIENTES: Lucía 3 "multiplicá en vez de comprar" y Marta 3 "miedo a hacerle daño"
-  (`videos-pendientes-lucia3-marta3.txt`).
+- GUION LISTO: Lucía 2 "semanas sin raíz" (`video-lucia-2-semanas.txt`).
+- EN CURSO: Marta 3 "miedo a hacerle daño" (`video-marta-3-miedo.txt`).
+- PENDIENTE: Lucía 3 "multiplicá en vez de comprar" (`videos-pendientes-lucia3-marta3.txt`).
+- Generador actual de la avatar: APIMart, prompts con secciones en inglés (FORMAT/CHARACTER/
+  FRAMING/BACKGROUND/LIGHTING/VOICE/ACTION AND DIALOGUE/AUDIO/RESTRICTIONS), diálogo en
+  español, sección VOICE idéntica en todos los bloques.
 - Formato fijo: 3 bloques de 8 s (máx. ~20 palabras), misma avatar mujer ~50 sobre verde
   #00FF00, cámara fija, prompt por secciones; voz unificada con ElevenLabs; fondos B-roll con
   prompts muy específicos (secciones FORMATO/ESCENA/SUJETO/ACCIÓN/CÁMARA/EVITAR, sin barro).
