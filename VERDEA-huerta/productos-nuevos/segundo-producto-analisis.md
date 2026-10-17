@@ -13,6 +13,41 @@
    pedido**), son de temporada, el comprador no es ni Lucía ni Marta, y para ponerles tu marca necesitás habilitaciones
    del INASE que un revendedor no tiene.
 
+## Tu decisión: fertilizante al mismo precio que el enraizante + combos (17/10)
+**Tiene sentido**, y con un detalle a favor: el fertilizante cuesta menos de hacer que el enraizante, así que
+el combo deja **más** que vender 2 enraizantes.
+
+| Oferta | Precio | Margen antes de anuncios | Comparación |
+|---|---|---|---|
+| Fertilizante solo | $58.000 | $39.880 (69%) | Sirve de **precio ancla**, no es lo que más se va a vender |
+| **Dúo Raíz + Nutrición** (1 + 1) · antes $116.000 · 30% OFF + guía | **$81.200** | **$49.312 (61%)** | 2 enraizantes al mismo precio dejan $44.812 |
+| **Trío Huerta Completa** (2 enraizantes + 1 fertilizante) · antes $174.000 · 35% OFF + guía + envío gratis | **$113.100** | **$56.356 (50%)** | Misma escalera que tus packs actuales |
+| Recompra de clienta: fertilizante con 20% OFF (por mail o WhatsApp) | $46.400 | $31.064 (67%) | Sin costo de anuncio |
+
+[Estimado] Supuse un costo de $8.000 por enraizante y $3.500 por fertilizante: cargá los reales en la calculadora.
+
+**Cómo armarlo**
+- Misma escalera que ya usás: 1 a $58.000 · 2 con 30% OFF · 3 con 35% OFF + envío gratis. La clienta ya la entiende.
+- El **Dúo** es la estrella: dos productos que se explican juntos ("primero raíces, después nutrición").
+- En Kaching se puede armar como bundle de productos distintos o, más simple, como producto aparte en Shopify.
+- Para que $58.000 se sostenga: que el fertilizante también sea **concentrado** y diga **cuánto rinde**
+  ("1 frasco rinde X litros = $___ por litro preparado"), igual que el enraizante.
+
+**Tres cuidados**
+1. **Tu enraizante ya está muy arriba del mercado [ML]:** Top Crop 250 ml $4.887–$5.750, Phito Gro orgánico
+   250 ml $7.976–$8.453, BioBizz Root Juice 250 ml (el más caro) $22.999–$26.700. VERDEA a $58.000 es **más del doble
+   del más caro**. Si el test vende, tu clienta compra la promesa y la marca, no el precio, y el fertilizante a
+   $58.000 puede andar con ella. **Si el test no vende, el primer sospechoso es el precio, antes que el producto**:
+   en ese caso probá bajar el x1 (por ejemplo a $44.900, que sigue siendo premium) antes de descartar.
+2. **"Vitaminas para plantas" es una categoría más conocida que el enraizante** (Fertifox, Terra Fértil a $4.500–$8.400
+   en ML y Easy): hay más gente que compara. Por eso conviene venderlo **en combos** y no salir con anuncios del
+   fertilizante solo a $58.000.
+3. **La recompra a precio lleno cuesta más:** quien ya lo probó compara. Dale un **precio de clienta**
+   (20% OFF por mail o WhatsApp) o la recompra en pack.
+
+**Cuándo:** igual que antes, después de validar el enraizante. Primero el Dúo a tus clientas actuales; si responde,
+lo sumás como opción en la landing (en lugar del "2 enraizantes" o al lado).
+
 ## Primero: ¿cuándo está "validado" el enraizante?
 No sumes nada hasta cumplir esto (todo junto):
 - [ ] **30 o más ventas** en el test con Lucía y Marta, con un **costo por venta promedio por debajo de tu margen**
@@ -137,4 +172,4 @@ clientas fieles.
 El enraizante también es un estimulante y, según la Res. SENASA 431/2024, tiene que estar inscripto. **Fijate que la
 etiqueta tenga el número de registro SENASA de quien lo elabora.** Si no lo tiene, conviene resolverlo antes de escalar.
 
-Fuentes: [Lapin Deco · estación de propagación](https://www.lapindeco.com.ar/productos/estacion-de-propagacion-botanica-rosa/) · [ML soportes para tubos](https://listado.mercadolibre.com.ar/soporte-para-tubo-de-ensayo-de-madera) · [ML semillas de césped rye grass y festuca](https://listado.mercadolibre.com.ar/semillas-de-cesped-ray-grass-y-festuca) · [ML precios de semillas de festuca](https://listado.mercadolibre.com.ar/precios-de-semillas-de-festuca) · [ML rye grass y festuca 15/25/35 kg](https://listado.mercadolibre.com.ar/rye-grass-festuca-semillas-bolsa-x-15-25-y-35-kilos) · [INASE (Infoleg)](https://servicios.infoleg.gob.ar/infolegInternet/anexos/60000-64999/62748/texact.htm) · [LegalWeed · registro de semillas](https://legalweed.com.ar/servicios/registro-de-semillas-y-geneticas-legalweed/) · [SENASA · fertilizantes, enmiendas y otros](https://www.argentina.gob.ar/senasa/programas-sanitarios/productos-veterinarios-fitosanitarios-y-fertilizantes/fertilizantes-enmiendas-y-otros) · [Res. SENASA 431/2024](https://www.argentina.gob.ar/normativa/nacional/resoluci%C3%B3n-431-2024-398542/actualizacion) · [Inscripción de fertilizantes y bioinsumos](https://www.argentina.gob.ar/servicio/productos-fitosanitarios-biologicos-fertilizantes-enmiendas-y-bioinsumos-inscripcion-y) · [ML vitaminas para plantas](https://listado.mercadolibre.com.ar/vitamina-para-plantas) · [ML fertilizante líquido para plantas](https://listado.mercadolibre.com.ar/fertilizante-liquido-para-plantas) · [UCA · implantación de césped](https://repositorio.uca.edu.ar/handle/123456789/459)
+Fuentes: [ML enraizante líquido](https://listado.mercadolibre.com.ar/enraizante-liquido) · [ML enraizador líquido](https://listado.mercadolibre.com.ar/enraizador-liquido) · [Easy · fertilizante Terrafertil Follaje 750 cc](https://www.easy.com.ar/fertilizante-liquido-foll-x-750-cc-1199214/p) · [Lapin Deco · estación de propagación](https://www.lapindeco.com.ar/productos/estacion-de-propagacion-botanica-rosa/) · [ML soportes para tubos](https://listado.mercadolibre.com.ar/soporte-para-tubo-de-ensayo-de-madera) · [ML semillas de césped rye grass y festuca](https://listado.mercadolibre.com.ar/semillas-de-cesped-ray-grass-y-festuca) · [ML precios de semillas de festuca](https://listado.mercadolibre.com.ar/precios-de-semillas-de-festuca) · [ML rye grass y festuca 15/25/35 kg](https://listado.mercadolibre.com.ar/rye-grass-festuca-semillas-bolsa-x-15-25-y-35-kilos) · [INASE (Infoleg)](https://servicios.infoleg.gob.ar/infolegInternet/anexos/60000-64999/62748/texact.htm) · [LegalWeed · registro de semillas](https://legalweed.com.ar/servicios/registro-de-semillas-y-geneticas-legalweed/) · [SENASA · fertilizantes, enmiendas y otros](https://www.argentina.gob.ar/senasa/programas-sanitarios/productos-veterinarios-fitosanitarios-y-fertilizantes/fertilizantes-enmiendas-y-otros) · [Res. SENASA 431/2024](https://www.argentina.gob.ar/normativa/nacional/resoluci%C3%B3n-431-2024-398542/actualizacion) · [Inscripción de fertilizantes y bioinsumos](https://www.argentina.gob.ar/servicio/productos-fitosanitarios-biologicos-fertilizantes-enmiendas-y-bioinsumos-inscripcion-y) · [ML vitaminas para plantas](https://listado.mercadolibre.com.ar/vitamina-para-plantas) · [ML fertilizante líquido para plantas](https://listado.mercadolibre.com.ar/fertilizante-liquido-para-plantas) · [UCA · implantación de césped](https://repositorio.uca.edu.ar/handle/123456789/459)
