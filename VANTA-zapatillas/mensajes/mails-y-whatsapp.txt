@@ -1,0 +1,37 @@
+VANTA · MAILS Y WHATSAPP AUTOMÁTICOS
+(Shopify → Marketing → Automatizaciones · WhatsApp Business o app de WhatsApp)
+=====================================================================
+
+━━━ 1 · CARRITO ABANDONADO ━━━
+MAIL 1 · 1 h · Asunto: Tus VANTA te esperan 👟
+Hola {{ nombre }}: dejaste tu par en el carrito. ¿Dudas con el talle? Calzan normal y el cambio es gratis.
+[Terminar mi compra]
+MAIL 2 · 24 h · Asunto: ¿Miedo al talle? Te lo resolvemos
+Medí tu pie en 30 segundos: apoyalo contra la pared sobre una hoja, marcá el dedo más largo y medí.
+Buscalo en la tabla [Ver guía de talles]. Y si no te quedan, el cambio es gratis.
+MAIL 3 · 48 h · Asunto: Último aviso: tu carrito se vence hoy
+3 cuotas sin interés · envío en 24 hs · cambio de talle gratis. [Volver a mi carrito]
+WHATSAPP · 2 h: "Hola {{ nombre }} 👋 Soy de VANTA. ¿Te quedó alguna duda con el talle? Decime qué número
+usás normalmente y te digo cuál pedir 😉"
+
+━━━ 2 · POST-COMPRA ━━━
+A · Confirmación: "¡Gracias, {{ nombre }}! Tu pedido #{{ numero }} está confirmado. Lo despachamos en 24 hs hábiles."
+B · Despachado: "Tus VANTA están en camino 🚚 Seguimiento: {{ link_seguimiento }}"
+C · Al entregar: "¿Te quedaron bien? Si el talle no es el correcto, respondé este mail en los próximos
+   ⚠️ [X] días y coordinamos el cambio sin costo."
+D · 5 días después: "3 tips para que te duren: limpiá con paño húmedo, secá a la sombra, nunca en lavarropas."
+
+━━━ 3 · RESEÑA CON FOTO ━━━
+R1 · 10 días después de la entrega · Asunto: ¿Nos mostrás tus VANTA puestas? 📸
+"Si nos dejás tu reseña con una foto, te regalamos 10% OFF en tu próximo par (sea buena o mala la reseña).
+Contanos también qué talle compraste y cómo te calzaron: le sirve muchísimo a otros." [Dejar mi reseña]
+R2 · 17 días: recordatorio corto.
+WHATSAPP · 11 días: "Hola {{ nombre }} ¿Cómo te quedaron? Si nos mandás una foto con tus VANTA puestas,
+te regalamos 10% OFF para el próximo par 🙌"
+NOTA: pedí permiso para publicar; no condiciones el descuento a una reseña positiva.
+Con estas fotos completás "fotosClientes" y el "talle/calce" de las reseñas.
+
+━━━ 4 · RESPUESTAS RÁPIDAS ━━━
+/talle → "Calzan normal: pedí tu número de siempre. Si estás entre dos, el más grande. Y el cambio es gratis 😉"
+/cambio → "Pasame tu número de pedido y el talle que necesitás; coordinamos el retiro y te mandamos el nuevo."
+/envio → "Despacho en 24 hs hábiles, llega en 2-3 días a todo el país. Con 3 pares el envío es gratis 🚚"

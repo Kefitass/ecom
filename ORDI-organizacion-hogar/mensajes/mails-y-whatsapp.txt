@@ -1,0 +1,85 @@
+ORDI · MAILS Y WHATSAPP AUTOMÁTICOS
+Dónde se cargan: Shopify → Marketing → Automatizaciones (Shopify Email) para los mails;
+WhatsApp con una app tipo "Zoko", "Callbell" o a mano desde WhatsApp Business.
+Variables entre {{ }}: Shopify las completa solo.
+=====================================================================
+
+━━━ 1 · CARRITO ABANDONADO ━━━
+
+MAIL 1 · 1 hora después
+Asunto: ¿Te quedó algo en el placard? 📦
+Previsualización: Tu set ORDI te está esperando.
+Hola {{ nombre }}:
+Vimos que dejaste tus cajas ORDI en el carrito. Te lo guardamos por si querés terminar la compra.
+Recordá: con 2 sets tenés 14% OFF y la guía "Placard ordenado en 1 tarde" de regalo; con 3 sets,
+24% OFF + envío gratis.
+[Terminar mi compra]
+¿Dudas con las medidas? Respondé este mail o escribinos por WhatsApp.
+
+MAIL 2 · 24 horas después
+Asunto: Lo que dicen quienes ya ordenaron con ORDI
+Hola {{ nombre }}:
+"Abro el placard y da gusto." "Son firmes y no se deforman." (⚠️ usá reseñas reales)
+Las cajas tienen base rígida, manijas reforzadas y se pliegan cuando no las usás.
+[Volver a mi carrito]
+
+MAIL 3 · 48 horas después (último)
+Asunto: Tu carrito se vence hoy
+Hola {{ nombre }}:
+Te escribimos por última vez para recordarte tu set ORDI. 3 cuotas sin interés y despacho en 24 hs.
+[Terminar mi compra]
+
+WHATSAPP · 2 horas después (solo si dejó su teléfono y aceptó recibir mensajes)
+"Hola {{ nombre }} 👋 Soy de ORDI. Vimos que dejaste tus cajas en el carrito. ¿Te quedó alguna duda
+con las medidas o con qué pack te conviene? Te ayudo por acá 😊"
+
+━━━ 2 · POST-COMPRA ━━━
+
+MAIL A · Confirmación (al pagar)
+Asunto: ¡Gracias, {{ nombre }}! Tu pedido #{{ numero }} está confirmado ✨
+Ya estamos preparando tus cajas. Las despachamos dentro de las 24 hs hábiles y te mandamos el
+seguimiento por mail.
+Si compraste 2 o 3 sets: tu guía "Placard ordenado en 1 tarde" llega en un mail aparte.
+
+MAIL B · Guía de regalo (packs de 2 y 3 sets, inmediato)
+Asunto: Tu guía de regalo: Placard ordenado en 1 tarde 📘
+Hola {{ nombre }}: acá tenés tu guía [Descargar la guía PDF]. Te recomendamos leerla antes de que
+lleguen las cajas: el paso 1 (vaciar y depurar) lo podés hacer desde hoy.
+
+MAIL C · Despachado
+Asunto: Tus cajas ORDI ya están en camino 🚚
+Seguimiento: {{ link_seguimiento }}. Llegan plegadas: se arman en segundos, sin herramientas.
+
+MAIL D · 2 días después de la entrega · tips
+Asunto: 3 trucos para que tu placard siga ordenado
+1. Guardá en vertical. 2. Una categoría por caja. 3. Cinco minutos los domingos.
+¿Querés ordenar otro ambiente? [Ver más organizadores]
+
+━━━ 3 · PEDIDO DE RESEÑA CON FOTO (la clave para tener prueba social real) ━━━
+
+MAIL R1 · 7 días después de la entrega
+Asunto: ¿Nos mostrás cómo quedó tu placard? 📸
+Hola {{ nombre }}:
+Nos encantaría ver cómo quedó. Si nos dejás tu reseña con una foto del antes y el después,
+te regalamos un 10% OFF para tu próxima compra (sea buena o mala la reseña, nos sirve igual).
+[Dejar mi reseña con foto]
+Con tu permiso, podemos compartirla en la página (sin tu apellido).
+
+MAIL R2 · 14 días después (si no respondió)
+Asunto: Tu opinión nos ayuda un montón
+Solo te lleva un minuto: [Dejar mi reseña]. Tu 10% OFF sigue disponible.
+
+WHATSAPP · 8 días después de la entrega
+"Hola {{ nombre }} 😊 ¿Cómo te quedó el placard con las cajas ORDI? Si nos mandás una foto del
+antes y el después por acá, te regalamos 10% OFF en tu próxima compra. ¡Nos encanta verlas!"
+
+NOTA: pedí siempre permiso antes de publicar fotos de clientes y no condiciones el descuento a
+que la reseña sea positiva. Con estas fotos completás "fotosClientes" en la landing.
+
+━━━ 4 · RESPUESTAS RÁPIDAS (WhatsApp Business) ━━━
+/medidas → "Cada set trae 3 cajas: grande 40×30×25 cm, mediana 35×25×20 y chica 30×20×15. ¿Querés que
+te ayude a ver cuántas te entran? Pasame el alto y el fondo de tu estante 📏"
+/envio → "Despachamos en 24 hs hábiles a todo el país y llega en 2-3 días hábiles. Con 3 sets el envío es gratis 🚚"
+/pack → "Si ordenás un ambiente, 1 set. Placard + otro ambiente, 2 sets (14% OFF + guía). Toda la casa, 3 sets
+(24% OFF + envío gratis + guía)."
+/caro → "Entiendo. Pensá que es por set de 3 cajas firmes con base rígida, que duran años. Y en 3 cuotas sin interés 😊"

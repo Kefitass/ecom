@@ -1,0 +1,36 @@
+VERDEA · MAILS Y WHATSAPP AUTOMÁTICOS
+(Shopify → Marketing → Automatizaciones · WhatsApp Business o app de WhatsApp)
+Tono VERDEA: cálido, de amiga que sabe de plantas; CTA suave.
+=====================================================================
+
+━━━ 1 · CARRITO ABANDONADO ━━━
+MAIL 1 · 1 h · Asunto: Tus plantas te están esperando 🌱
+Hola {{ nombre }}: dejaste tu enraizante en el carrito. Te lo guardamos.
+Llevando 2 tenés 30% OFF y la guía de regalo. [Terminar mi compra]
+MAIL 2 · 24 h · Asunto: ¿Se te pudren los esquejes? No sos la única
+"Probé de todo y se me pudrían." Con unas gotas de VERDEA en el agua o al trasplantar, las raíces
+arrancan con fuerza. Un frasco concentrado rinde hasta 80 litros. [Volver a mi carrito]
+MAIL 3 · 48 h · Asunto: Último aviso para tu enraizante
+3 cuotas sin interés · despacho en 24 hs. [Volver a mi carrito]
+WHATSAPP · 2 h: "Hola {{ nombre }} 🌱 Soy de VERDEA. ¿Te quedó alguna duda sobre cómo usarlo con tus
+plantas? Contame qué querés enraizar y te digo cómo."
+
+━━━ 2 · POST-COMPRA ━━━
+A · Confirmación: "¡Gracias, {{ nombre }}! Tu pedido #{{ numero }} está confirmado. Lo despachamos en 24 hs hábiles 🌱"
+B · Guía (packs con regalo): "Acá tenés tu guía de regalo [Descargar]. Empezá por el capítulo de esquejes."
+C · Despachado: "Tu VERDEA ya está en camino 🚚 {{ link_seguimiento }}"
+D · 3 días después de la entrega · Asunto: Cómo usarlo, paso a paso
+"Diluí 3 a 4 ml por litro de agua. Esquejes: remojo antes de plantar o en el agua del frasco.
+Trasplantes: regá con la mezcla el día del cambio. Repetí cada 7-10 días."
+
+━━━ 3 · RESEÑA CON FOTO (Lucía y Marta) ━━━
+R1 · 21 días después de la entrega (cuando ya hay raíces) · Asunto: ¿Ya largaron raíces? 📸
+"Nos encantaría ver tus esquejes o tu planta trasplantada. Si nos dejás tu reseña con una foto,
+te regalamos 10% OFF para tu próximo frasco (sea buena o mala la reseña)." [Dejar mi reseña]
+WHATSAPP · 22 días: "Hola {{ nombre }} 🌱 ¿Cómo vienen tus esquejes? Si nos mandás una foto de las
+raíces, te regalamos 10% OFF para el próximo frasco."
+NOTA: pedí permiso antes de publicar y no condiciones el descuento a una reseña positiva.
+Fotos reales de raíces = el mejor antes/después para Lucía.
+
+━━━ 4 · RECOMPRA ━━━
+Día 60 · Asunto: ¿Cómo va tu frasco? "Si ya lo estás terminando, tu próximo VERDEA tiene 10% OFF con el código ⚠️ [CÓDIGO]."
