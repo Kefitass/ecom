@@ -1,0 +1,1325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eval Review</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&family=Lora:wght@400;500&display=swap" rel="stylesheet">
+  <script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js" integrity="sha384-EnyY0/GSHQGSxSgMwaIPzSESbqoOLSexfnSMN2AP+39Ckmn92stwABZynq1JyzdT" crossorigin="anonymous"></script>
+  <style>
+    :root {
+      --bg: #faf9f5;
+      --surface: #ffffff;
+      --border: #e8e6dc;
+      --text: #141413;
+      --text-muted: #b0aea5;
+      --accent: #d97757;
+      --accent-hover: #c4613f;
+      --green: #788c5d;
+      --green-bg: #eef2e8;
+      --red: #c44;
+      --red-bg: #fceaea;
+      --header-bg: #141413;
+      --header-text: #faf9f5;
+      --radius: 6px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Lora', Georgia, serif;
+      background: var(--bg);
+      color: var(--text);
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ---- Header ---- */
+    .header {
+      background: var(--header-bg);
+      color: var(--header-text);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-shrink: 0;
+    }
+    .header h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+    .header .instructions {
+      font-size: 0.8rem;
+      opacity: 0.7;
+      margin-top: 0.25rem;
+    }
+    .header .progress {
+      font-size: 0.875rem;
+      opacity: 0.8;
+      text-align: right;
+    }
+
+    /* ---- Main content ---- */
+    .main {
+      flex: 1;
+      overflow-y: auto;
+      padding: 1.5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    /* ---- Sections ---- */
+    .section {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      flex-shrink: 0;
+    }
+    .section-header {
+      font-family: 'Poppins', sans-serif;
+      padding: 0.75rem 1rem;
+      font-size: 0.75rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--border);
+      background: var(--bg);
+    }
+    .section-body {
+      padding: 1rem;
+    }
+
+    /* ---- Config badge ---- */
+    .config-badge {
+      display: inline-block;
+      padding: 0.2rem 0.625rem;
+      border-radius: 9999px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      margin-left: 0.75rem;
+      vertical-align: middle;
+    }
+    .config-badge.config-primary {
+      background: rgba(33, 150, 243, 0.12);
+      color: #1976d2;
+    }
+    .config-badge.config-baseline {
+      background: rgba(255, 193, 7, 0.15);
+      color: #f57f17;
+    }
+
+    /* ---- Prompt ---- */
+    .prompt-text {
+      white-space: pre-wrap;
+      font-size: 0.9375rem;
+      line-height: 1.6;
+    }
+
+    /* ---- Outputs ---- */
+    .output-file {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .output-file + .output-file {
+      margin-top: 1rem;
+    }
+    .output-file-header {
+      padding: 0.5rem 0.75rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      font-family: 'SF Mono', SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .output-file-header .dl-btn {
+      font-size: 0.7rem;
+      color: var(--accent);
+      text-decoration: none;
+      cursor: pointer;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-weight: 500;
+      opacity: 0.8;
+    }
+    .output-file-header .dl-btn:hover {
+      opacity: 1;
+      text-decoration: underline;
+    }
+    .output-file-content {
+      padding: 0.75rem;
+      overflow-x: auto;
+    }
+    .output-file-content pre {
+      font-size: 0.8125rem;
+      line-height: 1.5;
+      white-space: pre-wrap;
+      word-break: break-word;
+      font-family: 'SF Mono', SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace;
+    }
+    .output-file-content img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 4px;
+    }
+    .output-file-content iframe {
+      width: 100%;
+      height: 600px;
+      border: none;
+    }
+    .output-file-content table {
+      border-collapse: collapse;
+      font-size: 0.8125rem;
+      width: 100%;
+    }
+    .output-file-content table td,
+    .output-file-content table th {
+      border: 1px solid var(--border);
+      padding: 0.375rem 0.5rem;
+      text-align: left;
+    }
+    .output-file-content table th {
+      background: var(--bg);
+      font-weight: 600;
+    }
+    .output-file-content .download-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 0.875rem;
+      cursor: pointer;
+    }
+    .output-file-content .download-link:hover {
+      background: var(--border);
+    }
+    .empty-state {
+      color: var(--text-muted);
+      font-style: italic;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    /* ---- Feedback ---- */
+    .prev-feedback {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 0.625rem 0.75rem;
+      margin-top: 0.75rem;
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+    .prev-feedback-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 0.25rem;
+      color: var(--text-muted);
+    }
+    .feedback-textarea {
+      width: 100%;
+      min-height: 100px;
+      padding: 0.75rem;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      font-family: inherit;
+      font-size: 0.9375rem;
+      line-height: 1.5;
+      resize: vertical;
+      color: var(--text);
+    }
+    .feedback-textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    }
+    .feedback-status {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 0.5rem;
+      min-height: 1.1em;
+    }
+
+    /* ---- Grades (collapsible) ---- */
+    .grades-toggle {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      user-select: none;
+    }
+    .grades-toggle:hover {
+      color: var(--accent);
+    }
+    .grades-toggle .arrow {
+      margin-right: 0.5rem;
+      transition: transform 0.15s;
+      font-size: 0.75rem;
+    }
+    .grades-toggle .arrow.open {
+      transform: rotate(90deg);
+    }
+    .grades-content {
+      display: none;
+      margin-top: 0.75rem;
+    }
+    .grades-content.open {
+      display: block;
+    }
+    .grades-summary {
+      font-size: 0.875rem;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .grade-badge {
+      display: inline-block;
+      padding: 0.125rem 0.5rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+    .grade-pass { background: var(--green-bg); color: var(--green); }
+    .grade-fail { background: var(--red-bg); color: var(--red); }
+    .assertion-list {
+      list-style: none;
+    }
+    .assertion-item {
+      padding: 0.625rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.8125rem;
+    }
+    .assertion-item:last-child { border-bottom: none; }
+    .assertion-status {
+      font-weight: 600;
+      margin-right: 0.5rem;
+    }
+    .assertion-status.pass { color: var(--green); }
+    .assertion-status.fail { color: var(--red); }
+    .assertion-evidence {
+      color: var(--text-muted);
+      font-size: 0.75rem;
+      margin-top: 0.25rem;
+      padding-left: 1.5rem;
+    }
+
+    /* ---- View tabs ---- */
+    .view-tabs {
+      display: flex;
+      gap: 0;
+      padding: 0 2rem;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+    .view-tab {
+      font-family: 'Poppins', sans-serif;
+      padding: 0.625rem 1.25rem;
+      font-size: 0.8125rem;
+      font-weight: 500;
+      cursor: pointer;
+      border: none;
+      background: none;
+      color: var(--text-muted);
+      border-bottom: 2px solid transparent;
+      transition: all 0.15s;
+    }
+    .view-tab:hover { color: var(--text); }
+    .view-tab.active {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
+    .view-panel { display: none; }
+    .view-panel.active { display: flex; flex-direction: column; flex: 1; overflow: hidden; }
+
+    /* ---- Benchmark view ---- */
+    .benchmark-view {
+      padding: 1.5rem 2rem;
+      overflow-y: auto;
+      flex: 1;
+    }
+    .benchmark-table {
+      border-collapse: collapse;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      font-size: 0.8125rem;
+      width: 100%;
+      margin-bottom: 1.5rem;
+    }
+    .benchmark-table th, .benchmark-table td {
+      padding: 0.625rem 0.75rem;
+      text-align: left;
+      border: 1px solid var(--border);
+    }
+    .benchmark-table th {
+      font-family: 'Poppins', sans-serif;
+      background: var(--header-bg);
+      color: var(--header-text);
+      font-weight: 500;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .benchmark-table tr:hover { background: var(--bg); }
+    .benchmark-table tr.benchmark-row-with { background: rgba(33, 150, 243, 0.06); }
+    .benchmark-table tr.benchmark-row-without { background: rgba(255, 193, 7, 0.06); }
+    .benchmark-table tr.benchmark-row-with:hover { background: rgba(33, 150, 243, 0.12); }
+    .benchmark-table tr.benchmark-row-without:hover { background: rgba(255, 193, 7, 0.12); }
+    .benchmark-table tr.benchmark-row-avg { font-weight: 600; border-top: 2px solid var(--border); }
+    .benchmark-table tr.benchmark-row-avg.benchmark-row-with { background: rgba(33, 150, 243, 0.12); }
+    .benchmark-table tr.benchmark-row-avg.benchmark-row-without { background: rgba(255, 193, 7, 0.12); }
+    .benchmark-delta-positive { color: var(--green); font-weight: 600; }
+    .benchmark-delta-negative { color: var(--red); font-weight: 600; }
+    .benchmark-notes {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1rem;
+    }
+    .benchmark-notes h3 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.875rem;
+      margin-bottom: 0.75rem;
+    }
+    .benchmark-notes ul {
+      list-style: disc;
+      padding-left: 1.25rem;
+    }
+    .benchmark-notes li {
+      font-size: 0.8125rem;
+      line-height: 1.6;
+      margin-bottom: 0.375rem;
+    }
+    .benchmark-empty {
+      color: var(--text-muted);
+      font-style: italic;
+      text-align: center;
+      padding: 3rem;
+    }
+
+    /* ---- Navigation ---- */
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      border-top: 1px solid var(--border);
+      background: var(--surface);
+      flex-shrink: 0;
+    }
+    .nav-btn {
+      font-family: 'Poppins', sans-serif;
+      padding: 0.5rem 1.25rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--surface);
+      cursor: pointer;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text);
+      transition: all 0.15s;
+    }
+    .nav-btn:hover:not(:disabled) {
+      background: var(--bg);
+      border-color: var(--text-muted);
+    }
+    .nav-btn:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+    .done-btn {
+      font-family: 'Poppins', sans-serif;
+      padding: 0.5rem 1.5rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--surface);
+      color: var(--text);
+      cursor: pointer;
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: all 0.15s;
+    }
+    .done-btn:hover {
+      background: var(--bg);
+      border-color: var(--text-muted);
+    }
+    .done-btn.ready {
+      border: none;
+      background: var(--accent);
+      color: white;
+      font-weight: 600;
+    }
+    .done-btn.ready:hover {
+      background: var(--accent-hover);
+    }
+    /* ---- Done overlay ---- */
+    .done-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 100;
+      justify-content: center;
+      align-items: center;
+    }
+    .done-overlay.visible {
+      display: flex;
+    }
+    .done-card {
+      background: var(--surface);
+      border-radius: 12px;
+      padding: 2rem 3rem;
+      text-align: center;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      max-width: 500px;
+    }
+    .done-card h2 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .done-card p {
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+      line-height: 1.5;
+    }
+    .done-card .btn-row {
+      display: flex;
+      gap: 0.5rem;
+      justify-content: center;
+    }
+    .done-card button {
+      padding: 0.5rem 1.25rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--surface);
+      cursor: pointer;
+      font-size: 0.875rem;
+    }
+    .done-card button:hover {
+      background: var(--bg);
+    }
+    /* ---- Toast ---- */
+    .toast {
+      position: fixed;
+      bottom: 5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--header-bg);
+      color: var(--header-text);
+      padding: 0.625rem 1.25rem;
+      border-radius: var(--radius);
+      font-size: 0.875rem;
+      opacity: 0;
+      transition: opacity 0.3s;
+      pointer-events: none;
+      z-index: 200;
+    }
+    .toast.visible {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <div id="app" style="height:100vh; display:flex; flex-direction:column;">
+    <div class="header">
+      <div>
+        <h1>Eval Review: <span id="skill-name"></span></h1>
+        <div class="instructions">Review each output and leave feedback below. Navigate with arrow keys or buttons. When done, copy feedback and paste into Claude Code.</div>
+      </div>
+      <div class="progress" id="progress"></div>
+    </div>
+
+    <!-- View tabs (only shown when benchmark data exists) -->
+    <div class="view-tabs" id="view-tabs" style="display:none;">
+      <button class="view-tab active" onclick="switchView('outputs')">Outputs</button>
+      <button class="view-tab" onclick="switchView('benchmark')">Benchmark</button>
+    </div>
+
+    <!-- Outputs panel (qualitative review) -->
+    <div class="view-panel active" id="panel-outputs">
+    <div class="main">
+      <!-- Prompt -->
+      <div class="section">
+        <div class="section-header">Prompt <span class="config-badge" id="config-badge" style="display:none;"></span></div>
+        <div class="section-body">
+          <div class="prompt-text" id="prompt-text"></div>
+        </div>
+      </div>
+
+      <!-- Outputs -->
+      <div class="section">
+        <div class="section-header">Output</div>
+        <div class="section-body" id="outputs-body">
+          <div class="empty-state">No output files found</div>
+        </div>
+      </div>
+
+      <!-- Previous Output (collapsible) -->
+      <div class="section" id="prev-outputs-section" style="display:none;">
+        <div class="section-header">
+          <div class="grades-toggle" onclick="togglePrevOutputs()">
+            <span class="arrow" id="prev-outputs-arrow">&#9654;</span>
+            Previous Output
+          </div>
+        </div>
+        <div class="grades-content" id="prev-outputs-content"></div>
+      </div>
+
+      <!-- Grades (collapsible) -->
+      <div class="section" id="grades-section" style="display:none;">
+        <div class="section-header">
+          <div class="grades-toggle" onclick="toggleGrades()">
+            <span class="arrow" id="grades-arrow">&#9654;</span>
+            Formal Grades
+          </div>
+        </div>
+        <div class="grades-content" id="grades-content"></div>
+      </div>
+
+      <!-- Feedback -->
+      <div class="section">
+        <div class="section-header">Your Feedback</div>
+        <div class="section-body">
+          <textarea
+            class="feedback-textarea"
+            id="feedback"
+            placeholder="What do you think of this output? Any issues, suggestions, or things that look great?"
+          ></textarea>
+          <div class="feedback-status" id="feedback-status"></div>
+          <div class="prev-feedback" id="prev-feedback" style="display:none;">
+            <div class="prev-feedback-label">Previous feedback</div>
+            <div id="prev-feedback-text"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="nav" id="outputs-nav">
+      <button class="nav-btn" id="prev-btn" onclick="navigate(-1)">&#8592; Previous</button>
+      <button class="done-btn" id="done-btn" onclick="showDoneDialog()">Submit All Reviews</button>
+      <button class="nav-btn" id="next-btn" onclick="navigate(1)">Next &#8594;</button>
+    </div>
+    </div><!-- end panel-outputs -->
+
+    <!-- Benchmark panel (quantitative stats) -->
+    <div class="view-panel" id="panel-benchmark">
+      <div class="benchmark-view" id="benchmark-content">
+        <div class="benchmark-empty">No benchmark data available. Run a benchmark to see quantitative results here.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Done overlay -->
+  <div class="done-overlay" id="done-overlay">
+    <div class="done-card">
+      <h2>Review Complete</h2>
+      <p>Your feedback has been saved. Go back to your Claude Code session and tell Claude you're done reviewing.</p>
+      <div class="btn-row">
+        <button onclick="closeDoneDialog()">OK</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast"></div>
+
+  <script>
+    // ---- Embedded data (injected by generate_review.py) ----
+    const EMBEDDED_DATA = {"skill_name": "analizar-campanas-meta-ar", "runs": [{"id": "eval-1-ordi-ganador-y-perdedores-with_skill-run-1", "prompt": "Ya pasaron 4 d\u00edas de la campa\u00f1a de ORDI. Te paso el export del Administrador de anuncios (ordi-4-dias.csv). \u00bfQu\u00e9 corto, qu\u00e9 dejo y qu\u00e9 escalo? No quiero quemar plata.", "eval_id": 1, "outputs": [{"name": "respuesta.md", "type": "text", "content": "# ORDI \u00b7 Diagn\u00f3stico de campa\u00f1a (13 al 16 de octubre, 4 d\u00edas)\n\n## Sem\u00e1foro: VERDE \u00b7 cada venta te cost\u00f3 $15.786 de anuncios (CPA) [Calculado], menos que los ~$17.800 que pod\u00e9s pagar sin perder plata (CPA de equilibrio) [Calculado]\nConfianza en los datos: media \u00b7 el export est\u00e1 completo y a nivel anuncio, pero me faltan las ventas de Shopify para confirmar que el p\u00edxel mide bien, el costo de $12.000 por set es estimado y son solo 7 ventas, 5 de un mismo anuncio.\n\n**En corto: escal\u00e1 Caro 1, dej\u00e1 Caro 3 como est\u00e1 y cort\u00e1 Caro 2 y Silvia 1.** Caro 1 sola te dej\u00f3 ~$56.000 de ganancia en 4 d\u00edas [Estimado: costo $12.000 y comisiones de la validaci\u00f3n]. Caro 2 y Silvia 1 se comieron la mitad de la plata ($55.800 de $110.500 [Meta]) sin vender nada. La cuenta entera gana poco (~$14.000 [Estimado]): si sos monotributista (el IVA de los anuncios es costo) o si el set te cuesta $15.000, el total da p\u00e9rdida. Aun as\u00ed Caro 1 gana de sobra y las decisiones no cambian.\n\n## Qu\u00e9 hacer ma\u00f1ana\n- [ ] **Apag\u00e1 Caro 2 \u00b7 Pinterest (deseo)** y, en el mismo momento, **pon\u00e9 el conjunto \"Caro \u00b7 mujeres 25-40\" en $8.340 por d\u00eda** (hoy est\u00e1 en ~$14.000). As\u00ed Caro 1 sube solo 20%, de $6.950 a $8.340 por d\u00eda [Calculado]. Si no lo baj\u00e1s, Caro 1 se queda con los $14.000 de golpe y Meta vuelve a la fase de aprendizaje (los d\u00edas en que prueba a qui\u00e9n mostrarle el anuncio y los resultados saltan mucho), y ah\u00ed el CPA se puede disparar.\n- [ ] **Apag\u00e1 Silvia 1 \u00b7 Tornado (dolor)** y **pon\u00e9 el conjunto \"Silvia \u00b7 mujeres 32-50\" en $6.700 por d\u00eda**, que es lo que ya gastaba Caro 3 [Calculado]. A Caro 3 no lo toques.\n- [ ] **No edites Caro 1**: ni el video, ni el texto, ni el p\u00fablico. Si lo edit\u00e1s, pierde lo que aprendi\u00f3. Lo nuevo se prueba aparte.\n- [ ] **Arm\u00e1 un conjunto \"Caro \u00b7 ganchos nuevos\"**: duplic\u00e1 el conjunto Caro y sacale los anuncios copiados antes de publicarlo. Cuando tengas los videos de abajo, sub\u00ed 2 con **$17.800 por d\u00eda** en ese conjunto (~$8.900 por anuncio, o sea medio CPA de equilibrio: as\u00ed cada uno llega a 2 CPA en 4 d\u00edas y ya se puede juzgar).\n- [ ] **Desde el d\u00eda siguiente, sub\u00ed el conjunto Caro 20% por d\u00eda**: $10.000 \u2192 $12.000 \u2192 $14.400, mientras el CPA de Caro 1 desde el cambio siga debajo de $17.800. Si se pasa, volv\u00e9 al presupuesto anterior y esper\u00e1 2 d\u00edas.\n- [ ] **Antes de esa primera subida, cont\u00e1 en Shopify los pedidos pagos del 13 al 16/10** y pas\u00e1melos (c\u00f3mo sacarlos, al final). Con eso confirmamos que las 7 ventas que ve Meta son reales.\n\n## Resultados por anuncio\n| Anuncio | Gasto | CTR | Gancho | CPC | Carritos | Compras | CPA | ROAS | Decisi\u00f3n |\n|---|---|---|---|---|---|---|---|---|---|\n| Caro 1 \u00b7 Placard caos (dolor) \u00b7 conj. Caro | $27.800 | 1,90% | 38% | $211 | 14 | 5 | $5.560 | 9,69 | **ESCALAR** |\n| Caro 3 \u00b7 Se arman en 10 s (demo) \u00b7 conj. Silvia | $26.900 | 1,30% | 31% | $292 | 7 | 2 | $13.450 | 4,45 | **MANTENER** |\n| Caro 2 \u00b7 Pinterest (deseo) \u00b7 conj. Caro | $28.300 | 0,70% | 20% | $515 | 3 | 0 | \u2014 | 0 | **CORTAR** |\n| Silvia 1 \u00b7 Tornado (dolor) \u00b7 conj. Silvia | $27.500 | 0,63% | 23% | $688 | 1 | 0 | \u2014 | 0 | **CORTAR** |\n| **Total cuenta** | **$110.500** | **1,13%** | **28%** | **$346** | **25** | **7** | **$15.786** | **3,52** | **VERDE** |\n\nGasto, carritos y compras: [Meta]. El resto: [Calculado] con esos datos. **CTR**: de cada 100 que ven el anuncio, cu\u00e1ntos hacen clic para ir a la p\u00e1gina \u00b7 **Gancho**: de cada 100 que ven el video, cu\u00e1ntos lo miran al menos 3 segundos \u00b7 **CPC**: lo que pag\u00e1s por cada clic \u00b7 **ROAS**: cu\u00e1ntos pesos facturaste por cada $1 de anuncios.\n\n- **Caro 1 \u2192 ESCALAR**: 5 ventas a $5.560, menos de un tercio de lo que pod\u00e9s pagar, con 4 d\u00edas de datos. Es el mejor en todo: el que m\u00e1s frena (gancho 38%), el que m\u00e1s clics trae (CTR 1,7 veces el promedio de la cuenta) y el que m\u00e1s carritos hace (12 de cada 100 visitas).\n- **Caro 3 \u2192 MANTENER, sin subirlo**: 2 ventas a $13.450, debajo del equilibrio, y las 2 fueron del pack de 2 sets, que deja $20.524. Le falta la 3.\u00aa venta para escalarlo. Un dato para m\u00e1s adelante: en el p\u00fablico de Silvia vende este video de demostraci\u00f3n y no el de Silvia.\n- **Caro 2 \u2192 CORTAR**: $28.300 (1,6 CPA de equilibrio) sin ventas, y no engancha: gancho 20% y CTR 0,70%, los dos debajo de la referencia orientativa (25% y 0,8%). Cada clic le sale 2,4 veces lo que le sale a Caro 1.\n- **Silvia 1 \u2192 CORTAR**: $27.500 (1,5 CPA) sin ventas, el CTR m\u00e1s bajo de la cuenta (0,63%), gancho 23%, clic a $688 (3,3 veces Caro 1) y 1 solo carrito en 33 visitas.\n\nPor qu\u00e9 cortar ya y no esperar: si estos dos vendieran justo en equilibrio, con 1,5 CPA gastados habr\u00eda 1 chance en 5 de que siguieran en 0 por mala suerte. Y adem\u00e1s casi nadie frena ni hace clic.\n\nCPA de equilibrio usado: **~$17.800** [Calculado] \u00b7 ROAS de equilibrio: **3,1**. Sale de los packs que compraron (seg\u00fan los montos de Meta: 2 de 1 set, 4 de 2 sets y 1 de 3; ticket promedio, o sea lo que paga en promedio cada cliente, $55.614) y del costo de $12.000 por set y las comisiones de `validacion/validacion-ordi.md` [Estimado]. El script, que mira solo el ticket, da $19.324. Si todos compraran 1 set, ser\u00edan $13.524. Con cualquiera de los tres, las decisiones son las mismas.\n\n## D\u00f3nde se cae la venta\n28.250 impresiones \u2192 319 clics (1,13%) \u2192 278 visitas (87%) \u2192 25 carritos (9,0%) \u2192 12 pagos iniciados (48%) \u2192 7 compras (58%) [Meta; tasas Calculado]\n\n- **En el anuncio, en 2 de los 4.** Mostrarse les cuesta casi lo mismo a todos (el CPM, lo que cuesta mostrarse 1.000 veces, va de $3.600 a $4.400 [Calculado]). Pero Caro 2 y Silvia 1 se llevaron la mitad del gasto y trajeron solo 3 de cada 10 clics (95 de 319). Eso se arregla cort\u00e1ndolos y probando ganchos nuevos, no tocando la p\u00e1gina.\n- **La p\u00e1gina anda bien**: de cada 100 que llegan, 9 agregan al carrito (8 o m\u00e1s es bueno; referencia orientativa), y con Caro 1 son 12. No la cambies mientras escal\u00e1s: si mov\u00e9s dos cosas a la vez, no vas a saber cu\u00e1l cambi\u00f3 los n\u00fameros.\n- **El p\u00fablico no est\u00e1 cansado**: cada persona vio el anuncio 1,3 veces en promedio (frecuencia [Meta]). Reci\u00e9n preocupa arriba de 2,5.\n- **Lo \u00fanico para mirar**: del carrito al pago pasan 12 de 25 (48%; bueno ser\u00eda 60%). No es grave, pero son 13 carritos abandonados. Si no los ten\u00e9s andando, activ\u00e1 el mail y el WhatsApp de carrito abandonado, que ya est\u00e1n escritos en `ORDI-organizacion-hogar/mensajes/mails-y-whatsapp.txt` (el mail 2 tiene rese\u00f1as de ejemplo: cambialas por reales o sacalas). Con 7 compradores reales ya pod\u00e9s pedir las primeras rese\u00f1as con foto (mail R1) y reemplazar las de ejemplo de la landing, si siguen ah\u00ed.\n\n## Pr\u00f3ximos anuncios para probar\nLos 3 son **Caro 1 con otros primeros 3 segundos**. Se mantiene todo lo dem\u00e1s: el \u00e1ngulo (dolor), la persona (Caro), los bloques 2 y 3, los fondos F2 y F3, el texto del anuncio y la oferta en pantalla (\"Set x3 \u00b7 2 sets 14% OFF + gu\u00eda de regalo\"). El formato es el de siempre (`creativos/guiones-videos.txt`: avatar, verde croma, voz porte\u00f1a, sin m\u00fasica, cierre suave). Si uno gana, sab\u00e9s que fue el gancho.\n\n1. **Para Caro \u00b7 \"\u00bfTres d\u00edas?\"** \u00b7 Gancho (0-3 s): \"\u00bfCu\u00e1nto te dura ordenado el placard? \u00bfTres d\u00edas?\" \u00b7 Qu\u00e9 se ve: arranca directo con el placard revuelto (F1) a pantalla completa; la avatar entra en el segundo 1 con cara de \"te entiendo\" y sigue con el bloque 2 de Caro 1 \u00b7 Texto en pantalla (0-3 s): \"\u00bfCu\u00e1nto te dura ordenado?\" \u00b7 Por qu\u00e9: Caro 1 gan\u00f3 con el dolor de \"lo ordeno y a los pocos d\u00edas es un caos\" (gancho 38%, el mejor de la cuenta). Ac\u00e1 ese dolor entra en 8 palabras y con el desorden en el primer cuadro.\n2. **Para Caro \u00b7 \"No es culpa tuya\"** \u00b7 Gancho (0-3 s): \"Tu placard se desordena en tres d\u00edas. No es culpa tuya.\" \u00b7 Qu\u00e9 se ve: la avatar a c\u00e1mara, en tono c\u00f3mplice, sobre el placard revuelto (F1); despu\u00e9s sigue igual a Caro 1 \u00b7 Texto en pantalla (0-3 s): \"No es falta de voluntad\" \u00b7 Por qu\u00e9: Caro 1 trae los clics que m\u00e1s compran (12 carritos cada 100 visitas) y su idea central es \"no era falta de ganas: me faltaba un sistema\". Ac\u00e1 esa idea pasa al primer segundo y le contesta a Caro su frase \"no s\u00e9 qu\u00e9 hago mal\".\n3. **Para Caro \u00b7 \"7 de la ma\u00f1ana\"** \u00b7 Gancho (0-3 s), con voz en off: \"Siete de la ma\u00f1ana, lleg\u00e1s tarde y la remera no aparece.\" \u00b7 Qu\u00e9 se ve: un fondo nuevo en lugar de F1, con manos revolviendo una pila de remeras en el placard hasta que se derrumba y luz de ma\u00f1ana; la avatar aparece reci\u00e9n en el bloque 2 \u00b7 Texto en pantalla (0-3 s): \"7:00. \u00bfD\u00f3nde est\u00e1 la remera?\" \u00b7 Por qu\u00e9: es el mismo dolor de Caro 1 (no encontrar nada) en una escena que todas vivieron. Sale del texto 2 de `anuncios/copys-meta-ads.txt` y del beneficio n.\u00ba 1 de Caro (\"encontrar cualquier prenda en segundos\").\n\n**Presupuesto de los pr\u00f3ximos 4 d\u00edas** [Calculado] (d\u00eda 1 = el d\u00eda que hac\u00e9s los cambios; \"hoy\" = lo que gast\u00f3 cada conjunto por d\u00eda):\n\n| Conjunto | Anuncios | Hoy | D\u00eda 1 | D\u00eda 2 | D\u00eda 3 | D\u00eda 4 |\n|---|---|---|---|---|---|---|\n| Caro \u00b7 mujeres 25-40 | Caro 1 (escalar) | $14.025 | $8.340 | $10.000 | $12.000 | $14.400 |\n| Silvia \u00b7 mujeres 32-50 | Caro 3 (mantener) | $13.600 | $6.700 | $6.700 | $6.700 | $6.700 |\n| Caro \u00b7 ganchos nuevos | 2 nuevos (~$8.900 c/u) | \u2014 | $17.800 | $17.800 | $17.800 | $17.800 |\n| **Total por d\u00eda** | | **$27.625** | **$32.840** | **$34.500** | **$36.500** | **$38.900** |\n\n- Hasta que tengas los videos nuevos gast\u00e1s **$15.040 por d\u00eda**, casi la mitad que hoy, y sin los dos anuncios que no vend\u00edan.\n- Si quer\u00e9s subir los 3 juntos, el conjunto nuevo va a $26.700 por d\u00eda (total del d\u00eda 1: ~$41.700). Con 2, el tercero queda de reemplazo para el primero que cortes.\n- Cada anuncio nuevo se corta en cualquiera de estos casos:\n  - a las 2.000 impresiones tiene CTR menor a 0,5%;\n  - gast\u00f3 $17.800 sin ventas y no engancha (CTR menor a 0,8% y gancho menor a 25%);\n  - gast\u00f3 $26.700\u2013$35.700 sin ventas.\n\n  El que llegue a 3 ventas con CPA debajo de $17.800 pasa a escalar.\n- Caro 3: si llega a 3 ventas con CPA debajo de $17.800, se escala igual que Caro 1. Si llega a $53.500 gastados (3 CPA) con 1 o 2 ventas, se corta.\n- El domingo 18 es el D\u00eda de la Madre. Estos d\u00edas mostrarse suele salir m\u00e1s caro y la gente compra distinto. Si Caro 1 se encarece el lunes o el martes, puede ser por eso: ese d\u00eda no subas y esper\u00e1 uno m\u00e1s.\n\n## Datos que me faltaron\n1. **Ventas de Shopify del 13 al 16/10.** Shopify \u2192 Pedidos \u2192 filtr\u00e1 por fecha del 13/10 al 16/10 \u2192 cont\u00e1 los pagados, sin cancelados ni pruebas. Si son ~7, el p\u00edxel mide bien. Si son menos, Meta puede estar contando doble (p\u00edxel duplicado) y hay que revisarlo antes de escalar. Si son bastantes m\u00e1s, a Meta se le escapan ventas, y tus n\u00fameros reales son todav\u00eda mejores.\n2. **Tu costo real por set.** Us\u00e9 los $12.000 de la validaci\u00f3n [Estimado]. Con $15.000, lo m\u00e1ximo que pod\u00e9s pagar por venta baja a ~$12.300: Caro 1 sigue ganando y Caro 3 queda justo.\n3. **Si sos monotributista o responsable inscripto.** El \"Importe gastado\" de Meta no incluye el IVA (21%) ni las percepciones. Si sos monotributista, eso es costo: el CPA de la cuenta pasa de $15.786 a ~$19.100 (arriba del equilibrio) y el de Caro 1 a ~$6.700. Lo que pag\u00e1s de verdad est\u00e1 en el resumen de la tarjeta o en la factura de Meta; confirmalo con tu contador.\n4. **El mismo export, desglosado por d\u00eda.** Administrador de anuncios \u2192 pesta\u00f1a Anuncios \u2192 Desglose \u2192 Por tiempo \u2192 D\u00eda \u2192 Exportar. Sirve para ver si Caro 1 vende parejo o si las 5 ventas vinieron juntas, y para darte cuenta a tiempo si el p\u00fablico se cansa cuando lo escal\u00e1s.\n\nCuando me pases cualquiera de estos, vuelvo a correr los n\u00fameros y te digo solo qu\u00e9 cambia.\n"}], "grading": {"expectations": [{"text": "El sem\u00e1foro es VERDE", "passed": true, "evidence": "'## Sem\u00e1foro: VERDE \u00b7 cada venta te cost\u00f3 $15.786 ... menos que los ~$17.800'"}, {"text": "Caro 1 (Placard caos) se escala, subiendo como m\u00e1ximo 20% por d\u00eda", "passed": true, "evidence": "Tabla: Caro 1 '**ESCALAR**'; 'As\u00ed Caro 1 sube solo 20%' y 'sub\u00ed el conjunto Caro 20% por d\u00eda: $10.000 \u2192 $12.000 \u2192 $14.400'"}, {"text": "Caro 2 (Pinterest) se corta / apaga", "passed": true, "evidence": "'Apag\u00e1 Caro 2 \u00b7 Pinterest (deseo)'; tabla: **CORTAR**"}, {"text": "Silvia 1 (Tornado) se corta / apaga", "passed": true, "evidence": "'Apag\u00e1 Silvia 1 \u00b7 Tornado (dolor)'; tabla: **CORTAR**"}, {"text": "Caro 3 (Se arman en 10 s) no se corta ni se escala: se mantiene igual", "passed": true, "evidence": "'Caro 3 \u2192 MANTENER, sin subirlo: 2 ventas a $13.450'; 'A Caro 3 no lo toques'"}, {"text": "Usa el CPA de equilibrio de ORDI basado en la validaci\u00f3n o en costo $12.000 (menciona $13.524 o un valor ajustado al ticket de ~$19.300)", "passed": true, "evidence": "Usa ~$17.800 calculado por mezcla de packs con costo $12.000 de validacion-ordi.md; menciona tambi\u00e9n $19.324 (script) y $13.524 (x1)"}, {"text": "Tiene en orden las secciones del formato: t\u00edtulo '\u00b7 Diagn\u00f3stico de campa\u00f1a', Sem\u00e1foro, Confianza en los datos, Qu\u00e9 hacer ma\u00f1ana, Resultados por anuncio, D\u00f3nde se cae la venta, Pr\u00f3ximos anuncios para probar, Datos que me faltaron", "passed": true, "evidence": "Chequeo autom\u00e1tico: las 8 secciones presentes y en orden"}, {"text": "La tabla por anuncio tiene las columnas gasto, CTR, gancho, CPC, carritos, compras, CPA, ROAS y decisi\u00f3n", "passed": true, "evidence": "Tabla '| Anuncio | Gasto | CTR | Gancho | CPC | Carritos | Compras | CPA | ROAS | Decisi\u00f3n |'"}, {"text": "Marca el origen de los n\u00fameros con etiquetas como [Meta], [Calculado], [Usuario], [Shopify] o [Estimado]", "passed": true, "evidence": "16 etiquetas: [Meta], [Calculado], [Estimado]"}, {"text": "Propone 3 anuncios nuevos basados en el ganador (\u00e1ngulo dolor del placard / Caro) con un gancho distinto en los primeros 3 segundos", "passed": true, "evidence": "3 ideas 'Caro 1 con otros primeros 3 segundos': '\u00bfTres d\u00edas?', 'No es culpa tuya', '7 de la ma\u00f1ana', todas para Caro, \u00e1ngulo dolor"}, {"text": "Pide las ventas de Shopify del per\u00edodo para controlar que el p\u00edxel mida bien", "passed": true, "evidence": "Datos que me faltaron 1: 'Ventas de Shopify del 13 al 16/10 ... Si son ~7, el p\u00edxel mide bien'"}], "summary": {"passed": 11, "failed": 0, "total": 11, "pass_rate": 1.0}}}, {"id": "eval-1-ordi-ganador-y-perdedores-without_skill-run-1", "prompt": "Ya pasaron 4 d\u00edas de la campa\u00f1a de ORDI. Te paso el export del Administrador de anuncios (ordi-4-dias.csv). \u00bfQu\u00e9 corto, qu\u00e9 dejo y qu\u00e9 escalo? No quiero quemar plata.", "eval_id": 1, "outputs": [{"name": "respuesta.md", "type": "text", "content": "# ORDI \u00b7 4 d\u00edas de campa\u00f1a: qu\u00e9 cortar, qu\u00e9 dejar y qu\u00e9 escalar\n\n*Datos del 13 al 16 de octubre \u00b7 campa\u00f1a \"ORDI \u00b7 Test ventas\"*\n\n**En corto:** ten\u00e9s un ganador claro y, con el costo estimado, la campa\u00f1a ya se pag\u00f3 sola. Hoy cort\u00e1s dos anuncios, dej\u00e1s uno y escal\u00e1s uno.\n\n- **ESCALAR \u00b7 Caro 1 \u00b7 Placard caos.** 5 ventas a $5.560 cada una: menos de la mitad de los $13.500 que pod\u00e9s pagar por venta. ROAS 9,7. No es casualidad: tambi\u00e9n es el que m\u00e1s clics, carritos y pagos iniciados tiene.\n- **DEJAR \u00b7 Caro 3 \u00b7 Se arman en 10 s.** 2 ventas a $13.450, con ganancia porque las dos fueron de 2 sets. Va bien, pero 2 ventas pueden ser suerte: todav\u00eda no le metas m\u00e1s plata.\n- **CORTAR \u00b7 Caro 2 \u00b7 Pinterest y Silvia 1 \u00b7 Tornado.** Entre los dos gastaron $55.800 y no vendieron nada. Ya pasaron tus dos reglas de corte: m\u00e1s de $20.000\u2013$27.000 gastados sin ventas y CTR (porcentaje de clics) menor a 0,8%.\n\n## Los n\u00fameros\n\n| Anuncio (conjunto) | Gasto | Ventas | Costo por venta | ROAS | CTR | Ganancia* | Qu\u00e9 hacer |\n|---|---:|---:|---:|---:|---:|---:|---|\n| Caro 1 \u00b7 Placard caos (Caro) | $27.800 | 5 | $5.560 | 9,7 | 1,90% | +$56.000 | **Escalar** |\n| Caro 3 \u00b7 Se arman en 10 s (Silvia) | $26.900 | 2 | $13.450 | 4,5 | 1,30% | +$14.100 | **Dejar** |\n| Caro 2 \u00b7 Pinterest (Caro) | $28.300 | 0 | \u2014 | 0 | 0,70% | \u2212$28.300 | **Cortar** |\n| Silvia 1 \u00b7 Tornado (Silvia) | $27.500 | 0 | \u2014 | 0 | 0,63% | \u2212$27.500 | **Cortar** |\n| **Total** | **$110.500** | **7** | **$15.786** | **3,5** | 1,13% | **+$14.400** | |\n\n\\* Lo que queda despu\u00e9s de pagar anuncios, producto, empaque, env\u00edo gratis, pasarela, cuotas, Shopify, impuestos y devoluciones, con un costo **estimado** de $12.000 por set (la misma cuenta de `herramientas/calculadora-rentabilidad.html`).\n\nLos dos que venden dejaron unos +$70.200 y los dos que no venden perdieron $55.800. Neto de los 4 d\u00edas: +$14.400.\n\n## Qu\u00e9 hacer hoy (s\u00e1bado 17, d\u00eda 5 del plan)\n\n1. **Apag\u00e1 los anuncios** Caro 2 y Silvia 1. Apag\u00e1 los anuncios, no los conjuntos.\n2. **Conjunto Caro: dejalo en $14.000 por d\u00eda.** Al apagar Caro 2, Caro 1 se queda con todo el presupuesto y pasa de gastar unos $7.000 a $14.000 por d\u00eda. Ese ya es el primer escal\u00f3n, as\u00ed que no le subas m\u00e1s hasta el martes.\n3. **Conjunto Silvia: bajalo a $7.000 por d\u00eda.** As\u00ed Caro 3 sigue gastando lo mismo que hasta ahora mientras junta m\u00e1s ventas.\n4. **Prend\u00e9 los mails de carrito abandonado** (`ORDI-organizacion-hogar/mensajes/mails-y-whatsapp.txt`) si todav\u00eda no est\u00e1n activos: 12 personas iniciaron el pago y 5 no terminaron la compra.\n\nCon esto el gasto baja de $28.000 a $21.000 por d\u00eda.\n\n## Pr\u00f3ximos d\u00edas\n\n- **Domingo 18 y lunes 19 (d\u00edas 6\u20137): dos ganchos nuevos para el \u00e1ngulo ganador.** Us\u00e1 el mismo guion y formato de Caro 1 (`creativos/guiones-videos.txt`) y cambi\u00e1 solo los primeros 3 segundos:\n  - **A:** \"Abrir el placard a las 7 de la ma\u00f1ana y no encontrar nada. \u00bfTe suena?\" (texto 2 de `anuncios/copys-meta-ads.txt`), sobre el placard con las pilas derrumbadas.\n  - **B:** \"Siento que no me entra nada en el placard.\" (texto 3), con el antes y el despu\u00e9s del estante en los primeros 2 segundos.\n\n  Poneles a los dos el texto 1, el de Caro 1, as\u00ed lo \u00fanico que cambia es el gancho. Subilos en un **conjunto nuevo** con **$7.000 por d\u00eda**: duplic\u00e1 el conjunto Caro (mismo p\u00fablico), borr\u00e1 los anuncios que se copian y carg\u00e1 solo los 2 nuevos. No los metas en el conjunto de Caro 1, porque le sacar\u00edan presupuesto al ganador. Volv\u00e9s a $28.000 por d\u00eda: $21.000 van a lo que ya vende y $7.000 a buscar el pr\u00f3ximo ganador.\n- **Martes 20 a jueves 22 (d\u00edas 8\u201310): escalar.** Si Caro 1 sigue vendiendo a menos de $13.500 en los \u00faltimos 3 d\u00edas, sub\u00ed el conjunto Caro 20% por d\u00eda: $14.000 \u2192 $16.800 \u2192 $20.200 \u2192 $24.200. Si Caro 3 llega a 4 o 5 ventas por debajo de $13.500, escalalo igual. Si gasta otros $27.000 sin vender, cortalo.\n- **D\u00edas 11\u201314: retargeting** como dice el plan: $5.000 por d\u00eda con el texto 13. El texto 14 usalo reci\u00e9n cuando tengas una rese\u00f1a real de estos compradores.\n\n## Reglas para no quemar plata\n\nPara el costo por venta, mir\u00e1 siempre los \u00faltimos 3 d\u00edas y no un d\u00eda suelto.\n\n| Si... | Hac\u00e9 esto |\n|---|---|\n| El costo por venta es menor a $13.500 | Sub\u00ed 20% el presupuesto del conjunto, como mucho una vez por d\u00eda |\n| Est\u00e1 entre $13.500 y $17.800 | No toques nada: con tu mezcla de packs todav\u00eda gan\u00e1s |\n| Pasa de $17.800 | Baj\u00e1 el presupuesto a la mitad; si no mejora, cortalo |\n| Un anuncio gast\u00f3 $27.000 sin vender | Cortalo |\n| Un anuncio nuevo gast\u00f3 $14.000 sin ventas y con CTR menor a 0,8% | Cortalo sin esperar a los $27.000 |\n| El ganador pasa de frecuencia 2,5 o su CTR baja de 1% | Se est\u00e1 cansando: los ganchos nuevos ya tienen que estar andando |\n\nNo edites Caro 1, ni el texto ni el video: cualquier cambio lo reinicia. Si Meta te muestra \"Aprendizaje limitado\", es normal con este volumen de ventas y no es motivo para tocarlo.\n\n## Antes de subir presupuesto, cheque\u00e1 dos cosas\n\n1. **Que las 7 ventas sean pedidos reales en Shopify.** Lo que reporta Meta cuadra con 2 pedidos de 1 set, 4 de 2 sets y 1 de 3 sets. Si alguno es tu compra de prueba del p\u00edxel, sacalo y volv\u00e9 a hacer la cuenta.\n2. **Tu costo real por set.** Todo est\u00e1 calculado con $12.000 estimado. Con un costo de $13.100 los 4 d\u00edas quedan en cero, y con $15.000 quedan en \u2212$24.600. Pero lo que perdiste con los perdedores ya est\u00e1 gastado, y para adelante importa lo que queda prendido: Caro 1 deja ganancia con un costo de hasta $18.200 por set y Caro 3 hasta $15.500. Si tu costo pasa de $15.500, cort\u00e1 tambi\u00e9n Caro 3.\n\n## Lo que te dicen los datos\n\n- **A los perdedores les falla el gancho, no la p\u00e1gina.** Solo el 20\u201323% de los que los vieron mir\u00f3 los primeros 3 segundos (en los que venden fue 31\u201338%), y tuvieron la mitad de clics o menos. Cuando el anuncio trae a la persona correcta, la p\u00e1gina vende: el 4,2% de las visitas de Caro 1 termin\u00f3 en compra. Ahora no toques ni el precio ni la landing.\n- **Engancha el dolor concreto del placard y la prueba del producto.** Lo aspiracional (Pinterest) y el desorden de los chicos no engancharon. Seg\u00fan los guiones, los ganadores arrancan mostrando el placard desarmado o la caja arm\u00e1ndose. Hubo un solo anuncio por \u00e1ngulo, as\u00ed que tomalo como una pista y no como una regla.\n- **Los packs se venden:** 5 de los 7 pedidos fueron de 2 o 3 sets y el ticket promedio es $55.600. Por eso, con esta mezcla, pod\u00e9s pagar hasta unos $17.800 por venta sin perder (no $13.500), y tu ROAS de equilibrio ronda 3,1 (est\u00e1s en 3,5).\n- **Mir\u00e1 por anuncio, no por conjunto.** El conjunto Silvia da ROAS 2,2 y parece perdedor, pero es por culpa de Silvia 1: Caro 3 solo deja ganancia. Las mujeres de 32\u201350 compran, pero con el mensaje del producto y no con el de los chicos.\n- **Hay lugar para crecer:** la frecuencia est\u00e1 en 1,25\u20131,30, as\u00ed que el p\u00fablico todav\u00eda no se cans\u00f3.\n- **Ojo con el calendario:** el test corri\u00f3 la semana anterior al D\u00eda de la Madre (domingo 18) y parte de las ventas pueden haber sido regalos. Por eso no subo presupuesto hasta el martes 20: primero confirm\u00e1 que Caro 1 siga vendiendo despu\u00e9s del domingo.\n\nSi la landing todav\u00eda muestra las 6 rese\u00f1as de ejemplo, sacalas antes de mandarle m\u00e1s tr\u00e1fico. En un par de semanas vas a tener las reales de estos 7 compradores, porque el mail R1 ya se las pide.\n"}], "grading": {"expectations": [{"text": "El sem\u00e1foro es VERDE", "passed": false, "evidence": "No hay sem\u00e1foro; solo 'ten\u00e9s un ganador claro y ... la campa\u00f1a ya se pag\u00f3 sola'"}, {"text": "Caro 1 (Placard caos) se escala, subiendo como m\u00e1ximo 20% por d\u00eda", "passed": true, "evidence": "'ESCALAR \u00b7 Caro 1' y 'sub\u00ed el conjunto Caro 20% por d\u00eda: $14.000 \u2192 $16.800 \u2192 ...' (desde el martes 20)"}, {"text": "Caro 2 (Pinterest) se corta / apaga", "passed": true, "evidence": "'CORTAR \u00b7 Caro 2 \u00b7 Pinterest y Silvia 1 \u00b7 Tornado'"}, {"text": "Silvia 1 (Tornado) se corta / apaga", "passed": true, "evidence": "'CORTAR \u00b7 Caro 2 \u00b7 Pinterest y Silvia 1 \u00b7 Tornado'"}, {"text": "Caro 3 (Se arman en 10 s) no se corta ni se escala: se mantiene igual", "passed": true, "evidence": "'DEJAR \u00b7 Caro 3 ... todav\u00eda no le metas m\u00e1s plata'; conjunto Silvia bajado a $7.000 para que siga igual"}, {"text": "Usa el CPA de equilibrio de ORDI basado en la validaci\u00f3n o en costo $12.000 (menciona $13.524 o un valor ajustado al ticket de ~$19.300)", "passed": true, "evidence": "Usa $13.500 (plan, costo $12.000) y ~$17.800 ajustado a la mezcla de packs"}, {"text": "Tiene en orden las secciones del formato: t\u00edtulo '\u00b7 Diagn\u00f3stico de campa\u00f1a', Sem\u00e1foro, Confianza en los datos, Qu\u00e9 hacer ma\u00f1ana, Resultados por anuncio, D\u00f3nde se cae la venta, Pr\u00f3ximos anuncios para probar, Datos que me faltaron", "passed": false, "evidence": "No usa el formato: t\u00edtulos 'Los n\u00fameros', 'Qu\u00e9 hacer hoy', 'Pr\u00f3ximos d\u00edas', etc."}, {"text": "La tabla por anuncio tiene las columnas gasto, CTR, gancho, CPC, carritos, compras, CPA, ROAS y decisi\u00f3n", "passed": false, "evidence": "Tabla con Gasto, Ventas, Costo por venta, ROAS, CTR, Ganancia; faltan gancho, CPC y carritos"}, {"text": "Marca el origen de los n\u00fameros con etiquetas como [Meta], [Calculado], [Usuario], [Shopify] o [Estimado]", "passed": false, "evidence": "No etiqueta el origen de los n\u00fameros (solo aclara que el costo es estimado)"}, {"text": "Propone 3 anuncios nuevos basados en el ganador (\u00e1ngulo dolor del placard / Caro) con un gancho distinto en los primeros 3 segundos", "passed": false, "evidence": "Propone 2 ganchos nuevos (A y B), no 3"}, {"text": "Pide las ventas de Shopify del per\u00edodo para controlar que el p\u00edxel mida bien", "passed": true, "evidence": "'Que las 7 ventas sean pedidos reales en Shopify' antes de subir presupuesto"}], "summary": {"passed": 6, "failed": 5, "total": 11, "pass_rate": 0.5455}}}, {"id": "eval-2-verdea-pagina-no-convierte-with_skill-run-1", "prompt": "Llevo 5 d\u00edas con VERDEA, gast\u00e9 como 180 lucas y vend\u00ed UNA sola. Los anuncios parecen andar, me entran un mont\u00f3n de clics, pero no compra nadie. \u00bfCorto todo? Te adjunto el Excel que baj\u00e9 de Meta (verdea-5-dias.xlsx). Cada frasco me cuesta $8.000 puesto.", "eval_id": 2, "outputs": [{"name": "respuesta.md", "type": "text", "content": "# VERDEA \u00b7 Diagn\u00f3stico de campa\u00f1a (10/10 al 14/10/2026, 5 d\u00edas)\n\n## Sem\u00e1foro: ROJO \u00b7 los anuncios traen gente de sobra, pero la p\u00e1gina no vende: de 785 visitas, solo 9 agregaron al carrito (1,1%)\n\n**\u00bfCort\u00e1s todo?** Fren\u00e1 el gasto hoy, s\u00ed. Pero **paus\u00e1, no cortes.** Los anuncios andan bien: de cada 100 personas que los ven, 2,3 hacen clic (CTR 2,26% [Calculado]; como referencia orientativa, de 1,5% para arriba ya es bueno) y cada clic te sale $196 (CPC [Calculado]). Lo que falla es lo que pasa despu\u00e9s del clic. Si apag\u00e1s estos anuncios y hac\u00e9s otros, los nuevos llevan a la misma p\u00e1gina y pasa lo mismo.\n\nConfianza en los datos: media \u00b7 el export est\u00e1 completo y tu venta coincide con la que ve Meta. Pero no vi los carritos de Shopify, y el env\u00edo y las comisiones son estimados. Igual, ning\u00fan supuesto cambia la conclusi\u00f3n: con env\u00edo gratis en todos los packs, o sumando el IVA al gasto, sigue en ROJO.\n\n## Qu\u00e9 hacer ma\u00f1ana\n- [ ] **Paus\u00e1 la campa\u00f1a \"VERDEA \u00b7 Test enraizante\"** (los 3 anuncios). Pausala, no la borres ni la edites: la vas a volver a prender igual. El informe llega hasta el 14/10: si sigui\u00f3 prendida, se te van ~$36.280 por d\u00eda [Calculado] en clics que no compran.\n- [ ] **Fijate en Shopify cu\u00e1ntas sesiones agregaron al carrito** entre el 10 y el 14/10 (el c\u00f3mo est\u00e1 abajo, en \"Datos que me faltaron\"). Si son ~9, como dice Meta, segu\u00ed este plan. Si son muchas m\u00e1s, el problema est\u00e1 en el pago o en la medici\u00f3n: par\u00e1 ac\u00e1 y mand\u00e1melo.\n- [ ] **Prob\u00e1 comprar desde el celular**, con datos m\u00f3viles y entrando desde el anuncio en Instagram, como entra tu clienta. Lleg\u00e1 hasta el pago con el x1 y con el x2. Fijate que el bot\u00f3n ande, que Kaching ponga el precio correcto, que nada tape el bot\u00f3n y cu\u00e1nto cobra de env\u00edo.\n- [ ] **Sac\u00e1 de la landing todo lo que no es real** (detalle abajo): el \"4,9 \u2b50 \u00b7 +1.083 clientes felices\", el cartel de \"Compra verificada\" y las rese\u00f1as que no son de clientas reales.\n- [ ] **Activ\u00e1 el mail y el WhatsApp de pago abandonado** en Shopify (Marketing \u2192 Automatizaciones), con los textos de `mensajes/mails-y-whatsapp.txt`. En estos 5 d\u00edas, 2 personas dejaron el pago a medias [Calculado: 3 pagos iniciados \u2212 1 compra, Meta].\n- [ ] **Con todo eso listo, carg\u00e1 en Kaching los precios de prueba y reactiv\u00e1 los mismos 3 anuncios**, con el mismo presupuesto (los dos, m\u00e1s abajo).\n\n## Resultados por anuncio\n| Anuncio | Gasto | CTR | Gancho | CPC | Carritos | Compras | CPA | ROAS | Decisi\u00f3n |\n|---|---|---|---|---|---|---|---|---|---|\n| Luc\u00eda 1 \u00b7 Esquejes podridos | $61.200 | 2,50% | 36,0% | $180 | 4 | 0 | \u2014 | 0 | **PAUSAR** |\n| Marta 2 \u00b7 Planta del vivero | $60.400 | 2,01% | 33,1% | $212 | 2 | 0 | \u2014 | 0 | **PAUSAR** |\n| Marta 1 \u00b7 Golpe de trasplante | $59.800 | 2,29% | 34,0% | $199 | 3 | 1 | $59.800 | 0,97 | **PAUSAR** |\n| **Total cuenta** | **$181.400** | **2,26%** | **34,4%** | **$196** | **9** | **1** | **$181.400** | **0,32** | **ROJO** |\n\nGasto, carritos y compras: [Meta]. CTR, gancho, CPC, CPA y ROAS: [Calculado]. *Gancho*: de cada 100 que ven el video, cu\u00e1ntos lo miran al menos 3 segundos. *CPA*: lo que pagaste en anuncios por cada venta. *ROAS*: cu\u00e1ntos pesos facturaste por cada $1 de anuncios.\n\n- **Luc\u00eda 1 \u2192 PAUSAR**: es la mejor de las tres (CTR 2,50%, gancho 36%, 4 carritos y 2 pagos iniciados). Igual, de 290 visitas solo 4 agregaron al carrito (1,4%). El que falla no es el anuncio, es la p\u00e1gina.\n- **Marta 1 \u2192 PAUSAR**: hizo la \u00fanica venta, con un CPA de $59.800 (1,7 veces el de equilibrio). Una sola venta todav\u00eda puede ser casualidad: no la convierte en ganadora. Carrito: 1,2%.\n- **Marta 2 \u2192 PAUSAR**: es la m\u00e1s floja (CPC $212, carrito 0,8%), aunque engancha bien. Si cuando la reactives la p\u00e1gina mejora y ella sigue \u00faltima, es la primera que apag\u00e1s.\n\nCPA de equilibrio usado: **$35.080** [Calculado: x1 a $58.000 (`landing/info.txt`) \u2212 frasco $8.000 (Usuario) \u2212 empaque $1.000 \u2212 24% entre comisiones, cuotas, impuestos y devoluciones (Estimado)] \u00b7 ROAS de equilibrio: **1,65**. El CPA de equilibrio es lo m\u00e1ximo que pod\u00e9s pagar en anuncios por cada venta sin perder plata. El ROAS de equilibrio es lo m\u00ednimo que ten\u00e9s que facturar por cada $1 de anuncios para no perder. Us\u00e9 el del x1 porque la venta fue de $58.000 (el x2 deja $44.712 y el x3, $52.956).\n\nHasta ac\u00e1 gastaste 5,2 veces lo que pod\u00e9s pagar por una venta [Calculado]. La venta te dej\u00f3 $35.080 antes de anuncios, as\u00ed que vas perdiendo unos **$146.300** [Calculado]. Ya pasaste el punto en que conviene frenar todo y revisar: 3 a 5 CPA de equilibrio gastados con 0 o 1 venta.\n\n## D\u00f3nde se cae la venta\n| Etapa [Meta] | Cantidad | Tasa [Calculado] | Lectura (referencia orientativa) |\n|---|---|---|---|\n| Impresiones | 40.900 | | |\n| Clics en el enlace | 925 | 2,26% | Bien (es flojo por debajo de 0,8%) |\n| Visitas a la p\u00e1gina | 785 | 85% de los clics | Bien: la p\u00e1gina carga |\n| **Agregados al carrito \u26a0\ufe0f** | **9** | **1,1% de las visitas** | **Ac\u00e1 se cae (es flojo por debajo de 4%)** |\n| Pagos iniciados | 3 | 33% | Muy pocos casos para leerlo |\n| Compras | 1 | 33% | Muy pocos casos para leerlo |\n\nLos tres anuncios se caen en el mismo paso (carrito entre 0,8% y 1,4%), as\u00ed que el problema es com\u00fan a todos: la p\u00e1gina o la oferta. No es el p\u00fablico: la frecuencia es 1,4, o sea que cada persona vio el anuncio 1,4 veces en promedio. Tampoco es la carga de la p\u00e1gina. Hoy cada visita te cuesta $231 [Calculado]: para no perder plata alcanzar\u00eda con que compre 1 de cada 150 visitas, y hoy compra 1 de cada 785.\n\n**El primer sospechoso es el precio.** CTR alto con casi nadie en el carrito es el patr\u00f3n t\u00edpico de un precio que espanta. En Mercado Libre, un enraizante de 250 ml sale as\u00ed: Top Crop $4.887\u2013$5.750, Phito Gro org\u00e1nico $7.976\u2013$8.453 y BioBizz Root Juice, el m\u00e1s caro, $22.999\u2013$26.700 [ML, relevado en `productos-nuevos/segundo-producto-analisis.md`]. VERDEA, a $58.000, sale m\u00e1s del doble que el m\u00e1s caro. Por los guiones, tus anuncios no dicen el precio, as\u00ed que la sorpresa llega en la p\u00e1gina. Y arriba del bot\u00f3n ya dice \"rinde hasta 80 litros\" y \"menos de $1.000 por litro\": la justificaci\u00f3n del precio ya est\u00e1 y no alcanza. Ese an\u00e1lisis ya lo anticipaba: \"si el test no vende, el primer sospechoso es el precio, antes que el producto\".\n\nLos cambios van de a uno, en este orden:\n1. **Sacar lo que no es real.** Esto no es una prueba: va s\u00ed o s\u00ed. Con 1 venta en 5 d\u00edas, el \"+1.083 clientes felices\" no puede ser real. Tampoco el cartel de \"Compra verificada\": muestra compras al azar de una lista fija de 20 nombres, con un \"hace X min\" inventado. Es enga\u00f1oso, va contra la regla del repo (solo rese\u00f1as y n\u00fameros reales) y quien lo nota deja de creerte el resto. C\u00f3mo sacarlo:\n   - En el panel, pon\u00e9 `rating: null`, o la calificaci\u00f3n y la cantidad de rese\u00f1as reales con `clientes: 0`.\n   - Borr\u00e1 entero el bloque `<!-- BLOQUE: TOAST COMPRAS RECIENTES -->` (no tiene interruptor).\n   - En las rese\u00f1as, \"Chau estr\u00e9s por trasplante\" figura como de \"Carlos. Y\", pero en `info.txt` es de Silvina M. \"Mariana. G\" no est\u00e1 entre tus rese\u00f1as reales.\n   - Las fotos y el antes/despu\u00e9s que no sean reales, tambi\u00e9n afuera.\n2. **Prueba 1: el precio.** Carg\u00e1 en Kaching una escalera con los mismos descuentos: x1 **$44.900** \u00b7 x2 **$62.900** (30% OFF) \u00b7 x3 **$87.500** (35% OFF + env\u00edo gratis). Te deja $25.124, $30.804 y $33.500 por venta [Calculado], as\u00ed que alcanza con que compre 1 de cada ~110 visitas. Los anuncios no dicen el precio, as\u00ed que no hay que tocarlos. **C\u00f3mo saber si funcion\u00f3**: a las ~300 visitas (unos $70.000, 2 d\u00edas [Calculado]), de cada 100 visitas tienen que agregar al carrito 4 o m\u00e1s (hoy, 1,1).\n3. **Prueba 2: la primera pantalla.** Va solo si con el precio nuevo el carrito sube pero no llega a 4%. Arriba dice \"para Huerta y Macetas\", pero los anuncios hablan de esquejes que se pudren y del golpe de trasplante, y eso aparece reci\u00e9n m\u00e1s abajo. Subilo:\n   - Que los primeros beneficios sean \"Esquejes que prenden en vez de pudrirse\" y \"Trasplantes sin golpe\".\n   - Que la primera foto sea de ra\u00edces reales.\n   - Que la garant\u00eda diga sus d\u00edas reales (hoy dice \"Garant\u00eda 100%\", sin plazo).\n\n   Despu\u00e9s, otras ~300 visitas y compar\u00e1s.\n4. **Si con precio y primera pantalla nuevos el carrito sigue en ~1%,** el problema no es la p\u00e1gina. Fren\u00e1 y pas\u00e1 el producto por validar-producto-ar antes de volver a gastar.\n\n## Pr\u00f3ximos anuncios para probar\nSon para **cuando la p\u00e1gina convierta**, o sea, cuando 4 o m\u00e1s de cada 100 visitas agreguen al carrito. Antes, tambi\u00e9n traer\u00edan clics que no compran (vale lo mismo para Luc\u00eda 2, Luc\u00eda 3 y Marta 3). Los tres salen de Luc\u00eda 1, la que mejor engancha y la que m\u00e1s carritos y pagos trajo. Cambia solo el bloque 1 (8 s, ~20 palabras). El resto queda igual a Luc\u00eda 1: misma avatar y voz sobre verde, sin m\u00fasica, cierre suave (\"El link est\u00e1 ac\u00e1 abajo \ud83d\udc47\") y la oferta en texto en pantalla (\"LLEV\u00c1 2: 30% OFF + GU\u00cdA \ud83c\udf81 \u00b7 3 CUOTAS SIN INTER\u00c9S\").\n\n1. **Para Luc\u00eda** \u00b7 Gancho (0-3 s): \"Esto es todo lo que tir\u00e9 este a\u00f1o\u2026\" (sigue: \"\u2026esquejes que se me pudrieron en el agua. \u00bfA vos tambi\u00e9n?\") \u00b7 Qu\u00e9 se ve: un tacho con varios esquejes de potus podridos y una mano que tira uno m\u00e1s (tomas reales B1-B2) \u00b7 Texto en pantalla: \"todo lo que tir\u00e9 este a\u00f1o \ud83e\udd72\" \u00b7 Por qu\u00e9: el esqueje podrido yendo al tacho le dio a Luc\u00eda 1 el mejor gancho (36%) y CTR (2,50%) de la cuenta. Ac\u00e1 se exagera esa misma imagen.\n2. **Para Luc\u00eda** \u00b7 Gancho: \"\u00bfEl tallo del esqueje se te pone marr\u00f3n y blandito? No es que no tengas mano.\" \u00b7 Qu\u00e9 se ve: primer plano de un esqueje en un frasco con agua, con el tallo marr\u00f3n, a contraluz \u00b7 Texto en pantalla: \"\u00bftallo marr\u00f3n y blandito? \ud83e\udd0e\" \u00b7 Por qu\u00e9: es el mismo dolor de Luc\u00eda 1, pero con el detalle que ella reconoce al instante. Adem\u00e1s le saca la culpa, como Marta 1 (CTR 2,29%).\n3. **Para Luc\u00eda** \u00b7 Gancho: \"Si el gomero nunca te prendi\u00f3 de esqueje, mir\u00e1 esto.\" \u00b7 Qu\u00e9 se ve: un esqueje grueso de gomero en un frasco, sin ra\u00edces \u00b7 Texto en pantalla: \"el gomero nunca me prend\u00eda \ud83d\ude44\" \u00b7 Por qu\u00e9: \"hasta el gomero, que nunca me sal\u00eda\" es la promesa m\u00e1s concreta de Luc\u00eda 1, y las plantas dif\u00edciles son una de sus objeciones. Hacelo solo si pod\u00e9s mostrar un gomero real enraizado con VERDEA.\n\n**Presupuesto de los pr\u00f3ximos 4 d\u00edas** [Calculado con el gasto promedio por d\u00eda]:\n\n| Conjunto | Anuncios | Hasta ahora (por d\u00eda) | D\u00edas 1-2: arreglos | D\u00edas 3-4: prueba del precio |\n|---|---|---|---|---|\n| Luc\u00eda \u00b7 plantas de interior | Luc\u00eda 1 | $12.240 | $0 (pausado) | $12.240 |\n| Marta \u00b7 principiantes | Marta 1 y Marta 2 | $24.040 | $0 (pausado) | $24.040 |\n| **Total por d\u00eda** | | **$36.280** | **$0** | **$36.280** |\n\n- Mismos anuncios y mismo presupuesto: as\u00ed lo \u00fanico que cambia es la p\u00e1gina, y sab\u00e9s si el cambio funcion\u00f3. Pausar unos d\u00edas reinicia la fase de aprendizaje (los primeros d\u00edas en que Meta prueba a qui\u00e9n mostrarle el anuncio), pero con 1 venta no hay nada aprendido que perder.\n- Si despu\u00e9s de la prueba 4 o m\u00e1s de cada 100 visitas agregan al carrito, segu\u00ed, y juzg\u00e1 cada anuncio con las reglas de siempre cuando llegue a 2 CPA de equilibrio gastados. Reci\u00e9n ah\u00ed sum\u00e1 los anuncios nuevos, en un conjunto aparte, con ~\u00bd CPA de equilibrio por d\u00eda cada uno: ~$17.500 con el precio actual o ~$12.500 con el de prueba. Si no te da, de a uno.\n\n## Datos que me faltaron\n- **Pedidos pagos de Shopify del 10 al 14/10**: en Shopify \u2192 Pedidos, filtr\u00e1 esas fechas y cont\u00e1 los pagados, sin cancelados ni pruebas. Me dijiste 1 y Meta ve 1: si se confirma, Meta est\u00e1 midiendo bien las compras.\n- **El embudo de Shopify**: en An\u00e1lisis \u2192 tarjeta \"Tasa de conversi\u00f3n\", con las mismas fechas, anot\u00e1 sesiones, agregados al carrito, llegadas al pago y compras. Es lo que confirma que de verdad casi nadie agrega al carrito, y que no es el evento de carrito de Meta el que falla.\n- **Los comentarios de los 3 anuncios**: si hay \"\u00bfprecio?\" o \"car\u00edsimo\", se confirma lo del precio. En el Administrador, abr\u00ed la vista previa de cada anuncio y entr\u00e1 a la publicaci\u00f3n con comentarios.\n- **El env\u00edo**: cu\u00e1nto te cuesta cuando lo regal\u00e1s en el x3 (us\u00e9 $8.000 [Estimado]) y cu\u00e1nto paga la clienta en el x1 y el x2.\n- **Tus comisiones reales**: la pasarela o Mercado Pago, el costo de las 3 cuotas sin inter\u00e9s y Shopify. Us\u00e9 los valores por defecto (7% + 8% + 2%, m\u00e1s 4% de impuestos, 3% de devoluciones y $1.000 de empaque): verificalos.\n- **El IVA del gasto en Meta**: si sos monotributista, el importe gastado no incluye el 21% de IVA ni las percepciones. En ese caso, esos $181.400 te costaron unos $219.500 o m\u00e1s [Calculado]. Miralo en el resumen de la tarjeta.\n- **Si la campa\u00f1a sigui\u00f3 despu\u00e9s del 14/10**: mandame el export actualizado (pesta\u00f1a Anuncios, mismas columnas).\n\nSi quer\u00e9s, te dejo el snippet de la landing corregido (sin carteles ni n\u00fameros inventados) y la escalera de precios lista para Kaching. Cuando tengas lo de Shopify, o 2 d\u00edas con la p\u00e1gina nueva, mand\u00e1melo y vuelvo a correr el an\u00e1lisis.\n"}], "grading": {"expectations": [{"text": "El sem\u00e1foro es ROJO", "passed": true, "evidence": "'## Sem\u00e1foro: ROJO \u00b7 los anuncios traen gente de sobra, pero la p\u00e1gina no vende'"}, {"text": "Dice que la venta se cae en la p\u00e1gina o la oferta, no en los anuncios, citando CTR alto (~2,3%) y tasa de carrito muy baja (~1,1% o 9 carritos)", "passed": true, "evidence": "'de 785 visitas, solo 9 agregaron al carrito (1,1%)' con 'CTR 2,26%': 'Lo que falla es lo que pasa despu\u00e9s del clic'"}, {"text": "No propone cortar los anuncios como soluci\u00f3n: recomienda pausar o frenar el gasto mientras se arregla la p\u00e1gina y reutilizar los mismos anuncios", "passed": true, "evidence": "'Fren\u00e1 el gasto hoy, s\u00ed. Pero paus\u00e1, no cortes'; los 3 en PAUSAR y 'reactiv\u00e1 los mismos 3 anuncios'"}, {"text": "Propone al menos 2 cambios concretos en la p\u00e1gina u oferta (p. ej. primera pantalla, precio contra Mercado Libre, confianza/rese\u00f1as reales, packs, funcionamiento del bot\u00f3n en el celular)", "passed": true, "evidence": "Sacar la prueba social inventada (+1.083 clientes, cartel de Compra verificada), escalera de precios de prueba, primera pantalla alineada con los anuncios, garant\u00eda con d\u00edas"}, {"text": "Calcula el CPA de equilibrio con costo $8.000 y precio $58.000: alrededor de $35.000 para 1 frasco", "passed": true, "evidence": "'CPA de equilibrio usado: $35.080 [Calculado: x1 a $58.000 \u2212 frasco $8.000 (Usuario) ...]'"}, {"text": "Las ideas de anuncios son solo para Luc\u00eda y Marta (no aparecen Ra\u00fal ni H\u00e9ctor)", "passed": true, "evidence": "Las 3 ideas son 'Para Luc\u00eda'; no aparecen Ra\u00fal ni H\u00e9ctor"}, {"text": "Las ideas de anuncios no usan CTA agresivos como 'compr\u00e1 ya' o 'pedilo hoy'", "passed": true, "evidence": "'cierre suave (\"El link est\u00e1 ac\u00e1 abajo \ud83d\udc47\")'; sin 'compr\u00e1 ya' ni 'pedilo hoy'"}, {"text": "Tiene en orden las secciones del formato: t\u00edtulo '\u00b7 Diagn\u00f3stico de campa\u00f1a', Sem\u00e1foro, Confianza en los datos, Qu\u00e9 hacer ma\u00f1ana, Resultados por anuncio, D\u00f3nde se cae la venta, Pr\u00f3ximos anuncios para probar, Datos que me faltaron", "passed": true, "evidence": "Chequeo autom\u00e1tico: las 8 secciones presentes y en orden"}, {"text": "Pide las ventas de Shopify o sugiere verificar que el evento de agregar al carrito se mida bien", "passed": true, "evidence": "'Fijate en Shopify cu\u00e1ntas sesiones agregaron al carrito'; Datos que me faltaron: pedidos y embudo de Shopify"}], "summary": {"passed": 9, "failed": 0, "total": 9, "pass_rate": 1.0}}}, {"id": "eval-2-verdea-pagina-no-convierte-without_skill-run-1", "prompt": "Llevo 5 d\u00edas con VERDEA, gast\u00e9 como 180 lucas y vend\u00ed UNA sola. Los anuncios parecen andar, me entran un mont\u00f3n de clics, pero no compra nadie. \u00bfCorto todo? Te adjunto el Excel que baj\u00e9 de Meta (verdea-5-dias.xlsx). Cada frasco me cuesta $8.000 puesto.", "eval_id": 2, "outputs": [{"name": "respuesta.md", "type": "text", "content": "# VERDEA: \u00bfcorto todo?\n\n**No cortes VERDEA todav\u00eda, pero apag\u00e1 los anuncios hoy.** Ten\u00e9s raz\u00f3n en que los anuncios andan: traen gente barata y con inter\u00e9s. El que no vende es la p\u00e1gina, y el principal sospechoso es el precio. Si segu\u00eds as\u00ed, gast\u00e1s unos $36.000 por d\u00eda para sacar una venta cada 5 d\u00edas. Arregl\u00e1 la p\u00e1gina, relanz\u00e1 con un tope de $70.000 y, si ni as\u00ed vende, ah\u00ed s\u00ed cort\u00e1s sabiendo por qu\u00e9.\n\n## 1. D\u00f3nde se cae la venta (10 al 14/10)\n\n| Paso | Tus n\u00fameros | C\u00f3mo est\u00e1 |\n|---|---|---|\n| Gasto | $181.400 (unos $36.300 por d\u00eda) | |\n| Clic en el enlace (CTR) | 2,26% \u00b7 $196 por clic | Muy bien (arriba de 1,5% ya es bueno) |\n| Ven m\u00e1s de 3 segundos del video | 34% de las impresiones | Bien: el gancho funciona |\n| Frecuencia | 1,4 | El p\u00fablico no est\u00e1 cansado |\n| Llegan a la p\u00e1gina | 785 (85% de los clics) | Bien: la p\u00e1gina carga |\n| **Agregan al carrito** | **9 (1,1% de las visitas)** | **Ac\u00e1 se rompe** (con tr\u00e1fico fr\u00edo, lo normal anda en 3\u20136%) |\n| Inician el pago | 3 | |\n| Compran | 1 (un x1 de $58.000) \u00b7 0,13% de las visitas | |\n| Costo por venta \u00b7 ROAS | $181.400 \u00b7 0,32 | |\n\nDe cada 100 personas que entraron a la p\u00e1gina, 99 se fueron sin agregar nada al carrito.\n\nLos tres anuncios, con dos p\u00fablicos distintos, chocan contra la misma pared:\n\n| Anuncio | Gasto | CTR | Costo por clic | Visitas | Carritos | Pagos iniciados | Ventas |\n|---|---|---|---|---|---|---|---|\n| Luc\u00eda 1 \u00b7 Esquejes podridos | $61.200 | 2,50% | $180 | 290 | 4 | 2 | 0 |\n| Marta 1 \u00b7 Golpe de trasplante | $59.800 | 2,29% | $199 | 255 | 3 | 1 | 1 |\n| Marta 2 \u00b7 Planta del vivero | $60.400 | 2,01% | $212 | 240 | 2 | 0 | 0 |\n\nLo \u00fanico que tienen en com\u00fan es la p\u00e1gina. Hay tan pocos carritos y ventas que no alcanzan para elegir un anuncio ganador. Lo \u00fanico claro es que Marta 2 trae los clics m\u00e1s caros.\n\n**\u00bfPuede ser mala suerte?** Casi seguro que no. Supongamos que tu p\u00e1gina vendiera lo justo para no perder plata (1 venta cada ~150 visitas, ver abajo). Con 785 visitas, lo esperable eran unas 5 ventas. Sacar 1 o menos por mala suerte pasa unas 4 veces de cada 100.\n\n## 2. La cuenta con tu costo de $8.000\n\n| Pack | Precio | Te queda por venta antes de anuncios (lo m\u00e1ximo que pod\u00e9s pagar por venta) | ROAS m\u00ednimo |\n|---|---|---|---|\n| x1 | $58.000 | $35.280 | 1,64 |\n| x2 | $81.200 | $44.912 | 1,81 |\n| x3 + env\u00edo gratis | $113.100 | $53.656 | 2,11 |\n\n- Pagaste $181.400 por una venta que te dejaba $35.280: **en 5 d\u00edas perdiste unos $146.000.**\n- Cada visita te cuesta $231. Para no perder con el x1 necesit\u00e1s **1 venta cada ~150 visitas**, y hiciste 1 cada 785. La p\u00e1gina tiene que vender **5 veces mejor**, y eso no te lo da ning\u00fan ajuste en los anuncios.\n- Us\u00e9 los supuestos de `herramientas/calculadora-rentabilidad.html`: pasarela 7%, cuotas 8%, Shopify 2%, impuestos 4%, devoluciones 3%, empaque $800 y env\u00edo $7.500 en el x3. Carg\u00e1 ah\u00ed tus n\u00fameros reales.\n\n## 3. Por qu\u00e9 no compran (en orden de sospecha)\n\n1. **El precio.** En Mercado Libre, el Top Crop de 250 ml sale $4.887\u2013$5.750, el Phito Gro org\u00e1nico de 250 ml $7.976\u2013$8.453 y el m\u00e1s caro, el BioBizz Root Juice de 250 ml, $22.999\u2013$26.700. Son los precios que relevaste en `VERDEA-huerta/productos-nuevos/segundo-producto-analisis.md`. A $58.000, VERDEA cuesta m\u00e1s del doble que el m\u00e1s caro. Seg\u00fan tus guiones y textos, los anuncios no muestran el precio. La gente hace clic por curiosidad, se encuentra con $58.000 (o $81.200 si ve el x2) y se va. Tu propio an\u00e1lisis ya lo advert\u00eda: \"si el test no vende, el primer sospechoso es el precio\".\n2. **La p\u00e1gina no justifica pagar el doble.** No dice qu\u00e9 tiene adentro (la composici\u00f3n figura como pendiente en `landing/info.txt`) ni muestra el registro SENASA. La garant\u00eda no tiene d\u00edas. La tabla compara \"con VERDEA\" contra \"sin enraizante\", cuando Luc\u00eda ya prob\u00f3 otros. As\u00ed quedan sin respuesta justo las objeciones de tus buyer personas: \"ya compr\u00e9 otro y no me sirvi\u00f3\", \"es caro para lo que trae\", \"es una marca que no conozco\", \"las fotos de antes y despu\u00e9s son trucadas\", \"\u00bfes t\u00f3xico para mis mascotas?\".\n3. **La prueba social es inventada, y se nota.** Con 1 venta, la p\u00e1gina muestra 4,9 estrellas, \"54 opiniones\" y \"+1.083 clientes felices\". Tambi\u00e9n aparece el cartelito \"Graciela de Buenos Aires compr\u00f3\u2026 hace 7 min \u00b7 Compra verificada\": sale de una lista fija de 20 nombres, y una de las fotos es de iStock, un banco de im\u00e1genes. Y hay rese\u00f1as con sello de \"Compra verificada\" que hablan de packs x2 y x3 que nadie compr\u00f3. Hay tres motivos para sacar todo eso:\n   - Rompe tu propia regla: solo rese\u00f1as y n\u00fameros reales.\n   - Es publicidad enga\u00f1osa seg\u00fan la Ley de Defensa del Consumidor y la de Lealtad Comercial.\n   - No te est\u00e1 vendiendo: con todo eso en pantalla, compr\u00f3 1 de 785. A una compradora desconfiada como Luc\u00eda, una marca nueva con \"+1.083 clientes\" le suena a verso.\n4. **El env\u00edo aparece reci\u00e9n en el pago.** Solo el x3 tiene env\u00edo gratis, y en ning\u00fan lado de la p\u00e1gina dice cu\u00e1nto cuesta el env\u00edo del x1 y del x2. Tus dos buyer personas ponen \"env\u00edo gratis\" segundo en la lista de lo que buscan. De 3 que empezaron a pagar, compr\u00f3 1.\n5. **La p\u00e1gina no sigue la historia del anuncio.** El anuncio habla de esquejes de interior que se pudren y de trasplantes. El t\u00edtulo de la p\u00e1gina dice \"para Huerta y Macetas\", y una objeci\u00f3n de Luc\u00eda es justamente \"que sirva solo para huerta\". Adem\u00e1s, nadie que esper\u00f3 semanas una ra\u00edz se cree lo de \"ra\u00edces fuertes desde el primer d\u00eda\".\n\n## 4. Antes de tocar nada: 4 chequeos (media hora)\n\n1. **Compar\u00e1 Shopify con Meta.** En Shopify \u2192 An\u00e1lisis, mir\u00e1 del 10 al 14/10 cu\u00e1ntas sesiones hubo, cu\u00e1ntas agregaron al carrito, cu\u00e1ntas llegaron al pago y cu\u00e1ntas compraron.\n   - Si da unos 9 carritos, como en Meta, el problema es la p\u00e1gina.\n   - Si Shopify muestra muchos m\u00e1s carritos, el problema est\u00e1 en el pago (env\u00edo o medios de pago), y eso se arregla primero.\n2. **Compr\u00e1 vos desde el celular, entrando por el anuncio de Instagram.** Hac\u00e9 un x1 y un x2 hasta el final y fijate:\n   - que carguen los packs con el precio correcto,\n   - que el carrito aplique el descuento,\n   - cu\u00e1nto te cobra de env\u00edo,\n   - que Mercado Pago y las 3 cuotas sin inter\u00e9s funcionen de verdad.\n3. **Revis\u00e1 el objetivo de la campa\u00f1a:** tiene que ser **Ventas, optimizada para Compra**. Si qued\u00f3 en Tr\u00e1fico, Meta te trae gente que hace clic, no gente que compra.\n4. **Pregunt\u00e1 a los que casi compran.** Los 2 que empezaron a pagar y no terminaron pueden haber dejado WhatsApp o mail (lo ves en Pedidos \u2192 Pagos abandonados). Escribiles y preguntales qu\u00e9 los fren\u00f3. A tu \u00fanica clienta, preguntale qu\u00e9 la convenci\u00f3.\n\n## 5. La p\u00e1gina nueva\n\n1. **Precio para la \u00faltima prueba:** x1 a **$44.900**, x2 a **$62.900** (30% OFF) y x3 a **$87.500** (35% OFF + env\u00edo gratis). Sigue siendo un precio premium, entre 1,7 y 2 veces el del BioBizz, y segu\u00eds cobrando 5,6 veces tu costo.\n\n   | Pack | Precio | Te queda por venta | Para no perder necesit\u00e1s 1 venta cada |\n   |---|---|---|---|\n   | x1 | $44.900 | $25.324 | ~110 visitas |\n   | x2 | $62.900 | $31.004 | ~134 visitas |\n   | x3 + env\u00edo gratis | $87.500 | $34.200 | ~148 visitas |\n\n   Si funciona, despu\u00e9s vas subiendo de a poco. Si no vende ni as\u00ed, cort\u00e1s tranquilo. Sostener los $58.000 solo tiene sentido con pruebas reales, y hoy no las ten\u00e9s.\n2. **Env\u00edo a la vista.** Pon\u00e9 al lado de los packs algo como \"Env\u00edo a todo el pa\u00eds $\u26a0\ufe0f[tu costo real] \u00b7 gratis llevando 3\".\n3. **Garant\u00eda con d\u00edas y condiciones.** Por ejemplo, 30 d\u00edas: pon\u00e9 `garantiaDias: 30` en el panel de configuraci\u00f3n y explic\u00e1 en las preguntas frecuentes c\u00f3mo se pide la devoluci\u00f3n. Hacelo solo si la vas a cumplir. Ojo: el bot\u00f3n de arrepentimiento, con 10 d\u00edas para devolver, ya es obligatorio por ley.\n4. **Afuera todo lo inventado:**\n   - Pon\u00e9 `rating: null`: saca las estrellas, las 54 opiniones y los 1.083 clientes.\n   - Borr\u00e1 el bloque `TOAST COMPRAS RECIENTES` (el cartelito de \"compr\u00f3 hace X min\").\n   - Sac\u00e1 la secci\u00f3n de rese\u00f1as hasta tener rese\u00f1as reales (el c\u00f3digo les pone \"Compra verificada\" a todas).\n   - Si la comparativa de ra\u00edces la hiciste con IA, sacala o aclar\u00e1 \"imagen ilustrativa\".\n5. **Lo real en su lugar:**\n   - tu foto o tu video con el frasco real y la etiqueta legible,\n   - la composici\u00f3n, la dosis y el n\u00famero de registro SENASA,\n   - un WhatsApp real con horario de atenci\u00f3n (si no atend\u00e9s 24/7, no lo digas).\n6. **Que la primera pantalla siga al anuncio:**\n   - un t\u00edtulo que hable de esquejes y trasplantes (\"para plantas de interior, balc\u00f3n y huerta\"),\n   - una promesa cre\u00edble en lugar de \"desde el primer d\u00eda\",\n   - la respuesta a \"\u00bfpor qu\u00e9 este s\u00ed, si el polvito no me anduvo?\",\n   - para Marta, si es seguro con mascotas (solo si la etiqueta lo dice).\n7. **Instal\u00e1 Microsoft Clarity antes de relanzar.** Es gratis y tiene app en Shopify. Te muestra grabaciones de qu\u00e9 hace la gente en la p\u00e1gina y en qu\u00e9 momento se va.\n\n**Los anuncios y el p\u00fablico no los toques: funcionan.** Adem\u00e1s, si no los cambi\u00e1s, vas a saber que lo que mejor\u00f3 (o no) fue la p\u00e1gina. La \u00fanica excepci\u00f3n: si el video de Luc\u00eda 1 tiene el \"+1.000 personas ya lo usan\" del guion, sac\u00e1 esa parte.\n\n## 6. El plan\n\n1. **Hoy:** paus\u00e1 los 3 anuncios (pausalos, no los borres). Si siguieron prendidos del 15 al 17, ya perdiste m\u00e1s de lo que muestra el Excel.\n2. **Esta semana:** hac\u00e9 los chequeos y arm\u00e1 la p\u00e1gina nueva. Empez\u00e1 tambi\u00e9n tu prueba real con 2 frascos, \"SIN\" y \"CON\" (las tomas B7 y B8 de tus guiones). En 2\u20133 semanas vas a tener tu primer antes y despu\u00e9s de verdad.\n3. **Relanzamiento:** dej\u00e1 prendidos Luc\u00eda 1 y Marta 1, con los mismos p\u00fablicos, a unos $17.500 por d\u00eda. Marta 2 queda apagado: trajo los clics m\u00e1s caros y la menor cantidad de carritos. **Tope: $70.000, que son unas 300 visitas.**\n\n| Cu\u00e1ndo | Qu\u00e9 ves | Qu\u00e9 hac\u00e9s |\n|---|---|---|\n| Al gastar ~$35.000 (~150 visitas) | 2 carritos o menos | La p\u00e1gina nueva no cambi\u00f3 nada: cort\u00e1. |\n| Al gastar ~$70.000 (~300 visitas) | 3 ventas o m\u00e1s | Funciona: segu\u00ed y sub\u00ed el presupuesto 20% cada 2\u20133 d\u00edas, mientras cada venta te cueste menos de lo que te deja el pack. |\n| | 1\u20132 ventas | Mir\u00e1 los carritos. Si hay 10 o m\u00e1s, la venta se traba en el pago o el env\u00edo: arreglalo y hac\u00e9 una vuelta m\u00e1s. Si hay menos, cort\u00e1. |\n| | 0 ventas | Cort\u00e1 VERDEA y pas\u00e1 esa plata a ORDI, que ya est\u00e1 validado para testear. |\n\nCon unas 300 visitas, la regla distingue bien los dos casos. Si la p\u00e1gina nueva vende 1 de cada 70 visitas, vas a ver 3 ventas o m\u00e1s 8 de cada 10 veces. Si sigue vendiendo como ahora, casi nunca.\n\n**En resumen:** 925 personas hicieron clic, as\u00ed que inter\u00e9s hay. Lo que falla es la p\u00e1gina: a $58.000 y sin pruebas reales, casi nadie se convence. Apag\u00e1 hoy, arregl\u00e1 el precio y la p\u00e1gina, y dale una \u00faltima chance de $70.000 como m\u00e1ximo.\n\n*Lo que no pude ver: el Excel no trae el objetivo de la campa\u00f1a ni el detalle por d\u00eda, y revis\u00e9 la p\u00e1gina desde el snippet del repo, no desde la tienda publicada. Si quer\u00e9s, te aplico en el snippet los cambios de la secci\u00f3n 5.*\n"}], "grading": {"expectations": [{"text": "El sem\u00e1foro es ROJO", "passed": false, "evidence": "No hay sem\u00e1foro ('No cortes VERDEA todav\u00eda, pero apag\u00e1 los anuncios hoy')"}, {"text": "Dice que la venta se cae en la p\u00e1gina o la oferta, no en los anuncios, citando CTR alto (~2,3%) y tasa de carrito muy baja (~1,1% o 9 carritos)", "passed": true, "evidence": "'Agregan al carrito: 9 (1,1% de las visitas) \u00b7 Ac\u00e1 se rompe' con CTR 2,26% 'Muy bien'"}, {"text": "No propone cortar los anuncios como soluci\u00f3n: recomienda pausar o frenar el gasto mientras se arregla la p\u00e1gina y reutilizar los mismos anuncios", "passed": true, "evidence": "'paus\u00e1 los 3 anuncios (pausalos, no los borres)'; 'Los anuncios y el p\u00fablico no los toques: funcionan'; relanza Luc\u00eda 1 y Marta 1"}, {"text": "Propone al menos 2 cambios concretos en la p\u00e1gina u oferta (p. ej. primera pantalla, precio contra Mercado Libre, confianza/rese\u00f1as reales, packs, funcionamiento del bot\u00f3n en el celular)", "passed": true, "evidence": "Precio de prueba, env\u00edo a la vista, garant\u00eda con d\u00edas, sacar la prueba social inventada, primera pantalla que siga al anuncio, Clarity"}, {"text": "Calcula el CPA de equilibrio con costo $8.000 y precio $58.000: alrededor de $35.000 para 1 frasco", "passed": true, "evidence": "Tabla: 'x1 | $58.000 | $35.280' (empaque $800 de la calculadora)"}, {"text": "Las ideas de anuncios son solo para Luc\u00eda y Marta (no aparecen Ra\u00fal ni H\u00e9ctor)", "passed": false, "evidence": "No propone anuncios nuevos: no se puede verificar"}, {"text": "Las ideas de anuncios no usan CTA agresivos como 'compr\u00e1 ya' o 'pedilo hoy'", "passed": false, "evidence": "No propone anuncios nuevos: no se puede verificar"}, {"text": "Tiene en orden las secciones del formato: t\u00edtulo '\u00b7 Diagn\u00f3stico de campa\u00f1a', Sem\u00e1foro, Confianza en los datos, Qu\u00e9 hacer ma\u00f1ana, Resultados por anuncio, D\u00f3nde se cae la venta, Pr\u00f3ximos anuncios para probar, Datos que me faltaron", "passed": false, "evidence": "No usa el formato del diagn\u00f3stico (t\u00edtulos propios: 'D\u00f3nde se cae la venta', 'La cuenta con tu costo', 'El plan')"}, {"text": "Pide las ventas de Shopify o sugiere verificar que el evento de agregar al carrito se mida bien", "passed": true, "evidence": "'Compar\u00e1 Shopify con Meta ... cu\u00e1ntas agregaron al carrito'"}], "summary": {"passed": 5, "failed": 4, "total": 9, "pass_rate": 0.5556}}}, {"id": "eval-3-ordi-pixel-roto-with_skill-run-1", "prompt": "Algo raro pasa con ORDI: Meta me dice 0 compras en 3 d\u00edas, pero en Shopify tengo 7 ventas de esos mismos d\u00edas (del 7 al 9 de octubre). \u00bfApago los anuncios? Te paso el CSV que export\u00e9 (ordi-pixel-3-dias.csv).", "eval_id": 3, "outputs": [{"name": "respuesta.md", "type": "text", "content": "# ORDI \u00b7 Diagn\u00f3stico de campa\u00f1a (7 al 9 de octubre, 3 d\u00edas)\n\n## Sem\u00e1foro: AMARILLO \u00b7 Meta no ve las compras, pero con las 7 ventas de Shopify la campa\u00f1a parece rentable (~$9.000 por venta contra un m\u00e1ximo de $13.524)\nConfianza en los datos: **baja** \u00b7 Meta no registra ninguna compra. Adem\u00e1s no s\u00e9 cu\u00e1ntas de las 7 ventas vinieron de los anuncios ni qu\u00e9 packs eran, el costo por set es estimado y el export termina el 9/10.\n\n**\u00bfApago los anuncios? No.** Todo indica que traen gente que compra:\n- Meta vio 32 carritos y 19 pagos iniciados (gente que lleg\u00f3 a la pantalla de pago) [Meta], y tu tienda tuvo 7 ventas esos mismos d\u00edas [Shopify].\n- Si las 7 vinieron de los anuncios, pagaste **unos $9.000 de anuncios por venta** ($63.000 \u00f7 7) [Calculado]. Eso es el **CPA** (lo que pag\u00e1s en anuncios por cada venta). Lo m\u00e1ximo que pod\u00e9s pagar sin perder plata (**CPA de equilibrio**) es $13.524 [Calculado]. Alcanza con que 5 de las 7 ventas hayan venido de los anuncios para no perder plata, aunque todas fueran de 1 set.\n- Los anuncios en s\u00ed andan bien. **CTR** de 1,43% a 1,88% (de cada 100 que ven el anuncio, cu\u00e1ntos hacen clic; flojo ser\u00eda menos de 0,8%). **Gancho** de 31% a 37% (cu\u00e1ntos miran al menos 3 s del video; flojo, menos de 25%). **Frecuencia** 1,2 (cada persona lo vio poco m\u00e1s de una vez: no hay cansancio). [Calculado; las referencias son orientativas]\n\nLo que est\u00e1 roto es el **p\u00edxel**, el c\u00f3digo que le avisa a Meta lo que pasa en tu tienda: ve a la gente hasta el pago, pero no se entera de la compra. Que de 19 pagos iniciados no termine ninguno mientras la tienda vende 7 es muy poco probable. Mientras no se arregle, no hay con qu\u00e9 juzgar cada anuncio, y Meta busca compradores a ciegas.\n\n## Qu\u00e9 hacer ma\u00f1ana\n- [ ] **Fijate si a Meta le llega alguna compra.** Entr\u00e1 al Administrador de eventos \u2192 tu conjunto de datos (el p\u00edxel) \u2192 Informaci\u00f3n general \u2192 evento \"Compra\" (Purchase).\n  - Si no aparece, o lleg\u00f3 por \u00faltima vez hace d\u00edas, la tienda no la est\u00e1 mandando: segu\u00ed con el paso 2.\n  - Si aparece pero la campa\u00f1a dice 0, la campa\u00f1a est\u00e1 mirando otro p\u00edxel. Entr\u00e1 a cada conjunto de anuncios \u2192 Conversi\u00f3n, y fijate que el evento sea Compra y que el conjunto de datos sea el mismo que conecta la app de Shopify.\n- [ ] **Arreglalo desde Shopify.** Canal Facebook & Instagram \u2192 Configuraci\u00f3n \u2192 Uso compartido de datos \u2192 **M\u00e1ximo**. Tiene que estar conectado a tu cuenta publicitaria y al mismo p\u00edxel que usa la campa\u00f1a.\n  - Eso prende la API de conversiones: Shopify le avisa a Meta cada venta desde su servidor, aunque la persona pague con Mercado Pago y no vuelva a la p\u00e1gina de \"gracias por tu compra\" (pasa much\u00edsimo en Argentina).\n  - Si adem\u00e1s pegaste el p\u00edxel a mano en el tema, sacalo y dej\u00e1 solo la app. Ese c\u00f3digo no corre en el pago de Shopify, y con la app andando contar\u00eda doble.\n- [ ] **Probalo con una compra real.** Abr\u00ed \"Probar eventos\" en el Administrador de eventos y compr\u00e1 1 set pagando con Mercado Pago: tiene que llegar \"Compra\" con el valor en pesos. Despu\u00e9s cancel\u00e1 y reembols\u00e1 el pedido. Es el punto \"Evento de compra probado\" del checklist de `anuncios/plan-testeo-meta-ads.md`.\n- [ ] **Pon\u00e9 UTM en los 3 anuncios.** Son una etiqueta en el link para que Shopify sepa de qu\u00e9 anuncio viene cada venta. Editar anuncio \u2192 Seguimiento \u2192 Par\u00e1metros de URL \u2192 `utm_source=facebook&utm_medium=paid&utm_campaign={{campaign.name}}&utm_content={{ad.name}}`.\n  - Editar el anuncio puede reiniciar la fase de aprendizaje (los d\u00edas en que Meta prueba a qui\u00e9n mostrarlo). Pero hoy Meta no aprendi\u00f3 nada sobre compras, as\u00ed que es el momento m\u00e1s barato para hacerlo.\n- [ ] **Del resto, no toques nada.** No apagues anuncios, no subas ni bajes presupuestos (hoy son ~$21.000 por d\u00eda entre los dos conjuntos [Calculado]) y no cambies textos ni p\u00fablicos. Volv\u00e9 a mirar cuando haya 1-2 d\u00edas de compras medidas: si arregl\u00e1s ma\u00f1ana, el martes 20 o el mi\u00e9rcoles 21.\n\n## Resultados por anuncio\nLa campa\u00f1a es 1 (ORDI \u00b7 Ventas), con 2 conjuntos: Caro (Caro 1 y Caro 3) y Silvia (Silvia 2). El export trae todas las columnas que hacen falta [Meta].\n\n| Anuncio | Gasto | CTR | Gancho | CPC | Carritos | Compras | CPA | ROAS | Decisi\u00f3n |\n|---|---|---|---|---|---|---|---|---|---|\n| Caro 1 \u00b7 Placard caos (dolor) | $21.350 | 1,88% | 36,9% | $222 | 13 | 0 | \u2014 | \u2014 | **NO DECIDIR** |\n| Caro 3 \u00b7 Se arman en 10 s (demo) | $20.980 | 1,43% | 31,1% | $266 | 10 | 0 | \u2014 | \u2014 | **NO DECIDIR** |\n| Silvia 2 \u00b7 Una caja para cada rinc\u00f3n | $20.670 | 1,45% | 31,3% | $291 | 9 | 0 | \u2014 | \u2014 | **NO DECIDIR** |\n| **Total cuenta** | $63.000 | 1,58% | 33,1% | $256 | 32 | 0 [Meta] \u00b7 7 [Shopify] | $9.000 | \u2014 | **AMARILLO** |\n\nDe d\u00f3nde sale cada n\u00famero:\n- Gasto, carritos y compras: [Meta]. CTR, gancho, CPC (lo que pag\u00e1s por cada clic) y CPA: [Calculado].\n- El CPA total sale de las 7 ventas de Shopify y es un piso: si alguna vino por otro lado, el CPA real es m\u00e1s alto.\n- El ROAS (cu\u00e1ntos pesos factur\u00e1s por cada $1 de anuncios) queda en \"\u2014\" hasta saber cu\u00e1nto facturaron esas 7 ventas.\n\nPor anuncio:\n- **Caro 1 \u2192 NO DECIDIR**: sin compras medidas no se puede juzgar. Con lo que Meta s\u00ed mide, va adelante: 13 carritos y 8 pagos iniciados, a $2.669 cada pago iniciado [Calculado].\n- **Caro 3 \u2192 NO DECIDIR**: 10 carritos y 6 pagos iniciados, a $3.497 cada uno [Calculado].\n- **Silvia 2 \u2192 NO DECIDIR**: 9 carritos y 5 pagos iniciados, a $4.134 cada uno [Calculado].\n\nEsa diferencia es una pista, no una decisi\u00f3n: con 5 a 8 pagos por anuncio todav\u00eda puede ser casualidad.\n\nAunque le creyeras a Meta, tampoco tocaba apagarlos. Cada uno gast\u00f3 1,5-1,6 CPA de equilibrio y tiene 5 a 8 pagos iniciados, y en ese caso la regla es esperar hasta 2.\n\nCuando Meta mida, cont\u00e1 desde el d\u00eda del arreglo:\n- El que gaste $27.000 (2 CPA de equilibrio) sin ventas, se corta.\n- El que junte 3 ventas a $13.524 o menos cada una, se escala de a 20% por d\u00eda.\n\nCPA de equilibrio usado: **$13.524** [Calculado con el pack de 1 set a $34.900, que es el que menos deja; costo de $12.000 por set [Estimado] y los supuestos de `validacion/validacion-ordi.md`]. Los otros packs dejan m\u00e1s: 2 sets $20.524 \u00b7 3 sets $15.724 [Calculado].\n\nROAS de equilibrio: **2,58** (lo m\u00ednimo que ten\u00e9s que facturar por cada $1 de anuncios para no perder).\n\n## D\u00f3nde se cae la venta\n15.540 impresiones \u2192 246 clics (CTR 1,58%) \u2192 215 visitas (87% de los clics) \u2192 32 carritos (15% de las visitas) \u2192 19 pagos iniciados (59% de los carritos) \u2192 **0 compras seg\u00fan Meta \u00b7 7 seg\u00fan Shopify** [Meta y Shopify; tasas Calculado].\n\nHasta el pago todo est\u00e1 sano, lejos de los m\u00ednimos orientativos (clic 0,8% \u00b7 llegada 70% \u00b7 carrito 4% \u00b7 pago 40%). La venta no se cae: **lo que se pierde es el aviso de la compra**. Por ahora no hay nada que cambiar en la p\u00e1gina ni en la oferta.\n\nUn dato para mirar cuando el p\u00edxel ande: si las 7 ventas vinieron de los anuncios, terminaron 7 de 19 pagos iniciados (37% [Calculado]). Eso queda apenas abajo del 40% orientativo, y con una venta m\u00e1s ya estar\u00eda arriba.\n\n## Pr\u00f3ximos anuncios para probar\nSon para **cuando Meta ya vea las compras** (1-2 d\u00edas despu\u00e9s del arreglo), no antes.\n\nSalen de Caro 1: es el de mejor CTR (1,88%) y mejor gancho (36,9%) de la cuenta, y el que m\u00e1s carritos y pagos trae. Mantienen el mismo dolor (el placard que se desarma), la misma Caro y los bloques 2 y 3 de Caro 1 tal cual, con \"Te dejo el link\" y la oferta en texto. Solo cambian los primeros 3 segundos.\n\n1. **Caro 1B \u00b7 La pila que se cae** \u00b7 Para Caro\n   - Gancho (0-3 s), voz en off: \"Sac\u00e1s una remera y se te cae toda la pila.\" Sigue la avatar: \"A m\u00ed me pasaba todos los d\u00edas.\"\n   - Qu\u00e9 se ve: sin avatar, plano fijo de una pila de remeras en el placard; una mano saca la de abajo y se derrumba todo. En el segundo 3 entra la avatar.\n   - Texto en pantalla: \"\u00bfTu placard tambi\u00e9n hace esto?\" y despu\u00e9s \"Set x3 \u00b7 2 sets 14% OFF + gu\u00eda de regalo\".\n   - Por qu\u00e9: el dolor de Caro 1 es el que m\u00e1s frena el scroll (gancho 36,9%), y mostrarlo en vez de contarlo es la versi\u00f3n m\u00e1s directa. Es el error 1 del carrusel \"5 errores\".\n2. **Caro 1C \u00b7 El error** \u00b7 Para Caro\n   - Gancho (0-3 s): \"Tu placard no se desordena solo: lo desordena este error.\" Sigue: \"Y yo lo comet\u00eda todos los d\u00edas.\"\n   - Qu\u00e9 se ve: la avatar sobre el placard revuelto de Caro 1, levantando un dedo como quien cuenta un secreto.\n   - Texto en pantalla: \"El error que desarma tu placard en 3 d\u00edas\" y despu\u00e9s la misma oferta.\n   - Por qu\u00e9: es el mismo dolor, con curiosidad (es la portada del carrusel \"5 errores\"). El bloque 2 de Caro 1 (\"cada cosa en una caja, en vertical, a la vista\") ya responde cu\u00e1l es el error, as\u00ed que no hay que tocar nada m\u00e1s.\n3. **Caro 1D \u00b7 7:40 de la ma\u00f1ana** \u00b7 Para Caro\n   - Gancho (0-3 s): \"Son las 7:40, lleg\u00e1s tarde y la remera negra no aparece.\" Sigue: \"A m\u00ed me pasaba siempre.\"\n   - Qu\u00e9 se ve: la avatar mirando la hora en el celular, apurada, sobre el placard revuelto.\n   - Texto en pantalla: \"7:40 \u00b7 \u00bfy la remera negra?\" y despu\u00e9s la misma oferta.\n   - Por qu\u00e9: lleva el dolor de Caro 1 a un momento que Caro vive todas las ma\u00f1anas. Lo que m\u00e1s quiere es \"paz al abrir el placard a la ma\u00f1ana\" (su buyer persona), y el texto 2 de `copys-meta-ads.txt` ya va por ese lado.\n\nPresupuesto de los pr\u00f3ximos 3-4 d\u00edas [Calculado]:\n\n| Conjunto | Anuncios | Gasto por d\u00eda (7-9/10) | Pr\u00f3ximos 3-4 d\u00edas |\n|---|---|---|---|\n| Caro \u00b7 mujeres 25-40 | Caro 1, Caro 3 | $14.110 | igual |\n| Silvia \u00b7 mujeres 32-50 | Silvia 2 | $6.890 | igual |\n| Pruebas Caro 1 (conjunto nuevo) | Caro 1B, 1C, 1D | \u2014 | $0 hasta que Meta vea compras; despu\u00e9s ~$6.762 por anuncio |\n| **Total por d\u00eda** | | **$21.000** | **$21.000** (~$41.300 con los 3 nuevos) |\n\nLos nuevos van en un conjunto aparte, para no tocar los que ya andan, con ~\u00bd CPA de equilibrio por d\u00eda cada uno: as\u00ed llegan a 2 CPA en 4 d\u00edas. Si no te da el presupuesto, empez\u00e1 con 2 ($13.524 por d\u00eda) o de a uno.\n\n## Datos que me faltaron\n1. **El detalle de las 7 ventas.** Shopify \u2192 Pedidos \u2192 filtr\u00e1 del 7 al 9 de octubre y cont\u00e1 solo los pagados (sin cancelados ni pruebas). De cada uno necesito:\n   - cu\u00e1nto pag\u00f3;\n   - qu\u00e9 pack eligi\u00f3 (1, 2 o 3 sets);\n   - de d\u00f3nde vino: en el pedido, la tarjeta \"Resumen de conversi\u00f3n\" dice si la visita lleg\u00f3 desde Facebook o Instagram.\n\n   Con eso saco el ROAS real y cu\u00e1nto pod\u00e9s pagar por venta seg\u00fan lo que de verdad compran.\n2. **El export actualizado, del 7 al 16 de octubre** (hasta ayer), desde la pesta\u00f1a Anuncios con las mismas columnas, m\u00e1s las ventas de Shopify de esas fechas. El que me pasaste termina el 9: si la campa\u00f1a sigui\u00f3 prendida, hay una semana m\u00e1s para mirar.\n3. **Tu costo real por set**: sigue estimado en $12.000. Si fuera $15.000, el pack de 3 sets con env\u00edo gratis deja solo $6.724 y pagar $9.000 por venta ya no cierra; con 1 o 2 sets, s\u00ed [Calculado].\n4. **Si sos monotributista**: el IVA (21%) que te cobran arriba del gasto de Meta es costo para vos. En ese caso el gasto real fue ~$76.230 y el CPA ~$10.890 [Calculado]: sigue cerrando, pero m\u00e1s justo. Lo ves en el resumen de la tarjeta o en la factura de Meta. Si sos responsable inscripto y comput\u00e1s el IVA, no cambia nada.\n5. **Una captura del Administrador de eventos** con el evento Compra (si aparece y cu\u00e1ndo lleg\u00f3 por \u00faltima vez): con eso te digo exactamente d\u00f3nde est\u00e1 la falla.\n\nCuando me lo pases, lo vuelvo a correr y te digo qu\u00e9 cambi\u00f3.\n"}], "grading": {"expectations": [{"text": "Dice que el problema es de medici\u00f3n (p\u00edxel o API de conversiones) antes de opinar sobre los anuncios", "passed": true, "evidence": "'Lo que est\u00e1 roto es el p\u00edxel ... ve a la gente hasta el pago, pero no se entera de la compra'"}, {"text": "No recomienda apagar los anuncios por mostrar 0 compras en Meta", "passed": true, "evidence": "'\u00bfApago los anuncios? No.' y 'No apagues anuncios'"}, {"text": "Calcula el CPA real con las ventas de Shopify: $9.000 (unos $63.000 de gasto / 7 ventas)", "passed": true, "evidence": "'unos $9.000 de anuncios por venta ($63.000 \u00f7 7) [Calculado]'"}, {"text": "Compara el CPA real con el CPA de equilibrio de ORDI (~$13.524) y concluye que la campa\u00f1a probablemente es rentable", "passed": true, "evidence": "'~$9.000 por venta contra un m\u00e1ximo de $13.524': 'la campa\u00f1a parece rentable'"}, {"text": "El sem\u00e1foro es AMARILLO", "passed": true, "evidence": "'## Sem\u00e1foro: AMARILLO \u00b7 Meta no ve las compras...'"}, {"text": "Da pasos concretos para arreglar la medici\u00f3n (app de Meta en Shopify / uso compartido de datos / API de conversiones / Administrador de eventos / probar eventos)", "passed": true, "evidence": "Administrador de eventos \u2192 Informaci\u00f3n general; app Facebook & Instagram \u2192 Uso compartido de datos \u2192 M\u00e1ximo; Probar eventos con compra real; UTM"}, {"text": "Lee bien el CSV con punto y coma y coma decimal: gasto total ~$63.000 y ~$21.000 por anuncio", "passed": true, "evidence": "Gasto total $63.000; $21.350 / $20.980 / $20.670 por anuncio"}, {"text": "Tiene en orden las secciones del formato: t\u00edtulo '\u00b7 Diagn\u00f3stico de campa\u00f1a', Sem\u00e1foro, Confianza en los datos, Qu\u00e9 hacer ma\u00f1ana, Resultados por anuncio, D\u00f3nde se cae la venta, Pr\u00f3ximos anuncios para probar, Datos que me faltaron", "passed": true, "evidence": "Chequeo autom\u00e1tico: las 8 secciones presentes y en orden"}], "summary": {"passed": 8, "failed": 0, "total": 8, "pass_rate": 1.0}}}, {"id": "eval-3-ordi-pixel-roto-without_skill-run-1", "prompt": "Algo raro pasa con ORDI: Meta me dice 0 compras en 3 d\u00edas, pero en Shopify tengo 7 ventas de esos mismos d\u00edas (del 7 al 9 de octubre). \u00bfApago los anuncios? Te paso el CSV que export\u00e9 (ordi-pixel-3-dias.csv).", "eval_id": 3, "outputs": [{"name": "respuesta.md", "type": "text", "content": "# ORDI: no apagues los anuncios (todav\u00eda)\n\n**Casi seguro lo que est\u00e1 roto es el p\u00edxel, no los anuncios.** Del 7 al 9 Meta registr\u00f3 32 carritos y 19 pagos iniciados, pero ni una compra, y Shopify tiene 7 ventas esos mismos d\u00edas. Antes de tocar nada, fijate de d\u00f3nde vinieron esas 7 ventas y arregl\u00e1 el evento de compra. Te lleva menos de una hora y no hace falta pausar nada.\n\n## Por qu\u00e9 digo que es el p\u00edxel\n\nLos 3 anuncios juntos, del 7 al 9/10 (gasto: $63.000):\n\n| Paso | Cantidad | Tasa |\n|---|---|---|\n| Clics en el enlace | 246 | CTR 1,58% |\n| Visitas a la p\u00e1gina | 215 | 87% de los clics |\n| Agregados al carrito | 32 | 15% de las visitas |\n| Pagos iniciados | 19 | 59% de los carritos |\n| Compras seg\u00fan Meta | **0** | 0% |\n| Ventas en Shopify | **7** | 37% de los pagos iniciados |\n\n- Hasta el pago anda todo bien: el CTR est\u00e1 muy por encima del 0,8% que pide el plan, casi 9 de cada 10 clics llegan a cargar la p\u00e1gina y el 15% agrega al carrito.\n- De los que inician el pago, en general termina comprando un 30\u201350%. Con 19 pagos iniciados esperar\u00edas **entre 6 y 9 compras**, y Shopify muestra 7. Que Meta vea 0 de 19 por azar es casi imposible, y el checkout funciona, porque Shopify vendi\u00f3.\n- Que los 3 anuncios den 0 compras y $0 de valor no quiere decir que los 3 sean malos. Quiere decir que a Meta no le llega el evento \"Compra\".\n- Tampoco es una demora. Meta a veces tarda hasta 3 d\u00edas en sumar compras (si exportaste el 9 o el 10, volv\u00e9 a exportar hoy), pero no deja todo en cero.\n\n> **Ojo con el plan.** Dice que hay que cortar cada anuncio que gast\u00f3 $20.000\u2013$27.000 sin ventas. Cada uno lleva unos $21.000, as\u00ed que hoy cortar\u00edas los 3. Esa regla da por hecho que Meta cuenta bien las compras. Hasta que lo arregles, decid\u00ed mirando Shopify.\n\n## 1. \u00bfDe d\u00f3nde vinieron las 7 ventas? (5 min)\n\nEn Shopify entr\u00e1 a **Pedidos**, abr\u00ed cada pedido del 7 al 9 y mir\u00e1 la tarjeta **\"Resumen de conversi\u00f3n\"**: ah\u00ed dice si la visita vino de Facebook o de Instagram. No cuentes tus pedidos de prueba ni los cancelados. Mir\u00e1 tambi\u00e9n la columna **\"Canal\"**: si dice \"Pedido en borrador\", es un pedido que cargaste a mano (por ejemplo, una venta por WhatsApp), y esos el p\u00edxel nunca los ve.\n\n| De las 7, \u00bfcu\u00e1ntas vinieron de Facebook/Instagram? | Costo por venta | Qu\u00e9 hacer |\n|---|---|---|\n| 5 a 7 | $9.000 \u2013 $12.600 | Te dejan plata aunque todas sean de 1 set (el equilibrio es $13.524). **Dejalos prendidos**, sin escalar hasta arreglar el p\u00edxel. |\n| 3 o 4 | $15.750 \u2013 $21.000 | Est\u00e1s en el l\u00edmite: depende de cu\u00e1ntas personas llevaron 2 o 3 sets. Dejalos 3\u20134 d\u00edas m\u00e1s con el p\u00edxel andando y decid\u00ed anuncio por anuncio. |\n| 0 a 2 | $31.500 o m\u00e1s | No est\u00e1n vendiendo. En ese caso s\u00ed, cort\u00e1 como dice el plan. |\n\n- Si las 7 vinieron de los anuncios, despu\u00e9s de pagar los anuncios te quedaron unos $31.700 o m\u00e1s en esos 3 d\u00edas. Para tener el n\u00famero exacto, sum\u00e1 $13.524 por cada pedido de 1 set, $20.524 por cada uno de 2 sets y $15.524 por cada uno de 3, y restale $63.000 (\u26a0\ufe0f son m\u00e1rgenes con el costo estimado de $12.000 por set que usamos en la validaci\u00f3n).\n- Si alguna figura como \"Directo\" y no hiciste otra difusi\u00f3n (ORDI es nueva), seguramente tambi\u00e9n vino de un anuncio: el navegador de Instagram a veces no pasa de d\u00f3nde viene la visita.\n- Si los anuncios siguieron prendidos despu\u00e9s del 9, hac\u00e9 la misma cuenta hasta hoy.\n\n## 2. \u00bfQu\u00e9 est\u00e1 fallando en el p\u00edxel? (10 min)\n\nEntr\u00e1 al **Administrador de eventos**, abr\u00ed tu p\u00edxel (ah\u00ed figura como \"conjunto de datos\"), and\u00e1 a **Informaci\u00f3n general** y busc\u00e1 el evento **Compra (Purchase)** del 7 al 9:\n\n- **No aparece o est\u00e1 en 0.** La tienda no le est\u00e1 mandando la compra a Meta. Lo m\u00e1s com\u00fan es que el p\u00edxel est\u00e9 pegado en el c\u00f3digo del tema, en los \"Scripts adicionales\" del checkout o en una app de p\u00edxel que no est\u00e1 actualizada. Nada de eso funciona hoy en la p\u00e1gina de \"gracias por tu compra\" de Shopify, y por eso a Meta le llegan el carrito y el pago iniciado, pero no la compra.\n- **Aparece con compras.** El p\u00edxel funciona, pero los anuncios est\u00e1n mirando otro. Pasa cuando hay m\u00e1s de un p\u00edxel en el Business (por ejemplo, el de VERDEA). Revis\u00e1 que el conjunto de anuncios (evento de conversi\u00f3n: Compra) y cada anuncio (en la secci\u00f3n Seguimiento) usen el mismo p\u00edxel que est\u00e1 conectado a la tienda de ORDI.\n\n## 3. C\u00f3mo arreglarlo\n\n1. En Shopify instal\u00e1 o volv\u00e9 a conectar la app oficial **Facebook & Instagram** (de Meta). Eleg\u00ed el mismo p\u00edxel que usan los anuncios y pon\u00e9 el uso compartido de datos en **M\u00e1ximo**. Eso prende la API de conversiones, que le manda la compra a Meta desde Shopify aunque el cliente no vuelva a la p\u00e1gina de gracias (por ejemplo, si paga en Mercado Pago y cierra la ventana).\n2. En **Configuraci\u00f3n \u2192 Eventos de clientes**, el p\u00edxel de Facebook & Instagram tiene que decir \"Conectado\".\n3. Borr\u00e1 el c\u00f3digo viejo del p\u00edxel (del tema, de \"Scripts adicionales\" o de otra app), as\u00ed no se duplican los eventos.\n4. **Probalo.** En el Administrador de eventos and\u00e1 a **Probar eventos**, abr\u00ed la tienda desde ah\u00ed y hac\u00e9 una compra de prueba (te sirve un c\u00f3digo de 100% de descuento con env\u00edo gratis, y despu\u00e9s cancel\u00e1s el pedido). Tiene que aparecer \"Purchase\". Si no aparece ah\u00ed, fijate en Informaci\u00f3n general a los 20\u201330 minutos. No uses el Pixel Helper de Chrome para esto: en el checkout de Shopify el p\u00edxel corre aislado y la extensi\u00f3n puede no mostrar nada.\n5. Pon\u00e9 **par\u00e1metros UTM** en los anuncios (en Seguimiento \u2192 Par\u00e1metros de URL):\n   ```\n   utm_source=facebook&utm_medium=paid&utm_campaign={{campaign.name}}&utm_term={{adset.name}}&utm_content={{ad.name}}\n   ```\n   As\u00ed cada pedido de Shopify te dice qu\u00e9 anuncio lo trajo, aunque el p\u00edxel vuelva a fallar. Pod\u00e9s ponerlos tambi\u00e9n en los 3 anuncios que ya ten\u00e9s: como Meta no registr\u00f3 compras, siguen en aprendizaje y no perd\u00e9s casi nada.\n\n## Mientras tanto\n\n- **No los apagues ni subas el presupuesto**: dej\u00e1 el mismo hasta que la compra empiece a llegar.\n- Arreglarlo es urgente por algo m\u00e1s que ver los n\u00fameros. La campa\u00f1a optimiza por \"Compra\" y a Meta no le llega ninguna, as\u00ed que no aprende a qui\u00e9n mostrarle los anuncios.\n- Las compras que Meta no registr\u00f3 no se recuperan. Para estos d\u00edas, la cuenta hacela con Shopify.\n- Cuando el p\u00edxel ya registre las compras, esper\u00e1 3\u20134 d\u00edas y volv\u00e9 a usar las reglas del plan.\n\n## Si despu\u00e9s ten\u00e9s que elegir un anuncio\n\nComo no hay compras registradas, lo que m\u00e1s se acerca es el costo por pago iniciado:\n\n| Anuncio | CTR | Pagos iniciados | Costo por pago iniciado |\n|---|---|---|---|\n| Caro 1 \u00b7 Placard caos (dolor) | 1,88% | 8 | $2.669 |\n| Caro 3 \u00b7 Se arman en 10 s (demo) | 1,43% | 6 | $3.497 |\n| Silvia 2 \u00b7 Una caja para cada rinc\u00f3n | 1,45% | 5 | $4.134 |\n\nCaro 1 viene mejor en todo y Silvia 2 es el m\u00e1s flojo. Pero con 5 a 8 pagos iniciados por anuncio, la diferencia todav\u00eda no alcanza para cortar ninguno.\n\n## Dos detalles\n\n- El CSV trae 3 anuncios (el plan ten\u00eda 4) y el conjunto de Silvia gast\u00f3 unos $6.900 por d\u00eda, cuando el plan dec\u00eda $14.000. Si hay otro anuncio que no sali\u00f3 en la exportaci\u00f3n, sum\u00e1 lo que gast\u00f3. Con unos $84.000 en total, 7 ventas dar\u00edan $12.000 por venta, que sigue por debajo del equilibrio.\n- En `ORDI-organizacion-hogar/anuncios/plan-testeo-meta-ads.md`, los dos primeros puntos del checklist (conectar el p\u00edxel con la API de conversiones y probar el evento de compra) siguen sin tildar. Es justo lo que falta hacer.\n\nMandame las capturas del \"Resumen de conversi\u00f3n\" de los 7 pedidos y la del evento Compra en el Administrador de eventos, y te digo qu\u00e9 anuncio dejar y cu\u00e1nto est\u00e1s ganando de verdad.\n"}], "grading": {"expectations": [{"text": "Dice que el problema es de medici\u00f3n (p\u00edxel o API de conversiones) antes de opinar sobre los anuncios", "passed": true, "evidence": "'Casi seguro lo que est\u00e1 roto es el p\u00edxel, no los anuncios'"}, {"text": "No recomienda apagar los anuncios por mostrar 0 compras en Meta", "passed": true, "evidence": "'No los apagues ni subas el presupuesto'"}, {"text": "Calcula el CPA real con las ventas de Shopify: $9.000 (unos $63.000 de gasto / 7 ventas)", "passed": true, "evidence": "Tabla: '5 a 7 | $9.000 \u2013 $12.600'; 'Si las 7 vinieron de los anuncios'"}, {"text": "Compara el CPA real con el CPA de equilibrio de ORDI (~$13.524) y concluye que la campa\u00f1a probablemente es rentable", "passed": true, "evidence": "'Te dejan plata aunque todas sean de 1 set (el equilibrio es $13.524)'"}, {"text": "El sem\u00e1foro es AMARILLO", "passed": false, "evidence": "No hay sem\u00e1foro"}, {"text": "Da pasos concretos para arreglar la medici\u00f3n (app de Meta en Shopify / uso compartido de datos / API de conversiones / Administrador de eventos / probar eventos)", "passed": true, "evidence": "Administrador de eventos, app Facebook & Instagram con uso compartido M\u00e1ximo, Eventos de clientes, Probar eventos, UTM"}, {"text": "Lee bien el CSV con punto y coma y coma decimal: gasto total ~$63.000 y ~$21.000 por anuncio", "passed": true, "evidence": "'gasto: $63.000'; 'Cada uno lleva unos $21.000'"}, {"text": "Tiene en orden las secciones del formato: t\u00edtulo '\u00b7 Diagn\u00f3stico de campa\u00f1a', Sem\u00e1foro, Confianza en los datos, Qu\u00e9 hacer ma\u00f1ana, Resultados por anuncio, D\u00f3nde se cae la venta, Pr\u00f3ximos anuncios para probar, Datos que me faltaron", "passed": false, "evidence": "No usa el formato del diagn\u00f3stico (t\u00edtulos propios: 'Por qu\u00e9 digo que es el p\u00edxel', 'C\u00f3mo arreglarlo'...)"}], "summary": {"passed": 6, "failed": 2, "total": 8, "pass_rate": 0.75}}}, {"id": "eval-4-verdea-dia-1-no-tocar-with_skill-run-1", "prompt": "Ayer arranqu\u00e9 la campa\u00f1a de VERDEA con 4 anuncios, te paso la captura de c\u00f3mo qued\u00f3 (verdea-dia-1.png). El de Luc\u00eda 2 tiene un CTR horrible, \u00bflo apago ya? Y el de Marta 1 ya vendi\u00f3, \u00bfle subo el presupuesto?", "eval_id": 4, "outputs": [{"name": "respuesta.md", "type": "text", "content": "# VERDEA \u00b7 Diagn\u00f3stico de campa\u00f1a (16/10 al 16/10/2026, 1 d\u00eda)\n\n## Sem\u00e1foro: AMARILLO \u00b7 con 1 d\u00eda y 1 venta todav\u00eda no alcanza para decidir nada\nConfianza en los datos: **baja** \u00b7 1 solo d\u00eda, captura sin carritos, pagos, valor de la compra ni reproducciones del video, costo del frasco estimado y sin las ventas de Shopify para controlar el p\u00edxel.\n\n## Qu\u00e9 hacer ma\u00f1ana\n- [ ] **Luc\u00eda 2: no la apagues todav\u00eda, se define ma\u00f1ana (domingo 18/10).** Administrador \u2192 pesta\u00f1a **Anuncios** \u2192 fechas **del 16/10 a ayer** (no solo \"hoy\"). Si ya pas\u00f3 las **2.000 impresiones** y su **CTR del enlace** (de cada 100 personas que ven el anuncio, cu\u00e1ntas hacen clic) sigue **abajo de 0,5%** (a las 2.000 impresiones, menos de 10 clics), apag\u00e1 **solo esa**. Si est\u00e1 en 0,5% o m\u00e1s, sigue. Si comparte conjunto con otros anuncios o el presupuesto es de campa\u00f1a, al apagarla baj\u00e1 ese presupuesto unos $7.000 por d\u00eda, as\u00ed los otros 3 no reciben su parte de golpe.\n- [ ] **Marta 1: no le subas el presupuesto.** Una venta en un d\u00eda puede ser casualidad. Se sube reci\u00e9n cuando tenga **3 ventas o m\u00e1s** con un **CPA** (lo que pagaste en anuncios por cada venta) **menor a ~$35.300**. Ese es tu **CPA de equilibrio** estimado, o sea lo m\u00e1ximo que pod\u00e9s pagar por venta sin perder plata. Adem\u00e1s tiene que haber al menos 3 d\u00edas de datos (desde el lunes 19/10), y se sube **de a 20% por d\u00eda** como m\u00e1ximo.\n- [ ] **Luc\u00eda 1 y Marta 2: nada.** No toques presupuesto, texto ni p\u00fablico. Meta est\u00e1 en la **fase de aprendizaje** (los primeros d\u00edas prueba a qui\u00e9n mostrarle cada anuncio y los resultados saltan mucho) y los cambios grandes la reinician.\n- [ ] **Shopify \u2192 Pedidos**: cont\u00e1 los pedidos pagos del 16/10 y pas\u00e1melos. Meta vio 1 compra. Si Shopify tiene m\u00e1s, el p\u00edxel no est\u00e1 midiendo todo y no se puede juzgar a los anuncios por ventas.\n- [ ] **Arm\u00e1 el preset de columnas \"Diagn\u00f3stico\"** (5 minutos, los pasos est\u00e1n al final). Sin carritos ni pagos no se ve d\u00f3nde se cae la venta.\n- [ ] **Pr\u00f3xima revisi\u00f3n completa: mi\u00e9rcoles 21/10**, con el export del 16 al 20/10. Para entonces cada anuncio va a llevar gastado m\u00e1s o menos 1 CPA de equilibrio, y reci\u00e9n ah\u00ed los n\u00fameros empiezan a decir algo.\n\n## Resultados por anuncio\n| Anuncio | Gasto | CTR | Gancho | CPC | Carritos | Compras | CPA | ROAS | Decisi\u00f3n |\n|---|---|---|---|---|---|---|---|---|---|\n| Luc\u00eda 1 \u00b7 Esquejes podridos | $7.402 | 2,01% | \u2014 | $218 | \u2014 | 0 | \u2014 | \u2014 | **NO TOCAR** |\n| Luc\u00eda 2 \u00b7 Semanas sin ra\u00edz | $6.950 | 0,41% | \u2014 | $1.158 | \u2014 | 0 | \u2014 | \u2014 | **NO TOCAR** (se define ma\u00f1ana) |\n| Marta 1 \u00b7 Golpe de trasplante | $7.121 | 1,67% | \u2014 | $264 | \u2014 | 1 | $7.121 | \u2014 | **NO TOCAR** (no subir) |\n| Marta 2 \u00b7 Planta del vivero | $6.890 | 1,50% | \u2014 | $300 | \u2014 | 0 | \u2014 | \u2014 | **NO TOCAR** |\n| **Total cuenta** | **$28.364** | **1,43%** | \u2014 | **$315** | \u2014 | **1** | **$28.364** | \u2014 | **AMARILLO** |\n\nGasto, impresiones, clics y compras salen de la captura [Meta \u00b7 captura]. Cierran con la fila de totales, y el \"\u2014\" de Resultados en Meta quiere decir 0 compras. CTR, CPC y CPA son [Calculado] y dan igual que los de Meta. Donde dice \"\u2014\" es porque la captura no trae ese dato. El gancho ser\u00eda de cada 100 personas que ven el video, cu\u00e1ntas lo miran 3 segundos.\n\n- **Luc\u00eda 1 \u2192 NO TOCAR**: gast\u00f3 0,2 CPA de equilibrio y no vendi\u00f3, que es lo esperable. Es el que m\u00e1s engancha: CTR 2,01% y **CPC** (lo que pag\u00e1s por cada clic que llega a la p\u00e1gina) de $218.\n- **Luc\u00eda 2 \u2192 NO TOCAR, pero en capilla**: es el m\u00e1s flojo, eso s\u00ed. Tiene un CTR de 0,41%, menos de un tercio del promedio de la cuenta (1,43%), y cada clic cuesta $1.158, 4 a 5 veces m\u00e1s que en el resto. Con clics a ese precio, para no perder plata tendr\u00eda que comprar 1 de cada 30 personas que hacen clic. A los otros les alcanza con 1 de cada 120 a 160 [Calculado]. Que es peor que los otros tres es casi seguro. Que est\u00e9 muerto (abajo de 0,5%), con 6 clics todav\u00eda no se sabe. Le faltan ~550 impresiones para llegar a 2.000, unos $2.650 [Calculado], menos de medio d\u00eda al ritmo de ayer.\n- **Marta 1 \u2192 NO TOCAR (no subir)**: vendi\u00f3 1 con $7.121, cuando una venta te puede costar hasta ~$35.300. Es un muy buen arranque, pero con 1 sola venta el CPA real puede ser la mitad o el doble del que se ve. Se escala con 3 ventas a un CPA menor a ~$35.300. Si llega a ~$106.000 gastados (3 CPA de equilibrio, cerca del 30/10) sin pasar de 2 ventas, se corta. Ojo: en Meta el presupuesto no se sube por anuncio sino por conjunto o por campa\u00f1a. Si comparte conjunto con otros, subirlo les da plata a todos.\n- **Marta 2 \u2192 NO TOCAR**: gast\u00f3 0,2 CPA de equilibrio y no vendi\u00f3, lo esperable. Con CTR 1,50% engancha bien.\n\n**Cu\u00e1ndo se decide cada cosa.** Aunque un anuncio sea bueno, con lo que gast\u00f3 cada uno ayer lo m\u00e1s probable es que todav\u00eda no haya vendido: pasa 7 u 8 de cada 10 veces [Calculado]. A ~$7.000 por d\u00eda, cada anuncio llega a 1 CPA de equilibrio gastado entre el martes 20 y el mi\u00e9rcoles 21/10, y a 1,5 (~$53.000) cerca del viernes 23/10. El que llegue ah\u00ed sin ventas se apaga. Si engancha (CTR de 1,5% o m\u00e1s), se reemplaza por el mismo gancho con otra promesa o demostraci\u00f3n.\n\nCPA de equilibrio usado: **$35.280** [Estimado] \u00b7 ROAS de equilibrio: **1,64**. El **ROAS** es cu\u00e1ntos pesos factur\u00e1s por cada $1 de anuncios; si da menos de 1,64, perd\u00e9s plata.\n- Sale del pack x1 a $58.000 (`VERDEA-huerta/landing/info.txt`), que es el que menos deja.\n- El costo de $8.000 por frasco es el **de ejemplo** de `herramientas/calculadora-rentabilidad.html`. No hay `VERDEA-huerta/validacion/` con el costo real.\n- Supuse empaque de $800 y $7.500 de env\u00edo en el x3.\n- Las comisiones son las de siempre: pasarela 7%, cuotas sin inter\u00e9s 8%, plataforma 2%, impuestos 4% y devoluciones 3%. Conviene verificarlas.\n- Si compran el x2 ($81.200), el equilibrio sube a $44.912. Con el x3 ($113.100), a $53.656 [Calculado].\n\n## D\u00f3nde se cae la venta\n6.280 impresiones \u2192 90 clics en el enlace (CTR 1,43%) \u2192 carritos \u2014 \u2192 pagos iniciados \u2014 \u2192 1 compra (1 cada 90 clics) [Meta \u00b7 captura]\n\n- **Todav\u00eda no se puede saber.** Con 90 clics y 1 venta cualquier tasa es casualidad, y la captura no trae carritos ni pagos.\n- Lo que s\u00ed se ve: **el anuncio no es el cuello de botella**, salvo en Luc\u00eda 2. Tres de los cuatro tienen CTR de 1,5% o m\u00e1s; como referencia orientativa, menos de 0,8% es flojo.\n- La vara a mirar: con clics a $315 en promedio, para no perder plata alcanza con que compre **1 de cada ~110 personas que hacen clic** [Calculado]. Ayer fue 1 de cada 90: buen arranque, pero es una sola venta.\n- Que los anuncios se mostraran 1.000 veces (el **CPM**) cost\u00f3 $4.516, y cada persona los vio 1,3 veces en promedio (la **frecuencia**: todav\u00eda no hay cansancio) [Calculado]. Ese es tu punto de partida. El domingo 18 es el D\u00eda de la Madre y en esas fechas el CPM suele subir: si este fin de semana sale m\u00e1s caro, no es culpa de los anuncios.\n\n## Pr\u00f3ximos anuncios para probar\n**No los subas todav\u00eda**: antes, los 4 actuales tienen que llegar a 1 o 2 CPA de equilibrio. Dejalos producidos. Si ma\u00f1ana se apaga Luc\u00eda 2, el 1 puede ocupar su lugar, con la misma plata y en un conjunto aparte. Los otros dos, reci\u00e9n cuando se libere otro lugar o haya un ganador.\n\nEn los tres cambia **solo el gancho (0-3 s)**. El resto del video queda igual que el original: misma avatar sobre verde, misma voz, CTA suave y sin m\u00fasica. La oferta va en texto en pantalla: \"LLEV\u00c1 2: 30% OFF + GU\u00cdA DE REGALO \u00b7 3 cuotas sin inter\u00e9s\".\n\n1. **Para Luc\u00eda** (variante de Luc\u00eda 1) \u00b7 Gancho (0-3 s): \"Agua, tierra, el polvito\u2026 \u00bfy se te pudren igual?\" \u00b7 Qu\u00e9 se ve: tres cortes de 1 s (frasco con agua, maceta con tierra seca, sobrecito de polvo enraizante sin marca) que terminan en el tallo marr\u00f3n del esqueje saliendo del frasco, sin barro \u00b7 Texto en pantalla: \"agua \u2717 tierra \u2717 polvito \u2717\" \u00b7 Por qu\u00e9: la pudrici\u00f3n y el \"ya prob\u00e9 de todo\" de Luc\u00eda 1 engancharon casi 5 veces m\u00e1s que la espera de Luc\u00eda 2 (CTR 2,01% contra 0,41%). Adem\u00e1s es el reemplazo natural de Luc\u00eda 2: el test sigue con 2 anuncios por persona.\n2. **Para Marta** (variante de Marta 1) \u00b7 Gancho (0-3 s): \"Esto se rompe cuando la cambi\u00e1s de maceta.\" \u00b7 Qu\u00e9 se ve: arranca directo con el video de las raicitas rotas que ya ten\u00e9s (`raices rotas.mp4`), con \"Imagen ilustrativa\" en chiquito \u00b7 Texto en pantalla: \"esto se rompe al trasplantar\" \u00b7 Por qu\u00e9: Marta 1 es el \u00fanico con una venta, y tiene CTR 1,67%. Hoy la explicaci\u00f3n de las ra\u00edces rotas est\u00e1 en el medio del video; ac\u00e1 se prueba si la curiosidad engancha m\u00e1s que el \"no es tu culpa\".\n3. **Para Marta** (variante de Marta 1) \u00b7 Gancho (0-3 s): \"\u00bfVas a trasplantar esta primavera? Mir\u00e1 esto antes.\" \u00b7 Qu\u00e9 se ve: manos sacando con cuidado una planta de su maceta, tierra seca, c\u00e1mara quieta \u00b7 Texto en pantalla: \"antes de trasplantar, mir\u00e1 esto\" \u00b7 Por qu\u00e9: es el mismo golpe de trasplante que vendi\u00f3 en Marta 1, pero le habla a quien est\u00e1 por trasplantar ahora (la primavera es cuando m\u00e1s se trasplanta), antes de que se le caiga la planta.\n\nLuc\u00eda 3 y Marta 3, que ten\u00e9s pendientes, prueban \u00e1ngulos nuevos. Estas tres prueban ganchos nuevos sobre los que mejor arrancaron. Si quer\u00e9s, te armo los prompts de Flow de las tres con la base de siempre.\n\n**Presupuesto del 17 al 20/10: el mismo de ayer.** Va por anuncio porque la captura no muestra los conjuntos.\n\n| Anuncio | Gast\u00f3 ayer [Meta] | Por d\u00eda, del 17 al 20/10 |\n|---|---|---|\n| Luc\u00eda 1 | $7.402 | igual |\n| Luc\u00eda 2 | $6.950 | igual hasta ma\u00f1ana; $0 si se apaga |\n| Marta 1 | $7.121 | igual; +20% (~$8.500) solo si llega a 3 ventas con CPA menor a $35.280 |\n| Marta 2 | $6.890 | igual |\n| **Total por d\u00eda** | **$28.364** | **~$28.400** (~$21.400 si se apaga Luc\u00eda 2) |\n\nCuando subas uno nuevo, ponelo en un conjunto aparte, para no reiniciar el aprendizaje de los otros. Lo ideal son ~$17.600 por d\u00eda (medio CPA de equilibrio): as\u00ed se puede juzgar en ~4 d\u00edas. Con los ~$7.000 que libera Luc\u00eda 2 tambi\u00e9n sirve, pero tarda ~10 d\u00edas, como los actuales.\n\n## Datos que me faltaron\n1. **Ventas de Shopify del 16/10**: entr\u00e1 a Shopify \u2192 **Pedidos**, filtr\u00e1 por fecha y cont\u00e1 los **pagados**, sin cancelados ni pruebas. Es la \u00fanica forma de saber si el p\u00edxel mide bien.\n2. **Costo real por frasco** puesto en tu casa, m\u00e1s lo que te sale el empaque y el env\u00edo que regal\u00e1s en el x3. Hoy uso $8.000, que es un costo de ejemplo. Y una duda: la landing dice \"Env\u00edo gratis\" en general, pero la oferta lo da solo en el x3. Si es gratis siempre, el equilibrio del x1 baja a ~$27.800 [Calculado] y los cortes llegan antes.\n3. **Columnas del embudo**: Administrador \u2192 pesta\u00f1a Anuncios \u2192 **Columnas \u2192 Personalizar columnas**. Tild\u00e1 estas:\n   - Art\u00edculos agregados al carrito\n   - Pagos iniciados\n   - Compras (Total y Valor)\n   - Reproducciones de video de 3 segundos\n   - ThruPlays\n   - Visitas a la p\u00e1gina de destino\n   - Frecuencia\n   - CPM\n\n   En **Configuraci\u00f3n**, sum\u00e1 Nombre de la campa\u00f1a y Nombre del conjunto de anuncios. Abajo, **Guardar como preset** con el nombre \"Diagn\u00f3stico\". Para el mi\u00e9rcoles, mejor **Exportar \u2192 .csv** desde Anuncios que mandar capturas.\n4. **Qu\u00e9 pack compr\u00f3** la venta de Marta 1. Sale en el pedido de Shopify o en la columna de valor, y sirve para el **ticket promedio** (cu\u00e1nto paga en promedio cada cliente) y el ROAS.\n5. **C\u00f3mo est\u00e1 armada la campa\u00f1a**: \u00bfcada anuncio est\u00e1 en su conjunto con presupuesto propio, o est\u00e1n todos juntos o con presupuesto de campa\u00f1a? Por c\u00f3mo se reparti\u00f3 el gasto (casi igual en los 4) parece lo primero. Cambia c\u00f3mo se apaga Luc\u00eda 2 y c\u00f3mo se escala Marta 1.\n6. **Si sos monotributista**: el \"Importe gastado\" no incluye el IVA (21%) que te cobra la tarjeta. Si no lo recuper\u00e1s, cada venta te cuesta ~21% m\u00e1s de lo que muestra Meta. Fijate en el resumen de la tarjeta o en la factura de Meta, y confirmalo con tu contador.\n"}], "grading": {"expectations": [{"text": "Recomienda no tocar nada todav\u00eda porque todav\u00eda no alcanza para decidir", "passed": true, "evidence": "Los 4 anuncios en 'NO TOCAR'; 'con 1 d\u00eda y 1 venta todav\u00eda no alcanza para decidir nada'"}, {"text": "No apaga Luc\u00eda 2 ahora: explica que tiene pocas impresiones (menos de 2.000) o poco gasto y da la condici\u00f3n para cortarlo m\u00e1s adelante", "passed": true, "evidence": "'Luc\u00eda 2: no la apagues todav\u00eda ... Si ya pas\u00f3 las 2.000 impresiones y su CTR ... sigue abajo de 0,5% ... apag\u00e1 solo esa'"}, {"text": "No sube el presupuesto de Marta 1: 1 venta no alcanza (pide 3 ventas o m\u00e1s d\u00edas)", "passed": true, "evidence": "'Marta 1: no le subas el presupuesto ... Se sube reci\u00e9n cuando tenga 3 ventas o m\u00e1s'"}, {"text": "El sem\u00e1foro es AMARILLO", "passed": true, "evidence": "'## Sem\u00e1foro: AMARILLO'"}, {"text": "Lee bien los n\u00fameros de la captura: gasto total ~$28.364, 4 anuncios, 1 compra (de Marta 1)", "passed": true, "evidence": "Total cuenta $28.364, 4 anuncios, 1 compra de Marta 1 ($7.121)"}, {"text": "No inventa datos que la captura no tiene (carritos, gancho, valor de la compra): los muestra como faltantes", "passed": true, "evidence": "Gancho, carritos y ROAS en '\u2014': 'Donde dice \u2014 es porque la captura no trae ese dato'"}, {"text": "Pide el export completo o las columnas que faltan, con instrucciones de c\u00f3mo sacarlas del Administrador de anuncios", "passed": true, "evidence": "Datos que me faltaron 3: Columnas \u2192 Personalizar columnas, lista de columnas, Guardar como preset, Exportar \u2192 .csv"}, {"text": "Dice cu\u00e1ndo volver a mirar (p. ej. en 2-3 d\u00edas o al llegar a 1 CPA de equilibrio por anuncio)", "passed": true, "evidence": "'Pr\u00f3xima revisi\u00f3n completa: mi\u00e9rcoles 21/10'; Luc\u00eda 2 'se define ma\u00f1ana (domingo 18/10)'"}], "summary": {"passed": 8, "failed": 0, "total": 8, "pass_rate": 1.0}}}, {"id": "eval-4-verdea-dia-1-no-tocar-without_skill-run-1", "prompt": "Ayer arranqu\u00e9 la campa\u00f1a de VERDEA con 4 anuncios, te paso la captura de c\u00f3mo qued\u00f3 (verdea-dia-1.png). El de Luc\u00eda 2 tiene un CTR horrible, \u00bflo apago ya? Y el de Marta 1 ya vendi\u00f3, \u00bfle subo el presupuesto?", "eval_id": 4, "outputs": [{"name": "respuesta.md", "type": "text", "content": "# VERDEA \u00b7 D\u00eda 1: no toques nada todav\u00eda\n\n**No apagues Luc\u00eda 2 ni le subas el presupuesto a Marta 1.** Cada anuncio gast\u00f3 unos $7.000, m\u00e1s o menos la quinta parte de lo m\u00e1ximo que pod\u00e9s pagar por una venta (~$35.000 \u26a0\ufe0f, ver abajo). Con eso todav\u00eda no se sabe cu\u00e1l vende. Dej\u00e1 todo como est\u00e1 hasta el lunes 19 y decid\u00ed el **martes 20/10** mirando los 4 d\u00edas juntos.\n\nUn d\u00eda suelto enga\u00f1a: Meta todav\u00eda est\u00e1 aprendiendo (prueba distintas personas y ubicaciones y los n\u00fameros saltan), y el domingo 18 es el D\u00eda de la Madre, que suele mover los costos y las compras. Igual, el arranque no est\u00e1 mal: 3 de los 4 anuncios tienen CTR de 1,5% o m\u00e1s y ya hay una venta.\n\n## Luc\u00eda 2: \u00bflo apago ya?\nTodav\u00eda no, pero es el primero en la fila para el martes.\n\n- **El CTR bajo es real, no mala suerte.** Con el CTR de los otros tres tendr\u00eda que haber tenido ~25 clics, y tuvo 6. Tampoco es que Meta te lo cobre m\u00e1s caro: el CPM (lo que pag\u00e1s cada 1.000 vistas) es parecido en los cuatro, ~$4.400\u20134.800. Lo que pasa es que la gente lo ve y no hace clic.\n- **No es Luc\u00eda, es ese gancho:** Luc\u00eda 1 es el que m\u00e1s clics saca (2,01%).\n- **Pero todav\u00eda no sab\u00e9s si vende.** Con $6.950 gastados lo normal es no tener ninguna venta, aunque el anuncio sea bueno. Lo que s\u00ed te dice el CTR es que la tiene dif\u00edcil: con el clic a $1.158, para no perder plata tiene que comprar 1 de cada 30 personas que hacen clic. A los otros les alcanza con 1 de cada 120\u2013160.\n- **Mientras esper\u00e1s:**\n  - Mir\u00e1 la vista previa del anuncio en feed, reels e historias, por si algo se ve mal (video cortado, texto tapado).\n  - Termin\u00e1 **Luc\u00eda 3** (\"Multiplic\u00e1 en vez de comprar\", en `VERDEA-huerta/creativos/videos-pendientes-lucia3-marta3.txt`) para tenerlo listo si el martes lo apag\u00e1s.\n  - Es una sospecha, no una certeza: en los primeros segundos de Luc\u00eda 2 no pasa nada (un esqueje quieto en un frasco). En cambio, Luc\u00eda 1 arranca con algo que duele ver: el esqueje podrido yendo al tacho. Tenelo en cuenta para el reemplazo.\n\n## Marta 1: \u00bfle subo el presupuesto?\nNo. Una venta todav\u00eda no prueba que ese anuncio venda.\n\n- **Puede ser suerte.** Si los cuatro fueran igual de buenos, la \u00fanica venta igual ten\u00eda que caer en alguno: 1 de cada 4 veces le iba a tocar a Marta 1.\n- **Estar\u00edas poniendo m\u00e1s plata en algo que todav\u00eda no sab\u00e9s si funciona.** Adem\u00e1s, un cambio grande de presupuesto (como regla pr\u00e1ctica, m\u00e1s de ~20%) reinicia el aprendizaje de Meta.\n- **Cheque\u00e1 la venta en Shopify:** fijate que sea real (no una compra de prueba tuya o de un conocido) y qu\u00e9 pack compr\u00f3, porque x1, x2 o x3 cambia cu\u00e1nto ganaste. Ojo que Meta tambi\u00e9n cuenta ventas de gente que vio el anuncio y no hizo clic.\n- **Los n\u00fameros de ayer todav\u00eda se mueven.** Meta anota cada venta en el d\u00eda en que la persona vio el anuncio o hizo clic. Si alguien hizo clic el viernes y compra el lunes, la venta aparece en el viernes 16.\n\n## El martes 20/10\nHasta el lunes 19 no cambies nada: ni presupuestos, ni anuncios nuevos, ni p\u00fablicos. Si sigue gastando como ayer, van a ser ~$113.000 en total (~$28.000 por anuncio).\n\nEl martes, en el Administrador de anuncios:\n1. Pon\u00e9 el rango **del 16 al 19 de octubre** (no \"Ayer\").\n2. En *Columnas \u2192 Personalizar columnas*, sum\u00e1 **Visitas a la p\u00e1gina de destino, Art\u00edculos agregados al carrito, Pagos iniciados, Costo por resultado y Reproducciones de video de 3 segundos.** Con la \u00faltima vas a ver si Luc\u00eda 2 falla en los primeros segundos o m\u00e1s adelante.\n3. Revis\u00e1 anuncio por anuncio:\n\n| C\u00f3mo llega al martes | Qu\u00e9 hacer |\n|---|---|\n| 0 ventas, CTR menor a 0,8% y casi sin carritos | Apagarlo y poner Luc\u00eda 3 (o Marta 3) en su lugar |\n| 0 ventas, pero CTR de 1% o m\u00e1s y con carritos o pagos iniciados | Dejarlo hasta ~$50.000 gastados; si sigue sin vender, apagarlo |\n| Con ventas y costo por venta menor a ~$35.000 | Dejarlo como est\u00e1 |\n| 3 ventas o m\u00e1s, con costo por venta menor a ~$35.000 | Reci\u00e9n ah\u00ed, +20% al presupuesto de su conjunto, y esperar 2\u20133 d\u00edas antes de volver a subir |\n\n\u26a0\ufe0f **Los ~$35.000 salen del costo de ejemplo de $8.000 por frasco** que tiene cargado `herramientas/calculadora-rentabilidad.html`: es el precio de $58.000 menos producto, empaque, comisiones, cuotas, impuestos y devoluciones. Si te compran el x2, sube a ~$45.000. Carg\u00e1 tu costo real, porque si es m\u00e1s alto ese n\u00famero baja.\n\nSi quer\u00e9s, te dejo este plan escrito en `VERDEA-huerta/anuncios/plan-testeo-meta-ads.md`, como los de ORDI y VANTA. El martes pasame la captura del 16 al 19 con esas columnas y lo vemos.\n"}], "grading": {"expectations": [{"text": "Recomienda no tocar nada todav\u00eda porque todav\u00eda no alcanza para decidir", "passed": true, "evidence": "'VERDEA \u00b7 D\u00eda 1: no toques nada todav\u00eda'"}, {"text": "No apaga Luc\u00eda 2 ahora: explica que tiene pocas impresiones (menos de 2.000) o poco gasto y da la condici\u00f3n para cortarlo m\u00e1s adelante", "passed": true, "evidence": "'Todav\u00eda no, pero es el primero en la fila para el martes'; 'Con $6.950 gastados lo normal es no tener ninguna venta'; tabla de corte para el martes"}, {"text": "No sube el presupuesto de Marta 1: 1 venta no alcanza (pide 3 ventas o m\u00e1s d\u00edas)", "passed": true, "evidence": "'No. Una venta todav\u00eda no prueba que ese anuncio venda'; '3 ventas o m\u00e1s ... Reci\u00e9n ah\u00ed, +20%'"}, {"text": "El sem\u00e1foro es AMARILLO", "passed": false, "evidence": "No hay sem\u00e1foro"}, {"text": "Lee bien los n\u00fameros de la captura: gasto total ~$28.364, 4 anuncios, 1 compra (de Marta 1)", "passed": true, "evidence": "Lee $6.950 y CPC $1.158 de Luc\u00eda 2, CTR de cada anuncio y 1 venta de Marta 1; '~$113.000 en total' en 4 d\u00edas = $28.364 por d\u00eda"}, {"text": "No inventa datos que la captura no tiene (carritos, gancho, valor de la compra): los muestra como faltantes", "passed": true, "evidence": "No muestra carritos ni gancho; pide sumarlos el martes"}, {"text": "Pide el export completo o las columnas que faltan, con instrucciones de c\u00f3mo sacarlas del Administrador de anuncios", "passed": true, "evidence": "'En Columnas \u2192 Personalizar columnas, sum\u00e1 Visitas..., Art\u00edculos agregados al carrito, Pagos iniciados...' (pide captura, no export)"}, {"text": "Dice cu\u00e1ndo volver a mirar (p. ej. en 2-3 d\u00edas o al llegar a 1 CPA de equilibrio por anuncio)", "passed": true, "evidence": "'decid\u00ed el martes 20/10 mirando los 4 d\u00edas juntos'"}], "summary": {"passed": 7, "failed": 1, "total": 8, "pass_rate": 0.875}}}], "previous_feedback": {}, "previous_outputs": {}, "benchmark": {"metadata": {"skill_name": "analizar-campanas-meta-ar", "skill_path": "<path/to/skill>", "executor_model": "subagente de Claude Code", "analyzer_model": "Claude Code (correcci\u00f3n manual + chequeos con script)", "timestamp": "2026-10-17T04:38:35Z", "evals_run": [1, 2, 3, 4], "runs_per_configuration": 1}, "runs": [{"eval_id": 1, "configuration": "with_skill", "run_number": 1, "result": {"pass_rate": 1.0, "passed": 11, "failed": 0, "total": 11, "time_seconds": 684.2, "tokens": 189055, "tool_calls": 0, "errors": 0}, "expectations": [{"text": "El sem\u00e1foro es VERDE", "passed": true, "evidence": "'## Sem\u00e1foro: VERDE \u00b7 cada venta te cost\u00f3 $15.786 ... menos que los ~$17.800'"}, {"text": "Caro 1 (Placard caos) se escala, subiendo como m\u00e1ximo 20% por d\u00eda", "passed": true, "evidence": "Tabla: Caro 1 '**ESCALAR**'; 'As\u00ed Caro 1 sube solo 20%' y 'sub\u00ed el conjunto Caro 20% por d\u00eda: $10.000 \u2192 $12.000 \u2192 $14.400'"}, {"text": "Caro 2 (Pinterest) se corta / apaga", "passed": true, "evidence": "'Apag\u00e1 Caro 2 \u00b7 Pinterest (deseo)'; tabla: **CORTAR**"}, {"text": "Silvia 1 (Tornado) se corta / apaga", "passed": true, "evidence": "'Apag\u00e1 Silvia 1 \u00b7 Tornado (dolor)'; tabla: **CORTAR**"}, {"text": "Caro 3 (Se arman en 10 s) no se corta ni se escala: se mantiene igual", "passed": true, "evidence": "'Caro 3 \u2192 MANTENER, sin subirlo: 2 ventas a $13.450'; 'A Caro 3 no lo toques'"}, {"text": "Usa el CPA de equilibrio de ORDI basado en la validaci\u00f3n o en costo $12.000 (menciona $13.524 o un valor ajustado al ticket de ~$19.300)", "passed": true, "evidence": "Usa ~$17.800 calculado por mezcla de packs con costo $12.000 de validacion-ordi.md; menciona tambi\u00e9n $19.324 (script) y $13.524 (x1)"}, {"text": "Tiene en orden las secciones del formato: t\u00edtulo '\u00b7 Diagn\u00f3stico de campa\u00f1a', Sem\u00e1foro, Confianza en los datos, Qu\u00e9 hacer ma\u00f1ana, Resultados por anuncio, D\u00f3nde se cae la venta, Pr\u00f3ximos anuncios para probar, Datos que me faltaron", "passed": true, "evidence": "Chequeo autom\u00e1tico: las 8 secciones presentes y en orden"}, {"text": "La tabla por anuncio tiene las columnas gasto, CTR, gancho, CPC, carritos, compras, CPA, ROAS y decisi\u00f3n", "passed": true, "evidence": "Tabla '| Anuncio | Gasto | CTR | Gancho | CPC | Carritos | Compras | CPA | ROAS | Decisi\u00f3n |'"}, {"text": "Marca el origen de los n\u00fameros con etiquetas como [Meta], [Calculado], [Usuario], [Shopify] o [Estimado]", "passed": true, "evidence": "16 etiquetas: [Meta], [Calculado], [Estimado]"}, {"text": "Propone 3 anuncios nuevos basados en el ganador (\u00e1ngulo dolor del placard / Caro) con un gancho distinto en los primeros 3 segundos", "passed": true, "evidence": "3 ideas 'Caro 1 con otros primeros 3 segundos': '\u00bfTres d\u00edas?', 'No es culpa tuya', '7 de la ma\u00f1ana', todas para Caro, \u00e1ngulo dolor"}, {"text": "Pide las ventas de Shopify del per\u00edodo para controlar que el p\u00edxel mida bien", "passed": true, "evidence": "Datos que me faltaron 1: 'Ventas de Shopify del 13 al 16/10 ... Si son ~7, el p\u00edxel mide bien'"}], "notes": []}, {"eval_id": 2, "configuration": "with_skill", "run_number": 1, "result": {"pass_rate": 1.0, "passed": 9, "failed": 0, "total": 9, "time_seconds": 878.3, "tokens": 236687, "tool_calls": 0, "errors": 0}, "expectations": [{"text": "El sem\u00e1foro es ROJO", "passed": true, "evidence": "'## Sem\u00e1foro: ROJO \u00b7 los anuncios traen gente de sobra, pero la p\u00e1gina no vende'"}, {"text": "Dice que la venta se cae en la p\u00e1gina o la oferta, no en los anuncios, citando CTR alto (~2,3%) y tasa de carrito muy baja (~1,1% o 9 carritos)", "passed": true, "evidence": "'de 785 visitas, solo 9 agregaron al carrito (1,1%)' con 'CTR 2,26%': 'Lo que falla es lo que pasa despu\u00e9s del clic'"}, {"text": "No propone cortar los anuncios como soluci\u00f3n: recomienda pausar o frenar el gasto mientras se arregla la p\u00e1gina y reutilizar los mismos anuncios", "passed": true, "evidence": "'Fren\u00e1 el gasto hoy, s\u00ed. Pero paus\u00e1, no cortes'; los 3 en PAUSAR y 'reactiv\u00e1 los mismos 3 anuncios'"}, {"text": "Propone al menos 2 cambios concretos en la p\u00e1gina u oferta (p. ej. primera pantalla, precio contra Mercado Libre, confianza/rese\u00f1as reales, packs, funcionamiento del bot\u00f3n en el celular)", "passed": true, "evidence": "Sacar la prueba social inventada (+1.083 clientes, cartel de Compra verificada), escalera de precios de prueba, primera pantalla alineada con los anuncios, garant\u00eda con d\u00edas"}, {"text": "Calcula el CPA de equilibrio con costo $8.000 y precio $58.000: alrededor de $35.000 para 1 frasco", "passed": true, "evidence": "'CPA de equilibrio usado: $35.080 [Calculado: x1 a $58.000 \u2212 frasco $8.000 (Usuario) ...]'"}, {"text": "Las ideas de anuncios son solo para Luc\u00eda y Marta (no aparecen Ra\u00fal ni H\u00e9ctor)", "passed": true, "evidence": "Las 3 ideas son 'Para Luc\u00eda'; no aparecen Ra\u00fal ni H\u00e9ctor"}, {"text": "Las ideas de anuncios no usan CTA agresivos como 'compr\u00e1 ya' o 'pedilo hoy'", "passed": true, "evidence": "'cierre suave (\"El link est\u00e1 ac\u00e1 abajo \ud83d\udc47\")'; sin 'compr\u00e1 ya' ni 'pedilo hoy'"}, {"text": "Tiene en orden las secciones del formato: t\u00edtulo '\u00b7 Diagn\u00f3stico de campa\u00f1a', Sem\u00e1foro, Confianza en los datos, Qu\u00e9 hacer ma\u00f1ana, Resultados por anuncio, D\u00f3nde se cae la venta, Pr\u00f3ximos anuncios para probar, Datos que me faltaron", "passed": true, "evidence": "Chequeo autom\u00e1tico: las 8 secciones presentes y en orden"}, {"text": "Pide las ventas de Shopify o sugiere verificar que el evento de agregar al carrito se mida bien", "passed": true, "evidence": "'Fijate en Shopify cu\u00e1ntas sesiones agregaron al carrito'; Datos que me faltaron: pedidos y embudo de Shopify"}], "notes": []}, {"eval_id": 3, "configuration": "with_skill", "run_number": 1, "result": {"pass_rate": 1.0, "passed": 8, "failed": 0, "total": 8, "time_seconds": 641.9, "tokens": 186457, "tool_calls": 0, "errors": 0}, "expectations": [{"text": "Dice que el problema es de medici\u00f3n (p\u00edxel o API de conversiones) antes de opinar sobre los anuncios", "passed": true, "evidence": "'Lo que est\u00e1 roto es el p\u00edxel ... ve a la gente hasta el pago, pero no se entera de la compra'"}, {"text": "No recomienda apagar los anuncios por mostrar 0 compras en Meta", "passed": true, "evidence": "'\u00bfApago los anuncios? No.' y 'No apagues anuncios'"}, {"text": "Calcula el CPA real con las ventas de Shopify: $9.000 (unos $63.000 de gasto / 7 ventas)", "passed": true, "evidence": "'unos $9.000 de anuncios por venta ($63.000 \u00f7 7) [Calculado]'"}, {"text": "Compara el CPA real con el CPA de equilibrio de ORDI (~$13.524) y concluye que la campa\u00f1a probablemente es rentable", "passed": true, "evidence": "'~$9.000 por venta contra un m\u00e1ximo de $13.524': 'la campa\u00f1a parece rentable'"}, {"text": "El sem\u00e1foro es AMARILLO", "passed": true, "evidence": "'## Sem\u00e1foro: AMARILLO \u00b7 Meta no ve las compras...'"}, {"text": "Da pasos concretos para arreglar la medici\u00f3n (app de Meta en Shopify / uso compartido de datos / API de conversiones / Administrador de eventos / probar eventos)", "passed": true, "evidence": "Administrador de eventos \u2192 Informaci\u00f3n general; app Facebook & Instagram \u2192 Uso compartido de datos \u2192 M\u00e1ximo; Probar eventos con compra real; UTM"}, {"text": "Lee bien el CSV con punto y coma y coma decimal: gasto total ~$63.000 y ~$21.000 por anuncio", "passed": true, "evidence": "Gasto total $63.000; $21.350 / $20.980 / $20.670 por anuncio"}, {"text": "Tiene en orden las secciones del formato: t\u00edtulo '\u00b7 Diagn\u00f3stico de campa\u00f1a', Sem\u00e1foro, Confianza en los datos, Qu\u00e9 hacer ma\u00f1ana, Resultados por anuncio, D\u00f3nde se cae la venta, Pr\u00f3ximos anuncios para probar, Datos que me faltaron", "passed": true, "evidence": "Chequeo autom\u00e1tico: las 8 secciones presentes y en orden"}], "notes": []}, {"eval_id": 4, "configuration": "with_skill", "run_number": 1, "result": {"pass_rate": 1.0, "passed": 8, "failed": 0, "total": 8, "time_seconds": 686.7, "tokens": 202682, "tool_calls": 0, "errors": 0}, "expectations": [{"text": "Recomienda no tocar nada todav\u00eda porque todav\u00eda no alcanza para decidir", "passed": true, "evidence": "Los 4 anuncios en 'NO TOCAR'; 'con 1 d\u00eda y 1 venta todav\u00eda no alcanza para decidir nada'"}, {"text": "No apaga Luc\u00eda 2 ahora: explica que tiene pocas impresiones (menos de 2.000) o poco gasto y da la condici\u00f3n para cortarlo m\u00e1s adelante", "passed": true, "evidence": "'Luc\u00eda 2: no la apagues todav\u00eda ... Si ya pas\u00f3 las 2.000 impresiones y su CTR ... sigue abajo de 0,5% ... apag\u00e1 solo esa'"}, {"text": "No sube el presupuesto de Marta 1: 1 venta no alcanza (pide 3 ventas o m\u00e1s d\u00edas)", "passed": true, "evidence": "'Marta 1: no le subas el presupuesto ... Se sube reci\u00e9n cuando tenga 3 ventas o m\u00e1s'"}, {"text": "El sem\u00e1foro es AMARILLO", "passed": true, "evidence": "'## Sem\u00e1foro: AMARILLO'"}, {"text": "Lee bien los n\u00fameros de la captura: gasto total ~$28.364, 4 anuncios, 1 compra (de Marta 1)", "passed": true, "evidence": "Total cuenta $28.364, 4 anuncios, 1 compra de Marta 1 ($7.121)"}, {"text": "No inventa datos que la captura no tiene (carritos, gancho, valor de la compra): los muestra como faltantes", "passed": true, "evidence": "Gancho, carritos y ROAS en '\u2014': 'Donde dice \u2014 es porque la captura no trae ese dato'"}, {"text": "Pide el export completo o las columnas que faltan, con instrucciones de c\u00f3mo sacarlas del Administrador de anuncios", "passed": true, "evidence": "Datos que me faltaron 3: Columnas \u2192 Personalizar columnas, lista de columnas, Guardar como preset, Exportar \u2192 .csv"}, {"text": "Dice cu\u00e1ndo volver a mirar (p. ej. en 2-3 d\u00edas o al llegar a 1 CPA de equilibrio por anuncio)", "passed": true, "evidence": "'Pr\u00f3xima revisi\u00f3n completa: mi\u00e9rcoles 21/10'; Luc\u00eda 2 'se define ma\u00f1ana (domingo 18/10)'"}], "notes": []}, {"eval_id": 1, "configuration": "without_skill", "run_number": 1, "result": {"pass_rate": 0.5455, "passed": 6, "failed": 5, "total": 11, "time_seconds": 572.6, "tokens": 132925, "tool_calls": 0, "errors": 0}, "expectations": [{"text": "El sem\u00e1foro es VERDE", "passed": false, "evidence": "No hay sem\u00e1foro; solo 'ten\u00e9s un ganador claro y ... la campa\u00f1a ya se pag\u00f3 sola'"}, {"text": "Caro 1 (Placard caos) se escala, subiendo como m\u00e1ximo 20% por d\u00eda", "passed": true, "evidence": "'ESCALAR \u00b7 Caro 1' y 'sub\u00ed el conjunto Caro 20% por d\u00eda: $14.000 \u2192 $16.800 \u2192 ...' (desde el martes 20)"}, {"text": "Caro 2 (Pinterest) se corta / apaga", "passed": true, "evidence": "'CORTAR \u00b7 Caro 2 \u00b7 Pinterest y Silvia 1 \u00b7 Tornado'"}, {"text": "Silvia 1 (Tornado) se corta / apaga", "passed": true, "evidence": "'CORTAR \u00b7 Caro 2 \u00b7 Pinterest y Silvia 1 \u00b7 Tornado'"}, {"text": "Caro 3 (Se arman en 10 s) no se corta ni se escala: se mantiene igual", "passed": true, "evidence": "'DEJAR \u00b7 Caro 3 ... todav\u00eda no le metas m\u00e1s plata'; conjunto Silvia bajado a $7.000 para que siga igual"}, {"text": "Usa el CPA de equilibrio de ORDI basado en la validaci\u00f3n o en costo $12.000 (menciona $13.524 o un valor ajustado al ticket de ~$19.300)", "passed": true, "evidence": "Usa $13.500 (plan, costo $12.000) y ~$17.800 ajustado a la mezcla de packs"}, {"text": "Tiene en orden las secciones del formato: t\u00edtulo '\u00b7 Diagn\u00f3stico de campa\u00f1a', Sem\u00e1foro, Confianza en los datos, Qu\u00e9 hacer ma\u00f1ana, Resultados por anuncio, D\u00f3nde se cae la venta, Pr\u00f3ximos anuncios para probar, Datos que me faltaron", "passed": false, "evidence": "No usa el formato: t\u00edtulos 'Los n\u00fameros', 'Qu\u00e9 hacer hoy', 'Pr\u00f3ximos d\u00edas', etc."}, {"text": "La tabla por anuncio tiene las columnas gasto, CTR, gancho, CPC, carritos, compras, CPA, ROAS y decisi\u00f3n", "passed": false, "evidence": "Tabla con Gasto, Ventas, Costo por venta, ROAS, CTR, Ganancia; faltan gancho, CPC y carritos"}, {"text": "Marca el origen de los n\u00fameros con etiquetas como [Meta], [Calculado], [Usuario], [Shopify] o [Estimado]", "passed": false, "evidence": "No etiqueta el origen de los n\u00fameros (solo aclara que el costo es estimado)"}, {"text": "Propone 3 anuncios nuevos basados en el ganador (\u00e1ngulo dolor del placard / Caro) con un gancho distinto en los primeros 3 segundos", "passed": false, "evidence": "Propone 2 ganchos nuevos (A y B), no 3"}, {"text": "Pide las ventas de Shopify del per\u00edodo para controlar que el p\u00edxel mida bien", "passed": true, "evidence": "'Que las 7 ventas sean pedidos reales en Shopify' antes de subir presupuesto"}], "notes": []}, {"eval_id": 2, "configuration": "without_skill", "run_number": 1, "result": {"pass_rate": 0.5556, "passed": 5, "failed": 4, "total": 9, "time_seconds": 829.4, "tokens": 193891, "tool_calls": 0, "errors": 0}, "expectations": [{"text": "El sem\u00e1foro es ROJO", "passed": false, "evidence": "No hay sem\u00e1foro ('No cortes VERDEA todav\u00eda, pero apag\u00e1 los anuncios hoy')"}, {"text": "Dice que la venta se cae en la p\u00e1gina o la oferta, no en los anuncios, citando CTR alto (~2,3%) y tasa de carrito muy baja (~1,1% o 9 carritos)", "passed": true, "evidence": "'Agregan al carrito: 9 (1,1% de las visitas) \u00b7 Ac\u00e1 se rompe' con CTR 2,26% 'Muy bien'"}, {"text": "No propone cortar los anuncios como soluci\u00f3n: recomienda pausar o frenar el gasto mientras se arregla la p\u00e1gina y reutilizar los mismos anuncios", "passed": true, "evidence": "'paus\u00e1 los 3 anuncios (pausalos, no los borres)'; 'Los anuncios y el p\u00fablico no los toques: funcionan'; relanza Luc\u00eda 1 y Marta 1"}, {"text": "Propone al menos 2 cambios concretos en la p\u00e1gina u oferta (p. ej. primera pantalla, precio contra Mercado Libre, confianza/rese\u00f1as reales, packs, funcionamiento del bot\u00f3n en el celular)", "passed": true, "evidence": "Precio de prueba, env\u00edo a la vista, garant\u00eda con d\u00edas, sacar la prueba social inventada, primera pantalla que siga al anuncio, Clarity"}, {"text": "Calcula el CPA de equilibrio con costo $8.000 y precio $58.000: alrededor de $35.000 para 1 frasco", "passed": true, "evidence": "Tabla: 'x1 | $58.000 | $35.280' (empaque $800 de la calculadora)"}, {"text": "Las ideas de anuncios son solo para Luc\u00eda y Marta (no aparecen Ra\u00fal ni H\u00e9ctor)", "passed": false, "evidence": "No propone anuncios nuevos: no se puede verificar"}, {"text": "Las ideas de anuncios no usan CTA agresivos como 'compr\u00e1 ya' o 'pedilo hoy'", "passed": false, "evidence": "No propone anuncios nuevos: no se puede verificar"}, {"text": "Tiene en orden las secciones del formato: t\u00edtulo '\u00b7 Diagn\u00f3stico de campa\u00f1a', Sem\u00e1foro, Confianza en los datos, Qu\u00e9 hacer ma\u00f1ana, Resultados por anuncio, D\u00f3nde se cae la venta, Pr\u00f3ximos anuncios para probar, Datos que me faltaron", "passed": false, "evidence": "No usa el formato del diagn\u00f3stico (t\u00edtulos propios: 'D\u00f3nde se cae la venta', 'La cuenta con tu costo', 'El plan')"}, {"text": "Pide las ventas de Shopify o sugiere verificar que el evento de agregar al carrito se mida bien", "passed": true, "evidence": "'Compar\u00e1 Shopify con Meta ... cu\u00e1ntas agregaron al carrito'"}], "notes": []}, {"eval_id": 3, "configuration": "without_skill", "run_number": 1, "result": {"pass_rate": 0.75, "passed": 6, "failed": 2, "total": 8, "time_seconds": 533.1, "tokens": 123925, "tool_calls": 0, "errors": 0}, "expectations": [{"text": "Dice que el problema es de medici\u00f3n (p\u00edxel o API de conversiones) antes de opinar sobre los anuncios", "passed": true, "evidence": "'Casi seguro lo que est\u00e1 roto es el p\u00edxel, no los anuncios'"}, {"text": "No recomienda apagar los anuncios por mostrar 0 compras en Meta", "passed": true, "evidence": "'No los apagues ni subas el presupuesto'"}, {"text": "Calcula el CPA real con las ventas de Shopify: $9.000 (unos $63.000 de gasto / 7 ventas)", "passed": true, "evidence": "Tabla: '5 a 7 | $9.000 \u2013 $12.600'; 'Si las 7 vinieron de los anuncios'"}, {"text": "Compara el CPA real con el CPA de equilibrio de ORDI (~$13.524) y concluye que la campa\u00f1a probablemente es rentable", "passed": true, "evidence": "'Te dejan plata aunque todas sean de 1 set (el equilibrio es $13.524)'"}, {"text": "El sem\u00e1foro es AMARILLO", "passed": false, "evidence": "No hay sem\u00e1foro"}, {"text": "Da pasos concretos para arreglar la medici\u00f3n (app de Meta en Shopify / uso compartido de datos / API de conversiones / Administrador de eventos / probar eventos)", "passed": true, "evidence": "Administrador de eventos, app Facebook & Instagram con uso compartido M\u00e1ximo, Eventos de clientes, Probar eventos, UTM"}, {"text": "Lee bien el CSV con punto y coma y coma decimal: gasto total ~$63.000 y ~$21.000 por anuncio", "passed": true, "evidence": "'gasto: $63.000'; 'Cada uno lleva unos $21.000'"}, {"text": "Tiene en orden las secciones del formato: t\u00edtulo '\u00b7 Diagn\u00f3stico de campa\u00f1a', Sem\u00e1foro, Confianza en los datos, Qu\u00e9 hacer ma\u00f1ana, Resultados por anuncio, D\u00f3nde se cae la venta, Pr\u00f3ximos anuncios para probar, Datos que me faltaron", "passed": false, "evidence": "No usa el formato del diagn\u00f3stico (t\u00edtulos propios: 'Por qu\u00e9 digo que es el p\u00edxel', 'C\u00f3mo arreglarlo'...)"}], "notes": []}, {"eval_id": 4, "configuration": "without_skill", "run_number": 1, "result": {"pass_rate": 0.875, "passed": 7, "failed": 1, "total": 8, "time_seconds": 435.3, "tokens": 129229, "tool_calls": 0, "errors": 0}, "expectations": [{"text": "Recomienda no tocar nada todav\u00eda porque todav\u00eda no alcanza para decidir", "passed": true, "evidence": "'VERDEA \u00b7 D\u00eda 1: no toques nada todav\u00eda'"}, {"text": "No apaga Luc\u00eda 2 ahora: explica que tiene pocas impresiones (menos de 2.000) o poco gasto y da la condici\u00f3n para cortarlo m\u00e1s adelante", "passed": true, "evidence": "'Todav\u00eda no, pero es el primero en la fila para el martes'; 'Con $6.950 gastados lo normal es no tener ninguna venta'; tabla de corte para el martes"}, {"text": "No sube el presupuesto de Marta 1: 1 venta no alcanza (pide 3 ventas o m\u00e1s d\u00edas)", "passed": true, "evidence": "'No. Una venta todav\u00eda no prueba que ese anuncio venda'; '3 ventas o m\u00e1s ... Reci\u00e9n ah\u00ed, +20%'"}, {"text": "El sem\u00e1foro es AMARILLO", "passed": false, "evidence": "No hay sem\u00e1foro"}, {"text": "Lee bien los n\u00fameros de la captura: gasto total ~$28.364, 4 anuncios, 1 compra (de Marta 1)", "passed": true, "evidence": "Lee $6.950 y CPC $1.158 de Luc\u00eda 2, CTR de cada anuncio y 1 venta de Marta 1; '~$113.000 en total' en 4 d\u00edas = $28.364 por d\u00eda"}, {"text": "No inventa datos que la captura no tiene (carritos, gancho, valor de la compra): los muestra como faltantes", "passed": true, "evidence": "No muestra carritos ni gancho; pide sumarlos el martes"}, {"text": "Pide el export completo o las columnas que faltan, con instrucciones de c\u00f3mo sacarlas del Administrador de anuncios", "passed": true, "evidence": "'En Columnas \u2192 Personalizar columnas, sum\u00e1 Visitas..., Art\u00edculos agregados al carrito, Pagos iniciados...' (pide captura, no export)"}, {"text": "Dice cu\u00e1ndo volver a mirar (p. ej. en 2-3 d\u00edas o al llegar a 1 CPA de equilibrio por anuncio)", "passed": true, "evidence": "'decid\u00ed el martes 20/10 mirando los 4 d\u00edas juntos'"}], "notes": []}], "run_summary": {"with_skill": {"pass_rate": {"mean": 1.0, "stddev": 0.0, "min": 1.0, "max": 1.0}, "time_seconds": {"mean": 722.775, "stddev": 105.7012, "min": 641.9, "max": 878.3}, "tokens": {"mean": 203720.25, "stddev": 23101.0384, "min": 186457, "max": 236687}}, "without_skill": {"pass_rate": {"mean": 0.6815, "stddev": 0.1597, "min": 0.5455, "max": 0.875}, "time_seconds": {"mean": 592.6, "stddev": 168.0851, "min": 435.3, "max": 829.4}, "tokens": {"mean": 144992.5, "stddev": 32807.5974, "min": 123925, "max": 193891}}, "delta": {"pass_rate": "+0.32", "time_seconds": "+130.2", "tokens": "+58728"}}, "notes": ["Las aserciones que separan a las dos configuraciones son casi todas de formato (sem\u00e1foro, secciones, tabla, etiquetas de origen) m\u00e1s la de '3 ideas'. En las de decisi\u00f3n (cortar, escalar, no tocar, p\u00edxel, p\u00e1gina) el baseline acert\u00f3 en los 4 casos: el repo ya tiene mucho contexto (validaci\u00f3n y plan de testeo de ORDI, an\u00e1lisis de VERDEA). Sin esa carpeta de marca la diferencia de criterio probablemente ser\u00eda mayor (no medido).", "Costo de la skill: +22% de tiempo (+130 s) y +41% de tokens por corrida. Las respuestas con skill son m\u00e1s largas (11-13 mil caracteres contra 4,5-11 mil): se agreg\u00f3 un objetivo de 900-1.300 palabras.", "En VERDEA, las dos configuraciones encontraron prueba social inventada en la landing (estrellas, '+1.083 clientes', cartel de 'compr\u00f3 hace X min'). La skill no lo ped\u00eda expl\u00edcitamente: se agreg\u00f3 revisar la landing de la marca cuando la venta se cae en la p\u00e1gina.", "En ORDI, la corrida con skill recalcul\u00f3 el CPA de equilibrio con la mezcla real de packs ($17.800) en vez del valor interpolado por el script ($19.324): el script ahora deduce la mezcla de packs desde el valor de las compras.", "Una sola corrida por configuraci\u00f3n: no se puede medir la variaci\u00f3n entre corridas."]}};
+
+    // ---- State ----
+    let feedbackMap = {};  // run_id -> feedback text
+    let currentIndex = 0;
+    let visitedRuns = new Set();
+
+    // ---- Init ----
+    async function init() {
+      // Load saved feedback from server — but only if this isn't a fresh
+      // iteration (indicated by previous_feedback being present). When
+      // previous feedback exists, the feedback.json on disk is stale from
+      // the prior iteration and should not pre-fill the textareas.
+      const hasPrevious = Object.keys(EMBEDDED_DATA.previous_feedback || {}).length > 0
+        || Object.keys(EMBEDDED_DATA.previous_outputs || {}).length > 0;
+      if (!hasPrevious) {
+        try {
+          const resp = await fetch("/api/feedback");
+          const data = await resp.json();
+          if (data.reviews) {
+            for (const r of data.reviews) feedbackMap[r.run_id] = r.feedback;
+          }
+        } catch { /* first run, no feedback yet */ }
+      }
+
+      document.getElementById("skill-name").textContent = EMBEDDED_DATA.skill_name;
+      showRun(0);
+
+      // Wire up feedback auto-save
+      const textarea = document.getElementById("feedback");
+      let saveTimeout = null;
+      textarea.addEventListener("input", () => {
+        clearTimeout(saveTimeout);
+        document.getElementById("feedback-status").textContent = "";
+        saveTimeout = setTimeout(() => saveCurrentFeedback(), 800);
+      });
+    }
+
+    // ---- Navigation ----
+    function navigate(delta) {
+      const newIndex = currentIndex + delta;
+      if (newIndex >= 0 && newIndex < EMBEDDED_DATA.runs.length) {
+        saveCurrentFeedback();
+        showRun(newIndex);
+      }
+    }
+
+    function updateNavButtons() {
+      document.getElementById("prev-btn").disabled = currentIndex === 0;
+      document.getElementById("next-btn").disabled =
+        currentIndex === EMBEDDED_DATA.runs.length - 1;
+    }
+
+    // ---- Show a run ----
+    function showRun(index) {
+      currentIndex = index;
+      const run = EMBEDDED_DATA.runs[index];
+
+      // Progress
+      document.getElementById("progress").textContent =
+        `${index + 1} of ${EMBEDDED_DATA.runs.length}`;
+
+      // Prompt
+      document.getElementById("prompt-text").textContent = run.prompt;
+
+      // Config badge
+      const badge = document.getElementById("config-badge");
+      const configMatch = run.id.match(/(with_skill|without_skill|new_skill|old_skill)/);
+      if (configMatch) {
+        const config = configMatch[1];
+        const isBaseline = config === "without_skill" || config === "old_skill";
+        badge.textContent = config.replace(/_/g, " ");
+        badge.className = "config-badge " + (isBaseline ? "config-baseline" : "config-primary");
+        badge.style.display = "inline-block";
+      } else {
+        badge.style.display = "none";
+      }
+
+      // Outputs
+      renderOutputs(run);
+
+      // Previous outputs
+      renderPrevOutputs(run);
+
+      // Grades
+      renderGrades(run);
+
+      // Previous feedback
+      const prevFb = (EMBEDDED_DATA.previous_feedback || {})[run.id];
+      const prevEl = document.getElementById("prev-feedback");
+      if (prevFb) {
+        document.getElementById("prev-feedback-text").textContent = prevFb;
+        prevEl.style.display = "block";
+      } else {
+        prevEl.style.display = "none";
+      }
+
+      // Feedback
+      document.getElementById("feedback").value = feedbackMap[run.id] || "";
+      document.getElementById("feedback-status").textContent = "";
+
+      updateNavButtons();
+
+      // Track visited runs and promote done button when all visited
+      visitedRuns.add(index);
+      const doneBtn = document.getElementById("done-btn");
+      if (visitedRuns.size >= EMBEDDED_DATA.runs.length) {
+        doneBtn.classList.add("ready");
+      }
+
+      // Scroll main content to top
+      document.querySelector(".main").scrollTop = 0;
+    }
+
+    // ---- Render outputs ----
+    function renderOutputs(run) {
+      const container = document.getElementById("outputs-body");
+      container.innerHTML = "";
+
+      const outputs = run.outputs || [];
+      if (outputs.length === 0) {
+        container.innerHTML = '<div class="empty-state">No output files</div>';
+        return;
+      }
+
+      for (const file of outputs) {
+        const fileDiv = document.createElement("div");
+        fileDiv.className = "output-file";
+
+        // Always show file header with download link
+        const header = document.createElement("div");
+        header.className = "output-file-header";
+        const nameSpan = document.createElement("span");
+        nameSpan.textContent = file.name;
+        header.appendChild(nameSpan);
+        const dlBtn = document.createElement("a");
+        dlBtn.className = "dl-btn";
+        dlBtn.textContent = "Download";
+        dlBtn.download = file.name;
+        dlBtn.href = getDownloadUri(file);
+        header.appendChild(dlBtn);
+        fileDiv.appendChild(header);
+
+        const content = document.createElement("div");
+        content.className = "output-file-content";
+
+        if (file.type === "text") {
+          const pre = document.createElement("pre");
+          pre.textContent = file.content;
+          content.appendChild(pre);
+        } else if (file.type === "image") {
+          const img = document.createElement("img");
+          img.src = file.data_uri;
+          img.alt = file.name;
+          content.appendChild(img);
+        } else if (file.type === "pdf") {
+          const iframe = document.createElement("iframe");
+          iframe.src = file.data_uri;
+          content.appendChild(iframe);
+        } else if (file.type === "xlsx") {
+          renderXlsx(content, file.data_b64);
+        } else if (file.type === "binary") {
+          const a = document.createElement("a");
+          a.className = "download-link";
+          a.href = file.data_uri;
+          a.download = file.name;
+          a.textContent = "Download " + file.name;
+          content.appendChild(a);
+        } else if (file.type === "error") {
+          const pre = document.createElement("pre");
+          pre.textContent = file.content;
+          pre.style.color = "var(--red)";
+          content.appendChild(pre);
+        }
+
+        fileDiv.appendChild(content);
+        container.appendChild(fileDiv);
+      }
+    }
+
+    // ---- XLSX rendering via SheetJS ----
+    function renderXlsx(container, b64Data) {
+      try {
+        const raw = Uint8Array.from(atob(b64Data), c => c.charCodeAt(0));
+        const wb = XLSX.read(raw, { type: "array" });
+
+        for (let i = 0; i < wb.SheetNames.length; i++) {
+          const sheetName = wb.SheetNames[i];
+          const ws = wb.Sheets[sheetName];
+
+          if (wb.SheetNames.length > 1) {
+            const sheetLabel = document.createElement("div");
+            sheetLabel.style.cssText =
+              "font-weight:600; font-size:0.8rem; color:#b0aea5; margin-top:0.5rem; margin-bottom:0.25rem;";
+            sheetLabel.textContent = "Sheet: " + sheetName;
+            container.appendChild(sheetLabel);
+          }
+
+          const htmlStr = XLSX.utils.sheet_to_html(ws, { editable: false });
+          const wrapper = document.createElement("div");
+          wrapper.innerHTML = htmlStr;
+          container.appendChild(wrapper);
+        }
+      } catch (err) {
+        container.textContent = "Error rendering spreadsheet: " + err.message;
+      }
+    }
+
+    // ---- Grades ----
+    function renderGrades(run) {
+      const section = document.getElementById("grades-section");
+      const content = document.getElementById("grades-content");
+
+      if (!run.grading) {
+        section.style.display = "none";
+        return;
+      }
+
+      const grading = run.grading;
+      section.style.display = "block";
+      // Reset to collapsed
+      content.classList.remove("open");
+      document.getElementById("grades-arrow").classList.remove("open");
+
+      const summary = grading.summary || {};
+      const expectations = grading.expectations || [];
+
+      let html = '<div style="padding: 1rem;">';
+
+      // Summary line
+      const passRate = summary.pass_rate != null
+        ? Math.round(summary.pass_rate * 100) + "%"
+        : "?";
+      const badgeClass = summary.pass_rate >= 0.8 ? "grade-pass" : summary.pass_rate >= 0.5 ? "" : "grade-fail";
+      html += '<div class="grades-summary">';
+      html += '<span class="grade-badge ' + badgeClass + '">' + passRate + '</span>';
+      html += '<span>' + (summary.passed || 0) + ' passed, ' + (summary.failed || 0) + ' failed of ' + (summary.total || 0) + '</span>';
+      html += '</div>';
+
+      // Assertions list
+      html += '<ul class="assertion-list">';
+      for (const exp of expectations) {
+        const statusClass = exp.passed ? "pass" : "fail";
+        const statusIcon = exp.passed ? "\u2713" : "\u2717";
+        html += '<li class="assertion-item">';
+        html += '<span class="assertion-status ' + statusClass + '">' + statusIcon + '</span>';
+        html += '<span>' + escapeHtml(exp.text) + '</span>';
+        if (exp.evidence) {
+          html += '<div class="assertion-evidence">' + escapeHtml(exp.evidence) + '</div>';
+        }
+        html += '</li>';
+      }
+      html += '</ul>';
+
+      html += '</div>';
+      content.innerHTML = html;
+    }
+
+    function toggleGrades() {
+      const content = document.getElementById("grades-content");
+      const arrow = document.getElementById("grades-arrow");
+      content.classList.toggle("open");
+      arrow.classList.toggle("open");
+    }
+
+    // ---- Previous outputs (collapsible) ----
+    function renderPrevOutputs(run) {
+      const section = document.getElementById("prev-outputs-section");
+      const content = document.getElementById("prev-outputs-content");
+      const prevOutputs = (EMBEDDED_DATA.previous_outputs || {})[run.id];
+
+      if (!prevOutputs || prevOutputs.length === 0) {
+        section.style.display = "none";
+        return;
+      }
+
+      section.style.display = "block";
+      // Reset to collapsed
+      content.classList.remove("open");
+      document.getElementById("prev-outputs-arrow").classList.remove("open");
+
+      // Render the files into the content area
+      content.innerHTML = "";
+      const wrapper = document.createElement("div");
+      wrapper.style.padding = "1rem";
+
+      for (const file of prevOutputs) {
+        const fileDiv = document.createElement("div");
+        fileDiv.className = "output-file";
+
+        const header = document.createElement("div");
+        header.className = "output-file-header";
+        const nameSpan = document.createElement("span");
+        nameSpan.textContent = file.name;
+        header.appendChild(nameSpan);
+        const dlBtn = document.createElement("a");
+        dlBtn.className = "dl-btn";
+        dlBtn.textContent = "Download";
+        dlBtn.download = file.name;
+        dlBtn.href = getDownloadUri(file);
+        header.appendChild(dlBtn);
+        fileDiv.appendChild(header);
+
+        const fc = document.createElement("div");
+        fc.className = "output-file-content";
+
+        if (file.type === "text") {
+          const pre = document.createElement("pre");
+          pre.textContent = file.content;
+          fc.appendChild(pre);
+        } else if (file.type === "image") {
+          const img = document.createElement("img");
+          img.src = file.data_uri;
+          img.alt = file.name;
+          fc.appendChild(img);
+        } else if (file.type === "pdf") {
+          const iframe = document.createElement("iframe");
+          iframe.src = file.data_uri;
+          fc.appendChild(iframe);
+        } else if (file.type === "xlsx") {
+          renderXlsx(fc, file.data_b64);
+        } else if (file.type === "binary") {
+          const a = document.createElement("a");
+          a.className = "download-link";
+          a.href = file.data_uri;
+          a.download = file.name;
+          a.textContent = "Download " + file.name;
+          fc.appendChild(a);
+        }
+
+        fileDiv.appendChild(fc);
+        wrapper.appendChild(fileDiv);
+      }
+
+      content.appendChild(wrapper);
+    }
+
+    function togglePrevOutputs() {
+      const content = document.getElementById("prev-outputs-content");
+      const arrow = document.getElementById("prev-outputs-arrow");
+      content.classList.toggle("open");
+      arrow.classList.toggle("open");
+    }
+
+    // ---- Feedback (saved to server -> feedback.json) ----
+    function saveCurrentFeedback() {
+      const run = EMBEDDED_DATA.runs[currentIndex];
+      const text = document.getElementById("feedback").value;
+
+      if (text.trim() === "") {
+        delete feedbackMap[run.id];
+      } else {
+        feedbackMap[run.id] = text;
+      }
+
+      // Build reviews array from map
+      const reviews = [];
+      for (const [run_id, feedback] of Object.entries(feedbackMap)) {
+        if (feedback.trim()) {
+          reviews.push({ run_id, feedback, timestamp: new Date().toISOString() });
+        }
+      }
+
+      fetch("/api/feedback", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ reviews, status: "in_progress" }),
+      }).then(() => {
+        document.getElementById("feedback-status").textContent = "Saved";
+      }).catch(() => {
+        // Static mode or server unavailable — no-op on auto-save,
+        // feedback will be downloaded on final submit
+        document.getElementById("feedback-status").textContent = "Will download on submit";
+      });
+    }
+
+    // ---- Done ----
+    function showDoneDialog() {
+      // Save current textarea to feedbackMap (but don't POST yet)
+      const run = EMBEDDED_DATA.runs[currentIndex];
+      const text = document.getElementById("feedback").value;
+      if (text.trim() === "") {
+        delete feedbackMap[run.id];
+      } else {
+        feedbackMap[run.id] = text;
+      }
+
+      // POST once with status: complete — include ALL runs so the model
+      // can distinguish "no feedback" (looks good) from "not reviewed"
+      const reviews = [];
+      const ts = new Date().toISOString();
+      for (const r of EMBEDDED_DATA.runs) {
+        reviews.push({ run_id: r.id, feedback: feedbackMap[r.id] || "", timestamp: ts });
+      }
+      const payload = JSON.stringify({ reviews, status: "complete" }, null, 2);
+      fetch("/api/feedback", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: payload,
+      }).then(() => {
+        document.getElementById("done-overlay").classList.add("visible");
+      }).catch(() => {
+        // Server not available (static mode) — download as file
+        const blob = new Blob([payload], { type: "application/json" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "feedback.json";
+        a.click();
+        URL.revokeObjectURL(url);
+        document.getElementById("done-overlay").classList.add("visible");
+      });
+    }
+
+    function closeDoneDialog() {
+      // Reset status back to in_progress
+      saveCurrentFeedback();
+      document.getElementById("done-overlay").classList.remove("visible");
+    }
+
+    // ---- Toast ----
+    function showToast(message) {
+      const toast = document.getElementById("toast");
+      toast.textContent = message;
+      toast.classList.add("visible");
+      setTimeout(() => toast.classList.remove("visible"), 2000);
+    }
+
+    // ---- Keyboard nav ----
+    document.addEventListener("keydown", (e) => {
+      // Don't capture when typing in textarea
+      if (e.target.tagName === "TEXTAREA") return;
+
+      if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
+        e.preventDefault();
+        navigate(-1);
+      } else if (e.key === "ArrowRight" || e.key === "ArrowDown") {
+        e.preventDefault();
+        navigate(1);
+      }
+    });
+
+    // ---- Util ----
+    function getDownloadUri(file) {
+      if (file.data_uri) return file.data_uri;
+      if (file.data_b64) return "data:application/octet-stream;base64," + file.data_b64;
+      if (file.type === "text") return "data:text/plain;charset=utf-8," + encodeURIComponent(file.content);
+      return "#";
+    }
+
+    function escapeHtml(text) {
+      const div = document.createElement("div");
+      div.textContent = text;
+      return div.innerHTML;
+    }
+
+    // ---- View switching ----
+    function switchView(view) {
+      document.querySelectorAll(".view-tab").forEach(t => t.classList.remove("active"));
+      document.querySelectorAll(".view-panel").forEach(p => p.classList.remove("active"));
+      document.querySelector(`[onclick="switchView('${view}')"]`).classList.add("active");
+      document.getElementById("panel-" + view).classList.add("active");
+    }
+
+    // ---- Benchmark rendering ----
+    function renderBenchmark() {
+      const data = EMBEDDED_DATA.benchmark;
+      if (!data) return;
+
+      // Show the tabs
+      document.getElementById("view-tabs").style.display = "flex";
+
+      const container = document.getElementById("benchmark-content");
+      const summary = data.run_summary || {};
+      const metadata = data.metadata || {};
+      const notes = data.notes || [];
+
+      let html = "";
+
+      // Header
+      html += "<h2 style='font-family: Poppins, sans-serif; margin-bottom: 0.5rem;'>Benchmark Results</h2>";
+      html += "<p style='color: var(--text-muted); font-size: 0.875rem; margin-bottom: 1.25rem;'>";
+      if (metadata.skill_name) html += "<strong>" + escapeHtml(metadata.skill_name) + "</strong> &mdash; ";
+      if (metadata.timestamp) html += metadata.timestamp + " &mdash; ";
+      if (metadata.evals_run) html += "Evals: " + metadata.evals_run.join(", ") + " &mdash; ";
+      html += (metadata.runs_per_configuration || "?") + " runs per configuration";
+      html += "</p>";
+
+      // Summary table
+      html += '<table class="benchmark-table">';
+
+      function fmtStat(stat, pct) {
+        if (!stat) return "—";
+        const suffix = pct ? "%" : "";
+        const m = pct ? (stat.mean * 100).toFixed(0) : stat.mean.toFixed(1);
+        const s = pct ? (stat.stddev * 100).toFixed(0) : stat.stddev.toFixed(1);
+        return m + suffix + " ± " + s + suffix;
+      }
+
+      function deltaClass(val) {
+        if (!val) return "";
+        const n = parseFloat(val);
+        if (n > 0) return "benchmark-delta-positive";
+        if (n < 0) return "benchmark-delta-negative";
+        return "";
+      }
+
+      // Discover config names dynamically (everything except "delta")
+      const configs = Object.keys(summary).filter(k => k !== "delta");
+      const configA = configs[0] || "config_a";
+      const configB = configs[1] || "config_b";
+      const labelA = configA.replace(/_/g, " ").replace(/\b\w/g, c => c.toUpperCase());
+      const labelB = configB.replace(/_/g, " ").replace(/\b\w/g, c => c.toUpperCase());
+      const a = summary[configA] || {};
+      const b = summary[configB] || {};
+      const delta = summary.delta || {};
+
+      html += "<thead><tr><th>Metric</th><th>" + escapeHtml(labelA) + "</th><th>" + escapeHtml(labelB) + "</th><th>Delta</th></tr></thead>";
+      html += "<tbody>";
+
+      html += "<tr><td><strong>Pass Rate</strong></td>";
+      html += "<td>" + fmtStat(a.pass_rate, true) + "</td>";
+      html += "<td>" + fmtStat(b.pass_rate, true) + "</td>";
+      html += '<td class="' + deltaClass(delta.pass_rate) + '">' + (delta.pass_rate || "—") + "</td></tr>";
+
+      // Time (only show row if data exists)
+      if (a.time_seconds || b.time_seconds) {
+        html += "<tr><td><strong>Time (s)</strong></td>";
+        html += "<td>" + fmtStat(a.time_seconds, false) + "</td>";
+        html += "<td>" + fmtStat(b.time_seconds, false) + "</td>";
+        html += '<td class="' + deltaClass(delta.time_seconds) + '">' + (delta.time_seconds ? delta.time_seconds + "s" : "—") + "</td></tr>";
+      }
+
+      // Tokens (only show row if data exists)
+      if (a.tokens || b.tokens) {
+        html += "<tr><td><strong>Tokens</strong></td>";
+        html += "<td>" + fmtStat(a.tokens, false) + "</td>";
+        html += "<td>" + fmtStat(b.tokens, false) + "</td>";
+        html += '<td class="' + deltaClass(delta.tokens) + '">' + (delta.tokens || "—") + "</td></tr>";
+      }
+
+      html += "</tbody></table>";
+
+      // Per-eval breakdown (if runs data available)
+      const runs = data.runs || [];
+      if (runs.length > 0) {
+        const evalIds = [...new Set(runs.map(r => r.eval_id))].sort((a, b) => a - b);
+
+        html += "<h3 style='font-family: Poppins, sans-serif; margin-bottom: 0.75rem;'>Per-Eval Breakdown</h3>";
+
+        const hasTime = runs.some(r => r.result && r.result.time_seconds != null);
+        const hasErrors = runs.some(r => r.result && r.result.errors > 0);
+
+        for (const evalId of evalIds) {
+          const evalRuns = runs.filter(r => r.eval_id === evalId);
+          const evalName = evalRuns[0] && evalRuns[0].eval_name ? evalRuns[0].eval_name : "Eval " + evalId;
+
+          html += "<h4 style='font-family: Poppins, sans-serif; margin: 1rem 0 0.5rem; color: var(--text);'>" + escapeHtml(evalName) + "</h4>";
+          html += '<table class="benchmark-table">';
+          html += "<thead><tr><th>Config</th><th>Run</th><th>Pass Rate</th>";
+          if (hasTime) html += "<th>Time (s)</th>";
+          if (hasErrors) html += "<th>Crashes During Execution</th>";
+          html += "</tr></thead>";
+          html += "<tbody>";
+
+          // Group by config and render with average rows
+          const configGroups = [...new Set(evalRuns.map(r => r.configuration))];
+          for (let ci = 0; ci < configGroups.length; ci++) {
+            const config = configGroups[ci];
+            const configRuns = evalRuns.filter(r => r.configuration === config);
+            if (configRuns.length === 0) continue;
+
+            const rowClass = ci === 0 ? "benchmark-row-with" : "benchmark-row-without";
+            const configLabel = config.replace(/_/g, " ").replace(/\b\w/g, c => c.toUpperCase());
+
+            for (const run of configRuns) {
+              const r = run.result || {};
+              const prClass = r.pass_rate >= 0.8 ? "benchmark-delta-positive" : r.pass_rate < 0.5 ? "benchmark-delta-negative" : "";
+              html += '<tr class="' + rowClass + '">';
+              html += "<td>" + configLabel + "</td>";
+              html += "<td>" + run.run_number + "</td>";
+              html += '<td class="' + prClass + '">' + ((r.pass_rate || 0) * 100).toFixed(0) + "% (" + (r.passed || 0) + "/" + (r.total || 0) + ")</td>";
+              if (hasTime) html += "<td>" + (r.time_seconds != null ? r.time_seconds.toFixed(1) : "—") + "</td>";
+              if (hasErrors) html += "<td>" + (r.errors || 0) + "</td>";
+              html += "</tr>";
+            }
+
+            // Average row
+            const rates = configRuns.map(r => (r.result || {}).pass_rate || 0);
+            const avgRate = rates.reduce((a, b) => a + b, 0) / rates.length;
+            const avgPrClass = avgRate >= 0.8 ? "benchmark-delta-positive" : avgRate < 0.5 ? "benchmark-delta-negative" : "";
+            html += '<tr class="benchmark-row-avg ' + rowClass + '">';
+            html += "<td>" + configLabel + "</td>";
+            html += "<td>Avg</td>";
+            html += '<td class="' + avgPrClass + '">' + (avgRate * 100).toFixed(0) + "%</td>";
+            if (hasTime) {
+              const times = configRuns.map(r => (r.result || {}).time_seconds).filter(t => t != null);
+              html += "<td>" + (times.length ? (times.reduce((a, b) => a + b, 0) / times.length).toFixed(1) : "—") + "</td>";
+            }
+            if (hasErrors) html += "<td></td>";
+            html += "</tr>";
+          }
+          html += "</tbody></table>";
+
+          // Per-assertion detail for this eval
+          const runsWithExpectations = {};
+          for (const config of configGroups) {
+            runsWithExpectations[config] = evalRuns.filter(r => r.configuration === config && r.expectations && r.expectations.length > 0);
+          }
+          const hasAnyExpectations = Object.values(runsWithExpectations).some(runs => runs.length > 0);
+          if (hasAnyExpectations) {
+            // Collect all unique assertion texts across all configs
+            const allAssertions = [];
+            const seen = new Set();
+            for (const config of configGroups) {
+              for (const run of runsWithExpectations[config]) {
+                for (const exp of (run.expectations || [])) {
+                  if (!seen.has(exp.text)) {
+                    seen.add(exp.text);
+                    allAssertions.push(exp.text);
+                  }
+                }
+              }
+            }
+
+            html += '<table class="benchmark-table" style="margin-top: 0.5rem;">';
+            html += "<thead><tr><th>Assertion</th>";
+            for (const config of configGroups) {
+              const label = config.replace(/_/g, " ").replace(/\b\w/g, c => c.toUpperCase());
+              html += "<th>" + escapeHtml(label) + "</th>";
+            }
+            html += "</tr></thead><tbody>";
+
+            for (const assertionText of allAssertions) {
+              html += "<tr><td>" + escapeHtml(assertionText) + "</td>";
+
+              for (const config of configGroups) {
+                html += "<td>";
+                for (const run of runsWithExpectations[config]) {
+                  const exp = (run.expectations || []).find(e => e.text === assertionText);
+                  if (exp) {
+                    const cls = exp.passed ? "benchmark-delta-positive" : "benchmark-delta-negative";
+                    const icon = exp.passed ? "\u2713" : "\u2717";
+                    html += '<span class="' + cls + '" title="Run ' + run.run_number + ': ' + escapeHtml(exp.evidence || "") + '">' + icon + "</span> ";
+                  } else {
+                    html += "— ";
+                  }
+                }
+                html += "</td>";
+              }
+              html += "</tr>";
+            }
+            html += "</tbody></table>";
+          }
+        }
+      }
+
+      // Notes
+      if (notes.length > 0) {
+        html += '<div class="benchmark-notes">';
+        html += "<h3>Analysis Notes</h3>";
+        html += "<ul>";
+        for (const note of notes) {
+          html += "<li>" + escapeHtml(note) + "</li>";
+        }
+        html += "</ul></div>";
+      }
+
+      container.innerHTML = html;
+    }
+
+    // ---- Start ----
+    init();
+    renderBenchmark();
+  </script>
+</body>
+</html>
