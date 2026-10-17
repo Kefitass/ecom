@@ -108,11 +108,11 @@
   <div class="vf-wrap">
     <div class="vf-top">
       <div class="vf-brand">
-        {%- assign logo = section.settings.logo | default: settings.logo -%}
+        {%- assign logo = section.settings.logo -%}
         {%- if logo != blank -%}
           <a class="vf-logo" href="{{ routes.root_url }}">{{ logo | image_url: width: 300 | image_tag: alt: shop.name, loading: 'lazy' }}</a>
         {%- else -%}
-          <div class="vf-brandname">{{ shop.name }}</div>
+          <div class="vf-brandname">ORDI</div>
         {%- endif -%}
         <p class="vf-tag">{{ section.settings.lema }}</p>
         <p class="vf-desc">{{ section.settings.descripcion }}</p>
@@ -192,7 +192,7 @@
   "settings": [
     { "type": "header", "content": "Marca" },
     { "type": "product", "id": "producto", "label": "Producto del menú \"Tienda\"", "info": "Si lo dejás vacío se busca el producto con handle cajas-organizadoras-ordi." },
-    { "type": "image_picker", "id": "logo", "label": "Logo (opcional)", "info": "Si no elegís uno, se usa el logo del tema." },
+    { "type": "image_picker", "id": "logo", "label": "Logo de ORDI (opcional)", "info": "Si no elegís uno, se muestra el nombre ORDI en letras (no se usa el logo del tema)." },
     { "type": "text", "id": "lema", "label": "Lema", "default": "Cada cosa en su lugar ✨" },
     { "type": "textarea", "id": "descripcion", "label": "Descripción", "default": "Organización inteligente para cada rincón de tu casa: lindo, simple y que dura." },
     { "type": "header", "content": "Contacto" },
