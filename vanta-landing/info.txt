@@ -5,7 +5,7 @@ INFO DEL PRODUCTO — VANTA · Zapatillas Urbanas Unisex
 Marca: VANTA
 Colores: Negro #0A0A0A · Gris Grafito #4A4A4A · Carbón #222222 · Fondo #F4F4F2 · Blanco #FFFFFF
 Acento: Rojo #E10600, SOLO para descuentos, "MÁS POPULAR" y botones de oferta.
-Tipografías: Poppins (títulos) · Open Sans (texto).
+Tipografías: Archivo en mayúsculas (títulos) · Inter (texto).
 
 === PRODUCTO (lo que dice hoy la landing) ===
 - Comodidad de la mañana a la noche (plantilla acolchonada)
@@ -24,14 +24,33 @@ Tipografías: Poppins (títulos) · Open Sans (texto).
 Despacho en 24 hs hábiles, envío a todo el país, entrega 2-3 días hábiles, seguimiento por mail o WhatsApp.
 Cambio de talle gratis · Garantía 100% · Atención 24/7 · Pagos seguros.
 
+=== INSTALACIÓN EN SHOPIFY (resumen) ===
+1. Landing: Editar código → Snippets → nuevo snippet "vanta-landing" → pegar
+   vanta-landing/vanta-landing-snippet.txt. En la plantilla del producto, bloque
+   "Liquid personalizado" con: {% render 'vanta-landing' %}
+2. Inicio, catálogo, contacto y pie de página: Editar código → Sections → nueva sección
+   con el mismo nombre del archivo (vanta-inicio, vanta-catalogo, vanta-contacto,
+   vanta-footer) → pegar el archivo → Personalizar → agregar la sección "VANTA · ...".
+3. Snippet icon-discount: Snippets → "icon-discount" → pegar vanta-home/snippets/icon-discount.liquid.
+4. Lookbook del inicio: en la sección "VANTA · Inicio" → Agregar bloque → "Look (lookbook)"
+   (foto vertical 3:4 + etiqueta, ej. "Con jean"). Sin looks, la sección no aparece.
+   Lookbook de la landing: completá "lookbook" en el panel de configuración.
+
+=== TALLES: CÓMO CARGAR EL PRODUCTO ===
+- En Shopify, el producto lleva variantes de Talle (35 a 45) y, si hay, de Color.
+  El selector de talle/color lo muestra el tema; la landing no lo oculta.
+- Kaching Bundles: activá que el cliente elija talle/color POR CADA PAR del pack
+  (opción de variantes por unidad), así puede combinar talles en 2 o 3 pares.
+- La guía de talles (cm) y la barrita de "Calce" se editan en el panel de la landing
+  (guiaTalles y calce). Las medidas cargadas son de referencia.
+
 === PENDIENTE (⚠️ antes de publicar) ===
 - slugURL: URL del producto en Shopify (mientras tenga ⚠️, la landing no carga en la tienda).
 - Handle del producto: el inicio y el footer buscan "zapatillas-urbanas-vanta"
   (o elegí el producto desde el editor del tema).
-- Fotos: principal, carrusel 9:16 (está apagado: mostrarCarrusel: false), comparativa
-  y la foto de estadísticas.
+- Fotos: principal, lookbook (4 fotos 3:4) y carrusel 9:16 (está apagado: mostrarCarrusel: false).
 - Cargar los mismos precios de los packs en Kaching.
 - Reseñas REALES (los 4 testimonios son de ejemplo) + puntuación y cantidad de reseñas reales.
-- Confirmar con el producto real: materiales, plantilla, suela, talles disponibles,
-  si calzan normal y cómo es el cambio de talle.
+- Confirmar con el producto real: ficha técnica (capellada, plantilla, suela), talles
+  disponibles, medidas en cm de la guía, si calzan normal y cómo es el cambio de talle.
 - Contacto: el WhatsApp y el mail quedaron iguales a VERDEA; Instagram vacío. Cambiar si corresponde.

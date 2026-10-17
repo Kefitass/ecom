@@ -1,13 +1,13 @@
 <!doctype html><meta charset="utf-8"><title>Vista previa · Inicio VANTA</title><meta name=viewport content="width=device-width,initial-scale=1"><body style="margin:0"><!-- Vista previa local del inicio + pie de página (generada desde vanta-inicio.liquid y vanta-footer.liquid). Las fotos aparecen cuando las cargues en Shopify. -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
   #vh-t1{
     --vh-green:#0A0A0A;--vh-sprout:#4A4A4A;--vh-orange:#E10600;--vh-cream:#F4F4F2;--vh-white:#FFFFFF;--vh-earth:#222222;
     --vh-text:#222222;--vh-muted:#666666;--vh-line:#E6E6E6;
-    --vh-title:'Poppins','Montserrat',sans-serif;--vh-body:'Open Sans','Lato',sans-serif;
+    --vh-title:'Archivo','Montserrat',sans-serif;--vh-body:'Inter','Lato',sans-serif;
     background:var(--vh-cream);color:var(--vh-text);font-family:var(--vh-body);
     overflow:hidden;
   }
@@ -19,6 +19,9 @@
   #vh-t1 img{max-width:100%;height:auto;display:block}
   #vh-t1 h1,#vh-t1 h2,#vh-t1 h3{font-family:var(--vh-title);color:var(--vh-earth);margin:0;letter-spacing:0}
   #vh-t1 p{margin:0}
+  #vh-t1 .vh-h1,#vh-t1 .vh-h2,#vh-t1 .vh-final h2,#vh-t1 .vh-prod__title,#vh-t1 .vh-card h3,#vh-t1 .vh-step h3{text-transform:uppercase;font-weight:900;letter-spacing:-.02em}
+  #vh-t1 .vh-h1{letter-spacing:-.03em}
+  #vh-t1 .vh-btn{text-transform:uppercase;letter-spacing:.04em;font-weight:800}
   .vh-wrap{max-width:1160px;margin:0 auto;padding:0 20px}
   .vh-sec{padding:64px 0}
   .vh-sec--white{background:var(--vh-white)}
@@ -58,7 +61,7 @@
   .vh-hero__media{position:relative;display:flex;justify-content:center}
   .vh-hero__blob{position:absolute;inset:6% 4%;background:radial-gradient(circle at 50% 45%,#fff 0,#EBEBEB 55%,rgba(240,240,240,0) 72%);border-radius:50%}
   .vh-hero__img{position:relative;width:100%;max-width:480px;aspect-ratio:1/1;object-fit:contain;filter:drop-shadow(0 24px 30px rgba(0,0,0,.18))}
-  .vh-hero__img--cover{object-fit:cover;border-radius:28px;filter:none;box-shadow:0 24px 50px rgba(0,0,0,.18)}
+  .vh-hero__img--cover{object-fit:cover;border-radius:8px;filter:none;box-shadow:0 24px 50px rgba(0,0,0,.18)}
   .vh-hero__badge{position:absolute;right:4%;top:8%;background:var(--vh-orange);color:#fff;font-family:var(--vh-title);font-weight:800;font-size:15px;line-height:1.1;text-align:center;width:96px;height:96px;border-radius:50%;
     display:flex;flex-direction:column;align-items:center;justify-content:center;transform:rotate(8deg);box-shadow:0 10px 22px rgba(225,6,0,.35)}
   .vh-hero__badge small{font-size:11px;font-weight:600;opacity:.95}
@@ -73,7 +76,7 @@
   .vh-trust__item span{font-size:13px;opacity:.85}
 
   /* 3 · Producto destacado */
-  .vh-prod{display:grid;grid-template-columns:1fr 1fr;gap:0;background:#fff;border:1px solid var(--vh-line);border-radius:28px;overflow:hidden;box-shadow:0 18px 40px rgba(0,0,0,.08)}
+  .vh-prod{display:grid;grid-template-columns:1fr 1fr;gap:0;background:#fff;border:1px solid var(--vh-line);border-radius:8px;overflow:hidden;box-shadow:0 18px 40px rgba(0,0,0,.08)}
   .vh-prod__media{background:linear-gradient(160deg,#F0F0F0,#F4F4F2);display:block;padding:0;position:relative;overflow:hidden;min-height:100%}
   #vh-t1 .vh-prod__media img{position:absolute;inset:0;width:100%;height:100%;max-width:none;object-fit:cover;transition:transform .6s ease}
   .vh-prod__media:hover img{transform:scale(1.03)}
@@ -89,7 +92,7 @@
   .vh-prod__list li{display:flex;gap:10px;align-items:flex-start;font-size:15px;line-height:1.45}
   .vh-prod__list svg{width:20px;height:20px;color:var(--vh-sprout);flex:none;margin-top:1px}
   .vh-packs{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:24px}
-  #vh-t1 .vh-pack{display:block;border:1.5px solid var(--vh-line)!important;border-radius:14px;padding:12px 14px 12px 40px;position:relative;background:var(--vh-cream)!important;text-align:left;cursor:pointer;margin:0;
+  #vh-t1 .vh-pack{display:block;border:1.5px solid var(--vh-line)!important;border-radius:8px;padding:12px 14px 12px 40px;position:relative;background:var(--vh-cream)!important;text-align:left;cursor:pointer;margin:0;
     transition:border-color .2s,background .2s,box-shadow .2s,transform .15s;-webkit-tap-highlight-color:transparent;user-select:none}
   #vh-t1 .vh-pack:hover{border-color:#BBBBBB!important}
   #vh-t1 .vh-pack:active{transform:scale(.98)}
@@ -104,16 +107,33 @@
   #vh-t1 .vh-pack{line-height:1.35}
   .vh-pack i{position:absolute;top:-10px;right:10px;background:var(--vh-orange);color:#fff;font-style:normal;font-family:var(--vh-title);font-weight:700;font-size:11px;padding:3px 9px;border-radius:999px}
   .vh-prod .vh-btn{width:100%}
+  .vh-sizes{margin:0 0 20px}
+  .vh-sizes__label{display:block;font-family:var(--vh-title);font-weight:800;font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--vh-earth);margin-bottom:8px}
+  .vh-sizes__list{display:flex;flex-wrap:wrap;gap:6px}
+  #vh-t1 .vh-size{min-width:42px;height:38px;padding:0 8px;display:inline-flex;align-items:center;justify-content:center;border:1.5px solid var(--vh-line);border-radius:6px;font-family:var(--vh-title);font-weight:700;font-size:14px;color:var(--vh-earth);text-decoration:none;background:#fff;transition:border-color .2s,background .2s,color .2s}
+  #vh-t1 .vh-size:hover{border-color:var(--vh-green);background:var(--vh-green);color:#fff}
+
+  /* Lookbook */
+  .vh-look{background:#0A0A0A}
+  #vh-t1 .vh-look .vh-h2{color:#fff}
+  .vh-look .vh-kicker{color:#bdbdbd}
+  .vh-look .vh-lead{color:rgba(255,255,255,.7)}
+  .vh-look__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+  .vh-look__item{position:relative;aspect-ratio:3/4;border-radius:8px;overflow:hidden;background:#1c1c1c;margin:0;display:block}
+  #vh-t1 .vh-look__item img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+  .vh-look__item:hover img{transform:scale(1.04)}
+  .vh-look__cap{position:absolute;left:10px;bottom:10px;background:#fff;color:#0A0A0A;font-family:var(--vh-title);font-weight:800;font-size:12px;text-transform:uppercase;letter-spacing:.05em;padding:6px 10px;border-radius:4px}
+  .vh-rev__fit{align-self:flex-start;background:var(--vh-cream);color:var(--vh-earth);font-family:var(--vh-title);font-weight:800;font-size:11px;text-transform:uppercase;letter-spacing:.05em;padding:4px 8px;border-radius:4px}
 
   /* 4 · Beneficios */
   .vh-ben{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-  .vh-card{background:#fff;border:1px solid var(--vh-line);border-radius:22px;padding:30px 26px;transition:transform .25s,box-shadow .25s}
+  .vh-card{background:#fff;border:1px solid var(--vh-line);border-radius:8px;padding:30px 26px;transition:transform .25s,box-shadow .25s}
   .vh-card:hover{transform:translateY(-4px);box-shadow:0 16px 34px rgba(0,0,0,.09)}
-  .vh-card__ico{width:54px;height:54px;border-radius:16px;background:#F0F0F0;display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+  .vh-card__ico{width:54px;height:54px;border-radius:8px;background:#F0F0F0;display:flex;align-items:center;justify-content:center;margin-bottom:18px}
   .vh-card__ico svg{width:28px;height:28px;color:var(--vh-green)}
   .vh-card h3{font-size:18px;font-weight:700;margin-bottom:8px!important}
   .vh-card p{font-size:15px;line-height:1.6;color:var(--vh-muted)}
-  .vh-compare{margin-top:40px;border-radius:24px;overflow:hidden;border:1px solid var(--vh-line);background:#fff}
+  .vh-compare{margin-top:40px;border-radius:8px;overflow:hidden;border:1px solid var(--vh-line);background:#fff}
   .vh-compare img{width:100%;height:auto}
 
   /* 5 · Cómo se usa */
@@ -127,7 +147,7 @@
 
   /* 6 · Testimonios */
   .vh-revs{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-  .vh-rev{background:#fff;border:1px solid var(--vh-line);border-radius:22px;overflow:hidden;display:flex;flex-direction:column}
+  .vh-rev{background:#fff;border:1px solid var(--vh-line);border-radius:8px;overflow:hidden;display:flex;flex-direction:column}
   .vh-rev__img{aspect-ratio:1/1;width:100%;object-fit:cover;background:#F0F0F0}
   .vh-rev__body{padding:18px 18px 20px;display:flex;flex-direction:column;gap:8px;flex:1}
   .vh-rev h3{font-size:16px;font-weight:700;line-height:1.3}
@@ -138,7 +158,7 @@
 
   /* 7 · Preguntas */
   .vh-faq{max-width:780px;margin:0 auto;display:grid;gap:12px}
-  .vh-faq details{background:#fff;border:1px solid var(--vh-line);border-radius:16px;overflow:hidden}
+  .vh-faq details{background:#fff;border:1px solid var(--vh-line);border-radius:8px;overflow:hidden}
   .vh-faq summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 22px;font-family:var(--vh-title);font-weight:600;font-size:16px;color:var(--vh-earth)}
   .vh-faq summary::-webkit-details-marker{display:none}
   .vh-faq summary::after{content:"";display:none}
@@ -177,6 +197,7 @@
     .vh-prod__body{padding:28px 24px 30px}
     .vh-ben{grid-template-columns:1fr;max-width:560px;margin:0 auto}
     .vh-revs{grid-template-columns:repeat(2,1fr)}
+    .vh-look__grid{grid-template-columns:repeat(2,1fr);gap:8px}
   }
   /* Celular */
   @media (max-width:749px){
@@ -207,7 +228,7 @@
       <div class="vh-reveal"><h1 class="vh-h1">Comodidad de la mañana a la noche</h1>
         <p class="vh-hero__sub">Zapatillas urbanas unisex con plantilla acolchonada, livianas y respirables. Te las ponés a la mañana y te olvidás que las tenés puestas.</p>
         <div class="vh-hero__cta">
-          <a class="vh-btn" href="/collections/all">Quiero mis VANTA <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="vh-btn" href="#producto">Quiero mis VANTA <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           <div class="vh-hero__rating"><span class="vh-stars" aria-label="5 estrellas"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg></span> <span><b>4.9</b> · Clientes felices</span></div>
         </div>
         <ul class="vh-hero__checks">
@@ -216,14 +237,14 @@
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Cambio de talle gratis</li>
         </ul>
       </div>
-      <div class="vh-hero__media vh-reveal"><img src="None" class="vh-hero__img vh-hero__img--cover" alt=""><div class="vh-hero__badge">25% OFF<small>en 2 pares</small></div></div>
+      <div class="vh-hero__media vh-reveal"><img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 800'><rect width='800' height='800' fill='%23e9e9e7'/><text x='400' y='410' font-family='Arial' font-size='34' font-weight='700' fill='%23999' text-anchor='middle'>FOTO DE LAS ZAPATILLAS</text></svg>" class="vh-hero__img vh-hero__img--cover" alt=""><div class="vh-hero__badge">25% OFF<small>en 2 pares</small></div></div>
     </div>
   </section><section class="vh-trust">
     <div class="vh-wrap vh-trust__grid">
       <div class="vh-trust__item"><span class="vh-trust__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7z"/><circle cx="7" cy="18" r="1.8"/><circle cx="17" cy="18" r="1.8"/></svg></span><div><b>Despacho en 24 hs</b><span>A todo el país</span></div></div>
       <div class="vh-trust__item"><span class="vh-trust__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="M2.5 10h19M6.5 15h4"/></svg></span><div><b>3 cuotas sin interés</b><span>Con todas las tarjetas</span></div></div>
       <div class="vh-trust__item"><span class="vh-trust__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5 4 6v6c0 5 3.4 8.6 8 9.5 4.6-.9 8-4.5 8-9.5V6z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg></span><div><b>Garantía 100%</b><span>Compra protegida</span></div></div>
-      <div class="vh-trust__item"><span class="vh-trust__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8.5 8.5 0 0 1-12.4 7.6L3 21l1.4-5.4A8.5 8.5 0 1 1 21 12z"/><path d="M8.5 10.5h7M8.5 14h4.5"/></svg></span><div><b>Atención 24/7</b><span>Por WhatsApp y mail</span></div></div>
+      <div class="vh-trust__item"><span class="vh-trust__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8.5 8.5 0 0 1-12.4 7.6L3 21l1.4-5.4A8.5 8.5 0 1 1 21 12z"/><path d="M8.5 10.5h7M8.5 14h4.5"/></svg></span><div><b>Cambio de talle gratis</b><span>Si no te quedan, se cambian</span></div></div>
     </div>
   </section><section class="vh-sec">
     <div class="vh-wrap">
@@ -232,24 +253,26 @@
         <h2 class="vh-h2">Las zapatillas que <em>no te vas a querer sacar</em></h2>
       </div>
       <div class="vh-prod vh-reveal">
-        <a class="vh-prod__media" href="/collections/all">
-          <span class="vh-prod__tag">👟 UNISEX</span><img src="None" class="vh-prod__photo" alt=""></a>
+        <a class="vh-prod__media" href="#producto">
+          <span class="vh-prod__tag">👟 UNISEX</span><img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 800'><rect width='800' height='800' fill='%23e9e9e7'/><text x='400' y='410' font-family='Arial' font-size='34' font-weight='700' fill='%23999' text-anchor='middle'>FOTO DE LAS ZAPATILLAS</text></svg>" class="vh-prod__photo" alt=""></a>
         <div class="vh-prod__body">
-          <h3 class="vh-prod__title"></h3>
+          <h3 class="vh-prod__title">Zapatillas Urbanas VANTA · Unisex</h3>
           <div class="vh-prod__rating"><span class="vh-stars" aria-label="5 estrellas"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg></span> <span><b>4.9</b> · Clientes felices</span></div>
           <div class="vh-prod__price">
-            <strong>$0</strong></div>
+            <strong>$40.000</strong></div>
           <p class="vh-prod__cuotas">3 cuotas sin interés</p>
           <ul class="vh-prod__list">
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Plantilla acolchonada: cómodas de la mañana a la noche</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Livianas, respirables y con suela antideslizante</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Talles del 35 al 45 y cambio de talle gratis</li>
-          </ul>
-          <div class="vh-packs" role="radiogroup" aria-label="Elegí tu pack">
+          </ul><div class="vh-sizes">
+            <span class="vh-sizes__label">Talles disponibles</span>
+            <div class="vh-sizes__list"><a class="vh-size" href="#producto">35</a><a class="vh-size" href="#producto">36</a><a class="vh-size" href="#producto">37</a><a class="vh-size" href="#producto">38</a><a class="vh-size" href="#producto">39</a><a class="vh-size" href="#producto">40</a><a class="vh-size" href="#producto">41</a><a class="vh-size" href="#producto">42</a><a class="vh-size" href="#producto">43</a><a class="vh-size" href="#producto">44</a><a class="vh-size" href="#producto">45</a></div>
+          </div><div class="vh-packs" role="radiogroup" aria-label="Elegí tu pack">
             <label class="vh-pack is-sel" data-pack="2" data-cta="Quiero el pack x2"><input type="radio" name="vhpack-t1" value="2" checked><span class="vh-pack__dot"></span><i>MÁS POPULAR</i><b>Llevá 2 pares: 25% OFF</b><span>Combiná talles y colores</span></label>
             <label class="vh-pack" data-pack="3" data-cta="Quiero el pack x3"><input type="radio" name="vhpack-t1" value="3"><span class="vh-pack__dot"></span><b>Llevá 3 pares: 21% OFF</b><span>+ envío gratis</span></label>
           </div>
-          <a class="vh-btn vh-btn--orange vh-pack-cta" href="/collections/all?pack=2" data-base="/collections/all"><span>Quiero el pack x2</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="vh-btn vh-btn--orange vh-pack-cta" href="#producto?pack=2" data-base="#producto"><span>Quiero el pack x2</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
       </div>
     </div>
@@ -284,26 +307,22 @@
         <h2 class="vh-h2">Lo que dicen quienes <em>ya lo usan</em></h2>
       </div>
       <div class="vh-revs"><article class="vh-rev vh-reveal" ><div class="vh-rev__body">
-              <span class="vh-stars" aria-label="5 estrellas"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg></span>
-              <h3>Ni me acuerdo que las tengo puestas</h3>
+              <span class="vh-stars" aria-label="5 estrellas"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg></span><span class="vh-rev__fit">Talle 42 · Calce perfecto</span><h3>Ni me acuerdo que las tengo puestas</h3>
               <p>⚠️ Reseña de ejemplo: reemplazala por una real. Trabajo muchas horas parado y con estas llego a casa sin dolor de pies.</p>
               <div class="vh-rev__who">Martín. G <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1 3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5zm-1.09 14.41-3.5-3.5 1.41-1.41 2.09 2.09 5.18-5.18 1.41 1.41z"/></svg><span>Compra verificada</span></div>
             </div>
           </article><article class="vh-rev vh-reveal" ><div class="vh-rev__body">
-              <span class="vh-stars" aria-label="5 estrellas"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg></span>
-              <h3>Aproveché la promo y valió la pena</h3>
+              <span class="vh-stars" aria-label="5 estrellas"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg></span><span class="vh-rev__fit">Talle 41 · Calce perfecto</span><h3>Aproveché la promo y valió la pena</h3>
               <p>⚠️ Reseña de ejemplo: reemplazala por una real. Llevé 2 pares, uno negro y uno blanco, y llegaron en 2 días.</p>
               <div class="vh-rev__who">Lucas. P <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1 3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5zm-1.09 14.41-3.5-3.5 1.41-1.41 2.09 2.09 5.18-5.18 1.41 1.41z"/></svg><span>Compra verificada</span></div>
             </div>
           </article><article class="vh-rev vh-reveal" ><div class="vh-rev__body">
-              <span class="vh-stars" aria-label="5 estrellas"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg></span>
-              <h3>Tenía miedo de errarle al talle</h3>
+              <span class="vh-stars" aria-label="5 estrellas"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg></span><span class="vh-rev__fit">Talle 37 · Calce perfecto</span><h3>Tenía miedo de errarle al talle</h3>
               <p>⚠️ Reseña de ejemplo: reemplazala por una real. Seguí la guía de talles y me quedaron perfectas.</p>
               <div class="vh-rev__who">Valentina. R <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1 3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5zm-1.09 14.41-3.5-3.5 1.41-1.41 2.09 2.09 5.18-5.18 1.41 1.41z"/></svg><span>Compra verificada</span></div>
             </div>
           </article><article class="vh-rev vh-reveal" ><div class="vh-rev__body">
-              <span class="vh-stars" aria-label="5 estrellas"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg></span>
-              <h3>Muy buena compra, súper recomendable</h3>
+              <span class="vh-stars" aria-label="5 estrellas"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg></span><span class="vh-rev__fit">Talle 38 · Calce perfecto</span><h3>Muy buena compra, súper recomendable</h3>
               <p>⚠️ Reseña de ejemplo: reemplazala por una real. Aproveché el pack de 3 con envío gratis para toda la familia.</p>
               <div class="vh-rev__who">Camila. S <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1 3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5zm-1.09 14.41-3.5-3.5 1.41-1.41 2.09 2.09 5.18-5.18 1.41 1.41z"/></svg><span>Compra verificada</span></div>
             </div>
@@ -333,7 +352,7 @@
     <div class="vh-wrap vh-reveal">
       <h2>Tus pies te lo van a agradecer 👟</h2>
       <p>Llevá 2 pares y ahorrá 25%, o llevá 3 con 21% OFF y envío gratis. Y si el talle no te queda, el cambio es gratis.</p>
-      <a class="vh-btn vh-btn--orange" href="/collections/all">Quiero mis VANTA <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a class="vh-btn vh-btn--orange" href="#producto">Quiero mis VANTA <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       <small>Despacho en 24 hs · 3 cuotas sin interés · Cambio de talle gratis</small>
     </div>
   </section>
@@ -379,12 +398,12 @@
 
 
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
   #vf-f1{
     --vf-green:#0A0A0A;--vf-sprout:#4A4A4A;--vf-cream:#F4F4F2;--vf-earth:#222222;
-    background:#0B0B0B;color:rgba(255,255,255,.82);font-family:'Open Sans','Lato',sans-serif;font-size:14.5px;line-height:1.6;
+    background:#0B0B0B;color:rgba(255,255,255,.82);font-family:'Inter','Lato',sans-serif;font-size:14.5px;line-height:1.6;
     position:relative;overflow:hidden;
   }
   #vf-f1 *{box-sizing:border-box;letter-spacing:normal}
@@ -394,20 +413,20 @@
   #vf-f1 a:hover{color:#fff}
   .vf-wrap{max-width:1160px;margin:0 auto;padding:0 20px;position:relative}
   .vf-top{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.3fr;gap:40px;padding:56px 0 40px}
-  .vf-logo{display:inline-flex;background:#fff;border-radius:18px;padding:10px 14px;margin-bottom:16px}
+  .vf-logo{display:inline-flex;background:#fff;border-radius:8px;padding:10px 14px;margin-bottom:16px}
   .vf-logo img{display:block;width:auto;height:auto;max-height:84px;max-width:150px}
-  .vf-brandname{font-family:'Poppins','Montserrat',sans-serif;font-weight:800;font-size:26px;color:#fff;letter-spacing:.02em;margin-bottom:10px}
-  .vf-tag{font-family:'Poppins','Montserrat',sans-serif;font-weight:600;color:#fff;font-size:16px;margin:0 0 8px}
+  .vf-brandname{font-family:'Archivo','Montserrat',sans-serif;font-weight:900;font-size:30px;color:#fff;letter-spacing:.04em;text-transform:uppercase;margin-bottom:10px}
+  .vf-tag{font-family:'Archivo','Montserrat',sans-serif;font-weight:600;color:#fff;font-size:16px;margin:0 0 8px}
   .vf-desc{margin:0;max-width:300px}
   .vf-social{display:flex;gap:10px;margin-top:18px}
   #vf-f1 .vf-social a{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;transition:background .2s,transform .2s}
   #vf-f1 .vf-social a:hover{background:var(--vf-sprout);transform:translateY(-2px)}
   .vf-social svg{width:18px;height:18px;fill:#fff}
-  .vf-h{font-family:'Poppins','Montserrat',sans-serif;font-weight:700;font-size:15px;color:#fff;margin:6px 0 16px;letter-spacing:.02em}
+  .vf-h{font-family:'Archivo','Montserrat',sans-serif;font-weight:800;font-size:13px;color:#fff;margin:6px 0 16px;letter-spacing:.08em;text-transform:uppercase}
   .vf-list{list-style:none;margin:0;padding:0;display:grid;gap:10px}
   .vf-contact li{display:flex;gap:10px;align-items:flex-start}
   .vf-contact svg{width:18px;height:18px;flex:none;margin-top:2px;color:var(--vf-sprout)}
-  #vf-f1 .vf-wa-cta{display:inline-flex;align-items:center;gap:8px;margin-top:16px;background:#25D366;color:#fff;font-family:'Poppins',sans-serif;font-weight:700;font-size:14px;padding:10px 18px;border-radius:999px;box-shadow:0 6px 16px rgba(0,0,0,.18)}
+  #vf-f1 .vf-wa-cta{display:inline-flex;align-items:center;gap:8px;margin-top:16px;background:#25D366;color:#fff;font-family:'Archivo',sans-serif;font-weight:700;font-size:14px;padding:10px 18px;border-radius:999px;box-shadow:0 6px 16px rgba(0,0,0,.18)}
   #vf-f1 .vf-wa-cta:hover{background:#1ebe5b;color:#fff}
   .vf-wa-cta svg{width:18px;height:18px;fill:#fff}
   .vf-bottom{border-top:1px solid rgba(255,255,255,.12);padding:20px 0 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:13px}
@@ -450,7 +469,7 @@
   .vf-float__btn:before{content:"";position:absolute;inset:0;border-radius:50%;background:#25D366;opacity:.5;animation:vfPulse 2.4s ease-out infinite;z-index:-1}
   .vf-float__btn:hover{transform:scale(1.07)}
   .vf-float__btn svg{width:30px;height:30px;fill:#fff}
-  .vf-float__tip{background:#fff;color:#222222;font-family:'Poppins',sans-serif;font-weight:600;font-size:13px;padding:8px 14px;border-radius:999px;
+  .vf-float__tip{background:#fff;color:#222222;font-family:'Archivo',sans-serif;font-weight:600;font-size:13px;padding:8px 14px;border-radius:999px;
     box-shadow:0 6px 18px rgba(0,0,0,.12);white-space:nowrap;opacity:0;transform:translateX(8px);transition:opacity .25s,transform .25s;pointer-events:none}
   .vf-float:hover .vf-float__tip{opacity:1;transform:none}
   body:has(#wigy-sticky-atc.visible) .vf-float{bottom:100px}
@@ -466,13 +485,13 @@
 </style><footer id="vf-f1">
   <div class="vf-wrap">
     <div class="vf-top">
-      <div class="vf-brand"><a class="vf-logo" href="/"><img src="" class="" alt=""></a><p class="vf-tag">Comodidad de la mañana a la noche 👟</p>
-        <p class="vf-desc">Zapatillas urbanas cómodas, livianas y con onda, para usar todos los días.</p><div class="vf-social"><a href="" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M13.5 21.9v-7.5h2.5l.4-2.9h-2.9V9.6c0-.85.24-1.42 1.46-1.42h1.55V5.57c-.27-.04-1.19-.12-2.26-.12-2.24 0-3.77 1.37-3.77 3.87v2.16H8v2.9h2.5v7.5z"/></svg></a><a href="" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M16.6 5.82A4.28 4.28 0 0 1 15.54 3h-3.09v12.4a2.59 2.59 0 1 1-2.59-2.62c.27 0 .53.04.78.12V9.75a5.7 5.7 0 0 0-.78-.05 5.68 5.68 0 1 0 5.68 5.68V9.01a7.35 7.35 0 0 0 4.3 1.38V7.3a4.3 4.3 0 0 1-3.24-1.48z"/></svg></a></div></div>
+      <div class="vf-brand"><div class="vf-brandname">VANTA</div><p class="vf-tag">Comodidad de la mañana a la noche 👟</p>
+        <p class="vf-desc">Zapatillas urbanas cómodas, livianas y con onda, para usar todos los días.</p></div>
 
       <div>
         <p class="vf-h">Tienda</p>
         <ul class="vf-list">
-          <li><a href="/">Inicio</a></li><li><a href=""></a></li><li><a href="/collections/all">Catálogo</a></li>
+          <li><a href="/">Inicio</a></li><li><a href="#producto">Zapatillas Urbanas VANTA · Unisex</a></li><li><a href="/collections/all">Catálogo</a></li>
           <li><a href="/cart">Mi carrito</a></li>
         </ul>
       </div>

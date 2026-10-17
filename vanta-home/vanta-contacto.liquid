@@ -16,12 +16,12 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
   #vct-{{ section.id }}{
     --c-green:#0A0A0A;--c-sprout:#4A4A4A;--c-orange:#E10600;--c-cream:#F4F4F2;--c-earth:#222222;--c-muted:#666666;--c-line:#E6E6E6;
-    --c-title:'Poppins','Montserrat',sans-serif;--c-body:'Open Sans','Lato',sans-serif;
+    --c-title:'Archivo','Montserrat',sans-serif;--c-body:'Inter','Lato',sans-serif;
     background:var(--c-cream);color:var(--c-earth);font-family:var(--c-body);padding:48px 0 64px;overflow:hidden;
   }
   #vct-{{ section.id }} *{box-sizing:border-box;letter-spacing:normal}
@@ -30,6 +30,8 @@
   #vct-{{ section.id }} .vct-kicker,#vct-{{ section.id }} .vct-wa__tag{letter-spacing:.06em}
   #vct-{{ section.id }} h1,#vct-{{ section.id }} h2,#vct-{{ section.id }} h3{font-family:var(--c-title);color:var(--c-earth);margin:0;letter-spacing:0}
   #vct-{{ section.id }} p{margin:0}
+  #vct-{{ section.id }} .vct-h1,#vct-{{ section.id }} .vct-wa h2,#vct-{{ section.id }} .vct-card h2{text-transform:uppercase;font-weight:900;letter-spacing:-.02em}
+  #vct-{{ section.id }} .vct-submit,#vct-{{ section.id }} .vct-wa__btn{text-transform:uppercase!important;letter-spacing:.04em!important;font-weight:800!important}
   #vct-{{ section.id }} a{text-decoration:none}
   .vct-wrap{max-width:1100px;margin:0 auto;padding:0 20px}
 
@@ -42,7 +44,7 @@
 
   /* Columna de contacto rápido */
   .vct-side{display:grid;gap:14px}
-  .vct-wa{display:block;background:var(--c-green);border-radius:22px;padding:26px 24px;color:#fff;position:relative;overflow:hidden}
+  .vct-wa{display:block;background:var(--c-green);border-radius:8px;padding:26px 24px;color:#fff;position:relative;overflow:hidden}
   .vct-wa:before{content:"";position:absolute;right:-40px;top:-40px;width:160px;height:160px;border-radius:50%;background:rgba(110,110,110,.35)}
   .vct-wa__tag{display:inline-block;background:rgba(255,255,255,.16);color:#fff;font-family:var(--c-title);font-weight:700;font-size:11.5px;letter-spacing:.05em;padding:5px 10px;border-radius:999px;margin-bottom:12px;position:relative}
   #vct-{{ section.id }} .vct-wa h2{color:#fff;font-size:21px;font-weight:700;position:relative}
@@ -50,7 +52,7 @@
   #vct-{{ section.id }} .vct-wa__btn{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:10px;width:100%;min-height:52px;border-radius:999px;background:#25D366;color:#fff;font-family:var(--c-title);font-weight:700;font-size:16px;box-shadow:0 8px 20px rgba(0,0,0,.18);transition:transform .2s,background .2s}
   #vct-{{ section.id }} .vct-wa__btn:hover{background:#1ebe5b;transform:translateY(-2px)}
   .vct-wa__btn svg{width:22px;height:22px;fill:#fff}
-  .vct-info{background:#fff;border:1px solid var(--c-line);border-radius:22px;padding:8px 22px}
+  .vct-info{background:#fff;border:1px solid var(--c-line);border-radius:8px;padding:8px 22px}
   .vct-info__row{display:flex;gap:14px;align-items:center;padding:14px 0;border-bottom:1px solid var(--c-line)}
   .vct-info__row:last-child{border-bottom:0}
   .vct-info__ico{width:42px;height:42px;border-radius:12px;background:#F0F0F0;display:flex;align-items:center;justify-content:center;flex:none}
@@ -60,14 +62,14 @@
   #vct-{{ section.id }} .vct-info__row a:hover{color:var(--c-green)}
 
   /* Formulario */
-  .vct-card{background:#fff;border:1px solid var(--c-line);border-radius:22px;padding:30px 28px;box-shadow:0 18px 40px rgba(0,0,0,.06)}
+  .vct-card{background:#fff;border:1px solid var(--c-line);border-radius:8px;padding:30px 28px;box-shadow:0 18px 40px rgba(0,0,0,.06)}
   #vct-{{ section.id }} .vct-card h2{font-size:21px;font-weight:700}
   .vct-card__sub{font-size:14.5px;color:var(--c-muted);margin:6px 0 22px!important}
   .vct-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
   .vct-field{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
   .vct-field label{font-family:var(--c-title);font-weight:600;font-size:13.5px;color:var(--c-earth)}
   .vct-field label i{font-style:normal;color:var(--c-orange)}
-  #vct-{{ section.id }} .vct-input{width:100%!important;min-height:50px;padding:12px 16px!important;border-radius:14px!important;border:1.5px solid var(--c-line)!important;background:var(--c-cream)!important;
+  #vct-{{ section.id }} .vct-input{width:100%!important;min-height:50px;padding:12px 16px!important;border-radius:8px!important;border:1.5px solid var(--c-line)!important;background:var(--c-cream)!important;
     color:var(--c-earth)!important;font-family:var(--c-body)!important;font-size:16px!important;line-height:1.4;box-shadow:none!important;outline:none;transition:border-color .2s,background .2s,box-shadow .2s;-webkit-appearance:none;appearance:none;margin:0}
   #vct-{{ section.id }} textarea.vct-input{min-height:130px;resize:vertical}
   #vct-{{ section.id }} .vct-input::placeholder{color:#9A9A9A;opacity:1}
@@ -80,7 +82,7 @@
   .vct-submit svg{width:18px;height:18px}
   .vct-note{display:flex;align-items:center;justify-content:center;gap:6px;font-size:12.5px;color:var(--c-muted);margin-top:12px!important;text-align:center}
   .vct-note svg{width:14px;height:14px;color:var(--c-sprout);flex:none}
-  .vct-ok,.vct-err{border-radius:14px;padding:14px 16px;font-size:14.5px;margin-bottom:18px;display:flex;gap:10px;align-items:flex-start}
+  .vct-ok,.vct-err{border-radius:8px;padding:14px 16px;font-size:14.5px;margin-bottom:18px;display:flex;gap:10px;align-items:flex-start}
   .vct-ok{background:#F0F0F0;color:var(--c-green);border:1px solid #D6D6D6}
   .vct-err{background:#FDEEE6;color:#9A3F12;border:1px solid #F4C9B1}
   .vct-ok svg,.vct-err svg{width:20px;height:20px;flex:none}

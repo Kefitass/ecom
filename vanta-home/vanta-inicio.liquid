@@ -16,13 +16,13 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
   #vh-{{ section.id }}{
     --vh-green:#0A0A0A;--vh-sprout:#4A4A4A;--vh-orange:#E10600;--vh-cream:#F4F4F2;--vh-white:#FFFFFF;--vh-earth:#222222;
     --vh-text:#222222;--vh-muted:#666666;--vh-line:#E6E6E6;
-    --vh-title:'Poppins','Montserrat',sans-serif;--vh-body:'Open Sans','Lato',sans-serif;
+    --vh-title:'Archivo','Montserrat',sans-serif;--vh-body:'Inter','Lato',sans-serif;
     background:var(--vh-cream);color:var(--vh-text);font-family:var(--vh-body);
     overflow:hidden;
   }
@@ -34,6 +34,9 @@
   #vh-{{ section.id }} img{max-width:100%;height:auto;display:block}
   #vh-{{ section.id }} h1,#vh-{{ section.id }} h2,#vh-{{ section.id }} h3{font-family:var(--vh-title);color:var(--vh-earth);margin:0;letter-spacing:0}
   #vh-{{ section.id }} p{margin:0}
+  #vh-{{ section.id }} .vh-h1,#vh-{{ section.id }} .vh-h2,#vh-{{ section.id }} .vh-final h2,#vh-{{ section.id }} .vh-prod__title,#vh-{{ section.id }} .vh-card h3,#vh-{{ section.id }} .vh-step h3{text-transform:uppercase;font-weight:900;letter-spacing:-.02em}
+  #vh-{{ section.id }} .vh-h1{letter-spacing:-.03em}
+  #vh-{{ section.id }} .vh-btn{text-transform:uppercase;letter-spacing:.04em;font-weight:800}
   .vh-wrap{max-width:1160px;margin:0 auto;padding:0 20px}
   .vh-sec{padding:64px 0}
   .vh-sec--white{background:var(--vh-white)}
@@ -73,7 +76,7 @@
   .vh-hero__media{position:relative;display:flex;justify-content:center}
   .vh-hero__blob{position:absolute;inset:6% 4%;background:radial-gradient(circle at 50% 45%,#fff 0,#EBEBEB 55%,rgba(240,240,240,0) 72%);border-radius:50%}
   .vh-hero__img{position:relative;width:100%;max-width:480px;aspect-ratio:1/1;object-fit:contain;filter:drop-shadow(0 24px 30px rgba(0,0,0,.18))}
-  .vh-hero__img--cover{object-fit:cover;border-radius:28px;filter:none;box-shadow:0 24px 50px rgba(0,0,0,.18)}
+  .vh-hero__img--cover{object-fit:cover;border-radius:8px;filter:none;box-shadow:0 24px 50px rgba(0,0,0,.18)}
   .vh-hero__badge{position:absolute;right:4%;top:8%;background:var(--vh-orange);color:#fff;font-family:var(--vh-title);font-weight:800;font-size:15px;line-height:1.1;text-align:center;width:96px;height:96px;border-radius:50%;
     display:flex;flex-direction:column;align-items:center;justify-content:center;transform:rotate(8deg);box-shadow:0 10px 22px rgba(225,6,0,.35)}
   .vh-hero__badge small{font-size:11px;font-weight:600;opacity:.95}
@@ -88,7 +91,7 @@
   .vh-trust__item span{font-size:13px;opacity:.85}
 
   /* 3 · Producto destacado */
-  .vh-prod{display:grid;grid-template-columns:1fr 1fr;gap:0;background:#fff;border:1px solid var(--vh-line);border-radius:28px;overflow:hidden;box-shadow:0 18px 40px rgba(0,0,0,.08)}
+  .vh-prod{display:grid;grid-template-columns:1fr 1fr;gap:0;background:#fff;border:1px solid var(--vh-line);border-radius:8px;overflow:hidden;box-shadow:0 18px 40px rgba(0,0,0,.08)}
   .vh-prod__media{background:linear-gradient(160deg,#F0F0F0,#F4F4F2);display:block;padding:0;position:relative;overflow:hidden;min-height:100%}
   #vh-{{ section.id }} .vh-prod__media img{position:absolute;inset:0;width:100%;height:100%;max-width:none;object-fit:cover;transition:transform .6s ease}
   .vh-prod__media:hover img{transform:scale(1.03)}
@@ -104,7 +107,7 @@
   .vh-prod__list li{display:flex;gap:10px;align-items:flex-start;font-size:15px;line-height:1.45}
   .vh-prod__list svg{width:20px;height:20px;color:var(--vh-sprout);flex:none;margin-top:1px}
   .vh-packs{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:24px}
-  #vh-{{ section.id }} .vh-pack{display:block;border:1.5px solid var(--vh-line)!important;border-radius:14px;padding:12px 14px 12px 40px;position:relative;background:var(--vh-cream)!important;text-align:left;cursor:pointer;margin:0;
+  #vh-{{ section.id }} .vh-pack{display:block;border:1.5px solid var(--vh-line)!important;border-radius:8px;padding:12px 14px 12px 40px;position:relative;background:var(--vh-cream)!important;text-align:left;cursor:pointer;margin:0;
     transition:border-color .2s,background .2s,box-shadow .2s,transform .15s;-webkit-tap-highlight-color:transparent;user-select:none}
   #vh-{{ section.id }} .vh-pack:hover{border-color:#BBBBBB!important}
   #vh-{{ section.id }} .vh-pack:active{transform:scale(.98)}
@@ -119,16 +122,33 @@
   #vh-{{ section.id }} .vh-pack{line-height:1.35}
   .vh-pack i{position:absolute;top:-10px;right:10px;background:var(--vh-orange);color:#fff;font-style:normal;font-family:var(--vh-title);font-weight:700;font-size:11px;padding:3px 9px;border-radius:999px}
   .vh-prod .vh-btn{width:100%}
+  .vh-sizes{margin:0 0 20px}
+  .vh-sizes__label{display:block;font-family:var(--vh-title);font-weight:800;font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--vh-earth);margin-bottom:8px}
+  .vh-sizes__list{display:flex;flex-wrap:wrap;gap:6px}
+  #vh-{{ section.id }} .vh-size{min-width:42px;height:38px;padding:0 8px;display:inline-flex;align-items:center;justify-content:center;border:1.5px solid var(--vh-line);border-radius:6px;font-family:var(--vh-title);font-weight:700;font-size:14px;color:var(--vh-earth);text-decoration:none;background:#fff;transition:border-color .2s,background .2s,color .2s}
+  #vh-{{ section.id }} .vh-size:hover{border-color:var(--vh-green);background:var(--vh-green);color:#fff}
+
+  /* Lookbook */
+  .vh-look{background:#0A0A0A}
+  #vh-{{ section.id }} .vh-look .vh-h2{color:#fff}
+  .vh-look .vh-kicker{color:#bdbdbd}
+  .vh-look .vh-lead{color:rgba(255,255,255,.7)}
+  .vh-look__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+  .vh-look__item{position:relative;aspect-ratio:3/4;border-radius:8px;overflow:hidden;background:#1c1c1c;margin:0;display:block}
+  #vh-{{ section.id }} .vh-look__item img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+  .vh-look__item:hover img{transform:scale(1.04)}
+  .vh-look__cap{position:absolute;left:10px;bottom:10px;background:#fff;color:#0A0A0A;font-family:var(--vh-title);font-weight:800;font-size:12px;text-transform:uppercase;letter-spacing:.05em;padding:6px 10px;border-radius:4px}
+  .vh-rev__fit{align-self:flex-start;background:var(--vh-cream);color:var(--vh-earth);font-family:var(--vh-title);font-weight:800;font-size:11px;text-transform:uppercase;letter-spacing:.05em;padding:4px 8px;border-radius:4px}
 
   /* 4 · Beneficios */
   .vh-ben{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-  .vh-card{background:#fff;border:1px solid var(--vh-line);border-radius:22px;padding:30px 26px;transition:transform .25s,box-shadow .25s}
+  .vh-card{background:#fff;border:1px solid var(--vh-line);border-radius:8px;padding:30px 26px;transition:transform .25s,box-shadow .25s}
   .vh-card:hover{transform:translateY(-4px);box-shadow:0 16px 34px rgba(0,0,0,.09)}
-  .vh-card__ico{width:54px;height:54px;border-radius:16px;background:#F0F0F0;display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+  .vh-card__ico{width:54px;height:54px;border-radius:8px;background:#F0F0F0;display:flex;align-items:center;justify-content:center;margin-bottom:18px}
   .vh-card__ico svg{width:28px;height:28px;color:var(--vh-green)}
   .vh-card h3{font-size:18px;font-weight:700;margin-bottom:8px!important}
   .vh-card p{font-size:15px;line-height:1.6;color:var(--vh-muted)}
-  .vh-compare{margin-top:40px;border-radius:24px;overflow:hidden;border:1px solid var(--vh-line);background:#fff}
+  .vh-compare{margin-top:40px;border-radius:8px;overflow:hidden;border:1px solid var(--vh-line);background:#fff}
   .vh-compare img{width:100%;height:auto}
 
   /* 5 · Cómo se usa */
@@ -142,7 +162,7 @@
 
   /* 6 · Testimonios */
   .vh-revs{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-  .vh-rev{background:#fff;border:1px solid var(--vh-line);border-radius:22px;overflow:hidden;display:flex;flex-direction:column}
+  .vh-rev{background:#fff;border:1px solid var(--vh-line);border-radius:8px;overflow:hidden;display:flex;flex-direction:column}
   .vh-rev__img{aspect-ratio:1/1;width:100%;object-fit:cover;background:#F0F0F0}
   .vh-rev__body{padding:18px 18px 20px;display:flex;flex-direction:column;gap:8px;flex:1}
   .vh-rev h3{font-size:16px;font-weight:700;line-height:1.3}
@@ -153,7 +173,7 @@
 
   /* 7 · Preguntas */
   .vh-faq{max-width:780px;margin:0 auto;display:grid;gap:12px}
-  .vh-faq details{background:#fff;border:1px solid var(--vh-line);border-radius:16px;overflow:hidden}
+  .vh-faq details{background:#fff;border:1px solid var(--vh-line);border-radius:8px;overflow:hidden}
   .vh-faq summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 22px;font-family:var(--vh-title);font-weight:600;font-size:16px;color:var(--vh-earth)}
   .vh-faq summary::-webkit-details-marker{display:none}
   .vh-faq summary::after{content:"";display:none}
@@ -192,6 +212,7 @@
     .vh-prod__body{padding:28px 24px 30px}
     .vh-ben{grid-template-columns:1fr;max-width:560px;margin:0 auto}
     .vh-revs{grid-template-columns:repeat(2,1fr)}
+    .vh-look__grid{grid-template-columns:repeat(2,1fr);gap:8px}
   }
   /* Celular */
   @media (max-width:749px){
@@ -265,7 +286,7 @@
       <div class="vh-trust__item"><span class="vh-trust__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7z"/><circle cx="7" cy="18" r="1.8"/><circle cx="17" cy="18" r="1.8"/></svg></span><div><b>Despacho en 24 hs</b><span>A todo el país</span></div></div>
       <div class="vh-trust__item"><span class="vh-trust__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="M2.5 10h19M6.5 15h4"/></svg></span><div><b>3 cuotas sin interés</b><span>Con todas las tarjetas</span></div></div>
       <div class="vh-trust__item"><span class="vh-trust__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5 4 6v6c0 5 3.4 8.6 8 9.5 4.6-.9 8-4.5 8-9.5V6z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg></span><div><b>Garantía 100%</b><span>Compra protegida</span></div></div>
-      <div class="vh-trust__item"><span class="vh-trust__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8.5 8.5 0 0 1-12.4 7.6L3 21l1.4-5.4A8.5 8.5 0 1 1 21 12z"/><path d="M8.5 10.5h7M8.5 14h4.5"/></svg></span><div><b>Atención 24/7</b><span>Por WhatsApp y mail</span></div></div>
+      <div class="vh-trust__item"><span class="vh-trust__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8.5 8.5 0 0 1-12.4 7.6L3 21l1.4-5.4A8.5 8.5 0 1 1 21 12z"/><path d="M8.5 10.5h7M8.5 14h4.5"/></svg></span><div><b>Cambio de talle gratis</b><span>Si no te quedan, se cambian</span></div></div>
     </div>
   </section>
 
@@ -299,6 +320,15 @@
             <li>{{ vh_check }} Livianas, respirables y con suela antideslizante</li>
             <li>{{ vh_check }} Talles del 35 al 45 y cambio de talle gratis</li>
           </ul>
+          {%- if section.settings.talles != blank -%}
+          <div class="vh-sizes">
+            <span class="vh-sizes__label">Talles disponibles</span>
+            <div class="vh-sizes__list">
+              {%- assign lista_talles = section.settings.talles | split: ',' -%}
+              {%- for t in lista_talles -%}<a class="vh-size" href="{{ url_producto }}">{{ t | strip }}</a>{%- endfor -%}
+            </div>
+          </div>
+          {%- endif -%}
           <div class="vh-packs" role="radiogroup" aria-label="Elegí tu pack">
             <label class="vh-pack is-sel" data-pack="2" data-cta="Quiero el pack x2"><input type="radio" name="vhpack-{{ section.id }}" value="2" checked><span class="vh-pack__dot"></span><i>MÁS POPULAR</i><b>Llevá 2 pares: 25% OFF</b><span>Combiná talles y colores</span></label>
             <label class="vh-pack" data-pack="3" data-cta="Quiero el pack x3"><input type="radio" name="vhpack-{{ section.id }}" value="3"><span class="vh-pack__dot"></span><b>Llevá 3 pares: 21% OFF</b><span>+ envío gratis</span></label>
@@ -328,6 +358,32 @@
       {%- endif -%}
     </div>
   </section>
+
+  {%- comment -%} 4B · LOOKBOOK (bloques editables "Look") {%- endcomment -%}
+  {%- assign looks = section.blocks | where: 'type', 'look' -%}
+  {%- if looks.size > 0 -%}
+  <section class="vh-sec vh-look">
+    <div class="vh-wrap">
+      <div class="vh-head vh-reveal">
+        <span class="vh-kicker">Lookbook</span>
+        <h2 class="vh-h2">Cómo combinarlas</h2>
+        <p class="vh-lead">Un par, mil looks. Así las usa nuestra comunidad.</p>
+      </div>
+      <div class="vh-look__grid">
+        {%- for b in looks -%}
+          <a class="vh-look__item vh-reveal" href="{{ url_producto }}" {{ b.shopify_attributes }}>
+            {%- if b.settings.foto != blank -%}
+              {{ b.settings.foto | image_url: width: 700 | image_tag: loading: 'lazy', widths: '350, 500, 700', sizes: '(min-width: 990px) 270px, 50vw', alt: b.settings.texto }}
+            {%- elsif b.settings.foto_url != blank -%}
+              <img src="{{ b.settings.foto_url }}" alt="{{ b.settings.texto | escape }}" loading="lazy" width="600" height="800">
+            {%- endif -%}
+            {%- if b.settings.texto != blank -%}<span class="vh-look__cap">{{ b.settings.texto }}</span>{%- endif -%}
+          </a>
+        {%- endfor -%}
+      </div>
+    </div>
+  </section>
+  {%- endif -%}
 
   {%- comment -%} 5 · CÓMO SE USA {%- endcomment -%}
   <section class="vh-sec">
@@ -363,6 +419,7 @@
             {%- endif -%}
             <div class="vh-rev__body">
               {{ vh_stars }}
+              {%- if b.settings.talle != blank or b.settings.calce != blank -%}<span class="vh-rev__fit">{% if b.settings.talle != blank %}Talle {{ b.settings.talle }}{% endif %}{% if b.settings.talle != blank and b.settings.calce != blank %} · {% endif %}{% if b.settings.calce != blank %}Calce {{ b.settings.calce | downcase }}{% endif %}</span>{%- endif -%}
               <h3>{{ b.settings.titulo }}</h3>
               <p>{{ b.settings.texto }}</p>
               <div class="vh-rev__who">{{ b.settings.nombre }} <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1 3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5zm-1.09 14.41-3.5-3.5 1.41-1.41 2.09 2.09 5.18-5.18 1.41 1.41z"/></svg><span>Compra verificada</span></div>
@@ -454,6 +511,7 @@
     { "type": "header", "content": "Producto" },
     { "type": "product", "id": "producto", "label": "Producto destacado", "info": "Elegí las zapatillas. Si lo dejás vacío se busca el producto con handle zapatillas-urbanas-vanta." },
     { "type": "image_picker", "id": "prod_imagen", "label": "Foto del producto destacado (opcional)", "info": "Cuadrada (1:1). Si no elegís una, se usa la foto principal del producto." },
+    { "type": "text", "id": "talles", "label": "Talles disponibles", "default": "35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45", "info": "Separados por coma. Dejalo vacío para ocultarlos." },
     { "type": "header", "content": "Portada" },
     { "type": "image_picker", "id": "hero_imagen", "label": "Foto de portada (opcional)", "info": "Si no elegís una, se usa la foto del producto." },
     { "type": "text", "id": "titulo", "label": "Título", "default": "Comodidad de la mañana a la noche" },
@@ -480,8 +538,20 @@
         { "type": "image_picker", "id": "foto", "label": "Foto" },
         { "type": "text", "id": "foto_url", "label": "…o URL de la foto" },
         { "type": "text", "id": "nombre", "label": "Nombre", "default": "Nombre. A" },
+        { "type": "text", "id": "talle", "label": "Talle que compró", "default": "" },
+        { "type": "text", "id": "calce", "label": "Calce (ej.: Perfecto)", "default": "" },
         { "type": "text", "id": "titulo", "label": "Título", "default": "Excelente producto" },
         { "type": "textarea", "id": "texto", "label": "Reseña", "default": "Escribí acá la reseña del cliente." }
+      ]
+    },
+    {
+      "type": "look",
+      "name": "Look (lookbook)",
+      "limit": 8,
+      "settings": [
+        { "type": "image_picker", "id": "foto", "label": "Foto (vertical 3:4)" },
+        { "type": "text", "id": "foto_url", "label": "…o URL de la foto" },
+        { "type": "text", "id": "texto", "label": "Etiqueta", "default": "Con jean" }
       ]
     },
     {
@@ -498,10 +568,10 @@
     {
       "name": "VANTA · Inicio",
       "blocks": [
-        { "type": "testimonio", "settings": { "nombre": "Martín. G", "titulo": "Ni me acuerdo que las tengo puestas", "texto": "⚠️ Reseña de ejemplo: reemplazala por una real. Trabajo muchas horas parado y con estas llego a casa sin dolor de pies." } },
-        { "type": "testimonio", "settings": { "nombre": "Lucas. P", "titulo": "Aproveché la promo y valió la pena", "texto": "⚠️ Reseña de ejemplo: reemplazala por una real. Llevé 2 pares, uno negro y uno blanco, y llegaron en 2 días." } },
-        { "type": "testimonio", "settings": { "nombre": "Valentina. R", "titulo": "Tenía miedo de errarle al talle", "texto": "⚠️ Reseña de ejemplo: reemplazala por una real. Seguí la guía de talles y me quedaron perfectas." } },
-        { "type": "testimonio", "settings": { "nombre": "Camila. S", "titulo": "Muy buena compra, súper recomendable", "texto": "⚠️ Reseña de ejemplo: reemplazala por una real. Aproveché el pack de 3 con envío gratis para toda la familia." } },
+        { "type": "testimonio", "settings": { "nombre": "Martín. G", "talle": "42", "calce": "Perfecto", "titulo": "Ni me acuerdo que las tengo puestas", "texto": "⚠️ Reseña de ejemplo: reemplazala por una real. Trabajo muchas horas parado y con estas llego a casa sin dolor de pies." } },
+        { "type": "testimonio", "settings": { "nombre": "Lucas. P", "talle": "41", "calce": "Perfecto", "titulo": "Aproveché la promo y valió la pena", "texto": "⚠️ Reseña de ejemplo: reemplazala por una real. Llevé 2 pares, uno negro y uno blanco, y llegaron en 2 días." } },
+        { "type": "testimonio", "settings": { "nombre": "Valentina. R", "talle": "37", "calce": "Perfecto", "titulo": "Tenía miedo de errarle al talle", "texto": "⚠️ Reseña de ejemplo: reemplazala por una real. Seguí la guía de talles y me quedaron perfectas." } },
+        { "type": "testimonio", "settings": { "nombre": "Camila. S", "talle": "38", "calce": "Perfecto", "titulo": "Muy buena compra, súper recomendable", "texto": "⚠️ Reseña de ejemplo: reemplazala por una real. Aproveché el pack de 3 con envío gratis para toda la familia." } },
         { "type": "pregunta", "settings": { "pregunta": "¿Cómo sé qué talle pedir?", "respuesta": "<p>Calzan <strong>talle normal</strong>: pedí el mismo que usás siempre. Hay del <strong>35 al 45</strong>. Si estás entre dos, elegí el más grande.</p>" } },
         { "type": "pregunta", "settings": { "pregunta": "¿Y si no me quedan bien?", "respuesta": "<p>Tenés <strong>cambio de talle gratis</strong>. Escribinos por WhatsApp con tu número de pedido y lo coordinamos.</p>" } },
         { "type": "pregunta", "settings": { "pregunta": "¿Cuánto tarda en llegar mi pedido?", "respuesta": "<p>Despachamos dentro de las <strong>24 hs hábiles</strong> a todo el país. La entrega suele demorar <strong>2 a 3 días hábiles</strong> y te mandamos el seguimiento por mail o WhatsApp.</p>" } },
