@@ -335,8 +335,8 @@
           </div>
           {%- endif -%}
           <div class="vh-packs" role="radiogroup" aria-label="Elegí tu pack">
-            <label class="vh-pack is-sel" data-pack="2" data-cta="Quiero el pack x2"><input type="radio" name="vhpack-{{ section.id }}" value="2" checked><span class="vh-pack__dot"></span><i>MÁS POPULAR</i><b>Llevá 2 sets: 25% OFF</b><span>+ guía de regalo</span></label>
-            <label class="vh-pack" data-pack="3" data-cta="Quiero el pack x3"><input type="radio" name="vhpack-{{ section.id }}" value="3"><span class="vh-pack__dot"></span><b>Llevá 3 sets: 30% OFF</b><span>+ envío gratis y guía</span></label>
+            <label class="vh-pack is-sel" data-pack="2" data-cta="Quiero el pack x2"><input type="radio" name="vhpack-{{ section.id }}" value="2" checked><span class="vh-pack__dot"></span><i>MÁS POPULAR</i><b>Llevá 2 sets: 14% OFF</b><span>+ guía de regalo</span></label>
+            <label class="vh-pack" data-pack="3" data-cta="Quiero el pack x3"><input type="radio" name="vhpack-{{ section.id }}" value="3"><span class="vh-pack__dot"></span><b>Llevá 3 sets: 24% OFF</b><span>+ envío gratis y guía</span></label>
           </div>
           <a class="vh-btn vh-btn--orange vh-pack-cta" href="{{ url_producto }}?pack=2" data-base="{{ url_producto }}"><span>Quiero el pack x2</span> {{ vh_arrow }}</a>
         </div>
@@ -530,7 +530,7 @@
     { "type": "text", "id": "titulo", "label": "Título", "default": "Cada cosa en su lugar" },
     { "type": "textarea", "id": "subtitulo", "label": "Subtítulo", "default": "Cajas organizadoras de lino, firmes y plegables, en 3 medidas. Tu placard ordenado en una tarde, y que siga así." },
     { "type": "text", "id": "boton", "label": "Texto del botón", "default": "Quiero ordenar mi casa" },
-    { "type": "text", "id": "badge_top", "label": "Sello naranja (arriba)", "default": "30% OFF", "info": "Dejalo vacío para ocultar el sello." },
+    { "type": "text", "id": "badge_top", "label": "Sello naranja (arriba)", "default": "24% OFF", "info": "Dejalo vacío para ocultar el sello." },
     { "type": "text", "id": "badge_bottom", "label": "Sello naranja (abajo)", "default": "en 3 sets" },
     { "type": "header", "content": "Prueba social" },
     { "type": "text", "id": "etiqueta", "label": "Etiqueta arriba del título", "default": "", "info": "Ej.: +1.000 clientes ya las usan (solo números reales). Dejala vacía para ocultarla." },
@@ -542,7 +542,7 @@
     { "type": "text", "id": "comparativa_url", "label": "Imagen comparativa (URL)", "default": "", "info": "Ej.: placard antes y después. Dejala vacía para ocultarla." },
     { "type": "header", "content": "Cierre" },
     { "type": "text", "id": "cierre_titulo", "label": "Título", "default": "Tu casa, como siempre la imaginaste ✨" },
-    { "type": "textarea", "id": "cierre_texto", "label": "Texto", "default": "Llevá 2 sets y ahorrá 25%, o llevá 3 con 30% OFF y envío gratis. Guía digital de orden de regalo." }
+    { "type": "textarea", "id": "cierre_texto", "label": "Texto", "default": "Llevá 2 sets y ahorrá 14%, o llevá 3 con 24% OFF y envío gratis. Guía digital de orden de regalo." }
   ],
   "blocks": [
     {

@@ -126,14 +126,15 @@ window.WIGY_CONFIG = {
   // de abajo toma el precio del pack elegido en Kaching.
   // true → se usa este selector (solo si NO usás Kaching).
   // Escalera de precios para subir el ticket: cada set sale más barato
-  // cuanto más llevás (1 set $29.900 → 2 sets $22.450 c/u → 3 sets $20.967 c/u).
+  // cuanto más llevás (1 set $34.900 → 2 sets $29.950 c/u → 3 sets $26.633 c/u).
+  // Precios validados para un costo de hasta ~$12.000 por set (ver validacion/validacion-ordi.md).
   // Cargá lo mismo en Kaching.
   // ============================================================
   mostrarPacks: false,
   ofertas: [
     {
       nombre: "1 Set",
-      precio: "$29.900",
+      precio: "$34.900",
       subtexto: "3 cajas · ideal para 1 placard",
       precioViejo: "",
       descuento: "",
@@ -144,10 +145,10 @@ window.WIGY_CONFIG = {
     },
     {
       nombre: "2 Sets",
-      precio: "$44.900",
-      subtexto: "6 cajas · $22.450 por set",
-      precioViejo: "$59.800",
-      descuento: "25% OFF",
+      precio: "$59.900",
+      subtexto: "6 cajas · $29.950 por set",
+      precioViejo: "$69.800",
+      descuento: "14% OFF",
       etiqueta: "📦 MÁS POPULAR",
       cantidad: 2,
       seleccionado: true,
@@ -155,10 +156,10 @@ window.WIGY_CONFIG = {
     },
     {
       nombre: "3 Sets",
-      precio: "$62.900",
-      subtexto: "9 cajas · $20.967 por set + envío gratis",
-      precioViejo: "$89.700",
-      descuento: "30% OFF",
+      precio: "$79.900",
+      subtexto: "9 cajas · $26.633 por set + envío gratis",
+      precioViejo: "$104.700",
+      descuento: "24% OFF",
       etiqueta: "MEJOR VALOR",
       cantidad: 3,
       seleccionado: false,
@@ -323,8 +324,8 @@ window.WIGY_CONFIG = {
     "✨ CADA COSA EN SU LUGAR",
     "DESPACHO EN 24 HS HÁBILES",
     "3 CUOTAS SIN INTERÉS",
-    "LLEVÁ 2 SETS Y AHORRÁ 25%",
-    "3 SETS: 30% OFF + ENVÍO GRATIS"
+    "LLEVÁ 2 SETS Y AHORRÁ 14%",
+    "3 SETS: 24% OFF + ENVÍO GRATIS"
   ],
 
   // ============================================================
