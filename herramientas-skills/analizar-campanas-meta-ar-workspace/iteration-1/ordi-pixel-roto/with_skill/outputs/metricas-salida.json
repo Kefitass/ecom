@@ -1,0 +1,186 @@
+{
+ "info": {
+  "columnas_encontradas": [
+   "alcance",
+   "anuncio",
+   "campana",
+   "carritos",
+   "clics",
+   "compras",
+   "conjunto",
+   "cpc_meta",
+   "cpm_meta",
+   "ctr_meta",
+   "fecha_fin",
+   "fecha_inicio",
+   "frecuencia",
+   "gasto",
+   "impresiones",
+   "pagos",
+   "rep3s",
+   "thruplays",
+   "valor",
+   "visitas"
+  ],
+  "columnas_faltantes": [],
+  "formato_numeros": "1.234,56",
+  "moneda": "ARS",
+  "desglose_por_dia": false,
+  "nivel": "anuncio",
+  "desde": "2026-10-07",
+  "hasta": "2026-10-09",
+  "dias": 3,
+  "tiene_video": true,
+  "tiene_visitas": true,
+  "tendencia_total": null,
+  "avisos": []
+ },
+ "cpa_equilibrio": 13524.0,
+ "fuente_cpa_equilibrio": "[Calculado] con el pack de menor margen (todavía no hay ventas con valor)",
+ "roas_equilibrio": 2.580597456373854,
+ "margen_por_pack": [
+  {
+   "unidades": 1,
+   "precio": 34900.0,
+   "margen": 13524.0
+  },
+  {
+   "unidades": 2,
+   "precio": 59900.0,
+   "margen": 20524.0
+  },
+  {
+   "unidades": 3,
+   "precio": 79900.0,
+   "margen": 15724.0
+  }
+ ],
+ "semaforo": "AMARILLO",
+ "porque": "Meta no mide las compras: primero arreglar el píxel (con las ventas de Shopify el CPA real es $9.000)",
+ "alertas": [
+  "MEDICIÓN: Shopify registró 7 ventas y Meta 0 compras. El píxel o la API de conversiones no está mandando el evento de compra. Arreglarlo antes de juzgar anuncios por ventas."
+ ],
+ "cpa_real_shopify": 9000.07142857143,
+ "fuga_en_la_pagina": false,
+ "total": {
+  "gasto_real": 63000.5,
+  "impresiones": 15540.0,
+  "clics": 246.0,
+  "carritos": 32.0,
+  "pagos": 19.0,
+  "compras": 0.0,
+  "valor": 0.0,
+  "ctr": 0.01583011583011583,
+  "cpc": 256.099593495935,
+  "cpm": 4054.086229086229,
+  "cpa": null,
+  "roas": 0.0,
+  "ticket": null,
+  "frecuencia": 1.2304038004750595
+ },
+ "anuncios": [
+  {
+   "nombre": "Caro 1 · Placard caos (dolor)",
+   "conjunto": "Caro · mujeres 25-40",
+   "gasto": 21350.4,
+   "ctr": 0.01875,
+   "gancho": 0.369140625,
+   "retencion": 0.15343915343915343,
+   "cpc": 222.4,
+   "cpm": 4170.0,
+   "tasa_carrito": 0.15476190476190477,
+   "carritos": 13.0,
+   "compras": 0.0,
+   "cpa": null,
+   "roas": 0.0,
+   "ticket": null,
+   "frecuencia": 1.22,
+   "decision": "NO DECIDIR",
+   "motivo": "Meta no está midiendo las compras: no se puede juzgar por ventas",
+   "notas": []
+  },
+  {
+   "nombre": "Caro 3 · Se arman en 10 s (demo)",
+   "conjunto": "Caro · mujeres 25-40",
+   "gasto": 20980.1,
+   "ctr": 0.014285714285714285,
+   "gancho": 0.31103074141048825,
+   "retencion": 0.13953488372093023,
+   "cpc": 265.5708860759494,
+   "cpm": 3793.8698010849907,
+   "tasa_carrito": 0.14285714285714285,
+   "carritos": 10.0,
+   "compras": 0.0,
+   "cpa": null,
+   "roas": 0.0,
+   "ticket": null,
+   "frecuencia": 1.24,
+   "decision": "NO DECIDIR",
+   "motivo": "Meta no está midiendo las compras: no se puede juzgar por ventas",
+   "notas": []
+  },
+  {
+   "nombre": "Silvia 2 · Una caja para cada rincón",
+   "conjunto": "Silvia · mujeres 32-50",
+   "gasto": 20670.0,
+   "ctr": 0.014519427402862986,
+   "gancho": 0.3128834355828221,
+   "retencion": 0.13398692810457516,
+   "cpc": 291.1267605633803,
+   "cpm": 4226.993865030675,
+   "tasa_carrito": 0.14754098360655737,
+   "carritos": 9.0,
+   "compras": 0.0,
+   "cpa": null,
+   "roas": 0.0,
+   "ticket": null,
+   "frecuencia": 1.23,
+   "decision": "NO DECIDIR",
+   "motivo": "Meta no está midiendo las compras: no se puede juzgar por ventas",
+   "notas": []
+  }
+ ],
+ "embudo_donde_se_cae": [
+  "Compras",
+  "checkout, medios de pago o medición del evento de compra"
+ ],
+ "lectura": "la gente compra (lo dice Shopify) pero Meta no lo ve: es un problema de medición, no de los anuncios ni de la página.",
+ "presupuesto_por_conjunto": {
+  "Caro · mujeres 25-40": {
+   "hoy": 14110.166666666666,
+   "prox": [
+    14110.166666666666,
+    14110.166666666666,
+    14110.166666666666,
+    14110.166666666666
+   ],
+   "quedan": [
+    [
+     "Caro 1 · Placard caos (dolor)",
+     "no decidir"
+    ],
+    [
+     "Caro 3 · Se arman en 10 s (demo)",
+     "no decidir"
+    ]
+   ]
+  },
+  "Silvia · mujeres 32-50": {
+   "hoy": 6890.0,
+   "prox": [
+    6890.0,
+    6890.0,
+    6890.0,
+    6890.0
+   ],
+   "quedan": [
+    [
+     "Silvia 2 · Una caja para cada rincón",
+     "no decidir"
+    ]
+   ]
+  }
+ },
+ "presupuesto_por_anuncio_nuevo_diario": null,
+ "gasto_diario_actual": 21000.166666666668
+}
