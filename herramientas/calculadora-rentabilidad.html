@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Calculadora de packs</title>
+<style>
+  :root{--bg:#f6f5f2;--card:#fff;--ink:#1d1d1b;--muted:#6b6b66;--line:#e4e2dc;--ok:#2f7d4f;--warn:#b7791f;--bad:#c0392b;--accent:#2f2a26}
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#171716;--card:#222220;--ink:#f2f1ee;--muted:#a8a69f;--line:#34332f;--accent:#e9e2d6}}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+  main{max-width:960px;margin:0 auto;padding:24px 16px 48px}
+  h1{font-size:24px;margin:0 0 4px}
+  p.sub{color:var(--muted);margin:0 0 20px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;margin-bottom:16px}
+  h2{font-size:15px;margin:0 0 12px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted)}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}
+  label{display:flex;flex-direction:column;gap:4px;font-size:13px;color:var(--muted)}
+  input,select{font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:9px 10px;width:100%}
+  table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+  th,td{text-align:right;padding:10px 8px;border-bottom:1px solid var(--line);white-space:nowrap}
+  th:first-child,td:first-child{text-align:left}
+  th{font-size:12px;color:var(--muted);font-weight:600}
+  .tbl{overflow-x:auto}
+  .pill{display:inline-block;padding:2px 8px;border-radius:99px;font-size:12px;font-weight:700;color:#fff}
+  .ok{background:var(--ok)}.warn{background:var(--warn)}.bad{background:var(--bad)}
+  .note{font-size:13px;color:var(--muted);margin-top:10px}
+  .presets{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+  button{font:inherit;font-size:13px;border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:99px;padding:6px 12px;cursor:pointer}
+  button:hover{border-color:var(--accent)}
+</style>
+</head>
+<body>
+<main>
+  <h1>Calculadora de packs</h1>
+  <p class="sub">Cargá tu costo y tus precios: te dice cuánto ganás por pedido, cuánto podés pagar en anuncios por venta (CPA de equilibrio) y cuánto tiene que facturar cada $1 de anuncios (ROAS de equilibrio).</p>
+
+  <div class="card">
+    <h2>Producto</h2>
+    <div class="presets">
+      <button data-p="ordi">ORDI · set x3</button>
+      <button data-p="vanta">VANTA · par</button>
+      <button data-p="verdea">VERDEA · enraizante</button>
+    </div>
+    <div class="grid">
+      <label>Costo por unidad puesto ($)<input id="costo" type="number" value="12000"></label>
+      <label>Empaque por pedido ($)<input id="empaque" type="number" value="1000"></label>
+      <label>Envío gratis te cuesta ($)<input id="envio" type="number" value="8000"></label>
+    </div>
+    <p class="note">Los botones cargan precios actuales con costos <b>estimados</b> (VERDEA: costo de ejemplo). Reemplazá el costo por el real.</p>
+  </div>
+
+  <div class="card">
+    <h2>Packs</h2>
+    <div class="grid">
+      <label>Precio x1 ($)<input id="p1" type="number" value="34900"></label>
+      <label>Precio x2 ($)<input id="p2" type="number" value="59900"></label>
+      <label>Precio x3 ($)<input id="p3" type="number" value="79900"></label>
+      <label>¿Envío gratis desde?<select id="gratis"><option value="1">1 unidad</option><option value="2">2 unidades</option><option value="3" selected>3 unidades</option><option value="99">Nunca</option></select></label>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Porcentajes sobre el precio</h2>
+    <div class="grid">
+      <label>Pasarela (%)<input id="pasarela" type="number" value="7" step="0.1"></label>
+      <label>3 cuotas sin interés (%)<input id="cuotas" type="number" value="8" step="0.1"></label>
+      <label>Plataforma (%)<input id="plataforma" type="number" value="2" step="0.1"></label>
+      <label>Impuestos (%)<input id="impuestos" type="number" value="4" step="0.1"></label>
+      <label>Devoluciones / roturas (%)<input id="devol" type="number" value="3" step="0.1"></label>
+    </div>
+    <p class="note">Valores de referencia: verificá los tuyos en Mercado Pago y en tu contador.</p>
+  </div>
+
+  <div class="card">
+    <h2>Resultado por pedido</h2>
+    <div class="tbl"><table>
+      <thead><tr><th>Pack</th><th>Precio</th><th>Por unidad</th><th>Costos</th><th>Margen</th><th>CPA equilibrio</th><th>ROAS equilibrio</th><th>Precio/costo</th><th></th></tr></thead>
+      <tbody id="out"></tbody>
+    </table></div>
+    <p class="note">🟢 ROAS de equilibrio ≤ 2,5: buen aire para anunciar · 🟡 2,5–3,5: ajustado · 🔴 más de 3,5 o margen negativo: no conviene así.
+    Si el precio por unidad no baja al llevar más, el pack no empuja a comprar más.</p>
+  </div>
+</main>
+<script>
+  var P = {
+    ordi:{costo:12000,empaque:1000,envio:8000,p1:34900,p2:59900,p3:79900,gratis:3},
+    vanta:{costo:19000,empaque:1200,envio:9000,p1:40000,p2:60000,p3:95000,gratis:3},
+    verdea:{costo:8000,empaque:800,envio:7500,p1:58000,p2:81200,p3:113100,gratis:3}
+  };
+  var $ = function(id){ return document.getElementById(id); };
+  var ids = ["costo","empaque","envio","p1","p2","p3","gratis","pasarela","cuotas","plataforma","impuestos","devol"];
+  function money(x){ return (x<0?"-":"") + "$" + Math.round(Math.abs(x)).toLocaleString("es-AR"); }
+  function calc(){
+    var v = {}; ids.forEach(function(k){ v[k] = parseFloat($(k).value) || 0; });
+    var pct = (v.pasarela+v.cuotas+v.plataforma+v.impuestos+v.devol)/100;
+    var rows = "";
+    [1,2,3].forEach(function(n){
+      var precio = v["p"+n]; if (!precio) return;
+      var envio = n >= v.gratis ? v.envio : 0;
+      var costos = v.costo*n + v.empaque + envio + precio*pct;
+      var m = precio - costos;
+      var roas = m > 0 ? precio/m : Infinity;
+      var cls = m <= 0 || roas > 3.5 ? "bad" : roas > 2.5 ? "warn" : "ok";
+      var txt = cls==="ok" ? "Bien" : cls==="warn" ? "Ajustado" : "No cierra";
+      rows += "<tr><td>x"+n+(envio?" · envío gratis":"")+"</td><td>"+money(precio)+"</td><td>"+money(precio/n)+"</td><td>"+money(costos)+"</td><td>"+money(m)+" ("+Math.round(m/precio*100)+"%)</td><td>"+(m>0?money(m):"—")+"</td><td>"+(m>0?roas.toFixed(2).replace(".",","):"no cierra")+"</td><td>"+(v.costo?(precio/(v.costo*n)).toFixed(1).replace(".",",")+"x":"—")+"</td><td><span class='pill "+cls+"'>"+txt+"</span></td></tr>";
+    });
+    $("out").innerHTML = rows;
+  }
+  ids.forEach(function(k){ $(k).addEventListener("input", calc); });
+  document.querySelectorAll("[data-p]").forEach(function(b){
+    b.addEventListener("click", function(){ var p = P[b.dataset.p]; Object.keys(p).forEach(function(k){ $(k).value = p[k]; }); calc(); });
+  });
+  calc();
+</script>
+</body>
+</html>

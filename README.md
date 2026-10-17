@@ -16,10 +16,11 @@ Cada marca tiene su propia carpeta con todo lo suyo. Abrí la carpeta de la marc
 | `tienda/` | Secciones de Shopify: inicio, catálogo, contacto, pie de página, snippet `icon-discount` y `vista-previa-inicio.html` |
 | `validacion/` | Validación para Argentina: demanda, competencia, números en pesos, puntaje y plan de test |
 | `creativos/` | Buyer personas, guiones de video, prompts de fotos y carruseles |
-| `anuncios/` | Textos para Meta Ads (ganchos, texto principal, títulos) |
+| `anuncios/` | Textos para Meta Ads y plan de testeo de 14 días |
 | `mensajes/` | Mails y WhatsApp: carrito abandonado, post-compra, pedido de reseña |
 | `productos-nuevos/` | (VERDEA) ideas de productos nuevos validadas |
 | `regalos/` | (ORDI) guía digital de regalo |
 
+`herramientas/calculadora-rentabilidad.html`: abrila con doble clic para calcular margen, CPA y ROAS de equilibrio de cada pack.
 `herramientas-skills/` tiene la skill de validación de productos.
 `VERDEA-huerta/CLAUDE.md` tiene las reglas de los creativos de VERDEA.
