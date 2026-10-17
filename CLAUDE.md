@@ -21,7 +21,7 @@
   (`video-marta-2-vivero.txt`).
 - GUION LISTO: Lucía 2 "semanas sin raíz" (`video-lucia-2-semanas.txt`).
 - GUION LISTO: Marta 3 "miedo a hacerle daño" (`video-marta-3-miedo.txt`).
-- GUION LISTO: Lucía 3 "multiplicá en vez de comprar" (`video-lucia-3-multiplicar.txt`).
+- GUION LISTO: Lucía 3 "probé todos los trucos caseros y nada" (`video-lucia-3-trucos.txt`).
   Con esto están guionados los 6.
 - Generador actual de la avatar: APIMart, prompts con secciones en inglés (FORMAT/CHARACTER/
   FRAMING/BACKGROUND/LIGHTING/VOICE/ACTION AND DIALOGUE/AUDIO/RESTRICTIONS), diálogo en
