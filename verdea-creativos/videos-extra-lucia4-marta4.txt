@@ -86,8 +86,8 @@ LIGHTING: soft, even frontal light on her face, natural daylight look.
 
 VOICE: Argentine woman, 50 years old, native of Buenos Aires. Strong porteño Rioplatense accent: she pronounces "ll" and "y" as "sh", with the typical sing-song Buenos Aires intonation, using "vos". Warm, medium-low, slightly husky voice, never high-pitched. Medium volume, like talking to a friend one meter away. Natural pace, not slow and not rushed, short pauses at commas. Always the same voice, same tone, same accent. Never neutral, Mexican, Spanish (Spain) or foreign accent; never an announcer or commercial tone.
 
-ACTION AND DIALOGUE: she looks straight into the camera and speaks in Spanish, honest and slightly anxious tone, like confessing to a friend. On "me agarró pánico" she widens her eyes a little and brings one hand to her chest; on "alguien que quiero" her voice softens and she smiles tenderly. Spoken line (audio only, never shown as text):
-"Me regalaron esta planta y me agarró pánico. ¿Y si se me muere? Me la regaló alguien que quiero."
+ACTION AND DIALOGUE: she looks straight into the camera and speaks in Spanish, tender and slightly anxious tone, like confessing something important to a friend. When she says "mirá" she briefly points up over her shoulder with her thumb, without extending her arm; on "me la regaló mi hija" her voice softens and she smiles tenderly; on "no me lo perdono" she brings one hand to her chest and shakes her head slightly. Spoken line (audio only, never shown as text):
+"Mirá esta planta: me la regaló mi hija. Si se me muere, no me lo perdono."
 
 AUDIO: only her voice, clear and natural. No music, no sound effects, no background noise.
 
@@ -154,7 +154,7 @@ Título: No hacés nada mal 🌱
 
 MARTA 4
 B1: F-REGALO: manos que reciben una planta en maceta con moño de regalo (Texto a video, sin caras).
-    Texto: "me regalaron una planta 🎁" → "¿y si se me muere? 😟"
+    Texto: "me la regaló mi hija 🎁" → "si se me muere… 😟"
 B2: dropeando el liquido → regadera regando la planta con moño.
     Texto: "desde el primer riego 💧"
 B3: la planta del regalo, sana, junto a la ventana → guía → packs → grabación de pantalla.
