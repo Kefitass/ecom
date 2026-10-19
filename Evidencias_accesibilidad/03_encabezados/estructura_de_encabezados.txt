@@ -57,7 +57,7 @@ H1 Un estudio que piensa tu marca en grande.
 H1 Hablemos de tu marca.
   H2 Escribinos
   H2 Otros datos
-    H3 CORREO
-    H3 HORARIO
-    H3 MODALIDAD
-    H3 ¿PREFERÍS EMPEZAR CON UNA CHARLA?
+    H3 Correo
+    H3 Horario
+    H3 Modalidad
+    H3 ¿Preferís empezar con una charla?
