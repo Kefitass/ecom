@@ -1,7 +1,7 @@
 import math
 from PIL import Image, ImageDraw
 S=4; W,H=1080*S,1920*S; CX,CY=W//2,H//2
-BEIGE=(156,212,91); GREEN=(11,19,13); LW=34*S  # BEIGE = color del ícono, GREEN = fondo
+BEIGE=(31,74,44); GREEN=(239,230,211); LW=34*S  # BEIGE = color del ícono, GREEN = fondo
 OUT="/home/user/ecom/verdea-instagram/destacadas/"
 def base():
     im=Image.new("RGB",(W,H),GREEN); d=ImageDraw.Draw(im)
