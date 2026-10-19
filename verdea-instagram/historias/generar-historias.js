@@ -47,12 +47,6 @@ const SETS = {
     hero(`¿Cómo lo ${A('sigo?')}`, 'Te mandamos el código de seguimiento de Correo Argentino por mail o WhatsApp.'),
     big('¿El envío es gratis?', 'x3', 'llevando 3 frascos', 'Con el pack x3 el envío no te cuesta nada, más 35% OFF y la guía de regalo.', L),
   ]],
-  'pedidos': ['PEDIDOS', [
-    hero(`Pedir es ${A('fácil.')}`, 'Tres pasos y tus plantas ya tienen lo que necesitan.'),
-    steps('Así funciona', ['Elegí tu pack en la tienda', 'Pagá en 3 cuotas sin interés', 'Recibí el seguimiento y esperalo en casa']),
-    checks('¿Qué llega en la caja?', [[1, 'Tu frasco VERDEA', '250 ml concentrado, rinde hasta 80 L'], [1, 'Guía de cuidado', 'de regalo con los packs x2 y x3']]),
-    hero(`¿Ya compraste? ${A('Escribinos.')}`, 'Mandanos tu número de pedido por mensaje y te decimos dónde está. Lo lee una persona, no un bot.', L),
-  ]],
 };
 
 const CSS = `
