@@ -1,10 +1,10 @@
 import math
 from PIL import Image, ImageDraw
 S=4; W,H=1080*S,1920*S; CX,CY=W//2,H//2
-BEIGE=(239,230,211); GREEN=(30,77,43); LW=34*S
+BEIGE=(156,212,91); GREEN=(11,19,13); LW=34*S  # BEIGE = color del ícono, GREEN = fondo
 OUT="/home/user/ecom/verdea-instagram/destacadas/"
 def base():
-    im=Image.new("RGB",(W,H),BEIGE); d=ImageDraw.Draw(im)
+    im=Image.new("RGB",(W,H),GREEN); d=ImageDraw.Draw(im)
     r=390*S; d.ellipse([CX-r,CY-r,CX+r,CY+r],fill=GREEN)
     return im,d
 def P(x,y): return (CX+x*S,CY+y*S)
