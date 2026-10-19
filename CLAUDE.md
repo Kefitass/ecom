@@ -23,6 +23,8 @@
 - GUION LISTO: Marta 3 "miedo a hacerle daño" (`video-marta-3-miedo.txt`).
 - GUION LISTO: Lucía 3 "probé todos los trucos caseros y nada" (`video-lucia-3-trucos.txt`).
   Con esto están guionados los 6.
+- EXTRA: Lucía 4 "hacés todo bien y no prende" y Marta 4 "me regalaron una planta"
+  (`videos-extra-lucia4-marta4.txt`, prompts completos).
 - Generador actual de la avatar: APIMart, prompts con secciones en inglés (FORMAT/CHARACTER/
   FRAMING/BACKGROUND/LIGHTING/VOICE/ACTION AND DIALOGUE/AUDIO/RESTRICTIONS), diálogo en
   español, sección VOICE idéntica en todos los bloques. Siempre con la regla antisubtítulos
