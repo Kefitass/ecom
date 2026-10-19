@@ -1,3 +1,4 @@
+IMPORTANTE: elegir 9:16 en el campo de formato/aspect ratio de APIMart (el prompt solo no alcanza).
 VERDEA · 2 VIDEOS EXTRA DE TESTEO · prompts completos para APIMart (copiar cada BLOCK entero)
 ======================================================================
 LUCÍA · VIDEO 4 · "Hacés todo bien y no prende"
@@ -9,7 +10,7 @@ FORMAT: vertical 9:16 video, 8 seconds, authentic UGC style, clean frame without
 
 CHARACTER: the same woman from the reference image: Argentine woman around 50, long wavy dark hair, warm smile, off-white linen shirt with rolled-up sleeves, light brown canvas apron.
 
-FRAMING: static camera on a tripod at eye level. Medium shot from the waist up, centered, filling the frame, with a little headroom. Hands free, not holding anything.
+FRAMING: static camera on a tripod at eye level, LOCKED OFF. The framing is exactly the same for all 8 seconds: medium shot from the waist up, centered, full head always visible with headroom above. NO zoom, NO push-in, NO camera movement, NO close-ups at any moment. Hands free, not holding anything.
 
 BACKGROUND (critical): a completely flat, solid chroma key green background (#00FF00). Evenly lit, no shadows, no gradients, no texture, no objects, no text. Clean, sharp separation between her silhouette and the green. No green light spill on her skin, hair or clothing.
 
@@ -17,7 +18,7 @@ LIGHTING: soft, even frontal light on her face, natural daylight look.
 
 VOICE: Argentine woman, 50 years old, native of Buenos Aires. Strong porteño Rioplatense accent: she pronounces "ll" and "y" as "sh", with the typical sing-song Buenos Aires intonation, using "vos". Warm, medium-low, slightly husky voice, never high-pitched. Medium volume, like talking to a friend one meter away. Natural pace, not slow and not rushed, short pauses at commas. Always the same voice, same tone, same accent. Never neutral, Mexican, Spanish (Spain) or foreign accent; never an announcer or commercial tone.
 
-ACTION AND DIALOGUE: she looks straight into the camera and speaks in Spanish, frustrated but funny tone. On "le cambiás el agua, le das luz, le hablás" she counts three fingers at chest height; on "y el esqueje igual no larga raíces" she drops her hands and shakes her head; on "¿Te pasa?" she raises her eyebrows, knowingly. Spoken line (audio only, never shown as text):
+ACTION AND DIALOGUE: she looks straight into the camera and speaks in Spanish, frustrated but funny tone. On "le cambiás el agua, le das luz, le hablás" she counts three fingers at chest height; on "y el esqueje igual no larga raíces" she drops her hands and shakes her head; on "¿Te pasa?" she raises her eyebrows, knowingly. All hand gestures stay small, at chest height and close to her body; her hands never move toward the camera. Spoken line (audio only, never shown as text):
 "Le cambiás el agua, le das luz, le hablás… y el esqueje igual no larga raíces. ¿Te pasa?"
 
 AUDIO: only her voice, clear and natural. No music, no sound effects, no background noise.
@@ -31,7 +32,7 @@ FORMAT: vertical 9:16 video, 8 seconds, authentic UGC style, clean frame without
 
 CHARACTER: the same woman from the reference image: Argentine woman around 50, long wavy dark hair, warm smile, off-white linen shirt with rolled-up sleeves, light brown canvas apron.
 
-FRAMING: static camera on a tripod at eye level. Medium shot from the waist up, centered, filling the frame, with a little headroom. Hands free, not holding anything.
+FRAMING: static camera on a tripod at eye level, LOCKED OFF. The framing is exactly the same for all 8 seconds: medium shot from the waist up, centered, full head always visible with headroom above. NO zoom, NO push-in, NO camera movement, NO close-ups at any moment. Hands free, not holding anything.
 
 BACKGROUND (critical): a completely flat, solid chroma key green background (#00FF00). Evenly lit, no shadows, no gradients, no texture, no objects, no text. Clean, sharp separation between her silhouette and the green. No green light spill on her skin, hair or clothing.
 
@@ -39,7 +40,7 @@ LIGHTING: soft, even frontal light on her face, natural daylight look.
 
 VOICE: Argentine woman, 50 years old, native of Buenos Aires. Strong porteño Rioplatense accent: she pronounces "ll" and "y" as "sh", with the typical sing-song Buenos Aires intonation, using "vos". Warm, medium-low, slightly husky voice, never high-pitched. Medium volume, like talking to a friend one meter away. Natural pace, not slow and not rushed, short pauses at commas. Always the same voice, same tone, same accent. Never neutral, Mexican, Spanish (Spain) or foreign accent; never an announcer or commercial tone.
 
-ACTION AND DIALOGUE: she looks straight into the camera and speaks in Spanish, calm and reassuring tone. On "no es que hagas algo mal" she gently shakes her head with a soft smile; on "VERDEA" she leans slightly toward the camera and smiles, as if sharing a secret. Spoken line (audio only, never shown as text):
+ACTION AND DIALOGUE: she looks straight into the camera and speaks in Spanish, calm and reassuring tone. On "no es que hagas algo mal" she gently shakes her head with a soft smile; on "VERDEA" she leans slightly toward the camera and smiles, as if sharing a secret. All hand gestures stay small, at chest height and close to her body; her hands never move toward the camera. Spoken line (audio only, never shown as text):
 "No es que hagas algo mal: le falta un empujón para arrancar. Yo uso unas gotitas de VERDEA."
 
 AUDIO: only her voice, clear and natural. No music, no sound effects, no background noise.
@@ -53,7 +54,7 @@ FORMAT: vertical 9:16 video, 8 seconds, authentic UGC style, clean frame without
 
 CHARACTER: the same woman from the reference image: Argentine woman around 50, long wavy dark hair, warm smile, off-white linen shirt with rolled-up sleeves, light brown canvas apron.
 
-FRAMING: static camera on a tripod at eye level. Medium shot from the waist up, centered, filling the frame, with a little headroom. Hands free, not holding anything.
+FRAMING: static camera on a tripod at eye level, LOCKED OFF. The framing is exactly the same for all 8 seconds: medium shot from the waist up, centered, full head always visible with headroom above. NO zoom, NO push-in, NO camera movement, NO close-ups at any moment. Hands free, not holding anything.
 
 BACKGROUND (critical): a completely flat, solid chroma key green background (#00FF00). Evenly lit, no shadows, no gradients, no texture, no objects, no text. Clean, sharp separation between her silhouette and the green. No green light spill on her skin, hair or clothing.
 
@@ -61,7 +62,7 @@ LIGHTING: soft, even frontal light on her face, natural daylight look.
 
 VOICE: Argentine woman, 50 years old, native of Buenos Aires. Strong porteño Rioplatense accent: she pronounces "ll" and "y" as "sh", with the typical sing-song Buenos Aires intonation, using "vos". Warm, medium-low, slightly husky voice, never high-pitched. Medium volume, like talking to a friend one meter away. Natural pace, not slow and not rushed, short pauses at commas. Always the same voice, same tone, same accent. Never neutral, Mexican, Spanish (Spain) or foreign accent; never an announcer or commercial tone.
 
-ACTION AND DIALOGUE: she looks straight into the camera and speaks in Spanish, warm, tender and hopeful tone. On "dale esa ayudita" she makes a tiny gentle gesture with her hand near her chest; on "llena de raíces" she smiles widely and nods softly. Spoken line (audio only, never shown as text):
+ACTION AND DIALOGUE: she looks straight into the camera and speaks in Spanish, warm, tender and hopeful tone. On "dale esa ayudita" she makes a tiny gentle gesture with her hand near her chest; on "llena de raíces" she smiles widely and nods softly. All hand gestures stay small, at chest height and close to her body; her hands never move toward the camera. Spoken line (audio only, never shown as text):
 "Seguí haciendo todo igual, pero dale esa ayudita. Tu ventana va a estar llena de raíces."
 
 AUDIO: only her voice, clear and natural. No music, no sound effects, no background noise.
@@ -78,7 +79,7 @@ FORMAT: vertical 9:16 video, 8 seconds, authentic UGC style, clean frame without
 
 CHARACTER: the same woman from the reference image: Argentine woman around 50, long wavy dark hair, warm smile, off-white linen shirt with rolled-up sleeves, light brown canvas apron.
 
-FRAMING: static camera on a tripod at eye level. Medium shot from the waist up, centered, filling the frame, with a little headroom. Hands free, not holding anything.
+FRAMING: static camera on a tripod at eye level, LOCKED OFF. The framing is exactly the same for all 8 seconds: medium shot from the waist up, centered, full head always visible with headroom above. NO zoom, NO push-in, NO camera movement, NO close-ups at any moment. Hands free, not holding anything.
 
 BACKGROUND (critical): a completely flat, solid chroma key green background (#00FF00). Evenly lit, no shadows, no gradients, no texture, no objects, no text. Clean, sharp separation between her silhouette and the green. No green light spill on her skin, hair or clothing.
 
@@ -86,7 +87,7 @@ LIGHTING: soft, even frontal light on her face, natural daylight look.
 
 VOICE: Argentine woman, 50 years old, native of Buenos Aires. Strong porteño Rioplatense accent: she pronounces "ll" and "y" as "sh", with the typical sing-song Buenos Aires intonation, using "vos". Warm, medium-low, slightly husky voice, never high-pitched. Medium volume, like talking to a friend one meter away. Natural pace, not slow and not rushed, short pauses at commas. Always the same voice, same tone, same accent. Never neutral, Mexican, Spanish (Spain) or foreign accent; never an announcer or commercial tone.
 
-ACTION AND DIALOGUE: she looks straight into the camera and speaks in Spanish, tender and slightly anxious tone, like confessing something important to a friend. When she says "mirá" she briefly points up over her shoulder with her thumb, without extending her arm; on "me la regaló mi hija" her voice softens and she smiles tenderly; on "no me lo perdono" she brings one hand to her chest and shakes her head slightly. Spoken line (audio only, never shown as text):
+ACTION AND DIALOGUE: she looks straight into the camera and speaks in Spanish, tender and slightly anxious tone, like confessing something important to a friend. When she says "mirá" she briefly points up over her shoulder with her thumb, without extending her arm; on "me la regaló mi hija" her voice softens and she smiles tenderly; on "no me lo perdono" she brings one hand to her chest and shakes her head slightly. All hand gestures stay small, at chest height and close to her body; her hands never move toward the camera. Spoken line (audio only, never shown as text):
 "Mirá esta planta: me la regaló mi hija. Si se me muere, no me lo perdono."
 
 AUDIO: only her voice, clear and natural. No music, no sound effects, no background noise.
@@ -100,7 +101,7 @@ FORMAT: vertical 9:16 video, 8 seconds, authentic UGC style, clean frame without
 
 CHARACTER: the same woman from the reference image: Argentine woman around 50, long wavy dark hair, warm smile, off-white linen shirt with rolled-up sleeves, light brown canvas apron.
 
-FRAMING: static camera on a tripod at eye level. Medium shot from the waist up, centered, filling the frame, with a little headroom. Hands free, not holding anything.
+FRAMING: static camera on a tripod at eye level, LOCKED OFF. The framing is exactly the same for all 8 seconds: medium shot from the waist up, centered, full head always visible with headroom above. NO zoom, NO push-in, NO camera movement, NO close-ups at any moment. Hands free, not holding anything.
 
 BACKGROUND (critical): a completely flat, solid chroma key green background (#00FF00). Evenly lit, no shadows, no gradients, no texture, no objects, no text. Clean, sharp separation between her silhouette and the green. No green light spill on her skin, hair or clothing.
 
@@ -108,7 +109,7 @@ LIGHTING: soft, even frontal light on her face, natural daylight look.
 
 VOICE: Argentine woman, 50 years old, native of Buenos Aires. Strong porteño Rioplatense accent: she pronounces "ll" and "y" as "sh", with the typical sing-song Buenos Aires intonation, using "vos". Warm, medium-low, slightly husky voice, never high-pitched. Medium volume, like talking to a friend one meter away. Natural pace, not slow and not rushed, short pauses at commas. Always the same voice, same tone, same accent. Never neutral, Mexican, Spanish (Spain) or foreign accent; never an announcer or commercial tone.
 
-ACTION AND DIALOGUE: she looks straight into the camera and speaks in Spanish, relieved and confident tone. On "desde el primer riego" she raises one finger gently; on "VERDEA" she smiles and nods once. Spoken line (audio only, never shown as text):
+ACTION AND DIALOGUE: she looks straight into the camera and speaks in Spanish, relieved and confident tone. On "desde el primer riego" she raises one finger gently; on "VERDEA" she smiles and nods once. All hand gestures stay small, at chest height and close to her body; her hands never move toward the camera. Spoken line (audio only, never shown as text):
 "Así que desde el primer riego le pongo unas gotitas de VERDEA, para que arme raíces fuertes."
 
 AUDIO: only her voice, clear and natural. No music, no sound effects, no background noise.
@@ -122,7 +123,7 @@ FORMAT: vertical 9:16 video, 8 seconds, authentic UGC style, clean frame without
 
 CHARACTER: the same woman from the reference image: Argentine woman around 50, long wavy dark hair, warm smile, off-white linen shirt with rolled-up sleeves, light brown canvas apron.
 
-FRAMING: static camera on a tripod at eye level. Medium shot from the waist up, centered, filling the frame, with a little headroom. Hands free, not holding anything.
+FRAMING: static camera on a tripod at eye level, LOCKED OFF. The framing is exactly the same for all 8 seconds: medium shot from the waist up, centered, full head always visible with headroom above. NO zoom, NO push-in, NO camera movement, NO close-ups at any moment. Hands free, not holding anything.
 
 BACKGROUND (critical): a completely flat, solid chroma key green background (#00FF00). Evenly lit, no shadows, no gradients, no texture, no objects, no text. Clean, sharp separation between her silhouette and the green. No green light spill on her skin, hair or clothing.
 
@@ -130,7 +131,7 @@ LIGHTING: soft, even frontal light on her face, natural daylight look.
 
 VOICE: Argentine woman, 50 years old, native of Buenos Aires. Strong porteño Rioplatense accent: she pronounces "ll" and "y" as "sh", with the typical sing-song Buenos Aires intonation, using "vos". Warm, medium-low, slightly husky voice, never high-pitched. Medium volume, like talking to a friend one meter away. Natural pace, not slow and not rushed, short pauses at commas. Always the same voice, same tone, same accent. Never neutral, Mexican, Spanish (Spain) or foreign accent; never an announcer or commercial tone.
 
-ACTION AND DIALOGUE: she looks straight into the camera and speaks in Spanish, warm, tender and emotional tone. On "alguien que querés" she places one hand on her chest; on "y ahora sé cómo" she smiles warmly and nods softly. Spoken line (audio only, never shown as text):
+ACTION AND DIALOGUE: she looks straight into the camera and speaks in Spanish, warm, tender and emotional tone. On "alguien que querés" she places one hand on her chest; on "y ahora sé cómo" she smiles warmly and nods softly. All hand gestures stay small, at chest height and close to her body; her hands never move toward the camera. Spoken line (audio only, never shown as text):
 "Cuando una planta viene de alguien que querés, la querés cuidar bien. Y ahora sé cómo."
 
 AUDIO: only her voice, clear and natural. No music, no sound effects, no background noise.

@@ -28,7 +28,8 @@
 - Generador actual de la avatar: APIMart, prompts con secciones en inglés (FORMAT/CHARACTER/
   FRAMING/BACKGROUND/LIGHTING/VOICE/ACTION AND DIALOGUE/AUDIO/RESTRICTIONS), diálogo en
   español, sección VOICE idéntica en todos los bloques. Siempre con la regla antisubtítulos
-  (CRITICAL RULE al inicio + "Spoken line (audio only, never shown as text)").
+  (CRITICAL RULE al inicio + "Spoken line (audio only, never shown as text)"), FRAMING "LOCKED OFF,
+  NO zoom" y manos cerca del cuerpo. Elegir 9:16 en el campo de formato de APIMart.
 - Formato fijo: 3 bloques de 8 s (máx. ~20 palabras), misma avatar mujer ~50 sobre verde
   #00FF00, cámara fija, prompt por secciones; voz unificada con ElevenLabs; fondos B-roll con
   prompts muy específicos (secciones FORMATO/ESCENA/SUJETO/ACCIÓN/CÁMARA/EVITAR, sin barro).
