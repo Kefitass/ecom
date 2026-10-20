@@ -10,7 +10,7 @@ FORMAT: vertical 9:16 video, 8 seconds, authentic UGC style, clean frame without
 
 CHARACTER: the same woman from the reference image: Argentine woman around 50, long wavy dark hair, warm smile, off-white linen shirt with rolled-up sleeves, light brown canvas apron.
 
-FRAMING: static camera on a tripod at eye level, LOCKED OFF. The framing is exactly the same for all 8 seconds: medium shot from the waist up, centered, full head always visible with headroom above. NO zoom, NO push-in, NO camera movement, NO close-ups at any moment. Hands free, not holding anything.
+FRAMING: static camera at eye level, LOCKED OFF. The camera is never visible: no tripod, no tripod head, no selfie stick, no stand or any equipment in frame. The framing is exactly the same for all 8 seconds: medium shot from the waist up, centered, full head always visible with headroom above. NO zoom, NO push-in, NO camera movement, NO close-ups at any moment. Hands free, not holding anything.
 
 BACKGROUND (critical): a completely flat, solid chroma key green background (#00FF00). Evenly lit, no shadows, no gradients, no texture, no objects, no text. Clean, sharp separation between her silhouette and the green. No green light spill on her skin, hair or clothing.
 
@@ -23,7 +23,7 @@ ACTION AND DIALOGUE: she looks straight into the camera and speaks in Spanish, f
 
 AUDIO: only her voice, clear and natural. No music, no sound effects, no background noise.
 
-RESTRICTIONS: absolutely no subtitles, no captions, no on-screen text, no lower thirds, no logos, no watermarks, no objects in her hands, no extra people, no background changes during the 8 seconds. Perfect lip sync.
+RESTRICTIONS: absolutely no subtitles, no captions, no on-screen text, no lower thirds, no logos, no watermarks, no objects in her hands, no tripod, no camera equipment, no selfie stick, no microphone, no objects in front of her, no extra people, no background changes during the 8 seconds. Perfect lip sync.
 
 ----- BLOCK 2 -----
 CRITICAL RULE: clean video with NO subtitles, NO captions, NO burned-in text, NO words written anywhere on screen. The dialogue is AUDIO ONLY and must never appear as text.
@@ -32,7 +32,7 @@ FORMAT: vertical 9:16 video, 8 seconds, authentic UGC style, clean frame without
 
 CHARACTER: the same woman from the reference image: Argentine woman around 50, long wavy dark hair, warm smile, off-white linen shirt with rolled-up sleeves, light brown canvas apron.
 
-FRAMING: static camera on a tripod at eye level, LOCKED OFF. The framing is exactly the same for all 8 seconds: medium shot from the waist up, centered, full head always visible with headroom above. NO zoom, NO push-in, NO camera movement, NO close-ups at any moment. Hands free, not holding anything.
+FRAMING: static camera at eye level, LOCKED OFF. The camera is never visible: no tripod, no tripod head, no selfie stick, no stand or any equipment in frame. The framing is exactly the same for all 8 seconds: medium shot from the waist up, centered, full head always visible with headroom above. NO zoom, NO push-in, NO camera movement, NO close-ups at any moment. Hands free, not holding anything.
 
 BACKGROUND (critical): a completely flat, solid chroma key green background (#00FF00). Evenly lit, no shadows, no gradients, no texture, no objects, no text. Clean, sharp separation between her silhouette and the green. No green light spill on her skin, hair or clothing.
 
@@ -45,7 +45,7 @@ ACTION AND DIALOGUE: she looks straight into the camera and speaks in Spanish, c
 
 AUDIO: only her voice, clear and natural. No music, no sound effects, no background noise.
 
-RESTRICTIONS: absolutely no subtitles, no captions, no on-screen text, no lower thirds, no logos, no watermarks, no objects in her hands, no extra people, no background changes during the 8 seconds. Perfect lip sync.
+RESTRICTIONS: absolutely no subtitles, no captions, no on-screen text, no lower thirds, no logos, no watermarks, no objects in her hands, no tripod, no camera equipment, no selfie stick, no microphone, no objects in front of her, no extra people, no background changes during the 8 seconds. Perfect lip sync.
 
 ----- BLOCK 3 -----
 CRITICAL RULE: clean video with NO subtitles, NO captions, NO burned-in text, NO words written anywhere on screen. The dialogue is AUDIO ONLY and must never appear as text.
@@ -54,7 +54,7 @@ FORMAT: vertical 9:16 video, 8 seconds, authentic UGC style, clean frame without
 
 CHARACTER: the same woman from the reference image: Argentine woman around 50, long wavy dark hair, warm smile, off-white linen shirt with rolled-up sleeves, light brown canvas apron.
 
-FRAMING: static camera on a tripod at eye level, LOCKED OFF. The framing is exactly the same for all 8 seconds: medium shot from the waist up, centered, full head always visible with headroom above. NO zoom, NO push-in, NO camera movement, NO close-ups at any moment. Hands free, not holding anything.
+FRAMING: static camera at eye level, LOCKED OFF. The camera is never visible: no tripod, no tripod head, no selfie stick, no stand or any equipment in frame. The framing is exactly the same for all 8 seconds: medium shot from the waist up, centered, full head always visible with headroom above. NO zoom, NO push-in, NO camera movement, NO close-ups at any moment. Hands free, not holding anything.
 
 BACKGROUND (critical): a completely flat, solid chroma key green background (#00FF00). Evenly lit, no shadows, no gradients, no texture, no objects, no text. Clean, sharp separation between her silhouette and the green. No green light spill on her skin, hair or clothing.
 
@@ -67,7 +67,7 @@ ACTION AND DIALOGUE: she looks straight into the camera and speaks in Spanish, w
 
 AUDIO: only her voice, clear and natural. No music, no sound effects, no background noise.
 
-RESTRICTIONS: absolutely no subtitles, no captions, no on-screen text, no lower thirds, no logos, no watermarks, no objects in her hands, no extra people, no background changes during the 8 seconds. Perfect lip sync.
+RESTRICTIONS: absolutely no subtitles, no captions, no on-screen text, no lower thirds, no logos, no watermarks, no objects in her hands, no tripod, no camera equipment, no selfie stick, no microphone, no objects in front of her, no extra people, no background changes during the 8 seconds. Perfect lip sync.
 
 ======================================================================
 MARTA · VIDEO 4 · "Me regalaron una planta y me da pánico que se muera"
@@ -79,7 +79,7 @@ FORMAT: vertical 9:16 video, 8 seconds, authentic UGC style, clean frame without
 
 CHARACTER: the same woman from the reference image: Argentine woman around 50, long wavy dark hair, warm smile, off-white linen shirt with rolled-up sleeves, light brown canvas apron.
 
-FRAMING: static camera on a tripod at eye level, LOCKED OFF. The framing is exactly the same for all 8 seconds: medium shot from the waist up, centered, full head always visible with headroom above. NO zoom, NO push-in, NO camera movement, NO close-ups at any moment. Hands free, not holding anything.
+FRAMING: static camera at eye level, LOCKED OFF. The camera is never visible: no tripod, no tripod head, no selfie stick, no stand or any equipment in frame. The framing is exactly the same for all 8 seconds: medium shot from the waist up, centered, full head always visible with headroom above. NO zoom, NO push-in, NO camera movement, NO close-ups at any moment. Hands free, not holding anything.
 
 BACKGROUND (critical): a completely flat, solid chroma key green background (#00FF00). Evenly lit, no shadows, no gradients, no texture, no objects, no text. Clean, sharp separation between her silhouette and the green. No green light spill on her skin, hair or clothing.
 
@@ -92,7 +92,7 @@ ACTION AND DIALOGUE: she looks straight into the camera and speaks in Spanish, t
 
 AUDIO: only her voice, clear and natural. No music, no sound effects, no background noise.
 
-RESTRICTIONS: absolutely no subtitles, no captions, no on-screen text, no lower thirds, no logos, no watermarks, no objects in her hands, no extra people, no background changes during the 8 seconds. Perfect lip sync.
+RESTRICTIONS: absolutely no subtitles, no captions, no on-screen text, no lower thirds, no logos, no watermarks, no objects in her hands, no tripod, no camera equipment, no selfie stick, no microphone, no objects in front of her, no extra people, no background changes during the 8 seconds. Perfect lip sync.
 
 ----- BLOCK 2 -----
 CRITICAL RULE: clean video with NO subtitles, NO captions, NO burned-in text, NO words written anywhere on screen. The dialogue is AUDIO ONLY and must never appear as text.
@@ -101,7 +101,7 @@ FORMAT: vertical 9:16 video, 8 seconds, authentic UGC style, clean frame without
 
 CHARACTER: the same woman from the reference image: Argentine woman around 50, long wavy dark hair, warm smile, off-white linen shirt with rolled-up sleeves, light brown canvas apron.
 
-FRAMING: static camera on a tripod at eye level, LOCKED OFF. The framing is exactly the same for all 8 seconds: medium shot from the waist up, centered, full head always visible with headroom above. NO zoom, NO push-in, NO camera movement, NO close-ups at any moment. Hands free, not holding anything.
+FRAMING: static camera at eye level, LOCKED OFF. The camera is never visible: no tripod, no tripod head, no selfie stick, no stand or any equipment in frame. The framing is exactly the same for all 8 seconds: medium shot from the waist up, centered, full head always visible with headroom above. NO zoom, NO push-in, NO camera movement, NO close-ups at any moment. Hands free, not holding anything.
 
 BACKGROUND (critical): a completely flat, solid chroma key green background (#00FF00). Evenly lit, no shadows, no gradients, no texture, no objects, no text. Clean, sharp separation between her silhouette and the green. No green light spill on her skin, hair or clothing.
 
@@ -114,7 +114,7 @@ ACTION AND DIALOGUE: she looks straight into the camera and speaks in Spanish, r
 
 AUDIO: only her voice, clear and natural. No music, no sound effects, no background noise.
 
-RESTRICTIONS: absolutely no subtitles, no captions, no on-screen text, no lower thirds, no logos, no watermarks, no objects in her hands, no extra people, no background changes during the 8 seconds. Perfect lip sync.
+RESTRICTIONS: absolutely no subtitles, no captions, no on-screen text, no lower thirds, no logos, no watermarks, no objects in her hands, no tripod, no camera equipment, no selfie stick, no microphone, no objects in front of her, no extra people, no background changes during the 8 seconds. Perfect lip sync.
 
 ----- BLOCK 3 -----
 CRITICAL RULE: clean video with NO subtitles, NO captions, NO burned-in text, NO words written anywhere on screen. The dialogue is AUDIO ONLY and must never appear as text.
@@ -123,7 +123,7 @@ FORMAT: vertical 9:16 video, 8 seconds, authentic UGC style, clean frame without
 
 CHARACTER: the same woman from the reference image: Argentine woman around 50, long wavy dark hair, warm smile, off-white linen shirt with rolled-up sleeves, light brown canvas apron.
 
-FRAMING: static camera on a tripod at eye level, LOCKED OFF. The framing is exactly the same for all 8 seconds: medium shot from the waist up, centered, full head always visible with headroom above. NO zoom, NO push-in, NO camera movement, NO close-ups at any moment. Hands free, not holding anything.
+FRAMING: static camera at eye level, LOCKED OFF. The camera is never visible: no tripod, no tripod head, no selfie stick, no stand or any equipment in frame. The framing is exactly the same for all 8 seconds: medium shot from the waist up, centered, full head always visible with headroom above. NO zoom, NO push-in, NO camera movement, NO close-ups at any moment. Hands free, not holding anything.
 
 BACKGROUND (critical): a completely flat, solid chroma key green background (#00FF00). Evenly lit, no shadows, no gradients, no texture, no objects, no text. Clean, sharp separation between her silhouette and the green. No green light spill on her skin, hair or clothing.
 
@@ -136,7 +136,7 @@ ACTION AND DIALOGUE: she looks straight into the camera and speaks in Spanish, w
 
 AUDIO: only her voice, clear and natural. No music, no sound effects, no background noise.
 
-RESTRICTIONS: absolutely no subtitles, no captions, no on-screen text, no lower thirds, no logos, no watermarks, no objects in her hands, no extra people, no background changes during the 8 seconds. Perfect lip sync.
+RESTRICTIONS: absolutely no subtitles, no captions, no on-screen text, no lower thirds, no logos, no watermarks, no objects in her hands, no tripod, no camera equipment, no selfie stick, no microphone, no objects in front of her, no extra people, no background changes during the 8 seconds. Perfect lip sync.
 
 ======================================================================
 FONDOS Y TEXTOS
