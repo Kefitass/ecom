@@ -1,7 +1,7 @@
 VERDEA · LUCÍA 1 (primer creativo) · REHECHO PARA APIMART
 Buyer persona: LUCÍA ("la que ya tiró demasiados esquejes") · mismo guion del primer video (audio transcripto)
-3 bloques de 8 s (máx. ~20 palabras; la oferta y la dosis van en texto en pantalla) · APIMart (gemini-omni flash) · formato 9:16 en el campo de APIMart · misma foto de referencia
-Voz: misma sección VOICE en los 3; después unificar con ElevenLabs Voice Changer. Sin música.
+4 bloques de 8 s → recortando los silencios queda en ~28 s (la oferta va en texto en pantalla) · APIMart (gemini-omni flash) · formato 9:16 en el campo de APIMart · misma foto de referencia
+Voz: misma sección VOICE en los 4; después unificar con ElevenLabs Voice Changer. Sin música.
 =====================================================================
 
 ---------------------------------------------------------------------
@@ -21,8 +21,8 @@ LIGHTING: soft, even frontal light on her face, natural daylight look.
 
 VOICE: Argentine woman, 50 years old, native of Buenos Aires. Strong porteño Rioplatense accent: she pronounces "ll" and "y" as "sh", with the typical sing-song Buenos Aires intonation, using "vos". Warm, medium-low, slightly husky voice, never high-pitched. Medium volume, like talking to a friend one meter away. Natural pace, not slow and not rushed, short pauses at commas. Always the same voice, same tone, same accent. Never neutral, Mexican, Spanish (Spain) or foreign accent; never an announcer or commercial tone.
 
-ACTION AND DIALOGUE: she looks straight into the camera and speaks in Spanish, calm, confident tone, like sharing a secret. On "no mires las hojas" she shakes her head slightly with a small open hand at chest height; on "el problema está abajo" she lowers her open palm slowly in front of her stomach, close to her body, and raises her eyebrows; on "se estancan" she makes a small resigned face. All hand gestures stay small, at chest height and close to her body; her hands never move toward the camera and she never points down. Spoken line (audio only, never shown as text):
-"Si tus plantas no crecen, no mires las hojas: el problema está abajo. Sin raíces fuertes, se estancan."
+ACTION AND DIALOGUE: she looks straight into the camera and speaks in Spanish, calm, confident tone, like sharing a secret. On "no mires las hojas" she shakes her head slightly with a small open hand at chest height; on "está abajo, en las raíces" she lowers her open palm slowly in front of her stomach, close to her body, and raises her eyebrows. All hand gestures stay small, at chest height and close to her body; her hands never move toward the camera and she never points down. Spoken line (audio only, never shown as text):
+"Si tus plantas no crecen, no mires las hojas. El problema casi siempre está abajo, en las raíces."
 
 AUDIO: only her voice, clear and natural. No music, no sound effects, no background noise.
 
@@ -45,8 +45,8 @@ LIGHTING: soft, even frontal light on her face, natural daylight look.
 
 VOICE: Argentine woman, 50 years old, native of Buenos Aires. Strong porteño Rioplatense accent: she pronounces "ll" and "y" as "sh", with the typical sing-song Buenos Aires intonation, using "vos". Warm, medium-low, slightly husky voice, never high-pitched. Medium volume, like talking to a friend one meter away. Natural pace, not slow and not rushed, short pauses at commas. Always the same voice, same tone, same accent. Never neutral, Mexican, Spanish (Spain) or foreign accent; never an announcer or commercial tone.
 
-ACTION AND DIALOGUE: she looks straight into the camera and speaks in Spanish, explanatory, empathetic tone. On "se rompen raíces" she brings her thumb and index finger together as if holding something tiny, at chest height; on "no puede formarlas" she opens both hands softly, palms up, and shrugs a little; on "por eso uso VERDEA" she nods once with a relieved smile. All hand gestures stay small, at chest height and close to her body; her hands never move toward the camera and she never points down. Spoken line (audio only, never shown as text):
-"Al trasplantar se rompen raíces, y un esqueje en agua sola no puede formarlas. Por eso uso VERDEA."
+ACTION AND DIALOGUE: she looks straight into the camera and speaks in Spanish, didactic, clear tone, like a teacher explaining something simple. On "sin raíces fuertes" she makes a soft fist at chest height; on "se estanca, se amarilla o se pudre" she counts three fingers, one per word, close to her body, with a slightly worried face. All hand gestures stay small, at chest height and close to her body; her hands never move toward the camera and she never points down. Spoken line (audio only, never shown as text):
+"Sin raíces fuertes, la planta no toma agua ni nutrientes: se estanca, se amarilla o se pudre."
 
 AUDIO: only her voice, clear and natural. No music, no sound effects, no background noise.
 
@@ -69,8 +69,32 @@ LIGHTING: soft, even frontal light on her face, natural daylight look.
 
 VOICE: Argentine woman, 50 years old, native of Buenos Aires. Strong porteño Rioplatense accent: she pronounces "ll" and "y" as "sh", with the typical sing-song Buenos Aires intonation, using "vos". Warm, medium-low, slightly husky voice, never high-pitched. Medium volume, like talking to a friend one meter away. Natural pace, not slow and not rushed, short pauses at commas. Always the same voice, same tone, same accent. Never neutral, Mexican, Spanish (Spain) or foreign accent; never an announcer or commercial tone.
 
-ACTION AND DIALOGUE: she looks straight into the camera and speaks in Spanish, warm, tender and convinced tone. On "raíces nuevas y más fuertes" she makes a small upward gesture with her open hand at chest height; on "ayudalas desde el comienzo" she places one hand on her chest, smiles warmly and nods softly. All hand gestures stay small, at chest height and close to her body; her hands never move toward the camera and she never points down. Spoken line (audio only, never shown as text):
-"Estimula raíces nuevas y más fuertes, con unas gotitas cada siete días. Ayudalas desde el comienzo."
+ACTION AND DIALOGUE: she looks straight into the camera and speaks in Spanish, explanatory, empathetic tone. On "se rompen raíces finitas" she brings her thumb and index finger together as if holding something tiny, at chest height; on "no tiene con qué formarlas" she opens both hands softly, palms up, and shrugs a little. All hand gestures stay small, at chest height and close to her body; her hands never move toward the camera and she never points down. Spoken line (audio only, never shown as text):
+"Al trasplantar se rompen raíces finitas, y un esqueje en agua sola no tiene con qué formarlas."
+
+AUDIO: only her voice, clear and natural. No music, no sound effects, no background noise.
+
+RESTRICTIONS: absolutely no subtitles, no captions, no on-screen text, no lower thirds, no logos, no watermarks, no objects in her hands, no extra people, no background changes during the 8 seconds. Perfect lip sync.
+
+---------------------------------------------------------------------
+BLOQUE 4
+---------------------------------------------------------------------
+CRITICAL RULE: clean video with NO subtitles, NO captions, NO burned-in text, NO words written anywhere on screen. The dialogue is AUDIO ONLY and must never appear as text.
+
+FORMAT: vertical 9:16 video, 8 seconds, authentic UGC style, clean frame without any text overlays.
+
+CHARACTER: the same woman from the reference image: Argentine woman around 50, long wavy dark hair, warm smile, off-white linen shirt with rolled-up sleeves, light brown canvas apron.
+
+FRAMING: static camera on a tripod at eye level, LOCKED OFF. The framing is exactly the same for all 8 seconds: medium shot from the waist up, centered, full head always visible with headroom above. NO zoom, NO push-in, NO camera movement, NO close-ups at any moment. Hands free, not holding anything.
+
+BACKGROUND (critical): a completely flat, solid chroma key green background (#00FF00). Evenly lit, no shadows, no gradients, no texture, no objects, no text. Clean, sharp separation between her silhouette and the green. No green light spill on her skin, hair or clothing.
+
+LIGHTING: soft, even frontal light on her face, natural daylight look.
+
+VOICE: Argentine woman, 50 years old, native of Buenos Aires. Strong porteño Rioplatense accent: she pronounces "ll" and "y" as "sh", with the typical sing-song Buenos Aires intonation, using "vos". Warm, medium-low, slightly husky voice, never high-pitched. Medium volume, like talking to a friend one meter away. Natural pace, not slow and not rushed, short pauses at commas. Always the same voice, same tone, same accent. Never neutral, Mexican, Spanish (Spain) or foreign accent; never an announcer or commercial tone.
+
+ACTION AND DIALOGUE: she looks straight into the camera and speaks in Spanish, relieved, warm and convinced tone. On "por eso uso VERDEA" she nods once and smiles; on "más fuertes" she makes a small upward gesture with her open hand at chest height; on "tres o cuatro mililitros" she shows a small gap between thumb and index finger, close to her body. All hand gestures stay small, at chest height and close to her body; her hands never move toward the camera and she never points down. Spoken line (audio only, never shown as text):
+"Por eso uso VERDEA: estimula raíces nuevas y más fuertes. Tres o cuatro mililitros por litro, cada siete días."
 
 AUDIO: only her voice, clear and natural. No music, no sound effects, no background noise.
 
@@ -78,6 +102,7 @@ RESTRICTIONS: absolutely no subtitles, no captions, no on-screen text, no lower 
 
 ---------------------------------------------------------------------
 TEXTOS EN PANTALLA
-B1: "¿tus plantas no crecen? 🥀" → "el problema está abajo 👇🌱"
-B2: "raíces rotas al trasplantar" → "esqueje en agua sola = sin raíz"
-B3: "3 a 4 ml por litro · cada 7 días 💧" → "LLEVÁ 2: 30% OFF + GUÍA DE REGALO 🎁" → "El link está acá abajo 👇"
+B1: "¿tus plantas no crecen? 🥀" → "el problema está en las raíces 🌱"
+B2: "se estanca · se amarilla · se pudre"
+B3: "raíces rotas al trasplantar" → "esqueje en agua sola = sin raíz"
+B4: "3 a 4 ml por litro · cada 7 días 💧" → "LLEVÁ 2: 30% OFF + GUÍA DE REGALO 🎁" → "El link está acá abajo 👇"
