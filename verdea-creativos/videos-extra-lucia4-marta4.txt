@@ -268,6 +268,8 @@ F3a lleva "Imagen ilustrativa" chiquito.
 =====================================================================
 LUCÍA 4 · FONDOS B1 y B2 · v2 en MESA DE COCINA (no ventana: distinto a los otros videos)
 =====================================================================
+AUDIO EN TODOS LOS FONDOS: sin voz ni música (la voz es siempre la misma de la avatar, unificada
+con ElevenLabs). En CapCut, silenciar igual los clips de fondo.
 ESCENARIO FIJO: mesa de cocina de madera clara gastada, con un individual de lino crudo; atrás,
 desenfocados, un mate con bombilla y un termo, y la cocina de un departamento con luz cálida de
 media mañana entrando de costado. Mismo frasco y mismo esqueje en los tres clips.
@@ -278,7 +280,8 @@ ESCENA: mesa de cocina de madera clara gastada, con un individual de lino crudo.
 SUJETO: sobre el individual, un frasco de vidrio transparente con un esqueje de potus de 2 o 3 hojas verdes; el tallo dentro del agua está liso, sin ninguna raíz.
 ACCIÓN: una mano de mujer, limpia, vuelca despacio agua clara de una jarrita de vidrio dentro del frasco hasta llenarlo.
 CÁMARA: primer plano del frasco y la mano, a la altura de la mesa, cámara quieta.
-EVITAR: ventanas en primer plano, raíces, agua turbia o verde, hojas amarillas o secas, tierra, barro, caras, manos deformes, texto, marcas, subtítulos, música. Solo sonido ambiente suave.
+EVITAR: ventanas en primer plano, raíces, agua turbia o verde, hojas amarillas o secas, tierra, barro, caras, manos deformes, texto, marcas, subtítulos, música.
+AUDIO: sin voces, sin narración, sin diálogo, sin música y sin efectos; solo un sonido ambiente muy suave de cocina (casi silencio). La única voz del anuncio es la de la avatar, que se agrega después en la edición.
 
 F1b (B1, "le das luz, le hablás… y no larga raíces") · Texto a video
 FORMATO: video vertical 9:16, 5 segundos, estilo grabado con celular, realista, sin cortes.
@@ -286,7 +289,8 @@ ESCENA: la misma mesa de cocina de madera con el individual de lino; un haz de l
 SUJETO: el mismo frasco con el esqueje de potus; el tallo dentro del agua sigue liso y desnudo, sin ninguna raíz.
 ACCIÓN: una mano de mujer acaricia con la punta de los dedos una hoja del esqueje, con cariño, y la suelta; el esqueje queda quieto en la luz.
 CÁMARA: arranca en las hojas y baja muy lento hasta el tallo dentro del agua, con foco nítido en el tallo sin raíces.
-EVITAR: raíces o raicitas, agua turbia, hojas amarillas, tierra, caras, manos deformes, texto, marcas, subtítulos, música. Solo sonido ambiente suave.
+EVITAR: raíces o raicitas, agua turbia, hojas amarillas, tierra, caras, manos deformes, texto, marcas, subtítulos, música.
+AUDIO: sin voces, sin narración, sin diálogo, sin música y sin efectos; solo un sonido ambiente muy suave de cocina (casi silencio). La única voz del anuncio es la de la avatar, que se agrega después en la edición.
 
 F2a (B2, "no es que hagas algo mal") → "tallo sin raiz.mp4" (ya lo tenés).
 
@@ -296,6 +300,7 @@ ESCENA: la misma mesa de cocina de madera con el individual de lino, luz cálida
 SUJETO: el mismo frasco de vidrio con el esqueje de potus sin raíces. Al lado, sobre la mesa, el frasco de VERDEA de la imagen de referencia, idéntico: botella alta de plástico verde oscuro opaco, de hombros redondeados, tapa verde oscura alta y escalonada con estrías, etiqueta beige que cubre casi todo el cuerpo con el logo VERDEA y "ENRAIZANTE ROOT BOOST". Frasco completo dentro del cuadro, etiqueta de frente.
 ACCIÓN: una mano sostiene la tapa verde oscura del frasco de VERDEA sobre el frasco del esqueje y deja caer unas pocas gotas de líquido ámbar en el agua, que se disuelven suavemente.
 CÁMARA: primer plano del frasco del esqueje y la tapa, con el frasco de VERDEA visible al costado; cámara quieta a la altura de la mesa.
-EVITAR: frasco distinto al de referencia, de vidrio, petiso o con tapa chata; etiqueta deformada o con letras inventadas; chorro grande o agua que desborda; raíces; caras; manos deformes; texto agregado; otras marcas; subtítulos; música. Solo sonido ambiente suave.
+EVITAR: frasco distinto al de referencia, de vidrio, petiso o con tapa chata; etiqueta deformada o con letras inventadas; chorro grande o agua que desborda; raíces; caras; manos deformes; texto agregado; otras marcas; subtítulos; música.
+AUDIO: sin voces, sin narración, sin diálogo, sin música y sin efectos; solo un sonido ambiente muy suave de cocina (casi silencio). La única voz del anuncio es la de la avatar, que se agrega después en la edición.
 
 B3: F3 v4 (ventana con raíces + frasco VERDEA, porque el texto dice "tu ventana") → packs → grabación de pantalla.
