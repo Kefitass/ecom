@@ -1,0 +1,95 @@
+BITÁCORA POR ROL – VALTEN MKT STUDIO
+Trabajo Grupal Unidad 3 – Gestores de Contenidos y Plataformas Web
+
+Cada integrante completa su bloque cuando realiza su parte y lo pega como
+comentario en su tarjeta de Trello, adjuntando la evidencia indicada.
+
+=====================================================================
+ADMINISTRACIÓN – Catalina Bogado
+=====================================================================
+Tarea asignada: migración del sitio, usuarios y roles, menú y publicación.
+Fecha de realización: [completar]
+Qué hice: [completar – ej.: migré el sitio a ___ con ___; creé el usuario de Celeste; asigné roles…]
+Decisiones y por qué: [completar – ej.: elegí el rol Editor para contenido porque…]
+Problemas y solución: [completar]
+Evidencia adjunta: captura de Usuarios con roles · Menús · Ajustes → Lectura
+
+=====================================================================
+CONTENIDO – Morena Benitez
+=====================================================================
+Tarea asignada: revisión y ajuste de textos de Inicio, Nosotros, Contacto y blog; una nota nueva.
+Fecha de realización: [completar]
+Qué hice: [completar]
+Decisiones y por qué: [completar – ej.: cambié el tono a… porque nuestro público…]
+Problemas y solución: [completar]
+Evidencia adjunta: página editada en el editor · nota nueva publicada
+
+=====================================================================
+CONTENIDO – Celeste Batista
+=====================================================================
+Tarea asignada: revisión de los 6 servicios (descripciones, precios, categorías).
+Fecha de realización: [completar]
+Qué hice: [completar]
+Decisiones y por qué: [completar]
+Problemas y solución: [completar]
+Evidencia adjunta: Productos → Todos los productos · una ficha en el editor
+
+=====================================================================
+DISEÑO Y USABILIDAD – Bruno Funda
+=====================================================================
+Tarea asignada: identidad visual, diseño del Inicio en Divi, vista de escritorio.
+Fecha de realización: [completar – Bruno ya tiene trabajo registrado el 17/10 y el 19/10: plantillas Divi, logo, HOME]
+Qué hice: [completar]
+Decisiones y por qué: [completar – paleta, tipografías, estructura del Inicio]
+Problemas y solución: [completar]
+Evidencia adjunta: capturas de escritorio de Inicio, Tienda y ficha
+
+=====================================================================
+DISEÑO Y USABILIDAD – Cecilia Escobar
+=====================================================================
+Tarea asignada: mapa del sitio, recorrido de compra, vistas móvil/tablet/escritorio.
+Fecha de realización: [completar – Cecilia ya tiene una prueba de plantilla registrada el 16/10]
+Qué hice: [completar]
+Decisiones y por qué: [completar]
+Problemas y solución: [completar]
+Evidencia adjunta: mapa del sitio · capturas responsive · recorrido de compra paso a paso
+
+=====================================================================
+SEO – Joselim Da Silva
+=====================================================================
+Tarea asignada: Yoast (títulos, metadescripciones, frase clave), enlaces permanentes, H1/H2.
+Fecha de realización: [completar]
+Qué hice: [completar]
+Decisiones y por qué: [completar – ej.: elegí la frase clave "___" para el Inicio porque…]
+Problemas y solución: [completar]
+Evidencia adjunta: Yoast en una página y un producto · Enlaces permanentes
+
+=====================================================================
+ACCESIBILIDAD – Pedro Yañez
+=====================================================================
+Tarea asignada: criterios WCAG, ALT, contraste, teclado, formularios, checklist y validación.
+Fecha de realización: 19/10/2026 (auditoría, correcciones y evidencias) + [completar: WAVE y clip después de migrar]
+Qué hice: guía de pautas; auditoría inicial (143 problemas); correcciones; prueba de teclado; validación final (5 problemas, internos de WooCommerce); checklist WCAG 2.2.
+Decisiones y por qué: se tomó WCAG 2.2 nivel AA como referencia; el verde se usa solo en detalles gráficos porque no alcanza el contraste mínimo para texto.
+Problemas y solución: Divi bloqueaba el zoom y ocultaba el foco → se corrigió con estilos y un script.
+Evidencia adjunta: Excel del checklist · informe antes/después · tabla de contraste
+
+=====================================================================
+INTEGRACIÓN Y ANALÍTICA – Ricardo Pardo
+=====================================================================
+Tarea asignada: envío de mails (WP Mail SMTP + Brevo), Mercado Pago, prueba del formulario.
+Fecha de realización: [completar]
+Qué hice: [completar]
+Decisiones y por qué: [completar – ej.: elegí Brevo porque el hosting bloquea el envío de correos]
+Problemas y solución: [completar]
+Evidencia adjunta: WP Mail SMTP configurado · correo de prueba recibido · pedido con tarjeta de prueba
+
+=====================================================================
+PLANTILLA PARA CADA AVANCE (comentario en Trello)
+=====================================================================
+Fecha:
+Qué hice:
+Decisiones que tomé y por qué:
+Problemas y cómo los resolví:
+Evidencia adjunta:
+Próximo paso:
