@@ -15,6 +15,23 @@ Todo lo necesario para vender los dos ebooks y darle a cada comprador acceso a s
 - *Tienda online → Temas → Personalizar → Encabezado*: logo `marca/logo-metodo30.png` (o `logo-metodo30-blanco.png` si tu encabezado es oscuro).
 - *Configuración del tema → Logo → Favicon*: `marca/icono-metodo30.png`. El mismo ícono sirve como foto de perfil de Instagram.
 
+## 0B. Las páginas de la tienda (inicio, catálogo, contacto y pie)
+
+Son secciones nativas, igual que las de Verdea, para el tema **ecom-x** (o Dawn). Para cada una: *Editar código → Sections → Agregar una nueva sección*, poné el nombre, borrá lo que trae, pegá el archivo y guardá.
+
+| Nombre de la sección | Archivo | Dónde se agrega en *Personalizar* |
+| --- | --- | --- |
+| `metodo30-inicio` | `tienda/metodo30-inicio.liquid` | Página de inicio → ocultá las secciones del tema → Agregar sección → "MÉTODO 30 · Inicio" |
+| `metodo30-catalogo` | `tienda/metodo30-catalogo.liquid` | Arriba al medio elegí "Colecciones" → ocultá las del tema → "MÉTODO 30 · Catálogo" |
+| `metodo30-contacto` | `tienda/metodo30-contacto.liquid` | "Páginas" → "contact" → ocultá las del tema → "MÉTODO 30 · Contacto" |
+| `metodo30-footer` | `tienda/metodo30-footer.liquid` | Pie de página → ocultá el del tema → "MÉTODO 30 · Pie de página" |
+
+En cada sección elegí el producto, las tapas y la foto de portada desde el editor. Completá el WhatsApp, el mail, las redes y el link del botón de arrepentimiento. Los precios del inicio y del catálogo salen solos del producto.
+
+**Reseñas en el inicio:** agregá bloques "Testimonio (real)" solo con reseñas reales. Sin bloques, la sección no aparece.
+
+**Menú:** en *Tienda online → Menús → Menú principal*, dejá Inicio, Catálogo y Contacto. "Mis ebooks" conviene agregarlo también, para que el comprador lo encuentre fácil.
+
 ## 1. Subí los archivos
 
 *Contenido → Archivos → Subir archivos*

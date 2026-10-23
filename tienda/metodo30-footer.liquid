@@ -1,0 +1,128 @@
+{% comment %}
+  MÉTODO 30 · Pie de página + botón flotante de WhatsApp (opcional)
+  Instalación: Editar código → Sections → "Agregar una nueva sección" → nombre: metodo30-footer
+  → borrar todo lo que trae → pegar este archivo → Guardar.
+  Después: Personalizar → Pie de página → ocultar el pie del tema → Agregar sección → "MÉTODO 30 · Pie de página".
+{% endcomment %}
+
+{%- liquid
+  assign wa = section.settings.whatsapp | remove: '+' | remove: ' ' | remove: '-'
+  assign wa_msg = section.settings.whatsapp_mensaje | url_encode
+  assign wa_url = 'https://wa.me/' | append: wa | append: '?text=' | append: wa_msg
+  assign mail = section.settings.email | default: shop.email
+-%}
+
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+  #m30f-{{ section.id }}{
+    --gold:#F5D27A;--orange:#E8632E;
+    background:radial-gradient(circle at 90% 0%,#22306A 0%,#14213D 45%,#0B1226 100%);color:rgba(255,255,255,.78);
+    font-family:'Source Sans 3','Segoe UI',system-ui,sans-serif;font-size:15px;line-height:1.6;
+  }
+  #m30f-{{ section.id }} *{box-sizing:border-box;letter-spacing:normal}
+  #m30f-{{ section.id }} a{color:rgba(255,255,255,.78);text-decoration:none;transition:color .2s}
+  #m30f-{{ section.id }} a:hover{color:#fff}
+  #m30f-{{ section.id }} .w{max-width:1160px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+  #m30f-{{ section.id }} .top{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.3fr;gap:40px;padding-block:56px 40px}
+  #m30f-{{ section.id }} .top>*{min-width:0}
+  #m30f-{{ section.id }} .logo img{display:block;height:auto;max-height:56px;width:auto;max-width:220px;margin-bottom:16px}
+  #m30f-{{ section.id }} .name{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:28px;color:#fff;margin-bottom:10px}
+  #m30f-{{ section.id }} .name span{color:var(--orange)}
+  #m30f-{{ section.id }} .lema{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;color:#fff;font-size:16px;margin:0 0 8px}
+  #m30f-{{ section.id }} .desc{margin:0;max-width:320px}
+  #m30f-{{ section.id }} .social{display:flex;gap:10px;margin-top:18px}
+  #m30f-{{ section.id }} .social a{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center}
+  #m30f-{{ section.id }} .social a:hover{background:var(--orange)}
+  #m30f-{{ section.id }} .social svg{width:18px;height:18px;fill:#fff}
+  #m30f-{{ section.id }} .h{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:15px;color:#fff;margin:6px 0 16px;text-transform:uppercase;letter-spacing:.1em}
+  #m30f-{{ section.id }} ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+  #m30f-{{ section.id }} .contact li{display:flex;gap:10px;word-break:break-word}
+  #m30f-{{ section.id }} .contact b{color:var(--gold);font-weight:600;flex:none}
+  #m30f-{{ section.id }} .arrep{display:inline-block;margin-top:16px;border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:8px 14px;font-weight:600;font-size:14px}
+  #m30f-{{ section.id }} .bottom{border-top:1px solid rgba(255,255,255,.12);padding-block:18px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;font-size:13.5px;color:rgba(255,255,255,.6)}
+  #m30f-{{ section.id }} .wa-float{position:fixed;right:calc(18px + env(safe-area-inset-right,0px));bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:9998;width:58px;height:58px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 25px rgba(0,0,0,.25)}
+  #m30f-{{ section.id }} .wa-float svg{width:30px;height:30px;fill:#fff}
+  @media (max-width: 900px){#m30f-{{ section.id }} .top{grid-template-columns:1fr 1fr;gap:32px}#m30f-{{ section.id }} .brand{grid-column:1 / -1}}
+  @media (max-width: 520px){#m30f-{{ section.id }} .top{grid-template-columns:minmax(0,1fr)}}
+</style>
+
+<footer id="m30f-{{ section.id }}">
+  <div class="w top">
+    <div class="brand">
+      {%- if section.settings.logo != blank -%}
+        <a class="logo" href="{{ routes.root_url }}">{{ section.settings.logo | image_url: width: 440 | image_tag: alt: shop.name, loading: 'lazy' }}</a>
+      {%- else -%}
+        <div class="name">Método <span>30</span></div>
+      {%- endif -%}
+      <p class="lema">{{ section.settings.lema }}</p>
+      <p class="desc">{{ section.settings.descripcion }}</p>
+      <div class="social">
+        {%- if section.settings.instagram != blank -%}<a href="{{ section.settings.instagram }}" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 7.3A4.7 4.7 0 1 0 16.7 12 4.7 4.7 0 0 0 12 7.3zm0 7.7a3 3 0 1 1 3-3 3 3 0 0 1-3 3zm6-7.9a1.1 1.1 0 1 1-1.1-1.1A1.1 1.1 0 0 1 18 7.1zM21.9 8.2a5.4 5.4 0 0 0-1.5-3.9 5.4 5.4 0 0 0-3.9-1.5C15 2.7 9 2.7 7.5 2.8a5.4 5.4 0 0 0-3.9 1.5 5.4 5.4 0 0 0-1.5 3.9C2 9.7 2 14.3 2.1 15.8a5.4 5.4 0 0 0 1.5 3.9 5.4 5.4 0 0 0 3.9 1.5c1.5.1 7.5.1 9 0a5.4 5.4 0 0 0 3.9-1.5 5.4 5.4 0 0 0 1.5-3.9c.1-1.5.1-6.1 0-7.6z"/></svg></a>{%- endif -%}
+        {%- if section.settings.tiktok != blank -%}<a href="{{ section.settings.tiktok }}" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M16.6 5.8A4.3 4.3 0 0 1 15.5 3h-3.2v12.4a2.6 2.6 0 1 1-2.6-2.6 2.5 2.5 0 0 1 .8.1V9.7a5.8 5.8 0 1 0 5 5.7V9.1a7.4 7.4 0 0 0 4.3 1.4V7.3a4.3 4.3 0 0 1-3.2-1.5z"/></svg></a>{%- endif -%}
+        {%- if section.settings.linkedin != blank -%}<a href="{{ section.settings.linkedin }}" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.1a4.2 4.2 0 0 1 3.8-2c4 0 4.8 2.6 4.8 6.1V21h-4v-5.5c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9V21H9z"/></svg></a>{%- endif -%}
+      </div>
+    </div>
+    <div>
+      <p class="h">Tienda</p>
+      <ul>
+        <li><a href="{{ routes.root_url }}">Inicio</a></li>
+        <li><a href="{{ routes.all_products_collection_url }}">Catálogo</a></li>
+        <li><a href="/pages/mis-ebooks">Mis ebooks</a></li>
+        <li><a href="/pages/contact">Contacto</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="h">Ayuda</p>
+      <ul>
+        {%- for policy in shop.policies -%}<li><a href="{{ policy.url }}">{{ policy.title }}</a></li>{%- endfor -%}
+        <li><a href="{{ routes.account_url }}">Mi cuenta</a></li>
+      </ul>
+      {%- if section.settings.arrepentimiento_url != blank -%}<a class="arrep" href="{{ section.settings.arrepentimiento_url }}">Botón de arrepentimiento</a>{%- endif -%}
+    </div>
+    <div>
+      <p class="h">Contacto</p>
+      <ul class="contact">
+        {%- if wa != blank -%}<li><b>WhatsApp</b><a href="{{ wa_url }}" target="_blank" rel="noopener">{{ section.settings.whatsapp_visible }}</a></li>{%- endif -%}
+        {%- if mail != blank -%}<li><b>Mail</b><a href="mailto:{{ mail }}">{{ mail }}</a></li>{%- endif -%}
+        {%- if section.settings.horario != blank -%}<li><b>Horario</b><span>{{ section.settings.horario }}</span></li>{%- endif -%}
+      </ul>
+    </div>
+  </div>
+  <div class="w bottom">
+    <span>© {{ 'now' | date: '%Y' }} {{ shop.name }}. Todos los derechos reservados.</span>
+    <span>Productos digitales · Entrega inmediata por mail</span>
+  </div>
+  {%- if section.settings.whatsapp_flotante and wa != blank -%}
+    <a class="wa-float" href="{{ wa_url }}" target="_blank" rel="noopener" aria-label="Escribinos por WhatsApp"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.3-.5.1-1 .1-3.3-.8-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3a1 1 0 0 1 .7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.1-.3.3-.1.6a8 8 0 0 0 1.5 1.8 7 7 0 0 0 2.1 1.3c.3.1.4.1.6-.1l.8-1c.2-.3.4-.2.6-.1l2 .9c.3.1.4.2.5.3a2 2 0 0 1-.1 1.5z"/></svg></a>
+  {%- endif -%}
+</footer>
+
+{% schema %}
+{
+  "name": "MÉTODO 30 · Pie de página",
+  "tag": "div",
+  "class": "metodo30-footer",
+  "enabled_on": { "groups": ["footer"] },
+  "settings": [
+    { "type": "header", "content": "Marca" },
+    { "type": "image_picker", "id": "logo", "label": "Logo (versión blanca)", "info": "Usá logo-metodo30-blanco.png. Si lo dejás vacío se muestra el nombre en texto." },
+    { "type": "text", "id": "lema", "label": "Lema", "default": "Conseguí trabajo con método" },
+    { "type": "textarea", "id": "descripcion", "label": "Descripción", "default": "Ebooks prácticos para buscar trabajo con un plan día por día: CV, LinkedIn, entrevistas y negociación." },
+    { "type": "header", "content": "Contacto" },
+    { "type": "text", "id": "whatsapp", "label": "WhatsApp (solo números, con 549)", "info": "⚠️ Vacío = no se muestra." },
+    { "type": "text", "id": "whatsapp_visible", "label": "WhatsApp (como se muestra)" },
+    { "type": "text", "id": "whatsapp_mensaje", "label": "Mensaje que se escribe solo", "default": "¡Hola Método 30! Tengo una consulta sobre los ebooks." },
+    { "type": "text", "id": "email", "label": "Mail", "info": "Si lo dejás vacío se usa el mail de la tienda." },
+    { "type": "text", "id": "horario", "label": "Horario de atención", "default": "Lunes a viernes de 9 a 18 hs" },
+    { "type": "checkbox", "id": "whatsapp_flotante", "label": "Mostrar botón flotante de WhatsApp", "default": false },
+    { "type": "header", "content": "Legal" },
+    { "type": "url", "id": "arrepentimiento_url", "label": "Link del botón de arrepentimiento", "info": "En Argentina las tiendas online lo tienen que mostrar. Podés apuntarlo a una página con el formulario." },
+    { "type": "header", "content": "Redes sociales" },
+    { "type": "url", "id": "instagram", "label": "Instagram" },
+    { "type": "url", "id": "tiktok", "label": "TikTok" },
+    { "type": "url", "id": "linkedin", "label": "LinkedIn" }
+  ],
+  "presets": [{ "name": "MÉTODO 30 · Pie de página" }]
+}
+{% endschema %}

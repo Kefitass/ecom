@@ -357,6 +357,8 @@ window.CE_OK = function(v) { return v && String(v).indexOf("⚠️") === -1; };
     "form[action*='/cart/add'] .product-form__submit,form[action*='/cart/add'] button[name='add']{background:var(--ce-orange)!important;color:#fff!important;border:0!important;border-radius:999px!important;font:800 18px/1 var(--ce-title)!important;letter-spacing:.06em!important;padding:20px 24px!important;min-height:0!important;width:100%!important;box-shadow:0 10px 24px rgba(232,99,46,.35)!important;transition:transform .15s,background .15s!important}",
     "form[action*='/cart/add'] .product-form__submit:hover,form[action*='/cart/add'] button[name='add']:hover{background:#F2753F!important;transform:translateY(-2px)}",
     "form[action*='/cart/add'] .product-form__submit::after,form[action*='/cart/add'] button[name='add']::after{display:none!important}",
+    ".product__media-wrapper .product__media img{object-fit:contain!important}",
+    ".product__info-container .price,.product__info-container [id^='price-'],.product__info-container .product__view-details{display:none!important}",
     ".product-form__quantity,.product__info-container variant-selects,.product__info-container variant-radios,.product__info-container [id^='price-template'],.product__info-container .product__tax,.shopify-payment-button__more-options{display:none!important}",
 
     /* entrega + faq compra */
@@ -500,6 +502,8 @@ window.CE_OK = function(v) { return v && String(v).indexOf("⚠️") === -1; };
 
   function topbar() {
     if (document.getElementById("ce-topbar") || !(cfg.mensajesBarra || []).length) return;
+    /* Si el tema ya tiene su barra de anuncios (ecom-x / Dawn), no se agrega otra */
+    if (!window.CE_PREVIEW && document.querySelector("[id*='announcement-bar'], .announcement-bar, .section-adbar")) return;
     var bar = document.createElement("div");
     bar.id = "ce-topbar";
     var items = cfg.mensajesBarra.map(function(m) { return "<span>" + esc(m) + "</span>"; }).join("");

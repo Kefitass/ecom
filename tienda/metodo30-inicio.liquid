@@ -1,0 +1,391 @@
+{% comment %}
+  MÉTODO 30 · Página de inicio (sección nativa de Shopify)
+  Instalación: Editar código → Sections → "Agregar una nueva sección" → nombre: metodo30-inicio
+  → borrar todo lo que trae → pegar este archivo → Guardar.
+  Después: Personalizar → Página de inicio → ocultar las secciones del tema → Agregar sección → "MÉTODO 30 · Inicio".
+  Todo lo editable (textos, fotos, testimonios, preguntas) se cambia desde el editor.
+  Los precios salen solos de las variantes del producto ("Ebook" y "Combo 2 ebooks").
+{% endcomment %}
+
+{%- liquid
+  assign p = section.settings.producto
+  if p == blank
+    assign p = all_products['consegui-trabajo-en-30-dias']
+  endif
+  assign url_producto = p.url | default: '/collections/all'
+  assign v_ebook = p.variants.first
+  assign v_combo = p.variants.last
+  for v in p.variants
+    assign t = v.title | downcase
+    if t contains 'combo'
+      assign v_combo = v
+    else
+      assign v_ebook = v
+    endif
+  endfor
+  assign reviews = section.blocks | where: 'type', 'testimonio'
+  assign faqs = section.blocks | where: 'type', 'pregunta'
+-%}
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+  #m30-{{ section.id }}{
+    --navy:#14213D;--night:#0B1226;--ink:#1C2333;--muted:#5A6478;--line:#E1E5EE;--paper:#F6F7FB;--orange:#E8632E;--orange-2:#FF8A57;--gold:#F5D27A;--gold-2:#B8892B;--black:#0E0C09;
+    --title:'Bricolage Grotesque','Avenir Next','Segoe UI',sans-serif;--body:'Source Sans 3','Segoe UI',system-ui,sans-serif;
+    background:#fff;color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;overflow:hidden;
+  }
+  #m30-{{ section.id }} *{box-sizing:border-box;letter-spacing:normal}
+  #m30-{{ section.id }} h1,#m30-{{ section.id }} h2,#m30-{{ section.id }} h3{font-family:var(--title);color:var(--navy);margin:0;line-height:1.1;letter-spacing:-.02em;text-wrap:balance}
+  #m30-{{ section.id }} p{margin:0}
+  #m30-{{ section.id }} img{max-width:100%;height:auto;display:block}
+  #m30-{{ section.id }} a{text-decoration:none}
+  #m30-{{ section.id }} .w{max-width:1160px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+  #m30-{{ section.id }} .sec{padding-block:76px}
+  #m30-{{ section.id }} .paper{background:var(--paper)}
+  #m30-{{ section.id }} .head{text-align:center;max-width:680px;margin:0 auto 40px}
+  #m30-{{ section.id }} .ey{display:block;font-weight:700;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--orange);margin-bottom:12px}
+  #m30-{{ section.id }} .h2{font-size:clamp(28px,4vw,42px);font-weight:800}
+  #m30-{{ section.id }} .h2 em{font-style:normal;color:var(--orange)}
+  #m30-{{ section.id }} .lead{font-size:18px;color:var(--muted);margin-top:14px}
+  #m30-{{ section.id }} .btn{display:inline-flex;align-items:center;gap:10px;background:var(--orange);color:#fff;font:800 17px/1 var(--title);letter-spacing:.02em;padding:18px 30px;border-radius:999px;box-shadow:0 10px 24px rgba(232,99,46,.35);transition:transform .15s,background .15s}
+  #m30-{{ section.id }} .btn:hover{background:#F2753F;transform:translateY(-2px)}
+  #m30-{{ section.id }} .btn--ghost{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.5);box-shadow:none}
+  #m30-{{ section.id }} .btn--ghost:hover{background:rgba(255,255,255,.1)}
+  #m30-{{ section.id }} .btn--gold{background:linear-gradient(90deg,#F5D27A,#C9952F);color:#15120A;box-shadow:0 10px 24px rgba(201,149,47,.3)}
+  #m30-{{ section.id }} .btn:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+
+  /* 1 · portada */
+  #m30-{{ section.id }} .hero{position:relative;color:#fff;background-color:var(--night);background-size:cover;background-position:right center}
+  #m30-{{ section.id }} .hero::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,12,26,.96) 0%,rgba(8,12,26,.84) 40%,rgba(8,12,26,.2) 72%,rgba(8,12,26,0) 100%)}
+  #m30-{{ section.id }} .hero .w{position:relative;padding-block:110px 120px}
+  #m30-{{ section.id }} .hero__copy{max-width:580px}
+  #m30-{{ section.id }} .pill{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.3);border-radius:999px;padding:6px 14px;font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+  #m30-{{ section.id }} .hero h1{color:#fff;font-size:clamp(40px,6vw,66px);font-weight:800;letter-spacing:-.035em;margin:20px 0 0}
+  #m30-{{ section.id }} .hero h1 em{font-style:normal;color:var(--orange-2)}
+  #m30-{{ section.id }} .hero__sub{font-size:20px;line-height:1.5;color:rgba(255,255,255,.86);margin:20px 0 30px}
+  #m30-{{ section.id }} .hero__cta{display:flex;flex-wrap:wrap;gap:12px}
+  #m30-{{ section.id }} .hero__rating{margin-top:20px;font-size:15px;color:rgba(255,255,255,.85)}
+  #m30-{{ section.id }} .stars{color:#F5B83D;letter-spacing:2px;margin-right:6px}
+
+  /* 2 · confianza */
+  #m30-{{ section.id }} .trust{background:var(--navy);color:#fff}
+  #m30-{{ section.id }} .trust__grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;padding-block:22px}
+  #m30-{{ section.id }} .trust__item{display:flex;align-items:center;gap:12px;min-width:0}
+  #m30-{{ section.id }} .trust__ico{flex:none;width:40px;height:40px;border-radius:12px;background:rgba(255,255,255,.08);color:var(--gold);display:flex;align-items:center;justify-content:center}
+  #m30-{{ section.id }} .trust__ico svg{width:20px;height:20px}
+  #m30-{{ section.id }} .trust b{display:block;font-size:15px;line-height:1.3}
+  #m30-{{ section.id }} .trust span{display:block;font-size:13.5px;color:rgba(255,255,255,.7);line-height:1.35}
+
+  /* 3 · productos */
+  #m30-{{ section.id }} .cards{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:stretch}
+  #m30-{{ section.id }} .card{position:relative;display:grid;grid-template-columns:170px minmax(0,1fr);gap:26px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:24px;padding:28px;color:var(--ink);transition:box-shadow .2s,transform .2s}
+  #m30-{{ section.id }} .card:hover{box-shadow:0 20px 50px rgba(20,33,61,.14);transform:translateY(-3px)}
+  #m30-{{ section.id }} .card--best{background:var(--navy);color:#fff;border:2px solid var(--gold-2)}
+  #m30-{{ section.id }} .card--best h3{color:#fff}
+  #m30-{{ section.id }} .card__tag{position:absolute;top:-14px;left:28px;background:linear-gradient(90deg,#F5D27A,#C9952F);color:#15120A;font:800 12px/1 var(--title);letter-spacing:.08em;padding:7px 12px;border-radius:999px}
+  #m30-{{ section.id }} .covers{position:relative;height:220px}
+  #m30-{{ section.id }} .covers img{position:absolute;width:140px;aspect-ratio:210/297;object-fit:cover;border-radius:3px 8px 8px 3px;box-shadow:10px 16px 28px rgba(0,0,0,.35)}
+  #m30-{{ section.id }} .covers img:first-child{left:0;top:0}
+  #m30-{{ section.id }} .covers img+img{left:36px;top:26px}
+  #m30-{{ section.id }} .covers--one img{left:12px!important}
+  #m30-{{ section.id }} .card h3{font-size:22px}
+  #m30-{{ section.id }} .card__sub{font-size:15px;color:var(--muted);margin-top:6px}
+  #m30-{{ section.id }} .card--best .card__sub{color:rgba(255,255,255,.72)}
+  #m30-{{ section.id }} .price{display:flex;align-items:baseline;flex-wrap:wrap;gap:10px;margin:16px 0}
+  #m30-{{ section.id }} .price strong{font:800 34px/1 var(--title);font-variant-numeric:tabular-nums}
+  #m30-{{ section.id }} .price s{color:#8B93A5;font-size:17px}
+  #m30-{{ section.id }} .save{background:var(--orange);color:#fff;font:800 11px/1 var(--title);letter-spacing:.06em;padding:5px 8px;border-radius:999px}
+  #m30-{{ section.id }} .card__list{list-style:none;padding:0;margin:0 0 18px;display:grid;gap:6px;font-size:15px}
+  #m30-{{ section.id }} .card__list li::before{content:"✓";color:var(--orange);font-weight:800;margin-right:8px}
+  #m30-{{ section.id }} .card--best .card__list li::before{color:var(--gold)}
+  #m30-{{ section.id }} .card__go{font:800 15px/1 var(--title);color:var(--orange)}
+  #m30-{{ section.id }} .card--best .card__go{color:var(--gold)}
+
+  /* 4 · cómo funciona */
+  #m30-{{ section.id }} .how{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;counter-reset:h}
+  #m30-{{ section.id }} .how__item{background:#fff;border:1px solid var(--line);border-radius:20px;padding:28px}
+  #m30-{{ section.id }} .how__n{width:48px;height:48px;border-radius:14px;background:var(--navy);color:#fff;font:800 20px/1 var(--title);display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+  #m30-{{ section.id }} .how__item:nth-child(3) .how__n{background:var(--orange)}
+  #m30-{{ section.id }} .how h3{font-size:20px;margin-bottom:8px}
+  #m30-{{ section.id }} .how p{color:var(--muted);font-size:16px}
+
+  /* 5 · el plan */
+  #m30-{{ section.id }} .plan{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:12px}
+  #m30-{{ section.id }} .plan li{list-style:none;background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px 14px;min-width:0}
+  #m30-{{ section.id }} .plan ol{display:contents}
+  #m30-{{ section.id }} .plan b{display:block;font:800 30px/1 var(--title);color:var(--orange);margin-bottom:8px}
+  #m30-{{ section.id }} .plan small{display:block;font-size:12.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+  #m30-{{ section.id }} .plan span{display:block;font-weight:700;font-size:15.5px;line-height:1.3;margin-top:4px;overflow-wrap:anywhere}
+  #m30-{{ section.id }} .plan li.hl{border-color:var(--orange);box-shadow:0 0 0 1px var(--orange) inset}
+
+  /* 6 · reseñas */
+  #m30-{{ section.id }} .revs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+  #m30-{{ section.id }} .rv{background:#fff;border:1px solid var(--line);border-radius:18px;padding:24px}
+  #m30-{{ section.id }} .rv h3{font-size:18px;margin:8px 0}
+  #m30-{{ section.id }} .rv p{font-size:16px}
+  #m30-{{ section.id }} .rv__who{display:flex;align-items:center;gap:10px;margin-top:16px;font-size:14px;color:var(--muted)}
+  #m30-{{ section.id }} .rv__who img,#m30-{{ section.id }} .rv__who i{width:40px;height:40px;border-radius:50%;object-fit:cover;background:var(--navy);color:#fff;font-style:normal;font-weight:800;display:flex;align-items:center;justify-content:center}
+  #m30-{{ section.id }} .rv__who b{color:var(--ink)}
+
+  /* 7 · preguntas */
+  #m30-{{ section.id }} .faq{max-width:780px;margin:0 auto;display:grid;gap:12px}
+  #m30-{{ section.id }} .faq details{border:1px solid var(--line);border-radius:14px;padding:0 22px;background:#fff}
+  #m30-{{ section.id }} .faq summary{cursor:pointer;list-style:none;font-weight:700;font-size:18px;padding:19px 30px 19px 0;position:relative}
+  #m30-{{ section.id }} .faq summary::-webkit-details-marker{display:none}
+  #m30-{{ section.id }} .faq summary::after{content:"+";position:absolute;right:0;top:14px;font-size:26px;color:var(--orange)}
+  #m30-{{ section.id }} .faq details[open] summary::after{content:"–"}
+  #m30-{{ section.id }} .faq .rte{padding-bottom:19px;color:var(--muted)}
+  #m30-{{ section.id }} .faq .rte p{margin:0}
+
+  /* 8 · cierre */
+  #m30-{{ section.id }} .final{background:radial-gradient(circle at 15% 100%,#E8632E 0%,#14213D 55%);color:#fff;text-align:center}
+  #m30-{{ section.id }} .final h2{color:#fff}
+  #m30-{{ section.id }} .final p{color:rgba(255,255,255,.85);font-size:19px;max-width:580px;margin:16px auto 30px}
+
+  @media (prefers-reduced-motion: reduce){#m30-{{ section.id }} .btn,#m30-{{ section.id }} .card{transition:none}}
+  @media (max-width: 989px){
+    #m30-{{ section.id }} .sec{padding-block:60px}
+    #m30-{{ section.id }} .trust__grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+    #m30-{{ section.id }} .cards,#m30-{{ section.id }} .how,#m30-{{ section.id }} .revs{grid-template-columns:minmax(0,1fr)}
+    #m30-{{ section.id }} .plan{grid-template-columns:repeat(2,minmax(0,1fr))}
+    #m30-{{ section.id }} .hero{background-position:72% center}
+    #m30-{{ section.id }} .hero::before{background:linear-gradient(180deg,rgba(8,12,26,.5) 0%,rgba(8,12,26,.88) 52%,rgba(8,12,26,.97) 100%)}
+    #m30-{{ section.id }} .hero .w{padding-block:230px 60px}
+  }
+  @media (max-width: 560px){
+    #m30-{{ section.id }} .card{grid-template-columns:minmax(0,1fr);text-align:left}
+    #m30-{{ section.id }} .covers{height:200px;max-width:220px}
+  }
+</style>
+
+{%- capture check -%}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4.5 4.5L19 7"/></svg>{%- endcapture -%}
+
+<div id="m30-{{ section.id }}">
+
+  {%- comment -%} 1 · PORTADA {%- endcomment -%}
+  <section class="hero"{% if section.settings.hero_imagen != blank %} style="background-image:url('{{ section.settings.hero_imagen | image_url: width: 2000 }}')"{% endif %}>
+    <div class="w">
+      <div class="hero__copy">
+        <span class="pill">★ {{ section.settings.etiqueta }}</span>
+        <h1>{{ section.settings.titulo }} <em>{{ section.settings.titulo_destacado }}</em></h1>
+        <p class="hero__sub">{{ section.settings.subtitulo }}</p>
+        <div class="hero__cta">
+          <a class="btn" href="{{ url_producto }}">{{ section.settings.boton }}</a>
+          <a class="btn btn--ghost" href="#m30-planes-{{ section.id }}">Ver opciones</a>
+        </div>
+        {%- if section.settings.puntuacion != blank and section.settings.texto_clientes != blank -%}
+          <p class="hero__rating"><span class="stars" aria-hidden="true">★★★★★</span><b>{{ section.settings.puntuacion }}</b> · {{ section.settings.texto_clientes }}</p>
+        {%- endif -%}
+      </div>
+    </div>
+  </section>
+
+  {%- comment -%} 2 · CONFIANZA {%- endcomment -%}
+  <section class="trust">
+    <div class="w trust__grid">
+      <div class="trust__item"><span class="trust__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16v12H4z"/><path d="m4 7 8 6 8-6"/></svg></span><div><b>Acceso inmediato</b><span>Te llega por mail al pagar</span></div></div>
+      <div class="trust__item"><span class="trust__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2.5" width="12" height="19" rx="2.5"/><path d="M10 18h4"/></svg></span><div><b>PDF + versión web</b><span>Leelo cómodo en el celular</span></div></div>
+      <div class="trust__item"><span class="trust__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l2 2 4-4"/><rect x="3.5" y="3.5" width="17" height="17" rx="3"/></svg></span><div><b>Plan día por día</b><span>Con checklists para tildar</span></div></div>
+      <div class="trust__item"><span class="trust__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5 4 6v6c0 5 3.4 8.6 8 9.5 4.6-.9 8-4.5 8-9.5V6z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg></span><div><b>Pago seguro</b><span>{{ section.settings.texto_pago }}</span></div></div>
+    </div>
+  </section>
+
+  {%- comment -%} 3 · OPCIONES {%- endcomment -%}
+  {%- if p != blank -%}
+  <section class="sec paper" id="m30-planes-{{ section.id }}">
+    <div class="w">
+      <div class="head">
+        <span class="ey">Elegí tu opción</span>
+        <h2 class="h2">Todo lo que necesitás para <em>conseguir trabajo</em></h2>
+      </div>
+      <div class="cards">
+        <a class="card" href="{{ url_producto }}?variant={{ v_ebook.id }}">
+          <div class="covers covers--one">
+            {%- if section.settings.tapa1 != blank -%}{{ section.settings.tapa1 | image_url: width: 400 | image_tag: loading: 'lazy', alt: 'Tapa de Conseguí trabajo en 30 días' }}{%- endif -%}
+          </div>
+          <div>
+            <h3>Conseguí trabajo en 30 días</h3>
+            <p class="card__sub">El plan completo, día por día · 43 páginas</p>
+            <div class="price"><strong>{{ v_ebook.price | money_without_trailing_zeros }}</strong></div>
+            <ul class="card__list"><li>PDF + versión web interactiva</li><li>8 plantillas de mensajes</li><li>Tracker de búsqueda</li></ul>
+            <span class="card__go">Ver el ebook →</span>
+          </div>
+        </a>
+        <a class="card card--best" href="{{ url_producto }}?variant={{ v_combo.id }}">
+          <span class="card__tag">MÁS ELEGIDO</span>
+          <div class="covers">
+            {%- if section.settings.tapa1 != blank -%}{{ section.settings.tapa1 | image_url: width: 400 | image_tag: loading: 'lazy', alt: 'Tapa de Conseguí trabajo en 30 días' }}{%- endif -%}
+            {%- if section.settings.tapa2 != blank -%}{{ section.settings.tapa2 | image_url: width: 400 | image_tag: loading: 'lazy', alt: 'Tapa de Secretos de reclutador' }}{%- endif -%}
+          </div>
+          <div>
+            <h3>Combo: los 2 ebooks</h3>
+            <p class="card__sub">El plan + "Secretos de reclutador", el manual avanzado</p>
+            <div class="price">
+              <strong>{{ v_combo.price | money_without_trailing_zeros }}</strong>
+              {%- if v_combo.compare_at_price > v_combo.price -%}
+                <s>{{ v_combo.compare_at_price | money_without_trailing_zeros }}</s>
+                <span class="save">AHORRÁS {{ v_combo.compare_at_price | minus: v_combo.price | money_without_trailing_zeros }}</span>
+              {%- endif -%}
+            </div>
+            <ul class="card__list"><li>Todo lo del ebook 1</li><li>Cómo te evalúan los reclutadores</li><li>10 estrategias para destacar</li></ul>
+            <span class="card__go">Quiero el combo →</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+  {%- endif -%}
+
+  {%- comment -%} 4 · CÓMO FUNCIONA {%- endcomment -%}
+  <section class="sec">
+    <div class="w">
+      <div class="head">
+        <span class="ey">Cómo funciona</span>
+        <h2 class="h2">De la compra a tu primera entrevista</h2>
+      </div>
+      <div class="how">
+        <div class="how__item"><div class="how__n">1</div><h3>Elegís tu opción</h3><p>El ebook solo o el combo con el manual avanzado. Pagás seguro en la tienda.</p></div>
+        <div class="how__item"><div class="how__n">2</div><h3>Te llega al instante</h3><p>Recibís por mail los PDF y el acceso a "Mis ebooks", la versión interactiva para el celular.</p></div>
+        <div class="how__item"><div class="how__n">3</div><h3>Seguís el plan</h3><p>Cada día tiene tareas concretas. Tildás tu avance y copiás las plantillas con un toque.</p></div>
+      </div>
+    </div>
+  </section>
+
+  {%- comment -%} 5 · EL PLAN {%- endcomment -%}
+  <section class="sec paper">
+    <div class="w">
+      <div class="head">
+        <span class="ey">El Método 30</span>
+        <h2 class="h2">Siete etapas, <em>un mes</em>, un trabajo nuevo</h2>
+        <p class="lead">Desde el día 8 las postulaciones, los mensajes y los seguimientos corren todos los días, hasta que firmás.</p>
+      </div>
+      <ol class="plan">
+        <li><b>1</b><small>Días 1–3</small><span>Objetivo y propuesta de valor</span></li>
+        <li><b>2</b><small>Días 4–8</small><span>CV que pasa filtros</span></li>
+        <li><b>3</b><small>Días 9–12</small><span>LinkedIn que atrae reclutadores</span></li>
+        <li><b>4</b><small>Días 13–17</small><span>Búsqueda y networking</span></li>
+        <li class="hl"><b>5</b><small>Días 18–24</small><span>Entrevistas que terminan en oferta</span></li>
+        <li><b>6</b><small>Días 25–28</small><span>Negociación de sueldo</span></li>
+        <li><b>7</b><small>Días 29–30</small><span>Cierre y plan B</span></li>
+      </ol>
+    </div>
+  </section>
+
+  {%- comment -%} 6 · RESEÑAS (solo si cargaste testimonios reales) {%- endcomment -%}
+  {%- if reviews.size > 0 -%}
+  <section class="sec">
+    <div class="w">
+      <div class="head">
+        <span class="ey">Lo que dicen quienes lo usaron</span>
+        <h2 class="h2">Búsquedas con método, resultados reales</h2>
+      </div>
+      <div class="revs">
+        {%- for b in reviews limit: 3 -%}
+          <div class="rv" {{ b.shopify_attributes }}>
+            <span class="stars" aria-hidden="true">★★★★★</span>
+            <h3>{{ b.settings.titulo }}</h3>
+            <p>{{ b.settings.texto }}</p>
+            <div class="rv__who">
+              {%- if b.settings.foto != blank -%}{{ b.settings.foto | image_url: width: 120 | image_tag: loading: 'lazy', alt: b.settings.nombre }}{%- else -%}<i>{{ b.settings.nombre | slice: 0 }}</i>{%- endif -%}
+              <span><b>{{ b.settings.nombre }}</b>{% if b.settings.rubro != blank %} · {{ b.settings.rubro }}{% endif %}</span>
+            </div>
+          </div>
+        {%- endfor -%}
+      </div>
+    </div>
+  </section>
+  {%- endif -%}
+
+  {%- comment -%} 7 · PREGUNTAS {%- endcomment -%}
+  {%- if faqs.size > 0 -%}
+  <section class="sec{% if reviews.size > 0 %} paper{% endif %}">
+    <div class="w">
+      <div class="head"><span class="ey">Preguntas frecuentes</span><h2 class="h2">Lo que suelen preguntar</h2></div>
+      <div class="faq">
+        {%- for b in faqs -%}
+          <details {{ b.shopify_attributes }}><summary>{{ b.settings.pregunta }}</summary><div class="rte">{{ b.settings.respuesta }}</div></details>
+        {%- endfor -%}
+      </div>
+    </div>
+  </section>
+  {%- endif -%}
+
+  {%- comment -%} 8 · CIERRE {%- endcomment -%}
+  <section class="sec final">
+    <div class="w">
+      <h2 class="h2">{{ section.settings.cierre_titulo }}</h2>
+      <p>{{ section.settings.cierre_texto }}</p>
+      <a class="btn" href="{{ url_producto }}">{{ section.settings.boton }}</a>
+    </div>
+  </section>
+
+</div>
+
+{% schema %}
+{
+  "name": "MÉTODO 30 · Inicio",
+  "tag": "div",
+  "class": "metodo30-inicio",
+  "enabled_on": { "templates": ["index"] },
+  "settings": [
+    { "type": "header", "content": "Producto" },
+    { "type": "product", "id": "producto", "label": "Producto (los ebooks)", "info": "Si lo dejás vacío se usa el producto con handle consegui-trabajo-en-30-dias." },
+    { "type": "image_picker", "id": "tapa1", "label": "Tapa del ebook 1" },
+    { "type": "image_picker", "id": "tapa2", "label": "Tapa del ebook 2" },
+    { "type": "header", "content": "Portada" },
+    { "type": "image_picker", "id": "hero_imagen", "label": "Foto de portada", "info": "Horizontal 16:9 con la persona a la derecha (hero.jpg)." },
+    { "type": "text", "id": "etiqueta", "label": "Etiqueta arriba del título", "default": "Método 30 · Plan de 30 días" },
+    { "type": "text", "id": "titulo", "label": "Título", "default": "Dejá de mandar CVs al vacío." },
+    { "type": "text", "id": "titulo_destacado", "label": "Título (parte en naranja)", "default": "Conseguí trabajo en 30 días." },
+    { "type": "textarea", "id": "subtitulo", "label": "Subtítulo", "default": "El sistema paso a paso para tener un CV que consigue entrevistas, un LinkedIn que atrae reclutadores y las respuestas que hacen que te elijan, en cualquier rubro." },
+    { "type": "text", "id": "boton", "label": "Texto del botón", "default": "Quiero el plan" },
+    { "type": "header", "content": "Prueba social", "info": "⚠️ Solo datos reales. Si dejás vacío cualquiera de los dos, no se muestra." },
+    { "type": "text", "id": "puntuacion", "label": "Puntuación (ej. 4,9)" },
+    { "type": "text", "id": "texto_clientes", "label": "Texto junto a las estrellas (ej. 120 opiniones)" },
+    { "type": "header", "content": "Confianza" },
+    { "type": "text", "id": "texto_pago", "label": "Texto de pago seguro", "default": "Tarjetas y Mercado Pago" },
+    { "type": "header", "content": "Cierre" },
+    { "type": "text", "id": "cierre_titulo", "label": "Título", "default": "Tu próximo trabajo empieza hoy" },
+    { "type": "textarea", "id": "cierre_texto", "label": "Texto", "default": "En 30 días podés tener un CV que consigue entrevistas y las herramientas para que te elijan." }
+  ],
+  "blocks": [
+    {
+      "type": "testimonio",
+      "name": "Testimonio (real)",
+      "limit": 3,
+      "settings": [
+        { "type": "paragraph", "content": "⚠️ Solo reseñas reales, con permiso de la persona." },
+        { "type": "image_picker", "id": "foto", "label": "Foto (opcional)" },
+        { "type": "text", "id": "nombre", "label": "Nombre", "default": "Nombre A." },
+        { "type": "text", "id": "rubro", "label": "Rubro o puesto", "default": "Administración" },
+        { "type": "text", "id": "titulo", "label": "Título", "default": "Título de la reseña" },
+        { "type": "textarea", "id": "texto", "label": "Reseña", "default": "Lo que contó la persona, con sus palabras." }
+      ]
+    },
+    {
+      "type": "pregunta",
+      "name": "Pregunta frecuente",
+      "limit": 10,
+      "settings": [
+        { "type": "text", "id": "pregunta", "label": "Pregunta", "default": "¿Pregunta?" },
+        { "type": "richtext", "id": "respuesta", "label": "Respuesta", "default": "<p>Respuesta.</p>" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "MÉTODO 30 · Inicio",
+      "blocks": [
+        { "type": "pregunta", "settings": { "pregunta": "¿Cómo recibo los ebooks?", "respuesta": "<p>Apenas se acredita el pago te llega un mail con los <strong>PDF</strong> y el acceso a <strong>\"Mis ebooks\"</strong>, la versión interactiva donde tildás tu avance.</p>" } },
+        { "type": "pregunta", "settings": { "pregunta": "¿Sirve para mi rubro?", "respuesta": "<p>Sí. El método funciona en cualquier rubro e incluye qué destacar en el CV para <strong>10 rubros distintos</strong>.</p>" } },
+        { "type": "pregunta", "settings": { "pregunta": "¿Sirve si no tengo experiencia?", "respuesta": "<p>Sí. Hay consejos para el <strong>primer empleo</strong>, y el ebook 2 suma estrategias para compensar la falta de experiencia.</p>" } },
+        { "type": "pregunta", "settings": { "pregunta": "¿Me garantiza conseguir trabajo?", "respuesta": "<p>Nadie puede garantizarlo: depende de tu dedicación, tu perfil y el mercado de tu rubro. Lo que te da es un <strong>método claro</strong> para hacer una búsqueda muy por encima del promedio.</p>" } },
+        { "type": "pregunta", "settings": { "pregunta": "¿Cómo puedo pagar?", "respuesta": "<p>⚠️ Completá con tus medios de pago (por ejemplo: tarjeta de crédito, débito o Mercado Pago).</p>" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

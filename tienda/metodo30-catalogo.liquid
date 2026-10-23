@@ -1,0 +1,158 @@
+{% comment %}
+  MÉTODO 30 · Catálogo (sección nativa de Shopify para la página de colecciones)
+  Instalación: Editar código → Sections → "Agregar una nueva sección" → nombre: metodo30-catalogo
+  → borrar todo lo que trae → pegar este archivo → Guardar.
+  Después: Personalizar → elegir "Colecciones" arriba al medio → ocultar las secciones del tema
+  → Agregar sección (dentro de Plantilla) → "MÉTODO 30 · Catálogo".
+  Las tarjetas llevan a la página del producto con la opción ya elegida (ebook o combo).
+{% endcomment %}
+
+{%- liquid
+  assign p = section.settings.producto
+  if p == blank
+    assign p = all_products['consegui-trabajo-en-30-dias']
+  endif
+  assign url_producto = p.url | default: '/collections/all'
+  assign v_ebook = p.variants.first
+  assign v_combo = p.variants.last
+  for v in p.variants
+    assign t = v.title | downcase
+    if t contains 'combo'
+      assign v_combo = v
+    else
+      assign v_ebook = v
+    endif
+  endfor
+-%}
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+  #m30c-{{ section.id }}{
+    --navy:#14213D;--ink:#1C2333;--muted:#5A6478;--line:#E1E5EE;--paper:#F6F7FB;--orange:#E8632E;--gold:#F5D27A;--gold-2:#B8892B;--black:#0E0C09;
+    --title:'Bricolage Grotesque','Avenir Next','Segoe UI',sans-serif;--body:'Source Sans 3','Segoe UI',system-ui,sans-serif;
+    background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;padding-block:56px 80px;overflow:hidden;
+  }
+  #m30c-{{ section.id }} *{box-sizing:border-box;letter-spacing:normal}
+  #m30c-{{ section.id }} h1,#m30c-{{ section.id }} h2,#m30c-{{ section.id }} h3{font-family:var(--title);color:var(--navy);margin:0;line-height:1.1;letter-spacing:-.02em;text-wrap:balance}
+  #m30c-{{ section.id }} p{margin:0}
+  #m30c-{{ section.id }} img{max-width:100%;height:auto;display:block}
+  #m30c-{{ section.id }} a{text-decoration:none}
+  #m30c-{{ section.id }} .w{max-width:1100px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+  #m30c-{{ section.id }} .head{text-align:center;max-width:660px;margin:0 auto 40px}
+  #m30c-{{ section.id }} .ey{display:block;font-weight:700;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--orange);margin-bottom:12px}
+  #m30c-{{ section.id }} .h1{font-size:clamp(32px,4.5vw,48px);font-weight:800}
+  #m30c-{{ section.id }} .sub{font-size:18px;color:var(--muted);margin-top:12px}
+  #m30c-{{ section.id }} .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:26px}
+  #m30c-{{ section.id }} .card{position:relative;background:#fff;border:1px solid var(--line);border-radius:24px;overflow:hidden;color:var(--ink);display:flex;flex-direction:column;transition:box-shadow .2s,transform .2s}
+  #m30c-{{ section.id }} .card:hover{box-shadow:0 20px 50px rgba(20,33,61,.14);transform:translateY(-3px)}
+  #m30c-{{ section.id }} .card__media{background:radial-gradient(circle at 80% 0%,#3A3F9E 0%,#14213D 60%);display:flex;justify-content:center;align-items:flex-end;gap:0;padding:34px 20px 0;height:300px}
+  #m30c-{{ section.id }} .card--best .card__media{background:radial-gradient(circle at 80% 0%,#6B5420 0%,#15130F 60%)}
+  #m30c-{{ section.id }} .card__media img{width:170px;aspect-ratio:210/297;object-fit:cover;border-radius:3px 8px 0 0;box-shadow:0 -6px 30px rgba(0,0,0,.35)}
+  #m30c-{{ section.id }} .card__media img+img{margin-left:-50px;transform:translateY(20px)}
+  #m30c-{{ section.id }} .card__tag{position:absolute;top:16px;right:16px;background:linear-gradient(90deg,#F5D27A,#C9952F);color:#15120A;font:800 12px/1 var(--title);letter-spacing:.08em;padding:7px 12px;border-radius:999px}
+  #m30c-{{ section.id }} .card__body{padding:26px 28px 30px;display:flex;flex-direction:column;gap:10px;flex:1}
+  #m30c-{{ section.id }} .card h3{font-size:23px}
+  #m30c-{{ section.id }} .card__sub{color:var(--muted);font-size:15.5px}
+  #m30c-{{ section.id }} .price{display:flex;align-items:baseline;flex-wrap:wrap;gap:10px;margin:6px 0}
+  #m30c-{{ section.id }} .price strong{font:800 32px/1 var(--title);color:var(--ink);font-variant-numeric:tabular-nums}
+  #m30c-{{ section.id }} .price s{color:#8B93A5}
+  #m30c-{{ section.id }} .save{background:var(--orange);color:#fff;font:800 11px/1 var(--title);letter-spacing:.06em;padding:5px 8px;border-radius:999px}
+  #m30c-{{ section.id }} .list{list-style:none;padding:0;margin:4px 0 14px;display:grid;gap:6px;font-size:15.5px;flex:1}
+  #m30c-{{ section.id }} .list li::before{content:"✓";color:var(--orange);font-weight:800;margin-right:8px}
+  #m30c-{{ section.id }} .btn{display:block;text-align:center;background:var(--orange);color:#fff;font:800 16px/1 var(--title);padding:17px 20px;border-radius:999px}
+  #m30c-{{ section.id }} .card--best .btn{background:linear-gradient(90deg,#F5D27A,#C9952F);color:#15120A}
+  #m30c-{{ section.id }} .cmp{margin-top:48px;background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden}
+  #m30c-{{ section.id }} .cmp h2{font-size:24px;padding:24px 24px 6px}
+  #m30c-{{ section.id }} .cmp__scroll{overflow-x:auto}
+  #m30c-{{ section.id }} table{width:100%;border-collapse:collapse;font-size:16px;min-width:520px}
+  #m30c-{{ section.id }} th,#m30c-{{ section.id }} td{padding:14px 24px;text-align:left;border-top:1px solid var(--line)}
+  #m30c-{{ section.id }} th{font:800 15px/1.2 var(--title);color:var(--navy)}
+  #m30c-{{ section.id }} td:not(:first-child),#m30c-{{ section.id }} th:not(:first-child){text-align:center}
+  #m30c-{{ section.id }} .y{color:#157A4A;font-weight:800}
+  #m30c-{{ section.id }} .n{color:#B6BCC9}
+  @media (max-width: 760px){#m30c-{{ section.id }} .grid{grid-template-columns:minmax(0,1fr)}#m30c-{{ section.id }} .card__media{height:260px}}
+  @media (prefers-reduced-motion: reduce){#m30c-{{ section.id }} .card{transition:none}}
+</style>
+
+<div id="m30c-{{ section.id }}">
+  <div class="w">
+    <div class="head">
+      <span class="ey">{{ section.settings.etiqueta }}</span>
+      <h1 class="h1">{{ section.settings.titulo }}</h1>
+      <p class="sub">{{ section.settings.subtitulo }}</p>
+    </div>
+
+    {%- if p != blank -%}
+    <div class="grid">
+      <a class="card" href="{{ url_producto }}?variant={{ v_ebook.id }}">
+        <div class="card__media">
+          {%- if section.settings.tapa1 != blank -%}{{ section.settings.tapa1 | image_url: width: 400 | image_tag: loading: 'lazy', alt: 'Tapa de Conseguí trabajo en 30 días' }}{%- endif -%}
+        </div>
+        <div class="card__body">
+          <h3>Conseguí trabajo en 30 días</h3>
+          <p class="card__sub">El plan completo, día por día · 43 páginas</p>
+          <div class="price"><strong>{{ v_ebook.price | money_without_trailing_zeros }}</strong></div>
+          <ul class="list"><li>CV, LinkedIn, búsqueda, entrevistas y negociación</li><li>8 plantillas de mensajes y tracker</li><li>PDF + versión web interactiva</li></ul>
+          <span class="btn">Ver el ebook</span>
+        </div>
+      </a>
+      <a class="card card--best" href="{{ url_producto }}?variant={{ v_combo.id }}">
+        <span class="card__tag">MÁS ELEGIDO</span>
+        <div class="card__media">
+          {%- if section.settings.tapa1 != blank -%}{{ section.settings.tapa1 | image_url: width: 400 | image_tag: loading: 'lazy', alt: 'Tapa de Conseguí trabajo en 30 días' }}{%- endif -%}
+          {%- if section.settings.tapa2 != blank -%}{{ section.settings.tapa2 | image_url: width: 400 | image_tag: loading: 'lazy', alt: 'Tapa de Secretos de reclutador' }}{%- endif -%}
+        </div>
+        <div class="card__body">
+          <h3>Combo: los 2 ebooks</h3>
+          <p class="card__sub">El plan + "Secretos de reclutador" · 79 páginas en total</p>
+          <div class="price">
+            <strong>{{ v_combo.price | money_without_trailing_zeros }}</strong>
+            {%- if v_combo.compare_at_price > v_combo.price -%}
+              <s>{{ v_combo.compare_at_price | money_without_trailing_zeros }}</s>
+              <span class="save">AHORRÁS {{ v_combo.compare_at_price | minus: v_combo.price | money_without_trailing_zeros }}</span>
+            {%- endif -%}
+          </div>
+          <ul class="list"><li>Todo lo del ebook 1</li><li>Cómo te evalúan y te puntúan los reclutadores</li><li>10 estrategias avanzadas y negociación experta</li></ul>
+          <span class="btn">Quiero el combo</span>
+        </div>
+      </a>
+    </div>
+
+    <div class="cmp">
+      <h2>¿Cuál me conviene?</h2>
+      <div class="cmp__scroll"><table>
+        <thead><tr><th></th><th>Ebook</th><th>Combo</th></tr></thead>
+        <tbody>
+          <tr><td>Plan de 30 días día por día</td><td class="y">✓</td><td class="y">✓</td></tr>
+          <tr><td>CV, LinkedIn y 15 preguntas de entrevista</td><td class="y">✓</td><td class="y">✓</td></tr>
+          <tr><td>Plantillas, tracker y versión web</td><td class="y">✓</td><td class="y">✓</td></tr>
+          <tr><td>Cómo se decide una contratación por dentro</td><td class="n">–</td><td class="y">✓</td></tr>
+          <tr><td>Tests psicotécnicos y entrevistas con IA</td><td class="n">–</td><td class="y">✓</td></tr>
+          <tr><td>Bandas salariales, inflación y trabajos para el exterior</td><td class="n">–</td><td class="y">✓</td></tr>
+          <tr><td>Primer empleo, cambio de carrera, +45 y estafas</td><td class="n">–</td><td class="y">✓</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "MÉTODO 30 · Catálogo",
+  "tag": "div",
+  "class": "metodo30-catalogo",
+  "settings": [
+    { "type": "product", "id": "producto", "label": "Producto (los ebooks)", "info": "Si lo dejás vacío se usa el producto con handle consegui-trabajo-en-30-dias." },
+    { "type": "image_picker", "id": "tapa1", "label": "Tapa del ebook 1" },
+    { "type": "image_picker", "id": "tapa2", "label": "Tapa del ebook 2" },
+    { "type": "text", "id": "etiqueta", "label": "Etiqueta", "default": "Método 30" },
+    { "type": "text", "id": "titulo", "label": "Título", "default": "Elegí cómo arrancar tu búsqueda" },
+    { "type": "textarea", "id": "subtitulo", "label": "Subtítulo", "default": "El plan completo para conseguir trabajo en 30 días, o el combo con el manual avanzado para hacerlo mejor que el resto." }
+  ],
+  "presets": [{ "name": "MÉTODO 30 · Catálogo" }]
+}
+{% endschema %}
