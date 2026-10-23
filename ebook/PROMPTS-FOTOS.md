@@ -31,6 +31,8 @@ Las fotos reemplazan solas a las ilustraciones. Las aperturas de los capítulos 
 
 ```bash
 cd ebook
-python3 build.py ebook.md ebook.html
-NODE_PATH=$(npm root -g) node render.js "$PWD/ebook.html" "$PWD/Consegui-trabajo-en-30-dias.pdf"
+python3 split.py ebook.md   # genera ebook1.md y ebook2.md
+python3 build.py ebook1.md e1.html main && python3 build.py ebook2.md e2.html pro
+NODE_PATH=$(npm root -g) node render.js "$PWD/e1.html" "$PWD/Consegui-trabajo-en-30-dias.pdf"
+NODE_PATH=$(npm root -g) node render.js "$PWD/e2.html" "$PWD/Secretos-de-reclutador.pdf"
 ```

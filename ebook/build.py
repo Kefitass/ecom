@@ -10,6 +10,7 @@ def foto(name):
 
 SRC = sys.argv[1]
 OUT = sys.argv[2]
+ED = sys.argv[3] if len(sys.argv) > 3 else "main"  # "main" = Conseguí trabajo en 30 días, "pro" = Secretos de reclutador
 md = open(SRC, encoding="utf-8").read()
 
 # --- split into chapters -------------------------------------------------
@@ -186,12 +187,17 @@ def meta_for(chapters):
     out, n = [], 0
     for title, _ in chapters:
         if title.startswith("Introducci"):
-            out.append(dict(num="00", kicker="Introducción", main=title.split(":", 1)[1], illu=0, photo="cap0", theme=THEMES[0], bonus=False))
+            out.append(dict(num="00", kicker="Introducción", main=title.split(":", 1)[1], illu=0, photo="pro0" if ED == "pro" else "cap0", theme=BONUS_THEME if ED == "pro" else THEMES[0], bonus=ED == "pro"))
         elif title.startswith("Bonus"):
             k = re.match(r"Bonus (\d+)", title).group(1)
             out.append(dict(num=f"B{k}", kicker=f"Bonus {k} · Nivel experto", main=title.split(":", 1)[1], illu=f"b{k}", photo=f"bonus{k}", theme=BONUS_THEME, bonus=True))
+        elif title.startswith("Capítulo"):
+            k = int(re.match(r"Capítulo (\d+)", title).group(1))
+            illu = {1: "b1", 2: 2, 3: 3, 4: "b2", 5: "b3", 6: 6, 7: "b4"}.get(k, 0)
+            out.append(dict(num=f"{k:02d}", kicker=f"Capítulo {k}", main=title.split(":", 1)[1], illu=illu, photo=f"pro{k}", theme=BONUS_THEME, bonus=True))
         elif title.startswith("Caja"):
-            out.append(dict(num="+", kicker="Caja de herramientas", main="Plantillas, checklist y tracker", illu=8, photo="cap8", theme=THEMES[8], bonus=False))
+            main = title.split(":", 1)[1] if ED == "pro" else "Plantillas, checklist y tracker"
+            out.append(dict(num="+", kicker="Caja de herramientas", main=main, illu=8, photo="pro8" if ED == "pro" else "cap8", theme=BONUS_THEME if ED == "pro" else THEMES[8], bonus=ED == "pro"))
         else:
             n += 1
             kick, main = title.split(":", 1)
@@ -212,7 +218,7 @@ def chapter_open(m):
   <div class="op-kicker">{html.escape(m["kicker"])}</div>
   <h2 class="op-title">{html.escape(m["main"])}</h2>
   {photo_or_illu}
-  <div class="op-foot">Conseguí trabajo en 30 días</div>
+  <div class="op-foot">{"Secretos de reclutador" if ED == "pro" else "Conseguí trabajo en 30 días"}</div>
 </section>'''
 
 metas = meta_for(chapters)
@@ -225,46 +231,74 @@ toc = "".join(
     f'<li class="{"toc-bonus" if m["bonus"] else ""}"><span class="toc-n">{m["num"]}</span><span class="toc-t">{html.escape(m["kicker"] + ": " + m["main"] if not m["num"] in ("00", "+") else m["main"])}</span></li>'
     for m in metas)
 
-_cp = foto("portada")
+if ED == "pro":
+    E = dict(
+        doc_title="Secretos de reclutador", photo="pro_portada", cover_cls="cover pro",
+        badge="Manual avanzado · Complemento del plan de 30 días",
+        title="Secretos<br>de<br><span>reclutador</span>",
+        sub="Lo que pasa del otro lado de la mesa: el manual avanzado para ganarle a cualquier competencia",
+        seal='<div class="cv-seal"><div class="cv-seal-star">★</div><div class="cv-seal-l">NIVEL<br>EXPERTO</div></div>',
+        illu=ILLU["b1"],
+        pills=["Cómo te puntúan", "LinkedIn por dentro", "Bandas salariales", "Tests y evaluaciones", "Estafas laborales"],
+        wl_title="La ventaja que no ve el resto",
+        wl_lead="Este manual te muestra el proceso de selección desde adentro: qué mide cada persona que decide, cómo te buscan y te puntúan, y qué hacen distinto los candidatos que siempre llegan a la final. Usalo junto al plan de 30 días: cada capítulo potencia una etapa.",
+        stats=[("7", "capítulos de nivel experto"), ("10", "estrategias avanzadas para destacar"), ("6", "tipos de test explicados"), ("23", "puntos en el checklist del candidato experto")],
+        cl_title="Ahora jugás con ventaja",
+        cl_lead="Ya sabés lo que pasa del otro lado de la mesa. Usá cada capítulo en su etapa del plan y vas a dejar de competir como un candidato más.",
+        steps=["Leé el capítulo de la etapa en la que estás", "Prepará una prueba de trabajo para tu empresa favorita", "Repasá el checklist experto antes de cada entrevista"],
+    )
+else:
+    E = dict(
+        doc_title="Conseguí trabajo en 30 días", photo="portada", cover_cls="cover",
+        badge="Guía práctica · Plan de 30 días",
+        title="Conseguí<br>trabajo<br><span>en 30 días</span>",
+        sub="CV, LinkedIn y entrevistas: el sistema paso a paso para ser el mejor postulante en cualquier rubro",
+        seal='<div class="cv-cal"><div class="cv-cal-top"></div><div class="cv-cal-n">30</div><div class="cv-cal-l">DÍAS</div></div>',
+        illu=ILLU[0],
+        pills=["CV que pasa filtros", "LinkedIn magnético", "Entrevistas ganadoras", "Negociación"],
+        wl_title="Tu próximo trabajo empieza hoy",
+        wl_lead="Este no es un libro para leer y guardar. Es un plan de acción: cada día tiene tareas concretas, plantillas listas para copiar y checklists para tildar. Si lo seguís, en 30 días vas a tener un CV que consigue entrevistas, un perfil que atrae reclutadores y las respuestas que hacen que te elijan.",
+        stats=[("7", "etapas con tareas día por día"), ("15", "preguntas de entrevista con respuesta"), ("8", "plantillas de mensajes listas para usar"), ("10", "rubros con consejos específicos")],
+        cl_title="Ahora te toca a vos",
+        cl_lead="Ya tenés el mapa completo. La diferencia entre quien consigue trabajo y quien sigue buscando no es el talento: es la ejecución constante. Abrí el checklist del día 1 y empezá hoy.",
+        steps=["Abrí el checklist del día 1", "Bloqueá tu horario fijo de búsqueda", "Cargá tu primera empresa en el tracker"],
+    )
+
+_cp = foto(E["photo"])
 COVER_BG = f'<div class="cv-photo" style="background-image:url({_cp})"></div>' if _cp else ""
-COVER_ILLU = "" if _cp else f'<div class="cv-illu">{ILLU[0]}</div>'
-COVER = f'''
-<section class="cover">{COVER_BG}
+COVER_ILLU = "" if _cp else f'<div class="cv-illu">{E["illu"]}</div>'
+COVER = f"""
+<section class="{E['cover_cls']}">{COVER_BG}
   <div class="cv-glow"></div>
-  <div class="cv-badge">Guía práctica · Plan de 30 días</div>
-  <h1 class="cv-title">Conseguí<br>trabajo<br><span>en 30 días</span></h1>
-  <p class="cv-sub">CV, LinkedIn y entrevistas: el sistema paso a paso para ser el mejor postulante en cualquier rubro</p>
-  <div class="cv-cal"><div class="cv-cal-top"></div><div class="cv-cal-n">30</div><div class="cv-cal-l">DÍAS</div></div>
+  <div class="cv-badge">{E['badge']}</div>
+  <h1 class="cv-title">{E['title']}</h1>
+  <p class="cv-sub">{E['sub']}</p>
+  {E['seal']}
   {COVER_ILLU}
-  <div class="cv-pills"><span>CV que pasa filtros</span><span>LinkedIn magnético</span><span>Entrevistas ganadoras</span><span>Negociación</span><span>Secretos de reclutador</span></div>
-</section>'''
+  <div class="cv-pills">{''.join(f'<span>{x}</span>' for x in E['pills'])}</div>
+</section>"""
 
-WELCOME = '''
-<section class="welcome">
+WELCOME = f"""
+<section class="welcome{' pro' if ED == 'pro' else ''}">
   <div class="wl-kicker">Antes de empezar</div>
-  <h2 class="wl-title">Tu próximo trabajo empieza hoy</h2>
-  <p class="wl-lead">Este no es un libro para leer y guardar. Es un plan de acción: cada día tiene tareas concretas, plantillas listas para copiar y checklists para tildar. Si lo seguís, en 30 días vas a tener un CV que consigue entrevistas, un perfil que atrae reclutadores y las respuestas que hacen que te elijan.</p>
-  <div class="wl-grid">
-    <div class="wl-card"><div class="wl-n">7</div><div>etapas con tareas día por día</div></div>
-    <div class="wl-card"><div class="wl-n">15</div><div>preguntas de entrevista con respuesta</div></div>
-    <div class="wl-card"><div class="wl-n">8</div><div>plantillas de mensajes listas para usar</div></div>
-    <div class="wl-card"><div class="wl-n">4</div><div>capítulos bonus con secretos de reclutador</div></div>
-  </div>
+  <h2 class="wl-title">{E['wl_title']}</h2>
+  <p class="wl-lead">{E['wl_lead']}</p>
+  <div class="wl-grid">{''.join(f'<div class="wl-card"><div class="wl-n">{n}</div><div>{t}</div></div>' for n, t in E['stats'])}</div>
   <h3 class="toc-h">Contenido</h3>
-  <ol class="toc">''' + toc + '''</ol>
-</section>'''
+  <ol class="toc">{toc}</ol>
+</section>"""
 
-CLOSING = '''
-<section class="closing">
+CLOSING = f"""
+<section class="closing{' pro' if ED == 'pro' else ''}">
   <div class="cl-kicker">Último paso</div>
-  <h2 class="cl-title">Ahora te toca a vos</h2>
-  <p>Ya tenés el mapa completo. La diferencia entre quien consigue trabajo y quien sigue buscando no es el talento: es la ejecución constante. Abrí el checklist del día 1 y empezá hoy.</p>
-  <div class="cl-steps"><div><b>1</b>Abrí el checklist del día 1</div><div><b>2</b>Bloqueá tu horario fijo de búsqueda</div><div><b>3</b>Cargá tu primera empresa en el tracker</div></div>
-  <p class="cl-small">El resultado depende de tu dedicación, tu perfil y el mercado de cada rubro. Este plan te da el método; la constancia la ponés vos.</p>
-</section>'''
+  <h2 class="cl-title">{E['cl_title']}</h2>
+  <p>{E['cl_lead']}</p>
+  <div class="cl-steps">{''.join(f'<div><b>{i + 1}</b>{t}</div>' for i, t in enumerate(E['steps']))}</div>
+  <p class="cl-small">El resultado depende de tu dedicación, tu perfil y el mercado de cada rubro. Este manual te da el método; la constancia la ponés vos.</p>
+</section>"""
 
 CSS = open(__file__.replace("build.py", "style.css"), encoding="utf-8").read()
-doc = f'''<!doctype html><html lang="es"><head><meta charset="utf-8"><title>Conseguí trabajo en 30 días</title><style>{CSS}</style></head>
+doc = f'''<!doctype html><html lang="es"><head><meta charset="utf-8"><title>{E['doc_title']}</title><style>{CSS}</style></head>
 <body>{COVER}{WELCOME}{"".join(chap_html)}{CLOSING}</body></html>'''
 open(OUT, "w", encoding="utf-8").write(doc)
 print("ok", len(doc))

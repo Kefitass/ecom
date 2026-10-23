@@ -115,3 +115,18 @@ tr { break-inside: avoid; }
 .cl-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 5mm; margin-top: 16mm; }
 .cl-steps div { background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.25); border-radius: 5mm; padding: 6mm 5mm; font-weight: 600; font-size: 11pt; line-height: 1.35; }
 .cl-steps b { display: block; font-family: "Inter Display"; font-size: 28pt; color: #FFC857; line-height: 1; margin-bottom: 3mm; }
+
+/* pro edition (Secretos de reclutador) */
+.cover.pro { background: radial-gradient(circle at 80% 8%, #6B5420 0%, #1A1712 50%, #0A0907 100%); }
+.cover.pro .cv-glow { background: radial-gradient(circle, rgba(245,210,122,.35), transparent 65%); }
+.cover.pro .cv-title span { color: #F5D27A; }
+.cover.pro .cv-badge { border-color: rgba(245,210,122,.5); color: #F5D27A; }
+.cv-seal { position: absolute !important; right: 24mm; top: 74mm; width: 40mm; height: 40mm; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #F8DE94, #B8892B 70%); color: #111; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: 0 10mm 20mm rgba(0,0,0,.45); transform: rotate(-8deg); border: 2mm solid rgba(255,255,255,.25); }
+.cv-seal-star { font-size: 18pt; line-height: 1; }
+.cv-seal-l { font-family: "Inter Display"; font-weight: 900; font-size: 11pt; letter-spacing: .12em; line-height: 1.15; margin-top: 1mm; }
+.welcome.pro .wl-kicker { color: #B8892B; }
+.welcome.pro .wl-card { background: #15130F; }
+.welcome.pro .wl-n { color: #F5D27A; }
+.welcome.pro .toc-n { color: #B8892B; }
+.closing.pro { background: radial-gradient(circle at 20% 90%, #8A6A1F 0%, #15130F 58%); }
+.closing.pro .cl-kicker, .closing.pro .cl-steps b { color: #F5D27A; }

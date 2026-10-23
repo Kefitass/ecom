@@ -9,7 +9,7 @@ here = os.path.dirname(os.path.abspath(__file__))
 
 # Reuse the PDF builder's parsing, illustrations and chapter metadata.
 code = open(os.path.join(here, "build.py"), encoding="utf-8").read()
-code = code[: code.index('_cp = foto("portada")')]
+code = code[: code.index('if ED == "pro":')]
 ns = {"__file__": os.path.join(here, "build.py")}
 sys.argv = ["build.py", SRC, os.devnull]
 exec(compile(code, "build.py", "exec"), ns)
@@ -62,7 +62,7 @@ page = f'''<title>Conseguí trabajo en 30 días</title>
       <div class="cover-badge">Guía práctica · Plan de 30 días</div>
       <h1 class="cover-title">Conseguí trabajo <span>en 30 días</span></h1>
       <p class="cover-sub">CV, LinkedIn y entrevistas: el sistema paso a paso para ser el mejor postulante en cualquier rubro.</p>
-      <ul class="cover-pills"><li>CV que pasa filtros</li><li>LinkedIn magnético</li><li>Entrevistas ganadoras</li><li>Negociación</li><li>Secretos de reclutador</li></ul>
+      <ul class="cover-pills"><li>CV que pasa filtros</li><li>LinkedIn magnético</li><li>Entrevistas ganadoras</li><li>Negociación</li></ul>
       <a class="cover-cta" href="#indice">Ver el contenido</a>
     </div>
     <div class="cover-art" aria-hidden="true">
@@ -80,7 +80,7 @@ page = f'''<title>Conseguí trabajo en 30 días</title>
     <div><dt>7</dt><dd>etapas con tareas día por día</dd></div>
     <div><dt>15</dt><dd>preguntas de entrevista con respuesta</dd></div>
     <div><dt>8</dt><dd>plantillas de mensajes listas para copiar</dd></div>
-    <div><dt>4</dt><dd>capítulos bonus con secretos de reclutador</dd></div>
+    <div><dt>10</dt><dd>rubros con consejos específicos</dd></div>
   </dl>
   <h3 class="toc-title">Contenido</h3>
   <ol class="toc">{"".join(toc)}</ol>
