@@ -1,0 +1,938 @@
+<title>Secretos de reclutador</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap">
+<style>/* Layout: full-bleed navy cover → index → per-chapter colour band opener + narrow reading column */
+:root {
+  --bg: #F6F7FB;
+  --surface: #FFFFFF;
+  --fg: #1C2333;
+  --muted: #5A6478;
+  --line: #E1E5EE;
+  --navy: #14213D;
+  --accent: #E8632E;
+  --accent-soft: #FFF1E9;
+  --gold: #C9952F;
+  --sky: #3E6FD8;
+  --sky-soft: #EEF3FD;
+  --ink-on-dark: #F4F1EA;
+  --secret-bg: #15130F;
+  --secret-fg: #EDE6D6;
+  --secret-line: #8A6A1F;
+  --display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", sans-serif;
+  --body: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
+  --measure: 44rem;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0E1320; --surface: #161D2E; --fg: #E6E9F0; --muted: #9AA3B6; --line: #283149;
+    --navy: #0A1022; --accent: #FF8A57; --accent-soft: #2A1C17; --gold: #E2B654; --sky: #7FA3F0; --sky-soft: #18223A;
+    --secret-bg: #0B0A08; --secret-fg: #EDE6D6; --secret-line: #8A6A1F;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0E1320; --surface: #161D2E; --fg: #E6E9F0; --muted: #9AA3B6; --line: #283149;
+  --navy: #0A1022; --accent: #FF8A57; --accent-soft: #2A1C17; --gold: #E2B654; --sky: #7FA3F0; --sky-soft: #18223A;
+  --secret-bg: #0B0A08; --secret-fg: #EDE6D6; --secret-line: #8A6A1F;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { background: var(--bg); color: var(--fg); font-family: var(--body); font-size: 1.0625rem; line-height: 1.65; }
+.wrap { max-width: 64rem; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.prose { max-width: calc(var(--measure) + 32px); padding-block: 2.5rem 3.5rem; }
+h1, h2, h3 { font-family: var(--display); text-wrap: balance; letter-spacing: -0.015em; }
+a { color: var(--sky); }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+.eyebrow { font-weight: 700; font-size: .8rem; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); margin: 0 0 .4rem; }
+
+/* progress */
+.progress { position: fixed; top: env(safe-area-inset-top, 0px); left: 0; right: 0; height: 3px; z-index: 20; }
+.progress span { display: block; height: 100%; width: 0; background: linear-gradient(90deg, var(--accent), var(--gold)); }
+
+/* cover */
+.cover { background: radial-gradient(circle at 85% 0%, #3A3F9E 0%, #14213D 55%, #0B1226 100%); color: #fff; }
+.cover-grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: 2rem; align-items: center; padding-block: 3.5rem 3rem; }
+.cover-badge { display: inline-block; padding: .35rem .9rem; border: 1px solid rgba(255,255,255,.35); border-radius: 99px; font-size: .78rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+.cover-title { font-size: clamp(2.6rem, 7vw, 4.6rem); line-height: .98; font-weight: 800; margin: 1.2rem 0 1rem; letter-spacing: -.03em; }
+.cover-title span { display: block; color: #FF9A62; }
+.cover-sub { font-size: 1.2rem; line-height: 1.45; color: rgba(255,255,255,.85); max-width: 32rem; margin: 0 0 1.4rem; }
+.cover-pills { list-style: none; padding: 0; margin: 0 0 1.8rem; display: flex; flex-wrap: wrap; gap: .5rem; }
+.cover-pills li { background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.22); padding: .3rem .8rem; border-radius: 99px; font-size: .85rem; font-weight: 600; }
+.cover-cta { display: inline-block; background: #E8632E; color: #fff; font-weight: 700; text-decoration: none; padding: .75rem 1.5rem; border-radius: 99px; }
+.cover-cta:hover { background: #FF7A45; }
+.cover-art { position: relative; min-width: 0; }
+.cal { position: absolute; left: 2%; top: 0; width: 6.5rem; background: #fff; color: #14213D; border-radius: .9rem; text-align: center; transform: rotate(-7deg); box-shadow: 0 1.2rem 2.4rem rgba(0,0,0,.35); overflow: hidden; z-index: 2; }
+.cal-top { height: 1.4rem; background: #E8632E; }
+.cal-n { font-family: var(--display); font-weight: 800; font-size: 2.9rem; line-height: 1.05; }
+.cal-l { font-weight: 800; letter-spacing: .3em; text-transform: uppercase; font-size: .7rem; color: #E8632E; padding-bottom: .5rem; }
+.illu { width: 100%; height: auto; display: block; max-width: 100%; }
+
+/* welcome + toc */
+.welcome { padding-block: 3rem 3.5rem; max-width: calc(var(--measure) + 32px); }
+.welcome-title { font-size: clamp(1.9rem, 4.5vw, 2.6rem); line-height: 1.05; margin: 0 0 1rem; }
+.welcome-lead { font-size: 1.15rem; color: var(--muted); margin: 0; }
+.stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .75rem; margin: 2rem 0 2.5rem; }
+.stats div { background: var(--navy); color: #C8D2EE; border-radius: .9rem; padding: 1rem; }
+.stats dt { font-family: var(--display); font-weight: 800; font-size: 2.2rem; line-height: 1; color: #FFC857; margin-bottom: .3rem; font-variant-numeric: tabular-nums; }
+.stats dd { margin: 0; font-size: .9rem; line-height: 1.3; }
+.toc-title { font-size: 1.3rem; margin: 0 0 .5rem; }
+.toc { list-style: none; padding: 0; margin: 0; }
+.toc a { display: grid; grid-template-columns: 3rem minmax(0, 1fr); column-gap: .75rem; padding: .8rem .5rem; border-bottom: 1px solid var(--line); text-decoration: none; color: var(--fg); border-radius: .4rem; }
+.toc a:hover { background: var(--surface); }
+.toc-n { grid-row: span 2; font-family: var(--display); font-weight: 800; font-size: 1.35rem; color: var(--accent); font-variant-numeric: tabular-nums; }
+.toc-k { font-size: .75rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.toc-t { font-weight: 600; line-height: 1.3; }
+.toc .is-bonus .toc-n { color: var(--gold); }
+
+/* chapter opener band */
+.opener { background: radial-gradient(circle at 85% 10%, var(--op-b) 0%, var(--op-a) 62%); color: #fff; }
+.op-grid { display: grid; grid-template-columns: 1.2fr .8fr; gap: 1.5rem; align-items: center; padding-block: 2.5rem; }
+.op-text { min-width: 0; }
+.op-num { font-family: var(--display); font-weight: 800; font-size: clamp(4rem, 11vw, 7rem); line-height: .85; color: rgba(255,255,255,.16); letter-spacing: -.05em; }
+.op-kicker { display: inline-block; margin-top: .5rem; background: #E8632E; padding: .3rem .85rem; border-radius: 99px; font-weight: 700; font-size: .8rem; letter-spacing: .06em; text-transform: uppercase; }
+.opener.bonus .op-kicker { background: linear-gradient(90deg, #F5D27A, #B8892B); color: #111; }
+.opener.bonus .op-num { color: rgba(245,210,122,.25); }
+.op-title { font-size: clamp(1.75rem, 4.2vw, 2.6rem); line-height: 1.08; margin: .9rem 0 0; font-weight: 800; }
+.op-illu { min-width: 0; max-width: 20rem; justify-self: end; width: 100%; }
+
+/* prose */
+.prose > p:first-child { font-size: 1.25rem; line-height: 1.5; font-weight: 600; color: var(--fg); border-left: 4px solid var(--accent); padding-left: 1rem; margin-top: 0; }
+.prose h3 { font-size: 1.45rem; line-height: 1.2; margin: 2.4rem 0 .8rem; display: flex; gap: .7rem; align-items: baseline; }
+.prose h3::before { content: ""; flex: none; width: .55rem; height: 1.15rem; border-radius: .3rem; background: linear-gradient(180deg, var(--accent), var(--gold)); transform: translateY(.1rem); }
+.prose p { margin: 0 0 1rem; }
+.prose ul, .prose ol { padding-left: 1.4rem; margin: 0 0 1.2rem; }
+.prose li { margin-bottom: .4rem; }
+.prose li::marker { color: var(--accent); font-weight: 700; }
+.prose strong { color: var(--fg); }
+
+.callout { background: var(--navy); color: #E2E8FA; border-radius: .9rem; padding: 1rem 1.25rem; margin: 1.2rem 0 1.5rem; }
+.callout strong { display: block; color: #FFC857; font-size: .78rem; letter-spacing: .12em; text-transform: uppercase; margin-bottom: .2rem; }
+
+.secret { position: relative; background: var(--secret-bg); color: var(--secret-fg); border: 1px solid var(--secret-line); border-radius: .9rem; padding: 1.1rem 1.25rem 1.1rem 3.6rem; margin: 1.6rem 0 1.8rem; }
+.secret::before { content: "★"; position: absolute; left: 1.1rem; top: 1.05rem; width: 1.7rem; height: 1.7rem; border-radius: 50%; background: linear-gradient(135deg, #F5D27A, #B8892B); color: #111; display: flex; align-items: center; justify-content: center; font-size: .95rem; }
+.secret-tag { font-size: .74rem; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; color: #F5D27A; margin-bottom: .25rem; }
+.secret strong { color: #fff; }
+
+blockquote { position: relative; margin: 1.2rem 0 1.6rem; background: var(--surface); border: 1px solid var(--line); border-left: 5px solid var(--sky); border-radius: .7rem; padding: 1rem 1.2rem .4rem; }
+.bq-tag { font-size: .72rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--sky); margin-bottom: .4rem; padding-right: 6rem; }
+.copy-btn { position: absolute; top: .7rem; right: .7rem; font: 700 .8rem var(--body); color: var(--sky); background: var(--sky-soft); border: 1px solid transparent; border-radius: 99px; padding: .3rem .8rem; cursor: pointer; }
+.copy-btn:hover { border-color: var(--sky); }
+
+.tbl { overflow-x: auto; margin: 1.2rem 0 1.6rem; border: 1px solid var(--line); border-radius: .7rem; background: var(--surface); }
+table { width: 100%; border-collapse: collapse; font-size: .95rem; line-height: 1.45; min-width: 30rem; }
+th { background: var(--navy); color: #fff; text-align: left; padding: .65rem .8rem; font-weight: 700; }
+td { padding: .6rem .8rem; border-top: 1px solid var(--line); vertical-align: top; }
+tbody tr:nth-child(even) td { background: color-mix(in srgb, var(--surface) 92%, var(--sky)); }
+
+.checklist { background: var(--accent-soft); border: 1.5px dashed var(--accent); border-radius: .9rem; padding: 1rem 1.2rem .6rem; margin: 1.4rem 0 1.8rem; }
+.cl-head { display: flex; justify-content: space-between; gap: 1rem; font-weight: 800; font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); margin-bottom: .5rem; }
+.cl-count { font-variant-numeric: tabular-nums; letter-spacing: .04em; }
+.checklist ul { list-style: none; padding: 0; margin: 0; }
+.checklist li { display: flex; gap: .7rem; align-items: flex-start; cursor: pointer; padding: .2rem 0; user-select: none; }
+.checklist li::marker { content: ""; }
+.box { flex: none; width: 1.15rem; height: 1.15rem; margin-top: .25rem; border: 2px solid var(--accent); border-radius: .3rem; background: var(--surface); display: flex; align-items: center; justify-content: center; color: #fff; font-size: .8rem; font-weight: 800; }
+.checklist li.done .box { background: var(--accent); }
+.checklist li.done .box::after { content: "✓"; }
+.checklist li.done { color: var(--muted); text-decoration: line-through; text-decoration-color: color-mix(in srgb, var(--muted) 60%, transparent); }
+
+.roadmap { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: .4rem; margin: 1.5rem 0 .8rem; position: relative; }
+.rm-step { text-align: center; min-width: 0; }
+.rm-dot { width: 2.3rem; height: 2.3rem; border-radius: 50%; background: var(--navy); color: #fff; font-weight: 800; margin: 0 auto .4rem; display: flex; align-items: center; justify-content: center; }
+.rm-step:nth-child(5) .rm-dot { background: var(--accent); }
+.rm-days { font-size: .72rem; color: var(--muted); font-weight: 600; }
+.rm-name { font-size: .8rem; font-weight: 700; overflow-wrap: anywhere; }
+.rm-bar { background: linear-gradient(90deg, #E8632E, #FFC857); color: #14213D; font-weight: 700; text-align: center; border-radius: 99px; padding: .45rem 1rem; font-size: .88rem; margin: .5rem 0 1.8rem; }
+
+/* closing */
+.closing { background: radial-gradient(circle at 15% 100%, #E8632E 0%, #14213D 55%); color: #fff; }
+.closing .wrap { max-width: calc(var(--measure) + 32px); padding-block: 4rem; }
+.closing .eyebrow { color: #FFC857; }
+.closing-title { font-size: clamp(2.2rem, 6vw, 3.4rem); line-height: 1; margin: 0 0 1rem; }
+.closing-lead { font-size: 1.2rem; color: rgba(255,255,255,.88); }
+.closing-steps { list-style: none; padding: 0; margin: 2rem 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .8rem; }
+.closing-steps li { background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.25); border-radius: .9rem; padding: 1.1rem; font-weight: 600; line-height: 1.35; }
+.closing-steps b { display: block; font-family: var(--display); font-size: 2rem; color: #FFC857; line-height: 1; margin-bottom: .5rem; }
+.closing-small { font-size: .85rem; color: rgba(255,255,255,.65); margin: 0; }
+
+.to-top { position: fixed; right: max(16px, calc(env(safe-area-inset-right, 0px) + 16px)); bottom: calc(env(safe-area-inset-bottom, 0px) + 16px); background: var(--navy); color: #fff; text-decoration: none; font-weight: 700; font-size: .85rem; padding: .55rem 1rem; border-radius: 99px; box-shadow: 0 .4rem 1rem rgba(0,0,0,.25); z-index: 15; }
+
+@media (max-width: 760px) {
+  .cover-grid, .op-grid { grid-template-columns: minmax(0, 1fr); }
+  .cover-art { max-width: 16rem; }
+  .op-illu { display: none; }
+  .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .closing-steps { grid-template-columns: minmax(0, 1fr); }
+  .roadmap { grid-template-columns: repeat(4, minmax(0, 1fr)); row-gap: 1rem; }
+  .rm-bar { border-radius: .8rem; }
+}
+
+/* pro edition (Secretos de reclutador) */
+.cover.pro { background: radial-gradient(circle at 85% 0%, #6B5420 0%, #1A1712 52%, #0A0907 100%); }
+.cover.pro .cover-badge { border-color: rgba(245,210,122,.5); color: #F5D27A; }
+.cover.pro .cover-title span { color: #F5D27A; }
+.cover.pro .cover-cta { background: linear-gradient(90deg, #F5D27A, #C9952F); color: #15120A; }
+.seal { position: absolute; left: 2%; top: 0; width: 6.5rem; height: 6.5rem; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #F8DE94, #B8892B 70%); color: #111; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; font: 800 .8rem/1.1 var(--display); letter-spacing: .1em; text-transform: uppercase; transform: rotate(-8deg); box-shadow: 0 1rem 2rem rgba(0,0,0,.45); z-index: 2; }
+.seal b { font-size: 1.3rem; }
+.welcome.pro .eyebrow { color: var(--gold); }
+.welcome.pro .stats div { background: #15130F; }
+.welcome.pro .stats dt { color: #F5D27A; }
+.welcome.pro .toc-n { color: var(--gold); }
+.closing.pro { background: radial-gradient(circle at 15% 100%, #8A6A1F 0%, #15130F 58%); }
+</style>
+<div class="progress" aria-hidden="true"><span id="progress-bar"></span></div>
+
+<header class="cover pro">
+  <div class="wrap cover-grid">
+    <div class="cover-text">
+      <div class="cover-badge">Manual avanzado · Complemento del plan de 30 días</div>
+      <h1 class="cover-title">Secretos de <span>reclutador</span></h1>
+      <p class="cover-sub">Lo que pasa del otro lado de la mesa: el manual avanzado para ganarle a cualquier competencia.</p>
+      <ul class="cover-pills"><li>Cómo te puntúan</li><li>LinkedIn por dentro</li><li>Bandas salariales</li><li>Tests y evaluaciones</li><li>Estafas laborales</li></ul>
+      <a class="cover-cta" href="#indice">Ver el contenido</a>
+    </div>
+    <div class="cover-art" aria-hidden="true">
+      <div class="seal"><b>★</b>Nivel<br>experto</div>
+      <svg viewBox="0 0 520 420" xmlns="http://www.w3.org/2000/svg" class="illu"><circle cx="260" cy="210" r="190" fill="#fff" opacity="0.06"/><rect x="90" y="120" width="100" height="140" rx="14" fill="#fff" opacity="0.35"/><circle cx="140" cy="165" r="22" fill="#C9D3E6"/><rect x="110" y="205" width="60" height="9" rx="4" fill="#C9D3E6"/><rect x="110" y="224" width="44" height="9" rx="4" fill="#C9D3E6"/><rect x="210" y="120" width="100" height="140" rx="14" fill="#fff" opacity="0.9"/><circle cx="260" cy="165" r="22" fill="#FFC857"/><rect x="230" y="205" width="60" height="9" rx="4" fill="#C9D3E6"/><rect x="230" y="224" width="44" height="9" rx="4" fill="#C9D3E6"/><rect x="330" y="120" width="100" height="140" rx="14" fill="#fff" opacity="0.35"/><circle cx="380" cy="165" r="22" fill="#C9D3E6"/><rect x="350" y="205" width="60" height="9" rx="4" fill="#C9D3E6"/><rect x="350" y="224" width="44" height="9" rx="4" fill="#C9D3E6"/><circle cx="300" cy="190" r="70" fill="none" stroke="#FF7A45" stroke-width="12"/><line x1="350" y1="240" x2="420" y2="310" stroke="#FF7A45" stroke-width="18" stroke-linecap="round"/></svg>
+    </div>
+  </div>
+</header>
+
+<section class="welcome wrap pro" id="indice">
+  <p class="eyebrow">Antes de empezar</p>
+  <h2 class="welcome-title">La ventaja que no ve el resto</h2>
+  <p class="welcome-lead">Este manual te muestra el proceso de selección desde adentro: qué mide cada persona que decide, cómo te buscan y te puntúan, y qué hacen distinto los candidatos que siempre llegan a la final. Usalo junto al plan de 30 días: cada capítulo potencia una etapa. Tocá las casillas para ir marcando tu avance: quedan guardadas en este dispositivo.</p>
+  <dl class="stats"><div><dt>7</dt><dd>capítulos de nivel experto</dd></div><div><dt>10</dt><dd>estrategias avanzadas para destacar</dd></div><div><dt>6</dt><dd>tipos de test explicados</dd></div><div><dt>23</dt><dd>puntos en el checklist del candidato experto</dd></div></dl>
+  <h3 class="toc-title">Contenido</h3>
+  <ol class="toc"><li class="is-bonus"><a href="#intro"><span class="toc-n">00</span><span class="toc-k">Introducción</span><span class="toc-t">Lo que pasa del otro lado de la mesa</span></a></li><li class="is-bonus"><a href="#cap01"><span class="toc-n">01</span><span class="toc-k">Capítulo 1</span><span class="toc-t">Detrás de escena, cómo se decide realmente una contratación</span></a></li><li class="is-bonus"><a href="#cap02"><span class="toc-n">02</span><span class="toc-k">Capítulo 2</span><span class="toc-t">El CV de nivel experto</span></a></li><li class="is-bonus"><a href="#cap03"><span class="toc-n">03</span><span class="toc-k">Capítulo 3</span><span class="toc-t">LinkedIn por dentro, cómo te busca un reclutador</span></a></li><li class="is-bonus"><a href="#cap04"><span class="toc-n">04</span><span class="toc-k">Capítulo 4</span><span class="toc-t">Estrategias avanzadas para pasar primero en la fila</span></a></li><li class="is-bonus"><a href="#cap05"><span class="toc-n">05</span><span class="toc-k">Capítulo 5</span><span class="toc-t">Entrevistas, evaluaciones y referencias de nivel experto</span></a></li><li class="is-bonus"><a href="#cap06"><span class="toc-n">06</span><span class="toc-k">Capítulo 6</span><span class="toc-t">Negociación avanzada</span></a></li><li class="is-bonus"><a href="#cap07"><span class="toc-n">07</span><span class="toc-k">Capítulo 7</span><span class="toc-t">Situaciones especiales y cómo protegerte de estafas</span></a></li><li class="is-bonus"><a href="#herramientas"><span class="toc-n">+</span><span class="toc-k">Caja de herramientas</span><span class="toc-t">El checklist del candidato experto</span></a></li></ol>
+</section>
+
+
+<section class="chapter" id="intro">
+  <header class="opener bonus" style="--op-a:#111111;--op-b:#8A6A1F">
+    <div class="wrap op-grid">
+      <div class="op-text">
+        <div class="op-num">00</div>
+        <div class="op-kicker">Introducción</div>
+        <h2 class="op-title">Lo que pasa del otro lado de la mesa</h2>
+      </div>
+      <div class="op-illu" aria-hidden="true"><svg viewBox="0 0 520 420" xmlns="http://www.w3.org/2000/svg" class="illu"><circle cx="260" cy="210" r="190" fill="#fff" opacity="0.06"/><rect x="80" y="330" width="60" height="20" rx="6" fill="#fff" opacity="0.15"/><rect x="140" y="290" width="60" height="60" rx="6" fill="#fff" opacity="0.25"/><rect x="200" y="250" width="60" height="100" rx="6" fill="#fff" opacity="0.35"/><rect x="260" y="210" width="60" height="140" rx="6" fill="#fff" opacity="0.45000000000000007"/><rect x="320" y="170" width="60" height="180" rx="6" fill="#fff" opacity="0.55"/><rect x="380" y="130" width="60" height="220" rx="6" fill="#fff" opacity="0.65"/><line x1="410" y1="110" x2="410" y2="40" stroke="#fff" stroke-width="5" stroke-linecap="round"/><path d="M410 42 L470 58 L410 76 Z" fill="#FF7A45"/><circle cx="372" cy="118" r="14" fill="#FFC857"/><rect x="362" y="134" width="20" height="36" rx="8" fill="#FFC857"/><rect x="384" y="146" width="22" height="16" rx="3" fill="#fff"/></svg></div>
+    </div>
+  </header>
+  <div class="wrap prose"><p>La mayoría de los postulantes ve solo su lado del proceso: manda un CV, espera y adivina. Este manual te muestra el otro lado. Cómo piensa el reclutador, cómo te puntúa el líder del área, qué filtra un sistema y qué no, y qué hace que una empresa elija a una persona entre cinco finalistas parecidos.</p>
+<p>Es el complemento de "Conseguí trabajo en 30 días". Ese libro te da el plan día por día. Este te da la ventaja: las tácticas que usa una minoría de candidatos y que explican por qué algunos consiguen entrevistas con la mitad de postulaciones.</p>
+<h3>Para quién es este manual</h3>
+<ul>
+<li>Para quien ya está siguiendo el plan de 30 días y quiere acelerar los resultados.</li>
+<li>Para quien llega a entrevistas pero queda segundo y no sabe por qué.</li>
+<li>Para quien busca en un rubro muy competido, cambia de carrera o vuelve después de una pausa.</li>
+<li>Para quien quiere negociar mejor su sueldo, en especial con inflación alta o con empresas del exterior.</li>
+</ul>
+<h3>Cómo usarlo junto al plan de 30 días</h3>
+<p>Cada capítulo potencia una etapa del plan. Leé el capítulo correspondiente antes de arrancar esa etapa.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Capítulo</th>
+<th>Cuándo usarlo en el plan</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1. Detrás de escena</td>
+<td>Antes del día 1</td>
+</tr>
+<tr>
+<td>2. El CV de nivel experto</td>
+<td>Días 4–8</td>
+</tr>
+<tr>
+<td>3. LinkedIn por dentro</td>
+<td>Días 9–12</td>
+</tr>
+<tr>
+<td>4. Estrategias avanzadas</td>
+<td>Desde el día 13 y hasta firmar</td>
+</tr>
+<tr>
+<td>5. Entrevistas, evaluaciones y referencias</td>
+<td>Días 18–24</td>
+</tr>
+<tr>
+<td>6. Negociación avanzada</td>
+<td>Días 25–28</td>
+</tr>
+<tr>
+<td>7. Situaciones especiales y estafas</td>
+<td>Cuando lo necesites</td>
+</tr>
+</tbody>
+</table></div>
+<p>En todo el manual vas a encontrar recuadros <strong>"Secreto de reclutador"</strong>: lo que los reclutadores saben y casi nunca dicen en voz alta.</p></div>
+</section>
+<section class="chapter" id="cap01">
+  <header class="opener bonus" style="--op-a:#111111;--op-b:#8A6A1F">
+    <div class="wrap op-grid">
+      <div class="op-text">
+        <div class="op-num">01</div>
+        <div class="op-kicker">Capítulo 1</div>
+        <h2 class="op-title">Detrás de escena, cómo se decide realmente una contratación</h2>
+      </div>
+      <div class="op-illu" aria-hidden="true"><svg viewBox="0 0 520 420" xmlns="http://www.w3.org/2000/svg" class="illu"><circle cx="260" cy="210" r="190" fill="#fff" opacity="0.06"/><rect x="90" y="120" width="100" height="140" rx="14" fill="#fff" opacity="0.35"/><circle cx="140" cy="165" r="22" fill="#C9D3E6"/><rect x="110" y="205" width="60" height="9" rx="4" fill="#C9D3E6"/><rect x="110" y="224" width="44" height="9" rx="4" fill="#C9D3E6"/><rect x="210" y="120" width="100" height="140" rx="14" fill="#fff" opacity="0.9"/><circle cx="260" cy="165" r="22" fill="#FFC857"/><rect x="230" y="205" width="60" height="9" rx="4" fill="#C9D3E6"/><rect x="230" y="224" width="44" height="9" rx="4" fill="#C9D3E6"/><rect x="330" y="120" width="100" height="140" rx="14" fill="#fff" opacity="0.35"/><circle cx="380" cy="165" r="22" fill="#C9D3E6"/><rect x="350" y="205" width="60" height="9" rx="4" fill="#C9D3E6"/><rect x="350" y="224" width="44" height="9" rx="4" fill="#C9D3E6"/><circle cx="300" cy="190" r="70" fill="none" stroke="#FF7A45" stroke-width="12"/><line x1="350" y1="240" x2="420" y2="310" stroke="#FF7A45" stroke-width="18" stroke-linecap="round"/></svg></div>
+    </div>
+  </header>
+  <div class="wrap prose"><p>Quien entiende cómo trabaja el otro lado de la mesa deja de jugar a ciegas. Este capítulo te muestra el proceso desde adentro: quién decide, qué mide cada persona y por qué se descarta a la mayoría de los candidatos. Todo lo que viene después se apoya en esto.</p>
+<h3>El viaje de una vacante, paso a paso</h3>
+<ol>
+<li><strong>Alguien renuncia o el equipo crece.</strong> El líder del área (el "hiring manager") pide presupuesto para cubrir el puesto. Muchas veces hace semanas que el equipo está sobrecargado: hay urgencia y dolor.</li>
+<li><strong>Reunión de arranque ("intake").</strong> El reclutador y el líder definen el perfil. Acá nace la lista real de lo que importa, que casi nunca es igual al aviso: suele haber 3 o 4 cosas imprescindibles y el resto es deseable.</li>
+<li><strong>Primero se busca adentro y en la red.</strong> Antes o en paralelo con el aviso, se consideran candidatos internos, referidos de empleados y perfiles que el reclutador ya conoce. Por eso tantos puestos se cubren sin que te enteres.</li>
+<li><strong>Se publica el aviso y llegan las postulaciones.</strong> El grueso llega en los primeros días. El reclutador revisa por orden y, cuando junta una lista corta buena, deja de mirar con atención al resto.</li>
+<li><strong>Filtro de RR. HH.</strong> Llamadas cortas para confirmar requisitos, sueldo pretendido y motivación. El reclutador presenta al líder una terna o lista corta de 3 a 5 personas.</li>
+<li><strong>Entrevistas con el área y evaluación.</strong> Cada entrevistador puntúa competencias concretas. Después se reúnen a comparar ("debrief").</li>
+<li><strong>Decisión, referencias y oferta.</strong> El líder elige, RR. HH. arma la oferta dentro de una banda salarial aprobada.</li>
+</ol>
+<h3>Lo que cada persona quiere (y teme)</h3>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Quién</th>
+<th>Qué necesita</th>
+<th>Qué teme</th>
+<th>Cómo ayudarlo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Reclutador interno</td>
+<td>Cubrir rápido varias búsquedas a la vez (es común que lleve 15 o más)</td>
+<td>Presentar a alguien que el líder rechace</td>
+<td>Dejarle claro en 30 segundos que cumplís los imprescindibles y que tu sueldo pretendido entra en la banda</td>
+</tr>
+<tr>
+<td>Reclutador de consultora</td>
+<td>Cerrar la búsqueda: cobra cuando la empresa contrata</td>
+<td>Perder tiempo con candidatos que se bajan</td>
+<td>Ser claro con lo que buscás, responder rápido, avisar si tenés otros procesos</td>
+</tr>
+<tr>
+<td>Líder del área</td>
+<td>Alguien que le saque trabajo de encima y sea fácil de manejar</td>
+<td>Contratar mal: le cuesta meses y reputación</td>
+<td>Mostrar que entendés su problema y que rendís rápido</td>
+</tr>
+<tr>
+<td>Compañeros de equipo</td>
+<td>Alguien competente y buena persona</td>
+<td>Cargar con alguien que no rinde o genera conflictos</td>
+<td>Mostrar colaboración, humildad y curiosidad</td>
+</tr>
+<tr>
+<td>Gerencia o dirección</td>
+<td>Encaje con la cultura y potencial</td>
+<td>Alguien que se vaya en pocos meses</td>
+<td>Mostrar motivación de largo plazo por la empresa</td>
+</tr>
+</tbody>
+</table></div>
+<div class="secret"><div class="secret-tag">Secreto de reclutador</div> a la hora de elegir, el miedo a equivocarse pesa más que el deseo de encontrar a una estrella. Gana el candidato que transmite menos riesgo: evidencia concreta, referencias claras, motivación creíble. Todo tu proceso tiene que bajar la sensación de riesgo.</div>
+<h3>La verdad sobre los ATS</h3>
+<p>Circula el mito de que "un robot descarta tu CV si no tiene las palabras exactas". La realidad tiene matices y conocerla te da ventaja:</p>
+<ul>
+<li><strong>Las preguntas de corte ("knockout") son las que más descartan en automático.</strong> ¿Tenés permiso de trabajo? ¿Cuántos años de experiencia? ¿Vivirías en X? ¿Cuánto pretendés? Una respuesta fuera de rango te saca del proceso sin que nadie lea tu CV. Respondé con la verdad, pero sin subestimarte: si tenés 2 años y 9 meses, son "3 años" de experiencia relevante si sumás prácticas o proyectos.</li>
+<li><strong>Las palabras clave sirven sobre todo para que te encuentren.</strong> El reclutador busca dentro del ATS como en un buscador ("analista contable SAP") y filtra. Si tu CV no tiene esas palabras, no aparecés en la búsqueda, aunque hoy no te descarte nadie.</li>
+<li><strong>Cada vez más ATS ordenan candidatos con IA</strong> según qué tanto se parecen al aviso. Por eso adaptar el CV a cada postulación ya no es opcional: te sube en la fila.</li>
+<li><strong>Tu postulación vieja sigue viva.</strong> Los reclutadores buscan en la base de candidatos anteriores cuando abren una vacante nueva. Un CV bien armado hoy puede traerte una llamada dentro de seis meses.</li>
+</ul>
+<h3>Los avisos que no son lo que parecen</h3>
+<ul>
+<li><strong>Avisos "siempre abiertos":</strong> algunas empresas publican de forma permanente para juntar candidatos. No es tiempo perdido, pero no esperes respuesta rápida.</li>
+<li><strong>Avisos con candidato ya elegido:</strong> a veces se publica por política interna aunque haya un favorito. Señal: requisitos extrañamente específicos.</li>
+<li><strong>Avisos viejos:</strong> si tiene más de 3 o 4 semanas, la lista corta probablemente ya existe. Postulate igual, pero en paralelo escribile directamente al líder del área: es tu única forma de entrar a la fila.</li>
+<li><strong>El aviso es una lista de deseos.</strong> Si cumplís alrededor del 70 % y todos los imprescindibles, postulate. Muchas personas capaces no lo hacen porque no cumplen el 100 %, y dejan el lugar a otros menos preparados pero más audaces.</li>
+</ul>
+<h3>Cómo detectar los imprescindibles reales de un aviso</h3>
+<ul>
+<li>Lo que aparece en el título y en la primera viñeta de requisitos.</li>
+<li>Lo que se repite dos veces con palabras distintas.</li>
+<li>Lo que aparece como pregunta de corte en el formulario.</li>
+<li>Lo que dice "excluyente" (obvio) y lo que describe la tarea diaria ("vas a liderar", "vas a gestionar").</li>
+<li>Lo que piden todos los avisos parecidos del mercado (tu análisis del día 1).</li>
+</ul>
+<p>Todo lo demás ("se valorará", "deseable", "plus") es negociable.</p></div>
+</section>
+<section class="chapter" id="cap02">
+  <header class="opener bonus" style="--op-a:#111111;--op-b:#8A6A1F">
+    <div class="wrap op-grid">
+      <div class="op-text">
+        <div class="op-num">02</div>
+        <div class="op-kicker">Capítulo 2</div>
+        <h2 class="op-title">El CV de nivel experto</h2>
+      </div>
+      <div class="op-illu" aria-hidden="true"><svg viewBox="0 0 520 420" xmlns="http://www.w3.org/2000/svg" class="illu"><circle cx="260" cy="210" r="190" fill="#fff" opacity="0.06"/><rect x="140" y="50" width="240" height="320" rx="18" fill="#fff"/><circle cx="190" cy="105" r="26" fill="#FFC857"/><rect x="230" y="88" width="120" height="12" rx="6" fill="#14213D"/><rect x="230" y="110" width="80" height="10" rx="5" fill="#C9D3E6"/><rect x="200" y="160" width="150" height="10" rx="5" fill="#C9D3E6"/><circle cx="176" cy="165" r="11" fill="#3DDC97"/><path d="M170 165 l5 5 l9 -10" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round"/><rect x="200" y="200" width="110" height="10" rx="5" fill="#C9D3E6"/><circle cx="176" cy="205" r="11" fill="#3DDC97"/><path d="M170 205 l5 5 l9 -10" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round"/><rect x="200" y="240" width="150" height="10" rx="5" fill="#C9D3E6"/><circle cx="176" cy="245" r="11" fill="#3DDC97"/><path d="M170 245 l5 5 l9 -10" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round"/><rect x="200" y="280" width="110" height="10" rx="5" fill="#C9D3E6"/><circle cx="176" cy="285" r="11" fill="#3DDC97"/><path d="M170 285 l5 5 l9 -10" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round"/><rect x="200" y="320" width="150" height="10" rx="5" fill="#C9D3E6"/><circle cx="176" cy="325" r="11" fill="#3DDC97"/><path d="M170 325 l5 5 l9 -10" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round"/><g transform="rotate(-12 400 330)"><rect x="350" y="300" width="110" height="44" rx="22" fill="#FF7A45"/><text x="405" y="329" text-anchor="middle" font-size="20" font-weight="800" fill="#fff" font-family="Inter">ATS OK</text></g></svg></div>
+    </div>
+  </header>
+  <div class="wrap prose"><p>Dos CVs con la misma experiencia pueden tener resultados opuestos. La diferencia está en qué tan rápido muestran lo que el evaluador busca. Este capítulo te enseña a reconstruir la lista oculta con la que te comparan y a responderla en la mitad superior de la primera página.</p>
+<h3>El CV como respuesta a la "scorecard" oculta</h3>
+<p>Detrás de cada aviso hay una lista de evaluación (scorecard) que el líder y el reclutador acordaron en la reunión de arranque. Tu trabajo es reconstruirla y responderla punto por punto en la mitad superior de la primera página.</p>
+<p><strong>Paso 1. Reconstruí la scorecard.</strong> De los imprescindibles del aviso, armá una tabla de 4 o 5 filas:</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Lo que evalúan</th>
+<th>Mi prueba más fuerte</th>
+<th>Dónde aparece en el CV</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ej.: experiencia en cobranzas B2B</td>
+<td>Reduje la morosidad del 14 % al 6 % en 10 meses</td>
+<td>Perfil + primera viñeta del puesto actual</td>
+</tr>
+<tr>
+<td>Ej.: dominio de Excel avanzado</td>
+<td>Automaticé el reporte semanal con tablas dinámicas y macros: de 4 horas a 20 minutos</td>
+<td>Segunda viñeta + habilidades</td>
+</tr>
+<tr>
+<td>Ej.: relación con clientes difíciles</td>
+<td>Recuperé 3 cuentas grandes en riesgo de baja</td>
+<td>Tercera viñeta</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Paso 2. Aplicá la regla de los 6 segundos.</strong> Tapá todo salvo el tercio superior de la primera página. ¿Alguien que solo ve eso entiende que cumplís los imprescindibles? Si no, subí las pruebas.</p>
+<p><strong>Paso 3. Hacé que los números se vean.</strong> Escribí los números con dígitos ("3 cuentas", no "tres cuentas") y al principio de la viñeta cuando puedas. El ojo salta a los dígitos.</p>
+<div class="secret"><div class="secret-tag">Secreto de reclutador</div> cuando un líder recibe 5 CVs, los compara uno al lado del otro buscando las mismas 3 o 4 cosas. El CV que se las muestra más rápido parece "el más fuerte", aunque los demás tengan más experiencia. No gana el que más tiene, gana el que mejor lo muestra.</div>
+<h3>Detalles que separan a un CV profesional de uno amateur</h3>
+<ul>
+<li><strong>Contexto de la empresa en una línea</strong> cuando no es conocida: "Distribuidora de alimentos, 120 empleados, 3 sucursales". Le da escala a tus logros.</li>
+<li><strong>Alcance de tu rol:</strong> a cuántas personas lideraste, qué presupuesto manejabas, cuántos clientes tenías. Un reclutador mide el tamaño del trabajo, no solo el cargo.</li>
+<li><strong>Ascensos visibles:</strong> si creciste dentro de una empresa, poné los puestos uno debajo del otro bajo la misma empresa. Un ascenso dice "rinde y confían en él" mejor que cualquier adjetivo.</li>
+<li><strong>Títulos traducidos al mercado:</strong> si tu cargo interno era raro ("Ninja de clientes"), escribí el equivalente estándar ("Ejecutivo de atención al cliente"). El cargo es lo que se busca en los ATS y en LinkedIn.</li>
+<li><strong>Coherencia total con LinkedIn:</strong> fechas, cargos y empresas iguales. Las diferencias generan desconfianza.</li>
+<li><strong>Un CV, una historia:</strong> si cambiaste mucho de rubro, el perfil tiene que explicar el hilo conductor ("Siempre en roles de cara al cliente, en retail, banca y tecnología").</li>
+</ul></div>
+</section>
+<section class="chapter" id="cap03">
+  <header class="opener bonus" style="--op-a:#111111;--op-b:#8A6A1F">
+    <div class="wrap op-grid">
+      <div class="op-text">
+        <div class="op-num">03</div>
+        <div class="op-kicker">Capítulo 3</div>
+        <h2 class="op-title">LinkedIn por dentro, cómo te busca un reclutador</h2>
+      </div>
+      <div class="op-illu" aria-hidden="true"><svg viewBox="0 0 520 420" xmlns="http://www.w3.org/2000/svg" class="illu"><circle cx="260" cy="210" r="190" fill="#fff" opacity="0.06"/><rect x="100" y="70" width="320" height="280" rx="22" fill="#fff"/><rect x="100" y="70" width="320" height="80" rx="22" fill="#5B8DEF"/><rect x="100" y="120" width="320" height="30" fill="#5B8DEF"/><circle cx="170" cy="150" r="42" fill="#FFC857" stroke="#fff" stroke-width="6"/><circle cx="170" cy="140" r="14" fill="#14213D"/><path d="M146 176 q24 -26 48 0" fill="#14213D"/><rect x="130" y="210" width="190" height="14" rx="7" fill="#14213D"/><rect x="130" y="236" width="240" height="10" rx="5" fill="#C9D3E6"/><rect x="130" y="256" width="200" height="10" rx="5" fill="#C9D3E6"/><rect x="130" y="290" width="120" height="34" rx="17" fill="#3DDC97"/><text x="190" y="312" text-anchor="middle" font-size="14" font-weight="700" fill="#fff" font-family="Inter">Open to work</text><path d="M380 60 l6 14 l15 1 l-12 9 l4 15 l-13 -8 l-13 8 l4 -15 l-12 -9 l15 -1 z" fill="#FFC857"/><path d="M408 60 l6 14 l15 1 l-12 9 l4 15 l-13 -8 l-13 8 l4 -15 l-12 -9 l15 -1 z" fill="#FFC857"/><path d="M436 60 l6 14 l15 1 l-12 9 l4 15 l-13 -8 l-13 8 l4 -15 l-12 -9 l15 -1 z" fill="#FFC857"/></svg></div>
+    </div>
+  </header>
+  <div class="wrap prose"><p>Los reclutadores no encuentran perfiles por casualidad: los buscan con palabras exactas y filtros. Si entendés cómo arman esas búsquedas, podés aparecer arriba en los resultados sin pagar nada. Este capítulo te muestra la herramienta por dentro.</p>
+<h3>Cómo te busca un reclutador (y cómo aparecer primero)</h3>
+<p>Los reclutadores usan LinkedIn Recruiter, una versión paga con filtros avanzados. Entender cómo buscan te dice exactamente qué escribir y dónde.</p>
+<p><strong>1. Buscan con operadores booleanos.</strong> Una búsqueda típica se ve así:</p>
+<blockquote><div class="bq-tag">Plantilla para copiar</div>
+<p>("analista contable" OR "contador" OR "analista de impuestos") AND (SAP OR Tango) NOT (pasante OR estudiante)</p>
+</blockquote>
+<p>Traducción: si tu perfil no tiene ninguno de los títulos entre comillas ni las herramientas, no aparecés. Por eso conviene que tu perfil contenga las variantes de nombre de tu puesto (en el titular, el "Acerca de" y la experiencia) y las herramientas por su nombre exacto.</p>
+<p><strong>2. Filtran por cargo actual y pasado.</strong> El campo "cargo" de tu experiencia actual es de lo que más pesa. Si estás sin trabajo, creá una experiencia vigente honesta que refleje lo que hacés hoy, por ejemplo "Analista contable — Proyectos independientes" si estás haciendo trabajos freelance, o cargá el puesto objetivo en "Open to Work".</p>
+<p><strong>3. Filtran por ubicación, aptitudes y años de experiencia.</strong> Tu ciudad tiene que ser la del mercado donde buscás, y tus aptitudes cargadas tienen que coincidir con las palabras del aviso.</p>
+<p><strong>4. Priorizan perfiles que probablemente respondan.</strong> Recruiter destaca a quienes tienen "Open to Work" activado, interactuaron con la página de la empresa o tienen actividad reciente. Seguir a tus empresas objetivo y estar activo te sube en esas listas.</p>
+<p><strong>5. Deciden en 5 segundos desde la vista previa.</strong> En los resultados se ve la foto, el nombre, el titular, el cargo actual, la ubicación y poco más. Esa vista previa tiene que gritar el puesto que buscás.</p>
+<p><strong>Prueba útil:</strong> abrí LinkedIn en modo incógnito o pedile a un amigo que busque tu puesto objetivo + tu ciudad. ¿Aparecés en las primeras páginas? Si no, revisá titular, cargo actual y aptitudes.</p>
+<div class="secret"><div class="secret-tag">Secreto de reclutador</div> cuando un reclutador te manda un InMail y respondés rápido, LinkedIn lo registra a tu favor y los reclutadores ven si solés responder. Contestá siempre, aunque sea para decir "gracias, hoy no me interesa, pero me encantaría seguir en contacto". Un reclutador que te conoce te vuelve a buscar.</div>
+<h3>Cómo responder cuando un reclutador te escribe</h3>
+<blockquote><div class="bq-tag">Plantilla para copiar</div>
+<p>Hola, [nombre]: ¡gracias por escribirme! Me interesa conocer más sobre la posición. Te comparto mi CV y mi disponibilidad para una llamada: [días y horarios]. ¿Me podrías adelantar la banda salarial y la modalidad para confirmar que estamos alineados? ¡Saludos!</p>
+</blockquote>
+<p>Pedir la banda al principio es normal y ahorra tiempo a los dos.</p></div>
+</section>
+<section class="chapter" id="cap04">
+  <header class="opener bonus" style="--op-a:#111111;--op-b:#8A6A1F">
+    <div class="wrap op-grid">
+      <div class="op-text">
+        <div class="op-num">04</div>
+        <div class="op-kicker">Capítulo 4</div>
+        <h2 class="op-title">Estrategias avanzadas para pasar primero en la fila</h2>
+      </div>
+      <div class="op-illu" aria-hidden="true"><svg viewBox="0 0 520 420" xmlns="http://www.w3.org/2000/svg" class="illu"><circle cx="260" cy="210" r="190" fill="#fff" opacity="0.06"/><g transform="rotate(35 260 210)"><path d="M260 50 C310 100 320 200 300 290 L220 290 C200 200 210 100 260 50 Z" fill="#fff"/><circle cx="260" cy="160" r="26" fill="#5B8DEF"/><path d="M220 250 L170 310 L220 295 Z" fill="#FF7A45"/><path d="M300 250 L350 310 L300 295 Z" fill="#FF7A45"/><path d="M230 295 Q260 380 290 295 Z" fill="#FFC857"/></g><circle cx="80" cy="80" r="4" fill="#fff" opacity=".7"/><circle cx="450" cy="60" r="4" fill="#fff" opacity=".7"/><circle cx="470" cy="200" r="4" fill="#fff" opacity=".7"/><circle cx="60" cy="240" r="4" fill="#fff" opacity=".7"/><circle cx="120" cy="370" r="4" fill="#fff" opacity=".7"/></svg></div>
+    </div>
+  </header>
+  <div class="wrap prose"><p>El 90 % de los postulantes hace lo mismo: CV, botón de postular, esperar. Las estrategias de este capítulo las usa una minoría y por eso funcionan: te sacan de la pila y te ponen frente a quien decide, con algo que nadie más llevó.</p>
+<h3>1. La prueba de trabajo (proof of work)</h3>
+<p>En lugar de decir que podés hacer el trabajo, mostrá una muestra. Es la estrategia más poderosa para quien tiene poca experiencia o quiere cambiar de rubro.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Rubro</th>
+<th>Prueba de trabajo de 2 a 4 horas</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Marketing</td>
+<td>Auditoría de las redes de la empresa con 5 mejoras concretas y un ejemplo de posteo</td>
+</tr>
+<tr>
+<td>Ventas</td>
+<td>Lista de 20 clientes potenciales para su producto con el mensaje que les mandarías</td>
+</tr>
+<tr>
+<td>Administración y finanzas</td>
+<td>Plantilla de Excel que resuelve un problema típico del puesto (conciliación, flujo de caja)</td>
+</tr>
+<tr>
+<td>Atención al cliente</td>
+<td>Análisis de 30 reseñas públicas de la empresa con los 3 problemas principales y cómo los atenderías</td>
+</tr>
+<tr>
+<td>Diseño y UX</td>
+<td>Rediseño de una pantalla de su web o app con el porqué de cada cambio</td>
+</tr>
+<tr>
+<td>Tecnología</td>
+<td>Pequeña herramienta o mejora sobre algo público de la empresa, en GitHub</td>
+</tr>
+<tr>
+<td>Recursos humanos</td>
+<td>Propuesta de proceso de bienvenida para nuevos ingresos en una página</td>
+</tr>
+<tr>
+<td>Logística y operaciones</td>
+<td>Mapa del proceso de entrega visto como cliente, con 3 mejoras posibles</td>
+</tr>
+</tbody>
+</table></div>
+<p>Cómo usarla: mandala al líder del área junto con tu postulación, o llevala a la entrevista. Una sola página o un video corto. Sin pedir nada a cambio.</p>
+<div class="secret"><div class="secret-tag">Secreto de reclutador</div> cuando un candidato llega con un trabajo hecho sobre la empresa, el líder deja de preguntarse "¿podrá hacerlo?" y empieza a imaginarlo en el equipo. Pasás de ser un CV a ser una persona que ya está resolviendo sus problemas.</div>
+<h3>2. El plan de 30-60-90 días para la entrevista final</h3>
+<p>Una hoja con lo que harías en tus primeros tres meses si te contratan:</p>
+<ul>
+<li><strong>30 días:</strong> qué vas a aprender y a quién vas a conocer.</li>
+<li><strong>60 días:</strong> qué primeras mejoras vas a aportar (basadas en lo que escuchaste en las entrevistas).</li>
+<li><strong>90 días:</strong> qué resultado medible esperás lograr.</li>
+</ul>
+<p>Sacalo al final de la entrevista: "Preparé una primera idea de cómo encararía los primeros 90 días. ¿Te la puedo mostrar?". Muy pocos candidatos lo hacen y transmite iniciativa y compromiso.</p>
+<h3>3. El mensaje con video</h3>
+<p>Un video de 60 a 90 segundos grabado con la cámara de la compu (hay herramientas gratuitas para grabar pantalla y cámara a la vez). Estructura: quién sos, por qué esa empresa, una prueba concreta de lo que podés aportar, y una invitación a conversar. Se manda como link en el mensaje al líder del área. Destaca entre decenas de mensajes de texto.</p>
+<h3>4. La carta de valor (en lugar de la carta de presentación)</h3>
+<p>En vez de hablar de vos, hablá del problema de ellos. Se manda directo al líder del área, aunque no haya aviso publicado.</p>
+<blockquote><div class="bq-tag">Plantilla para copiar</div>
+<p>Hola, [nombre]: vi que [empresa] está [abriendo sucursales / lanzando X / buscando crecer en Y]. Cuando una empresa hace eso, suele aparecer [problema típico: más carga administrativa, demoras en entregas, más consultas de clientes]. En [mi trabajo anterior] me tocó justamente eso y [logro concreto con número]. Me encantaría contarte cómo podría ayudar a tu equipo. ¿Te parece una charla de 15 minutos la semana que viene?</p>
+</blockquote>
+<h3>5. La doble vía: postulación + referido</h3>
+<p>Para cada empresa A, no te quedes con una sola entrada. Postulate por el sistema (para quedar registrado) y en paralelo buscá a alguien de adentro que te refiera. Muchas empresas tienen programas de referidos con premio para el empleado: pedirlo no es molestar, es darle la chance de ganarlo.</p>
+<p>Si no conocés a nadie, buscá en LinkedIn personas de la empresa con las que compartas algo: misma universidad, misma ciudad, ex empresa en común. La conexión compartida multiplica la tasa de respuesta.</p>
+<h3>6. Las empresas donde ya trabajaste (y sus ex empleados)</h3>
+<ul>
+<li><strong>Volver a una empresa anterior</strong> (si saliste bien) es de las contrataciones de menor riesgo para una empresa: ya te conocen.</li>
+<li><strong>Tus ex compañeros hoy trabajan en otras empresas.</strong> Son tu red más cálida. Revisá dónde está cada uno y escribiles.</li>
+<li><strong>Ex jefes que te valoraban:</strong> muchas veces se llevan gente de confianza a su nueva empresa. Un mensaje de "¿cómo estás? Estoy buscando nuevos desafíos" puede abrir una puerta directa.</li>
+</ul>
+<h3>7. El arbitraje de títulos</h3>
+<p>El mismo trabajo tiene nombres distintos según la empresa y el país: "Customer Success", "Ejecutivo de cuentas", "Account Manager", "Gestor de clientes". Buscá con todas las variantes: los avisos con nombres menos comunes reciben menos postulaciones.</p>
+<h3>8. El momento justo</h3>
+<ul>
+<li><strong>Postulate en las primeras 48 a 72 horas de publicado el aviso.</strong> Configurá alertas diarias para no llegar tarde.</li>
+<li><strong>Escribí al líder en horario laboral</strong> y de martes a jueves, cuando la bandeja está más tranquila que un lunes.</li>
+<li><strong>Aprovechá los momentos de contratación:</strong> comienzos de año, después de vacaciones y temporadas altas de cada rubro (comercio antes de fin de año, turismo antes de temporada).</li>
+</ul>
+<h3>9. Después del "no": la lista de espera</h3>
+<p>Si llegaste a la final y eligieron a otra persona, sos el plan B de la empresa. Respondé con elegancia, pedí una devolución y, a las 4 a 6 semanas, mandá un mensaje breve con una novedad tuya. Es común que el elegido no pase el período de prueba o que se abra otra vacante parecida.</p>
+<h3>10. El trabajo temporal o freelance como puerta</h3>
+<p>Un contrato por proyecto, un reemplazo por licencia o un trabajo freelance te deja demostrar lo que vale tu trabajo desde adentro. Muchas contrataciones efectivas empiezan así. Si una empresa A no tiene vacante fija, ofrecé ayuda por proyecto.</p></div>
+</section>
+<section class="chapter" id="cap05">
+  <header class="opener bonus" style="--op-a:#111111;--op-b:#8A6A1F">
+    <div class="wrap op-grid">
+      <div class="op-text">
+        <div class="op-num">05</div>
+        <div class="op-kicker">Capítulo 5</div>
+        <h2 class="op-title">Entrevistas, evaluaciones y referencias de nivel experto</h2>
+      </div>
+      <div class="op-illu" aria-hidden="true"><svg viewBox="0 0 520 420" xmlns="http://www.w3.org/2000/svg" class="illu"><circle cx="260" cy="210" r="190" fill="#fff" opacity="0.06"/><rect x="140" y="60" width="240" height="310" rx="18" fill="#fff"/><rect x="210" y="44" width="100" height="36" rx="10" fill="#FFC857"/><rect x="170" y="120" width="90" height="10" rx="5" fill="#C9D3E6"/><circle cx="280" cy="125" r="8" fill="#FF7A45"/><circle cx="302" cy="125" r="8" fill="#FF7A45"/><circle cx="324" cy="125" r="8" fill="#FF7A45"/><circle cx="346" cy="125" r="8" fill="#FF7A45"/><rect x="170" y="175" width="90" height="10" rx="5" fill="#C9D3E6"/><circle cx="280" cy="180" r="8" fill="#FF7A45"/><circle cx="302" cy="180" r="8" fill="#FF7A45"/><circle cx="324" cy="180" r="8" fill="#FF7A45"/><circle cx="346" cy="180" r="8" fill="#E5E7EB"/><rect x="170" y="230" width="90" height="10" rx="5" fill="#C9D3E6"/><circle cx="280" cy="235" r="8" fill="#FF7A45"/><circle cx="302" cy="235" r="8" fill="#FF7A45"/><circle cx="324" cy="235" r="8" fill="#E5E7EB"/><circle cx="346" cy="235" r="8" fill="#E5E7EB"/><rect x="170" y="285" width="90" height="10" rx="5" fill="#C9D3E6"/><circle cx="280" cy="290" r="8" fill="#FF7A45"/><circle cx="302" cy="290" r="8" fill="#FF7A45"/><circle cx="324" cy="290" r="8" fill="#FF7A45"/><circle cx="346" cy="290" r="8" fill="#FF7A45"/></svg></div>
+    </div>
+  </header>
+  <div class="wrap prose"><p>Las empresas serias no eligen "por intuición": usan grillas de evaluación, tests y referencias. Saber cómo funcionan te permite preparar exactamente lo que se mide.</p>
+<h3>Cómo te puntúan en una entrevista estructurada</h3>
+<p>Cada entrevistador tiene 3 a 5 competencias asignadas (por ejemplo: orientación a resultados, trabajo en equipo, resolución de problemas, conocimiento técnico). Durante la charla anota evidencias y después pone un puntaje, en general del 1 al 4:</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Puntaje</th>
+<th>Qué escucharon</th>
+<th>Ejemplo de respuesta</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 — Sin evidencia</td>
+<td>Generalidades, teoría, "yo siempre..."</td>
+<td>"Soy muy organizado y trabajo bien bajo presión"</td>
+</tr>
+<tr>
+<td>2 — Evidencia débil</td>
+<td>Un ejemplo vago o donde no queda claro qué hiciste vos</td>
+<td>"En mi equipo hicimos un proyecto que salió bien"</td>
+</tr>
+<tr>
+<td>3 — Evidencia sólida</td>
+<td>Ejemplo concreto, tu acción clara, resultado</td>
+<td>Una historia STAR completa con un número</td>
+</tr>
+<tr>
+<td>4 — Evidencia excepcional</td>
+<td>Lo anterior + complejidad, aprendizaje y repetición del logro</td>
+<td>STAR + "y después lo convertí en el proceso estándar del área"</td>
+</tr>
+</tbody>
+</table></div>
+<p>Después de las entrevistas hay una reunión (debrief) donde cada uno defiende sus puntajes con las notas. <strong>Si no le diste al entrevistador frases concretas para anotar, no tiene con qué defenderte.</strong></p>
+<div class="secret"><div class="secret-tag">Secreto de reclutador</div> las respuestas que mejor puntúan tienen tres cosas que se pueden anotar textualmente: un número, una acción tuya en primera persona y una consecuencia para el negocio. Pensá en tus respuestas como frases que el entrevistador va a copiar en su planilla.</div>
+<h3>Las señales de alerta que anotan los entrevistadores</h3>
+<ul>
+<li>Hablar mal de jefes o empresas anteriores.</li>
+<li>Decir siempre "nosotros" y nunca "yo".</li>
+<li>No poder dar un ejemplo concreto de un error propio.</li>
+<li>No saber nada de la empresa.</li>
+<li>Mostrar interés solo por el sueldo o los beneficios.</li>
+<li>Respuestas de 5 minutos que no responden la pregunta.</li>
+<li>Inconsistencias entre el CV, LinkedIn y lo que contás.</li>
+<li>Llegar tarde sin avisar o conectarse con problemas técnicos evitables.</li>
+</ul>
+<h3>El cierre que casi nadie hace</h3>
+<p>Al final de la entrevista, después de tus preguntas, pedí un minuto para cerrar:</p>
+<blockquote><div class="bq-tag">Plantilla para copiar</div>
+<p>"Antes de terminar, quiero decirte que después de esta charla estoy todavía más entusiasmado. Por lo que me contaste, el equipo necesita [desafío principal], y eso es justamente lo que hice en [logro]. Me encantaría ser parte. ¿Hay algo que te haya quedado como duda sobre mi perfil?"</p>
+</blockquote>
+<p>Esa última pregunta te deja responder una objeción en el momento, en vez de que la discutan sin vos en el debrief.</p>
+<h3>Tests psicotécnicos y de aptitud</h3>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Tipo de test</th>
+<th>Qué mide</th>
+<th>Cómo prepararte</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Razonamiento numérico</td>
+<td>Porcentajes, proporciones, lectura de tablas y gráficos con tiempo límite</td>
+<td>Practicá cálculos de porcentajes y variaciones; resolvé tests de práctica con cronómetro</td>
+</tr>
+<tr>
+<td>Razonamiento verbal</td>
+<td>Comprensión de textos, deducciones ("verdadero, falso, no se puede saber")</td>
+<td>Leé con atención: respondé solo con lo que dice el texto, no con lo que sabés</td>
+</tr>
+<tr>
+<td>Razonamiento abstracto o lógico</td>
+<td>Series de figuras, matrices, patrones</td>
+<td>Es lo que más mejora con práctica: aprendé a buscar rotaciones, conteos y alternancias</td>
+</tr>
+<tr>
+<td>Cuestionarios de personalidad</td>
+<td>Estilo de trabajo, preferencias, comportamiento</td>
+<td>Respondé con honestidad y coherencia; pensá en cómo sos en el trabajo, no en casa</td>
+</tr>
+<tr>
+<td>Juicio situacional</td>
+<td>Qué harías ante situaciones laborales</td>
+<td>Elegí opciones que resuelvan el problema, involucren a las personas correctas y cuiden al cliente</td>
+</tr>
+<tr>
+<td>Tests proyectivos (dibujos)</td>
+<td>Rasgos de personalidad (se usan sobre todo en algunos países de Latinoamérica)</td>
+<td>Tomáte el tiempo, dibujá completo, centrado y con detalle; sin apuro</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Sobre los cuestionarios de personalidad:</strong> muchos incluyen preguntas repetidas con otras palabras para detectar respuestas inconsistentes o "demasiado perfectas". Intentar adivinar qué quieren suele salir peor que responder con sinceridad. Lo que sí conviene es pensar en tu mejor versión profesional al responder.</p>
+<p><strong>Antes de cualquier test:</strong> dormí bien, hacelo en un lugar silencioso, con buena conexión, calculadora y papel si se permite, y leé las instrucciones completas. Si una pregunta te traba, pasá a la siguiente: casi siempre importa más cuántas respondés bien que terminar todas.</p>
+<h3>Entrevistas grabadas y con inteligencia artificial</h3>
+<p>Cada vez más empresas usan entrevistas en video sin entrevistador: te aparece una pregunta, tenés unos segundos para pensar y un tiempo límite para responder. Algunas también usan asistentes de IA que hacen las primeras preguntas por chat o voz.</p>
+<ul>
+<li><strong>Practicá con el cronómetro:</strong> respuestas de 60 a 90 segundos con estructura STAR comprimida.</li>
+<li><strong>Mirá la cámara, no la pantalla.</strong> Poné un papelito al lado de la cámara con la palabra "sonreí".</li>
+<li><strong>Usá las palabras del aviso</strong> en tus respuestas: algunas herramientas analizan la transcripción.</li>
+<li><strong>Hablá claro y a ritmo normal</strong>, sin leer: se nota y transmite inseguridad.</li>
+<li><strong>Si hay una pregunta de práctica, usala</strong> para probar luz, sonido y encuadre.</li>
+<li><strong>Un humano casi siempre mira después.</strong> Tratá la grabación como si fuera la entrevista con el líder.</li>
+</ul>
+<h3>Assessment center o dinámicas grupales: los roles que suman</h3>
+<p>En una dinámica, los evaluadores observan con una grilla: comunicación, liderazgo, colaboración, análisis y gestión del tiempo. Tenés más chances si tomás uno de estos roles sin pisar a nadie:</p>
+<ul>
+<li><strong>El que ordena:</strong> "¿Qué les parece si primero definimos el objetivo y repartimos el tiempo?"</li>
+<li><strong>El que integra:</strong> "Quiero sumar a lo que dijo Ana..." o "Juan, no te escuchamos todavía, ¿qué pensás?"</li>
+<li><strong>El que cuida el tiempo:</strong> "Nos quedan 5 minutos, ¿vamos cerrando la propuesta?"</li>
+<li><strong>El que sintetiza:</strong> resume las conclusiones al final o se ofrece a presentarlas.</li>
+</ul>
+<h3>Referencias: el paso que define empates</h3>
+<ul>
+<li><strong>Elegí 3 referencias antes de que te las pidan:</strong> un ex jefe directo, un par o cliente, y alguien que te haya visto liderar o resolver problemas.</li>
+<li><strong>Avisales y preparálos:</strong> contales a qué puesto te postulás, qué competencias buscan y qué logros te gustaría que recuerden. Una referencia preparada es mucho más específica y convincente.</li>
+<li><strong>Agradecé siempre</strong>, consigas o no el puesto.</li>
+</ul>
+<div class="secret"><div class="secret-tag">Secreto de reclutador</div> muchos reclutadores también hacen referencias "informales" con personas que no pusiste en la lista: un conocido en común en tu ex empresa, por ejemplo. Por eso cuidar las relaciones en cada trabajo es parte de tu búsqueda futura, y por eso nunca conviene quemar puentes al irte.</div></div>
+</section>
+<section class="chapter" id="cap06">
+  <header class="opener bonus" style="--op-a:#111111;--op-b:#8A6A1F">
+    <div class="wrap op-grid">
+      <div class="op-text">
+        <div class="op-num">06</div>
+        <div class="op-kicker">Capítulo 6</div>
+        <h2 class="op-title">Negociación avanzada</h2>
+      </div>
+      <div class="op-illu" aria-hidden="true"><svg viewBox="0 0 520 420" xmlns="http://www.w3.org/2000/svg" class="illu"><circle cx="260" cy="210" r="190" fill="#fff" opacity="0.06"/><rect x="110" y="250" width="54" height="80" rx="8" fill="#fff" opacity="0.25"/><rect x="190" y="200" width="54" height="130" rx="8" fill="#fff" opacity="0.43"/><rect x="270" y="150" width="54" height="180" rx="8" fill="#fff" opacity="0.61"/><rect x="350" y="90" width="54" height="240" rx="8" fill="#fff" opacity="0.79"/><path d="M110 240 L190 200 L270 150 L350 80" stroke="#FF7A45" stroke-width="7" fill="none" stroke-linecap="round"/><path d="M350 80 l-26 2 l14 20 z" fill="#FF7A45"/><ellipse cx="430" cy="330" rx="44" ry="14" fill="#FFC857" stroke="#E0A800" stroke-width="2"/><ellipse cx="430" cy="312" rx="44" ry="14" fill="#FFC857" stroke="#E0A800" stroke-width="2"/><ellipse cx="430" cy="294" rx="44" ry="14" fill="#FFC857" stroke="#E0A800" stroke-width="2"/><ellipse cx="430" cy="276" rx="44" ry="14" fill="#FFC857" stroke="#E0A800" stroke-width="2"/><ellipse cx="430" cy="258" rx="44" ry="14" fill="#FFC857" stroke="#E0A800" stroke-width="2"/><ellipse cx="430" cy="240" rx="44" ry="14" fill="#FFC857" stroke="#E0A800" stroke-width="2"/><text x="430" y="245" text-anchor="middle" font-size="28" font-weight="800" fill="#14213D" font-family="Inter">$</text></svg></div>
+    </div>
+  </header>
+  <div class="wrap prose"><p>La negociación no termina en el número de la oferta. Cómo se arma una banda salarial, cómo se actualiza tu sueldo con inflación y cómo se cobra trabajando para el exterior pueden valer más que cualquier aumento inicial. Este capítulo te da esas herramientas.</p>
+<h3>Cómo funciona una banda salarial por dentro</h3>
+<p>Las empresas medianas y grandes tienen, para cada puesto, una banda con un mínimo, un punto medio y un máximo. Entenderla cambia por completo cómo negociás.</p>
+<ul>
+<li><strong>El punto medio</strong> es lo que la empresa considera el sueldo de mercado para alguien que domina el puesto. La distancia entre mínimo y máximo suele ser amplia (es común que el máximo esté entre un 40 y un 60 % por encima del mínimo).</li>
+<li><strong>A las personas nuevas se las suele ubicar entre el mínimo y el punto medio</strong>, para dejar lugar a aumentos futuros. Tu objetivo realista es llegar lo más cerca posible del punto medio, o superarlo si traés experiencia que el puesto no exige.</li>
+<li><strong>El reclutador tiene un margen aprobado</strong> hasta cierto valor. Por encima de eso necesita una excepción de un gerente. Por eso conviene darle argumentos que pueda repetir arriba: tus logros, tu experiencia extra, una oferta competidora real.</li>
+<li><strong>Si tu pedido está por encima del máximo</strong>, la empresa difiere la decisión o te ofrece un puesto de nivel más alto. En ese caso preguntá: "¿Existe la posibilidad de considerarme para el nivel siguiente?".</li>
+</ul>
+<div class="secret"><div class="secret-tag">Secreto de reclutador</div> la pregunta "¿cuánto ganás hoy?" sirve para anclarte. Si tu sueldo actual es bajo, la oferta se calcula sobre él y no sobre lo que vale el puesto. Redirigí siempre hacia el valor del nuevo rol: "Prefiero hablar de lo que corresponde a esta posición. Por lo que investigué, el mercado para este rol está entre X e Y".</div>
+<h3>Negociar en economías con inflación alta</h3>
+<p>En países con inflación alta, el número inicial importa menos que cómo se actualiza. Negociá también:</p>
+<ul>
+<li><strong>Frecuencia de ajuste:</strong> mensual, bimestral o trimestral, y si sigue al índice de inflación oficial, al convenio o a una decisión de la empresa.</li>
+<li><strong>Revisión garantizada por escrito</strong> a los 3 o 6 meses.</li>
+<li><strong>Componentes en moneda dura o atados al dólar</strong>, si la empresa los ofrece (bonos, parte del sueldo).</li>
+<li><strong>Beneficios que no pierden valor:</strong> plan de salud, comida, capacitación, equipamiento, días de home office (ahorro en transporte).</li>
+</ul>
+<p>Para comparar ofertas, proyectá el sueldo real a 12 meses con cada esquema de ajuste: una oferta un poco menor con ajustes mensuales puede terminar siendo mucho mejor que una mayor que se ajusta una vez al año.</p>
+<h3>Trabajos remotos para el exterior</h3>
+<p>Trabajar desde tu país para una empresa extranjera puede multiplicar tu ingreso, pero las reglas son distintas:</p>
+<ul>
+<li><strong>La mayoría contrata como prestador independiente (contractor), no como empleado.</strong> No hay aguinaldo, vacaciones pagas, aportes ni obra social incluidos, salvo que se negocien. Tu tarifa tiene que alcanzar para cubrir todo eso por tu cuenta.</li>
+<li><strong>Negociá en la moneda de la empresa</strong> y por mes o por hora, con claridad sobre horas esperadas y días libres pagos.</li>
+<li><strong>Informáte sobre cómo facturar y cobrar desde tu país</strong> (régimen impositivo para exportación de servicios, plataformas de pago internacionales, costos de transferencia). Consultá con un contador antes de firmar.</li>
+<li><strong>El inglés es el filtro principal:</strong> pensá tus historias STAR también en inglés y practicá la entrevista en ese idioma.</li>
+<li><strong>Superá la desconfianza de la distancia:</strong> mostrá autonomía, comunicación escrita clara, puntualidad y experiencia trabajando con equipos remotos o de otros husos horarios.</li>
+</ul></div>
+</section>
+<section class="chapter" id="cap07">
+  <header class="opener bonus" style="--op-a:#111111;--op-b:#8A6A1F">
+    <div class="wrap op-grid">
+      <div class="op-text">
+        <div class="op-num">07</div>
+        <div class="op-kicker">Capítulo 7</div>
+        <h2 class="op-title">Situaciones especiales y cómo protegerte de estafas</h2>
+      </div>
+      <div class="op-illu" aria-hidden="true"><svg viewBox="0 0 520 420" xmlns="http://www.w3.org/2000/svg" class="illu"><circle cx="260" cy="210" r="190" fill="#fff" opacity="0.06"/><path d="M260 50 L390 100 L390 210 C390 290 330 340 260 370 C190 340 130 290 130 210 L130 100 Z" fill="#fff" opacity=".9"/><path d="M260 80 L365 120 L365 210 C365 275 318 318 260 343 Z" fill="#3DDC97" opacity=".35"/><path d="M205 210 l38 38 l75 -80" stroke="#14213D" stroke-width="18" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    </div>
+  </header>
+  <div class="wrap prose"><p>El método sirve para todos, pero algunas situaciones necesitan ajustes concretos. Buscá la tuya y aplicá estos cambios sobre el plan de 30 días.</p>
+<h3>Primer empleo o sin experiencia formal</h3>
+<ul>
+<li><strong>Poné Educación y Proyectos arriba</strong> de todo y convertí trabajos prácticos en experiencia: "Proyecto final: plan de marketing para una pyme real, presentado al dueño".</li>
+<li><strong>Buscá puestos de entrada con nombre claro:</strong> pasantías, trainee, programa de jóvenes profesionales, junior, asistente.</li>
+<li><strong>La prueba de trabajo (capítulo 4) es tu mejor arma:</strong> compensa la falta de experiencia con evidencia.</li>
+<li><strong>Mostrá actitud con hechos:</strong> cursos terminados, voluntariado, trabajos informales, deportes de equipo, responsabilidades familiares. Todo dice "cumplo".</li>
+<li><strong>Las bolsas de trabajo de tu facultad, ferias de empleo y programas de primer empleo</strong> tienen mucha menos competencia que los portales generales.</li>
+</ul>
+<h3>Cambio de rubro o de carrera</h3>
+<ul>
+<li><strong>Encontrá tu puente:</strong> el puesto que combina lo que ya sabés con lo nuevo. Un docente que quiere ir a empresas puede entrar por capacitación; un vendedor que quiere tecnología puede entrar por ventas de software.</li>
+<li><strong>Traducí tus habilidades transferibles</strong> al idioma del nuevo rubro: "gestión de 30 alumnos" es "gestión de grupos y planificación"; "atención en el local" es "experiencia del cliente y resolución de reclamos".</li>
+<li><strong>Perfil de CV con hilo conductor:</strong> explicá en dos líneas por qué el cambio tiene sentido y qué traés de tu experiencia anterior.</li>
+<li><strong>Sumá una credencial rápida</strong> del nuevo rubro (curso con certificado o proyecto) y hacé muchas conversaciones informativas: en un cambio de carrera, el networking pesa todavía más.</li>
+</ul>
+<h3>Mayores de 45 años</h3>
+<ul>
+<li><strong>Mostrá los últimos 10 a 15 años</strong> en detalle y resumí lo anterior en una línea ("Experiencia previa en banca y seguros, 1995–2009").</li>
+<li><strong>Sacá los años de egreso</strong> de la educación si son muy antiguos; no es obligatorio ponerlos.</li>
+<li><strong>Demostrá actualización:</strong> herramientas digitales recientes, cursos de los últimos 2 años, un LinkedIn activo con foto actual.</li>
+<li><strong>Desactivá las objeciones sin que te las planteen:</strong> flexibilidad ("me gusta aprender de equipos jóvenes"), energía y expectativas salariales razonables para el nivel del puesto.</li>
+<li><strong>Tu red es tu mayor ventaja:</strong> décadas de contactos valen más que cualquier portal. Priorizá el networking y la consultoría o el trabajo por proyecto como puerta de entrada.</li>
+</ul>
+<h3>Despido, huecos en el CV o salidas cortas</h3>
+<ul>
+<li><strong>Despido:</strong> una frase neutral y hacia adelante. "La empresa reestructuró el área y mi puesto se eliminó" o "Fue una etapa de aprendizaje; hoy busco un rol donde [lo que sé hacer bien] sea central". Nunca culpes a nadie.</li>
+<li><strong>Huecos:</strong> explicalos en el CV con una línea (cuidado familiar, estudio, emprendimiento, salud, viaje) y en la entrevista en 15 segundos, terminando con lo que aprendiste o con por qué hoy estás listo.</li>
+<li><strong>Trabajos de pocos meses:</strong> si fueron varios, agrupalos ("Proyectos temporales, 2023–2024") o explicá en una línea la razón (contrato a plazo, cierre de la empresa).</li>
+</ul>
+<h3>Volver después de una pausa por maternidad, paternidad o cuidados</h3>
+<ul>
+<li>Poné la pausa en el CV como una etapa más, sin pedir disculpas.</li>
+<li>Actualizá tus herramientas con un curso corto antes de postularte.</li>
+<li>Activá primero a tus ex jefes y compañeros: te recuerdan por tu trabajo, no por la pausa.</li>
+<li>Buscá empresas con modalidades flexibles y programá la conversación sobre horarios para la etapa de oferta, no para la primera entrevista.</li>
+</ul>
+<h3>Sobrecalificación</h3>
+<p>Si te postulás a un puesto por debajo de tu nivel, el miedo de la empresa es que te aburras o te vayas. Adaptá el CV para mostrar solo lo relevante y explicá tu motivación con algo creíble: "Quiero volver a la parte operativa, que es lo que más disfruto" o "Busco un rol con menos viajes para estar cerca de mi familia".</p>
+<h3>Cómo detectar estafas y ofertas trucha</h3>
+<p>Cuando hay mucha gente buscando trabajo, aparecen estafas que se aprovechan de la urgencia. Desconfiá si ves alguna de estas señales:</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Señal de alerta</th>
+<th>Por qué es sospechosa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Te piden plata para un curso, un kit, un uniforme o "gastos administrativos"</td>
+<td>Una empresa real nunca cobra por contratarte</td>
+</tr>
+<tr>
+<td>Te ofrecen el trabajo sin entrevista o después de un chat de 5 minutos</td>
+<td>Nadie contrata a alguien sin conocerlo</td>
+</tr>
+<tr>
+<td>Sueldos muy por encima del mercado por tareas simples ("ganá X por día desde casa dando likes")</td>
+<td>Es el anzuelo típico de las estafas por tareas</td>
+</tr>
+<tr>
+<td>Toda la comunicación es por WhatsApp o Telegram, con mails gratuitos y sin sitio web de la empresa</td>
+<td>Las empresas reales usan dominios propios y canales formales</td>
+</tr>
+<tr>
+<td>Te piden datos bancarios, fotos del DNI o claves antes de una oferta formal</td>
+<td>Esos datos se piden recién al momento del alta</td>
+</tr>
+<tr>
+<td>Te mandan un pago o un cheque para que compres equipos y devuelvas la diferencia</td>
+<td>Es una estafa clásica: el pago original después rebota</td>
+</tr>
+<tr>
+<td>Te presionan para decidir en minutos</td>
+<td>La urgencia artificial es para que no verifiques</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Cómo verificar:</strong> buscá la empresa en su sitio oficial, confirmá que el aviso esté en su página de empleos, revisá que el reclutador tenga perfil real con historial en LinkedIn y buscá el nombre de la empresa junto a la palabra "estafa". Si algo no cierra, no avances.</p>
+<h3>Señales de alerta en empresas reales</h3>
+<p>No toda empresa legítima es un buen lugar. Prestá atención a:</p>
+<ul>
+<li>El mismo puesto publicado una y otra vez durante el año (rotación alta).</li>
+<li>Entrevistadores que llegan tarde, están distraídos o no saben qué hace el puesto.</li>
+<li>Respuestas vagas cuando preguntás por qué se abrió la posición o cómo se mide el éxito.</li>
+<li>Reseñas de empleados que repiten los mismos problemas.</li>
+<li>Presión para aceptar sin ver la oferta por escrito.</li>
+<li>Un futuro jefe que habla mal de su equipo actual delante tuyo.</li>
+</ul></div>
+</section>
+<section class="chapter" id="herramientas">
+  <header class="opener bonus" style="--op-a:#111111;--op-b:#8A6A1F">
+    <div class="wrap op-grid">
+      <div class="op-text">
+        <div class="op-num">+</div>
+        <div class="op-kicker">Caja de herramientas</div>
+        <h2 class="op-title">El checklist del candidato experto</h2>
+      </div>
+      <div class="op-illu" aria-hidden="true"><svg viewBox="0 0 520 420" xmlns="http://www.w3.org/2000/svg" class="illu"><circle cx="260" cy="210" r="190" fill="#fff" opacity="0.06"/><rect x="200" y="100" width="120" height="50" rx="14" fill="none" stroke="#fff" stroke-width="12"/><rect x="110" y="140" width="300" height="190" rx="22" fill="#FF7A45"/><rect x="110" y="200" width="300" height="18" fill="#E5602E"/><rect x="235" y="190" width="50" height="38" rx="8" fill="#FFC857"/><rect x="150" y="60" width="16" height="110" rx="8" fill="#fff" transform="rotate(-20 158 115)"/><rect x="350" y="70" width="18" height="100" rx="6" fill="#3DDC97" transform="rotate(18 359 120)"/></svg></div>
+    </div>
+  </header>
+  <div class="wrap prose"><p>Usá este checklist como repaso antes de cada etapa. Cada punto es una ventaja concreta sobre el resto de los candidatos.</p>
+<h3>Antes de postularte</h3>
+<div class="checklist"><div class="cl-head">Checklist</div><ul><li><span class="box"></span>Identifiqué los 3 o 4 imprescindibles reales del aviso</li><li><span class="box"></span>Reconstruí la scorecard y ubiqué mis pruebas en el tercio superior del CV</li><li><span class="box"></span>Respondí las preguntas de corte sin subestimarme</li><li><span class="box"></span>Busqué el aviso con todas las variantes del nombre del puesto</li><li><span class="box"></span>Me postulé en las primeras 72 horas, o le escribí al líder si el aviso es viejo</li></ul></div>
+
+<h3>LinkedIn</h3>
+<div class="checklist"><div class="cl-head">Checklist</div><ul><li><span class="box"></span>Mi titular, cargo actual y "Acerca de" contienen las variantes del puesto</li><li><span class="box"></span>Hice la prueba de búsqueda en modo incógnito y aparezco</li><li><span class="box"></span>Respondo todos los mensajes de reclutadores, aunque sea para decir que no</li><li><span class="box"></span>Sigo a mis empresas objetivo e interactúo con su contenido</li></ul></div>
+
+<h3>Para destacar</h3>
+<div class="checklist"><div class="cl-head">Checklist</div><ul><li><span class="box"></span>Preparé una prueba de trabajo para mis 3 empresas favoritas</li><li><span class="box"></span>Tengo listo un plan de 30-60-90 días para la entrevista final</li><li><span class="box"></span>Usé la doble vía (postulación + referido) en cada empresa A</li><li><span class="box"></span>Contacté a ex compañeros y ex jefes que hoy están en otras empresas</li></ul></div>
+
+<h3>En la entrevista</h3>
+<div class="checklist"><div class="cl-head">Checklist</div><ul><li><span class="box"></span>Cada historia STAR tiene un número, una acción mía y una consecuencia para el negocio</li><li><span class="box"></span>Practiqué tests de razonamiento con cronómetro</li><li><span class="box"></span>Ensayé respuestas de 60 a 90 segundos para entrevistas grabadas</li><li><span class="box"></span>Preparé el cierre y la pregunta "¿te queda alguna duda sobre mi perfil?"</li><li><span class="box"></span>Avisé y preparé a mis 3 referencias</li></ul></div>
+
+<h3>En la oferta</h3>
+<div class="checklist"><div class="cl-head">Checklist</div><ul><li><span class="box"></span>Redirigí la pregunta por mi sueldo actual hacia el valor del puesto</li><li><span class="box"></span>Apunté al punto medio de la banda, con argumentos que el reclutador pueda repetir</li><li><span class="box"></span>Negocié la frecuencia de ajuste, no solo el número inicial</li><li><span class="box"></span>Proyecté cada oferta a 12 meses antes de decidir</li><li><span class="box"></span>Verifiqué que la empresa y la oferta sean reales</li></ul></div></div>
+</section>
+
+<section class="closing pro">
+  <div class="wrap">
+    <p class="eyebrow">Último paso</p>
+    <h2 class="closing-title">Ahora jugás con ventaja</h2>
+    <p class="closing-lead">Ya sabés lo que pasa del otro lado de la mesa. Usá cada capítulo en su etapa del plan y vas a dejar de competir como un candidato más.</p>
+    <ol class="closing-steps"><li><b>1</b>Leé el capítulo de la etapa en la que estás</li><li><b>2</b>Prepará una prueba de trabajo para tu empresa favorita</li><li><b>3</b>Repasá el checklist experto antes de cada entrevista</li></ol>
+    <p class="closing-small">El resultado depende de tu dedicación, tu perfil y el mercado de cada rubro. Este manual te da el método; la constancia la ponés vos.</p>
+  </div>
+</section>
+
+<a class="to-top" href="#indice" aria-label="Volver al índice">Índice</a>
+<script>(function () {
+  // Reading progress
+  var bar = document.getElementById("progress-bar");
+  function onScroll() {
+    var h = document.documentElement;
+    var max = h.scrollHeight - h.clientHeight;
+    bar.style.width = (max > 0 ? (h.scrollTop / max) * 100 : 0) + "%";
+  }
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+
+  // Copy buttons on templates
+  document.querySelectorAll("blockquote").forEach(function (bq) {
+    var btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "copy-btn";
+    btn.textContent = "Copiar";
+    btn.addEventListener("click", function () {
+      var clone = bq.cloneNode(true);
+      clone.querySelectorAll(".bq-tag, .copy-btn").forEach(function (n) { n.remove(); });
+      var text = Array.from(clone.querySelectorAll("p")).map(function (p) { return p.innerText.trim(); }).join("\n\n") || clone.innerText.trim();
+      function done() { btn.textContent = "Copiado"; setTimeout(function () { btn.textContent = "Copiar"; }, 1600); }
+      function fallback() {
+        var r = document.createRange();
+        r.selectNodeContents(bq);
+        var s = window.getSelection();
+        s.removeAllRanges();
+        s.addRange(r);
+        btn.textContent = "Seleccionado";
+      }
+      try {
+        navigator.clipboard.writeText(text).then(done, fallback);
+      } catch (e) { fallback(); }
+    });
+    bq.appendChild(btn);
+  });
+
+  // Checklists, remembered on this device
+  var KEY = "ct30-checks-pro";
+  var state = {};
+  try { state = JSON.parse(localStorage.getItem(KEY) || "{}"); } catch (e) { state = {}; }
+  function save() { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {} }
+  document.querySelectorAll(".checklist").forEach(function (cl, ci) {
+    var items = cl.querySelectorAll("li");
+    var head = cl.querySelector(".cl-head");
+    var count = document.createElement("span");
+    count.className = "cl-count";
+    head.appendChild(count);
+    function refresh() {
+      var n = cl.querySelectorAll("li.done").length;
+      count.textContent = n + " de " + items.length;
+    }
+    items.forEach(function (li, i) {
+      var id = ci + "-" + i;
+      li.setAttribute("role", "checkbox");
+      li.tabIndex = 0;
+      function set(on) {
+        li.classList.toggle("done", on);
+        li.setAttribute("aria-checked", on ? "true" : "false");
+      }
+      set(!!state[id]);
+      function toggle() {
+        state[id] = !state[id];
+        set(state[id]);
+        save();
+        refresh();
+      }
+      li.addEventListener("click", toggle);
+      li.addEventListener("keydown", function (e) {
+        if (e.key === " " || e.key === "Enter") { e.preventDefault(); toggle(); }
+      });
+    });
+    refresh();
+  });
+})();
+</script>

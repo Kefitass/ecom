@@ -165,3 +165,16 @@ tbody tr:nth-child(even) td { background: color-mix(in srgb, var(--surface) 92%,
   .roadmap { grid-template-columns: repeat(4, minmax(0, 1fr)); row-gap: 1rem; }
   .rm-bar { border-radius: .8rem; }
 }
+
+/* pro edition (Secretos de reclutador) */
+.cover.pro { background: radial-gradient(circle at 85% 0%, #6B5420 0%, #1A1712 52%, #0A0907 100%); }
+.cover.pro .cover-badge { border-color: rgba(245,210,122,.5); color: #F5D27A; }
+.cover.pro .cover-title span { color: #F5D27A; }
+.cover.pro .cover-cta { background: linear-gradient(90deg, #F5D27A, #C9952F); color: #15120A; }
+.seal { position: absolute; left: 2%; top: 0; width: 6.5rem; height: 6.5rem; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #F8DE94, #B8892B 70%); color: #111; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; font: 800 .8rem/1.1 var(--display); letter-spacing: .1em; text-transform: uppercase; transform: rotate(-8deg); box-shadow: 0 1rem 2rem rgba(0,0,0,.45); z-index: 2; }
+.seal b { font-size: 1.3rem; }
+.welcome.pro .eyebrow { color: var(--gold); }
+.welcome.pro .stats div { background: #15130F; }
+.welcome.pro .stats dt { color: #F5D27A; }
+.welcome.pro .toc-n { color: var(--gold); }
+.closing.pro { background: radial-gradient(circle at 15% 100%, #8A6A1F 0%, #15130F 58%); }

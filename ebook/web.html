@@ -170,6 +170,19 @@ tbody tr:nth-child(even) td { background: color-mix(in srgb, var(--surface) 92%,
   .roadmap { grid-template-columns: repeat(4, minmax(0, 1fr)); row-gap: 1rem; }
   .rm-bar { border-radius: .8rem; }
 }
+
+/* pro edition (Secretos de reclutador) */
+.cover.pro { background: radial-gradient(circle at 85% 0%, #6B5420 0%, #1A1712 52%, #0A0907 100%); }
+.cover.pro .cover-badge { border-color: rgba(245,210,122,.5); color: #F5D27A; }
+.cover.pro .cover-title span { color: #F5D27A; }
+.cover.pro .cover-cta { background: linear-gradient(90deg, #F5D27A, #C9952F); color: #15120A; }
+.seal { position: absolute; left: 2%; top: 0; width: 6.5rem; height: 6.5rem; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #F8DE94, #B8892B 70%); color: #111; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; font: 800 .8rem/1.1 var(--display); letter-spacing: .1em; text-transform: uppercase; transform: rotate(-8deg); box-shadow: 0 1rem 2rem rgba(0,0,0,.45); z-index: 2; }
+.seal b { font-size: 1.3rem; }
+.welcome.pro .eyebrow { color: var(--gold); }
+.welcome.pro .stats div { background: #15130F; }
+.welcome.pro .stats dt { color: #F5D27A; }
+.welcome.pro .toc-n { color: var(--gold); }
+.closing.pro { background: radial-gradient(circle at 15% 100%, #8A6A1F 0%, #15130F 58%); }
 </style>
 <div class="progress" aria-hidden="true"><span id="progress-bar"></span></div>
 
@@ -192,13 +205,8 @@ tbody tr:nth-child(even) td { background: color-mix(in srgb, var(--surface) 92%,
 <section class="welcome wrap" id="indice">
   <p class="eyebrow">Antes de empezar</p>
   <h2 class="welcome-title">Tu próximo trabajo empieza hoy</h2>
-  <p class="welcome-lead">Este no es un libro para leer y guardar. Es un plan de acción: cada día tiene tareas concretas, plantillas listas para copiar y checklists para tildar. Tocá las casillas para ir marcando tu avance: quedan guardadas en este dispositivo.</p>
-  <dl class="stats">
-    <div><dt>7</dt><dd>etapas con tareas día por día</dd></div>
-    <div><dt>15</dt><dd>preguntas de entrevista con respuesta</dd></div>
-    <div><dt>8</dt><dd>plantillas de mensajes listas para copiar</dd></div>
-    <div><dt>10</dt><dd>rubros con consejos específicos</dd></div>
-  </dl>
+  <p class="welcome-lead">Este no es un libro para leer y guardar. Es un plan de acción: cada día tiene tareas concretas, plantillas listas para copiar y checklists para tildar. Si lo seguís, en 30 días vas a tener un CV que consigue entrevistas, un perfil que atrae reclutadores y las respuestas que hacen que te elijan. Tocá las casillas para ir marcando tu avance: quedan guardadas en este dispositivo.</p>
+  <dl class="stats"><div><dt>7</dt><dd>etapas con tareas día por día</dd></div><div><dt>15</dt><dd>preguntas de entrevista con respuesta</dd></div><div><dt>8</dt><dd>plantillas de mensajes listas para usar</dd></div><div><dt>10</dt><dd>rubros con consejos específicos</dd></div></dl>
   <h3 class="toc-title">Contenido</h3>
   <ol class="toc"><li class=""><a href="#intro"><span class="toc-n">00</span><span class="toc-k">Introducción</span><span class="toc-t">Buscar trabajo es un trabajo, y se puede hacer con método</span></a></li><li class=""><a href="#cap01"><span class="toc-n">01</span><span class="toc-k">Días 1–3</span><span class="toc-t">Diagnóstico, objetivo y propuesta de valor</span></a></li><li class=""><a href="#cap02"><span class="toc-n">02</span><span class="toc-k">Días 4–8</span><span class="toc-t">Un CV que pasa filtros y consigue entrevistas</span></a></li><li class=""><a href="#cap03"><span class="toc-n">03</span><span class="toc-k">Días 9–12</span><span class="toc-t">LinkedIn que hace que los reclutadores te busquen</span></a></li><li class=""><a href="#cap04"><span class="toc-n">04</span><span class="toc-k">Días 13–17</span><span class="toc-t">La búsqueda estratégica y el mercado oculto</span></a></li><li class=""><a href="#cap05"><span class="toc-n">05</span><span class="toc-k">Días 18–24</span><span class="toc-t">Entrevistas que terminan en oferta</span></a></li><li class=""><a href="#cap06"><span class="toc-n">06</span><span class="toc-k">Días 25–28</span><span class="toc-t">Negociación de sueldo y elección de la oferta</span></a></li><li class=""><a href="#cap07"><span class="toc-n">07</span><span class="toc-k">Días 29–30 y después</span><span class="toc-t">Cierre, plan B y tus primeros 90 días</span></a></li><li class=""><a href="#herramientas"><span class="toc-n">+</span><span class="toc-k">Caja de herramientas</span><span class="toc-t">Plantillas, checklist y tracker</span></a></li></ol>
 </section>
@@ -1047,13 +1055,9 @@ tbody tr:nth-child(even) td { background: color-mix(in srgb, var(--surface) 92%,
   <div class="wrap">
     <p class="eyebrow">Último paso</p>
     <h2 class="closing-title">Ahora te toca a vos</h2>
-    <p class="closing-lead">Ya tenés el mapa completo. La diferencia entre quien consigue trabajo y quien sigue buscando no es el talento: es la ejecución constante.</p>
-    <ol class="closing-steps">
-      <li><b>1</b>Abrí el checklist del día 1</li>
-      <li><b>2</b>Bloqueá tu horario fijo de búsqueda</li>
-      <li><b>3</b>Cargá tu primera empresa en el tracker</li>
-    </ol>
-    <p class="closing-small">El resultado depende de tu dedicación, tu perfil y el mercado de cada rubro. Este plan te da el método; la constancia la ponés vos.</p>
+    <p class="closing-lead">Ya tenés el mapa completo. La diferencia entre quien consigue trabajo y quien sigue buscando no es el talento: es la ejecución constante. Abrí el checklist del día 1 y empezá hoy.</p>
+    <ol class="closing-steps"><li><b>1</b>Abrí el checklist del día 1</li><li><b>2</b>Bloqueá tu horario fijo de búsqueda</li><li><b>3</b>Cargá tu primera empresa en el tracker</li></ol>
+    <p class="closing-small">El resultado depende de tu dedicación, tu perfil y el mercado de cada rubro. Este manual te da el método; la constancia la ponés vos.</p>
   </div>
 </section>
 
@@ -1096,7 +1100,7 @@ tbody tr:nth-child(even) td { background: color-mix(in srgb, var(--surface) 92%,
   });
 
   // Checklists, remembered on this device
-  var KEY = "ct30-checks";
+  var KEY = "ct30-checks-main";
   var state = {};
   try { state = JSON.parse(localStorage.getItem(KEY) || "{}"); } catch (e) { state = {}; }
   function save() { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {} }

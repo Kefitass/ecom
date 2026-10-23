@@ -1,0 +1,762 @@
+<meta charset="utf-8">
+<!-- {% raw %} (Liquid: no interpretar este archivo; no borrar) -->
+<!-- ================================================================
+     CONSEGUÍ TRABAJO EN 30 DÍAS · LANDING DE PRODUCTO PARA SHOPIFY
+     Ebook 1 "Conseguí trabajo en 30 días" + combo con "Secretos de reclutador"
+
+     📌 INSTALACIÓN (igual que la landing de VERDEA):
+     1. Shopify Admin → Tienda online → Temas → (⋯) → Editar código.
+     2. Carpeta "Snippets" → "Agregar un nuevo snippet" →
+        nombre: ebooks-landing  (se crea snippets/ebooks-landing.liquid).
+     3. Pegá TODO este contenido en ese snippet y guardá.
+     4. Tienda online → Temas → Personalizar → plantilla del producto
+        → agregá un bloque "Liquid personalizado" dentro de
+        "Información del producto" y escribí SOLO esta línea:
+            {% render 'ebooks-landing' %}
+     5. Para cambios, editá SOLO el "PANEL DE CONFIGURACIÓN" de abajo.
+     6. Reemplazá cada marcador ⚠️...⚠️ por el dato o la URL definitiva.
+     Vista local: abrí vista-previa.html con doble clic (modo prueba).
+
+     🧩 PRODUCTO EN SHOPIFY (una sola ficha con 2 variantes):
+        Variante 1: "Ebook" ............ $18.000
+        Variante 2: "Combo 2 ebooks" ... $27.000
+        Este snippet muestra las 2 opciones como tarjetas y, al elegir una,
+        cambia la variante que se agrega al carrito (no la cantidad).
+
+     🎨 Identidad (la misma de los ebooks):
+        Azul marino #14213D · Azul noche #0B1226 · Naranja #E8632E
+        Dorado #F5D27A / #B8892B · Fondo #F6F7FB · Negro cálido #0E0C09
+        Títulos: Bricolage Grotesque · Cuerpo: Source Sans 3
+     ================================================================ -->
+<div id="ce-scripts" style="display:none" aria-hidden="true">
+<!-- ================================================================
+     ⚙️ PANEL DE CONFIGURACIÓN — MODIFICÁ TODO ACÁ
+     ================================================================ -->
+<script>
+window.CE_CONFIG = {
+
+  // ============================================================
+  // 🔗 URL DEL PRODUCTO (obligatoria)
+  // El código SOLO funciona en esta URL. Pegá la URL completa del producto.
+  // ============================================================
+  slugURL: "⚠️https://TU-TIENDA.myshopify.com/products/consegui-trabajo-en-30-dias⚠️",
+
+  // true fuerza el modo prueba en cualquier lado (no lo dejes en true en la tienda).
+  // Al abrir el archivo localmente se activa solo.
+  modoPrueba: false,
+
+  nombreProducto: "Conseguí trabajo en 30 días · Ebook + versión interactiva",
+
+  // Fotos de la galería SOLO para la vista local. En Shopify la galería
+  // la muestra tu tema con las fotos cargadas en el producto.
+  fotosProducto: [
+    "../ebook/tapas/tapa-consegui-trabajo.png",
+    "fotos/hero.jpg",
+    "../ebook/tapas/tapa-secretos-de-reclutador.png"
+  ],
+
+  // ============================================================
+  // ⭐ PRUEBA SOCIAL (medida: solo datos reales)
+  // puntuacion / cantidadOpiniones / lectores en 0 → no se muestra.
+  // ⚠️ Cargá solo números reales de tus reseñas y ventas.
+  // ============================================================
+  rating: { puntuacion: 0, cantidadOpiniones: 0, lectores: 0 },
+
+  // Reseñas de compradores (máximo 3 se muestran, para no saturar).
+  // ⚠️ Las que tienen  ejemplo: true  se ven SOLO en la vista previa, nunca en la tienda.
+  //    Reemplazalas por reseñas reales (con permiso de la persona) y borrá  ejemplo: true.
+  //    Sin reseñas reales, la sección no aparece en la tienda.
+  testimonios: [
+    { ejemplo: true, nombre: "Ejemplo · Nombre A.", rubro: "Administración", titulo: "Ejemplo: por fin me empezaron a llamar",
+      texto: "Acá va lo que contó la persona con sus palabras: qué le pasaba antes y qué cambió después de aplicar el plan.", foto: "" },
+    { ejemplo: true, nombre: "Ejemplo · Nombre B.", rubro: "Ventas", titulo: "Ejemplo: llegué preparado a la entrevista",
+      texto: "Reseña real de un comprador. Si menciona un resultado (entrevistas, oferta, sueldo), que sea exactamente el que contó.", foto: "" },
+    { ejemplo: true, nombre: "Ejemplo · Nombre C.", rubro: "Primer empleo", titulo: "Ejemplo: el combo valió la pena",
+      texto: "Reseña real sobre el combo. Las fotos de las personas tienen que ser reales y con su permiso.", foto: "" }
+  ],
+
+  // ============================================================
+  // ✅ BENEFICIOS (debajo del título del producto)
+  // ============================================================
+  beneficios: [
+    "Plan <strong>día por día</strong> durante 30 días",
+    "CV que <strong>pasa los filtros</strong> y consigue entrevistas",
+    "LinkedIn que hace que los <strong>reclutadores te busquen</strong>",
+    "Respuestas para las <strong>15 preguntas</strong> que siempre te hacen",
+    "<strong>Acceso inmediato:</strong> PDF + versión web con checklists"
+  ],
+
+  // ============================================================
+  // 💰 OFERTAS (tarjetas arriba del botón de compra)
+  // varianteId → el ID de cada variante del producto en Shopify.
+  //   Dónde verlo: Productos → tu producto → clic en la variante →
+  //   el número al final de la URL del navegador (…/variants/123456789).
+  // ============================================================
+  mostrarOfertas: true,
+  tituloOfertas: "Elegí tu opción",
+  ofertas: [
+    {
+      nombre: "Ebook",
+      subtexto: "Conseguí trabajo en 30 días · 43 págs.",
+      precio: "$18.000",
+      precioViejo: "",
+      ahorro: "",
+      etiqueta: "",
+      incluye: ["PDF + versión web interactiva", "8 plantillas y tracker de búsqueda"],
+      varianteId: "⚠️ID-VARIANTE-EBOOK⚠️",
+      seleccionado: false
+    },
+    {
+      nombre: "Combo: 2 ebooks",
+      subtexto: "Suma \"Secretos de reclutador\" · 36 págs.",
+      precio: "$27.000",
+      precioViejo: "$33.000",
+      ahorro: "AHORRÁS $6.000",
+      etiqueta: "MÁS ELEGIDO",
+      incluye: ["Todo lo del ebook 1", "El manual avanzado de nivel experto", "10 estrategias para destacar"],
+      varianteId: "⚠️ID-VARIANTE-COMBO⚠️",
+      seleccionado: true
+    }
+  ],
+  textoBoton: "QUIERO EMPEZAR HOY",
+
+  // Caja debajo del botón
+  entrega: {
+    titulo: "Acceso inmediato",
+    texto: "Apenas se acredita el pago te llega un mail con los PDF y el acceso a la versión web interactiva.",
+    garantiaDias: 0   // 0 = no se muestra garantía. Poné los días de tu política si ofrecés devolución.
+  },
+
+  // Preguntas cortas dentro de la columna de compra
+  faqsCompra: [
+    { p: "¿Cómo lo recibo?", r: "Por mail, apenas se acredita el pago. Lo leés en el celular, la tablet o la compu." },
+    { p: "¿Sirve para mi rubro?", r: "Sí. El método funciona en cualquier rubro e incluye consejos para 10 rubros distintos." },
+    { p: "¿Qué medios de pago aceptan?", r: "⚠️Tarjeta de crédito, débito y Mercado Pago (ajustá según tu tienda)⚠️" }
+  ],
+
+  // ============================================================
+  // 🖼️ IMÁGENES DE LAS SECCIONES
+  // Subilas en Contenido → Archivos y pegá acá la URL (⚠️ reemplazá las rutas locales).
+  // ============================================================
+  imagenes: {
+    problema: "fotos/problema.jpg",
+    resultado: "fotos/resultado.jpg",
+    comboFondo: "fotos/combo-fondo.jpg",
+    tapa1: "../ebook/tapas/tapa-consegui-trabajo.png",
+    tapa2: "../ebook/tapas/tapa-secretos-de-reclutador.png"
+  },
+
+  // ============================================================
+  // 📢 BARRA SUPERIOR (pocos mensajes, sin presión)
+  // ============================================================
+  mensajesBarra: [
+    "ACCESO INMEDIATO POR MAIL",
+    "PDF + VERSIÓN WEB INTERACTIVA",
+    "PARA CUALQUIER RUBRO"
+  ],
+
+  // Barra fija de compra que aparece al bajar (celular y PC)
+  barraFija: true,
+
+  // ============================================================
+  // ❓ PREGUNTAS FRECUENTES (al final de la página)
+  // ============================================================
+  faqs: [
+    { p: "¿Cómo recibo los ebooks?", r: "Apenas se acredita el pago te llega un mail con los PDF y el acceso a la versión web interactiva, donde podés tildar los checklists y copiar las plantillas." },
+    { p: "¿Sirve si no tengo experiencia?", r: "Sí. Hay consejos para el primer empleo, y el ebook 2 suma estrategias para compensar la falta de experiencia con pruebas concretas de lo que sabés hacer." },
+    { p: "¿Me garantiza conseguir trabajo?", r: "Nadie puede garantizarlo: depende de tu dedicación, tu perfil y el mercado de tu rubro. Lo que te da es un método claro para hacer una búsqueda muy por encima del promedio." },
+    { p: "¿Cuál me conviene, el ebook o el combo?", r: "El ebook tiene el plan completo. El combo suma el manual avanzado, que potencia cada etapa: si buscás en un rubro competido o querés destacarte en entrevistas y negociación, el combo es la mejor opción." },
+    { p: "¿Es un curso con videos?", r: "No. Son dos ebooks en PDF con su versión web interactiva. Los leés a tu ritmo y seguís el plan día por día." },
+    { p: "¿Puedo leerlo en el celular?", r: "Sí. La versión web está pensada para el celular: tocás un capítulo, tildás las tareas y copiás las plantillas con un toque." }
+  ]
+};
+</script>
+
+<!-- ================================================================
+     HELPER DOM — selectores compatibles con Dawn y temas 2.0
+     ================================================================ -->
+<script>
+window.CE_DOM = {
+  form: function() {
+    return document.querySelector("product-form form[action*='/cart/add']") ||
+           document.querySelector("form[id^='product-form-template']") ||
+           document.querySelector(".js-product-form") ||
+           document.querySelector("form.product-form[action*='/cart/add']") ||
+           document.querySelector("form[action*='/cart/add']:not(.installment)");
+  },
+  btn: function() {
+    var f = this.form();
+    return (f && f.querySelector(".product-form__submit, button[name='add'], [type='submit']")) ||
+           document.querySelector("button[name='add']");
+  },
+  title: function() {
+    return document.querySelector(".product__title h1") || document.querySelector(".product__title") ||
+           document.querySelector(".js-product-name") || document.querySelector("h1");
+  },
+  variantInput: function() {
+    var f = this.form();
+    return f && f.querySelector("input[name='id'], select[name='id']");
+  },
+  fullWidth: function() {
+    var c = document.getElementById("ce-landing-full");
+    if (c) return c;
+    var f = this.form();
+    if (!f) return null;
+    var host = document.getElementById("ce-preview-page") || f.closest(".shopify-section") || f.closest("section");
+    c = document.createElement("div");
+    c.id = "ce-landing-full";
+    if (host && host.parentNode) host.insertAdjacentElement("afterend", c); else f.appendChild(c);
+    return c;
+  }
+};
+window.CE_OK = function(v) { return v && String(v).indexOf("⚠️") === -1; };
+</script>
+
+<!-- ================================================================
+     VALIDACIÓN DE URL + MODO PRUEBA
+     ================================================================ -->
+<script>
+(function() {
+  var cfg = window.CE_CONFIG || {};
+  var loc = window.location;
+  var isLocal = loc.protocol === "file:" || /^(localhost|127\.0\.0\.1)$/.test(loc.hostname);
+  var forced = cfg.modoPrueba === true || /[?&]ce_preview=1\b/.test(loc.search);
+  window.CE_PREVIEW = isLocal || forced;
+
+  if (!window.CE_PREVIEW) {
+    if (!window.CE_OK(cfg.slugURL)) { window.CE_BLOCK = true; return; }
+    try {
+      var want = new URL(cfg.slugURL).pathname.replace(/\/+$/, "");
+      var here = loc.pathname.replace(/\/+$/, "");
+      var m = want.match(/\/products\/[^\/]+$/);
+      if (!(m ? here.slice(-m[0].length) === m[0] : here === want)) window.CE_BLOCK = true;
+    } catch (e) { window.CE_BLOCK = true; }
+    return;
+  }
+
+  /* MODO PRUEBA: página de producto simulada */
+  function buildMock() {
+    if (document.getElementById("ce-preview-page") || window.CE_DOM.form() || !document.body) return;
+    var st = document.createElement("style");
+    st.textContent =
+      "body{margin:0;background:#fff;color:#1C2333;font-family:'Source Sans 3','Segoe UI',sans-serif}" +
+      "#ce-preview-banner{background:#E8632E;color:#fff;text-align:center;font:600 12px/1.4 sans-serif;padding:6px 12px}" +
+      "#ce-preview-page{max-width:1200px;margin:0 auto;padding:28px 20px 40px;box-sizing:border-box}" +
+      "#ce-preview-page .wp-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:start}" +
+      "#ce-preview-page .wp-gallery{position:sticky;top:16px}" +
+      "#ce-preview-page .wp-main{border-radius:16px;overflow:hidden;background:#F6F7FB;display:flex;align-items:center;justify-content:center;aspect-ratio:1/1}" +
+      "#ce-preview-page .wp-main img{max-width:100%;max-height:100%;object-fit:contain;display:block}" +
+      "#ce-preview-page .wp-thumbs{display:flex;gap:8px;margin-top:10px}" +
+      "#ce-preview-page .wp-thumbs button{width:68px;height:68px;padding:0;border:2px solid transparent;border-radius:10px;overflow:hidden;background:#F6F7FB;cursor:pointer}" +
+      "#ce-preview-page .wp-thumbs button.active{border-color:#14213D}" +
+      "#ce-preview-page .wp-thumbs img{width:100%;height:100%;object-fit:cover}" +
+      "#ce-preview-page h1{font:800 30px/1.15 'Bricolage Grotesque',sans-serif;margin:0 0 6px;color:#14213D}" +
+      "@media(max-width:768px){#ce-preview-page .wp-grid{display:block}#ce-preview-page .wp-gallery{position:static;margin-bottom:20px}#ce-preview-page h1{font-size:24px}}";
+    document.head.appendChild(st);
+    var fotos = (cfg.fotosProducto || []).filter(window.CE_OK);
+    var banner = document.createElement("div");
+    banner.id = "ce-preview-banner";
+    banner.textContent = "MODO PRUEBA — vista local de la landing (en Shopify este aviso no aparece)";
+    var page = document.createElement("div");
+    page.id = "ce-preview-page";
+    page.innerHTML =
+      '<div class="wp-grid"><div class="wp-gallery"><div class="wp-main"><img src="' + (fotos[0] || "") + '" alt=""></div>' +
+      '<div class="wp-thumbs">' + fotos.map(function(u, i) { return '<button type="button" class="' + (i ? "" : "active") + '" data-src="' + u + '"><img src="' + u + '" alt=""></button>'; }).join("") + '</div></div>' +
+      '<div class="wp-info"><div class="product__title"><h1>' + cfg.nombreProducto + '</h1></div>' +
+      '<form class="product-form" action="/cart/add" method="post" id="product-form-preview"><input type="hidden" name="id" value="0">' +
+      '<div class="product-form__buttons"><button type="submit" name="add" class="product-form__submit">Agregar al carrito</button></div></form></div></div>';
+    var anchor = document.getElementById("ce-scripts");
+    anchor.parentNode.insertBefore(banner, anchor);
+    anchor.parentNode.insertBefore(page, anchor);
+    page.querySelectorAll(".wp-thumbs button").forEach(function(t) {
+      t.addEventListener("click", function() {
+        page.querySelector(".wp-main img").src = t.getAttribute("data-src");
+        page.querySelectorAll(".wp-thumbs button").forEach(function(x) { x.classList.remove("active"); });
+        t.classList.add("active");
+      });
+    });
+    page.querySelector("form").addEventListener("submit", function(e) {
+      e.preventDefault();
+      var b = page.querySelector(".product-form__submit");
+      var old = b.textContent;
+      b.textContent = "Modo prueba: variante " + page.querySelector("input[name='id']").value + " al carrito";
+      setTimeout(function() { b.textContent = old; }, 2200);
+    });
+  }
+  buildMock();
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", buildMock);
+})();
+</script>
+
+<!-- ================================================================
+     FUENTES + ESTILOS DE MARCA
+     ================================================================ -->
+<script>
+(function() {
+  if (window.CE_BLOCK) return;
+  if (!document.getElementById("ce-fonts")) {
+    var l = document.createElement("link");
+    l.id = "ce-fonts"; l.rel = "stylesheet";
+    l.href = "https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Source+Sans+3:wght@400;600;700&display=swap";
+    document.head.appendChild(l);
+  }
+  if (document.getElementById("ce-brand")) return;
+  var st = document.createElement("style");
+  st.id = "ce-brand";
+  st.textContent = [
+    ":root{--ce-navy:#14213D;--ce-night:#0B1226;--ce-ink:#1C2333;--ce-muted:#5A6478;--ce-line:#E1E5EE;--ce-paper:#F6F7FB;--ce-orange:#E8632E;--ce-orange-2:#FF8A57;--ce-gold:#F5D27A;--ce-gold-2:#B8892B;--ce-black:#0E0C09;",
+    "--ce-title:'Bricolage Grotesque','Avenir Next','Segoe UI',sans-serif;--ce-body:'Source Sans 3','Segoe UI',system-ui,sans-serif}",
+    "[id^='ce-'],[id^='ce-'] *{box-sizing:border-box}",
+    "[id^='ce-']{font-family:var(--ce-body)}",
+    "[id^='ce-'] h2,[id^='ce-'] h3{font-family:var(--ce-title);letter-spacing:-.02em;line-height:1.1;margin:0;text-wrap:balance}",
+    "[id^='ce-'] p{margin:0}",
+    "[id^='ce-'] img{max-width:100%;display:block}",
+    ".breadcrumbs{display:none!important}",
+
+    /* barra superior */
+    "#ce-topbar{background:var(--ce-navy);color:#fff;overflow:hidden;white-space:nowrap;position:relative;z-index:5}",
+    "#ce-topbar .tk{display:inline-flex;gap:48px;padding:9px 0;animation:ceTicker 32s linear infinite;font:700 12px/1 var(--ce-title);letter-spacing:.12em}",
+    "#ce-topbar .tk span::before{content:'\\2605';color:var(--ce-gold);margin-right:10px}",
+    "@keyframes ceTicker{from{transform:translateX(0)}to{transform:translateX(-50%)}}",
+    "@media(prefers-reduced-motion:reduce){#ce-topbar .tk{animation:none}}",
+
+    /* rating + beneficios */
+    "#ce-rating{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:6px 0 10px;font-size:15px;color:var(--ce-muted)}",
+    "#ce-rating .st{color:#E8A317;letter-spacing:2px;font-size:16px}",
+    "#ce-rating b{color:var(--ce-ink)}",
+    "#ce-benefits{list-style:none;padding:0;margin:14px 0 18px;display:grid;gap:10px}",
+    "#ce-benefits li{display:flex;gap:10px;align-items:flex-start;font-size:16px;line-height:1.4;color:var(--ce-ink)}",
+    "#ce-benefits li::before{content:'\\2713';flex:none;width:22px;height:22px;border-radius:50%;background:var(--ce-navy);color:#fff;font-weight:800;font-size:12px;display:flex;align-items:center;justify-content:center;margin-top:1px}",
+
+    /* ofertas */
+    "#ce-offers{margin:8px 0 14px;max-width:600px}",
+    "#ce-offers .ot{display:flex;align-items:center;gap:12px;font:800 15px/1 var(--ce-title);color:var(--ce-navy);letter-spacing:.04em;text-transform:uppercase;margin:0 0 16px}",
+    "#ce-offers .ot::before,#ce-offers .ot::after{content:'';flex:1;border-bottom:2px solid var(--ce-line)}",
+    "#ce-offers .of{position:relative;border:2px solid var(--ce-line);border-radius:16px;background:#fff;padding:16px 18px;margin-bottom:12px;cursor:pointer;transition:border-color .2s,box-shadow .2s,background .2s;display:grid;grid-template-columns:28px minmax(0,1fr) auto;gap:4px 14px;align-items:center}",
+    "#ce-offers .of:focus-visible{outline:3px solid var(--ce-orange);outline-offset:2px}",
+    "#ce-offers .of.sel{border-color:var(--ce-navy);background:#F3F5FA;box-shadow:0 10px 24px rgba(20,33,61,.12)}",
+    "#ce-offers .of.best.sel{border-color:var(--ce-gold-2);background:#FFFBF0}",
+    "#ce-offers .rd{width:26px;height:26px;border-radius:50%;border:2px solid #C5CBD8;display:flex;align-items:center;justify-content:center;grid-row:span 2}",
+    "#ce-offers .of.sel .rd{border-color:var(--ce-navy)}",
+    "#ce-offers .rd::after{content:'';width:12px;height:12px;border-radius:50%;background:var(--ce-orange);transform:scale(0);transition:transform .2s}",
+    "#ce-offers .of.sel .rd::after{transform:scale(1)}",
+    "#ce-offers .nm{font:800 17px/1.2 var(--ce-title);color:var(--ce-ink)}",
+    "#ce-offers .pr{font:800 20px/1 var(--ce-title);color:var(--ce-ink);text-align:right;font-variant-numeric:tabular-nums}",
+    "#ce-offers .sb{font-size:14px;color:var(--ce-muted);line-height:1.3}",
+    "#ce-offers .ov{font-size:14px;color:#8B93A5;text-decoration:line-through;text-align:right}",
+    "#ce-offers .tag{position:absolute;top:-12px;right:16px;background:linear-gradient(90deg,#F5D27A,#C9952F);color:#15120A;font:800 11px/1 var(--ce-title);letter-spacing:.08em;padding:6px 10px;border-radius:999px}",
+    "#ce-offers .sv{display:inline-block;margin-left:8px;background:var(--ce-orange);color:#fff;font:800 10.5px/1 var(--ce-title);letter-spacing:.06em;padding:4px 7px;border-radius:999px;vertical-align:2px}",
+    "#ce-offers .inc{grid-column:2 / 4;list-style:none;padding:8px 0 0;margin:6px 0 0;border-top:1px dashed var(--ce-line);display:none;gap:4px}",
+    "#ce-offers .of.sel .inc{display:grid}",
+    "#ce-offers .inc li{font-size:14px;color:var(--ce-ink)}",
+    "#ce-offers .inc li::before{content:'\\2713';color:var(--ce-orange);font-weight:800;margin-right:6px}",
+    "#ce-offers .of.best .inc li::before{color:var(--ce-gold-2)}",
+
+    /* botón del tema */
+    ".ce-atc-col{width:100%!important;max-width:600px!important}",
+    "form[action*='/cart/add'] .product-form__submit,form[action*='/cart/add'] button[name='add']{background:var(--ce-orange)!important;color:#fff!important;border:0!important;border-radius:999px!important;font:800 18px/1 var(--ce-title)!important;letter-spacing:.06em!important;padding:20px 24px!important;min-height:0!important;width:100%!important;box-shadow:0 10px 24px rgba(232,99,46,.35)!important;transition:transform .15s,background .15s!important}",
+    "form[action*='/cart/add'] .product-form__submit:hover,form[action*='/cart/add'] button[name='add']:hover{background:#F2753F!important;transform:translateY(-2px)}",
+    "form[action*='/cart/add'] .product-form__submit::after,form[action*='/cart/add'] button[name='add']::after{display:none!important}",
+    ".product-form__quantity,.product__info-container variant-selects,.product__info-container variant-radios,.product__info-container [id^='price-template'],.product__info-container .product__tax,.shopify-payment-button__more-options{display:none!important}",
+
+    /* entrega + faq compra */
+    "#ce-delivery{display:flex;gap:14px;align-items:flex-start;max-width:600px;margin:14px 0;padding:14px 16px;border-radius:14px;background:var(--ce-paper);border:1px solid var(--ce-line)}",
+    "#ce-delivery .ic{flex:none;width:36px;height:36px;border-radius:10px;background:var(--ce-navy);color:var(--ce-gold);display:flex;align-items:center;justify-content:center;font-size:18px}",
+    "#ce-delivery b{display:block;color:var(--ce-ink);font-size:15px}",
+    "#ce-delivery span{font-size:14px;color:var(--ce-muted);line-height:1.4}",
+    "#ce-faq-buy{max-width:600px;margin:8px 0 0}",
+    "#ce-faq-buy details{border-bottom:1px solid var(--ce-line)}",
+    "#ce-faq-buy summary{cursor:pointer;list-style:none;padding:13px 26px 13px 0;font:700 15px/1.3 var(--ce-body);color:var(--ce-ink);position:relative}",
+    "#ce-faq-buy summary::-webkit-details-marker{display:none}",
+    "#ce-faq-buy summary::after{content:'+';position:absolute;right:2px;top:9px;font-size:20px;color:var(--ce-orange)}",
+    "#ce-faq-buy details[open] summary::after{content:'\\2013'}",
+    "#ce-faq-buy p{padding:0 0 13px;font-size:14px;color:var(--ce-muted);line-height:1.5}",
+
+    /* secciones a todo el ancho */
+    "#ce-landing-full{width:100%;clear:both;color:var(--ce-ink);font-size:17px;line-height:1.6}",
+    "#ce-landing-full .w{max-width:1120px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}",
+    "#ce-landing-full .nw{max-width:780px}",
+    "#ce-landing-full .sec{padding-block:80px}",
+    "#ce-landing-full .ey{font:700 13px/1 var(--ce-body);letter-spacing:.14em;text-transform:uppercase;color:var(--ce-orange);margin-bottom:12px}",
+    "#ce-landing-full .h2{font-size:clamp(28px,4vw,42px);font-weight:800;color:var(--ce-navy)}",
+    "#ce-landing-full .h2 span{color:var(--ce-orange)}",
+    "#ce-landing-full .ld{font-size:19px;color:var(--ce-muted);margin-top:14px;max-width:640px}",
+    "#ce-landing-full .split{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}",
+    "#ce-landing-full .split>*{min-width:0}",
+    "#ce-landing-full .ph{border-radius:20px;overflow:hidden;box-shadow:0 24px 60px rgba(20,33,61,.22)}",
+    "#ce-landing-full .ph img{width:100%;aspect-ratio:3/2;object-fit:cover}",
+    "#ce-landing-full .cta{display:inline-flex;align-items:center;justify-content:center;background:var(--ce-orange);color:#fff;font:800 17px/1 var(--ce-title);letter-spacing:.04em;text-decoration:none;padding:18px 30px;border-radius:999px;border:0;cursor:pointer;box-shadow:0 10px 24px rgba(232,99,46,.35);margin-top:30px}",
+    "#ce-landing-full .cta.gold{background:linear-gradient(90deg,#F5D27A,#C9952F);color:#15120A;box-shadow:0 10px 24px rgba(201,149,47,.3)}",
+    "#ce-landing-full .cta:focus-visible{outline:3px solid var(--ce-gold);outline-offset:3px}",
+
+    "#ce-landing-full .pains{list-style:none;padding:0;margin:26px 0 0;display:grid;gap:14px}",
+    "#ce-landing-full .pains li{display:flex;gap:14px;font-size:18px}",
+    "#ce-landing-full .pains li::before{content:'\\2715';flex:none;width:28px;height:28px;border-radius:50%;background:#FDECEC;color:#C2412D;font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center}",
+    "#ce-landing-full .turn{margin-top:26px;font:800 23px/1.3 var(--ce-title);color:var(--ce-navy)}",
+    "#ce-landing-full .turn span{color:var(--ce-orange)}",
+
+    "#ce-landing-full .paper{background:var(--ce-paper)}",
+    "#ce-landing-full .book-row{display:grid;grid-template-columns:280px minmax(0,1fr);gap:56px;align-items:center}",
+    "#ce-landing-full .book{width:100%;max-width:260px;margin:0 auto;perspective:1200px}",
+    "#ce-landing-full .book img{width:100%;aspect-ratio:210/297;object-fit:cover;border-radius:3px 10px 10px 3px;transform:rotateY(-12deg);transform-origin:left center;box-shadow:18px 26px 40px rgba(0,0,0,.35)}",
+    "#ce-landing-full .steps{list-style:none;padding:0;margin:30px 0 0;display:grid;gap:0;position:relative}",
+    "#ce-landing-full .steps li{display:grid;grid-template-columns:46px minmax(0,1fr);gap:16px;padding-bottom:18px;position:relative}",
+    "#ce-landing-full .steps li::after{content:'';position:absolute;left:22px;top:44px;bottom:0;width:2px;background:var(--ce-line)}",
+    "#ce-landing-full .steps li:last-child::after{display:none}",
+    "#ce-landing-full .steps b{width:46px;height:46px;border-radius:50%;background:var(--ce-navy);color:#fff;font:800 18px/1 var(--ce-title);display:flex;align-items:center;justify-content:center}",
+    "#ce-landing-full .steps li.hl b{background:var(--ce-orange)}",
+    "#ce-landing-full .steps small{display:block;font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ce-muted);margin-top:2px}",
+    "#ce-landing-full .steps strong{display:block;font-size:18px;color:var(--ce-ink)}",
+    "#ce-landing-full .steps span{display:block;font-size:15px;color:var(--ce-muted)}",
+
+    "#ce-landing-full .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:40px}",
+    "#ce-landing-full .ft{border:1px solid var(--ce-line);border-radius:18px;padding:24px;background:#fff}",
+    "#ce-landing-full .ft .n{font:800 38px/1 var(--ce-title);color:var(--ce-orange);font-variant-numeric:tabular-nums}",
+    "#ce-landing-full .ft h3{font-size:19px;margin:10px 0 6px;color:var(--ce-navy)}",
+    "#ce-landing-full .ft p{font-size:15.5px;color:var(--ce-muted)}",
+
+    "#ce-landing-full .cmp{margin-top:36px;border:1px solid var(--ce-line);border-radius:18px;overflow:hidden;background:#fff}",
+    "#ce-landing-full .cmp table{width:100%;border-collapse:collapse;font-size:16px}",
+    "#ce-landing-full .cmp th{padding:16px 18px;text-align:left;font:800 15px/1.2 var(--ce-title)}",
+    "#ce-landing-full .cmp th:nth-child(2){color:var(--ce-muted)}",
+    "#ce-landing-full .cmp th:nth-child(3){background:var(--ce-navy);color:#fff}",
+    "#ce-landing-full .cmp td{padding:14px 18px;border-top:1px solid var(--ce-line);vertical-align:top}",
+    "#ce-landing-full .cmp td:first-child{font-weight:700;color:var(--ce-ink);width:28%}",
+    "#ce-landing-full .cmp td:nth-child(2){color:var(--ce-muted)}",
+    "#ce-landing-full .cmp td:nth-child(3){background:#F3F5FA;color:var(--ce-ink)}",
+
+    "#ce-landing-full .pro{position:relative;color:#EDE6D6;background-color:var(--ce-black);background-size:cover;background-position:center}",
+    "#ce-landing-full .pro::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,12,9,.93),rgba(14,12,9,.8) 50%,rgba(14,12,9,.93))}",
+    "#ce-landing-full .pro>.w{position:relative}",
+    "#ce-landing-full .pro .ey{color:var(--ce-gold)}",
+    "#ce-landing-full .pro .h2{color:#fff}",
+    "#ce-landing-full .pro .h2 span{color:var(--ce-gold)}",
+    "#ce-landing-full .pro .ld{color:rgba(237,230,214,.8)}",
+    "#ce-landing-full .chap{list-style:none;padding:0;margin:28px 0 0;display:grid;gap:12px}",
+    "#ce-landing-full .chap li{display:grid;grid-template-columns:40px minmax(0,1fr);gap:12px}",
+    "#ce-landing-full .chap b{font:800 21px/1.2 var(--ce-title);color:var(--ce-gold);font-variant-numeric:tabular-nums}",
+    "#ce-landing-full .chap strong{display:block;color:#fff}",
+    "#ce-landing-full .chap span{font-size:15.5px;color:rgba(237,230,214,.72)}",
+    "#ce-landing-full .secret{margin-top:30px;border:1px solid #8A6A1F;border-radius:16px;padding:18px 20px 18px 62px;position:relative;background:rgba(0,0,0,.45)}",
+    "#ce-landing-full .secret::before{content:'\\2605';position:absolute;left:18px;top:18px;width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,#F5D27A,#B8892B);color:#111;display:flex;align-items:center;justify-content:center}",
+    "#ce-landing-full .secret small{display:block;color:var(--ce-gold);font-weight:800;letter-spacing:.16em;text-transform:uppercase;font-size:12px;margin-bottom:4px}",
+
+    "#ce-landing-full .gets{list-style:none;padding:0;margin:24px 0 0;display:grid;gap:12px}",
+    "#ce-landing-full .gets li{display:flex;gap:12px;font-size:18px}",
+    "#ce-landing-full .gets li::before{content:'\\2713';flex:none;width:28px;height:28px;border-radius:50%;background:#E6F6EE;color:#157A4A;font-weight:800;display:flex;align-items:center;justify-content:center}",
+
+    "#ce-landing-full .revs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:36px}",
+    "#ce-landing-full .rv{background:#fff;border:1px solid var(--ce-line);border-radius:18px;padding:22px}",
+    "#ce-landing-full .rv .st{color:#E8A317;letter-spacing:2px}",
+    "#ce-landing-full .rv .ex{display:inline-block;margin-bottom:8px;background:#FFF1E9;color:#C2410C;border:1px dashed #E8632E;font:800 10.5px/1 var(--ce-title);letter-spacing:.08em;padding:5px 8px;border-radius:6px}",
+    "#ce-landing-full .rv h3{font-size:17px;margin:8px 0;color:var(--ce-navy)}",
+    "#ce-landing-full .rv p{font-size:15.5px;color:var(--ce-ink)}",
+    "#ce-landing-full .rv .who{display:flex;align-items:center;gap:10px;margin-top:14px;font-size:14px;color:var(--ce-muted)}",
+    "#ce-landing-full .rv .who img,#ce-landing-full .rv .who i{width:36px;height:36px;border-radius:50%;object-fit:cover;background:var(--ce-navy);color:#fff;font-style:normal;font-weight:800;display:flex;align-items:center;justify-content:center}",
+
+    "#ce-landing-full .who2{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:34px}",
+    "#ce-landing-full .who2>div{border-radius:18px;padding:26px;border:1px solid var(--ce-line);min-width:0}",
+    "#ce-landing-full .who2 h3{font-size:19px;margin-bottom:12px;color:var(--ce-navy)}",
+    "#ce-landing-full .who2 ul{margin:0;padding-left:20px;display:grid;gap:8px}",
+    "#ce-landing-full .who2 .y{background:#F3FBF6;border-color:#CDEBD9}",
+    "#ce-landing-full .who2 .n{background:#FFF6F2;border-color:#F6D6C7}",
+
+    "#ce-landing-full .faq{margin-top:32px;display:grid;gap:12px}",
+    "#ce-landing-full .faq details{border:1px solid var(--ce-line);border-radius:14px;padding:0 22px;background:#fff}",
+    "#ce-landing-full .faq summary{cursor:pointer;list-style:none;font-weight:700;font-size:18px;padding:19px 30px 19px 0;position:relative}",
+    "#ce-landing-full .faq summary::-webkit-details-marker{display:none}",
+    "#ce-landing-full .faq summary::after{content:'+';position:absolute;right:0;top:14px;font-size:26px;color:var(--ce-orange)}",
+    "#ce-landing-full .faq details[open] summary::after{content:'\\2013'}",
+    "#ce-landing-full .faq p{padding-bottom:19px;color:var(--ce-muted)}",
+
+    "#ce-landing-full .final{background:radial-gradient(circle at 15% 100%,#E8632E 0%,#14213D 55%);color:#fff;text-align:center}",
+    "#ce-landing-full .final .h2{color:#fff}",
+    "#ce-landing-full .final p{color:rgba(255,255,255,.85);font-size:19px;margin:16px auto 0;max-width:560px}",
+
+    /* barra fija */
+    "#ce-sticky{position:fixed;left:0;right:0;bottom:0;z-index:9999;background:rgba(255,255,255,.97);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:1px solid var(--ce-line);box-shadow:0 -8px 30px rgba(0,0,0,.08);padding:10px max(16px,env(safe-area-inset-right,0px)) calc(10px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));transform:translateY(110%);transition:transform .3s ease}",
+    "#ce-sticky.on{transform:translateY(0)}",
+    "#ce-sticky .in{max-width:640px;margin:0 auto;display:flex;align-items:center;gap:14px}",
+    "#ce-sticky .tx{flex:1;min-width:0}",
+    "#ce-sticky .tx b{display:block;font:800 14px/1.2 var(--ce-title);color:var(--ce-ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}",
+    "#ce-sticky .tx span{font:800 17px/1.2 var(--ce-title);color:var(--ce-orange);font-variant-numeric:tabular-nums}",
+    "#ce-sticky button{flex:none;background:var(--ce-orange);color:#fff;border:0;border-radius:999px;font:800 15px/1 var(--ce-title);letter-spacing:.04em;padding:14px 22px;cursor:pointer}",
+
+    "@media(max-width:900px){#ce-landing-full .sec{padding-block:60px}#ce-landing-full .split,#ce-landing-full .book-row,#ce-landing-full .who2{grid-template-columns:minmax(0,1fr);gap:30px}#ce-landing-full .grid,#ce-landing-full .revs{grid-template-columns:minmax(0,1fr)}#ce-landing-full .book{max-width:200px}#ce-landing-full .cmp{overflow-x:auto}#ce-landing-full .cmp table{min-width:560px}#ce-landing-full .ph-first{order:-1}}"
+  ].join("");
+  document.head.appendChild(st);
+})();
+</script>
+
+<!-- ================================================================
+     BLOQUES DENTRO DE LA COLUMNA DE COMPRA
+     ================================================================ -->
+<script>
+(function() {
+  if (window.CE_BLOCK) return;
+  var cfg = window.CE_CONFIG, D = window.CE_DOM;
+
+  function esc(s) { return String(s == null ? "" : s); }
+
+  function topbar() {
+    if (document.getElementById("ce-topbar") || !(cfg.mensajesBarra || []).length) return;
+    var bar = document.createElement("div");
+    bar.id = "ce-topbar";
+    var items = cfg.mensajesBarra.map(function(m) { return "<span>" + esc(m) + "</span>"; }).join("");
+    bar.innerHTML = '<div class="tk">' + items + items + items + items + "</div>";
+    var page = document.getElementById("ce-preview-page");
+    var main = page || document.querySelector("main") || document.body.firstElementChild;
+    main.parentNode.insertBefore(bar, main);
+  }
+
+  function ratingAndBenefits() {
+    var title = D.title();
+    if (!title || document.getElementById("ce-benefits")) return;
+    var after = title.closest(".product__title") || title;
+    var r = cfg.rating || {};
+    var frag = document.createDocumentFragment();
+    if (r.puntuacion > 0 && r.cantidadOpiniones > 0) {
+      var rt = document.createElement("div");
+      rt.id = "ce-rating";
+      rt.innerHTML = '<span class="st" aria-hidden="true">★★★★★</span><b>' + String(r.puntuacion).replace(".", ",") + "</b> · " + r.cantidadOpiniones + " opiniones" +
+        (r.lectores > 0 ? " · +" + r.lectores.toLocaleString("es-AR") + " lectores" : "");
+      frag.appendChild(rt);
+    }
+    var ul = document.createElement("ul");
+    ul.id = "ce-benefits";
+    ul.innerHTML = (cfg.beneficios || []).map(function(b) { return "<li><span>" + b + "</span></li>"; }).join("");
+    frag.appendChild(ul);
+    after.parentNode.insertBefore(frag, after.nextSibling);
+  }
+
+  function setVariant(id) {
+    var inp = D.variantInput();
+    if (!inp || !window.CE_OK(id)) return;
+    inp.value = id;
+    inp.dispatchEvent(new Event("change", { bubbles: true }));
+  }
+
+  function offers() {
+    var btn = D.btn();
+    if (!btn || document.getElementById("ce-offers") || !cfg.mostrarOfertas) return;
+    var col = btn.closest(".product-form__buttons") || btn.parentNode;
+    var w = document.createElement("div");
+    w.id = "ce-offers";
+    w.setAttribute("role", "radiogroup");
+    w.setAttribute("aria-label", cfg.tituloOfertas || "Opciones");
+    w.innerHTML = '<div class="ot">' + esc(cfg.tituloOfertas) + "</div>" + cfg.ofertas.map(function(o, i) {
+      return '<div class="of' + (o.etiqueta ? " best" : "") + (o.seleccionado ? " sel" : "") + '" role="radio" tabindex="0" aria-checked="' + (o.seleccionado ? "true" : "false") + '" data-i="' + i + '">' +
+        (o.etiqueta ? '<span class="tag">' + esc(o.etiqueta) + "</span>" : "") +
+        '<span class="rd"></span><span class="nm">' + esc(o.nombre) + (o.ahorro ? '<span class="sv">' + esc(o.ahorro) + "</span>" : "") + '</span><span class="pr">' + esc(o.precio) + "</span>" +
+        '<span class="sb">' + esc(o.subtexto) + '</span><span class="ov">' + esc(o.precioViejo) + "</span>" +
+        ((o.incluye || []).length ? '<ul class="inc">' + o.incluye.map(function(x) { return "<li>" + esc(x) + "</li>"; }).join("") + "</ul>" : "") +
+        "</div>";
+    }).join("");
+    col.parentNode.insertBefore(w, col);
+    col.classList.add("ce-atc-col");
+    var label = btn.querySelector("span") || btn;
+    if (cfg.textoBoton) label.textContent = cfg.textoBoton;
+
+    function pick(el) {
+      w.querySelectorAll(".of").forEach(function(x) { x.classList.remove("sel"); x.setAttribute("aria-checked", "false"); });
+      el.classList.add("sel");
+      el.setAttribute("aria-checked", "true");
+      var o = cfg.ofertas[+el.getAttribute("data-i")];
+      setVariant(o.varianteId);
+      if (window.CE_PREVIEW) { var inp = D.variantInput(); if (inp) inp.value = o.nombre; }
+      document.dispatchEvent(new CustomEvent("ce:offer", { detail: o }));
+    }
+    w.querySelectorAll(".of").forEach(function(el) {
+      el.addEventListener("click", function() { pick(el); });
+      el.addEventListener("keydown", function(e) { if (e.key === " " || e.key === "Enter") { e.preventDefault(); pick(el); } });
+    });
+    window.CE_PICK = function(i) { var el = w.querySelector('.of[data-i="' + i + '"]'); if (el) pick(el); };
+    var def = w.querySelector(".of.sel") || w.querySelector(".of");
+    setTimeout(function() { pick(def); }, 300);
+  }
+
+  function delivery() {
+    var off = document.getElementById("ce-offers");
+    var btn = D.btn();
+    if (!btn || document.getElementById("ce-delivery")) return;
+    var col = btn.closest(".product-form__buttons") || btn.parentNode;
+    var e = cfg.entrega || {};
+    var box = document.createElement("div");
+    box.id = "ce-delivery";
+    box.innerHTML = '<span class="ic" aria-hidden="true">✉</span><div><b>' + esc(e.titulo) + "</b><span>" + esc(e.texto) +
+      (e.garantiaDias > 0 ? " Garantía de " + e.garantiaDias + " días." : "") + "</span></div>";
+    var form = D.form();
+    (form || col).insertAdjacentElement("afterend", box);
+    if ((cfg.faqsCompra || []).length && !document.getElementById("ce-faq-buy")) {
+      var fq = document.createElement("div");
+      fq.id = "ce-faq-buy";
+      fq.innerHTML = cfg.faqsCompra.map(function(f) { return "<details><summary>" + esc(f.p) + "</summary><p>" + esc(f.r) + "</p></details>"; }).join("");
+      box.insertAdjacentElement("afterend", fq);
+    }
+  }
+
+  function run() {
+    if (!D.form()) return false;
+    topbar(); ratingAndBenefits(); offers(); delivery();
+    return true;
+  }
+  var tries = 0;
+  var t = setInterval(function() { tries++; if (run() || tries > 40) clearInterval(t); }, 250);
+})();
+</script>
+
+<!-- ================================================================
+     SECCIONES A TODO EL ANCHO (debajo del producto)
+     ================================================================ -->
+<script>
+(function() {
+  if (window.CE_BLOCK) return;
+  var cfg = window.CE_CONFIG, D = window.CE_DOM, img = cfg.imagenes || {};
+
+  function src(u) { return window.CE_OK(u) ? u : ""; }
+  function scrollToBuy(i) {
+    if (typeof i === "number" && window.CE_PICK) window.CE_PICK(i);
+    var o = document.getElementById("ce-offers") || D.form();
+    if (o) o.scrollIntoView({ behavior: "smooth", block: "center" });
+  }
+  var comboIndex = Math.max(0, cfg.ofertas.findIndex(function(o) { return !!o.etiqueta; }));
+
+  function reviews() {
+    var t = (cfg.testimonios || []).filter(function(r) { return window.CE_PREVIEW || !r.ejemplo; }).slice(0, 3);
+    if (!t.length) return "";
+    return '<section class="sec paper"><div class="w"><div class="ey">Lo que dicen quienes lo usaron</div><h2 class="h2">Búsquedas con método, resultados reales</h2><div class="revs">' +
+      t.map(function(r) {
+        var pic = window.CE_OK(r.foto) && r.foto ? '<img src="' + r.foto + '" alt="" loading="lazy">' : "<i>" + (r.nombre || "?").charAt(0) + "</i>";
+        return '<div class="rv">' + (r.ejemplo ? '<span class="ex">EJEMPLO · solo en vista previa</span>' : "") + '<div class="st" aria-hidden="true">★★★★★</div><h3>' + r.titulo + "</h3><p>" + r.texto + '</p><div class="who">' + pic + "<span><b>" + r.nombre + "</b>" + (r.rubro ? " · " + r.rubro : "") + "</span></div></div>";
+      }).join("") + "</div></div></section>";
+  }
+
+  function build() {
+    if (document.getElementById("ce-landing-full")) return true;
+    var c = D.fullWidth();
+    if (!c) return false;
+    var faqs = (cfg.faqs || []).map(function(f) { return "<details><summary>" + f.p + "</summary><p>" + f.r + "</p></details>"; }).join("");
+    c.innerHTML =
+      // 1. Problema
+      '<section class="sec"><div class="w split">' +
+        '<div class="ph ph-first"><img src="' + src(img.problema) + '" alt="Persona frustrada frente a la computadora de noche" loading="lazy"></div>' +
+        '<div><div class="ey">¿Te pasa esto?</div><h2 class="h2">Buscar trabajo sin método agota</h2><ul class="pains">' +
+          "<li>Mandás decenas de CVs y casi nadie te responde.</li>" +
+          "<li>Llegás a la entrevista final y eligen a otra persona.</li>" +
+          "<li>Tu LinkedIn existe, pero ningún reclutador te escribe.</li>" +
+          "<li>No sabés cuánto pedir de sueldo y terminás aceptando menos.</li>" +
+        '</ul><p class="turn">No es falta de talento. <span>Es falta de método.</span></p></div>' +
+      "</div></section>" +
+
+      // 2. Solución: el plan
+      '<section class="sec paper"><div class="w book-row">' +
+        '<div class="book"><img src="' + src(img.tapa1) + '" alt="Tapa del ebook Conseguí trabajo en 30 días" loading="lazy"></div>' +
+        '<div><div class="ey">La solución · Ebook de 43 páginas</div><h2 class="h2">Un plan día por día para <span>conseguir trabajo en 30 días</span></h2>' +
+        '<p class="ld">Cada etapa tiene tareas concretas, checklists para tildar y plantillas listas para copiar. Sabés exactamente qué hacer cada día.</p>' +
+        '<ol class="steps">' +
+          "<li><b>1</b><div><small>Días 1–3</small><strong>Objetivo y propuesta de valor</strong><span>Qué buscás y por qué te tienen que elegir.</span></div></li>" +
+          "<li><b>2</b><div><small>Días 4–8</small><strong>Un CV que pasa los filtros</strong><span>La fórmula de logros que consigue entrevistas.</span></div></li>" +
+          "<li><b>3</b><div><small>Días 9–12</small><strong>LinkedIn que atrae reclutadores</strong><span>Titular, perfil y red para que te encuentren.</span></div></li>" +
+          "<li><b>4</b><div><small>Días 13–17</small><strong>Búsqueda y networking</strong><span>El mercado oculto y los mensajes que abren puertas.</span></div></li>" +
+          '<li class="hl"><b>5</b><div><small>Días 18–24</small><strong>Entrevistas que terminan en oferta</strong><span>Método STAR y las 15 preguntas clave.</span></div></li>' +
+          "<li><b>6</b><div><small>Días 25–28</small><strong>Negociación de sueldo</strong><span>Qué decir para no aceptar menos de lo que valés.</span></div></li>" +
+          "<li><b>7</b><div><small>Días 29–30</small><strong>Cierre y plan B</strong><span>Cómo arrancar bien o ajustar si todavía no llegó.</span></div></li>" +
+        "</ol></div>" +
+      "</div></section>" +
+
+      // 3. Qué incluye
+      '<section class="sec"><div class="w"><div class="ey">Qué incluye</div><h2 class="h2">Todo lo que necesitás, listo para usar</h2><div class="grid">' +
+        '<div class="ft"><div class="n">30</div><h3>Días de plan</h3><p>Tareas diarias con checklists para tildar.</p></div>' +
+        '<div class="ft"><div class="n">15</div><h3>Preguntas de entrevista</h3><p>Las que te van a hacer casi seguro, y cómo responderlas.</p></div>' +
+        '<div class="ft"><div class="n">8</div><h3>Plantillas de mensajes</h3><p>Para pedir referidos, hacer seguimiento y aceptar la oferta.</p></div>' +
+        '<div class="ft"><div class="n">10</div><h3>Rubros</h3><p>Qué destacar en tu CV según dónde busques.</p></div>' +
+        '<div class="ft"><div class="n">1</div><h3>Tracker de búsqueda</h3><p>Para medir postulaciones, respuestas y entrevistas.</p></div>' +
+        '<div class="ft"><div class="n">2</div><h3>Formatos</h3><p>PDF para descargar y versión web interactiva para el celular.</p></div>' +
+      "</div></div></section>" +
+
+      // 4. Comparación
+      '<section class="sec paper"><div class="w nw"><div class="ey">La diferencia</div><h2 class="h2">Buscar a ciegas vs. buscar con método</h2><div class="cmp"><table>' +
+        "<thead><tr><th></th><th>Sin método</th><th>Con el plan de 30 días</th></tr></thead><tbody>" +
+        "<tr><td>CV</td><td>El mismo para todo</td><td>Adaptado a cada aviso en 15 minutos</td></tr>" +
+        "<tr><td>LinkedIn</td><td>Perfil quieto, nadie escribe</td><td>Optimizado para que te encuentren</td></tr>" +
+        "<tr><td>Búsqueda</td><td>Solo apretar \"postularme\"</td><td>Avisos, contactos y mercado oculto</td></tr>" +
+        "<tr><td>Entrevistas</td><td>Improvisar</td><td>Historias preparadas con método STAR</td></tr>" +
+        "<tr><td>Sueldo</td><td>Aceptar lo primero</td><td>Negociar con argumentos</td></tr>" +
+      "</tbody></table></div></div></section>" +
+
+      // 5. Combo: Secretos de reclutador
+      '<section class="sec pro" style="background-image:url(\'' + src(img.comboFondo) + '\')"><div class="w book-row">' +
+        '<div class="book"><img src="' + src(img.tapa2) + '" alt="Tapa del ebook Secretos de reclutador" loading="lazy"></div>' +
+        '<div><div class="ey">Incluido en el combo · 36 páginas · Nivel experto</div><h2 class="h2">Secretos de <span>reclutador</span></h2>' +
+        '<p class="ld">Lo que pasa del otro lado de la mesa. El manual avanzado que potencia cada etapa del plan.</p><ul class="chap">' +
+          "<li><b>01</b><div><strong>Cómo se decide una contratación</strong><span>Qué quiere y qué teme cada persona que te evalúa.</span></div></li>" +
+          "<li><b>02</b><div><strong>La lista oculta del aviso</strong><span>Cómo te comparan con los otros finalistas.</span></div></li>" +
+          "<li><b>03</b><div><strong>LinkedIn por dentro</strong><span>Cómo te buscan los reclutadores y cómo aparecer primero.</span></div></li>" +
+          "<li><b>04</b><div><strong>10 estrategias avanzadas</strong><span>Para pasar primero en la fila, incluso sin experiencia.</span></div></li>" +
+          "<li><b>05</b><div><strong>Cómo te puntúan</strong><span>Grillas de entrevista, tests psicotécnicos y entrevistas con IA.</span></div></li>" +
+          "<li><b>06</b><div><strong>Negociación avanzada</strong><span>Bandas salariales, inflación y trabajos para el exterior.</span></div></li>" +
+          "<li><b>07</b><div><strong>Situaciones especiales y estafas</strong><span>Primer empleo, cambio de carrera, +45 y ofertas trucha.</span></div></li>" +
+        '</ul><div class="secret"><small>Secreto de reclutador</small>A la hora de elegir, el miedo a equivocarse pesa más que las ganas de encontrar a una estrella. Gana quien transmite menos riesgo.</div>' +
+        '<button type="button" class="cta gold" data-buy="combo">Quiero el combo</button></div>' +
+      "</div></section>" +
+
+      // 6. Resultado
+      '<section class="sec"><div class="w split"><div><div class="ey">El resultado</div><h2 class="h2">Así se ve una búsqueda con método</h2><ul class="gets">' +
+          "<li>Un CV que muestra en segundos por qué sos la mejor opción.</li>" +
+          "<li>Reclutadores que te encuentran a vos, y no al revés.</li>" +
+          "<li>Respuestas preparadas para cada pregunta de la entrevista.</li>" +
+          "<li>La seguridad para negociar tu sueldo sin miedo.</li>" +
+        '</ul><button type="button" class="cta" data-buy="1">Quiero empezar hoy</button></div>' +
+        '<div class="ph"><img src="' + src(img.resultado) + '" alt="Persona recibiendo la bienvenida en su nuevo trabajo" loading="lazy"></div>' +
+      "</div></section>" +
+
+      // 7. Reseñas (solo si hay reales)
+      reviews() +
+
+      // 8. Para quién
+      '<section class="sec' + ((cfg.testimonios || []).some(function(r) { return window.CE_PREVIEW || !r.ejemplo; }) ? "" : " paper") + '"><div class="w nw"><div class="ey">¿Es para vos?</div><h2 class="h2">Pensado para quien quiere resultados</h2><div class="who2">' +
+        '<div class="y"><h3>Es para vos si...</h3><ul><li>Estás buscando trabajo o querés cambiar.</li><li>Sentís que mandás CVs y no pasa nada.</li><li>Querés un paso a paso claro, sin vueltas.</li><li>Estás dispuesto a dedicarle tiempo todos los días.</li></ul></div>' +
+        '<div class="n"><h3>No es para vos si...</h3><ul><li>Buscás una fórmula mágica sin hacer nada.</li><li>No pensás aplicar lo que leés.</li><li>Querés que alguien busque trabajo por vos.</li></ul></div>' +
+      "</div></div></section>" +
+
+      // 9. FAQ
+      '<section class="sec"><div class="w nw"><div class="ey">Preguntas frecuentes</div><h2 class="h2">Lo que suelen preguntar</h2><div class="faq">' + faqs + "</div></div></section>" +
+
+      // 10. Cierre
+      '<section class="sec final"><div class="w nw"><h2 class="h2">Tu próximo trabajo empieza hoy</h2><p>En 30 días podés tener un CV que consigue entrevistas y las herramientas para que te elijan.</p><button type="button" class="cta" data-buy="1">Elegir mi opción</button></div></section>';
+
+    c.querySelectorAll("[data-buy]").forEach(function(b) {
+      b.addEventListener("click", function() { scrollToBuy(b.getAttribute("data-buy") === "combo" ? comboIndex : undefined); });
+    });
+    return true;
+  }
+
+  function sticky() {
+    if (!cfg.barraFija || document.getElementById("ce-sticky")) return;
+    var bar = document.createElement("div");
+    bar.id = "ce-sticky";
+    bar.innerHTML = '<div class="in"><div class="tx"><b></b><span></span></div><button type="button">Comprar</button></div>';
+    document.body.appendChild(bar);
+    function paint(o) { bar.querySelector("b").textContent = o.nombre; bar.querySelector(".tx span").textContent = o.precio; }
+    paint(cfg.ofertas.find(function(o) { return o.seleccionado; }) || cfg.ofertas[0]);
+    document.addEventListener("ce:offer", function(e) { paint(e.detail); });
+    bar.querySelector("button").addEventListener("click", function() {
+      var b = D.btn();
+      if (b) b.click(); else scrollToBuy();
+    });
+    function check() {
+      var b = D.btn();
+      if (!b) return;
+      var r = b.getBoundingClientRect();
+      bar.classList.toggle("on", r.bottom < 0);
+    }
+    window.addEventListener("scroll", check, { passive: true });
+    check();
+  }
+
+  var tries = 0;
+  var t = setInterval(function() { tries++; if (build() || tries > 40) { clearInterval(t); sticky(); } }, 250);
+})();
+</script>
+</div>
+<!-- {% endraw %} -->
