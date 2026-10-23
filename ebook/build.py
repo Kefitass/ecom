@@ -268,7 +268,7 @@ _cp = foto(E["photo"])
 COVER_BG = f'<div class="cv-photo" style="background-image:url({_cp})"></div>' if _cp else ""
 COVER_ILLU = "" if _cp else f'<div class="cv-illu">{E["illu"]}</div>'
 COVER = f"""
-<section class="{E['cover_cls']}">{COVER_BG}
+<section class="{E['cover_cls']}{' has-photo' if _cp else ''}">{COVER_BG}
   <div class="cv-glow"></div>
   <div class="cv-badge">{E['badge']}</div>
   <h1 class="cv-title">{E['title']}</h1>

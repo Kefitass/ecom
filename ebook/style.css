@@ -130,3 +130,12 @@ tr { break-inside: avoid; }
 .welcome.pro .toc-n { color: #B8892B; }
 .closing.pro { background: radial-gradient(circle at 20% 90%, #8A6A1F 0%, #15130F 58%); }
 .closing.pro .cl-kicker, .closing.pro .cl-steps b { color: #F5D27A; }
+
+/* cover with photo: push the person down/right, keep text on a dark left band */
+.cover.has-photo .cv-photo { background-size: 118% auto; background-repeat: no-repeat; background-position: 80% 0; top: 22mm; }
+.cover.has-photo .cv-photo::after { background: linear-gradient(90deg, rgba(8,12,26,.88) 0%, rgba(8,12,26,.35) 55%, rgba(8,12,26,0) 80%), linear-gradient(180deg, rgba(8,12,26,1) 0%, rgba(8,12,26,0) 22%, rgba(8,12,26,0) 70%, rgba(8,12,26,.95) 100%); }
+.cover.pro.has-photo .cv-photo::after { background: linear-gradient(90deg, rgba(10,9,7,.9) 0%, rgba(10,9,7,.35) 55%, rgba(10,9,7,0) 80%), linear-gradient(180deg, rgba(10,9,7,1) 0%, rgba(10,9,7,0) 22%, rgba(10,9,7,0) 70%, rgba(10,9,7,.95) 100%); }
+.cover.has-photo { background: #080C1A; }
+.cover.pro.has-photo { background: #0A0907; }
+.cover.has-photo .cv-sub { max-width: 100mm; }
+.cover.has-photo .cv-cal, .cover.has-photo .cv-seal { left: 22mm; right: auto; top: auto; bottom: 46mm; }
