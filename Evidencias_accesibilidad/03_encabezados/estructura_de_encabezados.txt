@@ -26,10 +26,10 @@ H1 Impulsamos marcas que dejan huella.
 == ficha_servicio (/producto/branding-identidad-de-marca/)
 H1 Branding – Identidad de marca
   H2 Descripción
-    H3 Qué incluye
-    H3 Para quién es
-    H3 Plazos y entregables
-    H3 Preguntas frecuentes
+  H2 Qué incluye
+  H2 Para quién es
+  H2 Plazos y entregables
+  H2 Preguntas frecuentes
       H4 ¿Los archivos son míos?
       H4 ¿Puedo pagar en cuotas?
 
