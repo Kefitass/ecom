@@ -1,0 +1,336 @@
+<!-- Landing template. Placeholders {{NAME}} are filled by build.py for the preview (static) and for Shopify (Liquid). -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Source+Sans+3:wght@400;600;700&display=swap">
+<style>
+/* Layout: photo hero → problem → 7-step plan → what's inside → dark-gold "Secretos" band → result → offers → FAQ → final CTA */
+.le {
+  --navy: #14213D; --navy-2: #0B1226; --ink: #1C2333; --muted: #5A6478; --line: #E1E5EE; --paper: #F6F7FB; --white: #FFFFFF;
+  --accent: #E8632E; --accent-2: #FF8A57; --gold: #F5D27A; --gold-2: #B8892B; --black: #0E0C09;
+  --display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", sans-serif;
+  --body: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
+  font-family: var(--body); color: var(--ink); background: var(--white); font-size: 17px; line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+.le *, .le *::before, .le *::after { box-sizing: border-box; }
+.le h1, .le h2, .le h3 { font-family: var(--display); line-height: 1.08; letter-spacing: -0.02em; text-wrap: balance; margin: 0; color: inherit; }
+.le p { margin: 0; }
+.le img { max-width: 100%; display: block; }
+.le-wrap { max-width: 1120px; margin: 0 auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
+.le-narrow { max-width: 760px; }
+.le-section { padding-block: 88px; }
+.le-eyebrow { font-weight: 700; font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
+.le-h2 { font-size: clamp(30px, 4.4vw, 46px); font-weight: 800; }
+.le-lead { font-size: 19px; color: var(--muted); margin-top: 16px; max-width: 640px; }
+.le-btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; background: var(--accent); color: #fff !important; font-weight: 700; font-size: 18px; text-decoration: none; padding: 17px 30px; border-radius: 999px; border: 0; cursor: pointer; transition: transform .15s ease, background .15s ease; box-shadow: 0 10px 24px rgba(232,99,46,.35); }
+.le-btn:hover { background: #F2753F; transform: translateY(-1px); }
+.le-btn:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+.le-btn.gold { background: linear-gradient(90deg, #F5D27A, #C9952F); color: #15120A !important; box-shadow: 0 10px 24px rgba(201,149,47,.35); }
+.le-btn.ghost { background: transparent; color: var(--navy) !important; border: 2px solid var(--navy); box-shadow: none; }
+@media (prefers-reduced-motion: reduce) { .le-btn { transition: none; } .le-btn:hover { transform: none; } }
+
+/* hero */
+.le-hero { position: relative; color: #fff; background: var(--navy-2) url({{IMG_HERO}}) right center / cover no-repeat; }
+.le-hero::before { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(8,12,26,.95) 0%, rgba(8,12,26,.82) 38%, rgba(8,12,26,.15) 70%, rgba(8,12,26,0) 100%); }
+.le-hero .le-wrap { position: relative; padding-block: 110px 120px; }
+.le-hero-copy { max-width: 560px; }
+.le-hero .le-eyebrow { color: var(--gold); }
+.le-hero h1 { font-size: clamp(40px, 6vw, 68px); font-weight: 800; letter-spacing: -0.035em; }
+.le-hero h1 span { color: var(--accent-2); }
+.le-hero p.le-sub { font-size: 20px; line-height: 1.5; color: rgba(255,255,255,.86); margin: 22px 0 32px; }
+.le-trust { display: flex; flex-wrap: wrap; gap: 8px 20px; margin-top: 22px; font-size: 15px; color: rgba(255,255,255,.8); list-style: none; padding: 0; }
+.le-trust li::before { content: "✓"; color: var(--gold); font-weight: 800; margin-right: 6px; }
+
+/* problem */
+.le-split { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+.le-split > * { min-width: 0; }
+.le-photo { border-radius: 20px; overflow: hidden; box-shadow: 0 24px 60px rgba(20,33,61,.22); }
+.le-photo img { width: 100%; height: 100%; object-fit: cover; aspect-ratio: 3 / 2; }
+.le-pains { list-style: none; padding: 0; margin: 28px 0 0; display: grid; gap: 14px; }
+.le-pains li { display: flex; gap: 14px; align-items: flex-start; font-size: 18px; }
+.le-pains li::before { content: "✕"; flex: none; width: 28px; height: 28px; border-radius: 50%; background: #FDECEC; color: #C2412D; font-weight: 800; font-size: 14px; display: flex; align-items: center; justify-content: center; margin-top: 1px; }
+.le-turn { margin-top: 28px; font-family: var(--display); font-weight: 800; font-size: 24px; color: var(--navy); }
+.le-turn span { color: var(--accent); }
+
+/* plan */
+.le-plan { background: var(--paper); }
+.le-steps { list-style: none; padding: 0; margin: 48px 0 0; display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 12px; counter-reset: s; }
+.le-steps li { background: var(--white); border: 1px solid var(--line); border-radius: 16px; padding: 18px 14px; min-width: 0; }
+.le-steps li:nth-child(5) { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent) inset; }
+.le-steps b { display: block; font-family: var(--display); font-size: 30px; color: var(--accent); line-height: 1; margin-bottom: 8px; font-variant-numeric: tabular-nums; }
+.le-steps small { display: block; font-size: 13px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; }
+.le-steps span { display: block; font-weight: 700; font-size: 16px; line-height: 1.3; margin-top: 4px; overflow-wrap: anywhere; }
+.le-bar { margin-top: 14px; background: linear-gradient(90deg, #E8632E, #FFC857); color: var(--navy); font-weight: 700; border-radius: 999px; padding: 10px 18px; text-align: center; font-size: 15px; }
+
+/* inside */
+.le-features { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; margin-top: 44px; }
+.le-feature { border: 1px solid var(--line); border-radius: 18px; padding: 26px; }
+.le-feature .n { font-family: var(--display); font-weight: 800; font-size: 40px; color: var(--navy); line-height: 1; font-variant-numeric: tabular-nums; }
+.le-feature h3 { font-size: 20px; margin: 10px 0 6px; }
+.le-feature p { color: var(--muted); font-size: 16px; }
+.le-book-row { display: grid; grid-template-columns: 300px 1fr; gap: 56px; align-items: center; }
+.le-book-row > * { min-width: 0; }
+
+/* book mockup made from the cover image */
+.le-book { position: relative; width: 100%; max-width: 280px; margin: 0 auto; perspective: 1200px; }
+.le-book img { width: 100%; aspect-ratio: 210 / 297; object-fit: cover; border-radius: 4px 10px 10px 4px; transform: rotateY(-14deg); transform-origin: left center; box-shadow: 18px 26px 40px rgba(0,0,0,.38), inset 0 0 0 1px rgba(255,255,255,.08); }
+.le-book::before { content: ""; position: absolute; left: 0; top: 2%; bottom: 2%; width: 14px; background: linear-gradient(90deg, rgba(0,0,0,.35), rgba(255,255,255,.12), rgba(0,0,0,.1)); z-index: 2; border-radius: 4px 0 0 4px; transform: rotateY(-14deg); transform-origin: left center; }
+.le-books { display: flex; justify-content: center; align-items: flex-end; gap: 0; }
+.le-books .le-book { max-width: 220px; }
+.le-books .le-book + .le-book { margin-left: -60px; transform: translateY(18px); }
+
+/* secretos band */
+.le-pro { position: relative; color: #EDE6D6; background: var(--black) url({{IMG_COMBO}}) center / cover no-repeat; }
+.le-pro::before { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(14,12,9,.92) 0%, rgba(14,12,9,.78) 50%, rgba(14,12,9,.92) 100%); }
+.le-pro > .le-wrap { position: relative; }
+.le-pro .le-eyebrow { color: var(--gold); }
+.le-pro .le-h2 { color: #fff; }
+.le-pro .le-h2 span { color: var(--gold); }
+.le-pro .le-lead { color: rgba(237,230,214,.8); }
+.le-pro-list { list-style: none; padding: 0; margin: 30px 0 0; display: grid; gap: 12px; }
+.le-pro-list li { display: grid; grid-template-columns: 44px 1fr; gap: 14px; align-items: start; }
+.le-pro-list b { font-family: var(--display); color: var(--gold); font-size: 22px; line-height: 1.2; font-variant-numeric: tabular-nums; }
+.le-pro-list strong { color: #fff; display: block; }
+.le-pro-list span { color: rgba(237,230,214,.75); font-size: 16px; }
+.le-secret { margin-top: 34px; border: 1px solid #8A6A1F; border-radius: 16px; padding: 20px 22px 20px 64px; position: relative; background: rgba(0,0,0,.4); }
+.le-secret::before { content: "★"; position: absolute; left: 20px; top: 20px; width: 30px; height: 30px; border-radius: 50%; background: linear-gradient(135deg, #F5D27A, #B8892B); color: #111; display: flex; align-items: center; justify-content: center; }
+.le-secret small { display: block; color: var(--gold); font-weight: 800; letter-spacing: .16em; text-transform: uppercase; font-size: 12px; margin-bottom: 4px; }
+
+/* result */
+.le-result .le-photo img { aspect-ratio: 3 / 2; }
+.le-gets { list-style: none; padding: 0; margin: 26px 0 0; display: grid; gap: 12px; }
+.le-gets li { display: flex; gap: 12px; font-size: 18px; }
+.le-gets li::before { content: "✓"; flex: none; width: 28px; height: 28px; border-radius: 50%; background: #E6F6EE; color: #157A4A; font-weight: 800; display: flex; align-items: center; justify-content: center; }
+
+/* offers */
+.le-offers { background: var(--paper); }
+.le-cards { display: grid; grid-template-columns: 1fr 1.12fr; gap: 24px; margin-top: 48px; align-items: stretch; }
+.le-card { background: var(--white); border: 1px solid var(--line); border-radius: 24px; padding: 34px; display: flex; flex-direction: column; gap: 18px; min-width: 0; }
+.le-card.best { background: var(--navy); color: #fff; border: 2px solid var(--gold-2); position: relative; box-shadow: 0 30px 70px rgba(20,33,61,.35); }
+.le-tag { position: absolute; top: -15px; left: 34px; background: linear-gradient(90deg, #F5D27A, #C9952F); color: #15120A; font-weight: 800; font-size: 13px; letter-spacing: .08em; text-transform: uppercase; padding: 6px 14px; border-radius: 999px; }
+.le-card h3 { font-size: 24px; }
+.le-card .desc { color: var(--muted); }
+.le-card.best .desc { color: rgba(255,255,255,.75); }
+.le-price { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+.le-price strong { font-family: var(--display); font-size: 46px; font-weight: 800; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+.le-price s { color: var(--muted); font-size: 20px; }
+.le-card.best .le-price s { color: rgba(255,255,255,.55); }
+.le-save { display: inline-block; background: rgba(245,210,122,.16); color: var(--gold); font-weight: 700; font-size: 14px; padding: 4px 10px; border-radius: 8px; }
+.le-includes { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; flex: 1; }
+.le-includes li { display: flex; gap: 10px; font-size: 16px; }
+.le-includes li::before { content: "✓"; color: var(--accent); font-weight: 800; }
+.le-card.best .le-includes li::before { color: var(--gold); }
+.le-card .le-btn { width: 100%; }
+.le-small { font-size: 14px; color: var(--muted); text-align: center; margin-top: 18px; }
+
+/* for who */
+.le-who { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 40px; }
+.le-who > div { border-radius: 18px; padding: 28px; border: 1px solid var(--line); min-width: 0; }
+.le-who h3 { font-size: 20px; margin-bottom: 14px; }
+.le-who ul { margin: 0; padding-left: 20px; display: grid; gap: 8px; }
+.le-who .yes { background: #F3FBF6; border-color: #CDEBD9; }
+.le-who .no { background: #FFF6F2; border-color: #F6D6C7; }
+
+/* faq */
+.le-faq { margin-top: 36px; display: grid; gap: 12px; }
+.le-faq details { border: 1px solid var(--line); border-radius: 14px; padding: 0 22px; background: var(--white); }
+.le-faq summary { cursor: pointer; list-style: none; font-weight: 700; font-size: 18px; padding: 20px 30px 20px 0; position: relative; }
+.le-faq summary::-webkit-details-marker { display: none; }
+.le-faq summary::after { content: "+"; position: absolute; right: 0; top: 16px; font-size: 26px; color: var(--accent); font-weight: 400; }
+.le-faq details[open] summary::after { content: "–"; }
+.le-faq details p { padding-bottom: 20px; color: var(--muted); }
+
+/* final */
+.le-final { background: radial-gradient(circle at 15% 100%, #E8632E 0%, #14213D 55%); color: #fff; text-align: center; }
+.le-final .le-h2 { color: #fff; }
+.le-final p { color: rgba(255,255,255,.85); font-size: 19px; margin: 18px auto 32px; max-width: 560px; }
+
+@media (max-width: 900px) {
+  .le-section { padding-block: 64px; }
+  .le-split, .le-book-row, .le-cards, .le-who { grid-template-columns: minmax(0, 1fr); gap: 32px; }
+  .le-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .le-features { grid-template-columns: minmax(0, 1fr); }
+  .le-hero { background-position: 70% center; }
+  .le-hero::before { background: linear-gradient(180deg, rgba(8,12,26,.55) 0%, rgba(8,12,26,.88) 55%, rgba(8,12,26,.96) 100%); }
+  .le-hero .le-wrap { padding-block: 220px 64px; }
+  .le-result .le-photo { order: -1; }
+  .le-book-row .le-book { max-width: 220px; }
+}
+</style>
+
+<div class="le">
+
+  <section class="le-hero">
+    <div class="le-wrap">
+      <div class="le-hero-copy">
+        <div class="le-eyebrow">Plan de 30 días · CV, LinkedIn y entrevistas</div>
+        <h1>Dejá de mandar CVs al vacío. <span>Conseguí trabajo en 30 días.</span></h1>
+        <p class="le-sub">El sistema paso a paso para tener un CV que consigue entrevistas, un LinkedIn que atrae reclutadores y las respuestas que hacen que te elijan, en cualquier rubro.</p>
+        <a class="le-btn" href="#le-ofertas">Quiero el plan</a>
+        <ul class="le-trust">
+          <li>Acceso inmediato</li>
+          <li>PDF + versión web interactiva</li>
+          <li>Para cualquier rubro</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="le-section">
+    <div class="le-wrap le-split">
+      <div class="le-photo"><img src="{{IMG_PROBLEMA}}" alt="Persona frustrada frente a la computadora de noche" loading="lazy" width="1536" height="1024"></div>
+      <div>
+        <div class="le-eyebrow">¿Te pasa esto?</div>
+        <h2 class="le-h2">Buscar trabajo sin método agota</h2>
+        <ul class="le-pains">
+          <li>Mandás decenas de CVs y casi nadie te responde.</li>
+          <li>Llegás a la entrevista final y eligen a otra persona.</li>
+          <li>Tu LinkedIn existe, pero ningún reclutador te escribe.</li>
+          <li>No sabés cuánto pedir de sueldo y terminás aceptando menos.</li>
+        </ul>
+        <p class="le-turn">No es falta de talento. <span>Es falta de método.</span></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="le-section le-plan">
+    <div class="le-wrap">
+      <div class="le-eyebrow">El método</div>
+      <h2 class="le-h2">Un plan día por día, con tareas concretas</h2>
+      <p class="le-lead">Cada etapa tiene checklists para tildar, ejemplos reales y plantillas listas para copiar. Sabés exactamente qué hacer cada día.</p>
+      <ol class="le-steps">
+        <li><b>1</b><small>Días 1–3</small><span>Objetivo y propuesta de valor</span></li>
+        <li><b>2</b><small>Días 4–8</small><span>CV que pasa filtros</span></li>
+        <li><b>3</b><small>Días 9–12</small><span>LinkedIn que atrae reclutadores</span></li>
+        <li><b>4</b><small>Días 13–17</small><span>Búsqueda y networking</span></li>
+        <li><b>5</b><small>Días 18–24</small><span>Entrevistas que terminan en oferta</span></li>
+        <li><b>6</b><small>Días 25–28</small><span>Negociación de sueldo</span></li>
+        <li><b>7</b><small>Días 29–30</small><span>Cierre y plan B</span></li>
+      </ol>
+      <div class="le-bar">Desde el día 8: postulaciones, mensajes y seguimientos todos los días, hasta firmar</div>
+    </div>
+  </section>
+
+  <section class="le-section">
+    <div class="le-wrap le-book-row">
+      <div class="le-book"><img src="{{IMG_TAPA1}}" alt="Tapa del ebook Conseguí trabajo en 30 días" loading="lazy" width="1654" height="2339"></div>
+      <div>
+        <div class="le-eyebrow">Ebook 1 · 43 páginas</div>
+        <h2 class="le-h2">Conseguí trabajo en 30 días</h2>
+        <p class="le-lead">El plan completo para pasar de buscar a ciegas a tener entrevistas todas las semanas.</p>
+        <div class="le-features">
+          <div class="le-feature"><div class="n">15</div><h3>Preguntas de entrevista</h3><p>Las que te van a hacer casi seguro, con cómo responderlas.</p></div>
+          <div class="le-feature"><div class="n">8</div><h3>Plantillas de mensajes</h3><p>Para pedir referidos, hacer seguimiento y aceptar la oferta.</p></div>
+          <div class="le-feature"><div class="n">10</div><h3>Rubros</h3><p>Qué destacar en tu CV según dónde busques.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="le-section le-pro">
+    <div class="le-wrap le-book-row">
+      <div class="le-book"><img src="{{IMG_TAPA2}}" alt="Tapa del ebook Secretos de reclutador" loading="lazy" width="1654" height="2339"></div>
+      <div>
+        <div class="le-eyebrow">Ebook 2 · 36 páginas · Nivel experto</div>
+        <h2 class="le-h2">Secretos de <span>reclutador</span></h2>
+        <p class="le-lead">Lo que pasa del otro lado de la mesa. El manual avanzado que potencia cada etapa del plan de 30 días.</p>
+        <ul class="le-pro-list">
+          <li><b>01</b><div><strong>Cómo se decide una contratación</strong><span>Qué quiere y qué teme cada persona que te evalúa.</span></div></li>
+          <li><b>02</b><div><strong>La lista oculta del aviso</strong><span>Cómo te comparan con los otros finalistas y cómo ganar esa comparación.</span></div></li>
+          <li><b>03</b><div><strong>LinkedIn por dentro</strong><span>Cómo te buscan los reclutadores y cómo aparecer primero.</span></div></li>
+          <li><b>04</b><div><strong>10 estrategias avanzadas</strong><span>Para pasar primero en la fila, incluso sin experiencia.</span></div></li>
+          <li><b>05</b><div><strong>Cómo te puntúan</strong><span>Grillas de entrevista, tests psicotécnicos y entrevistas con IA.</span></div></li>
+          <li><b>06</b><div><strong>Negociación avanzada</strong><span>Bandas salariales, ajustes por inflación y trabajos para el exterior.</span></div></li>
+          <li><b>07</b><div><strong>Situaciones especiales y estafas</strong><span>Primer empleo, cambio de carrera, +45 y cómo detectar ofertas trucha.</span></div></li>
+        </ul>
+        <div class="le-secret"><small>Secreto de reclutador</small>A la hora de elegir, el miedo a equivocarse pesa más que las ganas de encontrar a una estrella. Gana quien transmite menos riesgo.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="le-section le-result">
+    <div class="le-wrap le-split">
+      <div>
+        <div class="le-eyebrow">El resultado</div>
+        <h2 class="le-h2">Así se ve una búsqueda con método</h2>
+        <ul class="le-gets">
+          <li>Un CV que muestra en segundos por qué sos la mejor opción.</li>
+          <li>Reclutadores que te encuentran a vos, y no al revés.</li>
+          <li>Respuestas preparadas para cada pregunta de la entrevista.</li>
+          <li>La seguridad para negociar tu sueldo sin miedo.</li>
+        </ul>
+      </div>
+      <div class="le-photo"><img src="{{IMG_RESULTADO}}" alt="Persona recibiendo la bienvenida en su nuevo trabajo" loading="lazy" width="1536" height="1024"></div>
+    </div>
+  </section>
+
+  <section class="le-section le-offers" id="le-ofertas">
+    <div class="le-wrap">
+      <div class="le-eyebrow">Elegí tu opción</div>
+      <h2 class="le-h2">Empezá hoy tu plan de 30 días</h2>
+      <div class="le-cards">
+        <div class="le-card">
+          <h3>Conseguí trabajo en 30 días</h3>
+          <p class="desc">El plan completo, día por día.</p>
+          <div class="le-price"><strong>{{PRECIO_SOLO}}</strong></div>
+          <ul class="le-includes">
+            <li>Ebook de 43 páginas en PDF</li>
+            <li>Versión web interactiva con checklists</li>
+            <li>8 plantillas de mensajes para copiar</li>
+            <li>Tracker de búsqueda</li>
+          </ul>
+          <a class="le-btn ghost" href="{{LINK_SOLO}}">Quiero solo el ebook 1</a>
+        </div>
+        <div class="le-card best">
+          <span class="le-tag">Más elegido</span>
+          <h3>Combo: los 2 ebooks</h3>
+          <p class="desc">El plan para hacer todo bien y los secretos para hacerlo mejor que el resto.</p>
+          <div class="le-price"><strong>{{PRECIO_COMBO}}</strong><s>{{PRECIO_TACHADO}}</s><span class="le-save">{{AHORRO}}</span></div>
+          <ul class="le-includes">
+            <li>Todo lo del ebook 1</li>
+            <li>Ebook 2 "Secretos de reclutador" (36 páginas)</li>
+            <li>10 estrategias avanzadas para destacar</li>
+            <li>Checklist del candidato experto</li>
+          </ul>
+          <a class="le-btn gold" href="{{LINK_COMBO}}">Quiero el combo</a>
+        </div>
+      </div>
+      <p class="le-small">{{NOTA_PAGO}}</p>
+    </div>
+  </section>
+
+  <section class="le-section">
+    <div class="le-wrap le-narrow">
+      <div class="le-eyebrow">¿Es para vos?</div>
+      <h2 class="le-h2">Pensado para quien quiere resultados</h2>
+      <div class="le-who">
+        <div class="yes"><h3>Es para vos si...</h3><ul><li>Estás buscando trabajo o querés cambiar.</li><li>Sentís que mandás CVs y no pasa nada.</li><li>Querés un paso a paso claro, sin vueltas.</li><li>Estás dispuesto a dedicarle tiempo todos los días.</li></ul></div>
+        <div class="no"><h3>No es para vos si...</h3><ul><li>Buscás una fórmula mágica sin hacer nada.</li><li>No pensás aplicar lo que leés.</li><li>Querés que alguien busque trabajo por vos.</li></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="le-section le-plan">
+    <div class="le-wrap le-narrow">
+      <div class="le-eyebrow">Preguntas frecuentes</div>
+      <h2 class="le-h2">Lo que suelen preguntar</h2>
+      <div class="le-faq">
+        <details><summary>¿Cómo recibo los ebooks?</summary><p>Apenas se acredita el pago te llega un mail con el acceso a los PDF y a la versión web interactiva. Los podés leer en el celular, la tablet o la computadora.</p></details>
+        <details><summary>¿Sirve para mi rubro?</summary><p>Sí. El método funciona en cualquier rubro y el ebook incluye qué destacar en el CV para 10 rubros distintos, desde tecnología y ventas hasta salud, educación, gastronomía y oficios.</p></details>
+        <details><summary>¿Sirve si no tengo experiencia?</summary><p>Sí. Hay consejos específicos para el primer empleo, y el ebook 2 suma estrategias para compensar la falta de experiencia con pruebas concretas de lo que sabés hacer.</p></details>
+        <details><summary>¿Me garantiza conseguir trabajo?</summary><p>Nadie puede garantizarlo: depende de tu dedicación, tu perfil y el mercado de tu rubro. Lo que sí te da es un método claro y probado para hacer una búsqueda muy por encima del promedio.</p></details>
+        <details><summary>¿Cuál me conviene, el ebook solo o el combo?</summary><p>El ebook 1 tiene todo el plan. El combo suma el manual avanzado, que potencia cada etapa: si buscás en un rubro competido o querés destacarte en entrevistas y negociación, el combo es la mejor opción.</p></details>
+        <details><summary>¿Qué medios de pago aceptan?</summary><p>{{FAQ_PAGO}}</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="le-section le-final">
+    <div class="le-wrap le-narrow">
+      <h2 class="le-h2">Tu próximo trabajo empieza hoy</h2>
+      <p>En 30 días podés tener un CV que consigue entrevistas y las herramientas para que te elijan.</p>
+      <a class="le-btn" href="#le-ofertas">Elegir mi opción</a>
+    </div>
+  </section>
+
+</div>
