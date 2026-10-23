@@ -35,3 +35,12 @@
   prompts muy específicos (secciones FORMATO/ESCENA/SUJETO/ACCIÓN/CÁMARA/EVITAR, sin barro).
 - CTA siempre suave y emocional (nada de "comprá ya / pedilo hoy"); la oferta (x2 30% OFF +
   guía, 3 cuotas) va en texto en pantalla. Sin música.
+
+## Resultado del testeo (oct 2026)
+- Campaña 1-1-6 (Advantage+ ventas, objetivo Compra, USD 20/día) apagada el 22-oct por indicación
+  del mentor: ~1.200 impresiones, CPM USD 25-57, 44 visitas pagas (IG 30, FB 14), 0 carritos,
+  0 ventas. Meta concentró el gasto en los anuncios 1 y 4. CTR (todos) ~4,6 %: los videos enganchaban,
+  la página/precio ($58.000) no convirtió.
+- Próximo paso: el usuario busca otro producto del nicho plantas; si convence, rebrand de la tienda.
+  Reutilizable: estructura de landing, sistema de prompts APIMart, flujo CapCut/ElevenLabs,
+  controles de ubicación de la cuenta (sin Audience Network, Marketplace ni columna derecha).
