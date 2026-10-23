@@ -9,6 +9,12 @@ Todo lo necesario para vender los dos ebooks y darle a cada comprador acceso a s
 
 ---
 
+## 0. La marca: Método 30
+
+- *Configuración → Detalles de la tienda*: nombre de la tienda **Método 30**.
+- *Tienda online → Temas → Personalizar → Encabezado*: logo `marca/logo-metodo30.png` (o `logo-metodo30-blanco.png` si tu encabezado es oscuro).
+- *Configuración del tema → Logo → Favicon*: `marca/icono-metodo30.png`. El mismo ícono sirve como foto de perfil de Instagram.
+
 ## 1. Subí los archivos
 
 *Contenido → Archivos → Subir archivos*

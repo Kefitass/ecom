@@ -26,7 +26,7 @@ HEAD = """{%- layout none -%}
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex">
-<title>TITLE · {{ shop.name }}</title>
+<title>TITLE · Método 30</title>
 </head>
 <body style="margin:0">
 """
@@ -41,7 +41,7 @@ GATE = """<style>
 .gate-link{color:#14213D;font-weight:600}
 </style>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,800&family=Source+Sans+3:wght@400;600;700&display=swap">
-<div class="gate"><div class="gate-card">
+<div class="gate"><div class="gate-card"><div style="font:800 13px/1 'Bricolage Grotesque',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#E8632E;margin-bottom:14px">Método 30</div>
 {%- if customer -%}
   <h1>Todavía no tenés este ebook</h1>
   <p>Iniciaste sesión como {{ customer.email }}, pero esta cuenta no tiene acceso a este ebook. Si ya lo compraste con otro mail, cerrá sesión y entrá con ese. Si acabás de comprar, esperá unos minutos y recargá la página.</p>
@@ -96,7 +96,7 @@ body{background:#F6F7FB;color:#1C2333;font-family:'Source Sans 3','Segoe UI',sys
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,800&family=Source+Sans+3:wght@400;600;700&display=swap">
 {%- if customer -%}
 <header class="lib-top"><div class="lib-wrap">
-  <small>Tu biblioteca</small>
+  <small>Método 30 · Tu biblioteca</small>
   <h1>Hola{% if customer.first_name != blank %}, {{ customer.first_name }}{% endif %}. Estos son tus ebooks</h1>
   <p>Leelos en la versión interactiva: tildá tus tareas y copiá las plantillas con un toque. Los PDF te llegaron por mail.</p>
 </div></header>

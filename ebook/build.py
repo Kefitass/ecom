@@ -218,7 +218,7 @@ def chapter_open(m):
   <div class="op-kicker">{html.escape(m["kicker"])}</div>
   <h2 class="op-title">{html.escape(m["main"])}</h2>
   {photo_or_illu}
-  <div class="op-foot">{"Secretos de reclutador" if ED == "pro" else "Conseguí trabajo en 30 días"}</div>
+  <div class="op-foot">Método 30 · {"Secretos de reclutador" if ED == "pro" else "Conseguí trabajo en 30 días"}</div>
 </section>'''
 
 metas = meta_for(chapters)
@@ -234,7 +234,7 @@ toc = "".join(
 if ED == "pro":
     E = dict(
         doc_title="Secretos de reclutador", photo="pro_portada", cover_cls="cover pro",
-        badge="Manual avanzado · Complemento del plan de 30 días",
+        badge="Método 30 · Manual avanzado",
         title="Secretos<br>de<br><span>reclutador</span>",
         sub="Lo que pasa del otro lado de la mesa: el manual avanzado para ganarle a cualquier competencia",
         seal='<div class="cv-seal"><div class="cv-seal-star">★</div><div class="cv-seal-l">NIVEL<br>EXPERTO</div></div>',
@@ -250,7 +250,7 @@ if ED == "pro":
 else:
     E = dict(
         doc_title="Conseguí trabajo en 30 días", photo="portada", cover_cls="cover",
-        badge="Guía práctica · Plan de 30 días",
+        badge="Método 30 · Guía práctica",
         title="Conseguí<br>trabajo<br><span>en 30 días</span>",
         sub="CV, LinkedIn y entrevistas: el sistema paso a paso para ser el mejor postulante en cualquier rubro",
         seal='<div class="cv-cal"><div class="cv-cal-top"></div><div class="cv-cal-n">30</div><div class="cv-cal-l">DÍAS</div></div>',
@@ -298,7 +298,7 @@ CLOSING = f"""
 </section>"""
 
 CSS = open(__file__.replace("build.py", "style.css"), encoding="utf-8").read()
-doc = f'''<!doctype html><html lang="es"><head><meta charset="utf-8"><title>{E['doc_title']}</title><style>{CSS}</style></head>
+doc = f'''<!doctype html><html lang="es"><head><meta charset="utf-8"><title>Método 30 · {E['doc_title']}</title><style>{CSS}</style></head>
 <body>{COVER}{WELCOME}{"".join(chap_html)}{CLOSING}</body></html>'''
 open(OUT, "w", encoding="utf-8").write(doc)
 print("ok", len(doc))
