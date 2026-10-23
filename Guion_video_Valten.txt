@@ -1,0 +1,47 @@
+GUION DEL VIDEO – VALTEN MKT STUDIO (máximo 3 minutos)
+Grupo 193 · Gestores de Contenidos y Plataformas Web · Unidad 3
+Duración estimada: 2 min 50 s (≈ 430 palabras). Entre corchetes: lo que se muestra en pantalla.
+
+---------------------------------------------------------------------
+1) PRESENTACIÓN – Catalina Bogado (Administración) · 0:00 a 0:25
+[Pantalla: Inicio del sitio]
+"Hola, somos el grupo 193. Les presentamos Valten mkt studio, una consultora ficticia de marketing digital que ofrece branding, redes sociales, publicidad, SEO y diseño web a pymes y emprendimientos. El sitio lo hicimos en WordPress con WooCommerce y el tema Divi. Yo fui la administradora: me ocupé de la instalación, de los usuarios con sus roles y permisos, del menú principal y de la publicación del sitio."
+[Pantalla: Usuarios con roles · Menús]
+
+2) CONTENIDO – Morena Benitez · 0:25 a 0:43
+[Pantalla: Páginas → Inicio, Nosotros, Contacto, Blog]
+"Con Celeste nos encargamos del contenido. Yo organicé las páginas principales: Inicio, Nosotros, Contacto y el blog con notas de marketing, pensadas para aportar valor al cliente y no solo para vender."
+
+3) CONTENIDO – Celeste Batista · 0:43 a 1:01
+[Pantalla: Tienda → una ficha de producto]
+"Yo me ocupé de la tienda: seis servicios en seis categorías, cada uno con título, imagen, precio y una descripción que explica qué incluye, para quién es, plazos y preguntas frecuentes."
+
+4) DISEÑO Y USABILIDAD – Bruno Funda · 1:01 a 1:19
+[Pantalla: recorrer el Inicio en escritorio]
+"Con Cecilia trabajamos el diseño. Yo definí la identidad visual: una paleta de bordó y beige, la tipografía Instrument Serif para títulos y DM Sans para textos, y las imágenes de cada servicio, buscando una estética editorial y coherente."
+
+5) DISEÑO Y USABILIDAD – Cecilia Escobar · 1:19 a 1:37
+[Pantalla: mapa del sitio · vista celular · recorrido de compra]
+"Yo me enfoqué en la navegación: armé el mapa del sitio, revisé el recorrido de compra desde el servicio hasta el pago, y verifiqué que todo se vea bien en celular, tablet y escritorio, sin textos cortados ni elementos superpuestos."
+
+6) SEO – Joselim Da Silva · 1:37 a 1:55
+[Pantalla: recuadro de Yoast en una página y en un producto]
+"Como encargado de SEO usé Yoast: cargué títulos y metadescripciones en las páginas y los productos, cuidé las URLs amigables y la jerarquía de encabezados, con un solo H1 por página."
+
+7) ACCESIBILIDAD – Pedro Yañez · 1:55 a 2:15
+[Pantalla: apretar Tab en el Inicio → "Saltar al contenido" → foco en el menú → "Agregar al carrito" · informe antes/después]
+"Yo trabajé la accesibilidad con las pautas WCAG 2.2. Todas las imágenes tienen texto alternativo, revisamos el contraste de la paleta y el sitio se puede recorrer completo con el teclado, con el foco siempre visible. Con la auditoría pasamos de 143 a 5 problemas, y los que quedan son internos de WooCommerce."
+
+8) INTEGRACIÓN Y ANALÍTICA – Ricardo Pardo · 2:15 a 2:35
+[Pantalla: formulario de Contacto · Site Kit · medios de pago]
+"Yo me ocupé de las integraciones: el formulario de contacto, que también sirve para dejar opiniones o reportar problemas de accesibilidad; Google Site Kit para medir las visitas; y los medios de pago, transferencia y Mercado Pago."
+
+9) ORGANIZACIÓN Y CIERRE – Catalina Bogado · 2:35 a 2:55
+[Pantalla: tablero de Trello]
+"Nos organizamos en Trello, con una tarjeta por rol, checklist y bitácora para registrar cada avance. Lo más difícil fue coordinar el trabajo de ocho personas sobre el mismo sitio; lo resolvimos dividiendo tareas por rol y revisando juntos antes de publicar. Aprendimos que un CMS no solo organiza contenido: también distribuye responsabilidades. ¡Gracias!"
+
+---------------------------------------------------------------------
+CONSEJOS PARA GRABAR
+- Cada uno graba su parte con la pantalla del sitio de fondo (OBS, Loom o la grabadora de pantalla).
+- Hablar pausado: si una parte pasa de 20 segundos, recortar una frase.
+- Antes de grabar, cada uno ajusta su texto a lo que figura en su tarjeta de Trello.
