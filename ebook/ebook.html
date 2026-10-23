@@ -1,0 +1,1416 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><title>Conseguí trabajo en 30 días</title><style>@page { size: A4; margin: 22mm 20mm 24mm; }
+@page full { margin: 0; }
+* { box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+html { background: #fff; }
+body { margin: 0; font-family: "Inter", sans-serif; color: #1F2937; font-size: 10.6pt; line-height: 1.62; }
+
+/* ---------- full-bleed pages ---------- */
+.cover, .opener, .closing { page: full; break-after: page; width: 210mm; height: 297mm; position: relative; overflow: hidden; color: #fff; }
+.welcome { break-after: page; }
+
+/* cover */
+.cover { background: radial-gradient(circle at 80% 10%, #3A3F9E 0%, #14213D 55%, #0B1226 100%); padding: 26mm 20mm; }
+.cv-photo { position: absolute; inset: 0; background-size: cover; background-position: center; }
+.cv-photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(11,18,38,.55) 0%, rgba(11,18,38,.35) 40%, rgba(11,18,38,.92) 100%); }
+.cover > *:not(.cv-photo) { position: relative; z-index: 2; }
+.cv-glow { position: absolute !important; width: 160mm; height: 160mm; border-radius: 50%; right: -50mm; top: -50mm; background: radial-gradient(circle, rgba(255,122,69,.45), transparent 65%); z-index: 1 !important; }
+.cv-badge { display: inline-block; padding: 2.2mm 5mm; border: 1px solid rgba(255,255,255,.35); border-radius: 99px; font-size: 9pt; letter-spacing: .12em; text-transform: uppercase; font-weight: 600; }
+.cv-title { font-family: "Inter Display", "Inter", sans-serif; font-weight: 900; font-size: 64pt; line-height: .95; letter-spacing: -.035em; margin: 14mm 0 8mm; }
+.cv-title span { color: #FF8A50; }
+.cv-sub { font-size: 14pt; line-height: 1.4; max-width: 120mm; color: rgba(255,255,255,.85); font-weight: 400; }
+.cv-cal { position: absolute !important; right: 22mm; top: 72mm; width: 40mm; height: 44mm; background: #fff; border-radius: 5mm; color: #14213D; text-align: center; transform: rotate(8deg); box-shadow: 0 10mm 20mm rgba(0,0,0,.35); overflow: hidden; }
+.cv-cal-top { height: 10mm; background: #FF7A45; }
+.cv-cal-n { font-family: "Inter Display"; font-weight: 900; font-size: 44pt; line-height: 1.05; }
+.cv-cal-l { font-weight: 800; letter-spacing: .3em; font-size: 9pt; color: #FF7A45; }
+.cv-illu { position: absolute !important; left: 50mm; bottom: 34mm; width: 140mm; opacity: .95; }
+.cv-pills { position: absolute !important; left: 20mm; right: 20mm; bottom: 16mm; display: flex; flex-wrap: wrap; gap: 3mm; }
+.cv-pills span { background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.25); padding: 1.8mm 4mm; border-radius: 99px; font-size: 9pt; font-weight: 600; }
+
+/* chapter openers */
+.opener { padding: 24mm 20mm; }
+.op-photo { position: absolute; left: 0; right: 0; bottom: 0; height: 150mm; background-size: cover; background-position: center; }
+.op-photo::before { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, var(--bg) 0%, rgba(0,0,0,0) 45%); }
+.op-num { font-family: "Inter Display"; font-weight: 900; font-size: 120pt; line-height: .9; letter-spacing: -.05em; color: rgba(255,255,255,.14); }
+.op-kicker { margin-top: 4mm; display: inline-block; background: #FF7A45; color: #fff; padding: 1.6mm 4.5mm; border-radius: 99px; font-weight: 700; font-size: 10pt; letter-spacing: .06em; text-transform: uppercase; }
+.op-title { font-family: "Inter Display"; font-weight: 800; font-size: 34pt; line-height: 1.08; letter-spacing: -.02em; margin: 7mm 0 0; max-width: 165mm; }
+.op-illu { position: absolute; left: 30mm; right: 30mm; bottom: 26mm; }
+.op-foot { position: absolute; left: 20mm; bottom: 12mm; font-size: 8.5pt; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.6); z-index: 3; }
+.illu { width: 100%; height: auto; display: block; }
+
+/* ---------- content ---------- */
+.content { break-after: page; }
+.content > p:first-child { font-size: 13pt; line-height: 1.5; color: #14213D; font-weight: 500; border-left: 4px solid #FF7A45; padding-left: 5mm; margin: 0 0 7mm; }
+h3 { font-family: "Inter Display"; font-weight: 800; color: #14213D; font-size: 16pt; letter-spacing: -.01em; margin: 9mm 0 3mm; break-after: avoid; display: flex; align-items: center; gap: 3mm; }
+h3::before { content: ""; width: 3mm; height: 9mm; border-radius: 2mm; background: linear-gradient(180deg, #FF7A45, #FFC857); flex: none; }
+p { margin: 0 0 3.2mm; }
+strong { color: #14213D; }
+ul, ol { padding-left: 6mm; margin: 0 0 4mm; }
+li { margin-bottom: 1.6mm; }
+li::marker { color: #FF7A45; font-weight: 700; }
+ol > li::marker { font-family: "Inter Display"; }
+
+.callout { background: #14213D; color: #E5ECFF; border-radius: 4mm; padding: 4.5mm 6mm; margin: 4mm 0 5mm; break-inside: avoid; }
+.callout strong { color: #FFC857; display: block; font-size: 9pt; text-transform: uppercase; letter-spacing: .1em; margin-bottom: 1mm; }
+
+blockquote { margin: 4mm 0 6mm; background: #fff; border: 1px solid #EADFD0; border-left: 5px solid #5B8DEF; border-radius: 3mm; padding: 4mm 6mm 3mm; font-style: normal; color: #253047; break-inside: avoid; box-shadow: 0 1.5mm 4mm rgba(20,33,61,.06); }
+.bq-tag { font-size: 7.8pt; font-weight: 800; text-transform: uppercase; letter-spacing: .12em; color: #5B8DEF; margin-bottom: 1.5mm; }
+
+.tbl { margin: 4mm 0 6mm; border-radius: 3mm; overflow: hidden; border: 1px solid #E7DCCB; }
+table { width: 100%; border-collapse: collapse; font-size: 9pt; line-height: 1.45; background: #fff; }
+th { background: #14213D; color: #fff; text-align: left; padding: 2.6mm 3mm; font-weight: 700; }
+td { padding: 2.4mm 3mm; border-top: 1px solid #F0E8DC; vertical-align: top; }
+tr:nth-child(even) td { background: #F7F9FC; }
+tr { break-inside: avoid; }
+
+.checklist { background: linear-gradient(135deg, #FFF4EC, #FFF9E8); border: 1.5px dashed #FF9F70; border-radius: 4mm; padding: 4mm 6mm 2mm; margin: 5mm 0 6mm; break-inside: avoid; }
+.cl-head { font-weight: 800; font-size: 8pt; text-transform: uppercase; letter-spacing: .14em; color: #E5602E; margin-bottom: 2mm; }
+.checklist ul { list-style: none; padding: 0; }
+.checklist li { display: flex; gap: 3mm; align-items: flex-start; }
+.box { width: 4.2mm; height: 4.2mm; border: 1.6px solid #FF7A45; border-radius: 1.2mm; background: #fff; flex: none; margin-top: .9mm; }
+
+/* roadmap */
+.roadmap { display: flex; justify-content: space-between; position: relative; margin: 7mm 0 3mm; }
+.roadmap::before { content: ""; position: absolute; left: 5%; right: 5%; top: 5mm; height: 2px; background: #E7DCCB; }
+.rm-step { text-align: center; width: 14%; position: relative; }
+.rm-dot { width: 10mm; height: 10mm; border-radius: 50%; background: #14213D; color: #fff; font-weight: 800; margin: 0 auto 2mm; display: flex; align-items: center; justify-content: center; font-size: 10pt; }
+.rm-step:nth-child(5) .rm-dot { background: #FF7A45; }
+.rm-days { font-size: 8pt; color: #6B7280; font-weight: 600; }
+.rm-name { font-size: 9pt; font-weight: 800; color: #14213D; }
+.rm-bar { background: linear-gradient(90deg, #FF7A45, #FFC857); color: #14213D; font-weight: 700; text-align: center; border-radius: 99px; padding: 2.2mm 4mm; font-size: 9pt; margin: 3mm 0 7mm 14%; }
+
+/* welcome */
+.wl-kicker, .cl-kicker { color: #FF7A45; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; font-size: 9pt; }
+.wl-title { font-family: "Inter Display"; font-weight: 900; font-size: 30pt; color: #14213D; letter-spacing: -.02em; line-height: 1.05; margin: 2mm 0 5mm; }
+.wl-lead { font-size: 11pt; line-height: 1.55; color: #374151; }
+.wl-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4mm; margin: 6mm 0 6mm; }
+.wl-card { background: #14213D; color: #CBD5F0; border-radius: 4mm; padding: 4mm; font-size: 9pt; line-height: 1.35; }
+.wl-n { font-family: "Inter Display"; font-weight: 900; font-size: 26pt; color: #FFC857; line-height: 1.1; }
+.toc-h::before { display: none; }
+.toc { list-style: none; padding: 0; }
+.toc li { display: flex; gap: 5mm; align-items: baseline; padding: 1.2mm 0; font-size: 9.6pt; border-bottom: 1px solid #EADFD0; margin: 0; }
+.toc-n { font-family: "Inter Display"; font-weight: 900; color: #FF7A45; font-size: 14pt; width: 10mm; }
+.toc-t { font-weight: 600; color: #14213D; }
+
+/* closing */
+.closing { background: radial-gradient(circle at 20% 90%, #FF7A45 0%, #14213D 55%); padding: 30mm 22mm; }
+.cl-title { font-family: "Inter Display"; font-weight: 900; font-size: 44pt; line-height: 1; letter-spacing: -.03em; margin: 3mm 0 7mm; }
+.closing > p { font-size: 13pt; color: rgba(255,255,255,.88); max-width: 150mm; }
+.cl-offer { margin-top: 14mm; background: #fff; color: #14213D; border-radius: 6mm; padding: 9mm 10mm; box-shadow: 0 10mm 24mm rgba(0,0,0,.3); }
+.cl-offer h3 { margin: 1mm 0 3mm; font-size: 20pt; }
+.cl-offer h3::before { display: none; }
+.cl-offer-tag { display: inline-block; background: #FFC857; padding: 1.2mm 3.5mm; border-radius: 99px; font-size: 8pt; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+.cl-btn { display: inline-block; margin-top: 3mm; background: #FF7A45; color: #fff; font-weight: 800; padding: 3.5mm 8mm; border-radius: 99px; }
+.closing .cl-small { position: absolute; bottom: 16mm; left: 22mm; right: 22mm; font-size: 8.5pt; color: rgba(255,255,255,.6); }
+
+/* recruiter secrets */
+.secret { position: relative; background: #111; color: #EDE6D6; border-radius: 4mm; padding: 5mm 6mm 4.5mm 17mm; margin: 5mm 0 6mm; break-inside: avoid; border: 1px solid #8A6A1F; }
+.secret::before { content: "★"; position: absolute; left: 5.5mm; top: 4.2mm; width: 8mm; height: 8mm; border-radius: 50%; background: linear-gradient(135deg, #F5D27A, #B8892B); color: #111; font-size: 11pt; display: flex; align-items: center; justify-content: center; }
+.secret-tag { font-size: 7.8pt; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; color: #F5D27A; margin-bottom: 1mm; }
+.secret strong { color: #fff; }
+/* bonus openers */
+.opener.bonus .op-kicker { background: linear-gradient(90deg, #F5D27A, #B8892B); color: #111; }
+.opener.bonus .op-num { color: rgba(245,210,122,.22); }
+.toc-bonus .toc-n { color: #B8892B; }
+/* closing steps */
+.cl-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 5mm; margin-top: 16mm; }
+.cl-steps div { background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.25); border-radius: 5mm; padding: 6mm 5mm; font-weight: 600; font-size: 11pt; line-height: 1.35; }
+.cl-steps b { display: block; font-family: "Inter Display"; font-size: 28pt; color: #FFC857; line-height: 1; margin-bottom: 3mm; }
+</style></head>
+<body>
+<section class="cover">
+  <div class="cv-glow"></div>
+  <div class="cv-badge">Guía práctica · Plan de 30 días</div>
+  <h1 class="cv-title">Conseguí<br>trabajo<br><span>en 30 días</span></h1>
+  <p class="cv-sub">CV, LinkedIn y entrevistas: el sistema paso a paso para ser el mejor postulante en cualquier rubro</p>
+  <div class="cv-cal"><div class="cv-cal-top"></div><div class="cv-cal-n">30</div><div class="cv-cal-l">DÍAS</div></div>
+  <div class="cv-illu"><svg viewBox="0 0 520 420" xmlns="http://www.w3.org/2000/svg" class="illu"><circle cx="260" cy="210" r="190" fill="#fff" opacity="0.06"/><rect x="80" y="330" width="60" height="20" rx="6" fill="#fff" opacity="0.15"/><rect x="140" y="290" width="60" height="60" rx="6" fill="#fff" opacity="0.25"/><rect x="200" y="250" width="60" height="100" rx="6" fill="#fff" opacity="0.35"/><rect x="260" y="210" width="60" height="140" rx="6" fill="#fff" opacity="0.45000000000000007"/><rect x="320" y="170" width="60" height="180" rx="6" fill="#fff" opacity="0.55"/><rect x="380" y="130" width="60" height="220" rx="6" fill="#fff" opacity="0.65"/><line x1="410" y1="110" x2="410" y2="40" stroke="#fff" stroke-width="5" stroke-linecap="round"/><path d="M410 42 L470 58 L410 76 Z" fill="#FF7A45"/><circle cx="372" cy="118" r="14" fill="#FFC857"/><rect x="362" y="134" width="20" height="36" rx="8" fill="#FFC857"/><rect x="384" y="146" width="22" height="16" rx="3" fill="#fff"/></svg></div>
+  <div class="cv-pills"><span>CV que pasa filtros</span><span>LinkedIn magnético</span><span>Entrevistas ganadoras</span><span>Negociación</span><span>Secretos de reclutador</span></div>
+</section>
+<section class="welcome">
+  <div class="wl-kicker">Antes de empezar</div>
+  <h2 class="wl-title">Tu próximo trabajo empieza hoy</h2>
+  <p class="wl-lead">Este no es un libro para leer y guardar. Es un plan de acción: cada día tiene tareas concretas, plantillas listas para copiar y checklists para tildar. Si lo seguís, en 30 días vas a tener un CV que consigue entrevistas, un perfil que atrae reclutadores y las respuestas que hacen que te elijan.</p>
+  <div class="wl-grid">
+    <div class="wl-card"><div class="wl-n">7</div><div>etapas con tareas día por día</div></div>
+    <div class="wl-card"><div class="wl-n">15</div><div>preguntas de entrevista con respuesta</div></div>
+    <div class="wl-card"><div class="wl-n">8</div><div>plantillas de mensajes listas para usar</div></div>
+    <div class="wl-card"><div class="wl-n">4</div><div>capítulos bonus con secretos de reclutador</div></div>
+  </div>
+  <h3 class="toc-h">Contenido</h3>
+  <ol class="toc"><li class=""><span class="toc-n">00</span><span class="toc-t">Buscar trabajo es un trabajo, y se puede hacer con método</span></li><li class="toc-bonus"><span class="toc-n">B1</span><span class="toc-t">Bonus 1 · Nivel experto: Detrás de escena, cómo se decide realmente una contratación</span></li><li class=""><span class="toc-n">01</span><span class="toc-t">Días 1–3: Diagnóstico, objetivo y propuesta de valor</span></li><li class=""><span class="toc-n">02</span><span class="toc-t">Días 4–8: Un CV que pasa filtros y consigue entrevistas</span></li><li class=""><span class="toc-n">03</span><span class="toc-t">Días 9–12: LinkedIn que hace que los reclutadores te busquen</span></li><li class=""><span class="toc-n">04</span><span class="toc-t">Días 13–17: La búsqueda estratégica y el mercado oculto</span></li><li class="toc-bonus"><span class="toc-n">B2</span><span class="toc-t">Bonus 2 · Nivel experto: Estrategias avanzadas para pasar primero en la fila</span></li><li class=""><span class="toc-n">05</span><span class="toc-t">Días 18–24: Entrevistas que terminan en oferta</span></li><li class="toc-bonus"><span class="toc-n">B3</span><span class="toc-t">Bonus 3 · Nivel experto: Nivel experto en entrevistas, evaluaciones y referencias</span></li><li class=""><span class="toc-n">06</span><span class="toc-t">Días 25–28: Negociación de sueldo y elección de la oferta</span></li><li class=""><span class="toc-n">07</span><span class="toc-t">Días 29–30 y después: Cierre, plan B y tus primeros 90 días</span></li><li class="toc-bonus"><span class="toc-n">B4</span><span class="toc-t">Bonus 4 · Nivel experto: Situaciones especiales y cómo protegerte de estafas</span></li><li class=""><span class="toc-n">+</span><span class="toc-t">Plantillas, checklist y tracker</span></li></ol>
+</section>
+<section class="opener" style="--bg:#14213D;background: radial-gradient(circle at 85% 15%, #2B4C8C 0%, #14213D 60%);">
+  <div class="op-num">00</div>
+  <div class="op-kicker">Introducción</div>
+  <h2 class="op-title">Buscar trabajo es un trabajo, y se puede hacer con método</h2>
+  <div class="op-illu"><svg viewBox="0 0 520 420" xmlns="http://www.w3.org/2000/svg" class="illu"><circle cx="260" cy="210" r="190" fill="#fff" opacity="0.06"/><rect x="80" y="330" width="60" height="20" rx="6" fill="#fff" opacity="0.15"/><rect x="140" y="290" width="60" height="60" rx="6" fill="#fff" opacity="0.25"/><rect x="200" y="250" width="60" height="100" rx="6" fill="#fff" opacity="0.35"/><rect x="260" y="210" width="60" height="140" rx="6" fill="#fff" opacity="0.45000000000000007"/><rect x="320" y="170" width="60" height="180" rx="6" fill="#fff" opacity="0.55"/><rect x="380" y="130" width="60" height="220" rx="6" fill="#fff" opacity="0.65"/><line x1="410" y1="110" x2="410" y2="40" stroke="#fff" stroke-width="5" stroke-linecap="round"/><path d="M410 42 L470 58 L410 76 Z" fill="#FF7A45"/><circle cx="372" cy="118" r="14" fill="#FFC857"/><rect x="362" y="134" width="20" height="36" rx="8" fill="#FFC857"/><rect x="384" y="146" width="22" height="16" rx="3" fill="#fff"/></svg></div>
+  <div class="op-foot">Conseguí trabajo en 30 días</div>
+</section><section class="content"><p>En 30 días podés pasar de mandar CVs al vacío a tener entrevistas todas las semanas y, con constancia, una oferta. No hace falta suerte ni contactos de familia. Hace falta un sistema: saber qué buscás, mostrarlo bien y estar frente a las personas correctas el tiempo suficiente.</p>
+<p>La mayoría de los postulantes falla por tres razones. Mandan el mismo CV genérico a todo. Esperan que los llamen en vez de ir a buscar a quien decide. Y llegan a la entrevista improvisando. Este ebook ataca las tres, día por día.</p>
+<h3>Qué vas a lograr</h3>
+<ul>
+<li>Un objetivo laboral claro y una propuesta de valor que se entiende en 10 segundos.</li>
+<li>Un CV que pasa los filtros automáticos (ATS) y convence a una persona en el primer vistazo.</li>
+<li>Un perfil de LinkedIn que hace que los reclutadores te encuentren a vos, no al revés.</li>
+<li>Un sistema de búsqueda con metas diarias, seguimiento y acceso al mercado oculto.</li>
+<li>Respuestas preparadas para las preguntas que te van a hacer en el 90 % de las entrevistas.</li>
+<li>Las herramientas para negociar sueldo sin miedo y elegir bien entre ofertas.</li>
+</ul>
+<h3>Cómo usar este ebook</h3>
+<ol>
+<li><strong>Leelo una vez entero</strong> (2 a 3 horas) para entender el mapa completo.</li>
+<li><strong>Después seguilo día por día.</strong> Cada capítulo tiene un bloque de días y tareas concretas con casillas para tildar.</li>
+<li><strong>Reservá un horario fijo.</strong> Lo ideal son 3 a 4 horas por día si estás sin trabajo; 1 a 1,5 horas si trabajás. Si tenés menos tiempo, estirá el plan a 45 o 60 días, pero no te saltees pasos.</li>
+<li><strong>Medí todo.</strong> Lo que no se mide no mejora. En la Caja de herramientas tenés un tracker para registrar postulaciones, respuestas y entrevistas.</li>
+<li><strong>Ajustá cada semana.</strong> Los números te dicen dónde está el problema: pocas respuestas = CV o segmentación; muchas entrevistas sin oferta = entrevista; ofertas bajas = negociación.</li>
+</ol>
+<h3>La mentalidad del postulante profesional</h3>
+<ul>
+<li><strong>Sos un producto y la empresa es tu cliente.</strong> No te contratan por lo que necesitás vos, sino por el problema que les resolvés a ellos. Todo lo que escribas y digas tiene que responder a: "¿por qué yo y no los otros 200?".</li>
+<li><strong>Volumen con calidad.</strong> Ni 5 postulaciones perfectas por mes ni 300 genéricas. El punto justo es 5 a 10 acciones de calidad por día (postulaciones adaptadas, mensajes, seguimientos).</li>
+<li><strong>El rechazo es estadística, no un juicio.</strong> Una conversión típica es de cada 10 postulaciones bien hechas, 1 o 2 respuestas. Cada "no" te acerca al "sí".</li>
+<li><strong>Las personas contratan personas.</strong> Un contacto interno multiplica tus chances muchas veces respecto de una postulación fría. Por eso dedicamos un capítulo entero al networking.</li>
+<li><strong>Preparación le gana a talento.</strong> El candidato más preparado gana muchas veces al más brillante.</li>
+</ul>
+<h3>El plan de 30 días en una línea</h3>
+<p>Días 1–3 te conocés y definís el objetivo · días 4–8 armás el CV · días 9–12 transformás LinkedIn · días 13–17 lanzás la búsqueda y el networking · días 18–24 dominás las entrevistas · días 25–28 negociás · días 29–30 cerrás y planificás lo que sigue. Las postulaciones arrancan el día 8 y no paran hasta que firmás.</p>
+<div class="roadmap"><div class="rm-step"><div class="rm-dot">1</div><div class="rm-days">Días 1–3</div><div class="rm-name">Objetivo</div></div><div class="rm-step"><div class="rm-dot">2</div><div class="rm-days">Días 4–8</div><div class="rm-name">CV</div></div><div class="rm-step"><div class="rm-dot">3</div><div class="rm-days">Días 9–12</div><div class="rm-name">LinkedIn</div></div><div class="rm-step"><div class="rm-dot">4</div><div class="rm-days">Días 13–17</div><div class="rm-name">Búsqueda</div></div><div class="rm-step"><div class="rm-dot">5</div><div class="rm-days">Días 18–24</div><div class="rm-name">Entrevistas</div></div><div class="rm-step"><div class="rm-dot">6</div><div class="rm-days">Días 25–28</div><div class="rm-name">Negociación</div></div><div class="rm-step"><div class="rm-dot">7</div><div class="rm-days">Días 29–30</div><div class="rm-name">Cierre</div></div></div><div class="rm-bar">Desde el día 8: postulaciones, mensajes y seguimientos todos los días, hasta firmar</div>
+<p>Las primeras tres etapas preparan tus herramientas; desde el día 8 la acción diaria corre en paralelo con todo lo demás.</p></section>
+<section class="opener bonus" style="--bg:#111111;background: radial-gradient(circle at 85% 15%, #8A6A1F 0%, #111111 60%);">
+  <div class="op-num">B1</div>
+  <div class="op-kicker">Bonus 1 · Nivel experto</div>
+  <h2 class="op-title">Detrás de escena, cómo se decide realmente una contratación</h2>
+  <div class="op-illu"><svg viewBox="0 0 520 420" xmlns="http://www.w3.org/2000/svg" class="illu"><circle cx="260" cy="210" r="190" fill="#fff" opacity="0.06"/><rect x="90" y="120" width="100" height="140" rx="14" fill="#fff" opacity="0.35"/><circle cx="140" cy="165" r="22" fill="#C9D3E6"/><rect x="110" y="205" width="60" height="9" rx="4" fill="#C9D3E6"/><rect x="110" y="224" width="44" height="9" rx="4" fill="#C9D3E6"/><rect x="210" y="120" width="100" height="140" rx="14" fill="#fff" opacity="0.9"/><circle cx="260" cy="165" r="22" fill="#FFC857"/><rect x="230" y="205" width="60" height="9" rx="4" fill="#C9D3E6"/><rect x="230" y="224" width="44" height="9" rx="4" fill="#C9D3E6"/><rect x="330" y="120" width="100" height="140" rx="14" fill="#fff" opacity="0.35"/><circle cx="380" cy="165" r="22" fill="#C9D3E6"/><rect x="350" y="205" width="60" height="9" rx="4" fill="#C9D3E6"/><rect x="350" y="224" width="44" height="9" rx="4" fill="#C9D3E6"/><circle cx="300" cy="190" r="70" fill="none" stroke="#FF7A45" stroke-width="12"/><line x1="350" y1="240" x2="420" y2="310" stroke="#FF7A45" stroke-width="18" stroke-linecap="round"/></svg></div>
+  <div class="op-foot">Conseguí trabajo en 30 días</div>
+</section><section class="content"><p>Quien entiende cómo trabaja el otro lado de la mesa deja de jugar a ciegas. Este capítulo te muestra el proceso desde adentro: quién decide, qué mide cada persona y por qué se descarta a la mayoría de los candidatos. Todo lo que viene después se apoya en esto.</p>
+<h3>El viaje de una vacante, paso a paso</h3>
+<ol>
+<li><strong>Alguien renuncia o el equipo crece.</strong> El líder del área (el "hiring manager") pide presupuesto para cubrir el puesto. Muchas veces hace semanas que el equipo está sobrecargado: hay urgencia y dolor.</li>
+<li><strong>Reunión de arranque ("intake").</strong> El reclutador y el líder definen el perfil. Acá nace la lista real de lo que importa, que casi nunca es igual al aviso: suele haber 3 o 4 cosas imprescindibles y el resto es deseable.</li>
+<li><strong>Primero se busca adentro y en la red.</strong> Antes o en paralelo con el aviso, se consideran candidatos internos, referidos de empleados y perfiles que el reclutador ya conoce. Por eso tantos puestos se cubren sin que te enteres.</li>
+<li><strong>Se publica el aviso y llegan las postulaciones.</strong> El grueso llega en los primeros días. El reclutador revisa por orden y, cuando junta una lista corta buena, deja de mirar con atención al resto.</li>
+<li><strong>Filtro de RR. HH.</strong> Llamadas cortas para confirmar requisitos, sueldo pretendido y motivación. El reclutador presenta al líder una terna o lista corta de 3 a 5 personas.</li>
+<li><strong>Entrevistas con el área y evaluación.</strong> Cada entrevistador puntúa competencias concretas. Después se reúnen a comparar ("debrief").</li>
+<li><strong>Decisión, referencias y oferta.</strong> El líder elige, RR. HH. arma la oferta dentro de una banda salarial aprobada.</li>
+</ol>
+<h3>Lo que cada persona quiere (y teme)</h3>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Quién</th>
+<th>Qué necesita</th>
+<th>Qué teme</th>
+<th>Cómo ayudarlo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Reclutador interno</td>
+<td>Cubrir rápido varias búsquedas a la vez (es común que lleve 15 o más)</td>
+<td>Presentar a alguien que el líder rechace</td>
+<td>Dejarle claro en 30 segundos que cumplís los imprescindibles y que tu sueldo pretendido entra en la banda</td>
+</tr>
+<tr>
+<td>Reclutador de consultora</td>
+<td>Cerrar la búsqueda: cobra cuando la empresa contrata</td>
+<td>Perder tiempo con candidatos que se bajan</td>
+<td>Ser claro con lo que buscás, responder rápido, avisar si tenés otros procesos</td>
+</tr>
+<tr>
+<td>Líder del área</td>
+<td>Alguien que le saque trabajo de encima y sea fácil de manejar</td>
+<td>Contratar mal: le cuesta meses y reputación</td>
+<td>Mostrar que entendés su problema y que rendís rápido</td>
+</tr>
+<tr>
+<td>Compañeros de equipo</td>
+<td>Alguien competente y buena persona</td>
+<td>Cargar con alguien que no rinde o genera conflictos</td>
+<td>Mostrar colaboración, humildad y curiosidad</td>
+</tr>
+<tr>
+<td>Gerencia o dirección</td>
+<td>Encaje con la cultura y potencial</td>
+<td>Alguien que se vaya en pocos meses</td>
+<td>Mostrar motivación de largo plazo por la empresa</td>
+</tr>
+</tbody>
+</table></div>
+<div class="secret"><div class="secret-tag">Secreto de reclutador</div> a la hora de elegir, el miedo a equivocarse pesa más que el deseo de encontrar a una estrella. Gana el candidato que transmite menos riesgo: evidencia concreta, referencias claras, motivación creíble. Todo tu proceso tiene que bajar la sensación de riesgo.</div>
+<h3>La verdad sobre los ATS</h3>
+<p>Circula el mito de que "un robot descarta tu CV si no tiene las palabras exactas". La realidad tiene matices y conocerla te da ventaja:</p>
+<ul>
+<li><strong>Las preguntas de corte ("knockout") son las que más descartan en automático.</strong> ¿Tenés permiso de trabajo? ¿Cuántos años de experiencia? ¿Vivirías en X? ¿Cuánto pretendés? Una respuesta fuera de rango te saca del proceso sin que nadie lea tu CV. Respondé con la verdad, pero sin subestimarte: si tenés 2 años y 9 meses, son "3 años" de experiencia relevante si sumás prácticas o proyectos.</li>
+<li><strong>Las palabras clave sirven sobre todo para que te encuentren.</strong> El reclutador busca dentro del ATS como en un buscador ("analista contable SAP") y filtra. Si tu CV no tiene esas palabras, no aparecés en la búsqueda, aunque hoy no te descarte nadie.</li>
+<li><strong>Cada vez más ATS ordenan candidatos con IA</strong> según qué tanto se parecen al aviso. Por eso adaptar el CV a cada postulación ya no es opcional: te sube en la fila.</li>
+<li><strong>Tu postulación vieja sigue viva.</strong> Los reclutadores buscan en la base de candidatos anteriores cuando abren una vacante nueva. Un CV bien armado hoy puede traerte una llamada dentro de seis meses.</li>
+</ul>
+<h3>Los avisos que no son lo que parecen</h3>
+<ul>
+<li><strong>Avisos "siempre abiertos":</strong> algunas empresas publican de forma permanente para juntar candidatos. No es tiempo perdido, pero no esperes respuesta rápida.</li>
+<li><strong>Avisos con candidato ya elegido:</strong> a veces se publica por política interna aunque haya un favorito. Señal: requisitos extrañamente específicos.</li>
+<li><strong>Avisos viejos:</strong> si tiene más de 3 o 4 semanas, la lista corta probablemente ya existe. Postulate igual, pero en paralelo escribile directamente al líder del área: es tu única forma de entrar a la fila.</li>
+<li><strong>El aviso es una lista de deseos.</strong> Si cumplís alrededor del 70 % y todos los imprescindibles, postulate. Muchas personas capaces no lo hacen porque no cumplen el 100 %, y dejan el lugar a otros menos preparados pero más audaces.</li>
+</ul>
+<h3>Cómo detectar los imprescindibles reales de un aviso</h3>
+<ul>
+<li>Lo que aparece en el título y en la primera viñeta de requisitos.</li>
+<li>Lo que se repite dos veces con palabras distintas.</li>
+<li>Lo que aparece como pregunta de corte en el formulario.</li>
+<li>Lo que dice "excluyente" (obvio) y lo que describe la tarea diaria ("vas a liderar", "vas a gestionar").</li>
+<li>Lo que piden todos los avisos parecidos del mercado (tu análisis del día 1).</li>
+</ul>
+<p>Todo lo demás ("se valorará", "deseable", "plus") es negociable.</p></section>
+<section class="opener" style="--bg:#1B2A4A;background: radial-gradient(circle at 85% 15%, #3A3F9E 0%, #1B2A4A 60%);">
+  <div class="op-num">01</div>
+  <div class="op-kicker">Días 1–3</div>
+  <h2 class="op-title">Diagnóstico, objetivo y propuesta de valor</h2>
+  <div class="op-illu"><svg viewBox="0 0 520 420" xmlns="http://www.w3.org/2000/svg" class="illu"><circle cx="260" cy="210" r="190" fill="#fff" opacity="0.06"/><circle cx="250" cy="220" r="150" fill="rgba(255,255,255,.14)"/><circle cx="250" cy="220" r="112" fill="rgba(255,255,255,.22)"/><circle cx="250" cy="220" r="74" fill="rgba(255,255,255,.32)"/><circle cx="250" cy="220" r="36" fill="#FF7A45"/><line x1="430" y1="60" x2="262" y2="210" stroke="#fff" stroke-width="7" stroke-linecap="round"/><path d="M430 60 l30 -14 l-6 30 z" fill="#FFC857"/><path d="M262 210 l22 -4 l-8 14 z" fill="#fff"/></svg></div>
+  <div class="op-foot">Conseguí trabajo en 30 días</div>
+</section><section class="content"><p>Sin un objetivo concreto, todo lo demás se diluye: un CV para "cualquier cosa" no convence a nadie. En estos tres días definís a qué puesto apuntás, qué tenés para ofrecer y cómo lo vas a contar.</p>
+<h3>Día 1 — Definí tu objetivo laboral</h3>
+<p>Respondé por escrito estas preguntas. No las pienses: escribilas.</p>
+<ol>
+<li><strong>¿Qué puesto quiero?</strong> Escribí 1 puesto principal y como máximo 2 alternativos cercanos. Ejemplo: "Analista de marketing digital" y alternativos "Especialista en paid media" y "Community manager senior".</li>
+<li><strong>¿En qué rubro o tipo de empresa?</strong> Startup, pyme, multinacional, sector público, ONG. Cada una busca cosas distintas.</li>
+<li><strong>¿Modalidad?</strong> Presencial, híbrida o remota. ¿Local o para el exterior?</li>
+<li><strong>¿Cuánto necesito ganar?</strong> Tres números: mínimo aceptable, objetivo y ideal. Los vas a usar en la negociación.</li>
+<li><strong>¿Qué no negocio?</strong> Distancia, horario, tipo de tarea, cultura.</li>
+</ol>
+<p><strong>Ejercicio de validación de mercado (60 minutos):</strong> buscá en LinkedIn Empleos, Indeed, Bumeran, Computrabajo o el portal que se use en tu país 20 avisos del puesto que elegiste. Copiá en un documento:</p>
+<ul>
+<li>Los requisitos que se repiten en más de la mitad de los avisos (esos son obligatorios).</li>
+<li>Las herramientas, habilidades y palabras clave más frecuentes.</li>
+<li>Los rangos de sueldo publicados, si los hay.</li>
+<li>Los nombres alternativos del mismo puesto.</li>
+</ul>
+<p>Ese documento es oro: es literalmente lo que el mercado está pidiendo y lo vas a usar para escribir tu CV y tu LinkedIn.</p>
+<h3>Día 2 — Inventario de logros</h3>
+<p>Las empresas no contratan tareas, contratan resultados. Hoy armás tu "banco de logros": una lista de 15 a 25 cosas concretas que hiciste, en cualquier trabajo, práctica, emprendimiento, voluntariado o proyecto de estudio.</p>
+<p>Para cada experiencia, preguntate:</p>
+<ul>
+<li>¿Qué mejoré, aumenté, reduje, ahorré, creé o resolví?</li>
+<li>¿Cuánto? (porcentaje, plata, tiempo, cantidad de clientes, personas, tickets)</li>
+<li>¿Qué problema había antes y qué cambió gracias a mí?</li>
+<li>¿Qué reconocimientos, ascensos o responsabilidades nuevas recibí?</li>
+<li>¿Qué me pedían siempre a mí porque lo hacía mejor que nadie?</li>
+</ul>
+<p><strong>Si no tenés números, estimalos de forma honesta.</strong> "Atendía unos 40 clientes por día" es mucho más fuerte que "atención al cliente". Nunca inventes: en la entrevista te van a preguntar.</p>
+<p><strong>Si no tenés experiencia formal:</strong> usá proyectos de la facultad, cursos con trabajo práctico, emprendimientos propios (aunque sea vender en redes), voluntariado, deportes en equipo o responsabilidades familiares que demuestren organización. Todo cuenta si lo convertís en un logro.</p>
+<h3>Día 3 — Tu propuesta de valor</h3>
+<p>La propuesta de valor es la frase que responde "¿por qué deberían contratarte?". La vas a usar en el titular de LinkedIn, al principio del CV, en los mensajes y en la respuesta a "contame sobre vos".</p>
+<div class="callout"><strong>Fórmula:</strong> Soy [puesto/perfil] con [experiencia o diferencial] que ayuda a [tipo de empresa o equipo] a [resultado concreto], gracias a [habilidades clave].</div>
+<p>Ejemplos:</p>
+<ul>
+<li>"Soy analista administrativa con 4 años en pymes industriales. Ayudo a ordenar cobranzas y reducir la morosidad, con dominio de Excel avanzado y Tango."</li>
+<li>"Soy vendedor B2B con 3 años en tecnología. Supero cuotas de forma consistente (118 % promedio en 2025) abriendo cuentas nuevas por prospección en frío."</li>
+<li>"Soy recién recibido en Ingeniería Industrial, con práctica en logística donde reduje un 12 % los tiempos de picking. Busco mi primer rol en operaciones."</li>
+</ul>
+<p><strong>Tu pitch de 30 segundos:</strong> convertí la propuesta en un mini discurso con tres partes: quién sos hoy, uno o dos logros que lo prueban, y qué buscás ahora. Grabate con el celular y repetilo hasta que suene natural.</p>
+<h3>Tareas de los días 1–3</h3>
+<div class="checklist"><div class="cl-head">Checklist</div><ul><li><span class="box"></span>Escribir puesto objetivo y 2 alternativos</li><li><span class="box"></span>Definir sueldo mínimo, objetivo e ideal</li><li><span class="box"></span>Analizar 20 avisos y armar la lista de palabras clave</li><li><span class="box"></span>Escribir el banco de logros (mínimo 15)</li><li><span class="box"></span>Redactar la propuesta de valor y el pitch de 30 segundos</li><li><span class="box"></span>Grabar el pitch y escucharlo</li></ul></div></section>
+<section class="opener" style="--bg:#0F3D3E;background: radial-gradient(circle at 85% 15%, #1F7A6D 0%, #0F3D3E 60%);">
+  <div class="op-num">02</div>
+  <div class="op-kicker">Días 4–8</div>
+  <h2 class="op-title">Un CV que pasa filtros y consigue entrevistas</h2>
+  <div class="op-illu"><svg viewBox="0 0 520 420" xmlns="http://www.w3.org/2000/svg" class="illu"><circle cx="260" cy="210" r="190" fill="#fff" opacity="0.06"/><rect x="140" y="50" width="240" height="320" rx="18" fill="#fff"/><circle cx="190" cy="105" r="26" fill="#FFC857"/><rect x="230" y="88" width="120" height="12" rx="6" fill="#14213D"/><rect x="230" y="110" width="80" height="10" rx="5" fill="#C9D3E6"/><rect x="200" y="160" width="150" height="10" rx="5" fill="#C9D3E6"/><circle cx="176" cy="165" r="11" fill="#3DDC97"/><path d="M170 165 l5 5 l9 -10" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round"/><rect x="200" y="200" width="110" height="10" rx="5" fill="#C9D3E6"/><circle cx="176" cy="205" r="11" fill="#3DDC97"/><path d="M170 205 l5 5 l9 -10" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round"/><rect x="200" y="240" width="150" height="10" rx="5" fill="#C9D3E6"/><circle cx="176" cy="245" r="11" fill="#3DDC97"/><path d="M170 245 l5 5 l9 -10" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round"/><rect x="200" y="280" width="110" height="10" rx="5" fill="#C9D3E6"/><circle cx="176" cy="285" r="11" fill="#3DDC97"/><path d="M170 285 l5 5 l9 -10" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round"/><rect x="200" y="320" width="150" height="10" rx="5" fill="#C9D3E6"/><circle cx="176" cy="325" r="11" fill="#3DDC97"/><path d="M170 325 l5 5 l9 -10" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round"/><g transform="rotate(-12 400 330)"><rect x="350" y="300" width="110" height="44" rx="22" fill="#FF7A45"/><text x="405" y="329" text-anchor="middle" font-size="20" font-weight="800" fill="#fff" font-family="Inter">ATS OK</text></g></svg></div>
+  <div class="op-foot">Conseguí trabajo en 30 días</div>
+</section><section class="content"><p>El CV tiene un solo objetivo: conseguir la entrevista. No es tu biografía. Un reclutador lo mira unos pocos segundos antes de decidir si sigue leyendo, y muchas empresas lo pasan antes por un software de filtrado (ATS). Tu CV tiene que ganar en los dos frentes.</p>
+<h3>Día 4 — Entendé cómo se lee un CV</h3>
+<p><strong>El filtro automático (ATS).</strong> Programas como Workday, Greenhouse, Lever o SAP SuccessFactors leen tu CV como texto y lo comparan con el aviso. Para pasarlo:</p>
+<ul>
+<li>Usá un formato simple: una columna, sin tablas, sin cuadros de texto, sin íconos con información importante.</li>
+<li>Guardalo en PDF generado desde Word o Google Docs (no una imagen escaneada).</li>
+<li>Títulos de secciones estándar: "Experiencia", "Educación", "Habilidades".</li>
+<li>Incluí las palabras clave del aviso tal como aparecen (si dice "gestión de proveedores", no pongas solo "compras").</li>
+<li>Fechas en formato consistente: "03/2022 – actualidad".</li>
+</ul>
+<p><strong>El ojo humano.</strong> El reclutador escanea en forma de F: nombre, título, puesto actual, empresa, fechas, primeras viñetas. Si en esa pasada no ve encaje con el puesto, descarta. Por eso lo más relevante va arriba y a la izquierda.</p>
+<h3>Día 5 — La estructura ganadora</h3>
+<ol>
+<li><strong>Encabezado:</strong> nombre completo, título profesional (el puesto al que apuntás), ciudad y país, teléfono con código de país, mail profesional (nombre.apellido@...), link de LinkedIn personalizado. Sin foto, DNI, estado civil ni fecha de nacimiento, salvo que el país o el aviso lo pidan explícitamente.</li>
+<li><strong>Perfil profesional (3 a 4 líneas):</strong> tu propuesta de valor adaptada al puesto. Nada de "persona proactiva con ganas de aprender": eso lo dice todo el mundo.</li>
+<li><strong>Experiencia:</strong> de la más reciente a la más antigua. Puesto, empresa, ciudad, fechas, una línea de contexto de la empresa si no es conocida, y 3 a 6 viñetas de logros.</li>
+<li><strong>Educación:</strong> título, institución, año. Si sos junior, va antes de la experiencia; si tenés más de 3 años de experiencia, después.</li>
+<li><strong>Habilidades:</strong> técnicas y herramientas concretas (Excel avanzado, SAP, Python, Canva, Salesforce). Las blandas se demuestran en las viñetas, no se listan.</li>
+<li><strong>Idiomas:</strong> con nivel real (básico, intermedio, avanzado, nativo, o MCER: B1, B2, C1).</li>
+<li><strong>Opcionales:</strong> certificaciones, cursos relevantes, proyectos, voluntariado, publicaciones.</li>
+</ol>
+<div class="callout"><strong>Extensión:</strong> 1 página hasta unos 7 a 10 años de experiencia; 2 páginas como máximo para perfiles senior.</div>
+<h3>Día 6 — La fórmula de las viñetas de logro</h3>
+<p>Esta es la parte que más diferencia un CV mediocre de uno excelente.</p>
+<div class="callout"><strong>Fórmula XYZ:</strong> Logré [X resultado] medido por [Y número] haciendo [Z acción].</div>
+<div class="callout"><strong>Fórmula corta:</strong> Verbo de acción + qué hiciste + resultado medible.</div>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Antes (tarea)</th>
+<th>Después (logro)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Atención al cliente</td>
+<td>Resolví un promedio de 45 consultas diarias con 96 % de satisfacción, el puntaje más alto del equipo de 8 personas</td>
+</tr>
+<tr>
+<td>Encargado de redes sociales</td>
+<td>Aumenté los seguidores de Instagram de 2.000 a 11.500 en 8 meses y generé el 30 % de las ventas online con contenido orgánico</td>
+</tr>
+<tr>
+<td>Tareas administrativas</td>
+<td>Reorganicé el archivo de facturación y reduje de 3 días a 1 el cierre mensual</td>
+</tr>
+<tr>
+<td>Ventas</td>
+<td>Superé la cuota anual en un 22 % y abrí 14 cuentas nuevas en la zona norte</td>
+</tr>
+<tr>
+<td>Manejo de stock</td>
+<td>Implementé un control semanal de inventario que bajó las pérdidas por faltantes un 18 %</td>
+</tr>
+<tr>
+<td>Docente de secundaria</td>
+<td>Diseñé un programa de tutorías que subió la tasa de aprobación de 62 % a 81 % en un año</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Verbos de acción que funcionan:</strong> lideré, implementé, aumenté, reduje, optimicé, negocié, lancé, automaticé, coordiné, capacité, diseñé, generé, ahorré, resolví, transformé, desarrollé, gestioné, conseguí.</p>
+<p><strong>Verbos y frases que hay que borrar:</strong> "responsable de", "encargado de", "tareas de", "colaboré en", "ayudé con". Describen obligaciones, no resultados.</p>
+<h3>Día 7 — Escribí tu CV maestro</h3>
+<p>Hoy escribís un CV "maestro" largo, con todos tus logros (el banco del día 2 convertido en viñetas). No importa si ocupa 3 páginas: es tu base. De ahí vas a recortar y adaptar para cada postulación.</p>
+<p><strong>Checklist de calidad del CV:</strong></p>
+<div class="checklist"><div class="cl-head">Checklist</div><ul><li><span class="box"></span>El título coincide con el puesto que busco</li><li><span class="box"></span>El perfil menciona mi diferencial y al menos un resultado</li><li><span class="box"></span>Cada experiencia tiene al menos 2 viñetas con números</li><li><span class="box"></span>Están las 10 palabras clave más repetidas del mercado</li><li><span class="box"></span>Cero errores de ortografía (lo leí en voz alta y lo pasé por un corrector)</li><li><span class="box"></span>Fuente legible (Calibri, Arial, Lato, Inter) entre 10 y 12 puntos</li><li><span class="box"></span>Márgenes y espaciado uniformes, mucho espacio en blanco</li><li><span class="box"></span>El archivo se llama Nombre-Apellido-Puesto.pdf</li><li><span class="box"></span>Lo abrí en el celular y se lee bien</li></ul></div>
+
+<h3>Día 8 — Adaptación por aviso y por rubro</h3>
+<p>Un CV adaptado puede multiplicar tu tasa de respuesta. No hace falta reescribirlo entero: con 10 a 15 minutos por aviso alcanza.</p>
+<p><strong>Proceso de adaptación en 5 pasos:</strong></p>
+<ol>
+<li>Copiá el aviso y resaltá requisitos, herramientas y palabras repetidas.</li>
+<li>Cambiá el título del CV por el nombre exacto del puesto.</li>
+<li>Reescribí el perfil usando 2 o 3 de esas palabras.</li>
+<li>Reordená las viñetas: las más relevantes para este aviso, primero.</li>
+<li>Ajustá la sección de habilidades para reflejar lo que piden (solo lo que realmente sabés).</li>
+</ol>
+<p><strong>Qué pesa más según el rubro:</strong></p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Rubro</th>
+<th>Qué destacar</th>
+<th>Detalle que suma</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tecnología y sistemas</td>
+<td>Stack, proyectos, impacto técnico (rendimiento, usuarios, errores)</td>
+<td>Link a GitHub o portfolio</td>
+</tr>
+<tr>
+<td>Ventas y comercial</td>
+<td>Cuotas, facturación, cuentas nuevas, ranking</td>
+<td>Porcentaje de cumplimiento por año</td>
+</tr>
+<tr>
+<td>Marketing y comunicación</td>
+<td>Métricas de campañas, crecimiento, presupuesto manejado</td>
+<td>Portfolio con casos</td>
+</tr>
+<tr>
+<td>Administración y finanzas</td>
+<td>Precisión, cierres, ahorro, sistemas (SAP, Tango, Excel)</td>
+<td>Mejoras de procesos medidas en tiempo</td>
+</tr>
+<tr>
+<td>Salud</td>
+<td>Matrícula, especialidad, áreas y volumen de pacientes</td>
+<td>Cursos y certificaciones vigentes</td>
+</tr>
+<tr>
+<td>Educación</td>
+<td>Niveles, materias, resultados de alumnos, proyectos</td>
+<td>Uso de tecnología en el aula</td>
+</tr>
+<tr>
+<td>Gastronomía, comercio y retail</td>
+<td>Volumen atendido, ventas, rapidez, responsabilidades de caja o stock</td>
+<td>Disponibilidad horaria clara</td>
+</tr>
+<tr>
+<td>Logística e industria</td>
+<td>Eficiencia, seguridad, reducción de costos, certificaciones</td>
+<td>Licencias, autoelevador, normas ISO</td>
+</tr>
+<tr>
+<td>Oficios y técnicos</td>
+<td>Especialidad, matrícula, tipo de obras o equipos</td>
+<td>Fotos de trabajos en un portfolio simple</td>
+</tr>
+<tr>
+<td>Atención al cliente y call center</td>
+<td>Volumen de contactos, satisfacción, resolución en primer contacto</td>
+<td>Idiomas y herramientas (Zendesk, CRM)</td>
+</tr>
+</tbody>
+</table></div>
+<h3>Nivel experto: el CV como respuesta a la "scorecard" oculta</h3>
+<p>Detrás de cada aviso hay una lista de evaluación (scorecard) que el líder y el reclutador acordaron en la reunión de arranque. Tu trabajo es reconstruirla y responderla punto por punto en la mitad superior de la primera página.</p>
+<p><strong>Paso 1. Reconstruí la scorecard.</strong> De los imprescindibles del aviso, armá una tabla de 4 o 5 filas:</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Lo que evalúan</th>
+<th>Mi prueba más fuerte</th>
+<th>Dónde aparece en el CV</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ej.: experiencia en cobranzas B2B</td>
+<td>Reduje la morosidad del 14 % al 6 % en 10 meses</td>
+<td>Perfil + primera viñeta del puesto actual</td>
+</tr>
+<tr>
+<td>Ej.: dominio de Excel avanzado</td>
+<td>Automaticé el reporte semanal con tablas dinámicas y macros: de 4 horas a 20 minutos</td>
+<td>Segunda viñeta + habilidades</td>
+</tr>
+<tr>
+<td>Ej.: relación con clientes difíciles</td>
+<td>Recuperé 3 cuentas grandes en riesgo de baja</td>
+<td>Tercera viñeta</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Paso 2. Aplicá la regla de los 6 segundos.</strong> Tapá todo salvo el tercio superior de la primera página. ¿Alguien que solo ve eso entiende que cumplís los imprescindibles? Si no, subí las pruebas.</p>
+<p><strong>Paso 3. Hacé que los números se vean.</strong> Escribí los números con dígitos ("3 cuentas", no "tres cuentas") y al principio de la viñeta cuando puedas. El ojo salta a los dígitos.</p>
+<div class="secret"><div class="secret-tag">Secreto de reclutador</div> cuando un líder recibe 5 CVs, los compara uno al lado del otro buscando las mismas 3 o 4 cosas. El CV que se las muestra más rápido parece "el más fuerte", aunque los demás tengan más experiencia. No gana el que más tiene, gana el que mejor lo muestra.</div>
+<h3>Detalles que separan a un CV profesional de uno amateur</h3>
+<ul>
+<li><strong>Contexto de la empresa en una línea</strong> cuando no es conocida: "Distribuidora de alimentos, 120 empleados, 3 sucursales". Le da escala a tus logros.</li>
+<li><strong>Alcance de tu rol:</strong> a cuántas personas lideraste, qué presupuesto manejabas, cuántos clientes tenías. Un reclutador mide el tamaño del trabajo, no solo el cargo.</li>
+<li><strong>Ascensos visibles:</strong> si creciste dentro de una empresa, poné los puestos uno debajo del otro bajo la misma empresa. Un ascenso dice "rinde y confían en él" mejor que cualquier adjetivo.</li>
+<li><strong>Títulos traducidos al mercado:</strong> si tu cargo interno era raro ("Ninja de clientes"), escribí el equivalente estándar ("Ejecutivo de atención al cliente"). El cargo es lo que se busca en los ATS y en LinkedIn.</li>
+<li><strong>Coherencia total con LinkedIn:</strong> fechas, cargos y empresas iguales. Las diferencias generan desconfianza.</li>
+<li><strong>Un CV, una historia:</strong> si cambiaste mucho de rubro, el perfil tiene que explicar el hilo conductor ("Siempre en roles de cara al cliente, en retail, banca y tecnología").</li>
+</ul>
+<h3>Los 12 errores que te dejan afuera</h3>
+<ol>
+<li>Faltas de ortografía.</li>
+<li>Mail poco profesional.</li>
+<li>Un CV genérico para todo.</li>
+<li>Listar tareas en vez de logros.</li>
+<li>Huecos sin explicar (poné una línea: "2024: año sabático, curso de análisis de datos").</li>
+<li>Diseños recargados que el ATS no lee.</li>
+<li>Objetivos profesionales en vez de perfil ("busco crecer"): hablan de vos, no de la empresa.</li>
+<li>Información irrelevante o desactualizada (la escuela primaria, cursos de hace 15 años sin relación).</li>
+<li>Mentir: se descubre en la entrevista o en las referencias.</li>
+<li>Mandarlo en Word editable con nombre "CV final (3).docx".</li>
+<li>Tres páginas siendo junior.</li>
+<li>No incluir el link de LinkedIn.</li>
+</ol>
+<h3>Bonus: la carta de presentación en 4 párrafos</h3>
+<p>Cuando la pidan (o cuando el formulario tenga un campo libre), usá esta estructura de 150 a 250 palabras:</p>
+<ol>
+<li><strong>Gancho:</strong> a qué puesto te postulás y por qué esta empresa en particular (algo concreto: un producto, una noticia, su cultura).</li>
+<li><strong>Prueba:</strong> tus 2 logros más relevantes para este puesto.</li>
+<li><strong>Encaje:</strong> cómo eso resuelve lo que ellos necesitan según el aviso.</li>
+<li><strong>Cierre:</strong> invitación a conversar y agradecimiento.</li>
+</ol></section>
+<section class="opener" style="--bg:#1E3A8A;background: radial-gradient(circle at 85% 15%, #2563EB 0%, #1E3A8A 60%);">
+  <div class="op-num">03</div>
+  <div class="op-kicker">Días 9–12</div>
+  <h2 class="op-title">LinkedIn que hace que los reclutadores te busquen</h2>
+  <div class="op-illu"><svg viewBox="0 0 520 420" xmlns="http://www.w3.org/2000/svg" class="illu"><circle cx="260" cy="210" r="190" fill="#fff" opacity="0.06"/><rect x="100" y="70" width="320" height="280" rx="22" fill="#fff"/><rect x="100" y="70" width="320" height="80" rx="22" fill="#5B8DEF"/><rect x="100" y="120" width="320" height="30" fill="#5B8DEF"/><circle cx="170" cy="150" r="42" fill="#FFC857" stroke="#fff" stroke-width="6"/><circle cx="170" cy="140" r="14" fill="#14213D"/><path d="M146 176 q24 -26 48 0" fill="#14213D"/><rect x="130" y="210" width="190" height="14" rx="7" fill="#14213D"/><rect x="130" y="236" width="240" height="10" rx="5" fill="#C9D3E6"/><rect x="130" y="256" width="200" height="10" rx="5" fill="#C9D3E6"/><rect x="130" y="290" width="120" height="34" rx="17" fill="#3DDC97"/><text x="190" y="312" text-anchor="middle" font-size="14" font-weight="700" fill="#fff" font-family="Inter">Open to work</text><path d="M380 60 l6 14 l15 1 l-12 9 l4 15 l-13 -8 l-13 8 l4 -15 l-12 -9 l15 -1 z" fill="#FFC857"/><path d="M408 60 l6 14 l15 1 l-12 9 l4 15 l-13 -8 l-13 8 l4 -15 l-12 -9 l15 -1 z" fill="#FFC857"/><path d="M436 60 l6 14 l15 1 l-12 9 l4 15 l-13 -8 l-13 8 l4 -15 l-12 -9 l15 -1 z" fill="#FFC857"/></svg></div>
+  <div class="op-foot">Conseguí trabajo en 30 días</div>
+</section><section class="content"><p>LinkedIn es un buscador. Los reclutadores no navegan perfiles al azar: escriben palabras clave en LinkedIn Recruiter y filtran por ubicación, puesto y experiencia. Si tu perfil no tiene esas palabras, no existís. En cuatro días lo convertís en un imán de oportunidades.</p>
+<h3>Día 9 — Lo que se ve primero: foto, banner y titular</h3>
+<p><strong>Foto:</strong> cara visible ocupando el 60 % del cuadro, fondo neutro, luz natural de frente, ropa como la que usarías en el puesto, sonrisa. Con un celular y una pared clara alcanza. Sin anteojos de sol, sin recortes de fiestas, sin mascotas.</p>
+<p><strong>Banner (imagen de portada):</strong> no lo dejes vacío. Usá Canva (plantilla "LinkedIn banner", 1584 × 396 px) con tu propuesta de valor en una frase, o una imagen relacionada con tu rubro.</p>
+<p><strong>Titular (220 caracteres):</strong> es lo más importante del perfil, porque aparece en las búsquedas, en comentarios y en mensajes. No pongas "Buscando nuevas oportunidades" ni solo "Estudiante".</p>
+<div class="callout"><strong>Fórmula:</strong> Puesto objetivo | Especialidad o herramientas clave | Resultado o diferencial</div>
+<ul>
+<li>"Analista Contable | Impuestos, cierres mensuales y SAP | Ayudo a pymes a ordenar sus números"</li>
+<li>"Ejecutivo Comercial B2B | SaaS y tecnología | +120 % de cumplimiento de cuota en 2025"</li>
+<li>"Diseñadora UX/UI | Figma, research y apps móviles | Productos simples que la gente usa"</li>
+<li>"Ingeniero Industrial Jr. | Logística y mejora continua | Lean, Excel avanzado y Power BI"</li>
+</ul>
+<h3>Día 10 — "Acerca de" y experiencia</h3>
+<p><strong>Acerca de (hasta 2.600 caracteres).</strong> Escribilo en primera persona y en 4 bloques:</p>
+<ol>
+<li><strong>Gancho (2 líneas):</strong> lo que hacés y para quién. Son las únicas que se ven sin hacer clic en "ver más", así que tienen que atrapar.</li>
+<li><strong>Trayectoria con pruebas:</strong> 3 o 4 logros con números, en viñetas.</li>
+<li><strong>Cómo trabajás y qué te diferencia:</strong> tu enfoque, valores, tipo de equipos en los que rendís mejor.</li>
+<li><strong>Llamado a la acción:</strong> qué buscás y cómo contactarte ("Escribime a nombre@mail.com").</li>
+</ol>
+<p>Cerrá con una línea de palabras clave: "Especialidades: gestión de proveedores, negociación, SAP MM, control de costos, Excel avanzado".</p>
+<p><strong>Experiencia:</strong> copiá las viñetas de tu CV maestro (acá podés poner más que en el CV). Agregá multimedia: presentaciones, links a proyectos, artículos o fotos de trabajos. Asegurate de que el título de cada puesto use el nombre estándar del mercado.</p>
+<h3>Día 11 — Aptitudes, recomendaciones y configuración</h3>
+<ul>
+<li><strong>Aptitudes:</strong> cargá las 50 posibles priorizando las palabras clave del día 1. Fijá arriba las 3 más importantes para tu objetivo.</li>
+<li><strong>Recomendaciones:</strong> pedí 3 a 5 a ex jefes, compañeros o clientes. Facilitales el trabajo: decles qué logro o habilidad te gustaría que mencionen. Escribí vos recomendaciones a otros primero; muchos devuelven el gesto.</li>
+<li><strong>Open to Work:</strong> activalo en modo "solo reclutadores" si trabajás y no querés que tu empresa lo vea, o público (con el marco verde) si estás disponible. Cargá hasta 5 puestos, ubicaciones y modalidades.</li>
+<li><strong>URL personalizada:</strong> linkedin.com/in/nombre-apellido. Se cambia en "Editar perfil público y URL".</li>
+<li><strong>Ubicación:</strong> poné la ciudad donde querés trabajar; los reclutadores filtran por ahí.</li>
+<li><strong>Secciones extra:</strong> licencias y certificaciones, cursos, proyectos, voluntariado, idiomas. Todo suma palabras clave.</li>
+</ul>
+<h3>Día 12 — Activá tu red y empezá a ser visible</h3>
+<p>Un perfil perfecto pero quieto rinde la mitad. LinkedIn muestra más a quien participa.</p>
+<p><strong>Crecé tu red con criterio:</strong> conectá con 20 a 30 personas por día (hay un límite semanal de invitaciones, así que priorizá): reclutadores de tu rubro, personas con tu puesto objetivo, ex compañeros, compañeros de estudio, líderes de las empresas que te interesan. Una red de 500 o más contactos relevantes te hace aparecer mucho más en búsquedas.</p>
+<p><strong>Contenido simple que funciona (2 posteos por semana alcanzan):</strong></p>
+<ul>
+<li>Un aprendizaje de un curso o proyecto, con tu opinión.</li>
+<li>Un caso: problema, qué hiciste y resultado.</li>
+<li>Una herramienta o tip útil de tu área.</li>
+<li>El anuncio de tu búsqueda: quién sos, qué buscás, qué aportás, y un pedido concreto ("si conocés a alguien en X, te agradezco la conexión"). Este posteo suele generar más oportunidades que 50 postulaciones.</li>
+</ul>
+<p><strong>Comentá con valor:</strong> 10 minutos por día comentando posteos de personas de tu rubro con algo más que "¡excelente!". Un buen comentario te pone frente a miles de personas y a los reclutadores que siguen a esos referentes.</p>
+<h3>Nivel experto: cómo te busca un reclutador (y cómo aparecer primero)</h3>
+<p>Los reclutadores usan LinkedIn Recruiter, una versión paga con filtros avanzados. Entender cómo buscan te dice exactamente qué escribir y dónde.</p>
+<p><strong>1. Buscan con operadores booleanos.</strong> Una búsqueda típica se ve así:</p>
+<blockquote><div class="bq-tag">Plantilla para copiar</div>
+<p>("analista contable" OR "contador" OR "analista de impuestos") AND (SAP OR Tango) NOT (pasante OR estudiante)</p>
+</blockquote>
+<p>Traducción: si tu perfil no tiene ninguno de los títulos entre comillas ni las herramientas, no aparecés. Por eso conviene que tu perfil contenga las variantes de nombre de tu puesto (en el titular, el "Acerca de" y la experiencia) y las herramientas por su nombre exacto.</p>
+<p><strong>2. Filtran por cargo actual y pasado.</strong> El campo "cargo" de tu experiencia actual es de lo que más pesa. Si estás sin trabajo, creá una experiencia vigente honesta que refleje lo que hacés hoy, por ejemplo "Analista contable — Proyectos independientes" si estás haciendo trabajos freelance, o cargá el puesto objetivo en "Open to Work".</p>
+<p><strong>3. Filtran por ubicación, aptitudes y años de experiencia.</strong> Tu ciudad tiene que ser la del mercado donde buscás, y tus aptitudes cargadas tienen que coincidir con las palabras del aviso.</p>
+<p><strong>4. Priorizan perfiles que probablemente respondan.</strong> Recruiter destaca a quienes tienen "Open to Work" activado, interactuaron con la página de la empresa o tienen actividad reciente. Seguir a tus empresas objetivo y estar activo te sube en esas listas.</p>
+<p><strong>5. Deciden en 5 segundos desde la vista previa.</strong> En los resultados se ve la foto, el nombre, el titular, el cargo actual, la ubicación y poco más. Esa vista previa tiene que gritar el puesto que buscás.</p>
+<p><strong>Prueba útil:</strong> abrí LinkedIn en modo incógnito o pedile a un amigo que busque tu puesto objetivo + tu ciudad. ¿Aparecés en las primeras páginas? Si no, revisá titular, cargo actual y aptitudes.</p>
+<div class="secret"><div class="secret-tag">Secreto de reclutador</div> cuando un reclutador te manda un InMail y respondés rápido, LinkedIn lo registra a tu favor y los reclutadores ven si solés responder. Contestá siempre, aunque sea para decir "gracias, hoy no me interesa, pero me encantaría seguir en contacto". Un reclutador que te conoce te vuelve a buscar.</div>
+<h3>Cómo responder cuando un reclutador te escribe</h3>
+<blockquote><div class="bq-tag">Plantilla para copiar</div>
+<p>Hola, [nombre]: ¡gracias por escribirme! Me interesa conocer más sobre la posición. Te comparto mi CV y mi disponibilidad para una llamada: [días y horarios]. ¿Me podrías adelantar la banda salarial y la modalidad para confirmar que estamos alineados? ¡Saludos!</p>
+</blockquote>
+<p>Pedir la banda al principio es normal y ahorra tiempo a los dos.</p>
+<h3>Tareas de los días 9–12</h3>
+<div class="checklist"><div class="cl-head">Checklist</div><ul><li><span class="box"></span>Foto profesional y banner subidos</li><li><span class="box"></span>Titular con la fórmula</li><li><span class="box"></span>"Acerca de" en 4 bloques con palabras clave</li><li><span class="box"></span>Experiencias con logros y multimedia</li><li><span class="box"></span>50 aptitudes cargadas y 3 fijadas</li><li><span class="box"></span>3 recomendaciones pedidas</li><li><span class="box"></span>Open to Work y URL personalizada configurados</li><li><span class="box"></span>100 conexiones nuevas relevantes</li><li><span class="box"></span>Primer posteo de búsqueda publicado</li></ul></div></section>
+<section class="opener" style="--bg:#3B1F5C;background: radial-gradient(circle at 85% 15%, #6D3FB0 0%, #3B1F5C 60%);">
+  <div class="op-num">04</div>
+  <div class="op-kicker">Días 13–17</div>
+  <h2 class="op-title">La búsqueda estratégica y el mercado oculto</h2>
+  <div class="op-illu"><svg viewBox="0 0 520 420" xmlns="http://www.w3.org/2000/svg" class="illu"><circle cx="260" cy="210" r="190" fill="#fff" opacity="0.06"/><line x1="260" y1="210" x2="120" y2="110" stroke="rgba(255,255,255,.45)" stroke-width="3"/><line x1="260" y1="210" x2="400" y2="100" stroke="rgba(255,255,255,.45)" stroke-width="3"/><line x1="260" y1="210" x2="100" y2="300" stroke="rgba(255,255,255,.45)" stroke-width="3"/><line x1="260" y1="210" x2="420" y2="300" stroke="rgba(255,255,255,.45)" stroke-width="3"/><line x1="260" y1="210" x2="260" y2="60" stroke="rgba(255,255,255,.45)" stroke-width="3"/><line x1="260" y1="210" x2="260" y2="360" stroke="rgba(255,255,255,.45)" stroke-width="3"/><line x1="260" y1="210" x2="180" y2="210" stroke="rgba(255,255,255,.45)" stroke-width="3"/><line x1="260" y1="210" x2="340" y2="210" stroke="rgba(255,255,255,.45)" stroke-width="3"/><line x1="120" y1="110" x2="260" y2="60" stroke="rgba(255,255,255,.25)" stroke-width="2"/><line x1="400" y1="100" x2="420" y2="300" stroke="rgba(255,255,255,.25)" stroke-width="2"/><line x1="100" y1="300" x2="260" y2="360" stroke="rgba(255,255,255,.25)" stroke-width="2"/><circle cx="260" cy="210" r="34" fill="#FF7A45"/><circle cx="120" cy="110" r="22" fill="#fff"/><circle cx="400" cy="100" r="24" fill="#fff"/><circle cx="100" cy="300" r="20" fill="#fff"/><circle cx="420" cy="300" r="26" fill="#fff"/><circle cx="260" cy="60" r="16" fill="#FFC857"/><circle cx="260" cy="360" r="18" fill="#FFC857"/><circle cx="180" cy="210" r="12" fill="#3DDC97"/><circle cx="340" cy="210" r="12" fill="#3DDC97"/></svg></div>
+  <div class="op-foot">Conseguí trabajo en 30 días</div>
+</section><section class="content"><p>Muchos puestos se cubren antes de publicarse, por referidos, búsquedas internas o contactos directos: es el mercado oculto. Quien solo responde avisos compite con cientos de personas por la parte visible. Desde hoy vas a trabajar los dos frentes con un sistema diario.</p>
+<h3>Día 13 — Tu lista de 50 empresas objetivo</h3>
+<p>En una planilla, listá 50 empresas donde te gustaría trabajar y que contratan tu perfil. Fuentes:</p>
+<ul>
+<li>Empresas que publicaron tu puesto en los últimos 3 meses.</li>
+<li>Competidores, clientes y proveedores de donde trabajaste.</li>
+<li>Rankings de mejores empleadores de tu país y cámaras empresarias de tu rubro.</li>
+<li>Empresas que recibieron inversión o están abriendo sucursales (crecen = contratan).</li>
+</ul>
+<p>Clasificalas en A (sueño, 10 empresas), B (muy buenas, 20) y C (buenas, 20). Para cada una anotá: link de la página de empleos, 2 o 3 personas clave en LinkedIn (reclutador, líder del área, alguien con tu puesto) y si conocés a alguien adentro.</p>
+<h3>Día 14 — Los canales y cómo usar cada uno</h3>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Canal</th>
+<th>Para qué sirve</th>
+<th>Cómo usarlo bien</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Referidos y contactos</td>
+<td>El canal más efectivo: llegar recomendado</td>
+<td>Pedir conversaciones, no trabajo (día 15)</td>
+</tr>
+<tr>
+<td>Contacto directo a quien decide</td>
+<td>Saltear la pila de CVs</td>
+<td>Mensaje corto con valor al líder del área</td>
+</tr>
+<tr>
+<td>LinkedIn Empleos</td>
+<td>Avisos y "solicitud sencilla"</td>
+<td>Postularse en las primeras 48 h y luego escribirle al reclutador</td>
+</tr>
+<tr>
+<td>Portales de empleo locales</td>
+<td>Gran volumen de avisos</td>
+<td>Alertas diarias con 3 a 5 búsquedas guardadas</td>
+</tr>
+<tr>
+<td>Página de empleos de cada empresa</td>
+<td>Avisos que no siempre se publican afuera</td>
+<td>Revisar las 10 empresas A cada semana</td>
+</tr>
+<tr>
+<td>Consultoras de selección</td>
+<td>Búsquedas tercerizadas, perfiles medios y senior</td>
+<td>Cargar el CV y conectar con sus reclutadores por rubro</td>
+</tr>
+<tr>
+<td>Comunidades y grupos</td>
+<td>Avisos informales, referidos</td>
+<td>Grupos de Slack, Discord, WhatsApp y Facebook del rubro</td>
+</tr>
+<tr>
+<td>Eventos, ferias y meetups</td>
+<td>Conocer gente que contrata</td>
+<td>Ir con el pitch preparado y hacer seguimiento en 24 h</td>
+</tr>
+<tr>
+<td>Bolsas de universidades</td>
+<td>Pasantías y primeros empleos</td>
+<td>Mantener el perfil activo en tu facultad</td>
+</tr>
+</tbody>
+</table></div>
+<div class="callout"><strong>Regla de distribución del tiempo:</strong> 50 % networking y contacto directo, 30 % postulaciones adaptadas, 20 % seguimientos y visibilidad. La mayoría hace al revés.</div>
+<h3>Día 15 — Networking sin pedir trabajo</h3>
+<p>Nadie quiere que le pidan trabajo; a casi todos les gusta que les pidan un consejo. Por eso el networking efectivo se basa en <strong>conversaciones informativas</strong>: charlas de 15 minutos con alguien que hace lo que vos querés hacer o trabaja donde querés trabajar.</p>
+<p><strong>Mensaje de conexión (máximo 300 caracteres):</strong></p>
+<blockquote><div class="bq-tag">Plantilla para copiar</div>
+<p>Hola, [nombre]. Vi tu trabajo en [empresa/posteo] y me interesa mucho [área]. Estoy dando mis próximos pasos en ese camino y me encantaría conectar para aprender de tu experiencia. ¡Gracias!</p>
+</blockquote>
+<p><strong>Mensaje para pedir la charla (cuando ya conectaron):</strong></p>
+<blockquote><div class="bq-tag">Plantilla para copiar</div>
+<p>Gracias por aceptar, [nombre]. Soy [propuesta de valor en una línea]. Estoy explorando oportunidades en [área/empresa] y me ayudaría muchísimo tu mirada. ¿Tendrías 15 minutos esta semana o la próxima para una llamada? Me adapto a tu horario.</p>
+</blockquote>
+<p><strong>Durante la charla, preguntá:</strong></p>
+<ol>
+<li>¿Cómo es un día típico en tu rol?</li>
+<li>¿Qué valora más tu empresa en alguien que entra en esta área?</li>
+<li>¿Qué desafíos tiene hoy el equipo?</li>
+<li>¿Qué me recomendarías para destacarme como candidato?</li>
+<li>¿Hay alguien más con quien me recomendarías hablar?</li>
+</ol>
+<p>Al final, si la charla fue bien: "Si en algún momento se abre algo en tu equipo, ¿te parece que te comparta mi CV?". En muchas empresas existe un programa de referidos con premio, así que recomendarte también les conviene.</p>
+<div class="callout"><strong>Meta:</strong> 2 a 3 conversaciones informativas por semana. Cada una abre en promedio otro contacto.</div>
+<h3>Día 16 — El contacto directo a quien decide</h3>
+<p>Cuando ves un aviso que te interesa, no te quedes solo con la postulación. Buscá en LinkedIn al reclutador o al líder del área ("Head of", "Gerente de", "Líder de") y mandá un mensaje en las primeras 24 a 48 horas.</p>
+<blockquote><div class="bq-tag">Plantilla para copiar</div>
+<p>Hola, [nombre]. Me postulé hoy al puesto de [puesto]. En [empresa actual/anterior] [logro relevante con número], y veo que el equipo busca [requisito del aviso]. Me encantaría contarte cómo podría aportar. Dejo mi CV adjunto por si te resulta útil. ¡Gracias por tu tiempo!</p>
+</blockquote>
+<div class="callout"><strong>Claves:</strong> corto (menos de 100 palabras), con un dato concreto, sin rogar, sin copiar y pegar el CV entero.</div>
+<h3>Día 17 — Tu sistema diario y el seguimiento</h3>
+<p>Armá tu tracker (tenés el modelo en la Caja de herramientas) y fijá metas de actividad, no de resultado. No controlás quién te llama; sí controlás cuántas acciones hacés.</p>
+<p><strong>Metas diarias recomendadas (búsqueda a tiempo completo):</strong></p>
+<ul>
+<li>3 a 5 postulaciones adaptadas</li>
+<li>5 mensajes de networking o contacto directo</li>
+<li>3 seguimientos</li>
+<li>10 minutos de comentarios en LinkedIn</li>
+</ul>
+<p><strong>Reglas de seguimiento:</strong></p>
+<ul>
+<li>Sin respuesta a una postulación: seguimiento a los 5 a 7 días hábiles, por mail o LinkedIn.</li>
+<li>Después de una entrevista: agradecimiento en menos de 24 horas.</li>
+<li>Si te dijeron "te avisamos la semana que viene" y no pasó: seguimiento al día hábil siguiente del plazo.</li>
+<li>Máximo 2 seguimientos por proceso; después, seguí adelante sin rencor.</li>
+</ul>
+<p><strong>Revisión semanal (viernes, 30 minutos):</strong> contá acciones, respuestas y entrevistas. Si de 25 postulaciones no tuviste ninguna respuesta, revisá el CV y si apuntás al nivel correcto. Si tenés respuestas pero no pasás la primera entrevista, el problema está en tu pitch o en la entrevista telefónica.</p></section>
+<section class="opener bonus" style="--bg:#111111;background: radial-gradient(circle at 85% 15%, #8A6A1F 0%, #111111 60%);">
+  <div class="op-num">B2</div>
+  <div class="op-kicker">Bonus 2 · Nivel experto</div>
+  <h2 class="op-title">Estrategias avanzadas para pasar primero en la fila</h2>
+  <div class="op-illu"><svg viewBox="0 0 520 420" xmlns="http://www.w3.org/2000/svg" class="illu"><circle cx="260" cy="210" r="190" fill="#fff" opacity="0.06"/><g transform="rotate(35 260 210)"><path d="M260 50 C310 100 320 200 300 290 L220 290 C200 200 210 100 260 50 Z" fill="#fff"/><circle cx="260" cy="160" r="26" fill="#5B8DEF"/><path d="M220 250 L170 310 L220 295 Z" fill="#FF7A45"/><path d="M300 250 L350 310 L300 295 Z" fill="#FF7A45"/><path d="M230 295 Q260 380 290 295 Z" fill="#FFC857"/></g><circle cx="80" cy="80" r="4" fill="#fff" opacity=".7"/><circle cx="450" cy="60" r="4" fill="#fff" opacity=".7"/><circle cx="470" cy="200" r="4" fill="#fff" opacity=".7"/><circle cx="60" cy="240" r="4" fill="#fff" opacity=".7"/><circle cx="120" cy="370" r="4" fill="#fff" opacity=".7"/></svg></div>
+  <div class="op-foot">Conseguí trabajo en 30 días</div>
+</section><section class="content"><p>El 90 % de los postulantes hace lo mismo: CV, botón de postular, esperar. Las estrategias de este capítulo las usa una minoría y por eso funcionan: te sacan de la pila y te ponen frente a quien decide, con algo que nadie más llevó.</p>
+<h3>1. La prueba de trabajo (proof of work)</h3>
+<p>En lugar de decir que podés hacer el trabajo, mostrá una muestra. Es la estrategia más poderosa para quien tiene poca experiencia o quiere cambiar de rubro.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Rubro</th>
+<th>Prueba de trabajo de 2 a 4 horas</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Marketing</td>
+<td>Auditoría de las redes de la empresa con 5 mejoras concretas y un ejemplo de posteo</td>
+</tr>
+<tr>
+<td>Ventas</td>
+<td>Lista de 20 clientes potenciales para su producto con el mensaje que les mandarías</td>
+</tr>
+<tr>
+<td>Administración y finanzas</td>
+<td>Plantilla de Excel que resuelve un problema típico del puesto (conciliación, flujo de caja)</td>
+</tr>
+<tr>
+<td>Atención al cliente</td>
+<td>Análisis de 30 reseñas públicas de la empresa con los 3 problemas principales y cómo los atenderías</td>
+</tr>
+<tr>
+<td>Diseño y UX</td>
+<td>Rediseño de una pantalla de su web o app con el porqué de cada cambio</td>
+</tr>
+<tr>
+<td>Tecnología</td>
+<td>Pequeña herramienta o mejora sobre algo público de la empresa, en GitHub</td>
+</tr>
+<tr>
+<td>Recursos humanos</td>
+<td>Propuesta de proceso de bienvenida para nuevos ingresos en una página</td>
+</tr>
+<tr>
+<td>Logística y operaciones</td>
+<td>Mapa del proceso de entrega visto como cliente, con 3 mejoras posibles</td>
+</tr>
+</tbody>
+</table></div>
+<p>Cómo usarla: mandala al líder del área junto con tu postulación, o llevala a la entrevista. Una sola página o un video corto. Sin pedir nada a cambio.</p>
+<div class="secret"><div class="secret-tag">Secreto de reclutador</div> cuando un candidato llega con un trabajo hecho sobre la empresa, el líder deja de preguntarse "¿podrá hacerlo?" y empieza a imaginarlo en el equipo. Pasás de ser un CV a ser una persona que ya está resolviendo sus problemas.</div>
+<h3>2. El plan de 30-60-90 días para la entrevista final</h3>
+<p>Una hoja con lo que harías en tus primeros tres meses si te contratan:</p>
+<ul>
+<li><strong>30 días:</strong> qué vas a aprender y a quién vas a conocer.</li>
+<li><strong>60 días:</strong> qué primeras mejoras vas a aportar (basadas en lo que escuchaste en las entrevistas).</li>
+<li><strong>90 días:</strong> qué resultado medible esperás lograr.</li>
+</ul>
+<p>Sacalo al final de la entrevista: "Preparé una primera idea de cómo encararía los primeros 90 días. ¿Te la puedo mostrar?". Muy pocos candidatos lo hacen y transmite iniciativa y compromiso.</p>
+<h3>3. El mensaje con video</h3>
+<p>Un video de 60 a 90 segundos grabado con la cámara de la compu (hay herramientas gratuitas para grabar pantalla y cámara a la vez). Estructura: quién sos, por qué esa empresa, una prueba concreta de lo que podés aportar, y una invitación a conversar. Se manda como link en el mensaje al líder del área. Destaca entre decenas de mensajes de texto.</p>
+<h3>4. La carta de valor (en lugar de la carta de presentación)</h3>
+<p>En vez de hablar de vos, hablá del problema de ellos. Se manda directo al líder del área, aunque no haya aviso publicado.</p>
+<blockquote><div class="bq-tag">Plantilla para copiar</div>
+<p>Hola, [nombre]: vi que [empresa] está [abriendo sucursales / lanzando X / buscando crecer en Y]. Cuando una empresa hace eso, suele aparecer [problema típico: más carga administrativa, demoras en entregas, más consultas de clientes]. En [mi trabajo anterior] me tocó justamente eso y [logro concreto con número]. Me encantaría contarte cómo podría ayudar a tu equipo. ¿Te parece una charla de 15 minutos la semana que viene?</p>
+</blockquote>
+<h3>5. La doble vía: postulación + referido</h3>
+<p>Para cada empresa A, no te quedes con una sola entrada. Postulate por el sistema (para quedar registrado) y en paralelo buscá a alguien de adentro que te refiera. Muchas empresas tienen programas de referidos con premio para el empleado: pedirlo no es molestar, es darle la chance de ganarlo.</p>
+<p>Si no conocés a nadie, buscá en LinkedIn personas de la empresa con las que compartas algo: misma universidad, misma ciudad, ex empresa en común. La conexión compartida multiplica la tasa de respuesta.</p>
+<h3>6. Las empresas donde ya trabajaste (y sus ex empleados)</h3>
+<ul>
+<li><strong>Volver a una empresa anterior</strong> (si saliste bien) es de las contrataciones de menor riesgo para una empresa: ya te conocen.</li>
+<li><strong>Tus ex compañeros hoy trabajan en otras empresas.</strong> Son tu red más cálida. Revisá dónde está cada uno y escribiles.</li>
+<li><strong>Ex jefes que te valoraban:</strong> muchas veces se llevan gente de confianza a su nueva empresa. Un mensaje de "¿cómo estás? Estoy buscando nuevos desafíos" puede abrir una puerta directa.</li>
+</ul>
+<h3>7. El arbitraje de títulos</h3>
+<p>El mismo trabajo tiene nombres distintos según la empresa y el país: "Customer Success", "Ejecutivo de cuentas", "Account Manager", "Gestor de clientes". Buscá con todas las variantes: los avisos con nombres menos comunes reciben menos postulaciones.</p>
+<h3>8. El momento justo</h3>
+<ul>
+<li><strong>Postulate en las primeras 48 a 72 horas de publicado el aviso.</strong> Configurá alertas diarias para no llegar tarde.</li>
+<li><strong>Escribí al líder en horario laboral</strong> y de martes a jueves, cuando la bandeja está más tranquila que un lunes.</li>
+<li><strong>Aprovechá los momentos de contratación:</strong> comienzos de año, después de vacaciones y temporadas altas de cada rubro (comercio antes de fin de año, turismo antes de temporada).</li>
+</ul>
+<h3>9. Después del "no": la lista de espera</h3>
+<p>Si llegaste a la final y eligieron a otra persona, sos el plan B de la empresa. Respondé con elegancia, pedí una devolución y, a las 4 a 6 semanas, mandá un mensaje breve con una novedad tuya. Es común que el elegido no pase el período de prueba o que se abra otra vacante parecida.</p>
+<h3>10. El trabajo temporal o freelance como puerta</h3>
+<p>Un contrato por proyecto, un reemplazo por licencia o un trabajo freelance te deja demostrar lo que vale tu trabajo desde adentro. Muchas contrataciones efectivas empiezan así. Si una empresa A no tiene vacante fija, ofrecé ayuda por proyecto.</p></section>
+<section class="opener" style="--bg:#7A2E1F;background: radial-gradient(circle at 85% 15%, #D9572B 0%, #7A2E1F 60%);">
+  <div class="op-num">05</div>
+  <div class="op-kicker">Días 18–24</div>
+  <h2 class="op-title">Entrevistas que terminan en oferta</h2>
+  <div class="op-illu"><svg viewBox="0 0 520 420" xmlns="http://www.w3.org/2000/svg" class="illu"><circle cx="260" cy="210" r="190" fill="#fff" opacity="0.06"/><rect x="80" y="90" width="300" height="200" rx="18" fill="#fff"/><rect x="96" y="106" width="268" height="150" rx="10" fill="#5B8DEF" opacity=".35"/><circle cx="230" cy="160" r="28" fill="#FFC857"/><path d="M180 256 q50 -70 100 0" fill="#FFC857"/><rect x="200" y="300" width="60" height="18" fill="#fff"/><rect x="160" y="316" width="140" height="10" rx="5" fill="#fff"/><rect x="330" y="40" width="150" height="70" rx="20" fill="#FF7A45"/><path d="M360 108 l-6 24 l26 -24 z" fill="#FF7A45"/><circle cx="372" cy="75" r="7" fill="#fff"/><circle cx="405" cy="75" r="7" fill="#fff"/><circle cx="438" cy="75" r="7" fill="#fff"/><rect x="380" y="230" width="120" height="56" rx="18" fill="#3DDC97"/><path d="M480 284 l8 20 l-24 -20 z" fill="#3DDC97"/><path d="M418 258 l10 10 l20 -20" stroke="#fff" stroke-width="6" fill="none" stroke-linecap="round"/></svg></div>
+  <div class="op-foot">Conseguí trabajo en 30 días</div>
+</section><section class="content"><p>La entrevista no la gana quien más sabe, sino quien mejor demuestra que puede resolver el problema de la empresa y que va a ser fácil trabajar con él o ella. Eso se prepara. En esta semana armás tu repertorio de historias, practicás las preguntas clásicas y aprendés a manejar cada etapa.</p>
+<h3>Día 18 — Las etapas de un proceso típico</h3>
+<ol>
+<li><strong>Filtro telefónico o videollamada con RR. HH. (15–30 min):</strong> verifican requisitos básicos, motivación, expectativa salarial y disponibilidad.</li>
+<li><strong>Entrevista con el líder del área (45–60 min):</strong> experiencia, casos concretos, encaje con el equipo.</li>
+<li><strong>Prueba técnica o caso práctico:</strong> ejercicio, presentación, test de Excel, role play de venta, prueba de código.</li>
+<li><strong>Psicotécnicos o assessment grupal:</strong> tests de personalidad, dinámicas en grupo.</li>
+<li><strong>Entrevista final con gerencia o panel:</strong> visión, cultura, decisión.</li>
+<li><strong>Referencias y oferta.</strong></li>
+</ol>
+<p>No todas las empresas tienen todas las etapas, pero saber en cuál estás te dice qué evalúan. Preguntá siempre al reclutador: "¿Cómo sigue el proceso y quiénes participan?".</p>
+<h3>Día 19 — Investigación previa (la hora que te diferencia)</h3>
+<p>Antes de cada entrevista, dedicá al menos una hora a investigar:</p>
+<div class="checklist"><div class="cl-head">Checklist</div><ul><li><span class="box"></span>Qué vende la empresa, a quién y cómo gana plata</li><li><span class="box"></span>Noticias de los últimos 6 meses (lanzamientos, expansión, cambios)</li><li><span class="box"></span>Misión, valores y cómo se presentan en redes</li><li><span class="box"></span>El perfil de LinkedIn de quien te entrevista</li><li><span class="box"></span>Reseñas de empleados (Glassdoor u otras) y preguntas de entrevistas reportadas</li><li><span class="box"></span>Competidores principales</li><li><span class="box"></span>El aviso, línea por línea: para cada requisito, ¿qué historia tuya lo prueba?</li></ul></div>
+
+<h3>Día 20 — El método STAR y tu banco de 8 historias</h3>
+<p>Las preguntas de comportamiento ("contame de una vez que...") son las más comunes. Se responden con el <strong>método STAR</strong>:</p>
+<ul>
+<li><strong>S — Situación:</strong> el contexto en una o dos frases.</li>
+<li><strong>T — Tarea:</strong> cuál era tu responsabilidad o el desafío.</li>
+<li><strong>A — Acción:</strong> qué hiciste vos (usá "yo", no "nosotros"). Es la parte más larga.</li>
+<li><strong>R — Resultado:</strong> qué se logró, con números, y qué aprendiste.</li>
+</ul>
+<p>Duración ideal: 1,5 a 2 minutos por historia.</p>
+<p><strong>Ejemplo:</strong> "¿Contame de una vez que resolviste un problema difícil?"</p>
+<blockquote><div class="bq-tag">Plantilla para copiar</div>
+<p><strong>S:</strong> En la distribuidora donde trabajaba, los pedidos llegaban con errores y teníamos un 9 % de devoluciones. <strong>T:</strong> Mi jefe me pidió encontrar la causa en un mes. <strong>A:</strong> Analicé tres meses de devoluciones en Excel y vi que el 70 % venía de dos productos con códigos parecidos. Propuse etiquetas de color en el depósito y una doble verificación para esos códigos, y capacité a los 6 operarios. <strong>R:</strong> En dos meses las devoluciones bajaron al 3 %, lo que ahorró unos 400 envíos por mes. Aprendí a mirar los datos antes de proponer soluciones.</p>
+</blockquote>
+<p><strong>Tu banco de 8 historias (una historia puede servir para varias preguntas):</strong></p>
+<ol>
+<li>Un logro del que estás orgulloso</li>
+<li>Un problema difícil que resolviste</li>
+<li>Un conflicto con un compañero, jefe o cliente</li>
+<li>Un error o fracaso y qué aprendiste</li>
+<li>Una vez que lideraste o tomaste la iniciativa</li>
+<li>Una situación de mucha presión o plazos cortos</li>
+<li>Un cambio al que tuviste que adaptarte rápido</li>
+<li>Una vez que fuiste más allá de lo que te pedían</li>
+</ol>
+<h3>Día 21 — Las 15 preguntas que casi seguro te van a hacer</h3>
+<p><strong>1. "Contame sobre vos."</strong> No es tu biografía. Usá la fórmula presente-pasado-futuro en 60 a 90 segundos: qué hacés hoy y tu fuerte, uno o dos logros que te trajeron hasta acá, y por qué este puesto es el paso lógico.</p>
+<p><strong>2. "¿Por qué querés trabajar acá?"</strong> Mostrá que investigaste: algo concreto de la empresa + cómo encaja con lo que sabés hacer y lo que querés aprender. Nunca "porque necesito trabajo" ni "porque es una empresa grande".</p>
+<p><strong>3. "¿Por qué deberíamos contratarte?"</strong> Resumí en tres puntos los requisitos del aviso que cumplís, con una prueba cada uno.</p>
+<p><strong>4. "¿Cuál es tu mayor fortaleza?"</strong> Una fortaleza relevante para el puesto + un ejemplo que la demuestre.</p>
+<p><strong>5. "¿Cuál es tu mayor debilidad?"</strong> Algo real pero no central para el puesto, y lo que estás haciendo para mejorarlo. Ejemplo: "Me costaba delegar porque quería controlar todo. Empecé a usar un tablero de tareas con responsables y revisiones semanales, y hoy confío más en el equipo." Evitá el cliché "soy muy perfeccionista".</p>
+<p><strong>6. "¿Por qué te fuiste (o te querés ir) de tu trabajo?"</strong> Siempre en positivo y hacia adelante: crecimiento, nuevos desafíos, aprender algo específico. Nunca hables mal de un empleador anterior. Si te despidieron: breve, honesto, sin drama, y lo que aprendiste.</p>
+<p><strong>7. "¿Dónde te ves en 5 años?"</strong> Muestrá ambición compatible con el puesto: "Me veo dominando [área], con más responsabilidad y, si se da, liderando proyectos dentro de la empresa".</p>
+<p><strong>8. "Contame de un conflicto con un compañero."</strong> STAR, mostrando que escuchaste, buscaste entender y llegaste a una solución. El foco es la resolución, no quién tenía razón.</p>
+<p><strong>9. "Contame de un error que hayas cometido."</strong> Un error real, cómo lo corregiste y qué cambiaste para que no vuelva a pasar. Asumir errores con madurez suma muchos puntos.</p>
+<p><strong>10. "¿Cómo manejás la presión?"</strong> Con una historia, no con adjetivos: tu método concreto (priorizar, comunicar, dividir tareas).</p>
+<p><strong>11. "¿Qué sabés de nosotros?"</strong> Acá se nota la investigación del día 19. Mencioná productos, clientes, una novedad reciente y qué te atrajo.</p>
+<p><strong>12. "¿Cuáles son tus expectativas salariales?"</strong> Ver el día 25. Respuesta corta: un rango basado en el mercado y la pregunta por la banda del puesto.</p>
+<p><strong>13. "¿Tenés otros procesos abiertos?"</strong> Sí, con honestidad y sin detalles: "Estoy en conversaciones con otras empresas, pero esta posición es una de mis prioridades por [motivo]". Genera interés.</p>
+<p><strong>14. "¿Por qué tuviste este hueco en tu CV?"</strong> Breve y sin disculparte: qué hiciste en ese tiempo (cursos, familia, proyectos, salud) y por qué hoy estás listo.</p>
+<p><strong>15. "¿Tenés alguna pregunta?"</strong> Siempre sí. Ver la lista del día 23.</p>
+<h3>Día 22 — Entrevistas por video, teléfono, técnicas y grupales</h3>
+<p><strong>Videollamada (Zoom, Meet, Teams):</strong></p>
+<ul>
+<li>Probá cámara, micrófono, conexión y el link 15 minutos antes.</li>
+<li>Cámara a la altura de los ojos, luz de frente, fondo ordenado o desenfocado.</li>
+<li>Mirá a la cámara cuando hablás, no a tu propia imagen.</li>
+<li>Tené a mano (fuera de cámara) tus notas, el aviso y tus preguntas.</li>
+<li>Celular en silencio, notificaciones apagadas, nombre de usuario con tu nombre real.</li>
+</ul>
+<p><strong>Telefónica:</strong> paráte o caminá (la voz suena con más energía), sonreí al hablar, tené el CV adelante y anotá el nombre de quien llama.</p>
+<p><strong>Prueba técnica o caso:</strong> preguntá antes el formato y la duración. Pensá en voz alta: valoran tu razonamiento tanto como el resultado. Si te trabás, decí qué harías para destrabarte. Si es para hacer en casa, entregalo prolijo y antes del plazo.</p>
+<p><strong>Dinámica grupal:</strong> no se trata de hablar más, sino de aportar. Escuchá, construí sobre las ideas de otros, ayudá al grupo a cumplir el tiempo y al objetivo, e incluí a quien no habla. Observan liderazgo, colaboración y comunicación.</p>
+<p><strong>Presencial:</strong> llegá 10 minutos antes (no 30), con el CV impreso, vestido un escalón por encima de cómo se viste la gente de esa empresa. Tratá bien a todos, desde recepción: muchas veces preguntan su opinión.</p>
+<h3>Día 23 — Las preguntas que hacés vos</h3>
+<p>Tus preguntas muestran interés y criterio, y te dan información para decidir. Llevá 5 preparadas y hacé 2 o 3:</p>
+<ol>
+<li>¿Cómo sería un éxito en este puesto a los 90 días y al año?</li>
+<li>¿Cuál es el mayor desafío que tiene hoy el equipo?</li>
+<li>¿Cómo es el equipo y cómo trabajan juntos?</li>
+<li>¿Por qué se abrió esta posición?</li>
+<li>¿Qué diferencia a las personas que mejor rinden en esta empresa?</li>
+<li>¿Qué posibilidades de capacitación y crecimiento hay?</li>
+<li>¿Hay algo de mi perfil que te genere dudas para el puesto? (te da la chance de responder objeciones en el momento)</li>
+<li>¿Cuáles son los próximos pasos del proceso?</li>
+</ol>
+<p><strong>No preguntes en la primera entrevista</strong> por vacaciones, licencias o "cuándo puedo pedir un aumento". Eso llega con la oferta.</p>
+<h3>Día 24 — Práctica, lenguaje corporal y seguimiento</h3>
+<p><strong>Simulacro:</strong> pedí a alguien que te entreviste con las 15 preguntas o grabate respondiendo. Mirá el video y anotá muletillas ("eh", "o sea", "nada"), respuestas demasiado largas y momentos en que no mirás a cámara. Repetí hasta que fluya sin sonar memorizado. También podés practicar con un asistente de IA pidiéndole que actúe como entrevistador para tu puesto.</p>
+<p><strong>Lenguaje corporal:</strong> espalda derecha, manos visibles y quietas, contacto visual natural, asentir mientras escuchás, sonreír al saludar y al despedirte.</p>
+<p><strong>Mail de agradecimiento (en menos de 24 horas):</strong></p>
+<blockquote><div class="bq-tag">Plantilla para copiar</div>
+<p>Asunto: Gracias por la entrevista — [Puesto]</p>
+<p>Hola, [nombre]: gracias por el tiempo de hoy. Me quedé muy entusiasmado con [algo específico que se habló]. Después de la charla, estoy todavía más convencido de que puedo aportar en [desafío que mencionaron], como hice en [logro breve]. Quedo a disposición para lo que necesites. Saludos, [nombre]</p>
+</blockquote>
+<p><strong>Si te rechazan:</strong> respondé agradeciendo, pedí una devolución breve y dejá la puerta abierta. Muchas veces el candidato elegido no acepta o se abre otra vacante, y el segundo mejor es al primero que llaman.</p></section>
+<section class="opener bonus" style="--bg:#111111;background: radial-gradient(circle at 85% 15%, #8A6A1F 0%, #111111 60%);">
+  <div class="op-num">B3</div>
+  <div class="op-kicker">Bonus 3 · Nivel experto</div>
+  <h2 class="op-title">Nivel experto en entrevistas, evaluaciones y referencias</h2>
+  <div class="op-illu"><svg viewBox="0 0 520 420" xmlns="http://www.w3.org/2000/svg" class="illu"><circle cx="260" cy="210" r="190" fill="#fff" opacity="0.06"/><rect x="140" y="60" width="240" height="310" rx="18" fill="#fff"/><rect x="210" y="44" width="100" height="36" rx="10" fill="#FFC857"/><rect x="170" y="120" width="90" height="10" rx="5" fill="#C9D3E6"/><circle cx="280" cy="125" r="8" fill="#FF7A45"/><circle cx="302" cy="125" r="8" fill="#FF7A45"/><circle cx="324" cy="125" r="8" fill="#FF7A45"/><circle cx="346" cy="125" r="8" fill="#FF7A45"/><rect x="170" y="175" width="90" height="10" rx="5" fill="#C9D3E6"/><circle cx="280" cy="180" r="8" fill="#FF7A45"/><circle cx="302" cy="180" r="8" fill="#FF7A45"/><circle cx="324" cy="180" r="8" fill="#FF7A45"/><circle cx="346" cy="180" r="8" fill="#E5E7EB"/><rect x="170" y="230" width="90" height="10" rx="5" fill="#C9D3E6"/><circle cx="280" cy="235" r="8" fill="#FF7A45"/><circle cx="302" cy="235" r="8" fill="#FF7A45"/><circle cx="324" cy="235" r="8" fill="#E5E7EB"/><circle cx="346" cy="235" r="8" fill="#E5E7EB"/><rect x="170" y="285" width="90" height="10" rx="5" fill="#C9D3E6"/><circle cx="280" cy="290" r="8" fill="#FF7A45"/><circle cx="302" cy="290" r="8" fill="#FF7A45"/><circle cx="324" cy="290" r="8" fill="#FF7A45"/><circle cx="346" cy="290" r="8" fill="#FF7A45"/></svg></div>
+  <div class="op-foot">Conseguí trabajo en 30 días</div>
+</section><section class="content"><p>Las empresas serias no eligen "por intuición": usan grillas de evaluación, tests y referencias. Saber cómo funcionan te permite preparar exactamente lo que se mide.</p>
+<h3>Cómo te puntúan en una entrevista estructurada</h3>
+<p>Cada entrevistador tiene 3 a 5 competencias asignadas (por ejemplo: orientación a resultados, trabajo en equipo, resolución de problemas, conocimiento técnico). Durante la charla anota evidencias y después pone un puntaje, en general del 1 al 4:</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Puntaje</th>
+<th>Qué escucharon</th>
+<th>Ejemplo de respuesta</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 — Sin evidencia</td>
+<td>Generalidades, teoría, "yo siempre..."</td>
+<td>"Soy muy organizado y trabajo bien bajo presión"</td>
+</tr>
+<tr>
+<td>2 — Evidencia débil</td>
+<td>Un ejemplo vago o donde no queda claro qué hiciste vos</td>
+<td>"En mi equipo hicimos un proyecto que salió bien"</td>
+</tr>
+<tr>
+<td>3 — Evidencia sólida</td>
+<td>Ejemplo concreto, tu acción clara, resultado</td>
+<td>Una historia STAR completa con un número</td>
+</tr>
+<tr>
+<td>4 — Evidencia excepcional</td>
+<td>Lo anterior + complejidad, aprendizaje y repetición del logro</td>
+<td>STAR + "y después lo convertí en el proceso estándar del área"</td>
+</tr>
+</tbody>
+</table></div>
+<p>Después de las entrevistas hay una reunión (debrief) donde cada uno defiende sus puntajes con las notas. <strong>Si no le diste al entrevistador frases concretas para anotar, no tiene con qué defenderte.</strong></p>
+<div class="secret"><div class="secret-tag">Secreto de reclutador</div> las respuestas que mejor puntúan tienen tres cosas que se pueden anotar textualmente: un número, una acción tuya en primera persona y una consecuencia para el negocio. Pensá en tus respuestas como frases que el entrevistador va a copiar en su planilla.</div>
+<h3>Las señales de alerta que anotan los entrevistadores</h3>
+<ul>
+<li>Hablar mal de jefes o empresas anteriores.</li>
+<li>Decir siempre "nosotros" y nunca "yo".</li>
+<li>No poder dar un ejemplo concreto de un error propio.</li>
+<li>No saber nada de la empresa.</li>
+<li>Mostrar interés solo por el sueldo o los beneficios.</li>
+<li>Respuestas de 5 minutos que no responden la pregunta.</li>
+<li>Inconsistencias entre el CV, LinkedIn y lo que contás.</li>
+<li>Llegar tarde sin avisar o conectarse con problemas técnicos evitables.</li>
+</ul>
+<h3>El cierre que casi nadie hace</h3>
+<p>Al final de la entrevista, después de tus preguntas, pedí un minuto para cerrar:</p>
+<blockquote><div class="bq-tag">Plantilla para copiar</div>
+<p>"Antes de terminar, quiero decirte que después de esta charla estoy todavía más entusiasmado. Por lo que me contaste, el equipo necesita [desafío principal], y eso es justamente lo que hice en [logro]. Me encantaría ser parte. ¿Hay algo que te haya quedado como duda sobre mi perfil?"</p>
+</blockquote>
+<p>Esa última pregunta te deja responder una objeción en el momento, en vez de que la discutan sin vos en el debrief.</p>
+<h3>Tests psicotécnicos y de aptitud</h3>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Tipo de test</th>
+<th>Qué mide</th>
+<th>Cómo prepararte</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Razonamiento numérico</td>
+<td>Porcentajes, proporciones, lectura de tablas y gráficos con tiempo límite</td>
+<td>Practicá cálculos de porcentajes y variaciones; resolvé tests de práctica con cronómetro</td>
+</tr>
+<tr>
+<td>Razonamiento verbal</td>
+<td>Comprensión de textos, deducciones ("verdadero, falso, no se puede saber")</td>
+<td>Leé con atención: respondé solo con lo que dice el texto, no con lo que sabés</td>
+</tr>
+<tr>
+<td>Razonamiento abstracto o lógico</td>
+<td>Series de figuras, matrices, patrones</td>
+<td>Es lo que más mejora con práctica: aprendé a buscar rotaciones, conteos y alternancias</td>
+</tr>
+<tr>
+<td>Cuestionarios de personalidad</td>
+<td>Estilo de trabajo, preferencias, comportamiento</td>
+<td>Respondé con honestidad y coherencia; pensá en cómo sos en el trabajo, no en casa</td>
+</tr>
+<tr>
+<td>Juicio situacional</td>
+<td>Qué harías ante situaciones laborales</td>
+<td>Elegí opciones que resuelvan el problema, involucren a las personas correctas y cuiden al cliente</td>
+</tr>
+<tr>
+<td>Tests proyectivos (dibujos)</td>
+<td>Rasgos de personalidad (se usan sobre todo en algunos países de Latinoamérica)</td>
+<td>Tomáte el tiempo, dibujá completo, centrado y con detalle; sin apuro</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Sobre los cuestionarios de personalidad:</strong> muchos incluyen preguntas repetidas con otras palabras para detectar respuestas inconsistentes o "demasiado perfectas". Intentar adivinar qué quieren suele salir peor que responder con sinceridad. Lo que sí conviene es pensar en tu mejor versión profesional al responder.</p>
+<p><strong>Antes de cualquier test:</strong> dormí bien, hacelo en un lugar silencioso, con buena conexión, calculadora y papel si se permite, y leé las instrucciones completas. Si una pregunta te traba, pasá a la siguiente: casi siempre importa más cuántas respondés bien que terminar todas.</p>
+<h3>Entrevistas grabadas y con inteligencia artificial</h3>
+<p>Cada vez más empresas usan entrevistas en video sin entrevistador: te aparece una pregunta, tenés unos segundos para pensar y un tiempo límite para responder. Algunas también usan asistentes de IA que hacen las primeras preguntas por chat o voz.</p>
+<ul>
+<li><strong>Practicá con el cronómetro:</strong> respuestas de 60 a 90 segundos con estructura STAR comprimida.</li>
+<li><strong>Mirá la cámara, no la pantalla.</strong> Poné un papelito al lado de la cámara con la palabra "sonreí".</li>
+<li><strong>Usá las palabras del aviso</strong> en tus respuestas: algunas herramientas analizan la transcripción.</li>
+<li><strong>Hablá claro y a ritmo normal</strong>, sin leer: se nota y transmite inseguridad.</li>
+<li><strong>Si hay una pregunta de práctica, usala</strong> para probar luz, sonido y encuadre.</li>
+<li><strong>Un humano casi siempre mira después.</strong> Tratá la grabación como si fuera la entrevista con el líder.</li>
+</ul>
+<h3>Assessment center o dinámicas grupales: los roles que suman</h3>
+<p>En una dinámica, los evaluadores observan con una grilla: comunicación, liderazgo, colaboración, análisis y gestión del tiempo. Tenés más chances si tomás uno de estos roles sin pisar a nadie:</p>
+<ul>
+<li><strong>El que ordena:</strong> "¿Qué les parece si primero definimos el objetivo y repartimos el tiempo?"</li>
+<li><strong>El que integra:</strong> "Quiero sumar a lo que dijo Ana..." o "Juan, no te escuchamos todavía, ¿qué pensás?"</li>
+<li><strong>El que cuida el tiempo:</strong> "Nos quedan 5 minutos, ¿vamos cerrando la propuesta?"</li>
+<li><strong>El que sintetiza:</strong> resume las conclusiones al final o se ofrece a presentarlas.</li>
+</ul>
+<h3>Referencias: el paso que define empates</h3>
+<ul>
+<li><strong>Elegí 3 referencias antes de que te las pidan:</strong> un ex jefe directo, un par o cliente, y alguien que te haya visto liderar o resolver problemas.</li>
+<li><strong>Avisales y preparálos:</strong> contales a qué puesto te postulás, qué competencias buscan y qué logros te gustaría que recuerden. Una referencia preparada es mucho más específica y convincente.</li>
+<li><strong>Agradecé siempre</strong>, consigas o no el puesto.</li>
+</ul>
+<div class="secret"><div class="secret-tag">Secreto de reclutador</div> muchos reclutadores también hacen referencias "informales" con personas que no pusiste en la lista: un conocido en común en tu ex empresa, por ejemplo. Por eso cuidar las relaciones en cada trabajo es parte de tu búsqueda futura, y por eso nunca conviene quemar puentes al irte.</div></section>
+<section class="opener" style="--bg:#0B4F3C;background: radial-gradient(circle at 85% 15%, #14A06F 0%, #0B4F3C 60%);">
+  <div class="op-num">06</div>
+  <div class="op-kicker">Días 25–28</div>
+  <h2 class="op-title">Negociación de sueldo y elección de la oferta</h2>
+  <div class="op-illu"><svg viewBox="0 0 520 420" xmlns="http://www.w3.org/2000/svg" class="illu"><circle cx="260" cy="210" r="190" fill="#fff" opacity="0.06"/><rect x="110" y="250" width="54" height="80" rx="8" fill="#fff" opacity="0.25"/><rect x="190" y="200" width="54" height="130" rx="8" fill="#fff" opacity="0.43"/><rect x="270" y="150" width="54" height="180" rx="8" fill="#fff" opacity="0.61"/><rect x="350" y="90" width="54" height="240" rx="8" fill="#fff" opacity="0.79"/><path d="M110 240 L190 200 L270 150 L350 80" stroke="#FF7A45" stroke-width="7" fill="none" stroke-linecap="round"/><path d="M350 80 l-26 2 l14 20 z" fill="#FF7A45"/><ellipse cx="430" cy="330" rx="44" ry="14" fill="#FFC857" stroke="#E0A800" stroke-width="2"/><ellipse cx="430" cy="312" rx="44" ry="14" fill="#FFC857" stroke="#E0A800" stroke-width="2"/><ellipse cx="430" cy="294" rx="44" ry="14" fill="#FFC857" stroke="#E0A800" stroke-width="2"/><ellipse cx="430" cy="276" rx="44" ry="14" fill="#FFC857" stroke="#E0A800" stroke-width="2"/><ellipse cx="430" cy="258" rx="44" ry="14" fill="#FFC857" stroke="#E0A800" stroke-width="2"/><ellipse cx="430" cy="240" rx="44" ry="14" fill="#FFC857" stroke="#E0A800" stroke-width="2"/><text x="430" y="245" text-anchor="middle" font-size="28" font-weight="800" fill="#14213D" font-family="Inter">$</text></svg></div>
+  <div class="op-foot">Conseguí trabajo en 30 días</div>
+</section><section class="content"><p>Negociar no es pelear: es el último paso de la venta. Las empresas casi siempre tienen margen sobre su primera oferta y esperan que el candidato negocie. Unos minutos de conversación bien preparada pueden impactar en tu sueldo de todos los años siguientes, porque los aumentos se calculan sobre esa base.</p>
+<h3>Día 25 — Investigá tu valor de mercado</h3>
+<p>Armá un rango con al menos tres fuentes:</p>
+<ul>
+<li>Rangos publicados en avisos de tu puesto (cada vez más empresas los muestran).</li>
+<li>Encuestas salariales de consultoras de selección y de cámaras o consejos profesionales de tu país.</li>
+<li>Sitios de sueldos reportados por empleados (Glassdoor y similares).</li>
+<li>Convenio colectivo de tu actividad, si aplica: marca el piso legal.</li>
+<li>Tus conversaciones informativas: preguntá por rangos, no por el sueldo de la persona.</li>
+</ul>
+<p>Con eso definí tu <strong>rango de negociación</strong>: el piso es tu mínimo aceptable del día 1 y el techo, un 10 a 20 % por encima de tu objetivo. Siempre convertí los números a la misma base (mensual o anual, bruto o neto) antes de comparar.</p>
+<h3>Día 26 — Cómo responder "¿cuánto pretendés?"</h3>
+<p>En la primera etapa, intentá que la empresa dé el primer número:</p>
+<blockquote><div class="bq-tag">Plantilla para copiar</div>
+<p>"Me interesa mucho entender bien el puesto antes de hablar de números. ¿Cuál es la banda que tienen prevista para esta posición?"</p>
+</blockquote>
+<p>Si insisten o el formulario lo exige, da un <strong>rango</strong> cuyo mínimo sea tu número objetivo (no tu piso):</p>
+<blockquote><div class="bq-tag">Plantilla para copiar</div>
+<p>"Por lo que vi en el mercado para este rol y mi experiencia en [diferencial], estoy en un rango de [X] a [Y] brutos mensuales, abierto a conversar según el paquete completo."</p>
+</blockquote>
+<p><strong>Errores frecuentes:</strong> decir tu sueldo actual (no estás obligado; hablá de lo que vale el nuevo puesto), dar un número sin investigar, o pedir de menos "para no asustar".</p>
+<h3>Día 27 — Negociar la oferta</h3>
+<p>Cuando llega la oferta:</p>
+<ol>
+<li><strong>Agradecé con entusiasmo y no aceptes en el momento.</strong> "¡Muchísimas gracias! Estoy muy contento. ¿Me la podrían enviar por escrito para revisarla con calma? Les respondo el [día, en 24 a 72 h]."</li>
+<li><strong>Revisá el paquete completo:</strong> sueldo bruto, bonos, aumentos previstos, obra social o prepaga, modalidad, horario, vacaciones, capacitación, equipamiento, beneficios.</li>
+<li><strong>Hacé una contraoferta justificada, una sola vez y concreta:</strong></li>
+</ol>
+<blockquote><div class="bq-tag">Plantilla para copiar</div>
+<p>"Estoy muy entusiasmado con la propuesta y quiero sumarme. Considerando [mi experiencia en X / los rangos del mercado / la responsabilidad del rol], me sentiría muy cómodo con un sueldo de [número]. Si llegamos a eso, estoy listo para confirmar."</p>
+</blockquote>
+<ol>
+<li><strong>Si no hay margen en el sueldo, negociá otras cosas:</strong> revisión salarial a los 6 meses con objetivos claros, bono de ingreso, días de home office, días extra de vacaciones, presupuesto de capacitación, mejor plan de salud, fecha de ingreso, cargo.</li>
+<li><strong>Pedí todo lo acordado por escrito</strong> antes de renunciar a tu trabajo actual.</li>
+</ol>
+<p><strong>Frases que ayudan:</strong> "¿Hay flexibilidad en...?" · "¿Qué tendría que pasar para llegar a...?" · "Entiendo; ¿podemos dejar por escrito una revisión a los 6 meses?". Después de decir tu número, callate: el silencio trabaja a tu favor.</p>
+<h3>Nivel experto: cómo funciona una banda salarial por dentro</h3>
+<p>Las empresas medianas y grandes tienen, para cada puesto, una banda con un mínimo, un punto medio y un máximo. Entenderla cambia por completo cómo negociás.</p>
+<ul>
+<li><strong>El punto medio</strong> es lo que la empresa considera el sueldo de mercado para alguien que domina el puesto. La distancia entre mínimo y máximo suele ser amplia (es común que el máximo esté entre un 40 y un 60 % por encima del mínimo).</li>
+<li><strong>A las personas nuevas se las suele ubicar entre el mínimo y el punto medio</strong>, para dejar lugar a aumentos futuros. Tu objetivo realista es llegar lo más cerca posible del punto medio, o superarlo si traés experiencia que el puesto no exige.</li>
+<li><strong>El reclutador tiene un margen aprobado</strong> hasta cierto valor. Por encima de eso necesita una excepción de un gerente. Por eso conviene darle argumentos que pueda repetir arriba: tus logros, tu experiencia extra, una oferta competidora real.</li>
+<li><strong>Si tu pedido está por encima del máximo</strong>, la empresa difiere la decisión o te ofrece un puesto de nivel más alto. En ese caso preguntá: "¿Existe la posibilidad de considerarme para el nivel siguiente?".</li>
+</ul>
+<div class="secret"><div class="secret-tag">Secreto de reclutador</div> la pregunta "¿cuánto ganás hoy?" sirve para anclarte. Si tu sueldo actual es bajo, la oferta se calcula sobre él y no sobre lo que vale el puesto. Redirigí siempre hacia el valor del nuevo rol: "Prefiero hablar de lo que corresponde a esta posición. Por lo que investigué, el mercado para este rol está entre X e Y".</div>
+<h3>Negociar en economías con inflación alta</h3>
+<p>En países con inflación alta, el número inicial importa menos que cómo se actualiza. Negociá también:</p>
+<ul>
+<li><strong>Frecuencia de ajuste:</strong> mensual, bimestral o trimestral, y si sigue al índice de inflación oficial, al convenio o a una decisión de la empresa.</li>
+<li><strong>Revisión garantizada por escrito</strong> a los 3 o 6 meses.</li>
+<li><strong>Componentes en moneda dura o atados al dólar</strong>, si la empresa los ofrece (bonos, parte del sueldo).</li>
+<li><strong>Beneficios que no pierden valor:</strong> plan de salud, comida, capacitación, equipamiento, días de home office (ahorro en transporte).</li>
+</ul>
+<p>Para comparar ofertas, proyectá el sueldo real a 12 meses con cada esquema de ajuste: una oferta un poco menor con ajustes mensuales puede terminar siendo mucho mejor que una mayor que se ajusta una vez al año.</p>
+<h3>Trabajos remotos para el exterior</h3>
+<p>Trabajar desde tu país para una empresa extranjera puede multiplicar tu ingreso, pero las reglas son distintas:</p>
+<ul>
+<li><strong>La mayoría contrata como prestador independiente (contractor), no como empleado.</strong> No hay aguinaldo, vacaciones pagas, aportes ni obra social incluidos, salvo que se negocien. Tu tarifa tiene que alcanzar para cubrir todo eso por tu cuenta.</li>
+<li><strong>Negociá en la moneda de la empresa</strong> y por mes o por hora, con claridad sobre horas esperadas y días libres pagos.</li>
+<li><strong>Informáte sobre cómo facturar y cobrar desde tu país</strong> (régimen impositivo para exportación de servicios, plataformas de pago internacionales, costos de transferencia). Consultá con un contador antes de firmar.</li>
+<li><strong>El inglés es el filtro principal:</strong> pensá tus historias STAR también en inglés y practicá la entrevista en ese idioma.</li>
+<li><strong>Superá la desconfianza de la distancia:</strong> mostrá autonomía, comunicación escrita clara, puntualidad y experiencia trabajando con equipos remotos o de otros husos horarios.</li>
+</ul>
+<h3>Día 28 — Comparar ofertas y decidir</h3>
+<p>Si tenés más de una oferta (o una oferta y tu trabajo actual), puntuá cada factor del 1 al 5 y multiplicalo por su importancia para vos:</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Factor</th>
+<th>Peso (1–5)</th>
+<th>Oferta A (1–5)</th>
+<th>Oferta B (1–5)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sueldo y beneficios</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Aprendizaje y crecimiento</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Jefe y equipo</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Estabilidad de la empresa</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Modalidad y tiempo de viaje</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Cultura y valores</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Encaje con tu objetivo a 3 años</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<p>Suma = peso × puntaje en cada fila. Si dos ofertas salen parejas, elegí la que más te acerca a dónde querés estar en 3 años.</p>
+<p><strong>Usar una oferta para acelerar otra:</strong> si estás en un proceso que preferís, avisá con honestidad: "Recibí una oferta y tengo que responder el viernes. Ustedes son mi primera opción; ¿hay forma de acelerar la decisión?". Nunca inventes ofertas.</p>
+<p><strong>Contraoferta de tu empleador actual:</strong> pensalo dos veces. Si te ibas por motivos distintos de la plata, esos motivos siguen ahí.</p></section>
+<section class="opener" style="--bg:#2A1E5C;background: radial-gradient(circle at 85% 15%, #C2410C 0%, #2A1E5C 60%);">
+  <div class="op-num">07</div>
+  <div class="op-kicker">Días 29–30 y después</div>
+  <h2 class="op-title">Cierre, plan B y tus primeros 90 días</h2>
+  <div class="op-illu"><svg viewBox="0 0 520 420" xmlns="http://www.w3.org/2000/svg" class="illu"><circle cx="260" cy="210" r="190" fill="#fff" opacity="0.06"/><path d="M40 370 L200 140 L270 230 L330 160 L480 370 Z" fill="rgba(255,255,255,.22)"/><path d="M200 140 L230 183 L215 178 L200 195 L185 180 L172 182 Z" fill="#fff"/><line x1="200" y1="140" x2="200" y2="50" stroke="#fff" stroke-width="5" stroke-linecap="round"/><path d="M200 52 L270 70 L200 92 Z" fill="#FF7A45"/><circle cx="400" cy="90" r="34" fill="#FFC857"/></svg></div>
+  <div class="op-foot">Conseguí trabajo en 30 días</div>
+</section><section class="content"><p>El día 30 terminás con una oferta firmada o con un diagnóstico preciso de qué ajustar. Las dos cosas son progreso.</p>
+<h3>Día 29 — Si ya tenés oferta: cerrá bien</h3>
+<ul>
+<li>Confirmá por escrito la aceptación y la fecha de ingreso.</li>
+<li>Renunciá en tu trabajo actual con el preaviso que corresponda, primero en persona con tu jefe y después por escrito. Agradecé y ofrecé una buena transición: el mundo laboral es chico.</li>
+<li>Avisá a los otros procesos que aceptaste otra propuesta, agradeciendo su tiempo. Dejás la puerta abierta para el futuro.</li>
+<li>Agradecé a cada persona de tu red que te ayudó. Un mensaje corto cuenta mucho.</li>
+<li>Actualizá LinkedIn cuando empieces (no antes de firmar) y desactivá Open to Work.</li>
+</ul>
+<h3>Día 30 — Si todavía no llegó: el diagnóstico por embudo</h3>
+<p>Mirá tu tracker y buscá en qué etapa se corta el proceso. Cada etapa tiene su solución:</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Síntoma</th>
+<th>Causa probable</th>
+<th>Qué hacer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pocas o ninguna respuesta</td>
+<td>CV no adaptado, palabras clave faltantes, nivel equivocado, pocos contactos</td>
+<td>Reescribir perfil y viñetas, revisar el seniority al que apuntás, subir el networking al 50 % del tiempo</td>
+</tr>
+<tr>
+<td>Respuestas pero no pasás el filtro de RR. HH.</td>
+<td>Pitch débil, expectativa salarial fuera de rango, poca motivación visible</td>
+<td>Practicar el "contame sobre vos" y el "por qué acá", revisar el rango</td>
+</tr>
+<tr>
+<td>Llegás a entrevistas técnicas y quedan ahí</td>
+<td>Brecha de habilidades o mala preparación del caso</td>
+<td>Pedir devolución, hacer un curso corto o proyecto que cubra la brecha</td>
+</tr>
+<tr>
+<td>Llegás a la final y eligen a otro</td>
+<td>Falta de diferencial o de entusiasmo, referencias</td>
+<td>Historias STAR más fuertes, preguntas de cierre, mail de seguimiento con valor</td>
+</tr>
+<tr>
+<td>Ofertas por debajo de lo esperado</td>
+<td>Rango mal investigado o falta de negociación</td>
+<td>Revisar mercado, practicar la contraoferta</td>
+</tr>
+</tbody>
+</table></div>
+<div class="callout"><strong>Plan para los próximos 30 días:</strong> repetí el ciclo de los días 13 a 24 corrigiendo la etapa débil, ampliá tu lista de empresas a 100 y sumá un puesto alternativo si el mercado de tu objetivo principal está muy competido.</div>
+<p><strong>Mientras tanto, sumá valor visible:</strong> un curso corto con certificado, un proyecto propio publicable, trabajos freelance o voluntariado en tu área. Te dan algo nuevo para contar y llenan cualquier hueco en el CV.</p>
+<p><strong>Cuidá tu energía:</strong> horario fijo de búsqueda, actividad física, una tarde por semana libre de búsqueda y contacto con gente que te apoya. Una búsqueda larga es una maratón, no un sprint.</p>
+<h3>Tus primeros 90 días en el nuevo trabajo</h3>
+<p>Conseguir el trabajo es la mitad. Los primeros tres meses definen cómo te van a ver.</p>
+<p><strong>Días 1–30 — Aprender:</strong> conocé a tu equipo y a las áreas con las que trabajás, entendé cómo se mide tu éxito, preguntá mucho y anotá todo. Pedí a tu jefe una reunión para acordar expectativas a 90 días.</p>
+<p><strong>Días 31–60 — Aportar:</strong> conseguí una o dos "victorias rápidas", mejoras chicas y visibles que resuelvan algo molesto para el equipo. Empezá a proponer ideas con fundamento.</p>
+<p><strong>Días 61–90 — Consolidar:</strong> hacé una revisión con tu jefe de lo logrado contra lo acordado, definí objetivos para los siguientes 6 meses y empezá a construir tu red interna.</p>
+<p><strong>Desde el primer día, llevá tu "banco de logros" al día.</strong> Te va a servir para tu próxima evaluación, tu próximo aumento y tu próxima búsqueda, que ya no va a empezar de cero.</p></section>
+<section class="opener bonus" style="--bg:#111111;background: radial-gradient(circle at 85% 15%, #8A6A1F 0%, #111111 60%);">
+  <div class="op-num">B4</div>
+  <div class="op-kicker">Bonus 4 · Nivel experto</div>
+  <h2 class="op-title">Situaciones especiales y cómo protegerte de estafas</h2>
+  <div class="op-illu"><svg viewBox="0 0 520 420" xmlns="http://www.w3.org/2000/svg" class="illu"><circle cx="260" cy="210" r="190" fill="#fff" opacity="0.06"/><path d="M260 50 L390 100 L390 210 C390 290 330 340 260 370 C190 340 130 290 130 210 L130 100 Z" fill="#fff" opacity=".9"/><path d="M260 80 L365 120 L365 210 C365 275 318 318 260 343 Z" fill="#3DDC97" opacity=".35"/><path d="M205 210 l38 38 l75 -80" stroke="#14213D" stroke-width="18" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+  <div class="op-foot">Conseguí trabajo en 30 días</div>
+</section><section class="content"><p>El método sirve para todos, pero algunas situaciones necesitan ajustes concretos. Buscá la tuya y aplicá estos cambios sobre el plan de 30 días.</p>
+<h3>Primer empleo o sin experiencia formal</h3>
+<ul>
+<li><strong>Poné Educación y Proyectos arriba</strong> de todo y convertí trabajos prácticos en experiencia: "Proyecto final: plan de marketing para una pyme real, presentado al dueño".</li>
+<li><strong>Buscá puestos de entrada con nombre claro:</strong> pasantías, trainee, programa de jóvenes profesionales, junior, asistente.</li>
+<li><strong>La prueba de trabajo (Bonus 2) es tu mejor arma:</strong> compensa la falta de experiencia con evidencia.</li>
+<li><strong>Mostrá actitud con hechos:</strong> cursos terminados, voluntariado, trabajos informales, deportes de equipo, responsabilidades familiares. Todo dice "cumplo".</li>
+<li><strong>Las bolsas de trabajo de tu facultad, ferias de empleo y programas de primer empleo</strong> tienen mucha menos competencia que los portales generales.</li>
+</ul>
+<h3>Cambio de rubro o de carrera</h3>
+<ul>
+<li><strong>Encontrá tu puente:</strong> el puesto que combina lo que ya sabés con lo nuevo. Un docente que quiere ir a empresas puede entrar por capacitación; un vendedor que quiere tecnología puede entrar por ventas de software.</li>
+<li><strong>Traducí tus habilidades transferibles</strong> al idioma del nuevo rubro: "gestión de 30 alumnos" es "gestión de grupos y planificación"; "atención en el local" es "experiencia del cliente y resolución de reclamos".</li>
+<li><strong>Perfil de CV con hilo conductor:</strong> explicá en dos líneas por qué el cambio tiene sentido y qué traés de tu experiencia anterior.</li>
+<li><strong>Sumá una credencial rápida</strong> del nuevo rubro (curso con certificado o proyecto) y hacé muchas conversaciones informativas: en un cambio de carrera, el networking pesa todavía más.</li>
+</ul>
+<h3>Mayores de 45 años</h3>
+<ul>
+<li><strong>Mostrá los últimos 10 a 15 años</strong> en detalle y resumí lo anterior en una línea ("Experiencia previa en banca y seguros, 1995–2009").</li>
+<li><strong>Sacá los años de egreso</strong> de la educación si son muy antiguos; no es obligatorio ponerlos.</li>
+<li><strong>Demostrá actualización:</strong> herramientas digitales recientes, cursos de los últimos 2 años, un LinkedIn activo con foto actual.</li>
+<li><strong>Desactivá las objeciones sin que te las planteen:</strong> flexibilidad ("me gusta aprender de equipos jóvenes"), energía y expectativas salariales razonables para el nivel del puesto.</li>
+<li><strong>Tu red es tu mayor ventaja:</strong> décadas de contactos valen más que cualquier portal. Priorizá el networking y la consultoría o el trabajo por proyecto como puerta de entrada.</li>
+</ul>
+<h3>Despido, huecos en el CV o salidas cortas</h3>
+<ul>
+<li><strong>Despido:</strong> una frase neutral y hacia adelante. "La empresa reestructuró el área y mi puesto se eliminó" o "Fue una etapa de aprendizaje; hoy busco un rol donde [lo que sé hacer bien] sea central". Nunca culpes a nadie.</li>
+<li><strong>Huecos:</strong> explicalos en el CV con una línea (cuidado familiar, estudio, emprendimiento, salud, viaje) y en la entrevista en 15 segundos, terminando con lo que aprendiste o con por qué hoy estás listo.</li>
+<li><strong>Trabajos de pocos meses:</strong> si fueron varios, agrupalos ("Proyectos temporales, 2023–2024") o explicá en una línea la razón (contrato a plazo, cierre de la empresa).</li>
+</ul>
+<h3>Volver después de una pausa por maternidad, paternidad o cuidados</h3>
+<ul>
+<li>Poné la pausa en el CV como una etapa más, sin pedir disculpas.</li>
+<li>Actualizá tus herramientas con un curso corto antes de postularte.</li>
+<li>Activá primero a tus ex jefes y compañeros: te recuerdan por tu trabajo, no por la pausa.</li>
+<li>Buscá empresas con modalidades flexibles y programá la conversación sobre horarios para la etapa de oferta, no para la primera entrevista.</li>
+</ul>
+<h3>Sobrecalificación</h3>
+<p>Si te postulás a un puesto por debajo de tu nivel, el miedo de la empresa es que te aburras o te vayas. Adaptá el CV para mostrar solo lo relevante y explicá tu motivación con algo creíble: "Quiero volver a la parte operativa, que es lo que más disfruto" o "Busco un rol con menos viajes para estar cerca de mi familia".</p>
+<h3>Cómo detectar estafas y ofertas trucha</h3>
+<p>Cuando hay mucha gente buscando trabajo, aparecen estafas que se aprovechan de la urgencia. Desconfiá si ves alguna de estas señales:</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Señal de alerta</th>
+<th>Por qué es sospechosa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Te piden plata para un curso, un kit, un uniforme o "gastos administrativos"</td>
+<td>Una empresa real nunca cobra por contratarte</td>
+</tr>
+<tr>
+<td>Te ofrecen el trabajo sin entrevista o después de un chat de 5 minutos</td>
+<td>Nadie contrata a alguien sin conocerlo</td>
+</tr>
+<tr>
+<td>Sueldos muy por encima del mercado por tareas simples ("ganá X por día desde casa dando likes")</td>
+<td>Es el anzuelo típico de las estafas por tareas</td>
+</tr>
+<tr>
+<td>Toda la comunicación es por WhatsApp o Telegram, con mails gratuitos y sin sitio web de la empresa</td>
+<td>Las empresas reales usan dominios propios y canales formales</td>
+</tr>
+<tr>
+<td>Te piden datos bancarios, fotos del DNI o claves antes de una oferta formal</td>
+<td>Esos datos se piden recién al momento del alta</td>
+</tr>
+<tr>
+<td>Te mandan un pago o un cheque para que compres equipos y devuelvas la diferencia</td>
+<td>Es una estafa clásica: el pago original después rebota</td>
+</tr>
+<tr>
+<td>Te presionan para decidir en minutos</td>
+<td>La urgencia artificial es para que no verifiques</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Cómo verificar:</strong> buscá la empresa en su sitio oficial, confirmá que el aviso esté en su página de empleos, revisá que el reclutador tenga perfil real con historial en LinkedIn y buscá el nombre de la empresa junto a la palabra "estafa". Si algo no cierra, no avances.</p>
+<h3>Señales de alerta en empresas reales</h3>
+<p>No toda empresa legítima es un buen lugar. Prestá atención a:</p>
+<ul>
+<li>El mismo puesto publicado una y otra vez durante el año (rotación alta).</li>
+<li>Entrevistadores que llegan tarde, están distraídos o no saben qué hace el puesto.</li>
+<li>Respuestas vagas cuando preguntás por qué se abrió la posición o cómo se mide el éxito.</li>
+<li>Reseñas de empleados que repiten los mismos problemas.</li>
+<li>Presión para aceptar sin ver la oferta por escrito.</li>
+<li>Un futuro jefe que habla mal de su equipo actual delante tuyo.</li>
+</ul></section>
+<section class="opener" style="--bg:#14213D;background: radial-gradient(circle at 85% 15%, #FF7A45 0%, #14213D 60%);">
+  <div class="op-num">+</div>
+  <div class="op-kicker">Caja de herramientas</div>
+  <h2 class="op-title">Plantillas, checklist y tracker</h2>
+  <div class="op-illu"><svg viewBox="0 0 520 420" xmlns="http://www.w3.org/2000/svg" class="illu"><circle cx="260" cy="210" r="190" fill="#fff" opacity="0.06"/><rect x="200" y="100" width="120" height="50" rx="14" fill="none" stroke="#fff" stroke-width="12"/><rect x="110" y="140" width="300" height="190" rx="22" fill="#FF7A45"/><rect x="110" y="200" width="300" height="18" fill="#E5602E"/><rect x="235" y="190" width="50" height="38" rx="8" fill="#FFC857"/><rect x="150" y="60" width="16" height="110" rx="8" fill="#fff" transform="rotate(-20 158 115)"/><rect x="350" y="70" width="18" height="100" rx="6" fill="#3DDC97" transform="rotate(18 359 120)"/></svg></div>
+  <div class="op-foot">Conseguí trabajo en 30 días</div>
+</section><section class="content"><p>Todo lo que necesitás para ejecutar el plan sin empezar de cero. Copiá, adaptá y usá.</p>
+<h3>Tracker de búsqueda</h3>
+<p>Copiá esta tabla a una planilla (Google Sheets o Excel) y cargá cada oportunidad el mismo día.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Empresa</th>
+<th>Puesto</th>
+<th>Canal</th>
+<th>Fecha de postulación</th>
+<th>Contacto</th>
+<th>Etapa</th>
+<th>Próximo paso</th>
+<th>Fecha del próximo paso</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ejemplo S.A.</td>
+<td>Analista de compras</td>
+<td>Referido</td>
+<td>14/11</td>
+<td>Laura P. (líder del área)</td>
+<td>Entrevista 1</td>
+<td>Mail de agradecimiento</td>
+<td>15/11</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Etapas sugeridas:</strong> Por postular · Postulado · Contactado · Filtro RR. HH. · Entrevista 1 · Prueba técnica · Entrevista final · Oferta · Rechazado · Sin respuesta.</p>
+<p><strong>Métricas semanales a calcular:</strong> postulaciones, mensajes enviados, tasa de respuesta (respuestas ÷ postulaciones), entrevistas, pasajes a segunda etapa, ofertas.</p>
+<h3>Checklist diario</h3>
+<div class="checklist"><div class="cl-head">Checklist</div><ul><li><span class="box"></span>Revisar alertas de empleo (15 min)</li><li><span class="box"></span>3 a 5 postulaciones adaptadas</li><li><span class="box"></span>5 mensajes de networking o contacto directo</li><li><span class="box"></span>3 seguimientos pendientes</li><li><span class="box"></span>10 minutos comentando en LinkedIn</li><li><span class="box"></span>Actualizar el tracker</li><li><span class="box"></span>15 minutos de práctica de entrevista o aprendizaje</li></ul></div>
+
+<h3>Plantilla 1 — Pedido de referido a un conocido</h3>
+<blockquote><div class="bq-tag">Plantilla para copiar</div>
+<p>Hola, [nombre]. ¡Tanto tiempo! Te escribo porque vi que en [empresa] buscan [puesto] y creo que encajo muy bien: [logro relevante en una línea]. ¿Te parece bien que te comparta mi CV para que lo pases o me digas con quién hablar? Si no es posible, cero problema. ¡Gracias!</p>
+</blockquote>
+<h3>Plantilla 2 — Seguimiento de postulación sin respuesta</h3>
+<blockquote><div class="bq-tag">Plantilla para copiar</div>
+<p>Asunto: Seguimiento — Postulación [puesto]</p>
+<p>Hola, [nombre]: hace una semana me postulé a [puesto] y quería reiterar mi interés. Desde entonces [dato nuevo: terminé un curso / leí sobre su lanzamiento de X], y me entusiasma todavía más la posibilidad de aportar en [área]. Quedo a disposición para conversar. ¡Gracias!</p>
+</blockquote>
+<h3>Plantilla 3 — Seguimiento cuando pasó el plazo de respuesta</h3>
+<blockquote><div class="bq-tag">Plantilla para copiar</div>
+<p>Hola, [nombre]: espero que estés bien. Quería consultar si hay novedades sobre el proceso de [puesto]. Sigo muy interesado y, si necesitan algo más de mi parte, con gusto lo envío. ¡Saludos!</p>
+</blockquote>
+<h3>Plantilla 4 — Mensaje a un reclutador de consultora</h3>
+<blockquote><div class="bq-tag">Plantilla para copiar</div>
+<p>Hola, [nombre]. Vi que trabajás búsquedas de [rubro/área]. Soy [propuesta de valor] y estoy abierto a nuevas oportunidades como [puesto] en [ciudad/remoto]. Te dejo mi CV por si surge algo afín. ¡Gracias por tu tiempo!</p>
+</blockquote>
+<h3>Plantilla 5 — Respuesta a un rechazo</h3>
+<blockquote><div class="bq-tag">Plantilla para copiar</div>
+<p>Hola, [nombre]: gracias por avisarme y por el tiempo dedicado. Me quedé con muy buena impresión del equipo. Si pudieras darme una breve devolución sobre qué podría mejorar, te lo agradecería mucho. Me encantaría que me tengan en cuenta para futuras posiciones. ¡Saludos!</p>
+</blockquote>
+<h3>Plantilla 6 — Posteo de búsqueda en LinkedIn</h3>
+<blockquote><div class="bq-tag">Plantilla para copiar</div>
+<p>Después de [X años] en [área/empresa], estoy buscando mi próximo desafío como [puesto].</p>
+<p>Lo que aporto: → [logro 1 con número] → [logro 2 con número] → [habilidades o herramientas clave]</p>
+<p>Busco: [tipo de empresa, modalidad, ubicación].</p>
+<p>Si sabés de alguna oportunidad o conocés a alguien con quien debería hablar, te agradezco el comentario o el mensaje. Y si podés compartir este posteo, me ayudás muchísimo.</p>
+</blockquote>
+<h3>Plantilla 7 — Pedido de recomendación en LinkedIn</h3>
+<blockquote><div class="bq-tag">Plantilla para copiar</div>
+<p>Hola, [nombre]. Estoy actualizando mi perfil y valoraría mucho una recomendación tuya. Si te resulta fácil, podrías mencionar [proyecto o logro] y cómo trabajamos juntos en [situación]. ¡Con gusto te escribo una a vos también!</p>
+</blockquote>
+<h3>Plantilla 8 — Aceptación de oferta</h3>
+<blockquote><div class="bq-tag">Plantilla para copiar</div>
+<p>Hola, [nombre]: ¡muchas gracias por la propuesta! Confirmo con mucho entusiasmo mi aceptación del puesto de [puesto] con las condiciones conversadas: [sueldo, modalidad, fecha de ingreso]. Quedo atento a los próximos pasos para el ingreso. ¡Saludos!</p>
+</blockquote>
+<h3>Prompts de IA para acelerar tu búsqueda</h3>
+<p>Usá un asistente de IA como ayudante, nunca como reemplazo de tu criterio. Revisá siempre que todo lo que diga sea verdad.</p>
+<ul>
+<li>"Acá tengo mi CV y este aviso. Decime qué palabras clave del aviso faltan en mi CV y sugerí cómo reescribir el perfil profesional sin inventar nada."</li>
+<li>"Convertí estas tareas en viñetas de logro con la fórmula verbo + acción + resultado. Si falta un número, preguntame en vez de inventarlo."</li>
+<li>"Actuá como entrevistador de [empresa] para el puesto de [puesto]. Haceme una pregunta por vez, esperá mi respuesta y dame una devolución honesta con el método STAR."</li>
+<li>"Ayudame a preparar 5 preguntas inteligentes para hacerle a [cargo del entrevistador] en [empresa], según esta información de la empresa: [pegar]."</li>
+<li>"Simulá una negociación salarial: vos sos el reclutador que ofrece [X] y yo quiero llegar a [Y]."</li>
+</ul></section>
+<section class="closing">
+  <div class="cl-kicker">Último paso</div>
+  <h2 class="cl-title">Ahora te toca a vos</h2>
+  <p>Ya tenés el mapa completo. La diferencia entre quien consigue trabajo y quien sigue buscando no es el talento: es la ejecución constante. Abrí el checklist del día 1 y empezá hoy.</p>
+  <div class="cl-steps"><div><b>1</b>Abrí el checklist del día 1</div><div><b>2</b>Bloqueá tu horario fijo de búsqueda</div><div><b>3</b>Cargá tu primera empresa en el tracker</div></div>
+  <p class="cl-small">El resultado depende de tu dedicación, tu perfil y el mercado de cada rubro. Este plan te da el método; la constancia la ponés vos.</p>
+</section></body></html>

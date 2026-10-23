@@ -81,13 +81,13 @@ tr { break-inside: avoid; }
 /* welcome */
 .wl-kicker, .cl-kicker { color: #FF7A45; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; font-size: 9pt; }
 .wl-title { font-family: "Inter Display"; font-weight: 900; font-size: 30pt; color: #14213D; letter-spacing: -.02em; line-height: 1.05; margin: 2mm 0 5mm; }
-.wl-lead { font-size: 12pt; line-height: 1.55; color: #374151; }
-.wl-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4mm; margin: 7mm 0 9mm; }
+.wl-lead { font-size: 11pt; line-height: 1.55; color: #374151; }
+.wl-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4mm; margin: 6mm 0 6mm; }
 .wl-card { background: #14213D; color: #CBD5F0; border-radius: 4mm; padding: 4mm; font-size: 9pt; line-height: 1.35; }
 .wl-n { font-family: "Inter Display"; font-weight: 900; font-size: 26pt; color: #FFC857; line-height: 1.1; }
 .toc-h::before { display: none; }
 .toc { list-style: none; padding: 0; }
-.toc li { display: flex; gap: 5mm; align-items: baseline; padding: 2.6mm 0; border-bottom: 1px solid #EADFD0; margin: 0; }
+.toc li { display: flex; gap: 5mm; align-items: baseline; padding: 1.2mm 0; font-size: 9.6pt; border-bottom: 1px solid #EADFD0; margin: 0; }
 .toc-n { font-family: "Inter Display"; font-weight: 900; color: #FF7A45; font-size: 14pt; width: 10mm; }
 .toc-t { font-weight: 600; color: #14213D; }
 
@@ -101,3 +101,17 @@ tr { break-inside: avoid; }
 .cl-offer-tag { display: inline-block; background: #FFC857; padding: 1.2mm 3.5mm; border-radius: 99px; font-size: 8pt; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
 .cl-btn { display: inline-block; margin-top: 3mm; background: #FF7A45; color: #fff; font-weight: 800; padding: 3.5mm 8mm; border-radius: 99px; }
 .closing .cl-small { position: absolute; bottom: 16mm; left: 22mm; right: 22mm; font-size: 8.5pt; color: rgba(255,255,255,.6); }
+
+/* recruiter secrets */
+.secret { position: relative; background: #111; color: #EDE6D6; border-radius: 4mm; padding: 5mm 6mm 4.5mm 17mm; margin: 5mm 0 6mm; break-inside: avoid; border: 1px solid #8A6A1F; }
+.secret::before { content: "★"; position: absolute; left: 5.5mm; top: 4.2mm; width: 8mm; height: 8mm; border-radius: 50%; background: linear-gradient(135deg, #F5D27A, #B8892B); color: #111; font-size: 11pt; display: flex; align-items: center; justify-content: center; }
+.secret-tag { font-size: 7.8pt; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; color: #F5D27A; margin-bottom: 1mm; }
+.secret strong { color: #fff; }
+/* bonus openers */
+.opener.bonus .op-kicker { background: linear-gradient(90deg, #F5D27A, #B8892B); color: #111; }
+.opener.bonus .op-num { color: rgba(245,210,122,.22); }
+.toc-bonus .toc-n { color: #B8892B; }
+/* closing steps */
+.cl-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 5mm; margin-top: 16mm; }
+.cl-steps div { background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.25); border-radius: 5mm; padding: 6mm 5mm; font-weight: 600; font-size: 11pt; line-height: 1.35; }
+.cl-steps b { display: block; font-family: "Inter Display"; font-size: 28pt; color: #FFC857; line-height: 1; margin-bottom: 3mm; }

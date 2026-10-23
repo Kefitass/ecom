@@ -136,6 +136,8 @@ def body_html(text):
     # formula / key paragraphs → callouts
     h = re.sub(r"<p><strong>(F[óo]rmula[^<]*|Meta:|Claves:|Regla de[^<]*|Extensi[óo]n:|Plan para[^<]*)</strong>(.*?)</p>",
                r'<div class="callout"><strong>\1</strong>\2</div>', h, flags=re.S)
+    h = re.sub(r"<p><strong>(Secreto de reclutador:)</strong>(.*?)</p>",
+               r'<div class="secret"><div class="secret-tag">Secreto de reclutador</div>\2</div>', h, flags=re.S)
     h = h.replace("<blockquote>", '<blockquote><div class="bq-tag">Plantilla para copiar</div>')
     h = h.replace("<p>%%ROADMAP%%</p>", ROADMAP)
     h = h.replace("<table>", '<div class="tbl"><table>').replace("</table>", "</table></div>")
@@ -150,37 +152,78 @@ THEMES = [
     ("#14213D", "#2B4C8C"), ("#1B2A4A", "#3A3F9E"), ("#0F3D3E", "#1F7A6D"), ("#1E3A8A", "#2563EB"),
     ("#3B1F5C", "#6D3FB0"), ("#7A2E1F", "#D9572B"), ("#0B4F3C", "#14A06F"), ("#2A1E5C", "#C2410C"), ("#14213D", "#FF7A45"),
 ]
+BONUS_THEME = ("#111111", "#8A6A1F")
 
-def chapter_open(i, title):
-    m = re.match(r"(D[íi]as? [\d–\-]+(?: y despu[ée]s)?|Introducci[óo]n|Caja de herramientas)\s*:\s*(.*)", title)
-    kicker, main = (m.group(1), m.group(2)) if m else ("", title)
-    main = main[0].upper() + main[1:]
-    a, b = THEMES[i % len(THEMES)]
-    num = "00" if i == 0 else f"{i:02d}"
-    if kicker.startswith("Caja"):
-        num, main, kicker = "+", "Plantillas, checklist y tracker", "Caja de herramientas"
-    ph = foto(f"cap{i}")
-    photo_or_illu = f'<div class="op-photo" style="--bg:{a};background-image:url({ph})"></div>' if ph else f'<div class="op-illu">{ILLU.get(i, ILLU[8])}</div>'
+# bonus illustrations
+ILLU["b1"] = svg(
+    blob(260, 210, 190, "#fff", .06) +
+    "".join(f'<rect x="{90+i*120}" y="120" width="100" height="140" rx="14" fill="#fff" opacity="{.9 if i==1 else .35}"/>'
+            f'<circle cx="{140+i*120}" cy="165" r="22" fill="{ACC2 if i==1 else "#C9D3E6"}"/>'
+            f'<rect x="{110+i*120}" y="205" width="60" height="9" rx="4" fill="#C9D3E6"/><rect x="{110+i*120}" y="224" width="44" height="9" rx="4" fill="#C9D3E6"/>' for i in range(3)) +
+    f'<circle cx="300" cy="190" r="70" fill="none" stroke="{ACC}" stroke-width="12"/><line x1="350" y1="240" x2="420" y2="310" stroke="{ACC}" stroke-width="18" stroke-linecap="round"/>'
+)
+ILLU["b2"] = svg(
+    blob(260, 210, 190, "#fff", .06) +
+    f'<g transform="rotate(35 260 210)"><path d="M260 50 C310 100 320 200 300 290 L220 290 C200 200 210 100 260 50 Z" fill="#fff"/>'
+    f'<circle cx="260" cy="160" r="26" fill="{SKY}"/><path d="M220 250 L170 310 L220 295 Z" fill="{ACC}"/><path d="M300 250 L350 310 L300 295 Z" fill="{ACC}"/>'
+    f'<path d="M230 295 Q260 380 290 295 Z" fill="{ACC2}"/></g>'
+    + "".join(f'<circle cx="{x}" cy="{y}" r="4" fill="#fff" opacity=".7"/>' for x, y in [(80,80),(450,60),(470,200),(60,240),(120,370)])
+)
+ILLU["b3"] = svg(
+    blob(260, 210, 190, "#fff", .06) +
+    '<rect x="140" y="60" width="240" height="310" rx="18" fill="#fff"/>'
+    f'<rect x="210" y="44" width="100" height="36" rx="10" fill="{ACC2}"/>'
+    + "".join(f'<rect x="170" y="{120+i*55}" width="90" height="10" rx="5" fill="#C9D3E6"/>' + "".join(f'<circle cx="{280+j*22}" cy="{125+i*55}" r="8" fill="{ACC if j<=(3-i%3) else "#E5E7EB"}"/>' for j in range(4)) for i in range(4))
+)
+ILLU["b4"] = svg(
+    blob(260, 210, 190, "#fff", .06) +
+    f'<path d="M260 50 L390 100 L390 210 C390 290 330 340 260 370 C190 340 130 290 130 210 L130 100 Z" fill="#fff" opacity=".9"/>'
+    f'<path d="M260 80 L365 120 L365 210 C365 275 318 318 260 343 Z" fill="{MINT}" opacity=".35"/>'
+    f'<path d="M205 210 l38 38 l75 -80" stroke="{INK}" stroke-width="18" fill="none" stroke-linecap="round" stroke-linejoin="round"/>'
+)
+
+def meta_for(chapters):
+    out, n = [], 0
+    for title, _ in chapters:
+        if title.startswith("Introducci"):
+            out.append(dict(num="00", kicker="Introducción", main=title.split(":", 1)[1], illu=0, photo="cap0", theme=THEMES[0], bonus=False))
+        elif title.startswith("Bonus"):
+            k = re.match(r"Bonus (\d+)", title).group(1)
+            out.append(dict(num=f"B{k}", kicker=f"Bonus {k} · Nivel experto", main=title.split(":", 1)[1], illu=f"b{k}", photo=f"bonus{k}", theme=BONUS_THEME, bonus=True))
+        elif title.startswith("Caja"):
+            out.append(dict(num="+", kicker="Caja de herramientas", main="Plantillas, checklist y tracker", illu=8, photo="cap8", theme=THEMES[8], bonus=False))
+        else:
+            n += 1
+            kick, main = title.split(":", 1)
+            out.append(dict(num=f"{n:02d}", kicker=kick, main=main, illu=n, photo=f"cap{n}", theme=THEMES[n], bonus=False))
+    for m in out:
+        m["main"] = m["main"].strip()
+        m["main"] = m["main"][0].upper() + m["main"][1:]
+    return out
+
+def chapter_open(m):
+    a, b = m["theme"]
+    ph = foto(m["photo"])
+    photo_or_illu = f'<div class="op-photo" style="--bg:{a};background-image:url({ph})"></div>' if ph else f'<div class="op-illu">{ILLU[m["illu"]]}</div>'
+    cls = "opener bonus" if m["bonus"] else "opener"
     return f'''
-<section class="opener" style="background: radial-gradient(circle at 85% 15%, {b} 0%, {a} 60%);">
-  <div class="op-num">{num}</div>
-  <div class="op-kicker">{html.escape(kicker)}</div>
-  <h2 class="op-title">{html.escape(main)}</h2>
+<section class="{cls}" style="--bg:{a};background: radial-gradient(circle at 85% 15%, {b} 0%, {a} 60%);">
+  <div class="op-num">{m["num"]}</div>
+  <div class="op-kicker">{html.escape(m["kicker"])}</div>
+  <h2 class="op-title">{html.escape(m["main"])}</h2>
   {photo_or_illu}
   <div class="op-foot">Conseguí trabajo en 30 días</div>
 </section>'''
 
-toc_items = []
+metas = meta_for(chapters)
 chap_html = []
-for i, (title, body) in enumerate(chapters):
-    # remove byline from intro if present
+for m, (title, body) in zip(metas, chapters):
     body = re.sub(r"^.*· @\S+\s*$", "", body, flags=re.M)
-    toc_items.append(title)
-    chap_html.append(chapter_open(i, title) + f'<section class="content">{body_html(body)}</section>')
+    chap_html.append(chapter_open(m) + f'<section class="content">{body_html(body)}</section>')
 
 toc = "".join(
-    f'<li><span class="toc-n">{"00" if i == 0 else ("+" if t.startswith("Caja") else f"{i:02d}")}</span><span class="toc-t">{html.escape(t)}</span></li>'
-    for i, t in enumerate(toc_items))
+    f'<li class="{"toc-bonus" if m["bonus"] else ""}"><span class="toc-n">{m["num"]}</span><span class="toc-t">{html.escape(m["kicker"] + ": " + m["main"] if not m["num"] in ("00", "+") else m["main"])}</span></li>'
+    for m in metas)
 
 _cp = foto("portada")
 COVER_BG = f'<div class="cv-photo" style="background-image:url({_cp})"></div>' if _cp else ""
@@ -193,7 +236,7 @@ COVER = f'''
   <p class="cv-sub">CV, LinkedIn y entrevistas: el sistema paso a paso para ser el mejor postulante en cualquier rubro</p>
   <div class="cv-cal"><div class="cv-cal-top"></div><div class="cv-cal-n">30</div><div class="cv-cal-l">DÍAS</div></div>
   {COVER_ILLU}
-  <div class="cv-pills"><span>CV que pasa filtros</span><span>LinkedIn magnético</span><span>Entrevistas ganadoras</span><span>Negociación</span></div>
+  <div class="cv-pills"><span>CV que pasa filtros</span><span>LinkedIn magnético</span><span>Entrevistas ganadoras</span><span>Negociación</span><span>Secretos de reclutador</span></div>
 </section>'''
 
 WELCOME = '''
@@ -205,7 +248,7 @@ WELCOME = '''
     <div class="wl-card"><div class="wl-n">7</div><div>etapas con tareas día por día</div></div>
     <div class="wl-card"><div class="wl-n">15</div><div>preguntas de entrevista con respuesta</div></div>
     <div class="wl-card"><div class="wl-n">8</div><div>plantillas de mensajes listas para usar</div></div>
-    <div class="wl-card"><div class="wl-n">10</div><div>rubros con consejos específicos</div></div>
+    <div class="wl-card"><div class="wl-n">4</div><div>capítulos bonus con secretos de reclutador</div></div>
   </div>
   <h3 class="toc-h">Contenido</h3>
   <ol class="toc">''' + toc + '''</ol>
@@ -216,12 +259,7 @@ CLOSING = '''
   <div class="cl-kicker">Último paso</div>
   <h2 class="cl-title">Ahora te toca a vos</h2>
   <p>Ya tenés el mapa completo. La diferencia entre quien consigue trabajo y quien sigue buscando no es el talento: es la ejecución constante. Abrí el checklist del día 1 y empezá hoy.</p>
-  <div class="cl-offer">
-    <div class="cl-offer-tag">Para ir más rápido</div>
-    <h3>Pack de plantillas editables</h3>
-    <ul><li>3 modelos de CV compatibles con ATS (Word y Canva)</li><li>Tracker de búsqueda con métricas automáticas</li><li>Las 8 plantillas de mensajes listas para copiar y pegar</li></ul>
-    <div class="cl-btn">Conseguilo en [tu link]</div>
-  </div>
+  <div class="cl-steps"><div><b>1</b>Abrí el checklist del día 1</div><div><b>2</b>Bloqueá tu horario fijo de búsqueda</div><div><b>3</b>Cargá tu primera empresa en el tracker</div></div>
   <p class="cl-small">El resultado depende de tu dedicación, tu perfil y el mercado de cada rubro. Este plan te da el método; la constancia la ponés vos.</p>
 </section>'''
 
