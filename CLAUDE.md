@@ -44,3 +44,7 @@
 - Próximo paso: el usuario busca otro producto del nicho plantas; si convence, rebrand de la tienda.
   Reutilizable: estructura de landing, sistema de prompts APIMart, flujo CapCut/ElevenLabs,
   controles de ubicación de la cuenta (sin Audience Network, Marketplace ni columna derecha).
+
+## Nuevo proyecto (oct 2026): ebook de búsqueda laboral
+- Plan en `ebook-trabajo/plan-ebook-trabajo.txt` (personas Sofi 22-30 y Gabriel 35-52, índice, bonus).
+- No prometer empleo ni plazos garantizados en títulos ni anuncios.
