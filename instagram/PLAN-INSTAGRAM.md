@@ -59,7 +59,22 @@ Verdea tiene Pedidos, Reseñas, Pagos, Modo de uso y Envíos. Para un ebook no h
 | 5 | **Tips** | `5-tips.png` | Guardá acá las mejores historias de consejos (un tip de CV, una frase para LinkedIn, una respuesta de entrevista). Muestra que el contenido vale. |
 | 6 | **Preguntas** | `6-preguntas.png` | Las preguntas frecuentes de la landing, una por historia: "¿Sirve si no tengo experiencia?", "¿Es para mi rubro?", "¿Cuánto tarda en llegar?", "¿Puedo pedir reembolso?" (sí, 10 días de arrepentimiento). |
 
-Para subirlas: publicá la historia → "Destacar" → nueva → nombre → "Editar portada" → elegí la imagen de `destacadas/`.
+### Historias listas para subir (`historias/`)
+
+Mismo formato que las de Verdea: vertical 1080x1920, con 250 px libres arriba y abajo para el nombre y la barra de respuesta. Subilas en orden (el número del archivo) y destacalas en su carpeta.
+
+| Destacada | Archivos | Qué tenés que agregar al subirla |
+| --- | --- | --- |
+| Cómo funciona | `1-como-funciona/1` a `5` | En la 5, el sticker **Enlace** con el link del producto sobre el recuadro punteado |
+| Reseñas | `2-resenas/1-pedi-resenas` | El sticker **Preguntas** sobre el recuadro. `PLANTILLA-gracias` es para cuando llegue un mensaje real: pegás la captura encima del recuadro y escribís el nombre. **No la subas vacía** y no crees la destacada hasta tener 3 reseñas reales |
+| Pagos | `3-pagos/1` a `3` | Opcional: en la 3, el sticker **Enlace** |
+| Mis ebooks | `4-mis-ebooks/1` a `5` | Nada. Si querés, sumá una grabación de pantalla real del celu entrando con el código |
+| Tips | `5-tips/1-cv` a `4-debilidad` | Una encuesta o un "¿te sirvió?" con el sticker **Reacción** |
+| Preguntas | `6-preguntas/1` a `8` | En la 8, el sticker **Preguntas**. Cada pregunta nueva que llegue, respondela en una historia y sumala acá |
+
+Para cambiar un texto o un precio: editá `build_historias.py` y corré `python3 instagram/build_historias.py && node instagram/render_historias.js`.
+
+Para subir las portadas: publicá la historia → "Destacar" → nueva → nombre → "Editar portada" → elegí la imagen de `destacadas/`.
 
 ---
 
