@@ -1168,7 +1168,12 @@ tbody tr:nth-child(even) td { background: color-mix(in srgb, var(--surface) 92%,
   <a class="gate-link" href="{{ routes.account_logout_url }}">Cerrar sesión</a>
 {%- else -%}
   <h1>Entrá para leer tu ebook</h1>
-  <p>Iniciá sesión con el mismo mail que usaste en la compra.</p>
+  <p>No necesitás contraseña ni registrarte antes:</p>
+  <ol style="text-align:left;margin:0 0 22px;padding-left:22px;color:#5A6478;line-height:1.6">
+    <li>Tocá <b>Iniciar sesión</b>.</li>
+    <li>Escribí el <b>mismo mail que usaste al comprar</b>.</li>
+    <li>Te llega un <b>código de 6 dígitos</b> a ese mail: pegalo y listo.</li>
+  </ol>
   <a class="gate-btn" href="{{ routes.account_login_url }}">Iniciar sesión</a>
   <a class="gate-link" href="/products/consegui-trabajo-en-30-dias">¿Todavía no lo tenés? Conocelo acá</a>
 {%- endif -%}
