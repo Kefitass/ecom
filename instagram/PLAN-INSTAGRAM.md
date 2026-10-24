@@ -52,7 +52,7 @@ Verdea tiene Pedidos, Reseñas, Pagos, Modo de uso y Envíos. Para un ebook no h
 
 | # | Nombre | Portada | Qué historias van adentro |
 | --- | --- | --- | --- |
-| 1 | **Cómo funciona** | `1-como-funciona.png` | 1) "Comprás → te llega el mail con los PDF → entrás a Mis ebooks". 2) Qué trae cada ebook (usá las tapas). 3) Diferencia Ebook vs Combo y precios. 4) Sticker de link a la tienda. |
+| 1 | **Cómo funciona** | `1-como-funciona.png` | 1) "Comprás → te llega el mail con los PDF → entrás a Mis ebooks". 2) Qué trae cada ebook (usá las tapas). 3) Diferencia Ebook vs Combo y precios. 4) "Empezá hoy" con el botón "Ver los ebooks". |
 | 2 | **Reseñas** | `2-resenas.png` | Solo capturas reales de mensajes o mails de lectores (con permiso y tapando nombre si lo piden). Si todavía no hay, no la publiques. |
 | 3 | **Pagos** | `3-pagos.png` | 1) "Todas las tarjetas, hasta 3 cuotas sin interés con Mercado Pago". 2) "Pago seguro por el checkout de Shopify". 3) "Si no te llega el mail, revisá spam o escribinos". |
 | 4 | **Mis ebooks** | `4-mis-ebooks.png` | Grabación de pantalla del celu: Iniciar sesión → mismo mail de la compra → código de 6 dígitos → checklists y botones de copiar. Es la que más dudas saca. |
@@ -63,14 +63,16 @@ Verdea tiene Pedidos, Reseñas, Pagos, Modo de uso y Envíos. Para un ebook no h
 
 Mismo formato que las de Verdea: vertical 1080x1920, con 250 px libres arriba y abajo para el nombre y la barra de respuesta. Subilas en orden (el número del archivo) y destacalas en su carpeta.
 
-| Destacada | Archivos | Qué tenés que agregar al subirla |
+| Destacada | Archivos | Qué tienen |
 | --- | --- | --- |
-| Cómo funciona | `1-como-funciona/1` a `5` | En la 5, el sticker **Enlace** con el link del producto sobre el recuadro punteado |
-| Reseñas | `2-resenas/1-pedi-resenas` | El sticker **Preguntas** sobre el recuadro. `PLANTILLA-gracias` es para cuando llegue un mensaje real: pegás la captura encima del recuadro y escribís el nombre. **No la subas vacía** y no crees la destacada hasta tener 3 reseñas reales |
-| Pagos | `3-pagos/1` a `3` | Opcional: en la 3, el sticker **Enlace** |
-| Mis ebooks | `4-mis-ebooks/1` a `5` | Nada. Si querés, sumá una grabación de pantalla real del celu entrando con el código |
-| Tips | `5-tips/1-cv` a `4-debilidad` | Una encuesta o un "¿te sirvió?" con el sticker **Reacción** |
-| Preguntas | `6-preguntas/1` a `8` | En la 8, el sticker **Preguntas**. Cada pregunta nueva que llegue, respondela en una historia y sumala acá |
+| Cómo funciona | `1-como-funciona/1` a `5` | La 5 cierra con el botón "Ver los ebooks" y el link de la tienda |
+| Reseñas | `2-resenas/1` y `2` | Cómo mandarnos un mensaje para contar su experiencia. Cuando lleguen mensajes reales, compartilos en esta destacada (con permiso). No la crees hasta tener 3 reseñas reales |
+| Pagos | `3-pagos/1` a `3` | Cuotas, medios de pago y precios |
+| Mis ebooks | `4-mis-ebooks/1` a `5` | Los 3 pasos para entrar. Si querés, sumá una grabación de pantalla real del celu |
+| Tips | `5-tips/1-cv` a `4-debilidad` | Un tip por historia |
+| Preguntas | `6-preguntas/1` a `8` | La 8 invita a mandar un mensaje. Cada pregunta nueva que llegue, respondela en una historia y sumala acá |
+
+Están terminadas: se suben tal cual, sin stickers ni nada que agregar.
 
 Para cambiar un texto o un precio: editá `build_historias.py` y corré `python3 instagram/build_historias.py && node instagram/render_historias.js`.
 

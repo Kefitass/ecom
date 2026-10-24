@@ -52,10 +52,11 @@ add(F, "5", "link", tag="Cómo funciona", title="Empezá hoy",
 F = "2-resenas"
 add(F, "1-pedi-resenas", "ask", tag="Reseñas", title="¿Ya leíste<br><em>Método 30</em>?",
     sub="Contanos cómo te fue con tu búsqueda. Con tu permiso, compartimos tu mensaje acá.",
-    box="Poné acá el sticker de <b>Preguntas</b>")
-add(F, "PLANTILLA-gracias", "thanks", tag="Reseñas", title="¡Gracias, ____!",
-    sub="Escribí el nombre (o la inicial) de quien te mandó el mensaje.",
-    box="Pegá acá la <b>captura real</b> del mensaje<br><small>Tapá foto y número si te lo piden</small>")
+    cta="Mandanos un mensaje", note="o escribinos a somosmetodo30@gmail.com")
+add(F, "2-como-contarnos", "list", tag="Reseñas", title="Contanos<br>tu experiencia",
+    items=["Aplicá el plan en tu búsqueda", "Mandanos un mensaje directo contando cómo te fue",
+           "Si querés, sumá una captura de tu CV o tu LinkedIn nuevo", "Con tu permiso, lo compartimos en esta destacada"],
+    foot="Tu historia puede ayudar a otra persona a animarse.")
 
 # ---------- 3. PAGOS ----------
 F = "3-pagos"
@@ -118,11 +119,20 @@ QA = [
 for i, (q, a) in enumerate(QA, 1):
     add(F, str(i), "qa", tag="Preguntas", q=q, a=a)
 add(F, str(len(QA) + 1), "ask", tag="Preguntas", title="¿Tenés otra<br>pregunta?",
-    sub="Dejala acá y te respondemos en una historia.",
-    box="Poné acá el sticker de <b>Preguntas</b>")
+    sub="Mandanos un mensaje y te respondemos en una historia.",
+    cta="Mandanos un mensaje", note="o escribinos a somosmetodo30@gmail.com")
 
 
 # ---------- RENDER ----------
+ARROW = '<svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>'
+PLANE = '<svg viewBox="0 0 24 24"><path d="M21 3 10 14M21 3l-7 18-4-7-7-4 18-7Z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/></svg>'
+
+
+def cta(label, note, small, icon=ARROW):
+    sm = f"<small>{small}</small>" if small else ""
+    return f'<div class="cta"><div class="btn"><span>{label}</span>{icon}</div><p>{note}{sm}</p></div>'
+
+
 def head(h, i, total):
     dots = "".join(f'<i class="{"on" if k == i else ""}"></i>' for k in range(total))
     return (f'<div class="top"><img src="{ICON}"><span>Método 30</span><b>{h["tag"]}</b></div>'
@@ -137,11 +147,11 @@ def body(h):
         return (f'<div class="step"><div class="num">{h["n"]}</div><h2>{h["title"]}</h2>'
                 f'<p>{h["text"]}</p><div class="pic">{h["pic"]}</div></div>')
     if k == "link":
-        return (f'<div class="cover center"><img class="tp" src="{COMBO}"><h1>{h["title"]}</h1><p class="sub">{h["sub"]}</p>'
-                f'<div class="box">Poné acá el sticker de <b>Enlace</b><small>{LINK}</small></div></div>')
-    if k in ("ask", "thanks"):
-        return (f'<div class="cover center"><h1>{h["title"]}</h1><p class="sub">{h["sub"]}</p>'
-                f'<div class="box {"tall" if k == "thanks" else ""}">{h["box"]}</div></div>')
+        return (f'<div class="cover center"><img class="tp" src="{COMBO}"><h1>{h["title"]}</h1><p class="sub">{h["sub"]}</p>' +
+                cta("Ver los ebooks", "Tocá el link de nuestro perfil", LINK) + "</div>")
+    if k == "ask":
+        return (f'<div class="cover center"><img class="av" src="{ICON}"><h1>{h["title"]}</h1><p class="sub">{h["sub"]}</p>'
+                + cta(h["cta"], h["note"], "", icon=PLANE) + "</div>")
     if k == "big":
         return f'<div class="cover center"><div class="bign">{h["big"]}</div><div class="bigsub">{h["bigsub"]}</div><p class="sub">{h["text"]}</p></div>'
     if k == "list":
@@ -165,7 +175,7 @@ def body(h):
     raise ValueError(k)
 
 
-THEME = {"cover": "dark", "link": "dark", "ask": "dark", "thanks": "light", "big": "dark",
+THEME = {"cover": "dark", "link": "dark", "ask": "dark", "big": "dark",
          "step": "light", "list": "light", "prices": "light", "formula": "light", "star": "light", "qa": "dark"}
 
 CSS = """
@@ -210,10 +220,12 @@ h2{font-size:84px;font-weight:900;line-height:1.02;margin-bottom:34px}
 .ui-in{border:3px solid #14213D;border-radius:18px;padding:28px;font-size:38px;color:#94A3B8;margin-bottom:30px}
 .ui-btn{background:#14213D;color:#fff;border-radius:18px;padding:32px;text-align:center;font-weight:800;font-size:40px;outline:6px solid rgba(232,99,46,.5);outline-offset:6px}
 .code{display:flex;gap:14px}.code span{flex:1;height:130px;border:3px solid #14213D;border-radius:18px;font:900 70px/120px Inter;text-align:center;color:#E8632E}
-.box{margin-top:70px;width:100%;border:5px dashed rgba(245,210,122,.8);border-radius:40px;padding:80px 40px;font-size:40px;line-height:1.4;color:#F5D27A}
-.box small{display:block;font-size:30px;opacity:.8;margin-top:14px}
-.light .box{border-color:#B8892B;color:#B8892B}
-.box.tall{flex:1;display:flex;flex-direction:column;justify-content:center}
+.cta{margin-top:80px;width:100%;display:flex;flex-direction:column;align-items:center}
+.btn{display:flex;align-items:center;justify-content:center;gap:24px;width:100%;background:#E8632E;color:#fff;border-radius:999px;padding:44px 50px;font:800 50px/1 Inter;box-shadow:0 24px 50px rgba(232,99,46,.38)}
+.btn svg{width:56px;height:56px;flex:none}
+.cta p{margin-top:36px;font-size:36px;opacity:.8;line-height:1.4}
+.cta small{display:block;font-size:32px;color:#F5D27A;font-weight:600;margin-top:6px;opacity:1}
+.av{width:180px;height:180px;border-radius:44px;margin-bottom:60px;box-shadow:0 0 0 8px rgba(245,210,122,.6),0 30px 60px rgba(0,0,0,.4)}
 .tp{width:520px;border-radius:30px;margin-bottom:60px;box-shadow:0 30px 70px rgba(0,0,0,.45)}
 .bign{font-size:520px;font-weight:900;line-height:.8;color:#F5D27A}
 .bigsub{font:900 110px/1 "Inter Display";margin-top:20px}
