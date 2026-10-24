@@ -1,6 +1,6 @@
 # Cómo cargar las políticas en Shopify
 
-Ninguna de estas políticas incluye tu dirección, tu nombre ni tu teléfono. El único dato de contacto es el mail de Método 30, marcado con somosmetodo30@gmail.com. Reemplazalo en todos los textos antes de publicarlos.
+Ninguna de estas políticas incluye tu dirección, tu nombre ni tu teléfono. El único dato de contacto es el mail de Método 30: somosmetodo30@gmail.com (ya está puesto en todos los textos).
 
 > Son textos de base y no reemplazan el asesoramiento de un abogado o contador. Si facturás con CUIT, revisá con tu contador si corresponde mostrar algún dato de identificación del vendedor en la tienda.
 
