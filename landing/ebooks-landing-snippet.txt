@@ -131,7 +131,7 @@ window.CE_CONFIG = {
   faqsCompra: [
     { p: "¿Cómo lo recibo?", r: "Por mail, apenas se acredita el pago. Lo leés en el celular, la tablet o la compu." },
     { p: "¿Sirve para mi rubro?", r: "Sí. El método funciona en cualquier rubro e incluye consejos para 10 rubros distintos." },
-    { p: "¿Qué medios de pago aceptan?", r: "Con Mercado Pago: tarjeta de crédito en hasta 3 cuotas sin interés, débito o dinero en cuenta." }
+    { p: "¿Qué medios de pago aceptan?", r: "Podés pagar con cualquier tarjeta de crédito en hasta 3 cuotas sin interés, con débito o con dinero en cuenta de Mercado Pago. El pago se procesa de forma segura a través de Mercado Pago." }
   ],
 
   // ============================================================

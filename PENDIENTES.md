@@ -10,7 +10,7 @@ Lo que quedó para resolver más adelante. Tachá cada punto cuando esté.
 - [x] **Políticas:** cargar los textos de `politicas/` (ya tienen el mail). Ver `politicas/COMO-CARGARLAS.md`. Decidiste no poner el botón de arrepentimiento: si más adelante cambiás de idea, el texto está en `politicas/boton-de-arrepentimiento.md`.
 - [ ] **Redes:** link de Instagram en el Pie de página cuando exista la cuenta.
 
-- [ ] **Texto de medios de pago:** en el snippet de la landing (pregunta "¿Qué medios de pago aceptan?") y en las preguntas del inicio, poner "3 cuotas sin interés con Mercado Pago".
+- [x] **Texto de medios de pago:** en el snippet de la landing (pregunta "¿Qué medios de pago aceptan?") y en las preguntas del inicio, poner "3 cuotas sin interés con Mercado Pago".
 
 ## Antes de lanzar
 - [ ] Verificar que estén libres @metodo30 en Instagram, el dominio y la marca en el INPI.
