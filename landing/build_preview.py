@@ -14,6 +14,7 @@ snip = open(os.path.join(here, "ebooks-landing-snippet.txt"), encoding="utf-8").
 LOCAL = {"problema.jpg": "fotos/problema.jpg", "resultado.jpg": "fotos/resultado.jpg", "combo-fondo.jpg": "fotos/combo-fondo.jpg",
          "tapa-consegui-trabajo.png": "../ebook/tapas/tapa-consegui-trabajo.png",
          "tapa-secretos-de-reclutador.png": "../ebook/tapas/tapa-secretos-de-reclutador.png"}
+LOCAL.update({f: "muestras/" + f for f in os.listdir(os.path.join(here, "muestras"))})
 snip = re.sub(r'"https://cdn\.shopify\.com/[^"]*/([\w.-]+?)(?:\?[^"]*)?"', lambda m: '"' + LOCAL.get(m.group(1), m.group(0).strip('"')) + '"', snip)
 open(os.path.join(here, "vista-previa.html"), "w", encoding="utf-8").write(
     "<!doctype html><html lang='es'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'>"

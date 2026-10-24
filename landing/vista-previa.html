@@ -131,7 +131,7 @@ window.CE_CONFIG = {
   faqsCompra: [
     { p: "¿Cómo lo recibo?", r: "Por mail, apenas se acredita el pago. Lo leés en el celular, la tablet o la compu." },
     { p: "¿Sirve para mi rubro?", r: "Sí. El método funciona en cualquier rubro e incluye consejos para 10 rubros distintos." },
-    { p: "¿Qué medios de pago aceptan?", r: "⚠️Tarjeta de crédito, débito y Mercado Pago (ajustá según tu tienda)⚠️" }
+    { p: "¿Qué medios de pago aceptan?", r: "Podés pagar con cualquier tarjeta de crédito en hasta 3 cuotas sin interés, con débito o con dinero en cuenta de Mercado Pago. El pago se procesa de forma segura a través de Mercado Pago." }
   ],
 
   // ============================================================
@@ -147,6 +147,24 @@ window.CE_CONFIG = {
     tapa1: "../ebook/tapas/tapa-consegui-trabajo.png",
     tapa2: "../ebook/tapas/tapa-secretos-de-reclutador.png"
   },
+
+  // ============================================================
+  // 👀 MIRÁ POR DENTRO (páginas reales de los ebooks + versión web en el celular)
+  // Subí las imágenes de la carpeta landing/muestras/ a Contenido → Archivos y
+  // reemplazá cada ruta por su URL (https://cdn.shopify.com/...).
+  // Mientras sean rutas locales, en la tienda esta sección no aparece.
+  // ============================================================
+  muestras: [
+    { src: "muestras/e1-indice.jpg", texto: "Ebook 1 · El plan completo, día por día" },
+    { src: "muestras/e1-formula-cv.jpg", texto: "Ebook 1 · La fórmula para escribir logros en tu CV" },
+    { src: "muestras/e1-metodo-star.jpg", texto: "Ebook 1 · Respuestas de entrevista con el método STAR" },
+    { src: "muestras/e1-plantillas.jpg", texto: "Ebook 1 · Plantillas de mensajes listas para copiar" },
+    { src: "muestras/e1-checklist.jpg", texto: "Ebook 1 · Checklists para cada etapa" },
+    { src: "muestras/e2-quien-decide.jpg", texto: "Ebook 2 · Qué quiere y qué teme cada persona que te evalúa" },
+    { src: "muestras/e2-tests.jpg", texto: "Ebook 2 · Cómo prepararte para cada tipo de test" },
+    { src: "muestras/e2-secreto.jpg", texto: "Ebook 2 · Secretos de reclutador en cada capítulo" }
+  ],
+  capturaCelular: "muestras/version-web-celular.jpg",
 
   // ============================================================
   // 📢 BARRA SUPERIOR (pocos mensajes, sin presión)
@@ -420,6 +438,22 @@ window.CE_OK = function(v) { return v && String(v).indexOf("⚠️") === -1; };
     "#ce-landing-full .ft h3{font-size:19px;margin:10px 0 6px;color:var(--ce-navy)}",
     "#ce-landing-full .ft p{font-size:15.5px;color:var(--ce-muted)}",
 
+    "#ce-landing-full .peek-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap}",
+    "#ce-landing-full .peek-nav{display:flex;gap:8px}",
+    "#ce-landing-full .peek-nav button{width:44px;height:44px;border-radius:50%;border:1px solid var(--ce-line);background:#fff;color:var(--ce-navy);font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center}",
+    "#ce-landing-full .peek-nav button:hover{border-color:var(--ce-navy)}",
+    "#ce-landing-full .peek{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding:28px 2px 18px;scrollbar-width:thin}",
+    "#ce-landing-full .peek figure{flex:0 0 clamp(220px,28vw,300px);margin:0;scroll-snap-align:start}",
+    "#ce-landing-full .peek .pg{background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 14px 34px rgba(20,33,61,.16);border:1px solid var(--ce-line);aspect-ratio:3/4}",
+    "#ce-landing-full .peek img{width:100%;height:100%;object-fit:cover;object-position:top}",
+    "#ce-landing-full .peek figcaption{font-size:14.5px;color:var(--ce-muted);margin-top:10px;line-height:1.35}",
+    "#ce-landing-full .phone-row{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:56px;align-items:center;margin-top:44px;background:var(--ce-navy);color:#fff;border-radius:24px;padding:40px 44px}",
+    "#ce-landing-full .phone-row .h2{color:#fff;font-size:clamp(24px,3vw,32px)}",
+    "#ce-landing-full .phone-row ul{list-style:none;padding:0;margin:18px 0 0;display:grid;gap:10px}",
+    "#ce-landing-full .phone-row li{display:flex;gap:10px;color:rgba(255,255,255,.88)}",
+    "#ce-landing-full .phone-row li::before{content:'\\2713';color:var(--ce-gold);font-weight:800}",
+    "#ce-landing-full .phone{width:100%;max-width:260px;margin:0 auto;border-radius:38px;padding:10px;background:#0B0F1C;box-shadow:0 30px 60px rgba(0,0,0,.45),inset 0 0 0 2px rgba(255,255,255,.12)}",
+    "#ce-landing-full .phone img{width:100%;aspect-ratio:1/2;object-fit:cover;object-position:top;border-radius:30px}",
     "#ce-landing-full .cmp{margin-top:36px;border:1px solid var(--ce-line);border-radius:18px;overflow:hidden;background:#fff}",
     "#ce-landing-full .cmp table{width:100%;border-collapse:collapse;font-size:16px}",
     "#ce-landing-full .cmp th{padding:16px 18px;text-align:left;font:800 15px/1.2 var(--ce-title)}",
@@ -487,7 +521,7 @@ window.CE_OK = function(v) { return v && String(v).indexOf("⚠️") === -1; };
     "#ce-sticky .tx span{font:800 17px/1.2 var(--ce-title);color:var(--ce-orange);font-variant-numeric:tabular-nums}",
     "#ce-sticky button{flex:none;background:var(--ce-orange);color:#fff;border:0;border-radius:999px;font:800 15px/1 var(--ce-title);letter-spacing:.04em;padding:14px 22px;cursor:pointer}",
 
-    "@media(max-width:900px){#ce-landing-full .sec{padding-block:60px}#ce-landing-full .split,#ce-landing-full .book-row,#ce-landing-full .who2{grid-template-columns:minmax(0,1fr);gap:30px}#ce-landing-full .grid,#ce-landing-full .revs{grid-template-columns:minmax(0,1fr)}#ce-landing-full .book{max-width:200px}#ce-landing-full .cmp{overflow-x:auto}#ce-landing-full .cmp table{min-width:560px}#ce-landing-full .ph-first{order:-1}}"
+    "@media(max-width:900px){#ce-landing-full .sec{padding-block:60px}#ce-landing-full .split,#ce-landing-full .book-row,#ce-landing-full .who2{grid-template-columns:minmax(0,1fr);gap:30px}#ce-landing-full .grid,#ce-landing-full .revs{grid-template-columns:minmax(0,1fr)}#ce-landing-full .book{max-width:200px}#ce-landing-full .cmp{overflow-x:auto}#ce-landing-full .cmp table{min-width:560px}#ce-landing-full .ph-first{order:-1}#ce-landing-full .phone-row{grid-template-columns:minmax(0,1fr);padding:30px 22px;gap:28px}#ce-landing-full .phone{max-width:220px}#ce-landing-full .peek-nav{display:none}}"
   ].join("");
   document.head.appendChild(st);
 })();
@@ -632,6 +666,25 @@ window.CE_OK = function(v) { return v && String(v).indexOf("⚠️") === -1; };
   }
   var comboIndex = Math.max(0, cfg.ofertas.findIndex(function(o) { return !!o.etiqueta; }));
 
+  function peek() {
+    var items = (cfg.muestras || []).filter(function(m) { return src(m.src); });
+    var cel = src(cfg.capturaCelular);
+    if (!items.length && !cel) return "";
+    var gal = items.length ?
+      '<div class="peek-head"><div><div class="ey">Mirá por dentro</div><h2 class="h2">Así son los ebooks <span>por dentro</span></h2></div>' +
+      '<div class="peek-nav"><button type="button" data-peek="-1" aria-label="Ver anteriores">\u2039</button><button type="button" data-peek="1" aria-label="Ver siguientes">\u203A</button></div></div>' +
+      '<div class="peek" tabindex="0" aria-label="Páginas de muestra de los ebooks">' + items.map(function(m) {
+        return '<figure><div class="pg"><img src="' + src(m.src) + '" alt="' + m.texto + '" loading="lazy"></div><figcaption>' + m.texto + "</figcaption></figure>";
+      }).join("") + "</div>" : "";
+    var phone = cel ?
+      '<div class="phone-row"><div><div class="ey">Incluido</div><h2 class="h2">Y la versión web, pensada para el celular</h2><ul>' +
+      "<li>Tildás cada tarea del plan y ves tu avance.</li>" +
+      "<li>Copiás las plantillas con un toque y las pegás en LinkedIn o en un mail.</li>" +
+      "<li>Saltás a cualquier capítulo desde el índice.</li>" +
+      '</ul></div><div class="phone"><img src="' + cel + '" alt="Versión web interactiva del ebook en un celular" loading="lazy"></div></div>' : "";
+    return '<section class="sec paper"><div class="w">' + gal + phone + "</div></section>";
+  }
+
   function reviews() {
     var t = (cfg.testimonios || []).filter(function(r) { return window.CE_PREVIEW || !r.ejemplo; }).slice(0, 3);
     if (!t.length) return "";
@@ -685,8 +738,11 @@ window.CE_OK = function(v) { return v && String(v).indexOf("⚠️") === -1; };
         '<div class="ft"><div class="n">2</div><h3>Formatos</h3><p>PDF para descargar y versión web interactiva para el celular.</p></div>' +
       "</div></div></section>" +
 
+      // 3b. Mirá por dentro
+      peek() +
+
       // 4. Comparación
-      '<section class="sec paper"><div class="w nw"><div class="ey">La diferencia</div><h2 class="h2">Buscar a ciegas vs. buscar con método</h2><div class="cmp"><table>' +
+      '<section class="sec' + (peek() ? "" : " paper") + '"><div class="w nw"><div class="ey">La diferencia</div><h2 class="h2">Buscar a ciegas vs. buscar con método</h2><div class="cmp"><table>' +
         "<thead><tr><th></th><th>Sin método</th><th>Con el plan de 30 días</th></tr></thead><tbody>" +
         "<tr><td>CV</td><td>El mismo para todo</td><td>Adaptado a cada aviso en 15 minutos</td></tr>" +
         "<tr><td>LinkedIn</td><td>Perfil quieto, nadie escribe</td><td>Optimizado para que te encuentren</td></tr>" +
@@ -736,6 +792,12 @@ window.CE_OK = function(v) { return v && String(v).indexOf("⚠️") === -1; };
       // 10. Cierre
       '<section class="sec final"><div class="w nw"><h2 class="h2">Tu próximo trabajo empieza hoy</h2><p>En 30 días podés tener un CV que consigue entrevistas y las herramientas para que te elijan.</p><button type="button" class="cta" data-buy="1">Elegir mi opción</button></div></section>';
 
+    c.querySelectorAll("[data-peek]").forEach(function(b) {
+      b.addEventListener("click", function() {
+        var g = c.querySelector(".peek");
+        if (g) g.scrollBy({ left: (+b.getAttribute("data-peek")) * g.clientWidth * 0.8, behavior: "smooth" });
+      });
+    });
     c.querySelectorAll("[data-buy]").forEach(function(b) {
       b.addEventListener("click", function() { scrollToBuy(b.getAttribute("data-buy") === "combo" ? comboIndex : undefined); });
     });
