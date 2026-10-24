@@ -18,7 +18,7 @@ Dejá vacías "Política de envío" (no hay envíos) e "Información de contacto
 
 Shopify muestra los links a estas políticas en el checkout y en el pie de página de Método 30.
 
-## 2. Página del botón de arrepentimiento
+## 2. Página del botón de arrepentimiento (opcional: decidiste no ponerla por ahora)
 
 1. *Tienda online → Páginas → Agregar página*.
 2. Título: **Botón de arrepentimiento**. Contenido: el texto de `boton-de-arrepentimiento.md`.

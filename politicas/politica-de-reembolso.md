@@ -6,10 +6,7 @@ Queremos que compres tranquilo. Estas son las condiciones para cancelar una comp
 
 1. Derecho de arrepentimiento (10 días)
 
-Según la Ley de Defensa del Consumidor, podés arrepentirte de tu compra dentro de los 10 días corridos desde que la hiciste, sin dar explicaciones. Para hacerlo:
-
-- Usá el Botón de arrepentimiento que está en el pie de página de la tienda, o
-- Escribinos a somosmetodo30@gmail.com con el asunto "Arrepentimiento" y tu número de pedido.
+Según la Ley de Defensa del Consumidor, podés arrepentirte de tu compra dentro de los 10 días corridos desde que la hiciste, sin dar explicaciones. Para hacerlo, escribinos a somosmetodo30@gmail.com con el asunto "Arrepentimiento" y tu número de pedido, o usá el formulario de la página de Contacto.
 
 Te confirmamos la recepción del pedido de arrepentimiento por mail dentro de las 24 horas y te devolvemos el importe por el mismo medio de pago que usaste. Al procesar el arrepentimiento, se da de baja el acceso a la versión web interactiva y te pedimos que elimines los PDF que descargaste.
 

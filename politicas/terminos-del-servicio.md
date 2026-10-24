@@ -40,7 +40,7 @@ Los ebooks ofrecen un método, información y herramientas para mejorar tu búsq
 
 8. Arrepentimiento y reembolsos
 
-Las condiciones para cancelar una compra o pedir un reembolso están en nuestra Política de reembolso. Además, tenés a disposición el Botón de arrepentimiento en el pie de página de la tienda.
+Las condiciones para cancelar una compra o pedir un reembolso, incluido el derecho de arrepentimiento dentro de los 10 días, están en nuestra Política de reembolso.
 
 9. Responsabilidad
 
