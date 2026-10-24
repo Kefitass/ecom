@@ -12,6 +12,9 @@ Lo que quedó para resolver más adelante. Tachá cada punto cuando esté.
 
 - [x] **Texto de medios de pago:** en el snippet de la landing (pregunta "¿Qué medios de pago aceptan?") y en las preguntas del inicio, poner "3 cuotas sin interés con Mercado Pago".
 
+## Ideas para testear cuando haya ventas
+- [ ] **Sección "Mirá por dentro"** (páginas de muestra + celular): está armada y apagada (`mostrarMuestras: false` en el snippet). Probarla en un test A/B si las ventas lo justifican.
+
 ## Antes de lanzar
 - [ ] Verificar que estén libres @metodo30 en Instagram, el dominio y la marca en el INPI.
 - [ ] Reseñas reales de lectores beta para la landing y el inicio.

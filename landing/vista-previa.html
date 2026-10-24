@@ -153,7 +153,9 @@ window.CE_CONFIG = {
   // Subí las imágenes de la carpeta landing/muestras/ a Contenido → Archivos y
   // reemplazá cada ruta por su URL (https://cdn.shopify.com/...).
   // Mientras sean rutas locales, en la tienda esta sección no aparece.
+  // mostrarMuestras: false → la sección queda apagada (idea para testear más adelante).
   // ============================================================
+  mostrarMuestras: false,
   muestras: [
     { src: "muestras/e1-indice.jpg", texto: "Ebook 1 · El plan completo, día por día" },
     { src: "muestras/e1-formula-cv.jpg", texto: "Ebook 1 · La fórmula para escribir logros en tu CV" },
@@ -667,6 +669,7 @@ window.CE_OK = function(v) { return v && String(v).indexOf("⚠️") === -1; };
   var comboIndex = Math.max(0, cfg.ofertas.findIndex(function(o) { return !!o.etiqueta; }));
 
   function peek() {
+    if (cfg.mostrarMuestras === false) return "";
     var items = (cfg.muestras || []).filter(function(m) { return src(m.src); });
     var cel = src(cfg.capturaCelular);
     if (!items.length && !cel) return "";
