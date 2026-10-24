@@ -141,11 +141,11 @@ window.CE_CONFIG = {
   // En la tienda, cada una tiene que ser una URL completa (https://cdn.shopify.com/...).
   // Mientras sean rutas locales (fotos/...), en la tienda esa foto simplemente no se muestra.
   imagenes: {
-    problema: "fotos/problema.jpg",
-    resultado: "fotos/resultado.jpg",
-    comboFondo: "fotos/combo-fondo.jpg",
-    tapa1: "../ebook/tapas/tapa-consegui-trabajo.png",
-    tapa2: "../ebook/tapas/tapa-secretos-de-reclutador.png"
+    problema: "https://cdn.shopify.com/s/files/1/0715/4217/7843/files/problema.jpg?v=1792853518",
+    resultado: "https://cdn.shopify.com/s/files/1/0715/4217/7843/files/resultado.jpg?v=1792853518",
+    comboFondo: "https://cdn.shopify.com/s/files/1/0715/4217/7843/files/combo-fondo.jpg?v=1792853518",
+    tapa1: "https://cdn.shopify.com/s/files/1/0715/4217/7843/files/tapa-consegui-trabajo.png?v=1792852546",
+    tapa2: "https://cdn.shopify.com/s/files/1/0715/4217/7843/files/tapa-secretos-de-reclutador.png?v=1792852745"
   },
 
   // ============================================================
