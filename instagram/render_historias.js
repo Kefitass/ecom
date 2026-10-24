@@ -1,9 +1,9 @@
-// node instagram/render_historias.js  →  instagram/historias/<destacada>/<n>.png
+// node instagram/render_historias.js [historias|carruseles]  →  instagram/<carpeta>/<grupo>/<n>.png
 const { chromium } = require("playwright");
 const fs = require("fs");
 const path = require("path");
 
-const dir = path.join(__dirname, "historias");
+const dir = path.join(__dirname, process.argv[2] || "historias");
 const ids = JSON.parse(fs.readFileSync(path.join(dir, "_ids.json"), "utf8"));
 
 (async () => {
