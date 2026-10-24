@@ -14,7 +14,7 @@ Los precios están expresados en pesos argentinos e incluyen los impuestos que c
 
 3. Entrega
 
-Apenas se acredita el pago recibís un correo con los PDF y las instrucciones para entrar a "Mis ebooks", la versión web interactiva. Si en 30 minutos no te llegó, revisá la carpeta de spam y, si no está, escribinos a ⚠️MAIL DE CONTACTO⚠️ con tu número de pedido.
+Apenas se acredita el pago recibís un correo con los PDF y las instrucciones para entrar a "Mis ebooks", la versión web interactiva. Si en 30 minutos no te llegó, revisá la carpeta de spam y, si no está, escribinos a somosmetodo30@gmail.com con tu número de pedido.
 
 4. Acceso a la versión web
 
@@ -58,4 +58,4 @@ Podemos actualizar estos términos. La versión vigente es la publicada en la ti
 
 Estos términos se rigen por las leyes de la República Argentina, incluida la Ley de Defensa del Consumidor (N.º 24.240).
 
-Consultas: ⚠️MAIL DE CONTACTO⚠️
+Consultas: somosmetodo30@gmail.com

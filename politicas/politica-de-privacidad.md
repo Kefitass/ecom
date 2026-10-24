@@ -6,7 +6,7 @@ En Método 30 respetamos tu privacidad. Esta política explica qué datos person
 
 1. Quiénes somos
 
-Método 30 es una tienda online de productos digitales (ebooks) sobre búsqueda de empleo. Para cualquier consulta sobre tus datos podés escribirnos a: ⚠️MAIL DE CONTACTO⚠️
+Método 30 es una tienda online de productos digitales (ebooks) sobre búsqueda de empleo. Para cualquier consulta sobre tus datos podés escribirnos a: somosmetodo30@gmail.com
 
 2. Qué datos recolectamos
 
@@ -53,7 +53,7 @@ Podés pedirnos en cualquier momento, sin costo:
 - Eliminarlos, cuando no sea necesario conservarlos por una obligación legal.
 - Dejar de recibir comunicaciones comerciales.
 
-Para hacerlo, escribinos a ⚠️MAIL DE CONTACTO⚠️ desde el correo con el que compraste. Te respondemos dentro de los plazos que establece la ley.
+Para hacerlo, escribinos a somosmetodo30@gmail.com desde el correo con el que compraste. Te respondemos dentro de los plazos que establece la ley.
 
 El titular de los datos personales tiene la facultad de ejercer el derecho de acceso a los mismos en forma gratuita a intervalos no inferiores a seis meses, salvo que se acredite un interés legítimo al efecto, conforme lo establecido en el artículo 14, inciso 3 de la Ley N.º 25.326. La Agencia de Acceso a la Información Pública, en su carácter de Órgano de Control de la Ley N.º 25.326, tiene la atribución de atender las denuncias y reclamos que interpongan quienes resulten afectados en sus derechos por incumplimiento de las normas vigentes en materia de protección de datos personales.
 

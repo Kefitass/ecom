@@ -11,4 +11,4 @@ Completá el formulario con:
 
 Dentro de las 24 horas te enviamos por mail la confirmación de que recibimos tu pedido, con un número de trámite. Después te devolvemos el importe por el mismo medio de pago que usaste y damos de baja el acceso a la versión web.
 
-También podés escribirnos a ⚠️MAIL DE CONTACTO⚠️ con el asunto "Arrepentimiento".
+También podés escribirnos a somosmetodo30@gmail.com con el asunto "Arrepentimiento".
