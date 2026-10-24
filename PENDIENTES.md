@@ -12,11 +12,19 @@ Lo que quedó para resolver más adelante. Tachá cada punto cuando esté.
 
 - [x] **Texto de medios de pago:** en el snippet de la landing (pregunta "¿Qué medios de pago aceptan?") y en las preguntas del inicio, poner "3 cuotas sin interés con Mercado Pago".
 
+- [ ] **Combo en dos descargas:** en Digital Products, cargar cada PDF como recurso separado en "Combo 2 Ebooks" (hoy llega un .zip).
+- [ ] **Pantalla de entrada de "Mis ebooks":** volver a pegar `shopify/templates/page.mis-ebooks.liquid` (y `page.ebook-1` y `page.ebook-2`) con los 3 pasos para iniciar sesión.
+- [ ] **Checkout:** en *Configuración → Checkout*, pedir lo mínimo (sin dirección para productos digitales si lo permite).
+- [ ] **Borrar el código PRUEBA100** en *Descuentos*.
+- [ ] **Colores del menú y de la barra** (con Sidekick) y corregir "Cátalogo" → "Catálogo".
+- [ ] **Fotos del producto:** cargar las 5 imágenes cuadradas de `landing/producto/` y asignar la de cada variante.
+
 ## Ideas para testear cuando haya ventas
 - [ ] **Sección "Mirá por dentro"** (páginas de muestra + celular): está armada y apagada (`mostrarMuestras: false` en el snippet). Probarla en un test A/B si las ventas lo justifican.
 
 ## Antes de lanzar
 - [ ] Verificar que estén libres @metodo30 en Instagram, el dominio y la marca en el INPI.
 - [ ] Reseñas reales de lectores beta para la landing y el inicio.
-- [ ] Compra de prueba del Ebook y del Combo.
-- [ ] Sacar la contraseña de la tienda.
+- [x] Compra de prueba del Ebook y del Combo.
+- [ ] Completar la información comercial y elegir el plan de Shopify.
+- [ ] Sacar la contraseña de la tienda (lanzar).
