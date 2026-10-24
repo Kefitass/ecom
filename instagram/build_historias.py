@@ -52,7 +52,7 @@ add(F, "5", "link", tag="Cómo funciona", title="Empezá hoy",
 F = "2-resenas"
 add(F, "1-pedi-resenas", "ask", tag="Reseñas", title="¿Ya leíste<br><em>Método 30</em>?",
     sub="Contanos cómo te fue con tu búsqueda. Con tu permiso, compartimos tu mensaje acá.",
-    cta="Mandanos un mensaje", note="o escribinos a somosmetodo30@gmail.com")
+    cta="Escribinos por mensaje directo", note="o a somosmetodo30@gmail.com")
 add(F, "2-como-contarnos", "list", tag="Reseñas", title="Contanos<br>tu experiencia",
     items=["Aplicá el plan en tu búsqueda", "Mandanos un mensaje directo contando cómo te fue",
            "Si querés, sumá una captura de tu CV o tu LinkedIn nuevo", "Con tu permiso, lo compartimos en esta destacada"],
@@ -74,10 +74,10 @@ add(F, "1", "cover", tag="Mis ebooks", title="Cómo entrar a<br><em>Mis ebooks</
     pic=f'<img class="phone" src="{CEL}">')
 add(F, "2", "step", tag="Mis ebooks", n="1", title="Tocá «Iniciar sesión»",
     text="Entrá a la tienda desde el link de nuestro perfil o desde el mail de compra.",
-    pic='<div class="ui"><div class="ui-btn">Iniciar sesión</div></div>')
+    pic='<div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg></div>')
 add(F, "3", "step", tag="Mis ebooks", n="2", title="Poné el mismo mail de la compra",
     text="Tiene que ser el mail que usaste para pagar: así se habilitan tus ebooks.",
-    pic='<div class="ui"><div class="ui-lbl">Correo electrónico</div><div class="ui-in">tunombre@gmail.com</div><div class="ui-btn">Continuar</div></div>')
+    pic='<div class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m4 7 8 6 8-6"/></svg></div>')
 add(F, "4", "step", tag="Mis ebooks", n="3", title="Escribí el código de 6 dígitos",
     text="Te llega por mail en segundos. Si no lo ves, revisá la carpeta de spam.",
     pic='<div class="ui"><div class="ui-lbl">Código</div><div class="code">' + "".join(f"<span>{c}</span>" for c in "······") + "</div></div>")
@@ -120,7 +120,7 @@ for i, (q, a) in enumerate(QA, 1):
     add(F, str(i), "qa", tag="Preguntas", q=q, a=a)
 add(F, str(len(QA) + 1), "ask", tag="Preguntas", title="¿Tenés otra<br>pregunta?",
     sub="Mandanos un mensaje y te respondemos en una historia.",
-    cta="Mandanos un mensaje", note="o escribinos a somosmetodo30@gmail.com")
+    cta="Escribinos por mensaje directo", note="o a somosmetodo30@gmail.com")
 
 
 # ---------- RENDER ----------
@@ -130,7 +130,7 @@ PLANE = '<svg viewBox="0 0 24 24"><path d="M21 3 10 14M21 3l-7 18-4-7-7-4 18-7Z"
 
 def cta(label, note, small, icon=ARROW):
     sm = f"<small>{small}</small>" if small else ""
-    return f'<div class="cta"><div class="btn"><span>{label}</span>{icon}</div><p>{note}{sm}</p></div>'
+    return f'<div class="cta"><i></i><b>{label}</b><p>{note}{sm}</p></div>'
 
 
 def head(h, i, total):
@@ -148,7 +148,7 @@ def body(h):
                 f'<p>{h["text"]}</p><div class="pic">{h["pic"]}</div></div>')
     if k == "link":
         return (f'<div class="cover center"><img class="tp" src="{COMBO}"><h1>{h["title"]}</h1><p class="sub">{h["sub"]}</p>' +
-                cta("Ver los ebooks", "Tocá el link de nuestro perfil", LINK) + "</div>")
+                cta("Link en nuestro perfil", "", LINK) + "</div>")
     if k == "ask":
         return (f'<div class="cover center"><img class="av" src="{ICON}"><h1>{h["title"]}</h1><p class="sub">{h["sub"]}</p>'
                 + cta(h["cta"], h["note"], "", icon=PLANE) + "</div>")
@@ -215,15 +215,16 @@ h2{font-size:84px;font-weight:900;line-height:1.02;margin-bottom:34px}
 .ms{font-weight:800;font-size:42px;margin:28px 0}
 .mf{display:flex;align-items:center;gap:20px;border:2px solid #E2E8F0;border-radius:20px;padding:22px;margin-top:16px;font-size:30px}
 .mf span{background:#E8632E;color:#fff;font-weight:800;font-size:24px;border-radius:10px;padding:8px 12px}
+.ic{width:420px;height:420px;border-radius:50%;background:#fff;box-shadow:0 0 0 12px #F5D27A,0 30px 60px rgba(20,33,61,.15);display:flex;align-items:center;justify-content:center}
+.ic svg{width:200px;height:200px;fill:none;stroke:#14213D;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 .ui{width:820px;background:#fff;border-radius:36px;padding:56px;box-shadow:0 30px 60px rgba(20,33,61,.15)}
 .ui-lbl{font-size:30px;color:#64748B;margin-bottom:14px}
 .ui-in{border:3px solid #14213D;border-radius:18px;padding:28px;font-size:38px;color:#94A3B8;margin-bottom:30px}
-.ui-btn{background:#14213D;color:#fff;border-radius:18px;padding:32px;text-align:center;font-weight:800;font-size:40px;outline:6px solid rgba(232,99,46,.5);outline-offset:6px}
 .code{display:flex;gap:14px}.code span{flex:1;height:130px;border:3px solid #14213D;border-radius:18px;font:900 70px/120px Inter;text-align:center;color:#E8632E}
 .cta{margin-top:80px;width:100%;display:flex;flex-direction:column;align-items:center}
-.btn{display:flex;align-items:center;justify-content:center;gap:24px;width:100%;background:#E8632E;color:#fff;border-radius:999px;padding:44px 50px;font:800 50px/1 Inter;box-shadow:0 24px 50px rgba(232,99,46,.38)}
-.btn svg{width:56px;height:56px;flex:none}
-.cta p{margin-top:36px;font-size:36px;opacity:.8;line-height:1.4}
+.cta i{display:block;width:120px;height:6px;border-radius:6px;background:#E8632E;margin-bottom:44px}
+.cta b{font:900 60px/1.15 "Inter Display";letter-spacing:-.02em;color:#F5D27A}
+.cta p{margin-top:20px;font-size:36px;opacity:.8;line-height:1.4}
 .cta small{display:block;font-size:32px;color:#F5D27A;font-weight:600;margin-top:6px;opacity:1}
 .av{width:180px;height:180px;border-radius:44px;margin-bottom:60px;box-shadow:0 0 0 8px rgba(245,210,122,.6),0 30px 60px rgba(0,0,0,.4)}
 .tp{width:520px;border-radius:30px;margin-bottom:60px;box-shadow:0 30px 70px rgba(0,0,0,.45)}
