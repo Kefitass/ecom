@@ -1,28 +1,26 @@
 /* MÉTODO 30 · CSS para pegar en Personalizar → engranaje (Configuración del tema) → Custom CSS
-   Pone el menú y la barra de anuncios con los colores de la marca. */
+   Pone el ítem activo del menú en azul marino y el hover en naranja. */
 
-/* Ítem del menú de la página actual: azul marino en vez de negro */
+/* El link activo queda sin fondo propio (el tema pinta el texto interno) */
 .header__inline-menu a[aria-current="page"],
-.header__inline-menu .header__active-menu-item,
-.header__inline-menu .list-menu__item--active,
-.header__menu-item[aria-current="page"],
-.header__menu-item.list-menu__item--active {
-  background: #14213D !important;
-  color: #FFFFFF !important;
-  border-radius: 8px !important;
+.header__menu-item[aria-current="page"] {
+  background: transparent !important;
 }
+
+/* El "botón" interno del ítem activo: azul marino en vez de negro */
 .header__inline-menu a[aria-current="page"] span,
-.header__menu-item[aria-current="page"] span {
+.header__inline-menu a[aria-current="page"] > *,
+.header__menu-item[aria-current="page"] span,
+.header__active-menu-item {
+  background: #14213D !important;
   color: #FFFFFF !important;
   text-decoration: none !important;
 }
 
-/* Al pasar el mouse por el menú: naranja de la marca */
-.header__inline-menu a:hover,
+/* Hover del menú: naranja de la marca */
 .header__inline-menu a:hover span {
   color: #E8632E !important;
 }
-.header__inline-menu a[aria-current="page"]:hover,
 .header__inline-menu a[aria-current="page"]:hover span {
   color: #FFFFFF !important;
 }
