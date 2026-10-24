@@ -100,7 +100,94 @@ Ebook $18.000 · Combo 2 ebooks $27.000 · hasta 3 cuotas sin interés
 #metodo30 #buscotrabajo #empleo #cv #linkedin #entrevistadetrabajo #trabajoargentina
 ```
 
+## 6. ¿Cuánto pretendés? (`6-cuanto-pretendes`, 5 placas): portada naranja
+
+```
+«¿Cuánto pretendés?» es la pregunta que más plata te puede hacer perder 💸
+
+1. Primero, que digan ellos su banda
+2. Si insisten, da un rango (el mínimo es tu objetivo, no tu piso)
+3. Nunca digas tu sueldo actual: no estás obligado
+
+Deslizá para ver las frases exactas.
+
+📌 Guardalo para tu próxima entrevista
+🔗 Negociación paso a paso en el link de nuestro perfil
+
+#sueldo #negociacion #entrevistadetrabajo #empleo #trabajoargentina #rrhh
+```
+
+## 7. ¿Y si nadie te responde? (`7-sin-respuesta`, 5 placas): portada con foto
+
+```
+Te postulaste hace una semana y nada. ¿Qué hacés?
+
+La mayoría espera. Los que consiguen, mandan un mensaje de seguimiento 👇
+
+Te dejo 2 plantillas para copiar y pegar:
+✉️ A la semana de postularte
+✉️ Cuando pasó el plazo de respuesta
+
+📌 Guardalo y usalo hoy
+🔗 8 plantillas más en «Conseguí trabajo en 30 días», link en nuestro perfil
+
+#buscotrabajo #empleo #postulacion #consejoslaborales #linkedin #trabajoargentina
+```
+
+## 8. «¿Tenés alguna pregunta?» (`8-preguntas-que-haces-vos`, 5 placas): portada con foto
+
+```
+Al final de la entrevista te preguntan «¿tenés alguna pregunta?». Nunca digas que no.
+
+Tus preguntas muestran interés y criterio. Llevá 5 preparadas y hacé 2 o 3 👇
+
+Y ojo con lo que NO conviene preguntar en la primera entrevista.
+
+📌 Guardalo para tu próxima entrevista
+🔗 Toda la preparación, en el link de nuestro perfil
+
+#entrevistadetrabajo #entrevistalaboral #empleo #buscotrabajo #consejoslaborales
+```
+
+## 9. Networking (`9-networking`, 5 placas): portada dorada
+
+```
+Nadie quiere que le pidan trabajo. A casi todos les gusta que les pidan un consejo.
+
+Así funciona el networking que sí da resultados:
+🤝 Un mensaje corto para conectar
+☕ Una charla de 15 minutos con 4 preguntas
+⏱️ La regla 50 / 30 / 20 para repartir tu tiempo
+
+La mayoría lo hace al revés.
+
+📌 Guardalo
+🔗 El método completo, en el link de nuestro perfil
+
+#networking #linkedin #buscotrabajo #empleo #marcapersonal #trabajoargentina
+```
+
+## 10. ¿Dónde se corta tu búsqueda? (`10-donde-se-corta`, 6 placas): portada negra con embudo
+
+```
+Si tu búsqueda no avanza, no es mala suerte: se está cortando en una etapa 👇
+
+📉 Casi no te responden → el problema es el CV o a quién le escribís
+🗣️ No pasás RR. HH. → el pitch
+🏁 Llegás a la final y eligen a otro → tus historias y el cierre
+💰 Ofertas bajas → la negociación
+
+Mirá en qué etapa estás y corregí solo eso.
+
+📌 Guardalo
+🔗 El tracker y el diagnóstico completo, en el link de nuestro perfil
+
+#buscotrabajo #empleo #busquedalaboral #rrhh #consejoslaborales #trabajoargentina
+```
+
 ---
+
+Orden sugerido para intercalar portadas: 6 (naranja), 1, 7 (foto), 2, 9 (dorado), 3, 8 (foto), 4, 10 (negro). Así nunca quedan dos azules seguidas en la grilla.
 
 Para cambiar un texto o un precio: editá `instagram/build_carruseles.py` y corré
 `python3 instagram/build_carruseles.py && node instagram/render_historias.js carruseles`.

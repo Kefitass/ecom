@@ -112,9 +112,114 @@ add(K, "close", title="Elegí tu opción", prices=True,
     sub="Hasta 3 cuotas sin interés<br><b class='gold'>Link en nuestro perfil</b>")
 
 
+FOTO_PROBLEMA = img("landing/fotos/problema.jpg")
+FOTO_RESULTADO = img("landing/fotos/resultado.jpg")
+
+# ---------- 6. ¿Cuánto pretendés? (portada naranja) ----------
+K = "6-cuanto-pretendes"
+add(K, "cv_orange", big="$?", title="«¿Cuánto<br>pretendés?»", sub="Cómo responder sin quedarte corto")
+add(K, "quote", label="Primero, que lo digan ellos",
+    text="«Me interesa mucho entender bien el puesto antes de hablar de números. ¿Cuál es la banda que tienen prevista para esta posición?»")
+add(K, "quote", label="Si insisten, da un rango",
+    text="«Por lo que vi en el mercado para este rol y mi experiencia, estoy en un rango de [X] a [Y] brutos mensuales, abierto a conversar según el paquete completo.»",
+    note="El mínimo del rango es tu número objetivo, no tu piso.")
+add(K, "bad", title="Los 3 errores<br>más caros",
+    items=["Decir tu sueldo actual (no estás obligado)", "Dar un número sin investigar el mercado", "Pedir de menos «para no asustar»"],
+    note="Hablá de lo que vale el nuevo puesto, no de lo que ganás hoy.")
+add(K, "close", title="Negociá sin <em>miedo</em>",
+    sub="Cómo investigar tu valor, negociar la oferta y comparar propuestas: días 25 a 28 del plan.")
+
+# ---------- 7. Te dejaron en visto (portada foto oscura) ----------
+K = "7-sin-respuesta"
+add(K, "cv_photo", photo=FOTO_PROBLEMA, chat="Te postulaste hace una semana…", title="¿Y si nadie<br>te <em>responde</em>?",
+    sub="El mensaje de seguimiento que casi nadie manda")
+add(K, "msg", label="A la semana de postularte", to="Seguimiento · Postulación [puesto]",
+    text="Hola, [nombre]: hace una semana me postulé a [puesto] y quería reiterar mi interés. Desde entonces [dato nuevo: terminé un curso / leí sobre su lanzamiento de X], y me entusiasma todavía más la posibilidad de aportar en [área]. Quedo a disposición para conversar. ¡Gracias!")
+add(K, "msg", label="Si pasó el plazo de respuesta", to="Mensaje directo",
+    text="Hola, [nombre]: espero que estés bien. Quería consultar si hay novedades sobre el proceso de [puesto]. Sigo muy interesado y, si necesitan algo más de mi parte, con gusto lo envío. ¡Saludos!")
+add(K, "list", title="Para que lo lean",
+    items=["Corto: menos de 100 palabras", "Con un dato concreto o algo nuevo", "Sin rogar", "Sin pegar el CV entero en el mensaje"])
+add(K, "close", title="8 plantillas listas<br>para <em>copiar</em>",
+    sub="Seguimientos, pedidos de referido, respuesta a un rechazo y más: todas en «Conseguí trabajo en 30 días».")
+
+# ---------- 8. Preguntas que hacés vos (portada foto luminosa) ----------
+K = "8-preguntas-que-haces-vos"
+add(K, "cv_photo2", photo=FOTO_RESULTADO, title="«¿Tenés alguna<br>pregunta?»",
+    sub="Nunca digas que no. Llevá estas 👇")
+add(K, "numlist", title="Preguntas que<br>suman <em>puntos</em>", start=1,
+    items=["¿Cómo sería un éxito en este puesto a los 90 días y al año?", "¿Cuál es el mayor desafío que tiene hoy el equipo?",
+           "¿Por qué se abrió esta posición?", "¿Qué diferencia a las personas que mejor rinden acá?"])
+add(K, "numlist", title="Y las que te<br>dan <em>ventaja</em>", start=5,
+    items=["¿Hay algo de mi perfil que te genere dudas para el puesto?", "¿Cuáles son los próximos pasos del proceso?"],
+    note="La 5 te da la chance de responder una duda en el momento.")
+add(K, "bad", title="En la primera<br>entrevista, no",
+    items=["Vacaciones y licencias", "«¿Cuándo puedo pedir un aumento?»"],
+    note="Eso llega con la oferta.")
+add(K, "close", title="Llevá 5 preparadas<br>y hacé <em>2 o 3</em>",
+    sub="La preparación completa de cada entrevista está en los días 18 a 24 del plan.")
+
+# ---------- 9. Networking (portada dorada) ----------
+K = "9-networking"
+add(K, "cv_gold", title="Dejá de pedir<br>trabajo.<br><em>Pedí un consejo.</em>", sub="Así funciona el networking que sí da resultados")
+add(K, "msg", label="Mensaje para conectar", to="LinkedIn",
+    text="Hola, [nombre]. Vi tu trabajo en [empresa/posteo] y me interesa mucho [área]. Estoy dando mis próximos pasos en ese camino y me encantaría conectar para aprender de tu experiencia. ¡Gracias!")
+add(K, "numlist", title="En la charla<br>de 15 minutos", start=1,
+    items=["¿Cómo es un día típico en tu rol?", "¿Qué valora más tu empresa en alguien que entra en esta área?",
+           "¿Qué me recomendarías para destacarme?", "¿Hay alguien más con quien me recomendarías hablar?"])
+add(K, "split", title="Cómo repartir<br>tu tiempo",
+    items=[("50 %", "Networking y contacto directo"), ("30 %", "Postulaciones adaptadas"), ("20 %", "Seguimientos y visibilidad")],
+    note="La mayoría lo hace al revés.")
+add(K, "close", title="2 o 3 charlas<br>por <em>semana</em>",
+    sub="Cada una abre, en promedio, otro contacto. El método completo está en los días 13 a 17 del plan.")
+
+# ---------- 10. Diagnóstico (portada negra con embudo) ----------
+K = "10-donde-se-corta"
+add(K, "cv_funnel", title="¿Dónde se corta<br>tu <em>búsqueda</em>?",
+    stages=["Postulaciones", "Respuestas", "Entrevistas", "Final", "Oferta"])
+for sint, fix in [
+    ("Casi no te responden", "Reescribí perfil y viñetas, revisá el nivel al que apuntás y subí el networking al 50 % de tu tiempo."),
+    ("Te responden pero no pasás RR. HH.", "Practicá el «contame sobre vos» y el «por qué acá». Revisá tu rango de sueldo."),
+    ("Llegás a la final y eligen a otro", "Historias STAR más fuertes, preguntas de cierre y un mail de seguimiento con valor."),
+    ("Ofertas por debajo de lo esperado", "Investigá el mercado y practicá la contraoferta."),
+]:
+    add(K, "beforeafter", antes=sint, despues=fix, la="Si te pasa esto", lb="Hacé esto")
+add(K, "close", title="Medí todo.<br>Ajustá cada <em>semana</em>",
+    sub="El tracker y el diagnóstico completo están en «Conseguí trabajo en 30 días».")
+
+
 # ---------- RENDER ----------
 def body(p):
     k = p["kind"]
+    if k == "cv_orange":
+        return (f'<div class="bigsym">{p["big"]}</div><h1>{p["title"]}</h1><p class="sub">{p["sub"]}</p>'
+                '<div class="swipe">Deslizá <span>→</span></div>')
+    if k == "cv_photo":
+        return (f'<div class="bg" style="background-image:url({p["photo"]})"></div><div class="shade"></div>'
+                f'<div class="chat">{p["chat"]}<span>Visto ✓✓</span></div>'
+                f'<div class="ph-text"><h1>{p["title"]}</h1><p class="sub">{p["sub"]}</p></div>')
+    if k == "cv_photo2":
+        return (f'<div class="bg" style="background-image:url({p["photo"]})"></div><div class="shade2"></div>'
+                f'<div class="ph-text"><h1>{p["title"]}</h1><p class="sub">{p["sub"]}</p></div>')
+    if k == "cv_gold":
+        return (f'<div class="kick">Networking</div><h1>{p["title"]}</h1><p class="sub">{p["sub"]}</p>'
+                '<div class="swipe">Deslizá <span>→</span></div>')
+    if k == "cv_funnel":
+        n = len(p["stages"])
+        st = "".join(f'<div class="fs" style="width:{100 - i * 15}%;--o:{1 - i * .15}">{x}</div>' for i, x in enumerate(p["stages"]))
+        return f'<h1>{p["title"]}</h1><div class="funnel">{st}</div><div class="swipe">Deslizá <span>→</span></div>'
+    if k == "quote":
+        note = f'<p class="note strong">{p["note"]}</p>' if p.get("note") else ""
+        return f'<div class="mid"><div class="qn">{p["label"]}</div><div class="quote">{p["text"]}</div></div>{note}'
+    if k == "msg":
+        return (f'<div class="mid"><div class="qn">{p["label"]}</div><div class="msgcard"><div class="mto">{p["to"]}</div>'
+                f'<div class="mtx">{p["text"]}</div></div></div>')
+    if k == "numlist":
+        li = "".join(f'<li><span>{j}</span>{x}</li>' for j, x in enumerate(p["items"], p["start"]))
+        note = f'<p class="note strong">{p["note"]}</p>' if p.get("note") else ""
+        return f'<h2>{p["title"]}</h2><ul class="ok num">{li}</ul>{note}'
+    if k == "split":
+        li = "".join(f'<div class="sp"><b>{a}</b><span>{b}</span></div>' for a, b in p["items"])
+        return f'<h2>{p["title"]}</h2><div class="splits">{li}</div><p class="note strong">{p["note"]}</p>'
     if k == "cover":
         pic = (f'<div class="covpic"><img src="{TAPA1}"><img src="{TAPA2}"></div>' if p.get("pic") else "")
         return (f'<div class="kick">{p["kicker"]}</div><h1>{p["title"]}</h1><p class="sub">{p["sub"]}</p>{pic}'
@@ -126,8 +231,8 @@ def body(p):
         parts = "".join(f"<div class='part'><span>{j}</span>{x}</div>" for j, x in enumerate(p["parts"], 1))
         return f'<h2>{p["title"]}</h2><div class="formula">{parts}</div><p class="note">{p["note"]}</p>'
     if k == "beforeafter":
-        return (f'<div class="ba"><div class="antes"><small>Antes</small>{p["antes"]}</div>'
-                f'<div class="arrow">↓</div><div class="despues"><small>Después</small>{p["despues"]}</div></div>')
+        return (f'<div class="ba"><div class="antes"><small>{p.get("la", "Antes")}</small>{p["antes"]}</div>'
+                f'<div class="arrow">↓</div><div class="despues"><small>{p.get("lb", "Después")}</small>{p["despues"]}</div></div>')
     if k == "words":
         w = "".join(f"<div>{x}</div>" for x in p["words"])
         return f'<h2>{p["title"]}</h2><div class="words">{w}</div>'
@@ -161,7 +266,8 @@ def body(p):
     raise ValueError(k)
 
 
-DARK = {"cover", "close", "qa"}
+DARK = {"cover", "close", "qa", "cv_photo", "cv_photo2"}
+THEMES = {"cv_orange": "orange", "cv_gold": "goldbg", "cv_funnel": "black"}
 
 CSS = """
 *{box-sizing:border-box;margin:0;padding:0}
@@ -241,6 +347,34 @@ h1 em,h2 em{font-style:normal;color:#E8632E}
 .pr b{display:block;font:900 80px/1.1 "Inter Display";margin:14px 0 8px}
 .pr em{font-style:normal;font-size:30px;font-weight:700;color:#E8632E}
 .gold{color:#F5D27A;font-weight:900}
+.orange{background:#E8632E;color:#fff}
+.orange h1{font-size:120px}.orange .sub{opacity:.95}.orange .swipe{color:#14213D}
+.bigsym{font:900 400px/.85 "Inter Display";letter-spacing:-.06em;color:#14213D;margin:20px 0 50px}
+.goldbg{background:#F5D27A;color:#14213D}
+.goldbg h1{font-size:118px}.goldbg h1 em{color:#E8632E}.goldbg .kick{color:#14213D}.goldbg .swipe{color:#14213D}
+.goldbg .sub{opacity:1}
+.black{background:#0E0C09;color:#fff}
+.black h1 em{color:#E8632E}.black .swipe{color:#F5D27A}
+.funnel{margin:80px auto 0;width:100%;display:flex;flex-direction:column;align-items:center;gap:6px}
+.fs{position:relative;text-align:center;padding:30px 0;font-size:38px;font-weight:800;color:#fff;clip-path:polygon(0 0,100% 0,93% 100%,7% 100%);background:rgba(232,99,46,var(--o))}
+.fs:nth-child(3){background:#F5D27A;color:#14213D}
+.bg{position:absolute;inset:0;background-size:cover;background-position:center}
+.shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,18,38,.35) 0%,rgba(11,18,38,.55) 45%,rgba(11,18,38,.97) 78%)}
+.shade2{position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,18,38,0) 30%,rgba(11,18,38,.75) 60%,rgba(11,18,38,.97) 82%)}
+.ph-text{position:relative;margin-top:auto;margin-bottom:70px}
+.ph-text h1{font-size:112px}
+.chat{position:relative;align-self:flex-start;background:#fff;color:#14213D;border-radius:30px 30px 30px 8px;padding:30px 38px;font-size:38px;font-weight:600;max-width:760px;box-shadow:0 20px 50px rgba(0,0,0,.4);margin-top:30px}
+.chat b{display:block;font-size:26px;color:#64748B;margin-bottom:8px}
+.chat span{display:block;text-align:right;font-size:26px;color:#3B82F6;font-weight:700;margin-top:10px}
+.quote{background:#fff;border-left:14px solid #E8632E;border-radius:28px;padding:56px;font-size:50px;font-weight:700;line-height:1.35;box-shadow:0 14px 34px rgba(20,33,61,.08)}
+.msgcard{background:#fff;border-radius:32px;padding:50px;box-shadow:0 20px 40px rgba(20,33,61,.12)}
+.mto{font-size:28px;font-weight:800;color:#64748B;padding-bottom:24px;margin-bottom:28px;border-bottom:2px solid #E2E8F0}
+.mtx{font-size:40px;line-height:1.45;color:#1F2937}
+.num li span{font-size:38px}
+.splits{display:flex;flex-direction:column;gap:22px}
+.sp{display:flex;align-items:center;gap:40px;background:#fff;border-radius:28px;padding:36px 44px;box-shadow:0 12px 30px rgba(20,33,61,.08)}
+.sp b{flex:none;width:250px;font:900 96px/1 "Inter Display";color:#E8632E;letter-spacing:-.03em}
+.sp span{font-size:44px;font-weight:700;line-height:1.25}
 .pr.best{box-shadow:0 0 0 8px #E8632E}
 """
 
@@ -252,7 +386,7 @@ def build():
         for i, p in enumerate(placas, 1):
             sid = f"{car}--{i}"
             ids.append(sid)
-            theme = "dark" if p["kind"] in DARK else "light"
+            theme = THEMES.get(p["kind"]) or ("dark" if p["kind"] in DARK else "light")
             html.append(f'<div class="s {theme}" id="{sid}">{body(p)}'
                         f'<div class="brand"><img src="{ICON}">Método 30</div>'
                         f'<div class="count">{i}/{len(placas)}</div></div>')
