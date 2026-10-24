@@ -138,6 +138,8 @@ window.CE_CONFIG = {
   // 🖼️ IMÁGENES DE LAS SECCIONES
   // Subilas en Contenido → Archivos y pegá acá la URL (⚠️ reemplazá las rutas locales).
   // ============================================================
+  // En la tienda, cada una tiene que ser una URL completa (https://cdn.shopify.com/...).
+  // Mientras sean rutas locales (fotos/...), en la tienda esa foto simplemente no se muestra.
   imagenes: {
     problema: "fotos/problema.jpg",
     resultado: "fotos/resultado.jpg",
@@ -385,6 +387,7 @@ window.CE_OK = function(v) { return v && String(v).indexOf("⚠️") === -1; };
     "#ce-landing-full .ld{font-size:19px;color:var(--ce-muted);margin-top:14px;max-width:640px}",
     "#ce-landing-full .split{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}",
     "#ce-landing-full .split>*{min-width:0}",
+    "#ce-landing-full .split.solo,#ce-landing-full .book-row.solo{grid-template-columns:minmax(0,1fr);max-width:780px}",
     "#ce-landing-full .ph{border-radius:20px;overflow:hidden;box-shadow:0 24px 60px rgba(20,33,61,.22)}",
     "#ce-landing-full .ph img{width:100%;aspect-ratio:3/2;object-fit:cover}",
     "#ce-landing-full .cta{display:inline-flex;align-items:center;justify-content:center;background:var(--ce-orange);color:#fff;font:800 17px/1 var(--ce-title);letter-spacing:.04em;text-decoration:none;padding:18px 30px;border-radius:999px;border:0;cursor:pointer;box-shadow:0 10px 24px rgba(232,99,46,.35);margin-top:30px}",
@@ -617,7 +620,11 @@ window.CE_OK = function(v) { return v && String(v).indexOf("⚠️") === -1; };
   if (window.CE_BLOCK) return;
   var cfg = window.CE_CONFIG, D = window.CE_DOM, img = cfg.imagenes || {};
 
-  function src(u) { return window.CE_OK(u) ? u : ""; }
+  /* En la tienda solo se usan URLs completas (https://…); las rutas locales son para la vista previa.
+     Sin foto cargada, el bloque de la foto no se muestra y el texto ocupa todo el ancho. */
+  function src(u) { return window.CE_OK(u) && (window.CE_PREVIEW || /^https?:\/\//.test(u)) ? u : ""; }
+  function pic(cls, u, alt) { var s = src(u); return s ? '<div class="' + cls + '"><img src="' + s + '" alt="' + alt + '" loading="lazy"></div>' : ""; }
+  function row(cls, u) { return src(u) ? cls : cls + " solo"; }
   function scrollToBuy(i) {
     if (typeof i === "number" && window.CE_PICK) window.CE_PICK(i);
     var o = document.getElementById("ce-offers") || D.form();
@@ -642,8 +649,8 @@ window.CE_OK = function(v) { return v && String(v).indexOf("⚠️") === -1; };
     var faqs = (cfg.faqs || []).map(function(f) { return "<details><summary>" + f.p + "</summary><p>" + f.r + "</p></details>"; }).join("");
     c.innerHTML =
       // 1. Problema
-      '<section class="sec"><div class="w split">' +
-        '<div class="ph ph-first"><img src="' + src(img.problema) + '" alt="Persona frustrada frente a la computadora de noche" loading="lazy"></div>' +
+      '<section class="sec"><div class="w ' + row("split", img.problema) + '">' +
+        pic("ph ph-first", img.problema, "Persona frustrada frente a la computadora de noche") +
         '<div><div class="ey">¿Te pasa esto?</div><h2 class="h2">Buscar trabajo sin método agota</h2><ul class="pains">' +
           "<li>Mandás decenas de CVs y casi nadie te responde.</li>" +
           "<li>Llegás a la entrevista final y eligen a otra persona.</li>" +
@@ -653,8 +660,8 @@ window.CE_OK = function(v) { return v && String(v).indexOf("⚠️") === -1; };
       "</div></section>" +
 
       // 2. Solución: el plan
-      '<section class="sec paper"><div class="w book-row">' +
-        '<div class="book"><img src="' + src(img.tapa1) + '" alt="Tapa del ebook Conseguí trabajo en 30 días" loading="lazy"></div>' +
+      '<section class="sec paper"><div class="w ' + row("book-row", img.tapa1) + '">' +
+        pic("book", img.tapa1, "Tapa del ebook Conseguí trabajo en 30 días") +
         '<div><div class="ey">El Método 30 · Ebook de 43 páginas</div><h2 class="h2">Un plan día por día para <span>conseguir trabajo en 30 días</span></h2>' +
         '<p class="ld">Cada etapa tiene tareas concretas, checklists para tildar y plantillas listas para copiar. Sabés exactamente qué hacer cada día.</p>' +
         '<ol class="steps">' +
@@ -689,8 +696,8 @@ window.CE_OK = function(v) { return v && String(v).indexOf("⚠️") === -1; };
       "</tbody></table></div></div></section>" +
 
       // 5. Combo: Secretos de reclutador
-      '<section class="sec pro" style="background-image:url(\'' + src(img.comboFondo) + '\')"><div class="w book-row">' +
-        '<div class="book"><img src="' + src(img.tapa2) + '" alt="Tapa del ebook Secretos de reclutador" loading="lazy"></div>' +
+      '<section class="sec pro"' + (src(img.comboFondo) ? ' style="background-image:url(\'' + src(img.comboFondo) + '\')"' : "") + '><div class="w ' + row("book-row", img.tapa2) + '">' +
+        pic("book", img.tapa2, "Tapa del ebook Secretos de reclutador") +
         '<div><div class="ey">Incluido en el combo · 36 páginas · Nivel experto</div><h2 class="h2">Secretos de <span>reclutador</span></h2>' +
         '<p class="ld">Lo que pasa del otro lado de la mesa. El manual avanzado que potencia cada etapa del plan.</p><ul class="chap">' +
           "<li><b>01</b><div><strong>Cómo se decide una contratación</strong><span>Qué quiere y qué teme cada persona que te evalúa.</span></div></li>" +
@@ -711,7 +718,7 @@ window.CE_OK = function(v) { return v && String(v).indexOf("⚠️") === -1; };
           "<li>Respuestas preparadas para cada pregunta de la entrevista.</li>" +
           "<li>La seguridad para negociar tu sueldo sin miedo.</li>" +
         '</ul><button type="button" class="cta" data-buy="1">Quiero empezar hoy</button></div>' +
-        '<div class="ph"><img src="' + src(img.resultado) + '" alt="Persona recibiendo la bienvenida en su nuevo trabajo" loading="lazy"></div>' +
+        pic("ph", img.resultado, "Persona recibiendo la bienvenida en su nuevo trabajo") +
       "</div></section>" +
 
       // 7. Reseñas (solo si hay reales)
