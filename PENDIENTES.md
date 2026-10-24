@@ -7,7 +7,7 @@ Lo que quedó para resolver más adelante. Tachá cada punto cuando esté.
 - [ ] **WhatsApp:** cargar el número en Contacto y en el Pie de página cuando lo tengas.
 - [ ] **Favicon:** volver a cargar `icono-metodo30.png` en *Personalizar → engranaje → Logo → Favicon*.
 - [ ] **Subrayado del botón "Quiero el plan"** en el inicio: cambiar la línea `a{text-decoration:none}` en `metodo30-inicio.liquid` (o volver a pegar el archivo actualizado).
-- [ ] **Botón de arrepentimiento:** crear la página y poner el link en el Pie de página.
+- [ ] **Políticas y botón de arrepentimiento:** cargar los textos de `politicas/` (con el mail) y poner el link del botón en el Pie de página. Ver `politicas/COMO-CARGARLAS.md`.
 - [ ] **Redes:** link de Instagram en el Pie de página cuando exista la cuenta.
 
 ## Antes de lanzar
