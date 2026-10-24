@@ -39,7 +39,7 @@ window.CE_CONFIG = {
   // 🔗 URL DEL PRODUCTO (obligatoria)
   // El código SOLO funciona en esta URL. Pegá la URL completa del producto.
   // ============================================================
-  slugURL: "https://w1cqkt-gg.myshopify.com/products/consegui-trabajo-en-30-dias",
+  slugURL: "https://somosmetodo30.myshopify.com/products/consegui-trabajo-en-30-dias",
 
   // true fuerza el modo prueba en cualquier lado (no lo dejes en true en la tienda).
   // Al abrir el archivo localmente se activa solo.
