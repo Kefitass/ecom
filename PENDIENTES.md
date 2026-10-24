@@ -8,7 +8,7 @@ Lo que quedó para resolver más adelante. Tachá cada punto cuando esté.
 - [x] ~~**Favicon:**~~ (decidiste no hacerlo) volver a cargar `icono-metodo30.png` en *Personalizar → engranaje → Logo → Favicon*.
 - [x] ~~**Subrayado del botón "Quiero el plan"** en el inicio: cambiar la línea `a{text-decoration:none}` en `metodo30-inicio.liquid` (o volver a pegar el archivo actualizado).~~ (decidiste no hacerlo)
 - [x] **Políticas:** cargar los textos de `politicas/` (ya tienen el mail). Ver `politicas/COMO-CARGARLAS.md`. Decidiste no poner el botón de arrepentimiento: si más adelante cambiás de idea, el texto está en `politicas/boton-de-arrepentimiento.md`.
-- [ ] **Redes:** link de Instagram en el Pie de página cuando exista la cuenta.
+- [ ] **Redes:** link de Instagram en el Pie de página cuando exista la cuenta. El plan del perfil está en `instagram/PLAN-INSTAGRAM.md`.
 
 - [x] **Texto de medios de pago:** en el snippet de la landing (pregunta "¿Qué medios de pago aceptan?") y en las preguntas del inicio, poner "3 cuotas sin interés con Mercado Pago".
 
