@@ -171,11 +171,8 @@ window.CE_CONFIG = {
   // ============================================================
   // 📢 BARRA SUPERIOR (pocos mensajes, sin presión)
   // ============================================================
-  mensajesBarra: [
-    "ACCESO INMEDIATO POR MAIL",
-    "PDF + VERSIÓN WEB INTERACTIVA",
-    "PARA CUALQUIER RUBRO"
-  ],
+  // Vacío [] → no se agrega barra (se usa la barra de anuncios del tema, que está en todas las páginas).
+  mensajesBarra: [],
 
   // Barra fija de compra que aparece al bajar (celular y PC)
   barraFija: true,
