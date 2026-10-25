@@ -105,8 +105,8 @@ Después, en *Tienda online → Páginas*, creá tres páginas (el contenido pue
 
 | Título | Plantilla | La URL tiene que terminar en |
 | --- | --- | --- |
-| Conseguí trabajo en 30 días | `page.ebook-1` | `/pages/ebook-1` |
-| Secretos de reclutador | `page.ebook-2` | `/pages/ebook-2` |
+| Conseguí trabajo en 30 días | `page.ebook-1` | `/pages/consegui-trabajo-en-30-dias` |
+| Secretos de reclutador | `page.ebook-2` | `/pages/secretos-de-reclutador` |
 | Mis ebooks | `page.mis-ebooks` | `/pages/mis-ebooks` |
 
 La URL (handle) se edita abajo de todo, en "Vista previa del motor de búsqueda". **Tiene que ser exacta.**
@@ -155,9 +155,9 @@ No agregues estas páginas al menú: el acceso es solo desde el mail y la biblio
    - que llegue el mail con el PDF y el link a la biblioteca;
    - que el cliente tenga la etiqueta `ebook1` (*Clientes*);
    - que `/pages/mis-ebooks` muestre el ebook 1 para leer y el ebook 2 bloqueado;
-   - que `/pages/ebook-2` pida comprarlo.
+   - que `/pages/secretos-de-reclutador` pida comprarlo.
 3. Repetí con el **Combo** y otro mail: tienen que abrirse los dos.
-4. Abrí `/pages/ebook-1` en una ventana de incógnito: tiene que pedir iniciar sesión.
+4. Abrí `/pages/consegui-trabajo-en-30-dias` en una ventana de incógnito: tiene que pedir iniciar sesión.
 
 ## 11. Cuando tengas reseñas reales
 

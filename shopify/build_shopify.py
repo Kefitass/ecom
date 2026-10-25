@@ -108,11 +108,11 @@ body{background:#F6F7FB;color:#1C2333;font-family:'Source Sans 3','Segoe UI',sys
 <main class="lib-wrap lib-grid">
   {%- assign has1 = false -%}{%- if customer.tags contains 'ebook1' -%}{%- assign has1 = true -%}{%- endif -%}
   {%- assign has2 = false -%}{%- if customer.tags contains 'ebook2' -%}{%- assign has2 = true -%}{%- endif -%}
-  <a class="lib-card{% unless has1 %} locked{% endunless %}" href="{% if has1 %}/pages/ebook-1{% else %}PRODUCT_URL{% endif %}">
+  <a class="lib-card{% unless has1 %} locked{% endunless %}" href="{% if has1 %}/pages/consegui-trabajo-en-30-dias{% else %}PRODUCT_URL{% endif %}">
     <img src="{{ 'tapa-consegui-trabajo.png' | file_url }}" alt="Tapa de Conseguí trabajo en 30 días" width="420" height="594">
     <div><h2>Conseguí trabajo en 30 días</h2><p>El plan día por día: CV, LinkedIn, entrevistas y negociación.</p><span>{% if has1 %}Leer ahora{% else %}Conseguirlo{% endif %}</span></div>
   </a>
-  <a class="lib-card{% unless has2 %} locked{% endunless %}" href="{% if has2 %}/pages/ebook-2{% else %}PRODUCT_URL{% endif %}">
+  <a class="lib-card{% unless has2 %} locked{% endunless %}" href="{% if has2 %}/pages/secretos-de-reclutador{% else %}PRODUCT_URL{% endif %}">
     <img src="{{ 'tapa-secretos-de-reclutador.png' | file_url }}" alt="Tapa de Secretos de reclutador" width="420" height="594">
     <div><h2>Secretos de reclutador</h2><p>El manual avanzado: lo que pasa del otro lado de la mesa.</p><span>{% if has2 %}Leer ahora{% else %}Sumarlo{% endif %}</span></div>
   </a>
