@@ -55,7 +55,7 @@ GATE = """<style>
     <li>Escribí el <b>mismo mail que usaste al comprar</b>.</li>
     <li>Te llega un <b>código de 6 dígitos</b> a ese mail: pegalo y listo.</li>
   </ol>
-  <a class="gate-btn" href="{{ routes.account_login_url }}">Iniciar sesión</a>
+  <a class="gate-btn" href="/customer_authentication/login?return_to={{ request.path | url_encode }}&locale=es">Iniciar sesión</a>
   <a class="gate-link" href="PRODUCT_URL">¿Todavía no lo tenés? Conocelo acá</a>
 {%- endif -%}
 </div></div>
