@@ -95,7 +95,10 @@
   #m30-{{ section.id }} .card__sub{font-size:15px;color:var(--muted);margin-top:6px}
   #m30-{{ section.id }} .card--best .card__sub{color:rgba(255,255,255,.72)}
   #m30-{{ section.id }} .price{display:flex;align-items:baseline;flex-wrap:wrap;gap:10px;margin:16px 0}
-  #m30-{{ section.id }} .price strong{font:800 34px/1 var(--title);font-variant-numeric:tabular-nums}
+  #m30-{{ section.id }} .price strong{font:800 34px/1 var(--title);font-variant-numeric:tabular-nums;color:var(--ink)}
+  #m30-{{ section.id }} .card--best .price strong{color:#fff}
+  #m30-{{ section.id }} .card--best .price s{color:rgba(255,255,255,.55)}
+  #m30-{{ section.id }} .card.card--nocover{grid-template-columns:minmax(0,1fr)}
   #m30-{{ section.id }} .price s{color:#8B93A5;font-size:17px}
   #m30-{{ section.id }} .save{background:var(--orange);color:#fff;font:800 11px/1 var(--title);letter-spacing:.06em;padding:5px 8px;border-radius:999px}
   #m30-{{ section.id }} .card__list{list-style:none;padding:0;margin:0 0 18px;display:grid;gap:6px;font-size:15px}
@@ -202,7 +205,7 @@
         <h2 class="h2">Todo lo que necesitás para <em>conseguir trabajo</em></h2>
       </div>
       <div class="cards">
-        <a class="card" href="{{ url_producto }}?variant={{ v_ebook.id }}">
+        <a class="card{% if section.settings.tapa1 == blank %} card--nocover{% endif %}" href="{{ url_producto }}?variant={{ v_ebook.id }}">
           <div class="covers covers--one">
             {%- if section.settings.tapa1 != blank -%}{{ section.settings.tapa1 | image_url: width: 400 | image_tag: loading: 'lazy', alt: 'Tapa de Conseguí trabajo en 30 días' }}{%- endif -%}
           </div>
@@ -214,7 +217,7 @@
             <span class="card__go">Ver el ebook →</span>
           </div>
         </a>
-        <a class="card card--best" href="{{ url_producto }}?variant={{ v_combo.id }}">
+        <a class="card card--best{% if section.settings.tapa1 == blank and section.settings.tapa2 == blank %} card--nocover{% endif %}" href="{{ url_producto }}?variant={{ v_combo.id }}">
           <span class="card__tag">MÁS ELEGIDO</span>
           <div class="covers">
             {%- if section.settings.tapa1 != blank -%}{{ section.settings.tapa1 | image_url: width: 400 | image_tag: loading: 'lazy', alt: 'Tapa de Conseguí trabajo en 30 días' }}{%- endif -%}
