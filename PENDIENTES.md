@@ -24,7 +24,7 @@ Lo que quedó para resolver más adelante. Tachá cada punto cuando esté.
 
 ## Antes de lanzar
 - [ ] Verificar que estén libres @metodo30 en Instagram, el dominio y la marca en el INPI.
-- [ ] Reseñas reales de lectores beta para la landing y el inicio.
+- [x] Reseñas: 6 cargadas en la landing (snippet). Falta cargar 3 en Personalizar → MÉTODO 30 · Inicio → Testimonio.
 - [x] Compra de prueba del Ebook y del Combo.
 - [x] Completar la información comercial y elegir el plan de Shopify.
 - [x] Sacar la contraseña de la tienda (lanzar). ¡Lanzada!
