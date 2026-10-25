@@ -156,23 +156,22 @@ window.CE_CONFIG = {
 
   // ============================================================
   // 👀 MIRÁ POR DENTRO (páginas reales de los ebooks + versión web en el celular)
-  // Subí las imágenes de la carpeta landing/muestras/ a Contenido → Archivos y
-  // reemplazá cada ruta por su URL (https://cdn.shopify.com/...).
-  // Mientras sean rutas locales, en la tienda esta sección no aparece.
+  // Las URLs ya apuntan a Contenido → Archivos: subí ahí las 9 imágenes de landing/muestras/
+  // con el MISMO nombre de archivo (e1-indice.jpg, etc.) y la sección aparece sola.
   // mostrarMuestras: true → muestra páginas reales del ebook y la versión web en el celular (false = apagada).
   // ============================================================
   mostrarMuestras: true,
   muestras: [
-    { src: "muestras/e1-indice.jpg", texto: "Ebook 1 · El plan completo, día por día" },
-    { src: "muestras/e1-formula-cv.jpg", texto: "Ebook 1 · La fórmula para escribir logros en tu CV" },
-    { src: "muestras/e1-metodo-star.jpg", texto: "Ebook 1 · Respuestas de entrevista con el método STAR" },
-    { src: "muestras/e1-plantillas.jpg", texto: "Ebook 1 · Plantillas de mensajes listas para copiar" },
-    { src: "muestras/e1-checklist.jpg", texto: "Ebook 1 · Checklists para cada etapa" },
-    { src: "muestras/e2-quien-decide.jpg", texto: "Ebook 2 · Qué quiere y qué teme cada persona que te evalúa" },
-    { src: "muestras/e2-tests.jpg", texto: "Ebook 2 · Cómo prepararte para cada tipo de test" },
-    { src: "muestras/e2-secreto.jpg", texto: "Ebook 2 · Secretos de reclutador en cada capítulo" }
+    { src: "https://cdn.shopify.com/s/files/1/0715/4217/7843/files/e1-indice.jpg", texto: "Ebook 1 · El plan completo, día por día" },
+    { src: "https://cdn.shopify.com/s/files/1/0715/4217/7843/files/e1-formula-cv.jpg", texto: "Ebook 1 · La fórmula para escribir logros en tu CV" },
+    { src: "https://cdn.shopify.com/s/files/1/0715/4217/7843/files/e1-metodo-star.jpg", texto: "Ebook 1 · Respuestas de entrevista con el método STAR" },
+    { src: "https://cdn.shopify.com/s/files/1/0715/4217/7843/files/e1-plantillas.jpg", texto: "Ebook 1 · Plantillas de mensajes listas para copiar" },
+    { src: "https://cdn.shopify.com/s/files/1/0715/4217/7843/files/e1-checklist.jpg", texto: "Ebook 1 · Checklists para cada etapa" },
+    { src: "https://cdn.shopify.com/s/files/1/0715/4217/7843/files/e2-quien-decide.jpg", texto: "Ebook 2 · Qué quiere y qué teme cada persona que te evalúa" },
+    { src: "https://cdn.shopify.com/s/files/1/0715/4217/7843/files/e2-tests.jpg", texto: "Ebook 2 · Cómo prepararte para cada tipo de test" },
+    { src: "https://cdn.shopify.com/s/files/1/0715/4217/7843/files/e2-secreto.jpg", texto: "Ebook 2 · Secretos de reclutador en cada capítulo" }
   ],
-  capturaCelular: "muestras/version-web-celular.jpg",
+  capturaCelular: "https://cdn.shopify.com/s/files/1/0715/4217/7843/files/version-web-celular.jpg",
 
   // ============================================================
   // 📢 BARRA SUPERIOR (pocos mensajes, sin presión)
@@ -236,6 +235,19 @@ window.CE_DOM = {
   }
 };
 window.CE_OK = function(v) { return v && String(v).indexOf("⚠️") === -1; };
+// Si una imagen de "Mirá por dentro" todavía no está subida a Archivos, se oculta sin dejar huecos.
+window.CE_imgFail = function(img) {
+  var box = img.closest("figure") || img.closest(".phone-row");
+  if (!box) return;
+  var sec = box.closest("section"), list = box.parentNode;
+  box.remove();
+  if (list && list.classList.contains("peek") && !list.children.length) {
+    var head = list.previousElementSibling;
+    if (head && head.classList.contains("peek-head")) head.remove();
+    list.remove();
+  }
+  if (sec && !sec.querySelector("img")) sec.remove();
+};
 </script>
 
 <!-- ================================================================
@@ -685,14 +697,14 @@ window.CE_OK = function(v) { return v && String(v).indexOf("⚠️") === -1; };
       '<div class="peek-head"><div><div class="ey">Mirá por dentro</div><h2 class="h2">Así son los ebooks <span>por dentro</span></h2></div>' +
       '<div class="peek-nav"><button type="button" data-peek="-1" aria-label="Ver anteriores">\u2039</button><button type="button" data-peek="1" aria-label="Ver siguientes">\u203A</button></div></div>' +
       '<div class="peek" tabindex="0" aria-label="Páginas de muestra de los ebooks">' + items.map(function(m) {
-        return '<figure><div class="pg"><img src="' + src(m.src) + '" alt="' + m.texto + '" loading="lazy"></div><figcaption>' + m.texto + "</figcaption></figure>";
+        return '<figure><div class="pg"><img src="' + src(m.src) + '" alt="' + m.texto + '" loading="lazy" onerror="CE_imgFail(this)"></div><figcaption>' + m.texto + "</figcaption></figure>";
       }).join("") + "</div>" : "";
     var phone = cel ?
       '<div class="phone-row"><div><div class="ey">Incluido</div><h2 class="h2">Y la versión web, pensada para el celular</h2><ul>' +
       "<li>Tildás cada tarea del plan y ves tu avance.</li>" +
       "<li>Copiás las plantillas con un toque y las pegás en LinkedIn o en un mail.</li>" +
       "<li>Saltás a cualquier capítulo desde el índice.</li>" +
-      '</ul></div><div class="phone"><img src="' + cel + '" alt="Versión web interactiva del ebook en un celular" loading="lazy"></div></div>' : "";
+      '</ul></div><div class="phone"><img src="' + cel + '" alt="Versión web interactiva del ebook en un celular" loading="lazy" onerror="CE_imgFail(this)"></div></div>' : "";
     return '<section class="sec paper"><div class="w">' + gal + phone + "</div></section>";
   }
 
