@@ -158,9 +158,9 @@ window.CE_CONFIG = {
   // 👀 MIRÁ POR DENTRO (páginas reales de los ebooks + versión web en el celular)
   // Las URLs ya apuntan a Contenido → Archivos: subí ahí las 9 imágenes de landing/muestras/
   // con el MISMO nombre de archivo (e1-indice.jpg, etc.) y la sección aparece sola.
-  // mostrarMuestras: true → muestra páginas reales del ebook y la versión web en el celular (false = apagada).
+  // mostrarMuestras: false → apagada (decisión: no mostrar páginas del contenido). true = la prende.
   // ============================================================
-  mostrarMuestras: true,
+  mostrarMuestras: false,
   muestras: [
     { src: "https://cdn.shopify.com/s/files/1/0715/4217/7843/files/e1-indice.jpg", texto: "Ebook 1 · El plan completo, día por día" },
     { src: "https://cdn.shopify.com/s/files/1/0715/4217/7843/files/e1-formula-cv.jpg", texto: "Ebook 1 · La fórmula para escribir logros en tu CV" },

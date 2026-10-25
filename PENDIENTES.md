@@ -20,7 +20,7 @@ Lo que quedó para resolver más adelante. Tachá cada punto cuando esté.
 - [ ] **Fotos del producto:** cargar las 5 imágenes cuadradas de `landing/producto/` y asignar la de cada variante.
 
 ## Ideas para testear cuando haya ventas
-- [ ] **Sección "Mirá por dentro"** (páginas de muestra + celular): está armada y apagada (`mostrarMuestras: false` en el snippet). Probarla en un test A/B si las ventas lo justifican.
+- [ ] **Sección "Mirá por dentro"**: apagada a propósito para no mostrar contenido (`mostrarMuestras: false`). Si algún día se prueba, subir las imágenes de `landing/muestras/` a Archivos con el mismo nombre.
 
 ## Antes de lanzar
 - [ ] Verificar que estén libres @metodo30 en Instagram, el dominio y la marca en el INPI.
