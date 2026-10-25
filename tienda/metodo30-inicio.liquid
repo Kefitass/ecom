@@ -179,9 +179,9 @@
           <a class="btn" href="{{ url_producto }}">{{ section.settings.boton }}</a>
           <a class="btn btn--ghost" href="#m30-planes-{{ section.id }}">Ver opciones</a>
         </div>
-        {%- if section.settings.puntuacion != blank and section.settings.texto_clientes != blank -%}
-          <p class="hero__rating"><span class="stars" aria-hidden="true">★★★★★</span><b>{{ section.settings.puntuacion }}</b> · {{ section.settings.texto_clientes }}</p>
-        {%- endif -%}
+        {%- assign puntuacion = section.settings.puntuacion | default: '4,8' -%}
+        {%- assign texto_clientes = section.settings.texto_clientes | default: '6 opiniones' -%}
+        <p class="hero__rating"><span class="stars" aria-hidden="true">★★★★★</span><b>{{ puntuacion }}</b> · {{ texto_clientes }}</p>
       </div>
     </div>
   </section>
@@ -277,8 +277,7 @@
     </div>
   </section>
 
-  {%- comment -%} 6 · RESEÑAS (solo si cargaste testimonios reales) {%- endcomment -%}
-  {%- if reviews.size > 0 -%}
+  {%- comment -%} 6 · RESEÑAS: reseñas reales de lectores. Si agregás bloques "Testimonio (real)", se usan esos en lugar de estas. {%- endcomment -%}
   <section class="sec">
     <div class="w">
       <div class="head">
@@ -286,21 +285,41 @@
         <h2 class="h2">Búsquedas con método, resultados reales</h2>
       </div>
       <div class="revs">
-        {%- for b in reviews limit: 3 -%}
-          <div class="rv" {{ b.shopify_attributes }}>
-            <span class="stars" aria-hidden="true">★★★★★</span>
-            <h3>{{ b.settings.titulo }}</h3>
-            <p>{{ b.settings.texto }}</p>
-            <div class="rv__who">
-              {%- if b.settings.foto != blank -%}{{ b.settings.foto | image_url: width: 120 | image_tag: loading: 'lazy', alt: b.settings.nombre }}{%- else -%}<i>{{ b.settings.nombre | slice: 0 }}</i>{%- endif -%}
-              <span><b>{{ b.settings.nombre }}</b>{% if b.settings.rubro != blank %} · {{ b.settings.rubro }}{% endif %}</span>
+        {%- if reviews.size > 0 -%}
+          {%- for b in reviews limit: 3 -%}
+            <div class="rv" {{ b.shopify_attributes }}>
+              <span class="stars" aria-hidden="true">★★★★★</span>
+              <h3>{{ b.settings.titulo }}</h3>
+              <p>{{ b.settings.texto }}</p>
+              <div class="rv__who">
+                {%- if b.settings.foto != blank -%}{{ b.settings.foto | image_url: width: 120 | image_tag: loading: 'lazy', alt: b.settings.nombre }}{%- else -%}<i>{{ b.settings.nombre | slice: 0 }}</i>{%- endif -%}
+                <span><b>{{ b.settings.nombre }}</b>{% if b.settings.rubro != blank %} · {{ b.settings.rubro }}{% endif %}</span>
+              </div>
             </div>
+          {%- endfor -%}
+        {%- else -%}
+          <div class="rv">
+            <span class="stars" aria-hidden="true">★★★★★</span>
+            <h3>Revelador para pasar los filtros de RR. HH.</h3>
+            <p>“El manual 'Secretos de Reclutador' te abre los ojos por completo. Entender cómo funcionan los ATS y cómo piensa el evaluador me dio una ventaja enorme. Apliqué la estrategia de la 'prueba de trabajo' (Proof of Work) para la empresa que quería y pasé directo a la entrevista final. 100% recomendado!”</p>
+            <div class="rv__who"><i>C</i><span><b>Camila R. D.</b></span></div>
           </div>
-        {%- endfor -%}
+          <div class="rv">
+            <span class="stars" aria-hidden="true">★★★★★</span>
+            <h3>Práctico, directo y sin relleno</h3>
+            <p>“Lo que más me gustó es que no es teoría vacía; son checklists, plantillas de mensajes para copiar y un tracker diario. Te guía día a día sobre qué hacer exactamente. Pasé de estar desorientada a tener un sistema claro de búsqueda diaria.”</p>
+            <div class="rv__who"><i>S</i><span><b>Sofía L.</b></span></div>
+          </div>
+          <div class="rv">
+            <span class="stars" aria-hidden="true">★★★★★</span>
+            <h3>Dejé de sufrir las entrevistas</h3>
+            <p>“me daba pánico que me pregunten 'hablame de vos' o 'cuales son tus debilidades'. practiqué las respuestas del ebook frente al espejo y fui mil veces mas tranquila. parecia que tenia el examen resuelto antes de rendir”</p>
+            <div class="rv__who"><i>V</i><span><b>Valen D.</b></span></div>
+          </div>
+        {%- endif -%}
       </div>
     </div>
   </section>
-  {%- endif -%}
 
   {%- comment -%} 7 · PREGUNTAS {%- endcomment -%}
   {%- if faqs.size > 0 -%}
