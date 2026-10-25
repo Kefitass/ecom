@@ -68,7 +68,7 @@ window.CE_CONFIG = {
   testimonios: [
     { nombre: "Agustin R.", rubro: "", estrellas: 5, titulo: "De mandar 50 CVs al aire a que te llamen",
       texto: "estaba re frustrada mandando el mismo pdf a todos lados sin que nadie me de bola. cuando vi lo de las palabras clave y como te ven los reclutadores en linkedin entendí todo lo que hacia mal... increible la diferencia, pase de 0 llamadas a tener 2 entrevistas esta semana", foto: "" },
-    { nombre: "Camila R. D.", rubro: "", estrellas: 5, titulo: "Revelador para pasar los filtros de RR. HH.",
+    { nombre: "Camila R.", rubro: "", estrellas: 5, titulo: "Revelador para pasar los filtros de RR. HH.",
       texto: "El manual 'Secretos de Reclutador' te abre los ojos por completo. Entender cómo funcionan los ATS y cómo piensa el evaluador me dio una ventaja enorme. Apliqué la estrategia de la 'prueba de trabajo' (Proof of Work) para la empresa que quería y pasé directo a la entrevista final. 100% recomendado!", foto: "" },
     { nombre: "Martin G.", rubro: "", estrellas: 5, titulo: "Directo al punto y fácil de seguir",
       texto: "lo mejor es que te va marcando el dia a dia con checklists. te sentas a hacer las tareas que te pide y listo, sin dar mil vueltas. si estas buscando laburo y no sabes por donde arrancar comprá esto que te ordena todo de una", foto: "" },
