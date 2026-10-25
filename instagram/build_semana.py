@@ -1,4 +1,4 @@
-"""Historias de venta para una semana (1080x1920), con el código de descuento para las primeras 3 compras.
+"""Historias de venta para una semana (1080x1920). El código de descuento va solo el lunes (vence el martes a las 00:00).
 
 Uso: python3 instagram/build_semana.py && node instagram/render_historias.js semana
 Escribe instagram/semana/<día>/<n>.png
@@ -48,7 +48,7 @@ add(F, "2", "list", tag="Método 30", title="En 30 días<br>dejás de buscar<br>
     items=["Un CV que pasa los filtros automáticos", "Un LinkedIn que hace que te encuentren",
            "Mensajes para llegar a quien decide", "Respuestas para cada entrevista"],
     foot="Un plan día por día, desde el celular.")
-add(F, "3", **CTA_CODIGO, tag="30% OFF")
+add(F, "3", **CTA_SIN, tag="Método 30")
 
 # ---------- Miércoles · reseñas reales ----------
 F = "3-miercoles"
@@ -58,7 +58,7 @@ add(F, "1", "review", tag="Reseñas", stars=5, titulo="Revelador para pasar los 
 add(F, "2", "review", tag="Reseñas", stars=5, titulo="Práctico, directo y sin relleno",
     texto="Lo que más me gustó es que no es teoría vacía; son checklists, plantillas de mensajes para copiar y un tracker diario.",
     nombre="Sofía L.")
-add(F, "3", **CTA_CODIGO, tag="30% OFF")
+add(F, "3", **CTA_SIN, tag="Método 30")
 
 # ---------- Jueves · qué incluye ----------
 F = "4-jueves"
@@ -69,7 +69,7 @@ add(F, "2", "list", tag="Qué incluye", title="Adentro<br>vas a encontrar",
     items=["Plan de 30 días con tareas para tildar", "8 plantillas de mensajes listas para copiar",
            "Las 15 preguntas de entrevista resueltas", "Cómo negociar tu sueldo"],
     foot="Te llega al mail apenas pagás.")
-add(F, "3", **CTA_CODIGO, tag="30% OFF")
+add(F, "3", **CTA_SIN, tag="Método 30")
 
 # ---------- Viernes · sin riesgo ----------
 F = "5-viernes"
@@ -77,7 +77,7 @@ add(F, "1", "big", tag="Sin riesgo", big="10", bigsub="días para<br>arrepentirt
     text="Si no es para vos, escribinos dentro de los 10 días y te devolvemos el dinero.")
 add(F, "2", "big", tag="Sin riesgo", big="3", bigsub="cuotas<br>sin interés",
     text="Con todas las tarjetas de crédito, a través de Mercado Pago.")
-add(F, "3", **CTA_CODIGO, tag="30% OFF")
+add(F, "3", **CTA_SIN, tag="Método 30")
 
 # ---------- Sábado · entrevistas ----------
 F = "6-sabado"
@@ -87,17 +87,15 @@ add(F, "1", "review", tag="Reseñas", stars=5, titulo="Dejé de sufrir las entre
 add(F, "2", "qa", tag="Entrevistas", q="«¿Cuál es tu mayor debilidad?»",
     a="Algo real que no sea central para el puesto, y qué estás haciendo para mejorarlo.<br><br>"
       "<span class='no'>Esta y otras 14 preguntas, resueltas en Método 30.</span>")
-add(F, "3", **CTA_CODIGO, tag="30% OFF")
+add(F, "3", **CTA_SIN, tag="Método 30")
 
 # ---------- Domingo · empezá el lunes ----------
 F = "7-domingo"
 add(F, "1", "cover", tag="Mañana es lunes", title="Mañana<br>arrancás<br>el <em>día 1</em>",
     sub="Treinta días con un plan claro: qué hacer cada día para dejar de mandar CVs al vacío.",
     pic=f'<img class="phone" src="{bh.CEL}">')
-add(F, "2", **CTA_CODIGO, tag="Última chance")
+add(F, "2", **CTA_SIN, tag="Método 30")
 
-# ---------- Cierre sin código (usar cuando se agote) ----------
-add("cierre-sin-codigo", "1", **CTA_SIN, tag="Método 30")
 
 
 # ---------- RENDER ----------
@@ -109,7 +107,7 @@ def body(h):
     if k == "offer_big":
         return ('<div class="cover center"><div class="pct">' + str(DESC) + '<span>%</span></div><div class="pctoff">OFF</div>'
                 '<h1 class="oh">Para las primeras<br><em>3 compras</em></h1>'
-                '<p class="sub">Solo 3 personas. Cuando se usa la tercera, se termina.</p></div>')
+                '<p class="sub">Solo hoy, hasta las 23:59, o hasta que lo usen 3 personas.</p></div>')
     if k == "offer_prices":
         e, c = PRECIOS["Ebook"], PRECIOS["Combo"]
         return ('<div class="lst"><h2>Con el código<br>te queda así</h2>'
@@ -117,14 +115,14 @@ def body(h):
                 f'<em>o 3 cuotas de {pesos(off(e) / 3)}</em></div></div>'
                 f'<div class="oprice best"><div class="two"><img src="{bh.TAPA1}"><img src="{bh.TAPA2}"></div><div><small>Combo 2 ebooks</small><s>{pesos(c)}</s><b>{pesos(off(c))}</b>'
                 f'<em>o 3 cuotas de {pesos(off(c) / 3)}</em></div></div>'
-                '<p class="foot">Solo para las primeras 3 compras</p></div>')
+                '<p class="foot">Solo hoy · primeras 3 compras</p></div>')
     if k == "cta_code":
         return ('<div class="cover center"><div class="kick2">' + str(DESC) + '% OFF · primeras 3 compras</div>'
                 '<h1 class="oh">Usá el código</h1>'
                 f'<div class="coupon"><small>Código</small>{CODIGO}</div>'
                 '<ol class="how"><li>Entrá al link de nuestro perfil</li><li>Elegí Ebook o Combo</li>'
                 f'<li>En el pago, escribí <b>{CODIGO}</b></li></ol>'
-                '<p class="sub small">Se termina cuando lo usen 3 personas.</p></div>')
+                '<p class="sub small">Vale hasta hoy a las 23:59 o hasta que lo usen 3 personas.</p></div>')
     if k == "cta_plain":
         return ('<div class="cover center"><img class="tp" src="' + bh.COMBO + '"><h1>Empezá hoy<br>el <em>día 1</em></h1>'
                 '<p class="sub">Ebook $18.000 · Combo $27.000<br>Hasta 3 cuotas sin interés</p>'
