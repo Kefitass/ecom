@@ -11,7 +11,7 @@
   assign wa = section.settings.whatsapp | remove: '+' | remove: ' ' | remove: '-'
   assign wa_msg = section.settings.whatsapp_mensaje | url_encode
   assign wa_url = 'https://wa.me/' | append: wa | append: '?text=' | append: wa_msg
-  assign mail = section.settings.email | default: shop.email
+  assign mail = section.settings.email | default: 'somosmetodo30@gmail.com'
 -%}
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -53,7 +53,7 @@
   #m30k-{{ section.id }} .help p{padding-bottom:12px;font-size:14.5px;color:var(--muted)}
   #m30k-{{ section.id }} .form h2{font-size:22px;margin-bottom:18px}
   #m30k-{{ section.id }} .two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-  #m30k-{{ section.id }} .field{display:grid;gap:6px;margin-bottom:14px}
+  #m30k-{{ section.id }} .fld{display:grid;gap:6px;margin-bottom:14px}
   #m30k-{{ section.id }} label{font-weight:700;font-size:14.5px}
   #m30k-{{ section.id }} .in{width:100%;border:1.5px solid var(--line);border-radius:12px;padding:13px 14px;font:inherit;color:var(--ink);background:#fff}
   #m30k-{{ section.id }} .in:focus{outline:none;border-color:var(--navy);box-shadow:0 0 0 3px rgba(20,33,61,.12)}
@@ -70,7 +70,7 @@
     <div class="head">
       <span class="ey">Contacto</span>
       <h1 class="h1">{{ section.settings.titulo }}</h1>
-      <p class="sub">{{ section.settings.subtitulo }}</p>
+      <p class="sub">{%- if wa == blank -%}{{ section.settings.subtitulo | replace: ', por mail o por WhatsApp', ' o por mail' | replace: ' o por WhatsApp', '' }}{%- else -%}{{ section.settings.subtitulo }}{%- endif -%}</p>
     </div>
     <div class="grid">
       <div class="box info">
@@ -99,14 +99,14 @@
             <p class="err" role="alert">Revisá los datos: {{ form.errors | default_errors }}</p>
           {%- endif -%}
           <div class="two">
-            <div class="field"><label for="M30Contact-name">Nombre</label>
+            <div class="fld"><label for="M30Contact-name">Nombre</label>
               <input class="in" type="text" id="M30Contact-name" name="contact[name]" autocomplete="name" placeholder="Tu nombre" value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}"></div>
-            <div class="field"><label for="M30Contact-email">Mail *</label>
+            <div class="fld"><label for="M30Contact-email">Mail *</label>
               <input class="in" type="email" id="M30Contact-email" name="contact[email]" autocomplete="email" placeholder="tu@email.com" required value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"></div>
           </div>
-          <div class="field"><label for="M30Contact-order">Número de pedido (si ya compraste)</label>
+          <div class="fld"><label for="M30Contact-order">Número de pedido (si ya compraste)</label>
             <input class="in" type="text" id="M30Contact-order" name="contact[pedido]" placeholder="Ej: #1001"></div>
-          <div class="field"><label for="M30Contact-body">Mensaje *</label>
+          <div class="fld"><label for="M30Contact-body">Mensaje *</label>
             <textarea class="in" id="M30Contact-body" name="contact[body]" rows="5" required placeholder="Contanos tu consulta: tu pedido, el acceso a tus ebooks, qué opción te conviene...">{{- form.body -}}</textarea></div>
           <button type="submit" class="send">Enviar mensaje</button>
         {%- endform -%}
@@ -122,7 +122,7 @@
   "class": "metodo30-contacto",
   "settings": [
     { "type": "text", "id": "titulo", "label": "Título", "default": "¿Tenés alguna duda?" },
-    { "type": "textarea", "id": "subtitulo", "label": "Subtítulo", "default": "Escribinos por el formulario, por mail o por WhatsApp y te respondemos lo antes posible." },
+    { "type": "textarea", "id": "subtitulo", "label": "Subtítulo", "default": "Escribinos por el formulario o por mail y te respondemos lo antes posible." },
     { "type": "text", "id": "whatsapp", "label": "WhatsApp (solo números, con 549)", "info": "⚠️ Formato Argentina: 549 + código de área sin 0 + número sin 15. Vacío = no se muestra." },
     { "type": "text", "id": "whatsapp_visible", "label": "WhatsApp (como se muestra)" },
     { "type": "text", "id": "whatsapp_mensaje", "label": "Mensaje que se escribe solo", "default": "¡Hola Método 30! Tengo una consulta sobre los ebooks." },

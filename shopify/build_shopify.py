@@ -117,7 +117,7 @@ body{background:#F6F7FB;color:#1C2333;font-family:'Source Sans 3','Segoe UI',sys
     <div><h2>Secretos de reclutador</h2><p>El manual avanzado: lo que pasa del otro lado de la mesa.</p><span>{% if has2 %}Leer ahora{% else %}Sumarlo{% endif %}</span></div>
   </a>
 </main>
-<p class="lib-foot">¿Problemas para entrar? Escribinos a {{ shop.email }} · <a href="{{ routes.account_logout_url }}">Cerrar sesión</a></p>
+<p class="lib-foot">¿Problemas para entrar? Escribinos a somosmetodo30@gmail.com · <a href="{{ routes.account_logout_url }}">Cerrar sesión</a></p>
 {%- else -%}
 """ + GATE.replace("Entrá para leer tu ebook", "Entrá a tu biblioteca").replace("PRODUCT_URL", "PRODUCT_URL") + """
 {%- endif -%}
