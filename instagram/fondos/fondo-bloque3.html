@@ -1,0 +1,116 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Fondo bloque 3</title>
+<!-- Fondo animado del bloque 3 (LinkedIn + mensaje directo). Lo graba instagram/fondos/grabar.js
+     cuadro por cuadro llamando a render(t), con t en segundos (0 a 10). -->
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:1080px;height:1920px;overflow:hidden;font-family:Inter,sans-serif;
+  background:radial-gradient(circle at 80% 8%,#3B3F9A 0%,#14213D 42%,#0B1226 100%);color:#14213D}
+.phone{position:absolute;left:200px;top:90px;width:680px;height:940px;border-radius:70px;background:#0E0C09;padding:22px;
+  box-shadow:0 50px 120px rgba(0,0,0,.55)}
+.screen{position:relative;width:100%;height:100%;border-radius:52px;background:#F3F4F7;overflow:hidden}
+.notch{position:absolute;top:18px;left:50%;transform:translateX(-50%);width:170px;height:34px;border-radius:20px;background:#0E0C09;z-index:5}
+.view{position:absolute;inset:0;padding:96px 40px 40px}
+/* perfil */
+.banner{height:130px;border-radius:24px;background:linear-gradient(120deg,#14213D,#3B3F9A)}
+.avatar{width:150px;height:150px;border-radius:50%;background:#CBD5E1;border:8px solid #F3F4F7;margin:-80px 0 0 30px;display:flex;align-items:center;justify-content:center;font:800 56px/1 Inter;color:#64748B}
+.name{font:800 44px/1.2 "Inter Display",Inter;margin:18px 0 0 6px}
+.headline{position:relative;margin:18px 0 0 6px;font-size:34px;line-height:1.4;font-weight:600;min-height:150px}
+.old{color:#475569;background:linear-gradient(#E11D48,#E11D48) no-repeat 0 58%/0% 6px;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.new{color:#14213D}
+.new .hl{background:linear-gradient(transparent 55%,rgba(232,99,46,.28) 55%)}
+.caret{display:inline-block;width:4px;height:40px;background:#E8632E;vertical-align:-6px;margin-left:3px}
+.tag{position:absolute;left:40px;right:40px;bottom:30px;border-radius:24px;padding:26px 30px;font:800 34px/1.25 Inter;display:flex;align-items:center;gap:18px;opacity:0;transform:translateY(20px)}
+.tag i{flex:none;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-style:normal;font-size:32px;color:#fff}
+.tag.bad{background:#FFE4E6;color:#9F1239}.tag.bad i{background:#E11D48}
+.tag.good{background:#DCFCE7;color:#14532D}.tag.good i{background:#16A34A}
+.stats{display:flex;gap:16px;margin:20px 0 0 6px}
+.stats span{flex:1;background:#fff;border-radius:18px;padding:18px;font-size:26px;color:#64748B;text-align:center}
+.stats b{display:block;font:800 40px/1.1 Inter;color:#14213D}
+/* chat */
+.chat{transform:translateX(100%)}
+.chead{display:flex;align-items:center;gap:20px;padding-bottom:26px;border-bottom:2px solid #E2E8F0}
+.chead .av{width:96px;height:96px;border-radius:50%;background:#FDE8E0;color:#E8632E;display:flex;align-items:center;justify-content:center;font:800 40px/1 Inter}
+.chead b{display:block;font:800 36px/1.2 Inter}.chead small{font-size:26px;color:#64748B}
+.badge48{position:absolute;top:120px;right:40px;background:#E8632E;color:#fff;font:800 26px/1 Inter;padding:14px 20px;border-radius:999px;opacity:0}
+.compose{position:absolute;left:40px;right:40px;bottom:50px;background:#fff;border-radius:28px;padding:28px 30px;font-size:33px;line-height:1.42;min-height:120px;box-shadow:0 10px 30px rgba(20,33,61,.08)}
+.bubble{position:absolute;right:40px;left:110px;background:#14213D;color:#fff;border-radius:30px 30px 8px 30px;padding:28px 32px;font-size:33px;line-height:1.42;opacity:0}
+.sent{position:absolute;right:46px;font:700 26px/1 Inter;color:#16A34A;opacity:0}
+.cap{position:absolute;left:0;right:0;top:1180px;text-align:center;font:900 64px/1.1 "Inter Display",Inter;color:#fff;letter-spacing:-.02em;opacity:0}
+.cap em{font-style:normal;color:#F5D27A}
+</style>
+<body>
+<div class="phone"><div class="screen"><div class="notch"></div>
+  <div class="view" id="profile">
+    <div class="banner"></div>
+    <div class="avatar">T</div>
+    <div class="name">Tu nombre</div>
+    <div class="headline">
+      <span class="old" id="old">Buscando nuevas oportunidades</span>
+      <div class="new" id="new"></div>
+    </div>
+    <div class="stats"><span><b id="views">3</b>apariciones en búsquedas</span><span><b>500+</b>contactos</span></div>
+    <div class="tag bad" id="tagbad"><i>✕</i>Nadie busca esta frase</div>
+    <div class="tag good" id="taggood"><i>✓</i>Puesto | Herramientas | Resultado</div>
+  </div>
+  <div class="view chat" id="chat">
+    <div class="chead"><div class="av">L</div><div><b>Laura G.</b><small>Líder de Finanzas</small></div></div>
+    <div class="badge48" id="b48">Primeras 48 h</div>
+    <div class="bubble" id="bubble"></div>
+    <div class="sent" id="sent">Enviado ✓</div>
+    <div class="compose" id="compose"></div>
+  </div>
+</div></div>
+<script>
+const NEW = 'Analista Contable | <span class="hl">Impuestos y SAP</span> | Ordeno los números de pymes';
+const NEW_PLAIN = 'Analista Contable | Impuestos y SAP | Ordeno los números de pymes';
+const MSG = 'Hola, Laura. Me postulé hoy al puesto de Analista. En mi trabajo anterior reduje de 3 días a 1 el cierre mensual. ¿Te cuento cómo podría aportar?';
+const clamp = (x, a = 0, b = 1) => Math.max(a, Math.min(b, x));
+const ease = x => 1 - Math.pow(1 - clamp(x), 3);
+const span = (t, a, b) => clamp((t - a) / (b - a));
+function typed(full, plainLen, p) {
+  // escribe el texto respetando el <span> del resaltado
+  let n = Math.round(plainLen * p), out = '', count = 0, i = 0;
+  while (i < full.length && count < n) {
+    if (full[i] === '<') { const j = full.indexOf('>', i); out += full.slice(i, j + 1); i = j + 1; continue; }
+    out += full[i]; i++; count++;
+  }
+  if ((out.match(/<span/g) || []).length > (out.match(/<\/span>/g) || []).length) out += '</span>';
+  return out;
+}
+const $ = id => document.getElementById(id);
+function render(t) {
+  // 0-1.0 s: aparece el perfil; 1.0-1.8 s: se tacha el titular viejo
+  $('old').style.backgroundSize = (ease(span(t, 1.0, 1.8)) * 100) + '% 6px';
+  const bad = span(t, 1.6, 2.0) * (1 - span(t, 2.6, 2.9));
+  $('tagbad').style.opacity = bad; $('tagbad').style.transform = `translateY(${20 - 20 * bad}px)`;
+  // 2.6-3.0 s: desaparece el viejo; 3.0-5.0 s: se escribe el nuevo
+  $('old').style.opacity = 1 - span(t, 2.6, 3.0);
+  $('old').style.display = t < 3.0 ? 'inline' : 'none';
+  const p = span(t, 3.0, 5.0);
+  $('new').innerHTML = t < 3.0 ? '' : typed(NEW, NEW_PLAIN.length, p) + (p < 1 && Math.floor(t * 4) % 2 === 0 ? '<span class="caret"></span>' : '');
+  const good = span(t, 4.9, 5.3) * (1 - span(t, 5.9, 6.1));
+  $('taggood').style.opacity = good; $('taggood').style.transform = `translateY(${20 - 20 * good}px)`;
+  $('views').textContent = t < 5.0 ? '3' : String(Math.round(3 + 117 * ease(span(t, 5.0, 5.8))));
+  // 6.0-6.5 s: pasa al chat
+  const sw = ease(span(t, 6.0, 6.5));
+  $('profile').style.transform = `translateX(${-100 * sw}%)`;
+  $('chat').style.transform = `translateX(${100 - 100 * sw}%)`;
+  $('b48').style.opacity = span(t, 6.4, 6.7);
+  // 6.6-8.9 s: se escribe el mensaje; 9.0 s: se envía
+  const q = span(t, 6.6, 8.9);
+  $('compose').textContent = MSG.slice(0, Math.round(MSG.length * q));
+  $('compose').style.opacity = 1 - span(t, 9.0, 9.2);
+  const s = ease(span(t, 9.0, 9.35));
+  $('bubble').textContent = MSG;
+  $('bubble').style.opacity = s;
+  $('bubble').style.top = (560 - 120 * s) + 'px';
+  $('sent').style.top = (560 - 120 * s + $('bubble').offsetHeight + 16) + 'px';
+  $('sent').style.opacity = span(t, 9.35, 9.6);
+  // textos grandes debajo del celular
+  document.querySelector('.phone').style.opacity = span(t, 0, 0.5);
+}
+render(0);
+</script>
+</body>
