@@ -29,6 +29,7 @@ body{width:1080px;height:1920px;overflow:hidden;font-family:Inter,sans-serif;
 .lock .date{font-size:28px;opacity:.8;margin-top:10px}
 .lock .none{margin:120px 36px 0;background:rgba(255,255,255,.12);border-radius:24px;padding:26px;font:700 30px/1.3 Inter}
 .dots{display:inline-flex;gap:10px;margin-top:20px}.dots span{width:16px;height:16px;border-radius:50%;background:#fff;opacity:.3}
+.panel{transform-origin:50% 30%}
 </style>
 <body>
 <div class="panel" id="p1"><div class="num">1</div>
@@ -51,14 +52,22 @@ body{width:1080px;height:1920px;overflow:hidden;font-family:Inter,sans-serif;
     <div class="none">Sin notificaciones<br><div class="dots" id="dots"><span></span><span></span><span></span></div></div></div></div>
   <div class="cap">Esperando que te llamen…</div>
 </div>
+<script src="fx.js"></script>
 <script>
 const clamp = (x, a = 0, b = 1) => Math.max(a, Math.min(b, x));
 const ease = x => 1 - Math.pow(1 - clamp(x), 3);
 const span = (t, a, b) => clamp((t - a) / (b - a));
 const $ = id => document.getElementById(id);
-function show(id, a, b) { $(id).style.opacity = span(t0, a, a + 0.3) * (1 - span(t0, b - 0.3, b)); }
+function show(id, a, b) {
+  const el = $(id), k = span(t0, a, a + 0.45), out = span(t0, b - 0.3, b);
+  const e = 1 - Math.pow(1 - k, 3);
+  el.style.opacity = e * (1 - out);
+  el.style.filter = `blur(${(1 - e) * 14 + out * 10}px)`;
+  el.style.transform = `scale(${0.88 + 0.12 * e + out * 0.06}) translateY(${50 - 50 * e}px)`;
+}
 let t0 = 0;
 function render(t) {
+  FX.frame(t);
   t0 = t;
   show('p1', 0, 3.4); show('p2', 3.4, 6.8); show('p3', 6.8, 10.3);
   // 1 · el escaneo baja y aparece el sello
@@ -67,14 +76,18 @@ function render(t) {
   const s = ease(span(t, 1.7, 2.0));
   $('stamp').style.opacity = s;
   $('stamp').style.transform = `translate(-50%,-50%) rotate(-12deg) scale(${1.6 - 0.6 * s})`;
+  FX.flash(t, 1.95);
+  if (t > 1.95 && t < 2.4) $('p1').style.transform += ' ' + FX.shake($('p1'), t, 1.95, 0.35, 16);
   // 2 · aparecen los resultados y no estás
-  ['r1', 'r2', 'r3', 'r4'].forEach((id, i) => { const k = span(t, 3.8 + i * 0.45, 4.1 + i * 0.45); $(id).style.opacity = k; $(id).style.transform = `translateY(${30 - 30 * k}px)`; });
+  ['r1', 'r2', 'r3', 'r4'].forEach((id, i) => { const k = 1 - Math.pow(1 - span(t, 3.8 + i * 0.45, 4.15 + i * 0.45), 3); $(id).style.opacity = k; $(id).style.transform = `translateY(${40 - 40 * k}px) scale(${0.96 + 0.04 * k})`; });
+  if (t > 5.15 && t < 5.6) $('r4').style.transform += ' ' + FX.shake($('r4'), t, 5.15, 0.4, 10);
   // 3 · el reloj avanza y no llega nada
   const mins = Math.floor(span(t, 6.8, 10) * 180);
   const h = 9 + Math.floor((41 + mins) / 60), m = (41 + mins) % 60;
   $('clock').textContent = String(h).padStart(2, '0') + ':' + String(m).padStart(2, '0');
   [...$('dots').children].forEach((d, i) => { d.style.opacity = (Math.floor(t * 3) % 3 === i) ? 1 : .3; });
 }
+FX.init();
 render(0);
 </script>
 </body>

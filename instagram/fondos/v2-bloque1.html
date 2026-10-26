@@ -19,6 +19,9 @@ body{width:1080px;height:1920px;overflow:hidden;font-family:Inter,sans-serif;
 .row em{font-style:normal;font-size:24px;color:#94A3B8;font-weight:600}
 .empty{position:absolute;left:0;right:0;bottom:40px;text-align:center;font:800 34px/1.3 Inter;color:#64748B;opacity:0}
 .empty b{display:block;font-size:90px;margin-bottom:10px}
+.card{transform-origin:50% 0}
+.head .r b{display:inline-block;text-shadow:0 0 0 rgba(225,29,72,0)}
+.row{will-change:transform}
 </style>
 <body>
 <div class="card">
@@ -26,6 +29,7 @@ body{width:1080px;height:1920px;overflow:hidden;font-family:Inter,sans-serif;
   <div class="list" id="list"></div>
   <div class="empty" id="empty"><b>📭</b>No tenés mensajes nuevos</div>
 </div>
+<script src="fx.js"></script>
 <script>
 const JOBS = ["Analista administrativo", "Asistente contable", "Atención al cliente", "Data entry", "Recepcionista",
   "Vendedor/a", "Analista de RR. HH.", "Asistente de marketing", "Cajero/a", "Auxiliar de logística"];
@@ -33,6 +37,7 @@ const clamp = (x, a = 0, b = 1) => Math.max(a, Math.min(b, x));
 const span = (t, a, b) => clamp((t - a) / (b - a));
 const $ = id => document.getElementById(id);
 function render(t) {
+  FX.frame(t);
   const n = Math.round(40 * Math.pow(span(t, 0.2, 6.5), 0.8));
   $('sent').textContent = n;
   const shown = Math.min(n, 9);
@@ -45,8 +50,17 @@ function render(t) {
   $('list').style.opacity = 1 - span(t, 7.0, 7.5);
   $('empty').style.opacity = span(t, 7.3, 7.8);
   $('empty').style.bottom = (40 + 300 * span(t, 7.3, 7.8)) + 'px';
-  document.querySelector('.card').style.opacity = span(t, 0, 0.4);
+  const card = document.querySelector('.card');
+  const e = FX.enter(card, t, 0, 0.7);
+  card.style.transform = `scale(${0.9 + 0.1 * e}) translateY(${60 - 60 * e}px)`;
+  const zero = document.querySelector('.head .r b');
+  const pulse = 0.5 + 0.5 * Math.sin(t * 5);
+  zero.style.transform = `scale(${1 + 0.08 * pulse})`;
+  zero.style.textShadow = `0 0 ${20 + 30 * pulse}px rgba(225,29,72,${0.35 + 0.35 * pulse})`;
+  [...$('list').children].forEach((r, i) => { if (i === 0) { const k = span((t * 40) % 1, 0, 0.6); r.style.transform = `translateX(${-40 * (1 - k)}px)`; r.style.boxShadow = `0 0 0 3px rgba(232,99,46,${0.6 * (1 - k)})`; } });
+  if (t > 7.3) card.style.transform += ' ' + FX.shake(card, t, 7.3, 0.3, 10);
 }
+FX.init();
 render(0);
 </script>
 </body>

@@ -20,6 +20,7 @@ body{width:1080px;height:1920px;overflow:hidden;font-family:Inter,sans-serif;col
 .title{position:absolute;left:0;right:0;top:90px;text-align:center;font:900 72px/1 "Inter Display",Inter;letter-spacing:-.02em}
 .title em{font-style:normal;color:#F5D27A}
 .chip{position:absolute;left:0;right:0;top:185px;text-align:center;color:#F5D27A;font:700 36px/1.2 Inter}
+
 </style>
 <body>
 <div class="glow" id="glow"></div>
@@ -30,12 +31,14 @@ body{width:1080px;height:1920px;overflow:hidden;font-family:Inter,sans-serif;col
   <div class="phone" id="ph"><img src="../../landing/muestras/version-web-celular.jpg"></div>
   <div class="chip" id="chip">Plan de 30 días, paso a paso</div>
 </div>
+<script src="fx.js"></script>
 <script>
 const clamp = (x, a = 0, b = 1) => Math.max(a, Math.min(b, x));
 const ease = x => 1 - Math.pow(1 - clamp(x), 3);
 const span = (t, a, b) => clamp((t - a) / (b - a));
 const $ = id => document.getElementById(id);
 function render(t) {
+  FX.frame(t);
   const z = 1 + 0.06 * (t / 10);                        // acercamiento lento de todo
   $('stage').style.transform = `scale(${z})`;
   const in1 = ease(span(t, 0.0, 0.8)), in2 = ease(span(t, 0.3, 1.1)), in3 = ease(span(t, 0.7, 1.5));
@@ -53,6 +56,7 @@ function render(t) {
   $('chip').style.opacity = span(t, 1.8, 2.4);
   $('glow').style.opacity = 0.7 + 0.3 * Math.sin(t * 0.8);
 }
+FX.init();
 render(0);
 </script>
 </body>
