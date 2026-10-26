@@ -1,0 +1,66 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Video 3 · fondo bloque 2</title>
+<!-- El mail de rechazo y la final donde eligen a otro. render(t), t de 0 a 10 s. -->
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:1080px;height:1920px;overflow:hidden;font-family:Inter,sans-serif;color:#14213D;
+  background:radial-gradient(circle at 80% 8%,#3B3F9A 0%,#14213D 42%,#0B1226 100%)}
+.mail{position:absolute;left:100px;right:100px;top:120px;border-radius:36px;background:#fff;overflow:hidden;box-shadow:0 50px 120px rgba(0,0,0,.55)}
+.mhead{display:flex;align-items:center;gap:22px;padding:34px 40px;border-bottom:2px solid #E2E8F0}
+.mhead .av{width:80px;height:80px;border-radius:50%;background:#14213D;color:#F5D27A;display:flex;align-items:center;justify-content:center;font:900 32px/1 Inter}
+.mhead b{display:block;font:800 32px/1.2 Inter}.mhead small{font-size:24px;color:#64748B}
+.subj{padding:30px 40px 0;font:900 40px/1.2 "Inter Display",Inter}
+.body{padding:20px 40px 40px;font-size:32px;line-height:1.5;color:#334155;min-height:200px}
+.body mark{background:linear-gradient(transparent 50%,rgba(225,29,72,.25) 50%);color:#9F1239;font-weight:800}
+.final{position:absolute;left:100px;right:100px;top:640px;opacity:0}
+.final h3{color:#fff;font:800 30px/1 Inter;letter-spacing:.12em;text-transform:uppercase;margin-bottom:22px;opacity:.85}
+.row{display:flex;gap:20px}
+.cand{flex:1;height:300px;border-radius:28px;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;font:800 30px/1 Inter;position:relative}
+.cand i{width:110px;height:110px;border-radius:50%;background:#CBD5E1}
+.cand.you i{background:linear-gradient(140deg,#F5D27A,#E8632E)}
+.cand .tag{position:absolute;bottom:-22px;left:50%;transform:translateX(-50%);white-space:nowrap;font:800 24px/1 Inter;padding:12px 18px;border-radius:12px;opacity:0}
+.cand.win .tag{background:#16A34A;color:#fff}
+.cand.you .tag{background:#E11D48;color:#fff}
+</style>
+<body>
+<div class="mail" id="mail">
+  <div class="mhead"><div class="av">RH</div><div><b>Recursos Humanos</b><small>para mí · ahora</small></div></div>
+  <div class="subj">Actualización de tu postulación</div>
+  <div class="body" id="body"></div>
+</div>
+<div class="final" id="final"><h3>Entrevista final</h3>
+  <div class="row"><div class="cand you" id="you"><i></i>Vos<span class="tag" id="tyou">No seleccionado</span></div>
+  <div class="cand win" id="win"><i></i>Otro candidato<span class="tag" id="twin">Seleccionado ✓</span></div></div>
+</div>
+<script src="fx.js"></script>
+<script>
+const clamp = (x, a = 0, b = 1) => Math.max(a, Math.min(b, x));
+const span = (t, a, b) => clamp((t - a) / (b - a));
+const $ = id => document.getElementById(id);
+const TXT = 'Gracias por tu tiempo y por participar del proceso. En esta ocasión, <mark>decidimos avanzar con otro candidato</mark>.';
+const PLAIN = TXT.replace(/<[^>]+>/g, '');
+function typed(p) {
+  let n = Math.round(PLAIN.length * p), out = '', c = 0, i = 0;
+  while (i < TXT.length && c < n) { if (TXT[i] === '<') { const j = TXT.indexOf('>', i); out += TXT.slice(i, j + 1); i = j + 1; continue; } out += TXT[i]; i++; c++; }
+  if ((out.match(/<mark>/g) || []).length > (out.match(/<\/mark>/g) || []).length) out += '</mark>';
+  return out;
+}
+function render(t) {
+  FX.frame(t);
+  const em = FX.enter($('mail'), t, 0, 0.6); $('mail').style.transform = `translateY(${-50 + 50 * em}px)`;
+  $('body').innerHTML = typed(span(t, 0.7, 3.6));
+  const ef = FX.enter($('final'), t, 4.6, 0.5); $('final').style.transform = `translateY(${50 - 50 * ef}px)`;
+  const d = span(t, 6.2, 6.5);
+  $('win').style.transform = `scale(${1 + 0.08 * d})`;
+  $('win').style.boxShadow = `0 0 0 ${8 * d}px #16A34A, 0 30px 60px rgba(22,163,74,${0.4 * d})`;
+  $('twin').style.opacity = d;
+  $('you').style.opacity = 1 - 0.55 * d;
+  $('you').style.filter = `grayscale(${d})`;
+  $('tyou').style.opacity = span(t, 6.6, 6.9);
+  if (t > 6.6) $('you').style.transform = FX.shake($('you'), t, 6.6, 0.35, 12);
+}
+FX.init();
+render(0);
+</script>
+</body>

@@ -1,0 +1,64 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Video 3 · fondo del hook</title>
+<!-- 4 s: entrevista por videollamada que se corta de golpe. render(t), t de 0 a 4 s. -->
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:1080px;height:1920px;overflow:hidden;font-family:Inter,sans-serif;color:#fff;
+  background:radial-gradient(circle at 50% 22%,#3B3F9A 0%,#14213D 40%,#0B1226 100%)}
+.call{position:absolute;left:90px;right:90px;top:120px;height:880px;border-radius:40px;background:#0F1530;overflow:hidden;box-shadow:0 50px 120px rgba(0,0,0,.6);border:2px solid rgba(255,255,255,.08)}
+.bar{display:flex;align-items:center;gap:16px;padding:26px 32px;font:700 28px/1 Inter;background:rgba(255,255,255,.04)}
+.rec{width:18px;height:18px;border-radius:50%;background:#E11D48;box-shadow:0 0 14px #E11D48}
+.bar .tm{margin-left:auto;opacity:.7;font-variant-numeric:tabular-nums}
+.main{position:absolute;left:32px;right:32px;top:100px;height:560px;border-radius:28px;background:linear-gradient(160deg,#25305E,#151C3D);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px}
+.main .av{width:220px;height:220px;border-radius:50%;background:linear-gradient(140deg,#F5D27A,#E8632E);display:flex;align-items:center;justify-content:center;font:900 96px/1 "Inter Display",Inter;color:#14213D}
+.main b{font:800 38px/1.2 Inter}.main small{font-size:26px;opacity:.7}
+.wave{display:flex;gap:8px;height:60px;align-items:center}.wave i{width:10px;border-radius:5px;background:#F5D27A}
+.self{position:absolute;right:56px;bottom:120px;width:230px;height:300px;border-radius:22px;background:#2A365F;border:3px solid #F5D27A;display:flex;align-items:flex-end;justify-content:center;padding-bottom:16px;font:700 24px/1 Inter}
+.ctrl{position:absolute;left:0;right:0;bottom:34px;display:flex;justify-content:center;gap:24px}
+.ctrl i{width:76px;height:76px;border-radius:50%;background:rgba(255,255,255,.12)}
+.ctrl i.end{background:#E11D48}
+.ended{position:absolute;inset:0;background:#0B1226;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px;opacity:0}
+.ended b{font:900 64px/1.1 "Inter Display",Inter;letter-spacing:-.02em}
+.ended small{font-size:30px;opacity:.7}
+.ended .x{width:150px;height:150px;border-radius:50%;background:#E11D48;display:flex;align-items:center;justify-content:center;font:900 80px/1 Inter;box-shadow:0 0 60px rgba(225,29,72,.6)}
+.glitch{position:absolute;inset:0;opacity:0;background:repeating-linear-gradient(0deg,rgba(255,255,255,.12) 0 3px,transparent 3px 9px)}
+</style>
+<body>
+<div class="call" id="call">
+  <div class="bar"><span class="rec"></span>Entrevista · Analista<span class="tm" id="tm">00:14:52</span></div>
+  <div class="main"><div class="av">RH</div><b>Entrevistadora</b><small>Recursos Humanos</small><div class="wave" id="wave"></div></div>
+  <div class="self">Vos</div>
+  <div class="ctrl"><i></i><i></i><i class="end"></i></div>
+  <div class="glitch" id="gl"></div>
+  <div class="ended" id="ended"><div class="x">✕</div><b>Llamada finalizada</b><small>La entrevistadora salió de la reunión</small></div>
+</div>
+<script src="fx.js"></script>
+<script>
+const clamp = (x, a = 0, b = 1) => Math.max(a, Math.min(b, x));
+const span = (t, a, b) => clamp((t - a) / (b - a));
+const $ = id => document.getElementById(id);
+for (let i = 0; i < 14; i++) $('wave').appendChild(document.createElement('i'));
+const CUT = 3.1;
+function render(t) {
+  FX.frame(t);
+  const call = $('call'), e = FX.enter(call, t, 0, 0.5);
+  call.style.transform = `scale(${0.9 + 0.1 * e})`;
+  const s = 892 + Math.floor(t);
+  $('tm').textContent = '00:' + String(Math.floor(s / 60)).padStart(2, '0') + ':' + String(s % 60).padStart(2, '0');
+  [...$('wave').children].forEach((w, i) => { w.style.height = (t < CUT ? 12 + 44 * Math.abs(Math.sin(t * 9 + i * 0.8)) : 6) + 'px'; });
+  // glitch y corte
+  const g = span(t, CUT - 0.35, CUT);
+  $('gl').style.opacity = t < CUT ? g * (0.5 + 0.5 * Math.sin(t * 80)) : 0;
+  $('gl').style.transform = `translateY(${(t * 400) % 9}px)`;
+  call.style.filter = t > CUT - 0.35 && t < CUT ? `hue-rotate(${Math.sin(t * 60) * 40}deg) saturate(1.6)` : call.style.filter;
+  const en = span(t, CUT, CUT + 0.15);
+  $('ended').style.opacity = en;
+  $('ended').style.transform = `scale(${1.15 - 0.15 * en})`;
+  FX.flash(t, CUT, 0.2);
+  if (t > CUT) call.style.transform += ' ' + FX.shake(call, t, CUT, 0.4, 20);
+}
+FX.init();
+render(0);
+</script>
+</body>

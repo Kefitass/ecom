@@ -1,0 +1,62 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Video 3 · fondo bloque 4</title>
+<!-- Fondo animado del bloque 4 (el producto) con las tapas y la captura reales, sin redibujar nada.
+     Lo graba instagram/fondos/grabar.js llamando a render(t), con t en segundos (0 a 10). -->
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:1080px;height:1920px;overflow:hidden;font-family:Inter,sans-serif;color:#fff;
+  background:radial-gradient(circle at 50% 30%,#2B3A8C 0%,#14213D 45%,#0B1226 100%)}
+.glow{position:absolute;left:50%;top:560px;width:1100px;height:1100px;margin:-550px 0 0 -550px;border-radius:50%;
+  background:radial-gradient(circle,rgba(232,99,46,.45) 0%,rgba(232,99,46,0) 60%)}
+.stage{position:absolute;left:0;right:0;top:0;height:1080px}
+.book{position:absolute;width:400px;border-radius:6px 14px 14px 6px;box-shadow:0 40px 90px rgba(0,0,0,.6);overflow:hidden}
+.book img{display:block;width:100%}
+.book .shine{position:absolute;top:-20%;bottom:-20%;width:40%;background:linear-gradient(100deg,rgba(255,255,255,0) 0%,rgba(255,255,255,.35) 50%,rgba(255,255,255,0) 100%);transform:skewX(-12deg)}
+#b1{left:150px;top:300px}
+#b2{left:530px;top:340px}
+.phone{position:absolute;left:415px;top:600px;width:250px;border-radius:40px;border:12px solid #0E0C09;overflow:hidden;box-shadow:0 40px 90px rgba(0,0,0,.6);background:#fff}
+.phone img{display:block;width:100%}
+.title{position:absolute;left:0;right:0;top:90px;text-align:center;font:900 72px/1 "Inter Display",Inter;letter-spacing:-.02em}
+.title em{font-style:normal;color:#F5D27A}
+.chip{position:absolute;left:0;right:0;top:185px;text-align:center;color:#F5D27A;font:700 36px/1.2 Inter}
+
+</style>
+<body>
+<div class="glow" id="glow"></div>
+<div class="stage" id="stage">
+  <div class="title" id="title">Método <em>30</em></div>
+  <div class="book" id="b1"><img src="../../ebook/tapas/tapa-consegui-trabajo.png"><div class="shine" id="s1"></div></div>
+  <div class="book" id="b2"><img src="../../ebook/tapas/tapa-secretos-de-reclutador.png"><div class="shine" id="s2"></div></div>
+  <div class="phone" id="ph"><img src="../../landing/muestras/version-web-celular.jpg"></div>
+  <div class="chip" id="chip">Las 15 preguntas de entrevista, resueltas</div>
+</div>
+<script src="fx.js"></script>
+<script>
+const clamp = (x, a = 0, b = 1) => Math.max(a, Math.min(b, x));
+const ease = x => 1 - Math.pow(1 - clamp(x), 3);
+const span = (t, a, b) => clamp((t - a) / (b - a));
+const $ = id => document.getElementById(id);
+function render(t) {
+  FX.frame(t);
+  const z = 1 + 0.06 * (t / 10);                        // acercamiento lento de todo
+  $('stage').style.transform = `scale(${z})`;
+  const in1 = ease(span(t, 0.0, 0.8)), in2 = ease(span(t, 0.3, 1.1)), in3 = ease(span(t, 0.7, 1.5));
+  const f = Math.sin(t * 1.2);                          // flotación suave
+  $('b1').style.transform = `translate(${-60 * (1 - in1)}px, ${10 * f}px) rotate(-6deg)`;
+  $('b1').style.opacity = in1;
+  $('b2').style.transform = `translate(${60 * (1 - in2)}px, ${-10 * f}px) rotate(6deg)`;
+  $('b2').style.opacity = in2;
+  $('ph').style.transform = `translateY(${80 * (1 - in3) + 6 * Math.sin(t * 1.5 + 1)}px)`;
+  $('ph').style.opacity = in3;
+  // un brillo cruza cada tapa
+  $('s1').style.left = (-50 + 200 * span(t, 2.0, 3.2)) + '%';
+  $('s2').style.left = (-50 + 200 * span(t, 2.5, 3.7)) + '%';
+  $('title').style.opacity = span(t, 1.0, 1.6);
+  $('chip').style.opacity = span(t, 1.8, 2.4);
+  $('glow').style.opacity = 0.7 + 0.3 * Math.sin(t * 0.8);
+}
+FX.init();
+render(0);
+</script>
+</body>

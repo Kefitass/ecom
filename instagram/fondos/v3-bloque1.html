@@ -1,0 +1,53 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Video 3 · fondo bloque 1</title>
+<!-- La respuesta cliché que se escribe y se tacha. render(t), t de 0 a 10 s. -->
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:1080px;height:1920px;overflow:hidden;font-family:Inter,sans-serif;color:#14213D;
+  background:radial-gradient(circle at 50% 22%,#4A2A6E 0%,#14213D 40%,#0B1226 100%)}
+.q{position:absolute;left:110px;right:110px;top:170px;border-radius:36px;background:#fff;padding:46px 50px;box-shadow:0 40px 100px rgba(0,0,0,.55)}
+.q small{display:block;font:800 26px/1 Inter;letter-spacing:.12em;text-transform:uppercase;color:#64748B;margin-bottom:18px}
+.q b{font:900 60px/1.15 "Inter Display",Inter;letter-spacing:-.02em}
+.a{position:absolute;left:110px;right:110px;top:480px;border-radius:36px;background:#FFF1F2;padding:46px 50px;box-shadow:0 40px 100px rgba(0,0,0,.55);border:4px solid transparent}
+.a small{display:block;font:800 26px/1 Inter;letter-spacing:.12em;text-transform:uppercase;color:#9F1239;margin-bottom:18px}
+.a .txt{position:relative;display:inline;font:900 72px/1.15 "Inter Display",Inter;letter-spacing:-.02em;color:#14213D;
+  background:linear-gradient(#E11D48,#E11D48) no-repeat 0 55%/0% 10px;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.caret{display:inline-block;width:6px;height:70px;background:#E8632E;vertical-align:-8px;margin-left:4px}
+.stamp{position:absolute;right:70px;top:430px;transform:rotate(-10deg);border:9px solid #E11D48;color:#E11D48;font:900 52px/1 "Inter Display",Inter;padding:14px 24px;border-radius:16px;letter-spacing:.03em;background:rgba(255,255,255,.92);opacity:0;z-index:4}
+.meter{position:absolute;left:110px;right:110px;top:820px;color:#fff;font:800 32px/1.2 Inter;opacity:0}
+.meter .track{margin-top:16px;height:22px;border-radius:11px;background:rgba(255,255,255,.12);overflow:hidden}
+.meter .fill{height:100%;width:0;border-radius:11px;background:linear-gradient(90deg,#E8632E,#E11D48)}
+</style>
+<body>
+<div class="q" id="q"><small>Pregunta de la entrevista</small><b>«¿Cuál es tu mayor debilidad?»</b></div>
+<div class="a" id="a"><small>Tu respuesta</small><span class="txt" id="txt"></span></div>
+<div class="stamp" id="stamp">RESPUESTA CLICHÉ</div>
+<div class="meter" id="meter">Cuántos candidatos dicen lo mismo<div class="track"><div class="fill" id="fill"></div></div></div>
+<script src="fx.js"></script>
+<script>
+const clamp = (x, a = 0, b = 1) => Math.max(a, Math.min(b, x));
+const span = (t, a, b) => clamp((t - a) / (b - a));
+const $ = id => document.getElementById(id);
+const ANS = '«Soy muy perfeccionista»';
+const HIT = 3.6;
+function render(t) {
+  FX.frame(t);
+  const eq = FX.enter($('q'), t, 0, 0.5); $('q').style.transform = `translateY(${-40 + 40 * eq}px)`;
+  const ea = FX.enter($('a'), t, 0.6, 0.5); $('a').style.transform = `translateY(${40 - 40 * ea}px)`;
+  const p = span(t, 1.1, 2.9);
+  $('txt').innerHTML = ANS.slice(0, Math.round(ANS.length * p)) + (p < 1 && Math.floor(t * 4) % 2 === 0 ? '<span class="caret"></span>' : '');
+  $('txt').style.backgroundSize = (100 * span(t, 3.2, HIT)) + '% 10px';
+  $('a').style.borderColor = t > HIT ? '#E11D48' : 'transparent';
+  const st = span(t, HIT, HIT + 0.18);
+  $('stamp').style.opacity = st;
+  $('stamp').style.transform = `rotate(-10deg) scale(${1.8 - 0.8 * st})`;
+  FX.flash(t, HIT + 0.15, 0.2);
+  if (t > HIT + 0.15) $('a').style.transform += ' ' + FX.shake($('a'), t, HIT + 0.15, 0.35, 16);
+  FX.enter($('meter'), t, 4.6, 0.5);
+  $('fill').style.width = (97 * (1 - Math.pow(1 - span(t, 4.9, 6.4), 3))) + '%';
+}
+FX.init();
+render(0);
+</script>
+</body>
