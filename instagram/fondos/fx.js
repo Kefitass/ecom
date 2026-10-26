@@ -48,7 +48,7 @@
       el.style.opacity = e; el.style.filter = `blur(${(1 - e) * 16}px)`;
       return e;
     },
-    flash(t, at, d = 0.25) { const k = (t - at) / d; document.getElementById("fx-flash").style.opacity = k > 0 && k < 1 ? 0.55 * (1 - k) : 0; },
+    flash(t, at, d = 0.25) { const k = (t - at) / d; document.getElementById("fx-flash").style.opacity = k > 0 && k < 1 ? 0.35 * (1 - k) : 0; },
     shake(el, t, at, d = 0.35, amp = 18) {
       const k = (t - at) / d;
       return k > 0 && k < 1 ? `translate(${Math.sin(t * 90) * amp * (1 - k)}px, ${Math.cos(t * 70) * amp * (1 - k)}px)` : "";
