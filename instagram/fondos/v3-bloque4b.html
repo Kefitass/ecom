@@ -1,0 +1,84 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Video 3 · fondo bloque 4 (versión B)</title>
+<!-- Cierre: logo con onda expansiva, las 15 preguntas que se resuelven, tapas y flecha al botón. render(t), t de 0 a 10 s. -->
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:1080px;height:1920px;overflow:hidden;font-family:Inter,sans-serif;color:#fff;
+  background:radial-gradient(circle at 50% 22%,#3B3F9A 0%,#14213D 40%,#0B1226 100%)}
+.logo{position:absolute;left:0;right:0;top:110px;text-align:center;font:900 120px/1 "Inter Display",Inter;letter-spacing:-.03em}
+.logo em{font-style:normal;color:#fff;background:#E8632E;border-radius:22px;padding:0 22px;margin-left:16px}
+.ring{position:absolute;left:540px;top:170px;width:200px;height:200px;margin:-100px 0 0 -100px;border-radius:50%;border:10px solid #E8632E;opacity:0}
+.count{position:absolute;left:0;right:0;top:270px;text-align:center;font:800 40px/1 Inter;color:#F5D27A;opacity:0;font-variant-numeric:tabular-nums}
+.grid{position:absolute;left:70px;right:70px;top:340px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.q{height:104px;border-radius:20px;background:rgba(255,255,255,.08);border:2px solid rgba(255,255,255,.14);display:flex;align-items:center;gap:12px;padding:0 18px;font:700 25px/1.15 Inter;color:rgba(255,255,255,.6);opacity:0}
+.q i{flex:none;width:40px;height:40px;border-radius:50%;border:3px solid rgba(255,255,255,.3);font-style:normal;display:flex;align-items:center;justify-content:center;font:900 24px/1 Inter;color:#fff}
+.q.ok{background:#E9FBEF;border-color:#16A34A;color:#14532D}
+.q.ok i{background:#16A34A;border-color:#16A34A}
+.books{position:absolute;left:0;right:0;top:330px;height:600px;opacity:0}
+.books img{position:absolute;width:330px;border-radius:6px 12px 12px 6px;box-shadow:0 40px 90px rgba(0,0,0,.6)}
+.books img:first-child{left:190px;top:40px;transform:rotate(-7deg);z-index:2}
+.books img:last-child{left:560px;top:70px;transform:rotate(7deg)}
+.done{position:absolute;left:0;right:0;top:300px;text-align:center;font:900 54px/1.1 "Inter Display",Inter;opacity:0}
+.done em{font-style:normal;color:#F5D27A}
+.arrow{position:absolute;left:50%;top:880px;width:140px;margin-left:-70px;opacity:0}
+.arrow svg{width:140px;height:140px;filter:drop-shadow(0 0 30px rgba(232,99,46,.8))}
+</style>
+<body>
+<div class="ring" id="ring"></div>
+<div class="logo" id="logo">Método<em>30</em></div>
+<div class="count" id="count">0/15 preguntas resueltas</div>
+<div class="grid" id="grid"></div>
+<div class="done" id="done">15 preguntas, <em>resueltas</em></div>
+<div class="books" id="books"><img src="../../ebook/tapas/tapa-consegui-trabajo.png"><img src="../../ebook/tapas/tapa-secretos-de-reclutador.png"></div>
+<div class="arrow" id="arrow"><svg viewBox="0 0 24 24"><path d="M12 3v15M5 12l7 7 7-7" fill="none" stroke="#E8632E" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+<script src="fx.js"></script>
+<script>
+const Q = ["Contame sobre vos", "¿Por qué acá?", "¿Por qué vos?", "Tu fortaleza", "Tu debilidad", "¿Por qué te fuiste?",
+  "¿Dónde te ves en 5 años?", "Un conflicto", "Un error tuyo", "¿Cómo manejás la presión?", "¿Qué sabés de la empresa?",
+  "¿Cuánto pretendés?", "¿Otros procesos?", "El hueco en tu CV", "¿Tenés preguntas?"];
+const clamp = (x, a = 0, b = 1) => Math.max(a, Math.min(b, x));
+const span = (t, a, b) => clamp((t - a) / (b - a));
+const $ = id => document.getElementById(id);
+Q.forEach(q => { const d = document.createElement('div'); d.className = 'q'; d.innerHTML = '<i></i><span>' + q + '</span>'; $('grid').appendChild(d); });
+const OK0 = 2.7, STEP = 0.14;
+function render(t) {
+  FX.frame(t);
+  // 1 · logo de golpe con onda expansiva
+  const l = span(t, 0, 0.28);
+  $('logo').style.opacity = l;
+  $('logo').style.transform = `scale(${2.2 - 1.2 * (1 - Math.pow(1 - l, 3))})`;
+  FX.flash(t, 0.28, 0.2);
+  const r = span(t, 0.28, 1.0);
+  $('ring').style.opacity = r > 0 && r < 1 ? 1 - r : 0;
+  $('ring').style.transform = `scale(${1 + 7 * r})`;
+  if (t > 0.28 && t < 0.7) document.getElementById('fx-stage').style.transform += ' ' + FX.shake(null, t, 0.28, 0.4, 14);
+  // 2 · aparecen las 15 y se resuelven
+  const gridOut = span(t, 5.2, 5.6);
+  [...$('grid').children].forEach((q, i) => {
+    const a = 1.1 + i * 0.07, k = span(t, a, a + 0.25);
+    const ok = t >= OK0 + i * STEP;
+    q.classList.toggle('ok', ok);
+    q.querySelector('i').textContent = ok ? '✓' : '';
+    const pop = ok ? Math.max(0, 1 - (t - (OK0 + i * STEP)) / 0.25) : 0;
+    q.style.opacity = k * (1 - gridOut);
+    q.style.transform = `translateY(${30 - 30 * k}px) scale(${1 + 0.1 * pop}) translateY(${-200 * gridOut}px)`;
+  });
+  const solved = Q.filter((_, i) => t >= OK0 + i * STEP).length;
+  $('count').textContent = solved + '/15 preguntas resueltas';
+  $('count').style.opacity = span(t, 1.0, 1.3) * (1 - gridOut);
+  // 3 · las tapas entran con flash
+  const b = span(t, 5.5, 5.85), eb = 1 - Math.pow(1 - b, 3);
+  $('books').style.opacity = eb;
+  $('books').style.transform = `scale(${1.3 - 0.3 * eb}) translateY(${Math.sin(t * 1.4) * 8}px)`;
+  FX.flash(t, 5.85, 0.18);
+  $('done').style.opacity = span(t, 5.9, 6.2);
+  // 4 · flecha que late hacia el botón
+  const a = span(t, 6.8, 7.1);
+  $('arrow').style.opacity = a;
+  $('arrow').style.transform = `translateY(${a * 26 * Math.abs(Math.sin(t * 6))}px) scale(${0.6 + 0.4 * a})`;
+}
+FX.init();
+render(0);
+</script>
+</body>
