@@ -39,7 +39,7 @@ const clamp = (x, a = 0, b = 1) => Math.max(a, Math.min(b, x));
 const span = (t, a, b) => clamp((t - a) / (b - a));
 const $ = id => document.getElementById(id);
 for (let i = 0; i < 14; i++) $('wave').appendChild(document.createElement('i'));
-const CUT = 3.1;
+const CUT = 1.8;
 function render(t) {
   FX.frame(t);
   const call = $('call'), e = FX.enter(call, t, 0, 0.5);
