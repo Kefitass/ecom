@@ -1,0 +1,70 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Video 2 · fondo bloque 2</title>
+<!-- Grupo de la familia preguntando "¿y, novedades?". Lo graba grabar.js llamando a render(t), t de 0 a 10 s. -->
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:1080px;height:1920px;overflow:hidden;font-family:Inter,sans-serif;
+  background:radial-gradient(circle at 80% 8%,#3B3F9A 0%,#14213D 42%,#0B1226 100%);color:#14213D}
+.chat{position:absolute;left:110px;right:110px;top:110px;height:900px;border-radius:44px;overflow:hidden;background:#ECE5DD;box-shadow:0 50px 120px rgba(0,0,0,.55);transform-origin:50% 0}
+.top{display:flex;align-items:center;gap:22px;padding:30px 36px;background:#14213D;color:#fff}
+.top .av{width:84px;height:84px;border-radius:50%;background:#F5D27A;display:flex;align-items:center;justify-content:center;font-size:44px}
+.top b{display:block;font:800 36px/1.2 Inter}.top small{font-size:24px;opacity:.75}
+.msgs{position:absolute;left:0;right:0;top:144px;bottom:0;overflow:hidden;padding:26px 30px;display:flex;flex-direction:column;justify-content:flex-end;gap:16px}
+.m{max-width:78%;background:#fff;border-radius:8px 26px 26px 26px;padding:18px 24px 14px;font-size:32px;line-height:1.35;box-shadow:0 2px 4px rgba(0,0,0,.08);opacity:0}
+.m b{display:block;font-size:24px;margin-bottom:4px}
+.m small{display:block;text-align:right;font-size:20px;color:#94A3B8;margin-top:4px}
+.m.me{align-self:flex-end;background:#DCF8C6;border-radius:26px 8px 26px 26px}
+.typing{align-self:flex-start;background:#fff;border-radius:26px;padding:20px 26px;display:none;gap:10px}
+.typing span{width:14px;height:14px;border-radius:50%;background:#94A3B8}
+.badge{position:absolute;top:84px;right:150px;z-index:9;min-width:84px;height:84px;border-radius:42px;background:#E11D48;color:#fff;font:900 44px/84px Inter;text-align:center;padding:0 22px;box-shadow:0 10px 30px rgba(225,29,72,.5)}
+</style>
+<body>
+<div class="chat" id="chat">
+  <div class="top"><div class="av">🏠</div><div><b>Familia</b><small>Mamá, Papá, Tía Marta, Abu</small></div></div>
+  <div class="msgs" id="msgs">
+    <div class="m" id="m1"><b style="color:#C2410C">Mamá</b>¿Y, novedades del trabajo? 🙏<small>21:02</small></div>
+    <div class="m" id="m2"><b style="color:#1D4ED8">Tía Marta</b>¿Te llamaron de algún lado, nena?<small>21:03</small></div>
+    <div class="m" id="m3"><b style="color:#15803D">Papá</b>¿Le mandaste el CV a la empresa del primo?<small>21:03</small></div>
+    <div class="m" id="m4"><b style="color:#7E22CE">Abu</b>Hay que tener paciencia, ya va a salir algo 😘<small>21:04</small></div>
+    <div class="m me" id="m5">Todavía nada… 😮‍💨<small>21:06 ✓✓</small></div>
+    <div class="typing" id="typ"><span></span><span></span><span></span></div>
+  </div>
+</div>
+<div class="badge" id="badge">0</div>
+<script src="fx.js"></script>
+<script>
+const clamp = (x, a = 0, b = 1) => Math.max(a, Math.min(b, x));
+const span = (t, a, b) => clamp((t - a) / (b - a));
+const $ = id => document.getElementById(id);
+const AT = [0.9, 2.4, 3.9, 5.4, 7.2];
+function render(t) {
+  FX.frame(t);
+  const chat = $('chat'), e = FX.enter(chat, t, 0, 0.7);
+  chat.style.transform = `scale(${0.9 + 0.1 * e}) translateY(${60 - 60 * e}px)`;
+  let count = 0;
+  AT.forEach((a, i) => {
+    const el = $('m' + (i + 1)), k = 1 - Math.pow(1 - span(t, a, a + 0.35), 3);
+    el.style.display = t < a ? 'none' : 'block';
+    el.style.opacity = k;
+    el.style.transform = `translateY(${30 - 30 * k}px) scale(${0.92 + 0.08 * k})`;
+    if (t >= a && i < 4) count++;
+  });
+  // "escribiendo…" antes de cada mensaje de la familia
+  const typing = AT.slice(0, 4).some(a => t > a - 0.7 && t < a);
+  $('typ').style.display = typing ? 'flex' : 'none';
+  [...$('typ').children].forEach((d, i) => { d.style.opacity = (Math.floor(t * 6) % 3 === i) ? 1 : .35; });
+  // contador de mensajes sin leer que salta con cada mensaje
+  const b = $('badge');
+  b.textContent = count;
+  b.style.opacity = count ? 1 : 0;
+  const last = AT.slice(0, 4).filter(a => t >= a).pop();
+  const pop = last !== undefined ? 1 + 0.35 * Math.max(0, 1 - (t - last) / 0.3) : 1;
+  b.style.transform = `scale(${pop})`;
+  if (t > 7.2) b.style.opacity = 1 - span(t, 7.2, 7.5);
+  if (t > 3.9 && t < 4.3) chat.style.transform += ' ' + FX.shake(chat, t, 3.9, 0.3, 8);
+}
+FX.init();
+render(0);
+</script>
+</body>
