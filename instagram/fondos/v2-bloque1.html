@@ -1,0 +1,52 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Video 2 · fondo bloque 1</title>
+<!-- 40 postulaciones enviadas, 0 respuestas. Lo graba grabar.js llamando a render(t), t de 0 a 10 s. -->
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:1080px;height:1920px;overflow:hidden;font-family:Inter,sans-serif;
+  background:radial-gradient(circle at 80% 8%,#3B3F9A 0%,#14213D 42%,#0B1226 100%);color:#14213D}
+.card{position:absolute;left:110px;right:110px;top:110px;height:900px;border-radius:44px;background:#F3F4F7;overflow:hidden;box-shadow:0 50px 120px rgba(0,0,0,.55)}
+.head{display:flex;justify-content:space-between;align-items:flex-end;padding:44px 48px 28px;background:#fff;border-bottom:2px solid #E2E8F0}
+.head small{display:block;font:700 26px/1 Inter;color:#64748B;letter-spacing:.08em;text-transform:uppercase;margin-bottom:12px}
+.head b{font:900 110px/1 "Inter Display",Inter;letter-spacing:-.03em}
+.head .r b{color:#E11D48}
+.head .r{text-align:right}
+.list{padding:24px 48px;display:flex;flex-direction:column;gap:14px}
+.row{display:flex;align-items:center;gap:22px;background:#fff;border-radius:22px;padding:20px 24px;font-size:30px;font-weight:700}
+.row i{flex:none;width:58px;height:58px;border-radius:16px;background:#14213D;color:#fff;display:flex;align-items:center;justify-content:center;font:800 26px/1 Inter;font-style:normal}
+.row span{flex:1}
+.row em{font-style:normal;font-size:24px;color:#94A3B8;font-weight:600}
+.empty{position:absolute;left:0;right:0;bottom:40px;text-align:center;font:800 34px/1.3 Inter;color:#64748B;opacity:0}
+.empty b{display:block;font-size:90px;margin-bottom:10px}
+</style>
+<body>
+<div class="card">
+  <div class="head"><div><small>Postulaciones</small><b id="sent">0</b></div><div class="r"><small>Respuestas</small><b>0</b></div></div>
+  <div class="list" id="list"></div>
+  <div class="empty" id="empty"><b>📭</b>No tenés mensajes nuevos</div>
+</div>
+<script>
+const JOBS = ["Analista administrativo", "Asistente contable", "Atención al cliente", "Data entry", "Recepcionista",
+  "Vendedor/a", "Analista de RR. HH.", "Asistente de marketing", "Cajero/a", "Auxiliar de logística"];
+const clamp = (x, a = 0, b = 1) => Math.max(a, Math.min(b, x));
+const span = (t, a, b) => clamp((t - a) / (b - a));
+const $ = id => document.getElementById(id);
+function render(t) {
+  const n = Math.round(40 * Math.pow(span(t, 0.2, 6.5), 0.8));
+  $('sent').textContent = n;
+  const shown = Math.min(n, 9);
+  let html = '';
+  for (let i = 0; i < shown; i++) {
+    const k = n - 1 - i;
+    html += `<div class="row"><i>${k + 1}</i><span>${JOBS[k % JOBS.length]}</span><em>Enviado · sin respuesta</em></div>`;
+  }
+  $('list').innerHTML = html;
+  $('list').style.opacity = 1 - span(t, 7.0, 7.5);
+  $('empty').style.opacity = span(t, 7.3, 7.8);
+  $('empty').style.bottom = (40 + 300 * span(t, 7.3, 7.8)) + 'px';
+  document.querySelector('.card').style.opacity = span(t, 0, 0.4);
+}
+render(0);
+</script>
+</body>

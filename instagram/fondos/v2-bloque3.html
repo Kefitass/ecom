@@ -1,0 +1,80 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Video 2 · fondo bloque 3</title>
+<!-- Las 3 causas: filtro automático, LinkedIn invisible, esperar que te llamen. render(t), t de 0 a 10 s. -->
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:1080px;height:1920px;overflow:hidden;font-family:Inter,sans-serif;
+  background:radial-gradient(circle at 80% 8%,#3B3F9A 0%,#14213D 42%,#0B1226 100%);color:#14213D}
+.panel{position:absolute;left:110px;right:110px;top:110px;height:900px;border-radius:44px;background:#F3F4F7;overflow:hidden;box-shadow:0 50px 120px rgba(0,0,0,.55);opacity:0}
+.num{position:absolute;top:34px;left:40px;width:84px;height:84px;border-radius:50%;background:#E8632E;color:#fff;font:900 46px/84px Inter;text-align:center}
+/* 1 · filtro */
+.cv{position:absolute;left:170px;top:170px;width:520px;height:640px;background:#fff;border-radius:18px;box-shadow:0 20px 40px rgba(20,33,61,.15);padding:40px}
+.cv .ln{height:20px;border-radius:10px;background:#E2E8F0;margin-bottom:22px}
+.cv .ln.t{height:34px;width:60%;background:#CBD5E1}
+.scan{position:absolute;left:130px;right:130px;height:10px;border-radius:6px;background:#3B82F6;box-shadow:0 0 30px 10px rgba(59,130,246,.55)}
+.stamp{position:absolute;left:50%;top:420px;transform:translate(-50%,-50%) rotate(-12deg) scale(1.6);border:10px solid #E11D48;color:#E11D48;font:900 84px/1 "Inter Display",Inter;padding:16px 30px;border-radius:18px;letter-spacing:.04em;opacity:0;background:rgba(255,255,255,.85)}
+.cap{position:absolute;left:0;right:0;bottom:40px;text-align:center;font:800 36px/1.2 Inter;color:#475569}
+/* 2 · búsqueda */
+.search{margin:150px 50px 0;background:#fff;border-radius:999px;padding:26px 36px;font:700 34px/1 Inter;display:flex;align-items:center;gap:18px;box-shadow:0 10px 24px rgba(20,33,61,.08)}
+.res{margin:30px 50px 0;display:flex;flex-direction:column;gap:16px}
+.pr{display:flex;align-items:center;gap:22px;background:#fff;border-radius:22px;padding:22px 26px;opacity:0}
+.pr i{flex:none;width:80px;height:80px;border-radius:50%;background:#CBD5E1}
+.pr b{display:block;font:800 30px/1.2 Inter}.pr small{font-size:24px;color:#64748B}
+.pr.you{border:4px dashed #E11D48;background:#FFF1F2;justify-content:center;font:800 32px/1.2 Inter;color:#9F1239}
+/* 3 · espera */
+.lock{position:absolute;left:50%;top:120px;transform:translateX(-50%);width:420px;height:700px;border-radius:56px;background:#0E0C09;padding:16px}
+.lock .scr{width:100%;height:100%;border-radius:42px;background:linear-gradient(160deg,#1E2A55,#0B1226);color:#fff;text-align:center;padding-top:90px}
+.lock .time{font:300 120px/1 Inter;letter-spacing:-.04em}
+.lock .date{font-size:28px;opacity:.8;margin-top:10px}
+.lock .none{margin:120px 36px 0;background:rgba(255,255,255,.12);border-radius:24px;padding:26px;font:700 30px/1.3 Inter}
+.dots{display:inline-flex;gap:10px;margin-top:20px}.dots span{width:16px;height:16px;border-radius:50%;background:#fff;opacity:.3}
+</style>
+<body>
+<div class="panel" id="p1"><div class="num">1</div>
+  <div class="cv"><div class="ln t"></div><div class="ln"></div><div class="ln" style="width:80%"></div><div class="ln"></div><div class="ln" style="width:70%"></div><div class="ln t" style="width:40%;margin-top:40px"></div><div class="ln"></div><div class="ln" style="width:85%"></div><div class="ln"></div><div class="ln" style="width:60%"></div></div>
+  <div class="scan" id="scan"></div>
+  <div class="stamp" id="stamp">DESCARTADO</div>
+  <div class="cap">Filtro automático: nadie lo leyó</div>
+</div>
+<div class="panel" id="p2"><div class="num">2</div>
+  <div class="search">🔍 Analista contable</div>
+  <div class="res">
+    <div class="pr" id="r1"><i></i><div><b>Martina S.</b><small>Analista Contable | Impuestos y SAP</small></div></div>
+    <div class="pr" id="r2"><i></i><div><b>Lucas P.</b><small>Analista Contable | Cierres mensuales</small></div></div>
+    <div class="pr" id="r3"><i></i><div><b>Sofía R.</b><small>Contadora | Pymes y liquidaciones</small></div></div>
+    <div class="pr you" id="r4">Tu perfil no aparece</div>
+  </div>
+</div>
+<div class="panel" id="p3"><div class="num">3</div>
+  <div class="lock"><div class="scr"><div class="time" id="clock">09:41</div><div class="date">Lunes</div>
+    <div class="none">Sin notificaciones<br><div class="dots" id="dots"><span></span><span></span><span></span></div></div></div></div>
+  <div class="cap">Esperando que te llamen…</div>
+</div>
+<script>
+const clamp = (x, a = 0, b = 1) => Math.max(a, Math.min(b, x));
+const ease = x => 1 - Math.pow(1 - clamp(x), 3);
+const span = (t, a, b) => clamp((t - a) / (b - a));
+const $ = id => document.getElementById(id);
+function show(id, a, b) { $(id).style.opacity = span(t0, a, a + 0.3) * (1 - span(t0, b - 0.3, b)); }
+let t0 = 0;
+function render(t) {
+  t0 = t;
+  show('p1', 0, 3.4); show('p2', 3.4, 6.8); show('p3', 6.8, 10.3);
+  // 1 · el escaneo baja y aparece el sello
+  $('scan').style.top = (170 + 640 * ease(span(t, 0.3, 1.6))) + 'px';
+  $('scan').style.opacity = 1 - span(t, 1.6, 1.8);
+  const s = ease(span(t, 1.7, 2.0));
+  $('stamp').style.opacity = s;
+  $('stamp').style.transform = `translate(-50%,-50%) rotate(-12deg) scale(${1.6 - 0.6 * s})`;
+  // 2 · aparecen los resultados y no estás
+  ['r1', 'r2', 'r3', 'r4'].forEach((id, i) => { const k = span(t, 3.8 + i * 0.45, 4.1 + i * 0.45); $(id).style.opacity = k; $(id).style.transform = `translateY(${30 - 30 * k}px)`; });
+  // 3 · el reloj avanza y no llega nada
+  const mins = Math.floor(span(t, 6.8, 10) * 180);
+  const h = 9 + Math.floor((41 + mins) / 60), m = (41 + mins) % 60;
+  $('clock').textContent = String(h).padStart(2, '0') + ':' + String(m).padStart(2, '0');
+  [...$('dots').children].forEach((d, i) => { d.style.opacity = (Math.floor(t * 3) % 3 === i) ? 1 : .3; });
+}
+render(0);
+</script>
+</body>
