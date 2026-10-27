@@ -22,3 +22,5 @@ Voice: a light, lively female voice — a woman in her mid-20s, bright and clear
 - En lo que dice ella, escribir "currículum" y no "CV": con prompts en inglés lo pronuncia "si-vi". En los textos de CapCut sí va "CV".
 - Aclarar la pronunciación: "IA" se dice "i-a" y todo va en español, sin pronunciación en inglés.
 - No dejar segundos "en silencio" al final: la IA mete la voz igual y sin mover los labios. El clip dura lo que dura lo que dice, y se pide "lips in perfect sync with every word, no voice-over".
+- Los prompts de Cami van escritos todos en español rioplatense (escena, acción y voz). En inglés, o con guías de pronunciación en inglés, modula como gringa.
+- Si la voz se rehace en ElevenLabs (Texto a voz, Eleven v3), el texto lleva "[Argentine Rioplatense accent]" adelante y "i-a" escrito así.
