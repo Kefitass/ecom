@@ -191,3 +191,21 @@ Orden sugerido para intercalar portadas: 6 (naranja), 1, 7 (foto), 2, 9 (dorado)
 
 Para cambiar un texto o un precio: editá `instagram/build_carruseles.py` y corré
 `python3 instagram/build_carruseles.py && node instagram/render_historias.js carruseles`.
+
+## 11. La IA lee tu CV (`11-ia-lee-tu-cv`, 8 placas): portada con escáner
+
+```
+Antes de que una persona vea tu CV, lo lee un programa. Y si no le gusta, te descarta sin que nadie lo abra 🤖
+
+Los 3 errores que más descartan:
+1️⃣ El CV de Canva (columnas, íconos, barritas)
+2️⃣ No usar las palabras del aviso
+3️⃣ Títulos raros como «Mi recorrido»
+
+Deslizá para ver cómo arreglar cada uno, con un ejemplo real.
+
+📌 Guardalo y revisá tu CV antes de mandarlo
+🔗 La plantilla que pasa los filtros, en el link de nuestro perfil
+
+#cv #curriculum #buscotrabajo #empleo #inteligenciaartificial #rrhh #trabajoargentina
+```

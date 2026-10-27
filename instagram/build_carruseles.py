@@ -187,9 +187,37 @@ add(K, "close", title="Medí todo.<br>Ajustá cada <em>semana</em>",
     sub="El tracker y el diagnóstico completo están en «Conseguí trabajo en 30 días».")
 
 
+# ---------- 11. La IA lee tu CV (portada con escáner) ----------
+K = "11-ia-lee-tu-cv"
+add(K, "cv_ai", title="La IA lee tu CV<br>antes que <em>una<br>persona</em>",
+    sub="3 errores que te descartan sin que nadie lo lea")
+add(K, "numlist", title="Así funciona<br>el <em>filtro</em>", start=1,
+    items=["Subís tu CV a la plataforma de la empresa", "Un programa lo lee y busca las palabras del aviso",
+           "Si no puede leerlo o no las encuentra, te descarta", "Solo los que pasan llegan a una persona"])
+for n, (err, fix) in enumerate([
+    ("El CV de Canva", "Columnas, íconos y barritas de nivel se ven lindos, pero el programa no los puede leer. Una sola columna y texto simple."),
+    ("No usar las palabras del aviso", "Si piden «atención al cliente», escribí «atención al cliente», no «trato con la gente». El filtro busca esas palabras."),
+    ("Títulos raros", "«Mi recorrido» o «Lo que sé hacer» confunden al programa. Usá Experiencia, Educación y Habilidades."),
+], 1):
+    add(K, "error", n=n, err=err, fix=fix)
+add(K, "beforeafter", antes="Excel · atención al cliente · facturación",
+    despues="Manejo avanzado de Excel. Tres años en atención al cliente. Facturación y cobranzas.",
+    la="El aviso pide", lb="Tu CV tiene que decir")
+add(K, "list", title="Antes de<br>mandarlo, <em>revisá</em>",
+    items=["Una sola columna, sin tablas ni íconos", "Las palabras clave del aviso, tal cual",
+           "Títulos estándar: Experiencia, Educación, Habilidades", "Guardado en PDF con tu nombre"])
+add(K, "close", title="Tu CV, listo para<br>pasar el <em>filtro</em>",
+    sub="La plantilla que pasa los filtros y el paso a paso para armarla están en «Conseguí trabajo en 30 días».")
+
+
 # ---------- RENDER ----------
 def body(p):
     k = p["kind"]
+    if k == "cv_ai":
+        lines = "".join(f'<i style="width:{w}%"></i>' for w in (100, 86, 92, 70, 96, 64, 88, 76))
+        return (f'<div class="kick">CV + IA</div><h1>{p["title"]}</h1><p class="sub">{p["sub"]}</p>'
+                f'<div class="aicv"><div class="aicv-nm"></div>{lines}<div class="aiscan"></div><div class="aistamp">DESCARTADO</div></div>'
+                '<div class="swipe">Deslizá <span>→</span></div>')
     if k == "cv_orange":
         return (f'<div class="bigsym">{p["big"]}</div><h1>{p["title"]}</h1><p class="sub">{p["sub"]}</p>'
                 '<div class="swipe">Deslizá <span>→</span></div>')
@@ -267,7 +295,7 @@ def body(p):
 
 
 DARK = {"cover", "close", "qa", "cv_photo", "cv_photo2"}
-THEMES = {"cv_orange": "orange", "cv_gold": "goldbg", "cv_funnel": "black"}
+THEMES = {"cv_ai": "aibg", "cv_orange": "orange", "cv_gold": "goldbg", "cv_funnel": "black"}
 
 CSS = """
 *{box-sizing:border-box;margin:0;padding:0}
@@ -376,6 +404,13 @@ h1 em,h2 em{font-style:normal;color:#E8632E}
 .sp b{flex:none;width:250px;font:900 96px/1 "Inter Display";color:#E8632E;letter-spacing:-.03em}
 .sp span{font-size:44px;font-weight:700;line-height:1.25}
 .pr.best{box-shadow:0 0 0 8px #E8632E}
+.aibg{background:radial-gradient(circle at 80% 70%,#0E4A6E 0%,#14213D 45%,#0B1226 100%);color:#fff}
+.aibg h1{font-size:100px;position:relative;z-index:2}.aibg h1 em{color:#38BDF8}.aibg .kick{color:#38BDF8}.aibg .sub{max-width:560px;position:relative;z-index:2}.aibg .swipe{position:relative;z-index:2}
+.aicv{position:absolute;right:70px;bottom:150px;width:380px;height:500px;border-radius:24px;background:#fff;padding:44px 36px;transform:rotate(5deg);box-shadow:0 40px 90px rgba(0,0,0,.6),0 0 0 3px rgba(56,189,248,.5);overflow:hidden}
+.aicv-nm{height:28px;width:70%;border-radius:8px;background:#14213D;margin-bottom:30px}
+.aicv i{display:block;height:14px;border-radius:7px;background:#E2E8F0;margin-bottom:18px}
+.aiscan{position:absolute;left:0;right:0;top:150px;height:110px;background:linear-gradient(180deg,rgba(56,189,248,0),rgba(56,189,248,.35));border-bottom:5px solid #38BDF8;box-shadow:0 10px 40px rgba(56,189,248,.9)}
+.aistamp{position:absolute;left:22px;top:310px;transform:rotate(-14deg);border:8px solid #E11D48;color:#E11D48;font:900 42px/1 "Inter Display";padding:12px 18px;border-radius:14px;background:rgba(255,255,255,.92)}
 """
 
 
