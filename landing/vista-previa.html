@@ -60,9 +60,9 @@ window.CE_CONFIG = {
   // puntuacion / cantidadOpiniones / lectores en 0 → no se muestra.
   // ⚠️ Cargá solo números reales de tus reseñas y ventas.
   // ============================================================
-  rating: { puntuacion: 4.8, cantidadOpiniones: 6, lectores: 0 },
+  rating: { puntuacion: 4.9, cantidadOpiniones: 14, lectores: 0 },
 
-  // Reseñas de compradores, tal como las escribieron (se muestran hasta 6; en el celular, 3 + "Ver más").
+  // Reseñas de compradores, tal como las escribieron (se ven 6 en compu y 3 en el celular; el resto con "Ver más opiniones").
   // ⚠️ Solo reseñas reales y con permiso de la persona. estrellas: de 1 a 5.
   //    Las que tienen  ejemplo: true  se ven SOLO en la vista previa, nunca en la tienda.
   testimonios: [
@@ -77,7 +77,23 @@ window.CE_CONFIG = {
     { nombre: "Valen D.", rubro: "", estrellas: 5, titulo: "Dejé de sufrir las entrevistas",
       texto: "me daba pánico que me pregunten 'hablame de vos' o 'cuales son tus debilidades'. practiqué las respuestas del ebook frente al espejo y fui mil veces mas tranquila. parecia que tenia el examen resuelto antes de rendir", foto: "" },
     { nombre: "Agustina V.", rubro: "", estrellas: 4, titulo: "Excelente contenido, me sirvió un montón",
-      texto: "la verdad que el metodo te cambia la forma de buscar laburo. lo de adaptar el cv a los sistemas ats y encarar a los reclutadores en linkedin con mensajes directos me sirvio un montón", foto: "" }
+      texto: "la verdad que el metodo te cambia la forma de buscar laburo. lo de adaptar el cv a los sistemas ats y encarar a los reclutadores en linkedin con mensajes directos me sirvio un montón", foto: "" },
+    { nombre: "Nacho C.", rubro: "", estrellas: 5, titulo: "Clave para ordenar la búsqueda",
+      texto: "estaba re perdido con por donde empezar a buscar laburo despues de terminar la facultad. el pdf te estructura todo re bien dia por dia.", foto: "" },
+    { nombre: "Pilar M.", rubro: "", estrellas: 5, titulo: "Ideal si sentís que nadie lee tu CV",
+      texto: "me rebotaban en todos los formularios automáticos y no entendía por qué si tenía experiencia. cambié la estructura como dicen en el día 4, saqué las barras de nivel de canva y puse palabras clave... mágico, me empezaron a escribir de la nada", foto: "" },
+    { nombre: "Martina P.", rubro: "", estrellas: 5, titulo: "Respuestas listas para usar",
+      texto: "la parte donde te desarman las 15 preguntas típicas de entrevista es oro puro. fui a la llamada sabiendo exactamente qué responder a 'contame un error que hayas cometido' sin sonar mal ni quedar expuesta. de verdad te da muchísima seguridad", foto: "" },
+    { nombre: "Gabriel A.", rubro: "", estrellas: 5, titulo: "El combo de los 2 libros es un 10",
+      texto: "recomiendo fuerte llevarse los dos. el de 30 días te ordena el paso a paso y el de secretos de reclutador te da los trucos de nivel experto. el tip del plan de 30-60-90 días para la entrevista final me dejó como un rey en la reunión con el gerente", foto: "" },
+    { nombre: "Mica S.", rubro: "", estrellas: 5, titulo: "Te ahorra meses de darte la cabeza contra la pared",
+      texto: "lo que pagás por el ebook no es nada al lado de la cantidad de tiempo que te ahorrás adivinando qué quieren los de rrhh. te dan los mensajes exactos para copiar y mandar. de verdad te da una ventaja tremenda sobre la competencia", foto: "" },
+    { nombre: "Daniela T.", rubro: "", estrellas: 5, titulo: "Excelente la calidad del contenido",
+      texto: "pensé que iba a ser el típico pdf con consejos genéricos de google pero nada que ver. tiene plantillas reales para copiar y pegar, ejemplos de viñetas con logros y fórmulas para armar tu perfil. si querés resultados rápidos compralo de una", foto: "" },
+    { nombre: "Romi T.", rubro: "", estrellas: 5, titulo: "Me devolvió las ganas de buscar",
+      texto: "llevaba un mes re bajón mandando cvs sin respuesta y sintiendo que no servía para nada. el libro te cambia la vibra al toque porque te da un plan claro de qué hacer cada mañana.", foto: "" },
+    { nombre: "Juli B.", rubro: "", estrellas: 4, titulo: "Te cambia el chip, pero tenés que moverte",
+      texto: "muy buen contenido la verdad, te abre los ojos con como buscan los reclutadores hoy en dia.", foto: "" }
   ],
 
   // ============================================================
@@ -158,9 +174,9 @@ window.CE_CONFIG = {
   // 👀 MIRÁ POR DENTRO (páginas reales de los ebooks + versión web en el celular)
   // Las URLs ya apuntan a Contenido → Archivos: subí ahí las 9 imágenes de landing/muestras/
   // con el MISMO nombre de archivo (e1-indice.jpg, etc.) y la sección aparece sola.
-  // mostrarMuestras: true → muestra páginas reales del ebook y la versión web en el celular (false = apagada).
+  // mostrarMuestras: false → apagada (decisión: no mostrar páginas del contenido). true = la prende.
   // ============================================================
-  mostrarMuestras: true,
+  mostrarMuestras: false,
   muestras: [
     { src: "muestras/e1-indice.jpg", texto: "Ebook 1 · El plan completo, día por día" },
     { src: "muestras/e1-formula-cv.jpg", texto: "Ebook 1 · La fórmula para escribir logros en tu CV" },
@@ -506,7 +522,8 @@ window.CE_imgFail = function(img) {
     "#ce-landing-full .rv{background:#fff;border:1px solid var(--ce-line);border-radius:18px;padding:22px;display:flex;flex-direction:column}",
     "#ce-landing-full .rv .st{color:#E8A317;letter-spacing:2px}",
     "#ce-landing-full .rv .st .off{color:#D5DAE3}",
-    "#ce-landing-full .revs-more{display:none;margin:22px auto 0;background:none;border:2px solid var(--ce-navy);color:var(--ce-navy);font:800 15px/1 var(--ce-title);padding:14px 26px;border-radius:999px;cursor:pointer}",
+    "#ce-landing-full .revs:not(.open) .rv.more-d{display:none}",
+    "#ce-landing-full .revs-more{display:block;margin:28px auto 0;background:none;border:2px solid var(--ce-navy);color:var(--ce-navy);font:800 15px/1 var(--ce-title);padding:14px 26px;border-radius:999px;cursor:pointer}",
     "#ce-landing-full .rv .ex{display:inline-block;margin-bottom:8px;background:#FFF1E9;color:#C2410C;border:1px dashed #E8632E;font:800 10.5px/1 var(--ce-title);letter-spacing:.08em;padding:5px 8px;border-radius:6px;align-self:flex-start}",
     "#ce-landing-full .rv h3{font-size:17px;line-height:1.25;margin:8px 0;color:var(--ce-navy);min-height:2.5em}",
     "@media(max-width:900px){#ce-landing-full .rv h3{min-height:0}}",
@@ -709,14 +726,14 @@ window.CE_imgFail = function(img) {
   }
 
   function reviews() {
-    var t = (cfg.testimonios || []).filter(function(r) { return window.CE_PREVIEW || !r.ejemplo; }).slice(0, 6);
+    var t = (cfg.testimonios || []).filter(function(r) { return window.CE_PREVIEW || !r.ejemplo; }).slice(0, 30);
     if (!t.length) return "";
     return '<section class="sec paper"><div class="w"><div class="ey">Lo que dicen quienes lo usaron</div><h2 class="h2">Búsquedas con método, resultados reales</h2><div class="revs" id="ce-revs">' +
       t.map(function(r, i) {
         var n = Math.max(1, Math.min(5, r.estrellas || 5));
         var stars = "★★★★★".slice(0, n) + '<span class="off">' + "★★★★★".slice(n) + "</span>";
         var pic = window.CE_OK(r.foto) && r.foto ? '<img src="' + r.foto + '" alt="" loading="lazy">' : "<i>" + (r.nombre || "?").charAt(0) + "</i>";
-        return '<div class="rv' + (i > 2 ? " more" : "") + '">' + (r.ejemplo ? '<span class="ex">EJEMPLO · solo en vista previa</span>' : "") + '<div class="st" aria-label="' + n + ' de 5 estrellas">' + stars + "</div><h3>" + r.titulo + "</h3><p>“" + r.texto + '”</p><div class="who">' + pic + "<span><b>" + r.nombre + "</b>" + (r.rubro ? " · " + r.rubro : "") + "</span></div></div>";
+        return '<div class="rv' + (i > 2 ? " more" : "") + (i > 5 ? " more-d" : "") + '">' + (r.ejemplo ? '<span class="ex">EJEMPLO · solo en vista previa</span>' : "") + '<div class="st" aria-label="' + n + ' de 5 estrellas">' + stars + "</div><h3>" + r.titulo + "</h3><p>“" + r.texto + '”</p><div class="who">' + pic + "<span><b>" + r.nombre + "</b>" + (r.rubro ? " · " + r.rubro : "") + "</span></div></div>";
       }).join("") + "</div>" +
       (t.length > 3 ? '<button type="button" class="revs-more" onclick="document.getElementById(\'ce-revs\').classList.add(\'open\');this.remove()">Ver más opiniones</button>' : "") +
       "</div></section>";

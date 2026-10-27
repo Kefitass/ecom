@@ -180,8 +180,8 @@
           <a class="btn" href="{{ url_producto }}">{{ section.settings.boton }}</a>
           <a class="btn btn--ghost" href="#m30-planes-{{ section.id }}">Ver opciones</a>
         </div>
-        {%- assign puntuacion = section.settings.puntuacion | default: '4,8' -%}
-        {%- assign texto_clientes = section.settings.texto_clientes | default: '6 opiniones' -%}
+        {%- assign puntuacion = section.settings.puntuacion | default: '4,9' -%}
+        {%- assign texto_clientes = section.settings.texto_clientes | default: '14 opiniones' -%}
         <p class="hero__rating"><span class="stars" aria-hidden="true">★★★★★</span><b>{{ puntuacion }}</b> · {{ texto_clientes }}</p>
       </div>
     </div>
