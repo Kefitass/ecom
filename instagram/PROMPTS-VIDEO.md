@@ -19,3 +19,6 @@ Voice: a light, lively female voice — a woman in her mid-20s, bright and clear
 - Fondo verde croma (#00FF00) con la foto de Cami como imagen de inicio; los fondos animados se ponen en CapCut.
 - Nada de texto legible generado por IA: los textos van en CapCut o en los fondos animados (`instagram/fondos/`).
 - En anuncios, el cierre dice "Tocá el botón", nunca "link en mi perfil".
+- En lo que dice ella, escribir "currículum" y no "CV": con prompts en inglés lo pronuncia "si-vi". En los textos de CapCut sí va "CV".
+- Aclarar la pronunciación: "IA" se dice "i-a" y todo va en español, sin pronunciación en inglés.
+- No dejar segundos "en silencio" al final: la IA mete la voz igual y sin mover los labios. El clip dura lo que dura lo que dice, y se pide "lips in perfect sync with every word, no voice-over".
