@@ -6,6 +6,20 @@ Oct 23, 2026 · @Quierotonkas
 
 ## Introducción: buscar trabajo es un trabajo, y se puede hacer con método
 
+### Antes de empezar: la historia de Isabela
+
+Isabela pasó un año y medio buscando trabajo. Mandaba CVs todas las semanas, a veces decenas en un mismo día. Casi nadie le respondía. Y las pocas ofertas que llegaban eran mal pagas y pedían jornadas eternas. "Si esto es lo único que hay, el problema debo ser yo", llegó a pensar.
+
+No era ella. Cuando empezamos a acompañarla, uno a uno, revisamos todo lo que hacía: cómo armaba el CV, qué decía su LinkedIn, a quién le escribía y qué respondía en las entrevistas. Y apareció un patrón: no le faltaba talento ni experiencia. **Le faltaba método.** Mandaba el mismo CV a todo, esperaba que la llamaran y llegaba a las entrevistas improvisando.
+
+Fuimos corrigiendo un hábito por vez, con tareas concretas para cada día. Al poco tiempo empezaron a llegar las respuestas y, con ellas, las entrevistas: muchas, y para puestos que de verdad le interesaban. **A los 33 días, Isabela empezó a trabajar en la empresa donde siempre había querido estar.**
+
+Ahí nos dimos cuenta de algo más grande: lo de Isabela no era un caso aislado. Le pasa a cualquiera que quiere empezar a trabajar o cambiar de rumbo, tenga la edad que tenga. Por eso convertimos ese acompañamiento en este plan de 30 días, para que cualquiera lo pueda hacer por su cuenta.
+
+Este ebook es ese método. Gracias, Isabela.
+
+### Por qué funciona
+
 En 30 días podés pasar de mandar CVs al vacío a tener entrevistas todas las semanas y, con constancia, una oferta. No hace falta suerte ni contactos de familia. Hace falta un sistema: saber qué buscás, mostrarlo bien y estar frente a las personas correctas el tiempo suficiente.
 
 La mayoría de los postulantes falla por tres razones. Mandan el mismo CV genérico a todo. Esperan que los llamen en vez de ir a buscar a quien decide. Y llegan a la entrevista improvisando. Este ebook ataca las tres, día por día.

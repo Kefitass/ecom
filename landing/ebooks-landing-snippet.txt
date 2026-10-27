@@ -97,6 +97,19 @@ window.CE_CONFIG = {
   ],
 
   // ============================================================
+  // 📖 LA HISTORIA DE ISABELA (bloque corto después de "¿Te pasa esto?")
+  // Historia real, contada con permiso. foto: URL https de Archivos (vacío = sin foto).
+  // ============================================================
+  historia: {
+    mostrar: true,
+    nombre: "Isabela",
+    dias: "33",
+    titulo: "Todo empezó con Isabela",
+    texto: "Un año y medio mandando CVs sin respuesta y recibiendo ofertas mal pagas. La acompañamos uno a uno y corregimos cada hábito que la frenaba. A los 33 días empezó a trabajar donde siempre había querido. Ese proceso es el plan que tenés en este ebook.",
+    foto: ""
+  },
+
+  // ============================================================
   // ✅ BENEFICIOS (debajo del título del producto)
   // ============================================================
   beneficios: [
@@ -518,6 +531,15 @@ window.CE_imgFail = function(img) {
     "#ce-landing-full .gets li{display:flex;gap:12px;font-size:18px}",
     "#ce-landing-full .gets li::before{content:'\\2713';flex:none;width:28px;height:28px;border-radius:50%;background:#E6F6EE;color:#157A4A;font-weight:800;display:flex;align-items:center;justify-content:center}",
 
+    "#ce-landing-full .story{background:radial-gradient(circle at 85% 0%,#3B3F9A 0%,#14213D 50%,#0B1226 100%);color:#fff}",
+    "#ce-landing-full .story .w{display:grid;grid-template-columns:auto minmax(0,1fr);gap:44px;align-items:center;max-width:960px}",
+    "#ce-landing-full .story .big{text-align:center;min-width:200px}",
+    "#ce-landing-full .story .big b{display:block;font:900 120px/1 var(--ce-title);color:#F5D27A;letter-spacing:-.04em}",
+    "#ce-landing-full .story .big span{display:block;font:800 15px/1.3 var(--ce-title);letter-spacing:.12em;text-transform:uppercase;opacity:.8;margin-top:6px}",
+    "#ce-landing-full .story .big img{width:170px;height:170px;border-radius:50%;object-fit:cover;border:5px solid #F5D27A;margin-bottom:14px}",
+    "#ce-landing-full .story .ey{color:#E8632E}",
+    "#ce-landing-full .story h2{color:#fff;margin-bottom:12px}",
+    "#ce-landing-full .story p{color:rgba(255,255,255,.85);font-size:17.5px;line-height:1.6}",
     "#ce-landing-full .revs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:36px}",
     "#ce-landing-full .rv{background:#fff;border:1px solid var(--ce-line);border-radius:18px;padding:22px;display:flex;flex-direction:column}",
     "#ce-landing-full .rv .st{color:#E8A317;letter-spacing:2px}",
@@ -559,7 +581,7 @@ window.CE_imgFail = function(img) {
     "#ce-sticky .tx span{font:800 17px/1.2 var(--ce-title);color:var(--ce-orange);font-variant-numeric:tabular-nums}",
     "#ce-sticky button{flex:none;background:var(--ce-orange);color:#fff;border:0;border-radius:999px;font:800 15px/1 var(--ce-title);letter-spacing:.04em;padding:14px 22px;cursor:pointer}",
 
-    "@media(max-width:900px){#ce-landing-full .sec{padding-block:60px}#ce-landing-full .split,#ce-landing-full .book-row,#ce-landing-full .who2{grid-template-columns:minmax(0,1fr);gap:30px}#ce-landing-full .grid,#ce-landing-full .revs{grid-template-columns:minmax(0,1fr)}#ce-landing-full .revs:not(.open) .rv.more{display:none}#ce-landing-full .revs-more{display:block}#ce-landing-full .book{max-width:200px}#ce-landing-full .cmp table{font-size:14px}#ce-landing-full .cmp th,#ce-landing-full .cmp td{padding:12px 10px}#ce-landing-full .cmp td:first-child{width:26%}#ce-landing-full .ph-first{order:-1}#ce-landing-full .phone-row{grid-template-columns:minmax(0,1fr);padding:30px 22px;gap:28px}#ce-landing-full .phone{max-width:220px}#ce-landing-full .peek-nav{display:none}}"
+    "@media(max-width:900px){#ce-landing-full .sec{padding-block:60px}#ce-landing-full .split,#ce-landing-full .book-row,#ce-landing-full .who2{grid-template-columns:minmax(0,1fr);gap:30px}#ce-landing-full .grid,#ce-landing-full .revs{grid-template-columns:minmax(0,1fr)}#ce-landing-full .story .w{grid-template-columns:minmax(0,1fr);gap:22px;text-align:center}#ce-landing-full .story .big b{font-size:96px}#ce-landing-full .revs:not(.open) .rv.more{display:none}#ce-landing-full .revs-more{display:block}#ce-landing-full .book{max-width:200px}#ce-landing-full .cmp table{font-size:14px}#ce-landing-full .cmp th,#ce-landing-full .cmp td{padding:12px 10px}#ce-landing-full .cmp td:first-child{width:26%}#ce-landing-full .ph-first{order:-1}#ce-landing-full .phone-row{grid-template-columns:minmax(0,1fr);padding:30px 22px;gap:28px}#ce-landing-full .phone{max-width:220px}#ce-landing-full .peek-nav{display:none}}"
   ].join("");
   document.head.appendChild(st);
 })();
@@ -725,6 +747,14 @@ window.CE_imgFail = function(img) {
     return '<section class="sec paper"><div class="w">' + gal + phone + "</div></section>";
   }
 
+  function story() {
+    var h = cfg.historia || {};
+    if (!h.mostrar) return "";
+    var pic = window.CE_OK(h.foto) && h.foto ? '<img src="' + h.foto + '" alt="' + h.nombre + '" loading="lazy">' : "";
+    return '<section class="sec story"><div class="w"><div class="big">' + pic + "<b>" + h.dias + "</b><span>días hasta su<br>nuevo trabajo</span></div>" +
+      '<div><div class="ey">Cómo nació Método 30</div><h2 class="h2">' + h.titulo + "</h2><p>" + h.texto + "</p></div></div></section>";
+  }
+
   function reviews() {
     var t = (cfg.testimonios || []).filter(function(r) { return window.CE_PREVIEW || !r.ejemplo; }).slice(0, 30);
     if (!t.length) return "";
@@ -755,6 +785,9 @@ window.CE_imgFail = function(img) {
           "<li>No sabés cuánto pedir de sueldo y terminás aceptando menos.</li>" +
         '</ul><p class="turn">No es falta de talento. <span>Es falta de método.</span></p></div>' +
       "</div></section>" +
+
+      // 1b. La historia de Isabela
+      story() +
 
       // 2. Solución: el plan
       '<section class="sec paper"><div class="w ' + row("book-row", img.tapa1) + '">' +
