@@ -210,9 +210,37 @@ add(K, "close", title="Tu CV, listo para<br>pasar el <em>filtro</em>",
     sub="La plantilla que pasa los filtros y el paso a paso para armarla están en «Conseguí trabajo en 30 días».")
 
 
+# ---------- 12. ChatGPT para buscar trabajo (portada con chat) ----------
+K = "12-chatgpt-busqueda"
+add(K, "cv_chat", title="ChatGPT te ayuda<br>a buscar trabajo…<br>si lo usás <em>bien</em>",
+    sub="4 prompts para copiar y pegar")
+add(K, "bad", title="Así se nota<br>a kilómetros",
+    items=["Pedirle «haceme un CV» sin darle contexto", "Copiar y pegar lo que te devuelve", "Mandar la misma carta a 50 empresas"],
+    note="Sale genérico, y eso es justo lo que se descarta.")
+for label, text in [
+    ("Prompt 1 · Adaptar tu CV al aviso",
+     "Te paso un aviso y mi CV. Decime qué palabras clave del aviso faltan en mi CV y reescribí mis viñetas para incluirlas, sin inventar nada que no hice. Aviso: [pegar]. CV: [pegar]."),
+    ("Prompt 2 · De tareas a logros",
+     "Estas son mis tareas en [puesto]: [lista]. Convertilas en logros con la fórmula verbo + qué hice + resultado. Si me faltan números, preguntame cuáles puedo estimar."),
+    ("Prompt 3 · Practicar la entrevista",
+     "Actuá como reclutador de [empresa] para el puesto de [puesto]. Haceme una pregunta por vez, esperá mi respuesta y decime cómo mejorarla."),
+    ("Prompt 4 · Investigar la empresa",
+     "Resumime qué hace [empresa], sus productos y novedades recientes, y dame 3 preguntas inteligentes para hacer en la entrevista."),
+]:
+    add(K, "msg", label=label, to="Mensaje para ChatGPT", text=text)
+add(K, "list", title="La regla<br>de <em>oro</em>",
+    items=["Nunca inventes experiencia", "Leé todo y pasalo a tus palabras", "Chequeá datos, fechas y nombres", "Usalo para pensar, no para copiar"])
+add(K, "close", title="La IA te ayuda.<br>El <em>método</em> te<br>consigue trabajo",
+    sub="El plan día por día, las plantillas y las 15 preguntas de entrevista están en «Conseguí trabajo en 30 días».")
+
+
 # ---------- RENDER ----------
 def body(p):
     k = p["kind"]
+    if k == "cv_chat":
+        return ('<div class="chatui"><div class="cu me">Haceme un CV</div>'
+                '<div class="cu bot">¡Claro! Acá tenés un CV profesional y dinámico, ideal para cualquier puesto…<b>✕</b></div></div>'
+                f'<h1>{p["title"]}</h1><p class="sub">{p["sub"]}</p><div class="swipe">Deslizá <span>→</span></div>')
     if k == "cv_ai":
         lines = "".join(f'<i style="width:{w}%"></i>' for w in (100, 86, 92, 70, 96, 64, 88, 76))
         return (f'<div class="kick">CV + IA</div><h1>{p["title"]}</h1><p class="sub">{p["sub"]}</p>'
@@ -295,7 +323,7 @@ def body(p):
 
 
 DARK = {"cover", "close", "qa", "cv_photo", "cv_photo2"}
-THEMES = {"cv_ai": "aibg", "cv_orange": "orange", "cv_gold": "goldbg", "cv_funnel": "black"}
+THEMES = {"cv_chat": "chatbg", "cv_ai": "aibg", "cv_orange": "orange", "cv_gold": "goldbg", "cv_funnel": "black"}
 
 CSS = """
 *{box-sizing:border-box;margin:0;padding:0}
@@ -404,6 +432,13 @@ h1 em,h2 em{font-style:normal;color:#E8632E}
 .sp b{flex:none;width:250px;font:900 96px/1 "Inter Display";color:#E8632E;letter-spacing:-.03em}
 .sp span{font-size:44px;font-weight:700;line-height:1.25}
 .pr.best{box-shadow:0 0 0 8px #E8632E}
+.chatbg{background:#ECFDF5;color:#14213D}
+.chatbg h1{font-size:92px}.chatbg h1 em{color:#10A37F}.chatbg .swipe{color:#14213D}.chatbg .sub{margin-top:30px}
+.chatui{display:flex;flex-direction:column;gap:22px;margin-bottom:60px}
+.cu{max-width:720px;border-radius:34px;padding:30px 38px;font-size:38px;font-weight:600;line-height:1.35;box-shadow:0 14px 34px rgba(20,33,61,.1)}
+.cu.me{align-self:flex-end;background:#14213D;color:#fff;border-bottom-right-radius:8px}
+.cu.bot{position:relative;align-self:flex-start;background:#fff;color:#64748B;border-bottom-left-radius:8px}
+.cu.bot b{position:absolute;right:-26px;bottom:-26px;width:72px;height:72px;border-radius:50%;background:#E11D48;color:#fff;font:900 38px/72px Inter;text-align:center;box-shadow:0 10px 24px rgba(225,29,72,.4)}
 .aibg{background:radial-gradient(circle at 80% 70%,#0E4A6E 0%,#14213D 45%,#0B1226 100%);color:#fff}
 .aibg h1{font-size:100px;position:relative;z-index:2}.aibg h1 em{color:#38BDF8}.aibg .kick{color:#38BDF8}.aibg .sub{max-width:560px;position:relative;z-index:2}.aibg .swipe{position:relative;z-index:2}
 .aicv{position:absolute;right:70px;bottom:150px;width:380px;height:500px;border-radius:24px;background:#fff;padding:44px 36px;transform:rotate(5deg);box-shadow:0 40px 90px rgba(0,0,0,.6),0 0 0 3px rgba(56,189,248,.5);overflow:hidden}

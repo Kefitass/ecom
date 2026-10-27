@@ -209,3 +209,22 @@ Deslizá para ver cómo arreglar cada uno, con un ejemplo real.
 
 #cv #curriculum #buscotrabajo #empleo #inteligenciaartificial #rrhh #trabajoargentina
 ```
+
+## 12. ChatGPT para buscar trabajo (`12-chatgpt-busqueda`, 8 placas): portada verde con chat
+
+```
+Si le pedís a ChatGPT «haceme un CV», te va a dar el mismo CV que a todos 🤖
+
+Bien usado, te ahorra horas. Te dejo 4 prompts para copiar y pegar:
+1️⃣ Adaptar tu CV a cada aviso
+2️⃣ Convertir tus tareas en logros
+3️⃣ Practicar la entrevista con un «reclutador»
+4️⃣ Investigar la empresa antes de ir
+
+Y la regla de oro: nunca inventes experiencia.
+
+📌 Guardalo para usarlo en tu próxima postulación
+🔗 El plan completo, en el link de nuestro perfil
+
+#chatgpt #inteligenciaartificial #buscotrabajo #cv #entrevistadetrabajo #empleo #trabajoargentina
+```
