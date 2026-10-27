@@ -1,0 +1,95 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Video 4 · fondo bloque 1</title>
+<!-- La IA escanea el currículum, marca 3 errores y lo descarta sin que nadie lo lea. render(t), t de 0 a 7.2 s (tiempos del audio). -->
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:1080px;height:1920px;overflow:hidden;font-family:Inter,sans-serif;color:#14213D;
+  background:radial-gradient(circle at 50% 22%,#1E3A8A 0%,#14213D 42%,#0B1226 100%)}
+.tag{position:absolute;left:0;right:0;top:80px;text-align:center;color:#fff;font:800 34px/1 Inter;letter-spacing:.08em;text-transform:uppercase}
+.tag span{display:inline-flex;align-items:center;gap:14px;padding:16px 28px;border-radius:40px;background:rgba(56,189,248,.14);border:2px solid rgba(56,189,248,.5)}
+.tag i{width:16px;height:16px;border-radius:50%;background:#38BDF8;box-shadow:0 0 16px #38BDF8}
+.cv{position:absolute;left:190px;top:170px;width:700px;height:720px;border-radius:30px;background:#fff;padding:56px 60px;box-shadow:0 50px 120px rgba(0,0,0,.6);overflow:hidden}
+.cv .nm{height:38px;width:62%;border-radius:10px;background:#14213D}
+.cv .sub{height:20px;width:44%;border-radius:8px;background:#94A3B8;margin-top:18px}
+.cv h4{font:800 24px/1 Inter;letter-spacing:.14em;text-transform:uppercase;color:#64748B;margin:46px 0 18px}
+.cv .ln{height:16px;border-radius:8px;background:#E2E8F0;margin-bottom:14px}
+.scan{position:absolute;left:0;right:0;height:140px;background:linear-gradient(180deg,rgba(56,189,248,0) 0%,rgba(56,189,248,.28) 85%,rgba(56,189,248,.9) 100%);border-bottom:4px solid #38BDF8;box-shadow:0 8px 40px rgba(56,189,248,.9)}
+.grid{position:absolute;inset:0;background-image:linear-gradient(rgba(56,189,248,.08) 2px,transparent 2px),linear-gradient(90deg,rgba(56,189,248,.08) 2px,transparent 2px);background-size:44px 44px}
+.err{position:absolute;width:86px;height:86px;border-radius:50%;background:#E11D48;color:#fff;font:900 46px/86px Inter;text-align:center;box-shadow:0 0 0 8px rgba(225,29,72,.25),0 0 40px rgba(225,29,72,.8);opacity:0;z-index:3}
+.box{position:absolute;border:5px solid #E11D48;border-radius:14px;opacity:0;z-index:2}
+.stamp{position:absolute;left:250px;top:470px;transform:rotate(-12deg);border:12px solid #E11D48;color:#E11D48;font:900 92px/1 "Inter Display",Inter;padding:20px 34px;border-radius:22px;letter-spacing:.04em;background:rgba(255,255,255,.94);opacity:0;z-index:6}
+.eye{position:absolute;left:0;right:0;top:920px;text-align:center;color:#fff;font:800 40px/1.2 Inter;opacity:0}
+.eye b{color:#FDA4AF}
+.next{position:absolute;left:140px;right:140px;top:380px;text-align:center;opacity:0;z-index:8;background:rgba(11,18,38,.88);border-radius:40px;padding:60px 30px;box-shadow:0 40px 100px rgba(0,0,0,.6)}
+.next span{display:inline-block;background:#E11D48;color:#fff;font:900 88px/1 "Inter Display",Inter;padding:34px 54px;border-radius:32px;box-shadow:0 40px 100px rgba(225,29,72,.6)}
+.next small{display:block;margin-top:26px;color:#fff;font:800 44px/1.2 Inter}
+</style>
+<body>
+<div class="tag" id="tag"><span><i></i><b id="st">Analizando con IA</b></span></div>
+<div class="cv" id="cv">
+  <div class="grid" id="grid"></div>
+  <div class="nm"></div><div class="sub"></div>
+  <h4>Perfil</h4><div class="ln" style="width:100%"></div><div class="ln" style="width:92%"></div><div class="ln" style="width:70%"></div>
+  <h4>Experiencia</h4><div class="ln" style="width:96%"></div><div class="ln" style="width:84%"></div><div class="ln" style="width:90%"></div><div class="ln" style="width:60%"></div>
+  <h4>Habilidades</h4><div class="ln" style="width:80%"></div><div class="ln" style="width:66%"></div>
+  <div class="scan" id="scan"></div>
+</div>
+<div class="box" id="x1" style="left:215px;top:200px;width:650px;height:125px"></div>
+<div class="box" id="x2" style="left:215px;top:495px;width:650px;height:195px"></div>
+<div class="box" id="x3" style="left:215px;top:700px;width:650px;height:150px"></div>
+<div class="err" id="e1" style="left:830px;top:180px">1</div>
+<div class="err" id="e2" style="left:830px;top:475px">2</div>
+<div class="err" id="e3" style="left:830px;top:680px">3</div>
+<div class="stamp" id="stamp">DESCARTADO</div>
+<div class="eye" id="eye">👁️ Personas que lo leyeron: <b>0</b></div>
+<div class="next" id="next"><span>Error #1</span><small>casi todo el mundo lo comete</small></div>
+<script src="fx.js"></script>
+<script>
+const clamp = (x, a = 0, b = 1) => Math.max(a, Math.min(b, x));
+const span = (t, a, b) => clamp((t - a) / (b - a));
+const $ = id => document.getElementById(id);
+const pop = (el, t, a) => { const k = span(t, a, a + 0.22); el.style.opacity = k; el.style.transform = `scale(${1.8 - 0.8 * k})`; };
+function render(t) {
+  FX.frame(t);
+  const cv = $('cv'), e = FX.enter(cv, t, 0, 0.5);
+  // 0 · aparece el currículum y lo recorre el escáner (ida y vuelta hasta el descarte)
+  const sy = -140 + 1000 * (0.5 - 0.5 * Math.cos(Math.min(t, 2.8) * 2.4));
+  $('scan').style.top = sy + 'px';
+  $('scan').style.opacity = t < 2.8 ? 1 : 1 - span(t, 2.8, 3.0);
+  $('grid').style.opacity = t < 2.8 ? 0.6 + 0.4 * Math.sin(t * 12) : 0;
+  $('tag').style.opacity = span(t, 0, 0.3);
+  $('st').textContent = t < 2.84 ? 'Analizando con IA… ' + Math.min(99, Math.round(span(t, 0, 2.7) * 99)) + '%' : 'Resultado: no apto';
+  $('tag').querySelector('span').style.borderColor = t < 2.84 ? 'rgba(56,189,248,.5)' : '#E11D48';
+  $('tag').querySelector('i').style.background = t < 2.84 ? '#38BDF8' : '#E11D48';
+  // 1 · "Tres errores": se marcan los 3 errores
+  [[1, 0.3], [2, 0.6], [3, 0.9]].forEach(([i, a]) => {
+    pop($('e' + i), t, a);
+    $('x' + i).style.opacity = span(t, a, a + 0.15) * (0.6 + 0.4 * Math.sin(t * 8 + i));
+  });
+  // 2 · "te descarta": sello de golpe
+  const s = span(t, 2.84, 3.04);
+  $('stamp').style.opacity = s;
+  $('stamp').style.transform = `rotate(-12deg) scale(${2.4 - 1.4 * (1 - Math.pow(1 - s, 3))})`;
+  FX.flash(t, 3.04, 0.2);
+  cv.style.transform = `scale(${0.92 + 0.08 * e}) ` + (t > 3.04 ? FX.shake(cv, t, 3.04, 0.4, 16) : '');
+  cv.style.filter = t > 3.04 ? `grayscale(${span(t, 3.04, 3.6) * 0.8}) brightness(${1 - 0.25 * span(t, 3.04, 3.6)})` : cv.style.filter;
+  // 3 · "sin que nadie lo lea"
+  const ey = span(t, 3.6, 3.9);
+  $('eye').style.opacity = ey * (1 - span(t, 4.75, 4.95));
+  $('eye').style.transform = `translateY(${30 - 30 * ey}px)`;
+  // 4 · "El primero lo comete casi todo el mundo": se va todo y queda el error 1
+  const out = span(t, 4.75, 5.05);
+  ['stamp', 'e2', 'e3', 'x1', 'x2', 'x3'].forEach(id => { $(id).style.opacity = parseFloat($(id).style.opacity || 0) * (1 - out); });
+  cv.style.opacity = e * (1 - 0.75 * out);
+  $('e1').style.transform += ` translate(${-300 * out}px, ${290 * out}px)`;
+  $('e1').style.opacity = 1 - span(t, 4.95, 5.1);
+  const n = span(t, 5.0, 5.25);
+  $('next').style.opacity = n;
+  $('next').style.transform = `scale(${1.5 - 0.5 * (1 - Math.pow(1 - n, 3))})`;
+  FX.flash(t, 5.25, 0.18);
+}
+FX.init();
+render(0);
+</script>
+</body>

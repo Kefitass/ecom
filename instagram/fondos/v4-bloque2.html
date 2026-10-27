@@ -1,0 +1,112 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Video 4 · fondo bloque 2</title>
+<!-- Error 1: el currículum de Canva. Se ve lindo, pero el programa lo lee como un revoltijo. render(t), t de 0 a 8 s. -->
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:1080px;height:1920px;overflow:hidden;font-family:Inter,sans-serif;color:#14213D;
+  background:radial-gradient(circle at 50% 22%,#5B2A86 0%,#14213D 42%,#0B1226 100%)}
+.title{position:absolute;left:0;right:0;top:70px;text-align:center;color:#fff;font:900 58px/1.1 "Inter Display",Inter;letter-spacing:-.02em}
+.title em{font-style:normal;background:#E11D48;border-radius:14px;padding:2px 18px;margin-right:12px}
+.wrap{position:absolute;left:150px;top:190px;width:780px;height:820px;transform-style:preserve-3d}
+.face{position:absolute;inset:0;border-radius:30px;overflow:hidden;box-shadow:0 50px 120px rgba(0,0,0,.6);backface-visibility:hidden}
+.cv{display:flex;background:#FFF7FB}
+.side{width:290px;background:linear-gradient(180deg,#C026D3,#7C3AED);padding:46px 30px;color:#fff;display:flex;flex-direction:column;gap:20px}
+.ph{width:150px;height:150px;border-radius:50%;background:linear-gradient(140deg,#FDE68A,#F472B6);border:6px solid #fff;align-self:center;margin-bottom:10px}
+.ic{display:flex;align-items:center;gap:14px;font:700 22px/1 Inter}
+.ic i{width:48px;height:48px;border-radius:14px;background:rgba(255,255,255,.22);display:flex;align-items:center;justify-content:center;font-style:normal;font-size:26px}
+.side h5{font:800 20px/1 Inter;letter-spacing:.14em;text-transform:uppercase;margin-top:16px}
+.bar{height:16px;border-radius:8px;background:rgba(255,255,255,.25);overflow:hidden}
+.bar b{display:block;height:100%;border-radius:8px;background:#FDE047}
+.main{flex:1;padding:50px 40px}
+.main .nm{font:900 52px/1 "Inter Display",Inter;color:#7C3AED}
+.main .rl{font:700 26px/1 Inter;color:#DB2777;margin:14px 0 34px}
+.main h5{display:inline-block;font:800 20px/1 Inter;letter-spacing:.12em;text-transform:uppercase;color:#fff;background:#F472B6;padding:10px 16px;border-radius:10px;margin:22px 0 16px}
+.main .ln{height:14px;border-radius:7px;background:#E9D5FF;margin-bottom:12px}
+.hl{position:absolute;border:6px solid #FDE047;border-radius:20px;box-shadow:0 0 30px rgba(253,224,71,.8);opacity:0;z-index:4}
+.chip{position:absolute;left:0;right:0;text-align:center;z-index:5;opacity:0}
+.chip span{display:inline-block;background:#FDE047;color:#14213D;font:900 40px/1 Inter;padding:18px 30px;border-radius:20px;box-shadow:0 20px 50px rgba(0,0,0,.4)}
+.love{position:absolute;font-size:80px;opacity:0;z-index:6}
+.back{background:#0B1020;opacity:0;padding:50px 50px;font:700 38px/1.6 "DejaVu Sans Mono",monospace;color:#94A3B8}
+.back h6{font:800 26px/1 Inter;letter-spacing:.14em;text-transform:uppercase;color:#38BDF8;margin-bottom:30px;display:flex;align-items:center;gap:14px}
+.back h6 i{width:16px;height:16px;border-radius:50%;background:#38BDF8;box-shadow:0 0 14px #38BDF8}
+.back .g{color:#FDA4AF}
+.stamp{position:absolute;left:260px;top:820px;transform:rotate(-10deg);border:12px solid #E11D48;color:#E11D48;font:900 80px/1 "Inter Display",Inter;padding:18px 30px;border-radius:22px;background:rgba(255,255,255,.95);opacity:0;z-index:8;white-space:nowrap}
+</style>
+<body>
+<div class="title" id="title"><em>1</em>El currículum de Canva</div>
+<div class="wrap" id="wrap">
+  <div class="face cv" id="front">
+    <div class="side" id="side">
+      <div class="ph"></div>
+      <div class="ic"><i>📞</i>11 5555-5555</div>
+      <div class="ic"><i>✉️</i>mail@mail.com</div>
+      <div class="ic"><i>📍</i>Buenos Aires</div>
+      <h5>Habilidades</h5>
+      <div class="bar"><b id="b1"></b></div><div class="bar"><b id="b2"></b></div><div class="bar"><b id="b3"></b></div><div class="bar"><b id="b4"></b></div>
+    </div>
+    <div class="main">
+      <div class="nm">Tu Nombre</div><div class="rl">Analista ✨ Creativa</div>
+      <h5>Sobre mí</h5><div class="ln" style="width:100%"></div><div class="ln" style="width:86%"></div><div class="ln" style="width:70%"></div>
+      <h5>Experiencia</h5><div class="ln" style="width:95%"></div><div class="ln" style="width:80%"></div><div class="ln" style="width:88%"></div><div class="ln" style="width:60%"></div>
+      <h5>Estudios</h5><div class="ln" style="width:90%"></div><div class="ln" style="width:66%"></div>
+    </div>
+  </div>
+  <div class="face back" id="backf"><h6><i></i>Lo que lee el programa</h6><div id="code"></div></div>
+</div>
+<div class="hl" id="hcol" style="left:140px;top:180px;width:310px;height:840px"></div>
+<div class="hl" id="hic" style="left:170px;top:420px;width:120px;height:230px"></div>
+<div class="hl" id="hbar" style="left:170px;top:700px;width:250px;height:170px"></div>
+<div class="chip" id="c1" style="top:1050px"><span>Columnas</span></div>
+<div class="chip" id="c2" style="top:1050px"><span>Íconos</span></div>
+<div class="chip" id="c3" style="top:1050px"><span>Colores</span></div>
+<div class="chip" id="c4" style="top:1050px"><span>Barritas de nivel</span></div>
+<div class="love" id="l1" style="left:120px;top:150px">😍</div>
+<div class="love" id="l2" style="left:860px;top:300px">✨</div>
+<div class="love" id="l3" style="left:830px;top:880px">💖</div>
+<div class="stamp" id="stamp">ILEGIBLE</div>
+<script src="fx.js"></script>
+<script>
+const clamp = (x, a = 0, b = 1) => Math.max(a, Math.min(b, x));
+const span = (t, a, b) => clamp((t - a) / (b - a));
+const $ = id => document.getElementById(id);
+const CODE = 'Tu N0mbre ▯▯ Analista ?? Crea\n▮▮▮ 11 55▯5-▯▯55 mail@\n<span class="g">[ícono] [ícono] [ícono]</span>\nBuen▯s Aires Sobre m▯\n<span class="g">█████ ███ ████ ██</span>\nExper▯encia ?? ▯▯▯▯\n<span class="g">Habilidades: ¿? ¿? ¿?</span>\nEstud▯os ▮▮▮ ▯▯ ...';
+function typed(p) { // escribe el texto sin romper las etiquetas
+  const plain = CODE.replace(/<[^>]+>/g, ''); let n = Math.round(plain.length * p), out = '', c = 0, i = 0, open = false;
+  while (i < CODE.length && c < n) { if (CODE[i] === '<') { const j = CODE.indexOf('>', i); const tag = CODE.slice(i, j + 1); open = !tag.startsWith('</'); out += tag; i = j + 1; continue; } out += CODE[i] === '\n' ? '<br>' : CODE[i]; i++; c++; }
+  return out + (open ? '</span>' : '');
+}
+const CH = [['c1', 'hcol', 2.0], ['c2', 'hic', 2.6], ['c3', null, 3.1], ['c4', 'hbar', 3.6]];
+function render(t) {
+  FX.frame(t);
+  const ti = FX.enter($('title'), t, 0, 0.4); $('title').style.transform = `scale(${1.3 - 0.3 * ti})`;
+  const w = $('wrap'), e = FX.enter(w, t, 0.1, 0.6);
+  // 1 · columnas, íconos, colores y barritas, cada uno cuando lo dice
+  CH.forEach(([c, h, a], i) => {
+    const end = i < 3 ? CH[i + 1][2] : 4.5, k = span(t, a, a + 0.15) * (1 - span(t, end - 0.05, end + 0.1));
+    $(c).style.opacity = k; $(c).style.transform = `scale(${1.3 - 0.3 * span(t, a, a + 0.15)})`;
+    if (h) $(h).style.opacity = k * (0.7 + 0.3 * Math.sin(t * 10));
+  });
+  const hue = t > 3.1 && t < 3.7 ? (t - 3.1) * 600 : 0;
+  $('front').style.filter = `hue-rotate(${hue}deg) saturate(${t > 3.1 && t < 3.7 ? 1.6 : 1})`;
+  [0.92, 0.75, 0.85, 0.6].forEach((v, i) => { $('b' + (i + 1)).style.width = (100 * v * span(t, 3.6 + i * 0.12, 4.1 + i * 0.12)) + '%'; });
+  // 2 · "vos lo ves re lindo"
+  ['l1', 'l2', 'l3'].forEach((id, i) => {
+    const a = 4.6 + i * 0.15, k = span(t, a, a + 0.25) * (1 - span(t, 5.6, 5.8));
+    $(id).style.opacity = k; $(id).style.transform = `scale(${0.4 + 0.6 * k}) translateY(${-10 * Math.sin(t * 5 + i)}px) rotate(${8 * Math.sin(t * 3 + i)}deg)`;
+  });
+  // 3 · "pero el programa no puede leerlo": el currículum gira y se ve el revoltijo
+  const f = span(t, 5.8, 6.25), ef = f < 0.5 ? 2 * f * f : 1 - Math.pow(-2 * f + 2, 2) / 2;
+  w.style.transform = `scale(${0.92 + 0.08 * e}) scaleX(${Math.max(0.02, Math.abs(Math.cos(Math.PI * ef)))})`;
+  $('front').style.opacity = ef < 0.5 ? 1 : 0; $('backf').style.opacity = ef < 0.5 ? 0 : 1;
+  $('code').innerHTML = typed(span(t, 6.2, 7.3));
+  const s = span(t, 7.3, 7.5);
+  $('stamp').style.opacity = s;
+  $('stamp').style.transform = `rotate(-10deg) scale(${2.2 - 1.2 * (1 - Math.pow(1 - s, 3))})`;
+  FX.flash(t, 7.5, 0.2);
+  if (t > 7.5) w.style.transform += ' ' + FX.shake(w, t, 7.5, 0.35, 12);
+}
+FX.init();
+render(0);
+</script>
+</body>

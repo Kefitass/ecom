@@ -1,0 +1,100 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Video 4 · fondo bloque 4</title>
+<!-- Cierre: el currículum simple pasa el filtro en verde, logo de Método 30, tapas y flecha al botón. render(t), t de 0 a 8 s. -->
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:1080px;height:1920px;overflow:hidden;font-family:Inter,sans-serif;color:#14213D;
+  background:radial-gradient(circle at 50% 22%,#14532D 0%,#14213D 42%,#0B1226 100%)}
+.logo{position:absolute;left:0;right:0;top:70px;text-align:center;color:#fff;font:900 96px/1 "Inter Display",Inter;letter-spacing:-.03em;opacity:0}
+.logo em{font-style:normal;background:#E8632E;border-radius:20px;padding:0 20px;margin-left:14px}
+.ring{position:absolute;left:540px;top:118px;width:200px;height:200px;margin:-100px 0 0 -100px;border-radius:50%;border:10px solid #E8632E;opacity:0}
+.cv{position:absolute;left:110px;top:220px;width:470px;height:640px;border-radius:26px;background:#fff;padding:44px 40px;box-shadow:0 50px 120px rgba(0,0,0,.6);overflow:hidden}
+.cv .nm{height:30px;width:70%;border-radius:8px;background:#14213D}
+.cv .sub{height:16px;width:50%;border-radius:7px;background:#94A3B8;margin-top:14px}
+.cv h4{font:800 20px/1 Inter;letter-spacing:.14em;text-transform:uppercase;color:#14213D;margin:34px 0 14px}
+.cv .ln{height:13px;border-radius:7px;background:#E2E8F0;margin-bottom:11px}
+.scan{position:absolute;left:0;right:0;height:120px;background:linear-gradient(180deg,rgba(74,222,128,0) 0%,rgba(74,222,128,.3) 85%,rgba(74,222,128,.9) 100%);border-bottom:4px solid #4ADE80;box-shadow:0 8px 40px rgba(74,222,128,.9)}
+.checks{position:absolute;left:610px;right:70px;top:260px;display:flex;flex-direction:column;gap:22px}
+.ck{display:flex;align-items:center;gap:16px;background:rgba(255,255,255,.1);border:3px solid rgba(255,255,255,.18);border-radius:22px;padding:22px 20px;color:#fff;font:800 30px/1.15 Inter;opacity:0}
+.ck i{flex:none;width:56px;height:56px;border-radius:50%;background:#16A34A;font:900 32px/56px Inter;font-style:normal;text-align:center;box-shadow:0 0 24px rgba(22,163,74,.8)}
+.stamp{position:absolute;left:150px;top:470px;transform:rotate(-10deg);border:12px solid #16A34A;color:#16A34A;font:900 84px/1 "Inter Display",Inter;padding:18px 30px;border-radius:22px;background:rgba(255,255,255,.95);opacity:0;z-index:6;white-space:nowrap}
+.step{position:absolute;left:0;right:0;top:920px;text-align:center;opacity:0}
+.step span{display:inline-block;background:#F5D27A;color:#14213D;font:900 44px/1 Inter;padding:20px 34px;border-radius:22px;box-shadow:0 20px 50px rgba(0,0,0,.4)}
+.books{position:absolute;left:0;right:0;top:220px;height:640px;opacity:0;z-index:7}
+.books img{position:absolute;width:340px;border-radius:6px 12px 12px 6px;box-shadow:0 40px 90px rgba(0,0,0,.6)}
+.books img:first-child{left:180px;top:20px;transform:rotate(-7deg);z-index:2}
+.books img:last-child{left:560px;top:50px;transform:rotate(7deg)}
+.arrow{position:absolute;left:50%;top:900px;width:150px;margin-left:-75px;opacity:0;z-index:8}
+.arrow svg{width:150px;height:150px;filter:drop-shadow(0 0 30px rgba(232,99,46,.8))}
+</style>
+<body>
+<div class="ring" id="ring"></div>
+<div class="logo" id="logo">Método<em>30</em></div>
+<div class="cv" id="cv">
+  <div class="nm"></div><div class="sub"></div>
+  <h4>Perfil</h4><div class="ln" style="width:100%"></div><div class="ln" style="width:88%"></div>
+  <h4>Experiencia</h4><div class="ln" style="width:96%"></div><div class="ln" style="width:82%"></div><div class="ln" style="width:90%"></div>
+  <h4>Educación</h4><div class="ln" style="width:86%"></div><div class="ln" style="width:60%"></div>
+  <h4>Habilidades</h4><div class="ln" style="width:78%"></div>
+  <div class="scan" id="scan"></div>
+</div>
+<div class="checks">
+  <div class="ck" id="c1"><i>✓</i>Formato que se lee</div>
+  <div class="ck" id="c2"><i>✓</i>Palabras del aviso</div>
+  <div class="ck" id="c3"><i>✓</i>Títulos estándar</div>
+</div>
+<div class="stamp" id="stamp">PASA EL FILTRO ✓</div>
+<div class="step" id="step"><span>Paso a paso</span></div>
+<div class="books" id="books"><img src="../../ebook/tapas/tapa-consegui-trabajo.png"><img src="../../ebook/tapas/tapa-secretos-de-reclutador.png"></div>
+<div class="arrow" id="arrow"><svg viewBox="0 0 24 24"><path d="M12 3v15M5 12l7 7 7-7" fill="none" stroke="#E8632E" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+<script src="fx.js"></script>
+<script>
+const clamp = (x, a = 0, b = 1) => Math.max(a, Math.min(b, x));
+const span = (t, a, b) => clamp((t - a) / (b - a));
+const $ = id => document.getElementById(id);
+function render(t) {
+  FX.frame(t);
+  // 0 · "Así que ya sabés": el currículum simple entra y lo recorre el escáner verde
+  const cv = $('cv'), e = FX.enter(cv, t, 0, 0.5);
+  $('scan').style.top = (-120 + 780 * span(t, 0.2, 3.3)) + 'px';
+  $('scan').style.opacity = t < 3.3 ? 1 : 0;
+  // 1 · "en Método treinta": logo de golpe con onda expansiva
+  const l = span(t, 1.0, 1.25);
+  $('logo').style.opacity = l;
+  $('logo').style.transform = `scale(${2.2 - 1.2 * (1 - Math.pow(1 - l, 3))})`;
+  FX.flash(t, 1.25, 0.2);
+  const r = span(t, 1.25, 1.95);
+  $('ring').style.opacity = r > 0 && r < 1 ? 1 - r : 0;
+  $('ring').style.transform = `scale(${1 + 6 * r})`;
+  // 2 · "tenés el formato que pasa los filtros": se tildan los 3 puntos y sello verde
+  [[1, 2.0], [2, 2.45], [3, 2.9]].forEach(([i, a]) => {
+    const k = span(t, a, a + 0.25), el = $('c' + i);
+    el.style.opacity = k * (1 - span(t, 4.7, 4.95));
+    el.style.transform = `translateX(${60 - 60 * k}px)`;
+    el.style.borderColor = k >= 1 ? '#16A34A' : 'rgba(255,255,255,.18)';
+    el.querySelector('i').style.transform = `scale(${1 + 0.4 * Math.max(0, 1 - (t - a - 0.25) / 0.25) * (t > a + 0.25 ? 1 : 0)})`;
+  });
+  const s = span(t, 3.35, 3.55);
+  $('stamp').style.opacity = s * (1 - span(t, 4.7, 4.95));
+  $('stamp').style.transform = `rotate(-10deg) scale(${2.2 - 1.2 * (1 - Math.pow(1 - s, 3))})`;
+  FX.flash(t, 3.55, 0.2);
+  cv.style.transform = `scale(${0.92 + 0.08 * e}) ` + (t > 3.55 ? FX.shake(cv, t, 3.55, 0.3, 10) : '');
+  // 3 · "paso a paso"
+  const st = span(t, 3.85, 4.05);
+  $('step').style.opacity = st * (1 - span(t, 4.7, 4.95));
+  $('step').style.transform = `scale(${1.4 - 0.4 * st})`;
+  // 4 · "Tocá el botón": entran las tapas y la flecha late hacia abajo
+  cv.style.opacity = e * (1 - span(t, 4.7, 4.95));
+  const b = span(t, 4.8, 5.15), eb = 1 - Math.pow(1 - b, 3);
+  $('books').style.opacity = eb;
+  $('books').style.transform = `scale(${1.3 - 0.3 * eb}) translateY(${Math.sin(t * 1.4) * 8}px)`;
+  FX.flash(t, 5.15, 0.18);
+  const a = span(t, 5.3, 5.6);
+  $('arrow').style.opacity = a;
+  $('arrow').style.transform = `translateY(${a * 28 * Math.abs(Math.sin(t * 6))}px) scale(${0.6 + 0.4 * a})`;
+}
+FX.init();
+render(0);
+</script>
+</body>

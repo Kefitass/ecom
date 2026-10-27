@@ -1,0 +1,111 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Video 4 · fondo bloque 3</title>
+<!-- Error 2: no usar las palabras del aviso. Error 3: títulos raros, que se cambian por "Experiencia". render(t), t de 0 a 8 s. -->
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:1080px;height:1920px;overflow:hidden;font-family:Inter,sans-serif;color:#14213D;
+  background:radial-gradient(circle at 50% 22%,#7C2D12 0%,#14213D 42%,#0B1226 100%)}
+.title{position:absolute;left:0;right:0;top:70px;text-align:center;color:#fff;font:900 58px/1.1 "Inter Display",Inter;letter-spacing:-.02em}
+.title em{font-style:normal;background:#E11D48;border-radius:14px;padding:2px 18px;margin-right:12px}
+.scene{position:absolute;inset:0}
+.card{position:absolute;left:110px;right:110px;border-radius:30px;background:#fff;padding:36px 44px;box-shadow:0 40px 100px rgba(0,0,0,.55)}
+.card small{display:block;font:800 22px/1 Inter;letter-spacing:.14em;text-transform:uppercase;color:#64748B;margin-bottom:18px}
+.card p{font:600 34px/1.5 Inter;color:#334155}
+.kw{font-weight:800;color:#14213D;border-radius:10px;padding:0 6px;transition:none}
+#aviso{top:190px}
+#micv{top:560px;background:#F8FAFC}
+.res{position:absolute;left:110px;right:110px;top:880px;display:flex;align-items:center;gap:20px;background:rgba(255,255,255,.1);border:3px solid rgba(255,255,255,.25);border-radius:24px;padding:24px 30px;color:#fff;font:800 36px/1 Inter;opacity:0}
+.res .q{flex:1;opacity:.85;font-weight:600}
+.res b{color:#FDA4AF;font-variant-numeric:tabular-nums}
+.x{display:inline-block;width:44px;height:44px;border-radius:50%;background:#E11D48;color:#fff;font:900 28px/44px Inter;text-align:center;vertical-align:middle;margin-left:6px;opacity:0}
+/* escena 2 */
+.cv2{position:absolute;left:150px;right:150px;top:200px;height:760px;border-radius:30px;background:#fff;padding:56px 60px;box-shadow:0 50px 120px rgba(0,0,0,.6)}
+.cv2 .nm{height:38px;width:60%;border-radius:10px;background:#14213D}
+.cv2 .sub{height:20px;width:42%;border-radius:8px;background:#94A3B8;margin:18px 0 60px}
+.hd{position:relative;display:inline-block;font:900 64px/1.1 "Inter Display",Inter;letter-spacing:-.02em;padding:10px 20px;border-radius:18px;margin-left:-20px}
+.hd .old,.hd .new{display:inline-block}
+.hd .new{position:absolute;left:20px;top:10px;color:#15803D;opacity:0}
+.strike{position:absolute;left:10px;top:50%;height:10px;border-radius:5px;background:#E11D48;width:0}
+.cv2 .ln{height:18px;border-radius:9px;background:#E2E8F0;margin-top:20px}
+.robot{position:absolute;left:0;right:0;top:1000px;text-align:center;color:#fff;font:800 40px/1.3 Inter;opacity:0}
+.robot b{display:inline-block;margin-top:10px;padding:14px 24px;border-radius:16px}
+.ok{position:absolute;right:120px;top:330px;width:120px;height:120px;border-radius:50%;background:#16A34A;color:#fff;font:900 70px/120px Inter;text-align:center;box-shadow:0 0 50px rgba(22,163,74,.7);opacity:0;z-index:4}
+</style>
+<body>
+<div class="title" id="title"><em id="num">2</em><span id="tt">Las palabras del aviso</span></div>
+<div class="scene" id="sc1">
+  <div class="card" id="aviso"><small>El aviso pide</small>
+    <p>Buscamos persona con manejo de <span class="kw" id="k1">Excel</span>, experiencia en <span class="kw" id="k2">atención al cliente</span> y <span class="kw" id="k3">facturación</span>.</p></div>
+  <div class="card" id="micv"><small>Tu currículum dice</small>
+    <p>Manejo de planillas<span class="x" id="x1">✕</span>, trato con la gente<span class="x" id="x2">✕</span> y cobros<span class="x" id="x3">✕</span>.</p></div>
+  <div class="res" id="res">🔍<span class="q">Filtro: «Excel»</span><b id="rn">0 resultados</b></div>
+</div>
+<div class="scene" id="sc2" style="opacity:0">
+  <div class="cv2" id="cv2">
+    <div class="nm"></div><div class="sub"></div>
+    <div class="hd" id="hd"><span class="old" id="old">Mi recorrido 🌱</span><span class="new" id="new">Experiencia</span><i class="strike" id="strike"></i></div>
+    <div class="ln" style="width:96%"></div><div class="ln" style="width:84%"></div><div class="ln" style="width:90%"></div><div class="ln" style="width:70%"></div>
+    <div class="ln" style="width:92%;margin-top:50px"></div><div class="ln" style="width:64%"></div>
+  </div>
+  <div class="ok" id="ok">✓</div>
+  <div class="robot" id="robot">El programa busca la sección…<br><b id="rb">«Experiencia» no encontrada</b></div>
+</div>
+<script src="fx.js"></script>
+<script>
+const clamp = (x, a = 0, b = 1) => Math.max(a, Math.min(b, x));
+const span = (t, a, b) => clamp((t - a) / (b - a));
+const $ = id => document.getElementById(id);
+function render(t) {
+  FX.frame(t);
+  const ti = FX.enter($('title'), t, 0, 0.4); $('title').style.transform = `scale(${1.3 - 0.3 * ti})`;
+  // escena 1 · "no usás las palabras del aviso, y el filtro no te encuentra"
+  const ea = FX.enter($('aviso'), t, 0.05, 0.45); $('aviso').style.transform = `translateY(${-40 + 40 * ea}px)`;
+  const ec = FX.enter($('micv'), t, 0.35, 0.45); $('micv').style.transform = `translateY(${40 - 40 * ec}px)`;
+  [1, 2, 3].forEach(i => {
+    const a = 0.7 + i * 0.3, k = span(t, a, a + 0.2);
+    $('k' + i).style.background = `rgba(253,224,71,${0.9 * k})`;
+    $('k' + i).style.boxShadow = `0 0 0 ${4 * k}px rgba(253,224,71,${0.5 * k})`;
+    const b = span(t, a + 0.35, a + 0.55);
+    $('x' + i).style.opacity = b; $('x' + i).style.transform = `scale(${1.8 - 0.8 * b})`;
+  });
+  const r = FX.enter($('res'), t, 2.2, 0.35);
+  $('res').style.transform = `translateY(${30 - 30 * r}px) ` + (t > 2.9 ? FX.shake($('res'), t, 2.9, 0.35, 14) : '');
+  $('rn').textContent = t < 2.9 ? 'buscando…' : '0 resultados';
+  $('res').style.borderColor = t < 2.9 ? 'rgba(255,255,255,.25)' : '#E11D48';
+  FX.flash(t, 2.9, 0.18);
+  // cambio de escena · "Tres, títulos raros"
+  const sw = span(t, 3.6, 3.9);
+  $('sc1').style.opacity = 1 - sw;
+  $('sc1').style.transform = `translateX(${-200 * sw}px)`;
+  $('sc2').style.opacity = sw;
+  $('sc2').style.transform = `translateX(${200 - 200 * sw}px)`;
+  $('num').textContent = t < 3.75 ? '2' : '3';
+  $('tt').textContent = t < 3.75 ? 'Las palabras del aviso' : 'Títulos raros';
+  if (t > 3.75) { const k = span(t, 3.75, 4.05); $('title').style.transform = `scale(${1.25 - 0.25 * k})`; }
+  // "como mi recorrido": el título raro titila en rojo y el programa no lo encuentra
+  const bad = t > 4.3 && t < 5.9;
+  $('hd').style.background = bad ? `rgba(225,29,72,${0.12 + 0.1 * Math.sin(t * 10)})` : (t >= 5.9 ? 'rgba(22,163,74,.12)' : 'transparent');
+  $('hd').style.boxShadow = bad ? '0 0 0 5px #E11D48' : (t >= 5.9 ? `0 0 0 ${5 * span(t, 5.9, 6.1)}px #16A34A` : 'none');
+  const rb = span(t, 4.6, 4.9);
+  $('robot').style.opacity = rb;
+  $('robot').style.transform = `translateY(${30 - 30 * rb}px)`;
+  // "Poné experiencia y listo": se tacha, cambia a Experiencia y el programa la encuentra
+  $('strike').style.width = (span(t, 5.9, 6.15) * 100) + '%';
+  $('strike').style.opacity = 1 - span(t, 6.2, 6.35);
+  $('old').style.opacity = 1 - span(t, 6.15, 6.35);
+  const nw = span(t, 6.2, 6.45);
+  $('new').style.opacity = nw;
+  $('new').style.transform = `scale(${1.4 - 0.4 * nw})`;
+  const ok = span(t, 6.5, 6.7);
+  $('ok').style.opacity = ok;
+  $('ok').style.transform = `scale(${1.8 - 0.8 * ok})`;
+  FX.flash(t, 6.7, 0.18);
+  const found = t > 6.5;
+  $('rb').textContent = found ? '«Experiencia» encontrada ✓' : '«Experiencia» no encontrada';
+  $('rb').style.background = found ? '#16A34A' : '#E11D48';
+}
+FX.init();
+render(0);
+</script>
+</body>
