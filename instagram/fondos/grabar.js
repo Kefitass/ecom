@@ -9,7 +9,7 @@ const name = process.argv[2] || "fondo-bloque3";
 const secs = Number(process.argv[3] || 10);
 const fps = 30;
 const html = path.join(__dirname, name + ".html");
-const tmp = fs.mkdtempSync(path.join(os.tmpdir(), name + "-"));
+const tmp = fs.mkdtempSync(path.join(os.tmpdir(), path.basename(name) + "-"));
 
 (async () => {
   const browser = await chromium.launch();
