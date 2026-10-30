@@ -45,7 +45,7 @@ window.CE_CONFIG = {
   // Al abrir el archivo localmente se activa solo.
   modoPrueba: false,
 
-  nombreProducto: "Conseguí trabajo en 30 días · Ebook + versión interactiva",
+  nombreProducto: "Conseguí trabajo en 30 días · Ebook + Generador de CV",
 
   // Fotos de la galería SOLO para la vista local. En Shopify la galería
   // la muestra tu tema con las fotos cargadas en el producto.
@@ -97,6 +97,15 @@ window.CE_CONFIG = {
   ],
 
   // ============================================================
+  // 🎁 GENERADOR DE CV (la sección estrella, primera de la página)
+  // video: URL https de Archivos con la demo del generador (vacío = se muestra una maqueta animada).
+  // ============================================================
+  generador: {
+    mostrar: true,
+    video: ""
+  },
+
+  // ============================================================
   // 📖 LA HISTORIA DE ISABELA (bloque corto después de "¿Te pasa esto?")
   // Historia real, contada con permiso. foto: URL https de Archivos (vacío = sin foto).
   // ============================================================
@@ -113,8 +122,8 @@ window.CE_CONFIG = {
   // ✅ BENEFICIOS (debajo del título del producto)
   // ============================================================
   beneficios: [
+    "🎁 <strong>Generador de CV incluido:</strong> tu CV listo para pasar los filtros en 10 minutos",
     "Plan <strong>día por día</strong> durante 30 días",
-    "CV que <strong>pasa los filtros</strong> y consigue entrevistas",
     "LinkedIn que hace que los <strong>reclutadores te busquen</strong>",
     "Respuestas para las <strong>15 preguntas</strong> que siempre te hacen",
     "<strong>Acceso inmediato:</strong> PDF + versión web con checklists"
@@ -136,7 +145,7 @@ window.CE_CONFIG = {
       precioViejo: "",
       ahorro: "",
       etiqueta: "",
-      incluye: ["PDF + versión web interactiva", "8 plantillas y tracker de búsqueda"],
+      incluye: ["Generador de CV incluido", "PDF + versión web interactiva", "8 plantillas y tracker de búsqueda"],
       varianteId: "45181943480371",
       seleccionado: false
     },
@@ -147,7 +156,7 @@ window.CE_CONFIG = {
       precioViejo: "$33.000",
       ahorro: "AHORRÁS $6.000",
       etiqueta: "MÁS ELEGIDO",
-      incluye: ["Todo lo del ebook 1", "El manual avanzado de nivel experto", "10 estrategias para destacar"],
+      incluye: ["Generador de CV incluido", "Todo lo del ebook 1", "El manual avanzado de nivel experto", "10 estrategias para destacar"],
       varianteId: "45181943513139",
       seleccionado: true
     }
@@ -157,14 +166,15 @@ window.CE_CONFIG = {
   // Caja debajo del botón
   entrega: {
     titulo: "Acceso inmediato",
-    texto: "Apenas se acredita el pago te llega un mail con los PDF y el acceso a la versión web interactiva.",
+    texto: "Apenas se acredita el pago te llega un mail con los PDF, el acceso a la versión web interactiva y el link a tu Generador de CV.",
     garantiaDias: 0,  // 0 = no se muestra garantía. Poné los días de tu política si ofrecés devolución.
     arrepentimientoDias: 10   // derecho de arrepentimiento de la política de reembolso (0 = no se muestra)
   },
 
   // Preguntas cortas dentro de la columna de compra
   faqsCompra: [
-    { p: "¿Cómo lo recibo?", r: "Por mail, apenas se acredita el pago. Lo leés en el celular, la tablet o la compu." },
+    { p: "¿Cómo lo recibo?", r: "Por mail, apenas se acredita el pago, junto con el link al Generador de CV. Lo usás en el celular, la tablet o la compu." },
+    { p: "¿Qué es el Generador de CV?", r: "Una herramienta que te hace preguntas paso a paso y arma tu CV en una columna, listo para pasar los filtros. Pegás el aviso y te muestra qué palabras clave te faltan. Lo descargás en PDF." },
     { p: "¿Sirve para mi rubro?", r: "Sí. El método funciona en cualquier rubro e incluye consejos para 10 rubros distintos." },
     { p: "¿Qué medios de pago aceptan?", r: "Podés pagar con cualquier tarjeta de crédito en hasta 3 cuotas sin interés, con débito o con dinero en cuenta de Mercado Pago. El pago se procesa de forma segura a través de Mercado Pago." }
   ],
@@ -215,7 +225,9 @@ window.CE_CONFIG = {
   // ❓ PREGUNTAS FRECUENTES (al final de la página)
   // ============================================================
   faqs: [
-    { p: "¿Cómo recibo los ebooks?", r: "Apenas se acredita el pago te llega un mail con los PDF y el acceso a la versión web interactiva, donde podés tildar los checklists y copiar las plantillas." },
+    { p: "¿Cómo recibo los ebooks?", r: "Apenas se acredita el pago te llega un mail con los PDF, el acceso a la versión web interactiva, donde podés tildar los checklists y copiar las plantillas, y el link a tu Generador de CV." },
+    { p: "¿Cómo funciona el Generador de CV?", r: "Completás tus datos paso a paso, con ejemplos y avisos en cada campo: por ejemplo, si escribís «responsable de…» te sugiere cómo convertirlo en un logro. Después pegás un aviso y te muestra qué palabras clave tiene tu CV y cuáles faltan. Al final lo descargás en PDF, en una columna y con texto que los filtros pueden leer." },
+    { p: "¿El Generador funciona en el celular?", r: "Sí. Funciona en el celular y en la compu, y tus datos quedan guardados solo en tu dispositivo. Lo podés usar las veces que quieras para adaptar tu CV a cada aviso." },
     { p: "¿Sirve si no tengo experiencia?", r: "Sí. Hay consejos para el primer empleo, y el ebook 2 suma estrategias para compensar la falta de experiencia con pruebas concretas de lo que sabés hacer." },
     { p: "¿Me garantiza conseguir trabajo?", r: "Nadie puede garantizarlo: depende de tu dedicación, tu perfil y el mercado de tu rubro. Lo que te da es un método claro para hacer una búsqueda muy por encima del promedio." },
     { p: "¿Cuál me conviene, el ebook o el combo?", r: "El ebook tiene el plan completo. El combo suma el manual avanzado, que potencia cada etapa: si buscás en un rubro competido o querés destacarte en entrevistas y negociación, el combo es la mejor opción." },
@@ -480,6 +492,35 @@ window.CE_imgFail = function(img) {
     "#ce-landing-full .steps span{display:block;font-size:15px;color:var(--ce-muted)}",
 
     "#ce-landing-full .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:40px}",
+    /* generador de CV: la sección estrella */
+    "#ce-landing-full .gen{background:radial-gradient(circle at 85% 0%,#2B3A8C 0%,var(--ce-navy) 45%,#0B1226 100%);color:#fff}",
+    "#ce-landing-full .gen .h2{color:#fff}#ce-landing-full .gen .h2 span{color:var(--ce-gold)}#ce-landing-full .gen .ld{color:#CBD5E1}",
+    "#ce-landing-full .gen .badge{display:inline-block;background:var(--ce-gold);color:#14213D;font:800 13px/1 var(--ce-body);letter-spacing:.08em;text-transform:uppercase;padding:9px 14px;border-radius:999px;margin-bottom:16px}",
+    "#ce-landing-full .gsteps{list-style:none;padding:0;margin:26px 0 0;display:grid;gap:14px}",
+    "#ce-landing-full .gsteps li{display:grid;grid-template-columns:40px minmax(0,1fr);gap:14px;align-items:start}",
+    "#ce-landing-full .gsteps b{width:40px;height:40px;border-radius:50%;background:var(--ce-orange);color:#fff;font:800 17px/40px var(--ce-title);text-align:center}",
+    "#ce-landing-full .gsteps strong{display:block;font-size:18px}#ce-landing-full .gsteps span{display:block;font-size:15px;color:#CBD5E1}",
+    "#ce-landing-full .gdemo{background:#fff;border-radius:22px;padding:18px;box-shadow:0 30px 70px rgba(0,0,0,.45);color:#14213D}",
+    "#ce-landing-full .gdemo video{display:block;width:100%;border-radius:12px}",
+    "#ce-landing-full .gmock{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px;font-size:13px}",
+    "#ce-landing-full .gmock .f{background:#F6F7FB;border-radius:14px;padding:14px}",
+    "#ce-landing-full .gmock .f i{display:block;height:30px;border-radius:9px;background:#fff;border:1.5px solid #E2E8F0;margin:6px 0 10px;font-style:normal;font-size:12px;line-height:27px;padding:0 9px;color:#334155;overflow:hidden;white-space:nowrap}",
+    "#ce-landing-full .gmock .f small{font-weight:700;font-size:11px;color:#64748B}",
+    "#ce-landing-full .gmock .tip{background:#FFF7ED;color:#9A3412;border-radius:9px;padding:8px;font-size:11.5px;line-height:1.35}",
+    "#ce-landing-full .gmock .cvp{border:1px solid #E2E8F0;border-radius:8px;padding:14px 12px;font-family:Arial,sans-serif;font-size:9.5px;line-height:1.4;color:#111}",
+    "#ce-landing-full .gmock .cvp b.n{display:block;font-size:15px}#ce-landing-full .gmock .cvp h5{font-size:9px;letter-spacing:.06em;text-transform:uppercase;border-bottom:1px solid #111;margin:8px 0 4px;padding-bottom:2px}",
+    "#ce-landing-full .gmock .kws{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:6px;align-items:center}",
+    "#ce-landing-full .gmock .kws em{font-style:normal;font-weight:800;margin-right:4px}",
+    "#ce-landing-full .gmock .kws span{padding:5px 9px;border-radius:999px;font-weight:700;font-size:11.5px;background:#DCFCE7;color:#166534}",
+    "#ce-landing-full .gmock .kws span.no{background:#FFE4E6;color:#9F1239}",
+    "#ce-landing-full .gba{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:22px}",
+    "#ce-landing-full .gba div{border-radius:14px;padding:14px 16px;font-size:15px;line-height:1.4}",
+    "#ce-landing-full .gba .x{background:rgba(225,29,72,.14);border:1px solid rgba(255,107,129,.45)}",
+    "#ce-landing-full .gba .ok{background:rgba(22,163,74,.16);border:1px solid rgba(74,222,128,.45)}",
+    "#ce-landing-full .gba small{display:block;font-weight:800;font-size:12px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px}",
+    "#ce-landing-full .gba .x small{color:#FDA4AF}#ce-landing-full .gba .ok small{color:#86EFAC}",
+    "#ce-landing-full .ft.star{grid-column:1/-1;background:var(--ce-navy);border-color:var(--ce-navy);color:#fff;display:grid;grid-template-columns:auto minmax(0,1fr);gap:20px;align-items:center}",
+    "#ce-landing-full .ft.star h3{color:#fff;margin-top:0}#ce-landing-full .ft.star p{color:#CBD5E1}#ce-landing-full .ft.star .n{font-size:44px}",
     "#ce-landing-full .ft{border:1px solid var(--ce-line);border-radius:18px;padding:24px;background:#fff}",
     "#ce-landing-full .ft .n{font:800 38px/1 var(--ce-title);color:var(--ce-orange);font-variant-numeric:tabular-nums}",
     "#ce-landing-full .ft h3{font-size:19px;margin:10px 0 6px;color:var(--ce-navy)}",
@@ -581,7 +622,7 @@ window.CE_imgFail = function(img) {
     "#ce-sticky .tx span{font:800 17px/1.2 var(--ce-title);color:var(--ce-orange);font-variant-numeric:tabular-nums}",
     "#ce-sticky button{flex:none;background:var(--ce-orange);color:#fff;border:0;border-radius:999px;font:800 15px/1 var(--ce-title);letter-spacing:.04em;padding:14px 22px;cursor:pointer}",
 
-    "@media(max-width:900px){#ce-landing-full .sec{padding-block:60px}#ce-landing-full .split,#ce-landing-full .book-row,#ce-landing-full .who2{grid-template-columns:minmax(0,1fr);gap:30px}#ce-landing-full .grid,#ce-landing-full .revs{grid-template-columns:minmax(0,1fr)}#ce-landing-full .story .w{grid-template-columns:minmax(0,1fr);gap:22px;text-align:center}#ce-landing-full .story .big b{font-size:96px}#ce-landing-full .revs:not(.open) .rv.more{display:none}#ce-landing-full .revs-more{display:block}#ce-landing-full .book{max-width:200px}#ce-landing-full .cmp table{font-size:14px}#ce-landing-full .cmp th,#ce-landing-full .cmp td{padding:12px 10px}#ce-landing-full .cmp td:first-child{width:26%}#ce-landing-full .ph-first{order:-1}#ce-landing-full .phone-row{grid-template-columns:minmax(0,1fr);padding:30px 22px;gap:28px}#ce-landing-full .phone{max-width:220px}#ce-landing-full .peek-nav{display:none}}"
+    "@media(max-width:900px){#ce-landing-full .sec{padding-block:60px}#ce-landing-full .split,#ce-landing-full .book-row,#ce-landing-full .who2{grid-template-columns:minmax(0,1fr);gap:30px}#ce-landing-full .grid,#ce-landing-full .revs{grid-template-columns:minmax(0,1fr)}#ce-landing-full .gmock{grid-template-columns:minmax(0,1fr)}#ce-landing-full .gmock .cvp{display:none}#ce-landing-full .gba{grid-template-columns:minmax(0,1fr)}#ce-landing-full .story .w{grid-template-columns:minmax(0,1fr);gap:22px;text-align:center}#ce-landing-full .story .big b{font-size:96px}#ce-landing-full .revs:not(.open) .rv.more{display:none}#ce-landing-full .revs-more{display:block}#ce-landing-full .book{max-width:200px}#ce-landing-full .cmp table{font-size:14px}#ce-landing-full .cmp th,#ce-landing-full .cmp td{padding:12px 10px}#ce-landing-full .cmp td:first-child{width:26%}#ce-landing-full .ph-first{order:-1}#ce-landing-full .phone-row{grid-template-columns:minmax(0,1fr);padding:30px 22px;gap:28px}#ce-landing-full .phone{max-width:220px}#ce-landing-full .peek-nav{display:none}}"
   ].join("");
   document.head.appendChild(st);
 })();
@@ -747,6 +788,27 @@ window.CE_imgFail = function(img) {
     return '<section class="sec paper"><div class="w">' + gal + phone + "</div></section>";
   }
 
+  // La sección estrella: el Generador de CV, con video si está cargado o una maqueta si no.
+  function generador() {
+    var g = cfg.generador || {};
+    if (!g.mostrar) return "";
+    var demo = window.CE_OK(g.video) && g.video
+      ? '<video src="' + g.video + '" autoplay muted loop playsinline preload="metadata"></video>'
+      : '<div class="gmock"><div class="f"><small>Puesto al que apuntás</small><i>Analista administrativo</i><small>Logros</small><i>Reduje de 4 días a 2 el cierre…</i><i>Responsable de atender proveedores</i>' +
+          '<div class="tip">«Responsable de…» describe una obligación. Empezá con un verbo y contá qué lograste.</div></div>' +
+        '<div class="cvp"><b class="n">Pedro Yañez</b>Analista administrativo<h5>Experiencia</h5><b>Asistente administrativo</b><br>• Reduje de 4 días a 2 el cierre mensual<br>• Concilié 300 movimientos por mes<h5>Habilidades</h5>Excel avanzado, Tango, facturación</div>' +
+        '<div class="kws"><em>Coincidencia con el aviso: 9 de 12</em><span>✓ facturación</span><span>✓ excel</span><span>✓ cobranzas</span><span class="no">+ SAP</span><span class="no">+ AFIP</span></div></div>';
+    return '<section class="sec gen"><div class="w split"><div><span class="badge">🎁 Incluido con tu compra</span>' +
+      '<h2 class="h2">Tu CV listo para <span>pasar los filtros</span> en 10 minutos</h2>' +
+      '<p class="ld">Con tu ebook te llevás el Generador de CV: contestás preguntas y te llevás un CV que funciona.</p>' +
+      '<ol class="gsteps"><li><b>1</b><div><strong>Completás tus datos</strong><span>Con ejemplos y avisos en cada campo para que escribas logros, no tareas.</span></div></li>' +
+        '<li><b>2</b><div><strong>Pegás el aviso</strong><span>Te muestra qué palabras clave tiene tu CV y cuáles le faltan para pasar el filtro.</span></div></li>' +
+        '<li><b>3</b><div><strong>Descargás tu PDF</strong><span>Una columna, con texto que los filtros leen. Listo para mandar.</span></div></li></ol>' +
+      '<div class="gba"><div class="x"><small>✕ El CV de Canva</small>Columnas, íconos y barritas que el programa no puede leer.</div><div class="ok"><small>✓ El del Generador</small>Simple, ordenado y con las palabras del aviso.</div></div>' +
+      '<button type="button" class="cta" data-buy="1">Quiero mi CV listo</button></div>' +
+      '<div class="gdemo">' + demo + '</div></div></section>';
+  }
+
   function story() {
     var h = cfg.historia || {};
     if (!h.mostrar) return "";
@@ -775,6 +837,9 @@ window.CE_imgFail = function(img) {
     if (!c) return false;
     var faqs = (cfg.faqs || []).map(function(f) { return "<details><summary>" + f.p + "</summary><p>" + f.r + "</p></details>"; }).join("");
     c.innerHTML =
+      // 0. El Generador de CV (la estrella)
+      generador() +
+
       // 1. Problema
       '<section class="sec"><div class="w ' + row("split", img.problema) + '">' +
         pic("ph ph-first", img.problema, "Persona frustrada frente a la computadora de noche") +
@@ -807,6 +872,7 @@ window.CE_imgFail = function(img) {
 
       // 3. Qué incluye
       '<section class="sec"><div class="w"><div class="ey">Qué incluye</div><h2 class="h2">Todo lo que necesitás, listo para usar</h2><div class="grid">' +
+        '<div class="ft star"><div class="n">🎁</div><div><h3>Generador de CV</h3><p>Tu CV en una columna, listo para pasar los filtros, con análisis de palabras clave del aviso. Lo usás las veces que quieras.</p></div></div>' +
         '<div class="ft"><div class="n">30</div><h3>Días de plan</h3><p>Tareas diarias con checklists para tildar.</p></div>' +
         '<div class="ft"><div class="n">15</div><h3>Preguntas de entrevista</h3><p>Las que te van a hacer casi seguro, y cómo responderlas.</p></div>' +
         '<div class="ft"><div class="n">8</div><h3>Plantillas de mensajes</h3><p>Para pedir referidos, hacer seguimiento y aceptar la oferta.</p></div>' +
@@ -821,7 +887,7 @@ window.CE_imgFail = function(img) {
       // 4. Comparación
       '<section class="sec' + (peek() ? "" : " paper") + '"><div class="w nw"><div class="ey">La diferencia</div><h2 class="h2">Buscar a ciegas vs. buscar con método</h2><div class="cmp"><table>' +
         "<thead><tr><th></th><th>Sin método</th><th>Con el plan de 30 días</th></tr></thead><tbody>" +
-        "<tr><td>CV</td><td>El mismo para todo</td><td>Adaptado a cada aviso en 15 minutos</td></tr>" +
+        "<tr><td>CV</td><td>Armado en Canva, el mismo para todo</td><td>Listo en 10 minutos con el Generador, adaptado a cada aviso</td></tr>" +
         "<tr><td>LinkedIn</td><td>Perfil quieto, nadie escribe</td><td>Optimizado para que te encuentren</td></tr>" +
         "<tr><td>Búsqueda</td><td>Solo apretar \"postularme\"</td><td>Avisos, contactos y mercado oculto</td></tr>" +
         "<tr><td>Entrevistas</td><td>Improvisar</td><td>Historias preparadas con método STAR</td></tr>" +
@@ -867,7 +933,7 @@ window.CE_imgFail = function(img) {
       '<section class="sec"><div class="w nw"><div class="ey">Preguntas frecuentes</div><h2 class="h2">Lo que suelen preguntar</h2><div class="faq">' + faqs + "</div></div></section>" +
 
       // 10. Cierre
-      '<section class="sec final"><div class="w nw"><h2 class="h2">Tu próximo trabajo empieza hoy</h2><p>En 30 días podés tener un CV que consigue entrevistas y las herramientas para que te elijan.</p><button type="button" class="cta" data-buy="1">Elegir mi opción</button></div></section>';
+      '<section class="sec final"><div class="w nw"><h2 class="h2">Tu próximo trabajo empieza hoy</h2><p>Hoy mismo podés tener tu CV listo con el Generador, y en 30 días todas las herramientas para que te elijan.</p><button type="button" class="cta" data-buy="1">Elegir mi opción</button></div></section>';
 
     c.querySelectorAll("[data-peek]").forEach(function(b) {
       b.addEventListener("click", function() {
