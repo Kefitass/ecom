@@ -93,6 +93,7 @@ body{background:#F6F7FB;color:#1C2333;font-family:'Source Sans 3','Segoe UI',sys
 .lib-card p{margin:0 0 14px;color:var(--muted);font-size:15px}
 .lib-card span{display:inline-block;background:var(--orange);color:#fff;font-weight:700;padding:9px 16px;border-radius:999px;font-size:15px}
 .lib-card.locked{opacity:.75}
+.lib-card .ico{width:100%;aspect-ratio:210/297;border-radius:4px 8px 8px 4px;background:linear-gradient(160deg,#2B3A8C,#14213D);display:flex;align-items:center;justify-content:center;font-size:44px;box-shadow:8px 12px 20px rgba(0,0,0,.25)}
 .lib-card.locked span{background:var(--navy)}
 .lib-foot{text-align:center;padding-bottom:48px;color:var(--muted);font-size:15px}
 .lib-foot a{color:var(--navy);font-weight:600}
@@ -116,6 +117,12 @@ body{background:#F6F7FB;color:#1C2333;font-family:'Source Sans 3','Segoe UI',sys
     <img src="{{ 'tapa-secretos-de-reclutador.png' | file_url }}" alt="Tapa de Secretos de reclutador" width="420" height="594">
     <div><h2>Secretos de reclutador</h2><p>El manual avanzado: lo que pasa del otro lado de la mesa.</p><span>{% if has2 %}Leer ahora{% else %}Sumarlo{% endif %}</span></div>
   </a>
+  {%- if has1 or has2 -%}
+  <a class="lib-card" href="/pages/herramienta-cv-m30">
+    <div class="ico">🎁</div>
+    <div><h2>Generador de CV</h2><p>Tu CV listo para pasar los filtros en 10 minutos. Usalo las veces que quieras.</p><span>Armar mi CV</span></div>
+  </a>
+  {%- endif -%}
 </main>
 <p class="lib-foot">¿Problemas para entrar? Escribinos a somosmetodo30@gmail.com · <a href="{{ routes.account_logout_url }}">Cerrar sesión</a></p>
 {%- else -%}
