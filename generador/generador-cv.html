@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Generador de CV · Método 30</title>
+<!-- Versión 1, sin IA: formulario paso a paso que arma un CV de una columna, legible por los filtros (ATS).
+     Todo corre en el navegador; los datos quedan en el dispositivo (localStorage). El PDF sale con window.print(),
+     así el texto queda seleccionable y los filtros lo pueden leer. Todo vive dentro de #m30cv para poder pegarlo en Shopify. -->
+<style>
+#m30cv{--navy:#14213D;--orange:#E8632E;--gold:#F5D27A;--ink:#1F2937;--muted:#64748B;--line:#E2E8F0;--bg:#F6F7FB;--ok:#16A34A;--bad:#E11D48;
+  font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--ink);background:var(--bg);max-width:1180px;margin:0 auto;padding:24px 16px 60px;box-sizing:border-box}
+#m30cv *{box-sizing:border-box}
+#m30cv h1{font-size:30px;line-height:1.15;margin:0 0 6px;color:var(--navy);letter-spacing:-.02em}
+#m30cv h1 em{font-style:normal;color:var(--orange)}
+#m30cv .lead{color:var(--muted);margin:0 0 22px;font-size:16px}
+#m30cv .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px;align-items:start}
+#m30cv .panel{background:#fff;border-radius:20px;padding:22px;box-shadow:0 10px 30px rgba(20,33,61,.08)}
+#m30cv .steps{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:18px}
+#m30cv .steps button{border:0;background:var(--bg);color:var(--muted);font:600 13px/1 inherit;font-family:inherit;padding:9px 12px;border-radius:999px;cursor:pointer}
+#m30cv .steps button.on{background:var(--navy);color:#fff}
+#m30cv .steps button.done{background:#E9FBEF;color:#166534}
+#m30cv .bar{height:6px;border-radius:6px;background:var(--line);margin-bottom:20px;overflow:hidden}
+#m30cv .bar i{display:block;height:100%;background:var(--orange);transition:width .3s}
+#m30cv h2{font-size:21px;margin:0 0 4px;color:var(--navy)}
+#m30cv .hint{color:var(--muted);font-size:14px;margin:0 0 16px;line-height:1.45}
+#m30cv label{display:block;font-weight:700;font-size:14px;margin:14px 0 6px}
+#m30cv label small{font-weight:500;color:var(--muted)}
+#m30cv input[type=text],#m30cv input[type=email],#m30cv input[type=tel],#m30cv input[type=month],#m30cv textarea,#m30cv select{
+  width:100%;border:1.5px solid var(--line);border-radius:12px;padding:11px 12px;font:15px/1.4 inherit;font-family:inherit;color:var(--ink);background:#fff}
+#m30cv textarea{min-height:110px;resize:vertical}
+#m30cv input:focus,#m30cv textarea:focus,#m30cv select:focus{outline:none;border-color:var(--orange)}
+#m30cv .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+#m30cv .card{border:1.5px solid var(--line);border-radius:16px;padding:14px 16px 16px;margin:14px 0;position:relative}
+#m30cv .card h3{margin:0;font-size:15px;color:var(--navy)}
+#m30cv .del{position:absolute;right:12px;top:10px;border:0;background:none;color:var(--bad);font:600 13px inherit;font-family:inherit;cursor:pointer}
+#m30cv .chk{display:flex;align-items:center;gap:8px;margin-top:8px;font-size:14px;font-weight:600}
+#m30cv .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:12px;padding:12px 18px;font:700 15px/1 inherit;font-family:inherit;cursor:pointer}
+#m30cv .btn.main{background:var(--orange);color:#fff}
+#m30cv .btn.sec{background:var(--bg);color:var(--navy)}
+#m30cv .btn.add{background:#fff;color:var(--navy);border:1.5px dashed #CBD5E1;width:100%}
+#m30cv .nav{display:flex;justify-content:space-between;gap:10px;margin-top:22px}
+#m30cv .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+#m30cv .chips button{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:6px 10px;font:600 13px inherit;font-family:inherit;cursor:pointer;color:var(--navy)}
+#m30cv .chips button:hover{border-color:var(--orange)}
+#m30cv .tips{margin-top:8px;display:flex;flex-direction:column;gap:6px}
+#m30cv .tip{font-size:13px;line-height:1.4;padding:8px 10px;border-radius:10px}
+#m30cv .tip.warn{background:#FFF7ED;color:#9A3412}
+#m30cv .tip.good{background:#F0FDF4;color:#166534}
+#m30cv .kw{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+#m30cv .kw span{padding:7px 11px;border-radius:999px;font-size:13px;font-weight:700}
+#m30cv .kw .yes{background:#DCFCE7;color:#166534}
+#m30cv .kw .no{background:#FFE4E6;color:#9F1239;cursor:pointer}
+#m30cv .score{font-size:15px;font-weight:800;margin-top:12px}
+#m30cv .side{position:sticky;top:16px}
+#m30cv .side h2{display:flex;justify-content:space-between;align-items:center}
+#m30cv .paper{background:#fff;border-radius:6px;box-shadow:0 10px 30px rgba(20,33,61,.12);overflow:hidden;aspect-ratio:210/297}
+#m30cv .paper-in{transform-origin:0 0}
+#m30cv .check{margin:14px 0 0;padding:0;list-style:none;font-size:14px}
+#m30cv .check li{padding:4px 0}
+#m30cv .privacy{font-size:12px;color:var(--muted);margin-top:14px}
+/* el CV en sí (pantalla e impresión) */
+#m30cv .cv{width:210mm;min-height:297mm;padding:16mm 17mm;background:#fff;color:#111;font-family:Arial,Helvetica,sans-serif;font-size:10.5pt;line-height:1.38}
+#m30cv .cv .n{font-size:22pt;font-weight:700;margin:0;letter-spacing:-.01em}
+#m30cv .cv .p{font-size:12.5pt;margin:2pt 0 4pt;color:#333}
+#m30cv .cv .c{font-size:9.5pt;color:#333;margin:0 0 6pt}
+#m30cv .cv h4{font-size:11pt;text-transform:uppercase;letter-spacing:.06em;margin:12pt 0 5pt;padding-bottom:3pt;border-bottom:1pt solid #111}
+#m30cv .cv .job{margin:0 0 7pt;page-break-inside:avoid}
+#m30cv .cv .jh{display:flex;justify-content:space-between;gap:8pt;font-weight:700}
+#m30cv .cv .jh span:last-child{font-weight:400;white-space:nowrap;color:#333}
+#m30cv .cv .co{color:#333;margin:0 0 2pt}
+#m30cv .cv ul{margin:2pt 0 0 14pt;padding:0}
+#m30cv .cv li{margin:0 0 2pt}
+#m30cv .cv p{margin:0}
+#m30cv .cv .empty{color:#94A3B8}
+@media (max-width:900px){#m30cv .wrap{grid-template-columns:1fr}#m30cv .side{position:static}#m30cv .row{grid-template-columns:1fr}}
+</style>
+</head>
+<body style="margin:0;background:#F6F7FB">
+<div id="m30cv">
+  <h1>Tu CV listo para <em>pasar los filtros</em></h1>
+  <p class="lead">Respondé paso a paso y descargá tu CV en PDF. Tarda unos 10 minutos.</p>
+  <div class="wrap">
+    <div class="panel">
+      <div class="steps" id="steps"></div>
+      <div class="bar"><i id="bar"></i></div>
+      <div id="form"></div>
+      <div class="nav"><button class="btn sec" id="prev">← Anterior</button><button class="btn main" id="next">Siguiente →</button></div>
+    </div>
+    <div class="side">
+      <div class="panel">
+        <h2>Vista previa <button class="btn main" id="pdf">Descargar PDF</button></h2>
+        <p class="hint" style="margin-top:6px">Se actualiza mientras escribís.</p>
+        <div class="paper" id="paper"><div class="paper-in" id="paperIn"></div></div>
+        <ul class="check" id="check"></ul>
+        <p class="privacy">🔒 Tus datos quedan solo en este dispositivo. No los guardamos ni los enviamos a ningún lado.</p>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+(function () {
+  const KEY = 'm30cv-v1';
+  const STEPS = ['Datos', 'Perfil', 'Experiencia', 'Estudios', 'Habilidades', 'El aviso', 'Descargar'];
+  const VERBS = ['Lideré', 'Implementé', 'Aumenté', 'Reduje', 'Optimicé', 'Negocié', 'Coordiné', 'Resolví', 'Diseñé', 'Organicé', 'Atendí', 'Gestioné', 'Capacité', 'Logré', 'Mejoré', 'Automaticé'];
+  const WEAK = /^(responsable de|encargad[oa] de|tareas de|me encargaba|era el encargado|ayudaba|ayudar a|funciones de|realizaba tareas)/i;
+  const blank = () => ({ nombre: '', puesto: '', ciudad: '', tel: '', email: '', linkedin: '', perfil: '',
+    exp: [{ puesto: '', empresa: '', desde: '', hasta: '', actual: false, logros: '' }],
+    edu: [{ titulo: '', inst: '', desde: '', hasta: '', estado: 'Completo' }],
+    tecnicas: '', blandas: '', idiomas: [{ idioma: '', nivel: 'Intermedio' }], cursos: '', aviso: '' });
+  let S, step = 0;
+  try { S = JSON.parse(localStorage.getItem(KEY)) || blank(); } catch (e) { S = blank(); }
+  const save = () => { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) {} };
+  const $ = id => document.getElementById(id);
+  const esc = s => String(s || '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  const norm = s => String(s || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+  const MES = ['ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sep', 'oct', 'nov', 'dic'];
+  const fmt = m => { if (!m) return ''; const [y, mo] = m.split('-'); return (MES[+mo - 1] || '') + ' ' + y; };
+  const lines = t => String(t || '').split('\n').map(x => x.replace(/^[-•*·]\s*/, '').trim()).filter(Boolean);
+
+  // ---------- campos ----------
+  const inp = (k, label, ph = '', type = 'text', extra = '') =>
+    `<label>${label}</label><input type="${type}" data-k="${k}" value="${esc(get(k))}" placeholder="${esc(ph)}" ${extra}>`;
+  const area = (k, label, ph = '', extra = '') =>
+    `<label>${label}</label><textarea data-k="${k}" placeholder="${esc(ph)}" ${extra}>${esc(get(k))}</textarea>`;
+  function get(k) { return k.split('.').reduce((o, p) => (o == null ? '' : o[p]), S); }
+  function set(k, v) { const ps = k.split('.'); let o = S; ps.slice(0, -1).forEach(p => o = o[p]); o[ps[ps.length - 1]] = v; }
+
+  function logroTips(text) {
+    const ls = lines(text); if (!ls.length) return '';
+    const out = [];
+    ls.forEach(l => {
+      if (WEAK.test(l)) out.push(`<div class="tip warn">«${esc(l.slice(0, 40))}…» describe una obligación. Empezá con un verbo de acción y contá qué lograste.</div>`);
+      else if (!/\d/.test(l)) out.push(`<div class="tip warn">«${esc(l.slice(0, 40))}…»: ¿podés sumarle un número? Cantidad, porcentaje, tiempo o plata.</div>`);
+    });
+    if (!out.length) out.push('<div class="tip good">✓ Muy bien: tus logros empiezan con acción y tienen números.</div>');
+    return out.join('');
+  }
+
+  const FORMS = [
+    () => `<h2>Tus datos</h2><p class="hint">Lo básico para que te contacten. El puesto al que apuntás va debajo de tu nombre.</p>
+      ${inp('nombre', 'Nombre y apellido', 'Ej: Camila Rodríguez')}
+      ${inp('puesto', 'Puesto al que apuntás', 'Ej: Analista administrativa')}
+      <div class="row"><div>${inp('ciudad', 'Ciudad', 'Ej: CABA, Buenos Aires')}</div><div>${inp('tel', 'Teléfono', 'Ej: 11 5555-5555', 'tel')}</div></div>
+      <div class="row"><div>${inp('email', 'Mail', 'nombre@mail.com', 'email')}</div><div>${inp('linkedin', 'LinkedIn <small>(opcional)</small>', 'linkedin.com/in/tu-nombre')}</div></div>
+      <div class="tips"><div class="tip warn">No pongas foto, DNI, estado civil ni dirección exacta: no suman y los filtros no los necesitan.</div></div>`,
+    () => `<h2>Tu perfil profesional</h2><p class="hint">Tres líneas: qué hacés, en qué sos fuerte y un resultado. Tiene que decir qué le resolvés a la empresa, no qué buscás vos.</p>
+      ${area('perfil', 'Perfil', 'Ej: Analista administrativa con 4 años de experiencia en facturación y cobranzas. Manejo avanzado de Excel y SAP. Reduje a la mitad los tiempos de cierre mensual.')}
+      <div class="chips"><button data-act="perfil">✨ Armar un borrador con mis datos</button></div>
+      <div class="tips">${/busco|crecer|oportunidad|proactiv/i.test(S.perfil) ? '<div class="tip warn">Evitá «busco crecer», «nueva oportunidad» o «proactivo»: hablan de vos y no de lo que aportás.</div>' : ''}</div>`,
+    () => `<h2>Experiencia</h2><p class="hint">Empezá por el trabajo más reciente. En «Logros», un renglón por cada uno: verbo + qué hiciste + resultado.</p>
+      ${S.exp.map((e, i) => `<div class="card"><h3>Trabajo ${i + 1}</h3>${S.exp.length > 1 ? `<button class="del" data-del="exp.${i}">Quitar</button>` : ''}
+        <div class="row"><div>${inp(`exp.${i}.puesto`, 'Puesto', 'Ej: Asistente contable')}</div><div>${inp(`exp.${i}.empresa`, 'Empresa', 'Ej: Grupo Sur S.A.')}</div></div>
+        <div class="row"><div>${inp(`exp.${i}.desde`, 'Desde', '', 'month')}</div><div>${inp(`exp.${i}.hasta`, 'Hasta', '', 'month', e.actual ? 'disabled' : '')}</div></div>
+        <label class="chk"><input type="checkbox" data-k="exp.${i}.actual" ${e.actual ? 'checked' : ''}> Trabajo acá actualmente</label>
+        ${area(`exp.${i}.logros`, 'Logros <small>(uno por renglón)</small>', 'Resolví 45 consultas diarias con 96 % de satisfacción\nReduje de 3 días a 1 el cierre mensual', `data-i="${i}"`)}
+        <div class="chips">${VERBS.map(v => `<button data-verb="${i}">${v}</button>`).join('')}</div>
+        <div class="tips" id="tips-${i}">${logroTips(e.logros)}</div></div>`).join('')}
+      <button class="btn add" data-addexp>+ Agregar otro trabajo</button>
+      <div class="tips"><div class="tip good">¿No tenés experiencia formal? Sumá pasantías, voluntariados, emprendimientos o trabajos por tu cuenta: también cuentan.</div></div>`,
+    () => `<h2>Estudios</h2><p class="hint">Del más reciente al más antiguo. Si está en curso, marcalo así.</p>
+      ${S.edu.map((e, i) => `<div class="card"><h3>Estudio ${i + 1}</h3>${S.edu.length > 1 ? `<button class="del" data-del="edu.${i}">Quitar</button>` : ''}
+        ${inp(`edu.${i}.titulo`, 'Título o carrera', 'Ej: Licenciatura en Administración')}
+        ${inp(`edu.${i}.inst`, 'Institución', 'Ej: Universidad de Buenos Aires')}
+        <div class="row"><div>${inp(`edu.${i}.desde`, 'Desde', '', 'month')}</div><div>${inp(`edu.${i}.hasta`, 'Hasta', '', 'month')}</div></div>
+        <label>Estado</label><select data-k="edu.${i}.estado">${['Completo', 'En curso', 'Incompleto'].map(o => `<option ${e.estado === o ? 'selected' : ''}>${o}</option>`).join('')}</select></div>`).join('')}
+      <button class="btn add" data-addedu>+ Agregar otro estudio</button>
+      ${area('cursos', 'Cursos y certificaciones <small>(uno por renglón, opcional)</small>', 'Excel avanzado · Coderhouse · 2024')}`,
+    () => `<h2>Habilidades e idiomas</h2><p class="hint">Separá con comas. Usá los mismos nombres que aparecen en los avisos (por ejemplo, «Excel», no «planillas»).</p>
+      ${area('tecnicas', 'Habilidades técnicas y herramientas', 'Excel avanzado, SAP, facturación, Tango, atención al cliente', 'style="min-height:80px"')}
+      ${area('blandas', 'Habilidades blandas <small>(máximo 4 o 5)</small>', 'Trabajo en equipo, comunicación, organización', 'style="min-height:70px"')}
+      <label>Idiomas</label>
+      ${S.idiomas.map((d, i) => `<div class="row" style="margin-bottom:8px"><input type="text" data-k="idiomas.${i}.idioma" value="${esc(d.idioma)}" placeholder="Ej: Inglés">
+        <select data-k="idiomas.${i}.nivel">${['Básico', 'Intermedio', 'Avanzado', 'Nativo'].map(o => `<option ${d.nivel === o ? 'selected' : ''}>${o}</option>`).join('')}</select></div>`).join('')}
+      <button class="btn add" data-addidi>+ Agregar idioma</button>`,
+    () => `<h2>Compará con el aviso</h2><p class="hint">Pegá el texto de un aviso al que te quieras postular. Te mostramos qué palabras clave tiene tu CV y cuáles faltan: los filtros buscan justamente esas palabras.</p>
+      ${area('aviso', 'Texto del aviso', 'Pegá acá el aviso completo…', 'style="min-height:160px"')}
+      <div id="kwbox">${kwHTML()}</div>`,
+    () => `<h2>¡Listo para descargar!</h2><p class="hint">Revisá la vista previa y tocá <b>Descargar PDF</b>. En la ventana que se abre elegí <b>«Guardar como PDF»</b> como destino.</p>
+      <button class="btn main" data-act="pdf" style="width:100%;padding:16px">⬇ Descargar mi CV en PDF</button>
+      <div class="tips" style="margin-top:14px">
+        <div class="tip good">Guardalo como <b>Nombre-Apellido-CV.pdf</b>. Un archivo llamado «CV final (3).pdf» da mala impresión.</div>
+        <div class="tip good">Por cada aviso nuevo, volvé al paso «El aviso», sumá las palabras que falten y descargá una versión adaptada.</div>
+        <div class="tip warn">Desde el celular: tocá Descargar PDF → Compartir o Imprimir → Guardar como PDF.</div></div>
+      <button class="btn sec" data-act="reset" style="margin-top:16px">Empezar de cero</button>`
+  ];
+
+  // ---------- palabras clave del aviso ----------
+  const STOP = new Set(norm('para con como sobre entre desde hasta este esta estos estas ese esa eso una uno unos unas los las del que por sus son ser tener tiene experiencia buscamos requisitos requerimos deseable excluyente indispensable empresa importante lider persona personas puesto trabajo laboral zona horario lunes viernes sabado domingo horas años anos minimo maxima maximo nivel conocimiento conocimientos manejo capacidad buen buena buenas buenos muy mas menos todo toda todos todas ofrecemos beneficios sueldo salario remuneracion contratacion relacion dependencia oportunidad crecimiento equipo nuestro nuestra nuestros donde cuando cual quien tareas funciones principales responsabilidades incorporar sumar perfil postulate postularse enviar curriculum interesados interesadas dentro cada otro otra otros otras parte forma manera bien hacer realizar the and with for you will our are your this that from have puede pueden debera deberá tambien también ademas además siguiente siguientes valorara valoraran valora valorará valorarán').split(/\s+/));
+  function keywords() {
+    // se cuenta sin tildes, pero se muestra como está escrito en el aviso
+    const raw = S.aviso.toLowerCase().replace(/[^\p{L}\p{N}+#.\s/-]/gu, ' ').split(/\s+/).map(w => w.replace(/^[.\-/]+|[.\-/]+$/g, '')).filter(Boolean);
+    const ws = raw.map(norm), show = {};
+    const cnt = {};
+    const ok = w => w.length >= 3 && !STOP.has(w) && !/^\d+$/.test(w);
+    ws.forEach((w, i) => {
+      if (!ok(w)) return;
+      cnt[w] = (cnt[w] || 0) + 1; show[w] = show[w] || raw[i];
+      const n = ws[i + 1]; if (n && ok(n)) { const b = w + ' ' + n; cnt[b] = (cnt[b] || 0) + 1.6; show[b] = show[b] || raw[i] + ' ' + raw[i + 1]; }
+    });
+    const ranked = Object.entries(cnt).filter(([k, v]) => k.includes(' ') ? v >= 3.2 : true).sort((a, b) => b[1] - a[1]).map(x => x[0]);
+    const out = [];
+    for (const k of ranked) { if (out.some(o => o.includes(k) || k.includes(o))) continue; out.push(k); if (out.length >= 15) break; }
+    return out.map(k => ({ k, label: show[k] }));
+  }
+  function cvText() {
+    return norm([S.puesto, S.perfil, S.tecnicas, S.blandas, S.cursos, ...S.exp.map(e => e.puesto + ' ' + e.logros), ...S.edu.map(e => e.titulo), ...S.idiomas.map(d => d.idioma)].join(' '));
+  }
+  function kwHTML() {
+    if (S.aviso.trim().length < 40) return '<div class="tip warn" style="margin-top:10px">Pegá el aviso para ver el análisis.</div>';
+    const ks = keywords(), cv = cvText(), yes = ks.filter(x => cv.includes(x.k));
+    return `<div class="score">Coincidencia: ${yes.length} de ${ks.length} palabras clave</div>
+      <div class="kw">${ks.map(x => cv.includes(x.k) ? `<span class="yes">✓ ${esc(x.label)}</span>` : `<span class="no" data-kw="${esc(x.label)}" title="Tocá para sumarla a tus habilidades">+ ${esc(x.label)}</span>`).join('')}</div>
+      <p class="hint" style="margin-top:10px">Tocá una palabra en rojo para sumarla a tus habilidades. Sumá solo las que de verdad sabés hacer, y si podés, mencionalas también en tus logros.</p>`;
+  }
+
+  // ---------- CV ----------
+  function cvHTML() {
+    const contact = [S.ciudad, S.tel, S.email, S.linkedin].filter(Boolean).map(esc).join('  ·  ');
+    const exps = S.exp.filter(e => e.puesto || e.empresa || e.logros);
+    const edus = S.edu.filter(e => e.titulo || e.inst);
+    const idis = S.idiomas.filter(d => d.idioma);
+    const ph = (v, p) => v ? esc(v) : `<span class="empty">${p}</span>`;
+    return `<div class="cv">
+      <p class="n">${ph(S.nombre, 'Tu nombre')}</p>
+      <p class="p">${ph(S.puesto, 'Puesto al que apuntás')}</p>
+      <p class="c">${contact || '<span class="empty">Ciudad · Teléfono · Mail · LinkedIn</span>'}</p>
+      ${S.perfil ? `<h4>Perfil profesional</h4><p>${esc(S.perfil)}</p>` : ''}
+      ${exps.length ? `<h4>Experiencia</h4>${exps.map(e => `<div class="job"><div class="jh"><span>${esc(e.puesto)}</span><span>${[fmt(e.desde), e.actual ? 'Actualidad' : fmt(e.hasta)].filter(Boolean).join(' – ')}</span></div>
+        <p class="co">${esc(e.empresa)}</p>${lines(e.logros).length ? `<ul>${lines(e.logros).map(l => `<li>${esc(l)}</li>`).join('')}</ul>` : ''}</div>`).join('')}` : ''}
+      ${edus.length ? `<h4>Educación</h4>${edus.map(e => `<div class="job"><div class="jh"><span>${esc(e.titulo)}${e.estado !== 'Completo' ? ` (${esc(e.estado.toLowerCase())})` : ''}</span><span>${[fmt(e.desde), e.estado === 'En curso' ? 'Actualidad' : fmt(e.hasta)].filter(Boolean).join(' – ')}</span></div><p class="co">${esc(e.inst)}</p></div>`).join('')}` : ''}
+      ${S.tecnicas || S.blandas ? `<h4>Habilidades</h4>${S.tecnicas ? `<p><b>Técnicas:</b> ${esc(S.tecnicas)}</p>` : ''}${S.blandas ? `<p><b>Blandas:</b> ${esc(S.blandas)}</p>` : ''}` : ''}
+      ${idis.length ? `<h4>Idiomas</h4><p>${idis.map(d => `${esc(d.idioma)}: ${esc(d.nivel.toLowerCase())}`).join('  ·  ')}</p>` : ''}
+      ${lines(S.cursos).length ? `<h4>Cursos y certificaciones</h4><ul>${lines(S.cursos).map(l => `<li>${esc(l)}</li>`).join('')}</ul>` : ''}
+    </div>`;
+  }
+  function checklist() {
+    const L = [];
+    const add = (ok, t) => L.push(`<li>${ok ? '✅' : '⬜'} ${t}</li>`);
+    add(S.nombre && S.puesto, 'Nombre y puesto al que apuntás');
+    add(S.email && S.tel, 'Mail y teléfono');
+    add(S.perfil.length > 60, 'Perfil profesional');
+    const ls = S.exp.flatMap(e => lines(e.logros));
+    add(ls.length >= 2 && ls.every(l => !WEAK.test(l)), 'Logros con verbos de acción');
+    add(ls.some(l => /\d/.test(l)), 'Al menos un logro con números');
+    add(S.tecnicas, 'Habilidades técnicas');
+    if (S.aviso.trim().length >= 40) { const ks = keywords(), cv = cvText(); add(ks.filter(x => cv.includes(x.k)).length >= ks.length * 0.6, 'Palabras clave del aviso (60 % o más)'); }
+    return L.join('');
+  }
+  function preview() {
+    $('paperIn').innerHTML = cvHTML();
+    const w = $('paper').clientWidth, cv = $('paperIn').firstElementChild;
+    if (cv) $('paperIn').style.transform = `scale(${w / cv.offsetWidth})`;
+    $('check').innerHTML = checklist();
+  }
+
+  // ---------- pasos ----------
+  function render() {
+    $('steps').innerHTML = STEPS.map((s, i) => `<button class="${i === step ? 'on' : i < step ? 'done' : ''}" data-step="${i}">${i + 1}. ${s}</button>`).join('');
+    $('bar').style.width = ((step + 1) / STEPS.length * 100) + '%';
+    $('form').innerHTML = FORMS[step]();
+    $('prev').style.visibility = step ? 'visible' : 'hidden';
+    $('next').style.display = step < STEPS.length - 1 ? '' : 'none';
+    preview();
+  }
+  function go(n) { step = Math.max(0, Math.min(STEPS.length - 1, n)); render(); document.getElementById('m30cv').scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+  // El PDF se arma en un iframe aparte con solo el CV: así no se cuela el resto de la página (ni el tema de Shopify).
+  function pdf() {
+    const css = [...document.querySelectorAll('style')].map(x => x.textContent).join('\n');
+    const f = document.createElement('iframe');
+    f.style.cssText = 'position:fixed;right:0;bottom:0;width:0;height:0;border:0';
+    document.body.appendChild(f);
+    const d = f.contentDocument;
+    d.open();
+    d.write(`<!doctype html><html><head><meta charset="utf-8"><title>${esc((S.nombre ? S.nombre.trim().replace(/\s+/g, '-') : 'Mi') + '-CV')}</title>` +
+      `<style>${css}\n@page{size:A4;margin:0}html,body{margin:0;background:#fff}#m30cv{padding:0;max-width:none;background:#fff}#m30cv .cv{min-height:0}</style></head>` +
+      `<body><div id="m30cv">${cvHTML()}</div></body></html>`);
+    d.close();
+    setTimeout(() => { f.contentWindow.focus(); f.contentWindow.print(); setTimeout(() => f.remove(), 1000); }, 250);
+  }
+  function borradorPerfil() {
+    const anios = (() => { const ds = S.exp.map(e => e.desde).filter(Boolean).sort(); if (!ds.length) return 0; const [y, m] = ds[0].split('-'); const d = new Date(); return Math.max(0, Math.floor((d.getFullYear() * 12 + d.getMonth() - (+y * 12 + +m - 1)) / 12)); })();
+    const sk = S.tecnicas.split(',').map(x => x.trim()).filter(Boolean).slice(0, 3);
+    const logro = S.exp.flatMap(e => lines(e.logros)).find(l => /\d/.test(l));
+    return `${S.puesto || '[Puesto]'}${anios ? ` con ${anios} ${anios === 1 ? 'año' : 'años'} de experiencia` : ''}${sk.length ? ` en ${sk.join(', ')}` : ''}. ` +
+      `Me destaco por [tu fortaleza principal, por ejemplo: la organización y la atención al detalle].` + (logro ? ` ${logro.replace(/\.$/, '')}.` : ' [Un logro concreto con un número].');
+  }
+
+  // ---------- eventos ----------
+  const root = document.getElementById('m30cv');
+  root.addEventListener('input', e => {
+    const k = e.target.dataset.k; if (!k) return;
+    set(k, e.target.type === 'checkbox' ? e.target.checked : e.target.value); save();
+    if (e.target.type === 'checkbox') { render(); return; }
+    const i = e.target.dataset.i; if (i !== undefined) $('tips-' + i).innerHTML = logroTips(S.exp[i].logros);
+    if (k === 'aviso') $('kwbox').innerHTML = kwHTML();
+    preview();
+  });
+  root.addEventListener('change', e => { if (e.target.tagName === 'SELECT' || e.target.type === 'checkbox') { set(e.target.dataset.k, e.target.type === 'checkbox' ? e.target.checked : e.target.value); save(); render(); } });
+  root.addEventListener('click', e => {
+    const t = e.target.closest('button,[data-kw]'); if (!t) return;
+    const d = t.dataset;
+    if (d.step) go(+d.step);
+    else if (d.verb !== undefined) { const i = +d.verb, cur = S.exp[i].logros; S.exp[i].logros = (cur && !cur.endsWith('\n') ? cur + '\n' : cur) + t.textContent + ' '; save(); render(); const ta = root.querySelector(`textarea[data-i="${i}"]`); if (ta) { ta.focus(); ta.setSelectionRange(ta.value.length, ta.value.length); } }
+    else if (d.del) { const [arr, i] = d.del.split('.'); S[arr].splice(+i, 1); save(); render(); }
+    else if ('addexp' in d) { S.exp.push({ puesto: '', empresa: '', desde: '', hasta: '', actual: false, logros: '' }); save(); render(); }
+    else if ('addedu' in d) { S.edu.push({ titulo: '', inst: '', desde: '', hasta: '', estado: 'Completo' }); save(); render(); }
+    else if ('addidi' in d) { S.idiomas.push({ idioma: '', nivel: 'Intermedio' }); save(); render(); }
+    else if (d.kw) { S.tecnicas = S.tecnicas.trim() ? S.tecnicas.replace(/[,\s]+$/, '') + ', ' + d.kw : d.kw; save(); $('kwbox').innerHTML = kwHTML(); preview(); }
+    else if (d.act === 'perfil') { if (!S.perfil.trim() || confirm('¿Reemplazar tu perfil por un borrador?')) { S.perfil = borradorPerfil(); save(); render(); } }
+    else if (d.act === 'pdf') pdf();
+    else if (d.act === 'reset') { if (confirm('¿Borrar todo y empezar de cero?')) { S = blank(); save(); go(0); } }
+  });
+  $('prev').onclick = () => go(step - 1);
+  $('next').onclick = () => go(step + 1);
+  $('pdf').onclick = pdf;
+  window.addEventListener('resize', preview);
+  render();
+})();
+</script>
+</body>
+</html>
