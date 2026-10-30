@@ -122,7 +122,7 @@ window.CE_CONFIG = {
   // ✅ BENEFICIOS (debajo del título del producto)
   // ============================================================
   beneficios: [
-    "🎁 <strong>Generador de CV incluido:</strong> tu CV listo para pasar los filtros en 10 minutos",
+    "🎁 <strong>Generador de CV incluido:</strong> tu CV y tus propuestas listos en 10 minutos",
     "Plan <strong>día por día</strong> durante 30 días",
     "LinkedIn que hace que los <strong>reclutadores te busquen</strong>",
     "Respuestas para las <strong>15 preguntas</strong> que siempre te hacen",
@@ -174,7 +174,7 @@ window.CE_CONFIG = {
   // Preguntas cortas dentro de la columna de compra
   faqsCompra: [
     { p: "¿Cómo lo recibo?", r: "Por mail, apenas se acredita el pago, junto con el link al Generador de CV. Lo usás en el celular, la tablet o la compu." },
-    { p: "¿Qué es el Generador de CV?", r: "Una herramienta que te hace preguntas paso a paso y arma tu CV en una columna, listo para pasar los filtros. Pegás el aviso y te muestra qué palabras clave te faltan. Lo descargás en PDF." },
+    { p: "¿Qué es el Generador de CV?", r: "Una herramienta que te hace preguntas paso a paso y arma tu CV en una columna, listo para pasar los filtros. Pegás el aviso, te muestra qué palabras clave te faltan y te arma la propuesta para Workana, LinkedIn o mail. Lo descargás en PDF." },
     { p: "¿Sirve para mi rubro?", r: "Sí. El método funciona en cualquier rubro e incluye consejos para 10 rubros distintos." },
     { p: "¿Qué medios de pago aceptan?", r: "Podés pagar con cualquier tarjeta de crédito en hasta 3 cuotas sin interés, con débito o con dinero en cuenta de Mercado Pago. El pago se procesa de forma segura a través de Mercado Pago." }
   ],
@@ -226,7 +226,7 @@ window.CE_CONFIG = {
   // ============================================================
   faqs: [
     { p: "¿Cómo recibo los ebooks?", r: "Apenas se acredita el pago te llega un mail con los PDF, el acceso a la versión web interactiva, donde podés tildar los checklists y copiar las plantillas, y el link a tu Generador de CV." },
-    { p: "¿Cómo funciona el Generador de CV?", r: "Completás tus datos paso a paso, con ejemplos y avisos en cada campo: por ejemplo, si escribís «responsable de…» te sugiere cómo convertirlo en un logro. Después pegás un aviso y te muestra qué palabras clave tiene tu CV y cuáles faltan. Al final lo descargás en PDF, en una columna y con texto que los filtros pueden leer." },
+    { p: "¿Cómo funciona el Generador de CV?", r: "Completás tus datos paso a paso, con ejemplos y avisos en cada campo: por ejemplo, si escribís «responsable de…» te sugiere cómo convertirlo en un logro. Después pegás un aviso y te muestra qué palabras clave tiene tu CV y cuáles faltan. Al final lo descargás en PDF, en una columna y con texto que los filtros pueden leer, y copiás la propuesta o el mensaje ya armado con tus datos. Podés guardar una versión distinta para cada aviso." },
     { p: "¿El Generador funciona en el celular?", r: "Sí. Funciona en el celular y en la compu, y tus datos quedan guardados solo en tu dispositivo. Lo podés usar las veces que quieras para adaptar tu CV a cada aviso." },
     { p: "¿Sirve si no tengo experiencia?", r: "Sí. Hay consejos para el primer empleo, y el ebook 2 suma estrategias para compensar la falta de experiencia con pruebas concretas de lo que sabés hacer." },
     { p: "¿Me garantiza conseguir trabajo?", r: "Nadie puede garantizarlo: depende de tu dedicación, tu perfil y el mercado de tu rubro. Lo que te da es un método claro para hacer una búsqueda muy por encima del promedio." },
@@ -515,6 +515,7 @@ window.CE_imgFail = function(img) {
     "#ce-landing-full .gmock .kws em{font-style:normal;font-weight:800;margin-right:4px}",
     "#ce-landing-full .gmock .kws span{padding:5px 9px;border-radius:999px;font-weight:700;font-size:11.5px;background:#DCFCE7;color:#166534}",
     "#ce-landing-full .gmock .kws span.no{background:#FFE4E6;color:#9F1239}",
+    "#ce-landing-full .gchips{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}#ce-landing-full .gchips span{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:8px 12px;font-size:14px;font-weight:600}",
     "#ce-landing-full .gba{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:22px}",
     "#ce-landing-full .gba div{border-radius:14px;padding:14px 16px;font-size:15px;line-height:1.4}",
     "#ce-landing-full .gba .x{background:rgba(225,29,72,.14);border:1px solid rgba(255,107,129,.45)}",
@@ -801,11 +802,12 @@ window.CE_imgFail = function(img) {
         '<div class="cvp lock"><span>🔒 Tu CV se arma acá</span></div>' +
         '<div class="kws"><em>Coincidencia con el aviso: 9 de 12</em><span>✓ facturación</span><span>✓ excel</span><span>✓ cobranzas</span><span class="no">+ SAP</span><span class="no">+ AFIP</span></div></div>';
     return '<section class="sec gen"><div class="w split"><div><span class="badge">🎁 Incluido con tu compra</span>' +
-      '<h2 class="h2">Tu CV listo para <span>pasar los filtros</span> en 10 minutos</h2>' +
-      '<p class="ld">Con tu ebook te llevás el Generador de CV: contestás preguntas y te llevás un CV que funciona.</p>' +
-      '<ol class="gsteps"><li><b>1</b><div><strong>Completás tus datos</strong><span>Con ejemplos y avisos en cada campo para que escribas logros, no tareas.</span></div></li>' +
+      '<h2 class="h2">Tu CV y tu postulación, <span>listos en 10 minutos</span></h2>' +
+      '<p class="ld">Con tu ebook te llevás el Generador de CV: contestás preguntas y te llevás un CV que pasa los filtros, más la propuesta lista para mandar.</p>' +
+      '<ol class="gsteps"><li><b>1</b><div><strong>Completás tus datos</strong><span>Con ejemplos de logros de tu rubro y avisos en cada campo. Un puntaje de 0 a 100 te muestra qué te falta.</span></div></li>' +
         '<li><b>2</b><div><strong>Pegás el aviso</strong><span>Te muestra qué palabras clave tiene tu CV y cuáles le faltan para pasar el filtro.</span></div></li>' +
-        '<li><b>3</b><div><strong>Descargás tu PDF</strong><span>Una columna, con texto que los filtros leen. Listo para mandar.</span></div></li></ol>' +
+        '<li><b>3</b><div><strong>Descargás tu PDF y copiás tu propuesta</strong><span>El CV listo para mandar, y el texto para Workana, LinkedIn o mail armado con tus datos.</span></div></li></ol>' +
+      '<div class="gchips"><span>📊 Puntaje de tu CV</span><span>💼 Ejemplos por rubro</span><span>✉️ Propuestas para Workana, LinkedIn y mail</span><span>🗂️ Una versión por aviso</span></div>' +
       '<div class="gba"><div class="x"><small>✕ El CV de Canva</small>Columnas, íconos y barritas que el programa no puede leer.</div><div class="ok"><small>✓ El del Generador</small>Simple, ordenado y con las palabras del aviso.</div></div>' +
       '<button type="button" class="cta" data-buy="1">Quiero mi CV listo</button></div>' +
       '<div class="gdemo">' + demo + '</div></div></section>';
@@ -874,7 +876,7 @@ window.CE_imgFail = function(img) {
 
       // 3. Qué incluye
       '<section class="sec"><div class="w"><div class="ey">Qué incluye</div><h2 class="h2">Todo lo que necesitás, listo para usar</h2><div class="grid">' +
-        '<div class="ft star"><div class="n">🎁</div><div><h3>Generador de CV</h3><p>Tu CV en una columna, listo para pasar los filtros, con análisis de palabras clave del aviso. Lo usás las veces que quieras.</p></div></div>' +
+        '<div class="ft star"><div class="n">🎁</div><div><h3>Generador de CV</h3><p>Tu CV en una columna, listo para pasar los filtros, con análisis del aviso, puntaje, ejemplos por rubro y propuestas para Workana, LinkedIn y mail. Lo usás las veces que quieras.</p></div></div>' +
         '<div class="ft"><div class="n">30</div><h3>Días de plan</h3><p>Tareas diarias con checklists para tildar.</p></div>' +
         '<div class="ft"><div class="n">15</div><h3>Preguntas de entrevista</h3><p>Las que te van a hacer casi seguro, y cómo responderlas.</p></div>' +
         '<div class="ft"><div class="n">8</div><h3>Plantillas de mensajes</h3><p>Para pedir referidos, hacer seguimiento y aceptar la oferta.</p></div>' +
