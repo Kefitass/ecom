@@ -102,7 +102,7 @@ window.CE_CONFIG = {
   // ============================================================
   generador: {
     mostrar: true,
-    video: ""
+    video: "https://cdn.shopify.com/videos/c/o/v/4880f297e39f45c79c9ee7441b343de6.mp4"
   },
 
   // ============================================================
