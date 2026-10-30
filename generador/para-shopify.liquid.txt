@@ -48,9 +48,27 @@
 #m30cv .side h2{display:flex;justify-content:space-between;align-items:center}
 #m30cv .paper{background:#fff;border-radius:6px;box-shadow:0 10px 30px rgba(20,33,61,.12);overflow:hidden;aspect-ratio:210/297}
 #m30cv .paper-in{transform-origin:0 0}
-#m30cv .check{margin:14px 0 0;padding:0;list-style:none;font-size:14px}
-#m30cv .check li{padding:4px 0}
+#m30cv .check{margin:0 0 16px;padding:0;list-style:none;font-size:13px;display:grid;grid-template-columns:1fr 1fr;gap:2px 12px}
+#m30cv .check li{padding:3px 0;line-height:1.3}
 #m30cv .privacy{font-size:12px;color:var(--muted);margin-top:14px}
+#m30cv .vers{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:-4px 0 16px;padding:10px 12px;background:var(--bg);border-radius:14px;font-size:13px}
+#m30cv .vers b{color:var(--navy)}
+#m30cv .vers select{width:auto;flex:1;min-width:150px;padding:7px 10px;font-size:14px}
+#m30cv .vers button{border:0;background:#fff;border-radius:10px;padding:8px 10px;font:700 13px inherit;font-family:inherit;color:var(--navy);cursor:pointer}
+#m30cv .score{display:flex;align-items:center;gap:16px;margin:0 0 16px;padding:14px;border-radius:16px;background:var(--bg)}
+#m30cv .ring{flex:none;width:78px;height:78px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+#m30cv .ring b{width:62px;height:62px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;font:800 24px/1 inherit;color:var(--navy)}
+#m30cv .score h3{margin:0 0 2px;font-size:16px;color:var(--navy)}
+#m30cv .score p{margin:0;font-size:13px;color:var(--muted)}
+#m30cv .check li span{color:var(--orange);font-weight:700}
+#m30cv .lib{margin-top:10px;padding:12px;border-radius:12px;background:#FFFBEB}
+#m30cv .lib small{display:block;font-weight:700;font-size:12.5px;color:#92400E;margin-bottom:4px}
+#m30cv .lib .chips button{text-align:left;border-color:#FDE68A}
+#m30cv .tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+#m30cv .tabs button{border:0;background:var(--bg);color:var(--navy);font:700 14px inherit;font-family:inherit;padding:10px 14px;border-radius:12px;cursor:pointer}
+#m30cv .tabs button.on{background:var(--navy);color:#fff}
+#m30cv #post{min-height:300px;font-size:15px;line-height:1.55}
+#m30cv .row3{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
 /* el CV en sí (pantalla e impresión) */
 #m30cv .cv{width:210mm;min-height:297mm;padding:16mm 17mm;background:#fff;color:#111;font-family:Arial,Helvetica,sans-serif;font-size:10.5pt;line-height:1.38}
 #m30cv .cv .n{font-size:22pt;font-weight:700;margin:0;letter-spacing:-.01em}
@@ -72,6 +90,7 @@
   <p class="lead">Respondé paso a paso y descargá tu CV en PDF. Tarda unos 10 minutos.</p>
   <div class="wrap">
     <div class="panel">
+      <div class="vers" id="vers"></div>
       <div class="steps" id="steps"></div>
       <div class="bar"><i id="bar"></i></div>
       <div id="form"></div>
@@ -79,10 +98,12 @@
     </div>
     <div class="side">
       <div class="panel">
+        <div class="score" id="score"></div>
+        <ul class="check" id="check"></ul>
         <h2>Vista previa <button class="btn main" id="pdf">Descargar PDF</button></h2>
         <p class="hint" style="margin-top:6px">Se actualiza mientras escribís.</p>
         <div class="paper" id="paper"><div class="paper-in" id="paperIn"></div></div>
-        <ul class="check" id="check"></ul>
+
         <p class="privacy">🔒 Tus datos quedan solo en este dispositivo. No los guardamos ni los enviamos a ningún lado.</p>
       </div>
     </div>
@@ -91,16 +112,38 @@
 <script>
 (function () {
   const KEY = 'm30cv-v1';
-  const STEPS = ['Datos', 'Perfil', 'Experiencia', 'Estudios', 'Habilidades', 'El aviso', 'Descargar'];
+  const STEPS = ['Datos', 'Perfil', 'Experiencia', 'Estudios', 'Habilidades', 'El aviso', 'Descargar', 'Postulación'];
   const VERBS = ['Lideré', 'Implementé', 'Aumenté', 'Reduje', 'Optimicé', 'Negocié', 'Coordiné', 'Resolví', 'Diseñé', 'Organicé', 'Atendí', 'Gestioné', 'Capacité', 'Logré', 'Mejoré', 'Automaticé'];
+  // Ejemplos de logros por rubro: [X] es para que la persona ponga su número.
+  const LIB = {
+    'Administración': ['Reduje de [X] días a [X] el cierre mensual de facturación', 'Concilié más de [X] movimientos bancarios por mes sin diferencias', 'Gestioné la cobranza de [X] clientes y bajé la deuda vencida un [X] %', 'Organicé el archivo digital de [X] proveedores y agilicé las búsquedas', 'Cargué y controlé [X] facturas por mes en [sistema] sin errores'],
+    'Ventas': ['Superé el objetivo de ventas en un [X] % durante [X] meses seguidos', 'Sumé [X] clientes nuevos en [X] meses', 'Aumenté el ticket promedio un [X] % ofreciendo productos complementarios', 'Atendí un promedio de [X] clientes por día', 'Recuperé [X] clientes inactivos con llamados de seguimiento'],
+    'Atención al cliente': ['Resolví un promedio de [X] consultas por día con [X] % de satisfacción', 'Bajé el tiempo de respuesta de [X] a [X] horas', 'Atendí reclamos por teléfono, mail y WhatsApp y resolví el [X] % en el primer contacto', 'Capacité a [X] compañeros nuevos en los procesos de atención', 'Armé respuestas modelo que redujeron [X] % los reclamos repetidos'],
+    'Logística y depósito': ['Preparé un promedio de [X] pedidos por día sin errores de despacho', 'Reduje un [X] % las diferencias de inventario con controles semanales', 'Coordiné la entrega de [X] pedidos por semana en [zona]', 'Organicé el depósito por rotación y bajé [X] minutos el armado de cada pedido', 'Manejé autoelevador y controlé el ingreso de [X] pallets por día'],
+    'Gastronomía': ['Atendí hasta [X] mesas por turno en temporada alta', 'Preparé un promedio de [X] platos por servicio cumpliendo los tiempos de cocina', 'Reduje el desperdicio de mercadería un [X] % controlando el stock', 'Capacité a [X] personas nuevas del salón o la cocina', 'Manejé la caja con cierres sin diferencias durante [X] meses'],
+    'Salud': ['Atendí a un promedio de [X] pacientes por turno', 'Organicé la agenda de [X] profesionales y bajé las ausencias un [X] %', 'Mantuve al día las historias clínicas de [X] pacientes', 'Coordiné la reposición de insumos y evité faltantes durante [X] meses', 'Acompañé a [X] pacientes en su tratamiento con seguimiento semanal'],
+    'IT y sistemas': ['Desarrollé [X] funcionalidades en [tecnología] usadas por [X] usuarios', 'Automaticé [tarea] y ahorré [X] horas por semana al equipo', 'Resolví un promedio de [X] tickets de soporte por día', 'Reduje el tiempo de carga de [sistema] de [X] a [X] segundos', 'Migré [X] equipos o cuentas a [sistema] sin cortar el servicio'],
+    'Docencia': ['Di clases a [X] alumnos de [nivel o materia] por año', 'Armé materiales nuevos para [materia] que usan [X] docentes', 'Subí el porcentaje de aprobados de [X] % a [X] %', 'Organicé [X] actividades o salidas educativas por año', 'Acompañé a [X] alumnos con apoyo personalizado'],
+    'Marketing y redes': ['Aumenté los seguidores de Instagram de [X] a [X] en [X] meses', 'Generé el [X] % de las ventas online con campañas en redes', 'Publiqué [X] contenidos por semana con un alcance promedio de [X] personas', 'Bajé el costo por cliente de las campañas un [X] %', 'Armé el calendario de contenidos y coordiné a [X] personas'],
+    'Oficios y construcción': ['Terminé [X] obras o trabajos en el plazo acordado', 'Coordiné a un equipo de [X] personas en obra', 'Reduje el desperdicio de materiales un [X] % planificando cada trabajo', 'Hice el mantenimiento de [X] equipos o instalaciones sin incidentes', 'Atendí [X] clientes por mes con presupuestos y seguimiento']
+  };
   const WEAK = /^(responsable de|encargad[oa] de|tareas de|me encargaba|era el encargado|ayudaba|ayudar a|funciones de|realizaba tareas)/i;
   const blank = () => ({ nombre: '', puesto: '', ciudad: '', tel: '', email: '', linkedin: '', perfil: '',
     exp: [{ puesto: '', empresa: '', desde: '', hasta: '', actual: false, logros: '' }],
     edu: [{ titulo: '', inst: '', desde: '', hasta: '', estado: 'Completo' }],
-    tecnicas: '', blandas: '', idiomas: [{ idioma: '', nivel: 'Intermedio' }], cursos: '', aviso: '' });
-  let S, step = 0;
-  try { S = JSON.parse(localStorage.getItem(KEY)) || blank(); } catch (e) { S = blank(); }
-  const save = () => { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) {} };
+    tecnicas: '', blandas: '', idiomas: [{ idioma: '', nivel: 'Intermedio' }], cursos: '', aviso: '',
+    empresaAviso: '', puestoAviso: '', rubro: '' });
+  // Varias versiones del CV (una por aviso). Se guardan todas en el dispositivo; la v1 guardaba un solo CV en KEY.
+  const VKEY = 'm30cv-versiones';
+  let V = null, S, step = 0, tab = 'workana', pvar = 0, pshort = false;
+  try { V = JSON.parse(localStorage.getItem(VKEY)); } catch (e) {}
+  if (!V || !V.list || !V.list[V.cur]) {
+    let old = null; try { old = JSON.parse(localStorage.getItem(KEY)); } catch (e) {}
+    V = { cur: 'Mi CV', list: { 'Mi CV': old || blank() } };
+  }
+  const load = () => { S = Object.assign(blank(), V.list[V.cur]); };
+  load();
+  const save = () => { V.list[V.cur] = S; try { localStorage.setItem(VKEY, JSON.stringify(V)); } catch (e) {} };
   const $ = id => document.getElementById(id);
   const esc = s => String(s || '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
   const norm = s => String(s || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
@@ -120,7 +163,8 @@
     const ls = lines(text); if (!ls.length) return '';
     const out = [];
     ls.forEach(l => {
-      if (WEAK.test(l)) out.push(`<div class="tip warn">«${esc(l.slice(0, 40))}…» describe una obligación. Empezá con un verbo de acción y contá qué lograste.</div>`);
+      if (/\[[^\]]*\]/.test(l)) out.push(`<div class="tip warn">«${esc(l.slice(0, 40))}…»: completá lo que está entre corchetes con tus datos reales.</div>`);
+      else if (WEAK.test(l)) out.push(`<div class="tip warn">«${esc(l.slice(0, 40))}…» describe una obligación. Empezá con un verbo de acción y contá qué lograste.</div>`);
       else if (!/\d/.test(l)) out.push(`<div class="tip warn">«${esc(l.slice(0, 40))}…»: ¿podés sumarle un número? Cantidad, porcentaje, tiempo o plata.</div>`);
     });
     if (!out.length) out.push('<div class="tip good">✓ Muy bien: tus logros empiezan con acción y tienen números.</div>');
@@ -139,12 +183,15 @@
       <div class="chips"><button data-act="perfil">✨ Armar un borrador con mis datos</button></div>
       <div class="tips">${/busco|crecer|oportunidad|proactiv/i.test(S.perfil) ? '<div class="tip warn">Evitá «busco crecer», «nueva oportunidad» o «proactivo»: hablan de vos y no de lo que aportás.</div>' : ''}</div>`,
     () => `<h2>Experiencia</h2><p class="hint">Empezá por el trabajo más reciente. En «Logros», un renglón por cada uno: verbo + qué hiciste + resultado.</p>
+      <label>¿En qué rubro trabajás? <small>(te mostramos ejemplos de logros)</small></label>
+      <select data-k="rubro"><option value="">Elegí tu rubro…</option>${Object.keys(LIB).map(r => `<option ${S.rubro === r ? 'selected' : ''}>${r}</option>`).join('')}</select>
       ${S.exp.map((e, i) => `<div class="card"><h3>Trabajo ${i + 1}</h3>${S.exp.length > 1 ? `<button class="del" data-del="exp.${i}">Quitar</button>` : ''}
         <div class="row"><div>${inp(`exp.${i}.puesto`, 'Puesto', 'Ej: Asistente contable')}</div><div>${inp(`exp.${i}.empresa`, 'Empresa', 'Ej: Grupo Sur S.A.')}</div></div>
         <div class="row"><div>${inp(`exp.${i}.desde`, 'Desde', '', 'month')}</div><div>${inp(`exp.${i}.hasta`, 'Hasta', '', 'month', e.actual ? 'disabled' : '')}</div></div>
         <label class="chk"><input type="checkbox" data-k="exp.${i}.actual" ${e.actual ? 'checked' : ''}> Trabajo acá actualmente</label>
         ${area(`exp.${i}.logros`, 'Logros <small>(uno por renglón)</small>', 'Resolví 45 consultas diarias con 96 % de satisfacción\nReduje de 3 días a 1 el cierre mensual', `data-i="${i}"`)}
         <div class="chips">${VERBS.map(v => `<button data-verb="${i}">${v}</button>`).join('')}</div>
+        ${S.rubro && LIB[S.rubro] ? `<div class="lib"><small>Ejemplos de ${esc(S.rubro)}: tocá uno y cambiá los [X] por tus números</small><div class="chips">${LIB[S.rubro].map(l => `<button data-lib="${i}" data-txt="${esc(l)}">+ ${esc(l)}</button>`).join('')}</div></div>` : ''}
         <div class="tips" id="tips-${i}">${logroTips(e.logros)}</div></div>`).join('')}
       <button class="btn add" data-addexp>+ Agregar otro trabajo</button>
       <div class="tips"><div class="tip good">¿No tenés experiencia formal? Sumá pasantías, voluntariados, emprendimientos o trabajos por tu cuenta: también cuentan.</div></div>`,
@@ -164,6 +211,7 @@
         <select data-k="idiomas.${i}.nivel">${['Básico', 'Intermedio', 'Avanzado', 'Nativo'].map(o => `<option ${d.nivel === o ? 'selected' : ''}>${o}</option>`).join('')}</select></div>`).join('')}
       <button class="btn add" data-addidi>+ Agregar idioma</button>`,
     () => `<h2>Compará con el aviso</h2><p class="hint">Pegá el texto de un aviso al que te quieras postular. Te mostramos qué palabras clave tiene tu CV y cuáles faltan: los filtros buscan justamente esas palabras.</p>
+      <div class="row"><div>${inp('empresaAviso', 'Empresa <small>(opcional)</small>', 'Ej: Logística Austral')}</div><div>${inp('puestoAviso', 'Puesto del aviso <small>(opcional)</small>', 'Ej: Analista administrativo/a')}</div></div>
       ${area('aviso', 'Texto del aviso', 'Pegá acá el aviso completo…', 'style="min-height:160px"')}
       <div id="kwbox">${kwHTML()}</div>`,
     () => `<h2>¡Listo para descargar!</h2><p class="hint">Revisá la vista previa y tocá <b>Descargar PDF</b>. En la ventana que se abre elegí <b>«Guardar como PDF»</b> como destino.</p>
@@ -172,8 +220,62 @@
         <div class="tip good">Guardalo como <b>Nombre-Apellido-CV.pdf</b>. Un archivo llamado «CV final (3).pdf» da mala impresión.</div>
         <div class="tip good">Por cada aviso nuevo, volvé al paso «El aviso», sumá las palabras que falten y descargá una versión adaptada.</div>
         <div class="tip warn">Desde el celular: tocá Descargar PDF → Compartir o Imprimir → Guardar como PDF.</div></div>
-      <button class="btn sec" data-act="reset" style="margin-top:16px">Empezar de cero</button>`
+      <button class="btn sec" data-act="reset" style="margin-top:16px">Empezar de cero</button>`,
+    () => `<h2>Tu postulación, lista para copiar</h2><p class="hint">Elegí dónde te postulás. El texto se arma con tu CV y el aviso que pegaste${S.empresaAviso ? '' : ' (sumá el nombre de la empresa en el paso «El aviso» para personalizarlo más)'}. Revisalo, completá lo que esté entre corchetes y copialo.</p>
+      <div class="tabs">${[['workana', 'Workana / freelance'], ['linkedin', 'LinkedIn'], ['mail', 'Mail'], ['seguimiento', 'Seguimiento']].map(([k, n]) => `<button class="${tab === k ? 'on' : ''}" data-tab="${k}">${n}</button>`).join('')}</div>
+      <textarea id="post">${esc(postulacion())}</textarea>
+      <div class="row3"><button class="btn main" data-act="copy">📋 Copiar texto</button><button class="btn sec" data-act="otra">↻ Otra versión</button><button class="btn sec" data-act="corto">${pshort ? 'Versión completa' : 'Más corto'}</button></div>
+      <div class="tips" style="margin-top:12px"><div class="tip good">Antes de mandarlo, leelo y cambiá lo que no suene a vos. Un mensaje personalizado siempre funciona mejor.</div></div>`
   ];
+  // ---------- textos de postulación (plantillas, sin IA) ----------
+  const lc = t => t ? t.charAt(0).toLowerCase() + t.slice(1) : t;
+  const yjoin = a => a.length < 2 ? (a[0] || '') : a.slice(0, -1).join(', ') + ' y ' + a[a.length - 1];
+  function aniosExp() { const ds = S.exp.map(e => e.desde).filter(Boolean).sort(); if (!ds.length) return 0; const [y, m] = ds[0].split('-'); const d = new Date(); return Math.max(0, Math.floor((d.getFullYear() * 12 + d.getMonth() - (+y * 12 + +m - 1)) / 12)); }
+  function postulacion() {
+    const nombre = S.nombre.trim() || '[Tu nombre]';
+    const puesto = S.puestoAviso.trim() || S.puesto.trim() || '[puesto]';
+    const emp = S.empresaAviso.trim();
+    const hola = emp ? `Hola, equipo de ${emp}:` : 'Hola, ¿cómo están?';
+    const a = aniosExp(), anios = a ? `${a} ${a === 1 ? 'año' : 'años'} de experiencia` : 'experiencia';
+    const all = S.exp.flatMap(e => lines(e.logros)).filter(l => !/\[/.test(l));
+    const L = (all.filter(l => /\d/.test(l)).concat(all.filter(l => !/\d/.test(l)))).slice(0, 2).map(l => l.replace(/\.$/, ''));
+    const cv = cvText(), tit = norm(S.puesto + ' ' + S.puestoAviso + ' ' + S.exp.map(e => e.puesto).join(' '));
+    const ks = S.aviso.trim().length >= 40 ? keywords().filter(x => cv.includes(x.k) && !tit.includes(x.k)).map(x => x.label) : [];
+    const sk = (ks.length ? ks : S.tecnicas.split(',').map(x => x.trim()).filter(Boolean)).slice(0, 3);
+    const en = sk.length ? yjoin(sk) : '[tu especialidad]';
+    const logro1 = L[0] ? lc(L[0]) : '[un logro concreto con un número]';
+    const logros = L.length > 1 ? `${lc(L[0])} y ${lc(L[1])}` : logro1;
+    const firma = [nombre, [S.tel, S.email].filter(Boolean).join(' · ')].filter(Boolean).join('\n');
+    const T = {
+      workana: [
+        `${hola}\n\nVi su búsqueda de ${puesto} y creo que puedo sumar desde el primer día. Tengo ${anios} en ${en}.\n\nEn mi último trabajo, ${logros}.\n\nMe gustaría contarles cómo puedo ayudarlos. ¿Coordinamos una llamada de 15 minutos esta semana?\n\nSaludos,\n${nombre}`,
+        `${hola}\n\nLeí con atención la propuesta de ${puesto}${emp ? '' : ''} y estas son las razones por las que puedo ser una buena opción:\n\n${sk.map(x => '• Experiencia en ' + x).join('\n') || '• [Tu experiencia principal]'}\n• ${L[0] || '[Un logro con números]'}\n\nPuedo empezar esta semana. ¿Les parece si charlamos los detalles?\n\n${nombre}`,
+        `${hola}\n\nSoy ${S.puesto.trim() || puesto} y me especializo en ${en}. Un ejemplo de lo que hago: ${logro1}.\n\nPara su proyecto propongo arrancar por [primer paso concreto] y mostrarles avances desde la primera semana.\n\n¿Lo hablamos? Quedo atento/a.\n${nombre}`
+      ],
+      linkedin: [
+        `Hola, [nombre de la persona]. Vi la búsqueda de ${puesto}${emp ? ' en ' + emp : ''} y me interesa mucho. Tengo ${anios} en ${en} y, por ejemplo, ${logro1}. ¿Te puedo enviar mi CV? ¡Gracias!`,
+        `Hola, [nombre]. Te escribo por la posición de ${puesto}${emp ? ' en ' + emp : ''}. Trabajo en ${en} y ${logro1}. Me encantaría sumar al equipo: ¿te parece si conversamos 10 minutos?`,
+        `Hola, [nombre]. Me postulé a ${puesto}${emp ? ' en ' + emp : ''} y quería presentarme: ${anios} en ${en}. Mi último logro: ${logro1}. ¡Quedo a disposición!`
+      ],
+      mail: [
+        `Asunto: Postulación – ${puesto} – ${nombre}\n\n${hola}\n\nLes escribo para postularme a la búsqueda de ${puesto}. Tengo ${anios} en ${en}.\n\nEn mi último trabajo, ${logros}.\n\nAdjunto mi CV. Me encantaría contarles más en una entrevista.\n\nSaludos,\n${firma}`,
+        `Asunto: ${puesto} – ${nombre}\n\n${hola}\n\nVi su búsqueda de ${puesto} y cumplo con lo que piden: ${en}. Por ejemplo, ${logro1}.\n\nLes adjunto mi CV y quedo a disposición para coordinar una charla.\n\nGracias,\n${firma}`,
+        `Asunto: Interés en ${puesto}\n\n${hola}\n\nMe interesa mucho sumarme a ${emp || 'su equipo'} como ${puesto}. Vengo trabajando en ${en} y ${logros}.\n\nAdjunto mi CV. ¿Podemos coordinar una entrevista?\n\nSaludos,\n${firma}`
+      ],
+      seguimiento: [
+        `${hola}\n\nHace una semana me postulé a la búsqueda de ${puesto} y quería reiterar mi interés. Sigo muy motivado/a por la posibilidad de sumar con mi experiencia en ${en}.\n\nSi necesitan algo más de mi parte, con gusto lo envío. ¡Gracias!\n${nombre}`,
+        `${hola}\n\nQuería consultar si hay novedades sobre el proceso de ${puesto}. Desde que me postulé, [algo nuevo: terminé un curso, leí sobre su lanzamiento de…], y me entusiasma todavía más la posibilidad de sumarme.\n\nQuedo atento/a. ¡Saludos!\n${nombre}`,
+        `${hola}\n\nTe escribo para hacer seguimiento de mi postulación a ${puesto}. Te recuerdo brevemente: ${anios} en ${en} y ${logro1}.\n\n¿Hay algún próximo paso? ¡Gracias por tu tiempo!\n${nombre}`
+      ]
+    };
+    const corto = {
+      workana: `${hola} Tengo ${anios} en ${en}. Por ejemplo, ${logro1}. Puedo empezar esta semana: ¿lo charlamos?\n${nombre}`,
+      linkedin: `Hola, [nombre]. Me interesa la búsqueda de ${puesto}${emp ? ' en ' + emp : ''}: tengo ${anios} en ${en}. ¿Te envío mi CV?`,
+      mail: `Asunto: Postulación – ${puesto} – ${nombre}\n\n${hola} Me postulo a ${puesto}: tengo ${anios} en ${en}. Adjunto mi CV.\n\nSaludos,\n${firma}`,
+      seguimiento: `${hola} ¿Hay novedades sobre ${puesto}? Sigo muy interesado/a. ¡Gracias!\n${nombre}`
+    };
+    return pshort ? corto[tab] : T[tab][pvar % T[tab].length];
+  }
 
   // ---------- palabras clave del aviso ----------
   const STOP = new Set(norm('para con como sobre entre desde hasta este esta estos estas ese esa eso una uno unos unas los las del que por sus son ser tener tiene experiencia buscamos requisitos requerimos deseable excluyente indispensable empresa importante lider persona personas puesto trabajo laboral zona horario lunes viernes sabado domingo horas años anos minimo maxima maximo nivel conocimiento conocimientos manejo capacidad buen buena buenas buenos muy mas menos todo toda todos todas ofrecemos beneficios sueldo salario remuneracion contratacion relacion dependencia oportunidad crecimiento equipo nuestro nuestra nuestros donde cuando cual quien tareas funciones principales responsabilidades incorporar sumar perfil postulate postularse enviar curriculum interesados interesadas dentro cada otro otra otros otras parte forma manera bien hacer realizar the and with for you will our are your this that from have puede pueden debera deberá tambien también ademas además siguiente siguientes valorara valoraran valora valorará valorarán').split(/\s+/));
@@ -224,18 +326,29 @@
       ${lines(S.cursos).length ? `<h4>Cursos y certificaciones</h4><ul>${lines(S.cursos).map(l => `<li>${esc(l)}</li>`).join('')}</ul>` : ''}
     </div>`;
   }
-  function checklist() {
-    const L = [];
-    const add = (ok, t) => L.push(`<li>${ok ? '✅' : '⬜'} ${t}</li>`);
-    add(S.nombre && S.puesto, 'Nombre y puesto al que apuntás');
-    add(S.email && S.tel, 'Mail y teléfono');
-    add(S.perfil.length > 60, 'Perfil profesional');
+  function puntaje() {
     const ls = S.exp.flatMap(e => lines(e.logros));
-    add(ls.length >= 2 && ls.every(l => !WEAK.test(l)), 'Logros con verbos de acción');
-    add(ls.some(l => /\d/.test(l)), 'Al menos un logro con números');
-    add(S.tecnicas, 'Habilidades técnicas');
-    if (S.aviso.trim().length >= 40) { const ks = keywords(), cv = cvText(); add(ks.filter(x => cv.includes(x.k)).length >= ks.length * 0.6, 'Palabras clave del aviso (60 % o más)'); }
-    return L.join('');
+    const it = [
+      [10, S.nombre && S.puesto, 'Nombre y puesto al que apuntás'],
+      [10, S.email && S.tel, 'Mail y teléfono'],
+      [15, S.perfil.length > 60 && !/busco|crecer|oportunidad|proactiv|\[/i.test(S.perfil), 'Perfil profesional sin frases hechas'],
+      [10, ls.length >= 2, 'Al menos 2 logros'],
+      [10, ls.length >= 1 && ls.every(l => !WEAK.test(l) && !/\[/.test(l)), 'Logros con verbos de acción y completos'],
+      [15, ls.filter(l => /\d/.test(l)).length >= 2, 'Al menos 2 logros con números'],
+      [10, S.tecnicas.split(',').filter(x => x.trim()).length >= 3, '3 o más habilidades técnicas'],
+      [5, S.edu.some(e => e.titulo), 'Estudios'],
+      [5, S.idiomas.some(d => d.idioma) || S.cursos.trim(), 'Idiomas o cursos']
+    ];
+    if (S.aviso.trim().length >= 40) { const ks = keywords(), cv = cvText(); it.push([10, ks.filter(x => cv.includes(x.k)).length >= ks.length * 0.6, '60 % de las palabras clave del aviso']); }
+    else it.push([10, false, 'Compará tu CV con un aviso (paso 6)']);
+    return { pts: it.reduce((n, x) => n + (x[1] ? x[0] : 0), 0), it };
+  }
+  function checklist() {
+    const { pts, it } = puntaje();
+    const col = pts >= 80 ? '#16A34A' : pts >= 50 ? '#E8632E' : '#E11D48';
+    $('score').innerHTML = `<div class="ring" style="background:conic-gradient(${col} ${pts * 3.6}deg,#E2E8F0 0)"><b>${pts}</b></div>` +
+      `<div><h3>Puntaje de tu CV</h3><p>${pts >= 80 ? '¡Muy bien! Tu CV está listo para mandar.' : pts >= 50 ? 'Vas bien. Completá lo que falta para llegar a 80 o más.' : 'Seguí completando: cada paso suma puntos.'}</p></div>`;
+    return it.map(([n, ok, t]) => `<li>${ok ? '✅' : '⬜'} ${t}${ok ? '' : ` <span>+${n}</span>`}</li>`).join('');
   }
   function preview() {
     $('paperIn').innerHTML = cvHTML();
@@ -245,7 +358,12 @@
   }
 
   // ---------- pasos ----------
+  function versiones() {
+    $('vers').innerHTML = `<b>Versión:</b><select id="vsel">${Object.keys(V.list).map(n => `<option ${n === V.cur ? 'selected' : ''}>${esc(n)}</option>`).join('')}</select>` +
+      `<button data-act="vnew">+ Nueva</button><button data-act="vren">Renombrar</button>${Object.keys(V.list).length > 1 ? '<button data-act="vdel">Borrar</button>' : ''}`;
+  }
   function render() {
+    versiones();
     $('steps').innerHTML = STEPS.map((s, i) => `<button class="${i === step ? 'on' : i < step ? 'done' : ''}" data-step="${i}">${i + 1}. ${s}</button>`).join('');
     $('bar').style.width = ((step + 1) / STEPS.length * 100) + '%';
     $('form').innerHTML = FORMS[step]();
@@ -269,7 +387,7 @@
     setTimeout(() => { f.contentWindow.focus(); f.contentWindow.print(); setTimeout(() => f.remove(), 1000); }, 250);
   }
   function borradorPerfil() {
-    const anios = (() => { const ds = S.exp.map(e => e.desde).filter(Boolean).sort(); if (!ds.length) return 0; const [y, m] = ds[0].split('-'); const d = new Date(); return Math.max(0, Math.floor((d.getFullYear() * 12 + d.getMonth() - (+y * 12 + +m - 1)) / 12)); })();
+    const anios = aniosExp();
     const sk = S.tecnicas.split(',').map(x => x.trim()).filter(Boolean).slice(0, 3);
     const logro = S.exp.flatMap(e => lines(e.logros)).find(l => /\d/.test(l));
     return `${S.puesto || '[Puesto]'}${anios ? ` con ${anios} ${anios === 1 ? 'año' : 'años'} de experiencia` : ''}${sk.length ? ` en ${sk.join(', ')}` : ''}. ` +
@@ -286,11 +404,23 @@
     if (k === 'aviso') $('kwbox').innerHTML = kwHTML();
     preview();
   });
-  root.addEventListener('change', e => { if (e.target.tagName === 'SELECT' || e.target.type === 'checkbox') { set(e.target.dataset.k, e.target.type === 'checkbox' ? e.target.checked : e.target.value); save(); render(); } });
+  root.addEventListener('change', e => {
+    if (e.target.id === 'vsel') { save(); V.cur = e.target.value; load(); save(); render(); return; }
+    if (e.target.id === 'post') return;
+    if (e.target.tagName === 'SELECT' || e.target.type === 'checkbox') { set(e.target.dataset.k, e.target.type === 'checkbox' ? e.target.checked : e.target.value); save(); render(); } });
   root.addEventListener('click', e => {
     const t = e.target.closest('button,[data-kw]'); if (!t) return;
     const d = t.dataset;
     if (d.step) go(+d.step);
+    else if (d.lib !== undefined) { const i = +d.lib, cur = S.exp[i].logros; S.exp[i].logros = (cur && !cur.endsWith('\n') ? cur + '\n' : cur) + d.txt; save(); render(); const ta = root.querySelector(`textarea[data-i="${i}"]`); if (ta) { const k = ta.value.indexOf('[X]'); ta.focus(); if (k >= 0) ta.setSelectionRange(k, k + 3); } }
+    else if (d.tab) { tab = d.tab; pvar = 0; render(); }
+    else if (d.act === 'otra') { pvar++; pshort = false; render(); }
+    else if (d.act === 'corto') { pshort = !pshort; render(); }
+    else if (d.act === 'copy') { const ta = $('post'); const ok = () => { t.textContent = '✓ Copiado'; setTimeout(() => t.textContent = '📋 Copiar texto', 1500); };
+      if (navigator.clipboard) navigator.clipboard.writeText(ta.value).then(ok, () => { ta.select(); document.execCommand('copy'); ok(); }); else { ta.select(); document.execCommand('copy'); ok(); } }
+    else if (d.act === 'vnew') { const n = (prompt('Nombre de la nueva versión (por ejemplo, el aviso o la empresa):', S.empresaAviso ? 'CV ' + S.empresaAviso : 'CV ' + (Object.keys(V.list).length + 1)) || '').trim(); if (n && !V.list[n]) { save(); V.list[n] = JSON.parse(JSON.stringify(S)); V.cur = n; load(); save(); render(); } }
+    else if (d.act === 'vren') { const n = (prompt('Nuevo nombre para esta versión:', V.cur) || '').trim(); if (n && n !== V.cur && !V.list[n]) { V.list[n] = S; delete V.list[V.cur]; V.cur = n; save(); render(); } }
+    else if (d.act === 'vdel') { if (Object.keys(V.list).length > 1 && confirm('¿Borrar la versión «' + V.cur + '»?')) { delete V.list[V.cur]; V.cur = Object.keys(V.list)[0]; load(); save(); render(); } }
     else if (d.verb !== undefined) { const i = +d.verb, cur = S.exp[i].logros; S.exp[i].logros = (cur && !cur.endsWith('\n') ? cur + '\n' : cur) + t.textContent + ' '; save(); render(); const ta = root.querySelector(`textarea[data-i="${i}"]`); if (ta) { ta.focus(); ta.setSelectionRange(ta.value.length, ta.value.length); } }
     else if (d.del) { const [arr, i] = d.del.split('.'); S[arr].splice(+i, 1); save(); render(); }
     else if ('addexp' in d) { S.exp.push({ puesto: '', empresa: '', desde: '', hasta: '', actual: false, logros: '' }); save(); render(); }
@@ -299,7 +429,7 @@
     else if (d.kw) { S.tecnicas = S.tecnicas.trim() ? S.tecnicas.replace(/[,\s]+$/, '') + ', ' + d.kw : d.kw; save(); $('kwbox').innerHTML = kwHTML(); preview(); }
     else if (d.act === 'perfil') { if (!S.perfil.trim() || confirm('¿Reemplazar tu perfil por un borrador?')) { S.perfil = borradorPerfil(); save(); render(); } }
     else if (d.act === 'pdf') pdf();
-    else if (d.act === 'reset') { if (confirm('¿Borrar todo y empezar de cero?')) { S = blank(); save(); go(0); } }
+    else if (d.act === 'reset') { if (confirm('¿Borrar los datos de esta versión y empezar de cero?')) { S = blank(); save(); go(0); } }
   });
   $('prev').onclick = () => go(step - 1);
   $('next').onclick = () => go(step + 1);
