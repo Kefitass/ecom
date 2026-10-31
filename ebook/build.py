@@ -17,6 +17,7 @@ GEN = {
     "psico": dict(book="Psicotécnico sin miedo", illus=["p0", "p1", "p2", "p3", "b3", 4, "p6"]),
     "entrevista": dict(book="Las preguntas de la entrevista", illus=[5, "b3", 1, 3, "s3", "b4", 4, "s4"]),
     "primer": dict(book="Tu primer trabajo", illus=[0, "b1", 2, 4, 3, 5, "b4", 7]),
+    "linkedin": dict(book="LinkedIn que te encuentra", illus=[4, "b1", 3, 2, "b3", 1, "s3", 7]),
 }
 BOOK = GEN[ED]["book"] if ED in GEN else {"main": "Conseguí trabajo en 30 días", "pro": "Secretos de reclutador"}[ED]
 md = open(SRC, encoding="utf-8").read()
@@ -417,6 +418,22 @@ elif ED == "primer":
         cl_title="Tu primer trabajo empieza hoy",
         cl_lead="No necesitás experiencia para empezar: necesitás mostrar bien lo que ya hiciste y postularte con constancia. Elegí tus primeras diez búsquedas y arrancá esta semana.",
         steps=["Armá tu CV con el modelo de la Caja de herramientas", "Abrí o completá tu perfil de LinkedIn", "Postulate a 10 búsquedas esta semana"],
+    )
+elif ED == "linkedin":
+    E = dict(
+        doc_title="LinkedIn que te encuentra", photo="linkedin_portada", cover_cls="cover linkedin",
+        badge="Método 30 · Guía práctica",
+        title="LinkedIn<br>que te<br><span>encuentra</span>",
+        sub="Cómo armar un perfil que aparezca en las búsquedas de los reclutadores y usarlo para conseguir trabajo",
+        seal='<div class="cv-seal"><div class="cv-seal-star">in</div><div class="cv-seal-l">PLAN DE<br>7 DÍAS</div></div>',
+        illu=ILLU[3],
+        pills=["Titular", "Acerca de", "Búsquedas", "Mensajes", "Plan de 7 días"],
+        wl_title="Que te encuentren a vos",
+        wl_lead="Los reclutadores buscan candidatos en LinkedIn todos los días, escribiendo palabras clave como en un buscador. Esta guía te muestra cómo funcionan esas búsquedas, cómo armar cada parte de tu perfil para aparecer y cómo usar la red para encontrar búsquedas y contactos, con ejemplos y mensajes listos para copiar.",
+        stats=[("12", "titulares de ejemplo por rubro"), ("6", "mensajes listos para copiar"), ("7", "días para dejar tu perfil listo"), ("1", "checklist completo del perfil")],
+        cl_title="Tu perfil ya trabaja para vos",
+        cl_lead="Un perfil completo y con las palabras correctas te hace visible las 24 horas. Sumale constancia (conectar, comentar, escribir) y LinkedIn se convierte en tu mejor canal de búsqueda.",
+        steps=["Seguí el plan de 7 días del capítulo 7", "Escribí 3 mensajes por semana con las plantillas", "Revisá el checklist del perfil una vez por mes"],
     )
 else:
     E = dict(

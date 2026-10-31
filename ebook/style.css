@@ -158,3 +158,7 @@ tr { break-inside: avoid; }
 .cover.primer .cv-title span { color: #FFC857; }
 .cover.primer .cv-badge { border-color: rgba(255,200,87,.5); color: #FFC857; }
 .cover.psico .cv-seal-star, .cover.entrevista .cv-seal-star, .cover.primer .cv-seal-star { font-family: "Inter Display"; font-weight: 900; font-size: 22pt; }
+.cover.linkedin { background: radial-gradient(circle at 80% 8%, #2563EB 0%, #0F2A5C 50%, #08152F 100%); }
+.cover.linkedin .cv-title span { color: #FFC857; }
+.cover.linkedin .cv-badge { border-color: rgba(255,200,87,.5); color: #FFC857; }
+.cover.linkedin .cv-seal-star { font-family: "Inter Display"; font-weight: 900; font-size: 22pt; }
