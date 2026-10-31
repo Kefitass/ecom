@@ -162,3 +162,7 @@ tr { break-inside: avoid; }
 .cover.linkedin .cv-title span { color: #FFC857; }
 .cover.linkedin .cv-badge { border-color: rgba(255,200,87,.5); color: #FFC857; }
 .cover.linkedin .cv-seal-star { font-family: "Inter Display"; font-weight: 900; font-size: 22pt; }
+.cover.remoto { background: radial-gradient(circle at 80% 8%, #0F766E 0%, #0B2E3A 50%, #061A22 100%); }
+.cover.remoto .cv-title span { color: #FFC857; }
+.cover.remoto .cv-badge { border-color: rgba(255,200,87,.5); color: #FFC857; }
+.cover.remoto .cv-seal-star { font-family: "Inter Display"; font-weight: 900; font-size: 17pt; }

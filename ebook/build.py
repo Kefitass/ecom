@@ -18,6 +18,7 @@ GEN = {
     "entrevista": dict(book="Las preguntas de la entrevista", illus=[5, "b3", 1, 3, "s3", "b4", 4, "s4"]),
     "primer": dict(book="Tu primer trabajo", illus=[0, "b1", 2, 4, 3, 5, "b4", 7]),
     "linkedin": dict(book="LinkedIn que te encuentra", illus=[4, "b1", 3, 2, "b3", 1, "s3", 7]),
+    "remoto": dict(book="Trabajo remoto para el exterior", illus=["b2", "p1", "s3", 2, 4, 5, 6, "b4"]),
 }
 BOOK = GEN[ED]["book"] if ED in GEN else {"main": "Conseguí trabajo en 30 días", "pro": "Secretos de reclutador"}[ED]
 md = open(SRC, encoding="utf-8").read()
@@ -434,6 +435,22 @@ elif ED == "linkedin":
         cl_title="Tu perfil ya trabaja para vos",
         cl_lead="Un perfil completo y con las palabras correctas te hace visible las 24 horas. Sumale constancia (conectar, comentar, escribir) y LinkedIn se convierte en tu mejor canal de búsqueda.",
         steps=["Seguí el plan de 7 días del capítulo 7", "Escribí 3 mensajes por semana con las plantillas", "Revisá el checklist del perfil una vez por mes"],
+    )
+elif ED == "remoto":
+    E = dict(
+        doc_title="Trabajo remoto para el exterior", photo="remoto_portada", cover_cls="cover remoto",
+        badge="Método 30 · Guía práctica",
+        title="Trabajo<br>remoto para<br>el <span>exterior</span>",
+        sub="Cómo conseguir trabajo para empresas de afuera desde Argentina, y cómo cobrar sin sorpresas",
+        seal='<div class="cv-seal"><div class="cv-seal-star">USD</div><div class="cv-seal-l">DESDE<br>ARGENTINA</div></div>',
+        illu=ILLU["b2"],
+        pills=["Qué trabajos", "Inglés", "CV en inglés", "Dónde buscar", "Cómo cobrar"],
+        wl_title="Trabajar para afuera, con los pies en la tierra",
+        wl_lead="Trabajar desde Argentina para una empresa del exterior es posible y cada vez más común, pero no es mágico: hay mucha competencia, el inglés pesa y las reglas para facturar y cobrar cambian seguido. Esta guía te muestra el camino completo, con información verificada y sin promesas exageradas.",
+        stats=[("3", "formas de trabajar para el exterior"), ("1", "modelo de CV en inglés"), ("5", "respuestas en inglés para la entrevista"), ("8", "señales de estafa para detectar")],
+        cl_title="Tu próximo cliente puede estar en otro país",
+        cl_lead="Ya tenés el mapa: qué trabajos existen, cómo prepararte, dónde buscar y cómo cobrar. Lo que sigue es practicar inglés, adaptar tu perfil y postularte con constancia.",
+        steps=["Pasá tu CV al inglés con el modelo de la Caja de herramientas", "Armá tu LinkedIn en inglés y activá las búsquedas remotas", "Consultá con un contador antes de tu primera factura"],
     )
 else:
     E = dict(
