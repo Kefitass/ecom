@@ -491,6 +491,30 @@ window.CE_imgFail = function(img) {
     "#ce-landing-full .steps strong{display:block;font-size:18px;color:var(--ce-ink)}",
     "#ce-landing-full .steps span{display:block;font-size:15px;color:var(--ce-muted)}",
 
+    /* antes y después (ejemplo ficticio: el antes se lee, el después queda borroso) */
+    "#ce-landing-full .abx-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px;margin-top:40px}",
+    "#ce-landing-full .abx-col{background:#fff;border-radius:22px;padding:22px;box-shadow:0 14px 34px rgba(20,33,61,.1);position:relative}",
+    "#ce-landing-full .abx-col.bad{border:3px solid #FDA4AF}#ce-landing-full .abx-col.good{border:3px solid #86EFAC}",
+    "#ce-landing-full .abx-badge{position:absolute;top:-22px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:10px;background:#fff;border-radius:999px;padding:8px 16px 8px 8px;box-shadow:0 8px 20px rgba(0,0,0,.12);font:800 15px/1 var(--ce-body);white-space:nowrap;color:var(--ce-ink)}",
+    "#ce-landing-full .abx-badge b{width:46px;height:46px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font:900 18px/1 var(--ce-body)}",
+    "#ce-landing-full .bad .abx-badge b{background:#E11D48}#ce-landing-full .good .abx-badge b{background:#16A34A}",
+    "#ce-landing-full .abx-cv{margin-top:24px;border:1px solid var(--ce-line);border-radius:10px;height:330px;overflow:hidden;font-family:Arial,sans-serif;font-size:11px;line-height:1.4;color:#111;position:relative;text-align:left}",
+    "#ce-landing-full .abx-in{height:100%}#ce-landing-full .bad .abx-in{display:grid;grid-template-columns:120px minmax(0,1fr)}",
+    "#ce-landing-full .abx-side{background:linear-gradient(180deg,#C026D3,#7C3AED);color:#fff;padding:12px 10px}",
+    "#ce-landing-full .abx-ph{width:60px;height:60px;border-radius:50%;background:#FBCFE8;margin:0 auto 10px;border:3px solid #fff}",
+    "#ce-landing-full .abx-bar{height:7px;border-radius:4px;background:rgba(255,255,255,.3);margin:5px 0}#ce-landing-full .abx-bar i{display:block;height:100%;background:#FDE047;border-radius:4px}",
+    "#ce-landing-full .abx-main{padding:12px}#ce-landing-full .abx-main b{display:block;font-size:17px;color:#7C3AED}",
+    "#ce-landing-full .abx-tag{display:inline-block;background:#F472B6;color:#fff;font-size:9px;padding:2px 6px;border-radius:4px;margin:8px 0 4px}",
+    "#ce-landing-full .good .abx-in{padding:16px 18px;filter:blur(4px)}#ce-landing-full .good .abx-in b{display:block;font-size:17px}",
+    "#ce-landing-full .abx-in h5{font-size:10px;letter-spacing:.06em;text-transform:uppercase;border-bottom:1px solid #111;margin:9px 0 4px;padding-bottom:2px}",
+    "#ce-landing-full .abx-kw{background:#DCFCE7;border-radius:3px;padding:0 2px}",
+    "#ce-landing-full .abx-lock{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}",
+    "#ce-landing-full .abx-lock span{background:#fff;border-radius:999px;padding:9px 15px;font:800 13px/1 var(--ce-body);color:var(--ce-ink);box-shadow:0 6px 16px rgba(0,0,0,.15)}",
+    "#ce-landing-full .abx-list{list-style:none;padding:0;margin:16px 0 0;display:grid;gap:8px;text-align:left}",
+    "#ce-landing-full .abx-list li{display:flex;gap:10px;font-size:15px;line-height:1.35}",
+    "#ce-landing-full .abx-list i{flex:none;width:22px;height:22px;border-radius:50%;font:900 12px/22px var(--ce-body);text-align:center;font-style:normal;color:#fff}",
+    "#ce-landing-full .bad .abx-list i{background:#E11D48}#ce-landing-full .good .abx-list i{background:#16A34A}",
+    "#ce-landing-full .abx-note{font-size:13px;color:var(--ce-muted);margin-top:10px}",
     "#ce-landing-full .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:40px}",
     /* generador de CV: la sección estrella */
     "#ce-landing-full .gen{background:radial-gradient(circle at 85% 0%,#2B3A8C 0%,var(--ce-navy) 45%,#0B1226 100%);color:#fff}",
@@ -625,7 +649,7 @@ window.CE_imgFail = function(img) {
     "#ce-sticky .tx span{font:800 17px/1.2 var(--ce-title);color:var(--ce-orange);font-variant-numeric:tabular-nums}",
     "#ce-sticky button{flex:none;background:var(--ce-orange);color:#fff;border:0;border-radius:999px;font:800 15px/1 var(--ce-title);letter-spacing:.04em;padding:14px 22px;cursor:pointer}",
 
-    "@media(max-width:900px){#ce-landing-full .sec{padding-block:60px}#ce-landing-full .split,#ce-landing-full .book-row,#ce-landing-full .who2{grid-template-columns:minmax(0,1fr);gap:30px}#ce-landing-full .grid,#ce-landing-full .revs{grid-template-columns:minmax(0,1fr)}#ce-landing-full .gmock{grid-template-columns:minmax(0,1fr)}#ce-landing-full .gmock .cvp{display:none}#ce-landing-full .gba{grid-template-columns:minmax(0,1fr)}#ce-landing-full .story .w{grid-template-columns:minmax(0,1fr);gap:22px;text-align:center}#ce-landing-full .story .big b{font-size:96px}#ce-landing-full .revs:not(.open) .rv.more{display:none}#ce-landing-full .revs-more{display:block}#ce-landing-full .book{max-width:200px}#ce-landing-full .cmp table{font-size:14px}#ce-landing-full .cmp th,#ce-landing-full .cmp td{padding:12px 10px}#ce-landing-full .cmp td:first-child{width:26%}#ce-landing-full .ph-first{order:-1}#ce-landing-full .phone-row{grid-template-columns:minmax(0,1fr);padding:30px 22px;gap:28px}#ce-landing-full .phone{max-width:220px}#ce-landing-full .peek-nav{display:none}}"
+    "@media(max-width:900px){#ce-landing-full .sec{padding-block:60px}#ce-landing-full .split,#ce-landing-full .book-row,#ce-landing-full .who2{grid-template-columns:minmax(0,1fr);gap:30px}#ce-landing-full .grid,#ce-landing-full .revs,#ce-landing-full .abx-grid{grid-template-columns:minmax(0,1fr)}#ce-landing-full .abx-grid{gap:40px}#ce-landing-full .gmock{grid-template-columns:minmax(0,1fr)}#ce-landing-full .gmock .cvp{display:none}#ce-landing-full .gba{grid-template-columns:minmax(0,1fr)}#ce-landing-full .story .w{grid-template-columns:minmax(0,1fr);gap:22px;text-align:center}#ce-landing-full .story .big b{font-size:96px}#ce-landing-full .revs:not(.open) .rv.more{display:none}#ce-landing-full .revs-more{display:block}#ce-landing-full .book{max-width:200px}#ce-landing-full .cmp table{font-size:14px}#ce-landing-full .cmp th,#ce-landing-full .cmp td{padding:12px 10px}#ce-landing-full .cmp td:first-child{width:26%}#ce-landing-full .ph-first{order:-1}#ce-landing-full .phone-row{grid-template-columns:minmax(0,1fr);padding:30px 22px;gap:28px}#ce-landing-full .phone{max-width:220px}#ce-landing-full .peek-nav{display:none}}"
   ].join("");
   document.head.appendChild(st);
 })();
@@ -813,6 +837,29 @@ window.CE_imgFail = function(img) {
       '<div class="gdemo">' + demo + '</div></div></section>';
   }
 
+  // Antes y después con una persona ficticia: el «antes» se lee entero, el «después» queda borroso (no se regala el resultado).
+  function antesDespues() {
+    var ok = function(t) { return '<li><i>✓</i>' + t + '</li>'; }, no = function(t) { return '<li><i>✕</i>' + t + '</li>'; };
+    return '<section class="sec paper"><div class="w nw" style="text-align:center"><div class="ey">Antes y después</div>' +
+      '<h2 class="h2">El mismo CV, <span>otro resultado</span></h2><p class="ld" style="margin-inline:auto">Misma experiencia, contada para que la lea un sistema y la entienda un reclutador.</p>' +
+      '<div class="abx-grid">' +
+        '<div class="abx-col bad"><div class="abx-badge"><b>35</b>Antes · CV de Canva</div><div class="abx-cv"><div class="abx-in">' +
+          '<div class="abx-side"><div class="abx-ph"></div>📞 11 5555-5555<br>✉️ mail@mail.com<br>📍 DNI 30.123.456<br><br><strong>HABILIDADES</strong>' +
+          '<div class="abx-bar"><i style="width:70%"></i></div><div class="abx-bar"><i style="width:45%"></i></div><div class="abx-bar"><i style="width:85%"></i></div><div class="abx-bar"><i style="width:60%"></i></div></div>' +
+          '<div class="abx-main"><b>Lucía Fernández</b><span class="abx-tag">SOBRE MÍ</span><br>Persona proactiva que busca crecer profesionalmente en una empresa líder.' +
+          '<br><span class="abx-tag">EXPERIENCIA</span><br>Distribuidora Norte<br>Responsable de facturación. Tareas administrativas varias. Atención a proveedores.' +
+          '<br><span class="abx-tag">ESTADO CIVIL</span><br>Soltera</div></div></div>' +
+          '<ul class="abx-list">' + no('"Busco crecer profesionalmente…": habla de vos, no de lo que aportás') + no('Tareas sueltas, sin un solo resultado') + no('Barritas de habilidades que el filtro no lee') + no('Dos columnas y datos de más (DNI, estado civil)') + '</ul></div>' +
+        '<div class="abx-col good"><div class="abx-badge"><b>90</b>Después · con el Generador</div><div class="abx-cv"><div class="abx-in">' +
+          '<b>Lucía Fernández</b>Analista administrativa<br>CABA · 11 5555-5555 · lucia@mail.com<h5>Perfil profesional</h5>Analista administrativa con 4 años de experiencia en <span class="abx-kw">facturación</span> y <span class="abx-kw">cobranzas</span>. Manejo avanzado de <span class="abx-kw">Excel</span> y Tango.' +
+          '<h5>Experiencia</h5><strong>Asistente administrativa</strong> · Distribuidora Norte<br>• Reduje de 4 días a 2 el cierre mensual de facturación<br>• Concilié 300 movimientos bancarios por mes sin diferencias' +
+          '<h5>Habilidades</h5><span class="abx-kw">Excel avanzado</span>, Tango, <span class="abx-kw">facturación</span>, <span class="abx-kw">cobranzas</span></div>' +
+          '<div class="abx-lock"><span>🔒 Lo armás con el Generador</span></div></div>' +
+          '<ul class="abx-list">' + ok('Un perfil que dice qué hace y en qué es fuerte') + ok('Logros con números y herramientas') + ok('Las palabras clave que pide el aviso') + ok('Una sola columna, clara y fácil de leer') + '</ul></div>' +
+      '</div><button type="button" class="cta" data-buy="1">Quiero el mío así</button>' +
+      '<p class="abx-note">Ejemplo con una persona ficticia. El puntaje sale del Generador de CV incluido con tu compra.</p></div></section>';
+  }
+
   function story() {
     var h = cfg.historia || {};
     if (!h.mostrar) return "";
@@ -843,6 +890,9 @@ window.CE_imgFail = function(img) {
     c.innerHTML =
       // 0. El Generador de CV (la estrella)
       generador() +
+
+      // 0b. Antes y después
+      antesDespues() +
 
       // 1. Problema
       '<section class="sec"><div class="w ' + row("split", img.problema) + '">' +
