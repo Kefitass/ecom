@@ -146,3 +146,15 @@ tr { break-inside: avoid; }
 .cover.sueldo .cv-title span { color: #F5D27A; }
 .cover.sueldo .cv-badge { border-color: rgba(61,220,151,.55); color: #7CF0C0; }
 .cover.sueldo .cv-seal-star { font-family: "Inter Display"; font-weight: 900; font-size: 26pt; }
+
+/* guías cortas extra */
+.cover.psico { background: radial-gradient(circle at 80% 8%, #5B3FB0 0%, #22164A 50%, #120C28 100%); }
+.cover.psico .cv-title span { color: #7CF0C0; }
+.cover.psico .cv-badge { border-color: rgba(124,240,192,.5); color: #7CF0C0; }
+.cover.entrevista { background: radial-gradient(circle at 80% 8%, #C2410C 0%, #3A1408 52%, #1A0904 100%); }
+.cover.entrevista .cv-title span { color: #FFC857; }
+.cover.entrevista .cv-badge { border-color: rgba(255,200,87,.5); color: #FFC857; }
+.cover.primer { background: radial-gradient(circle at 80% 8%, #1F7A9E 0%, #0E2F45 50%, #081B28 100%); }
+.cover.primer .cv-title span { color: #FFC857; }
+.cover.primer .cv-badge { border-color: rgba(255,200,87,.5); color: #FFC857; }
+.cover.psico .cv-seal-star, .cover.entrevista .cv-seal-star, .cover.primer .cv-seal-star { font-family: "Inter Display"; font-weight: 900; font-size: 22pt; }

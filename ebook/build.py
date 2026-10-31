@@ -11,7 +11,14 @@ def foto(name):
 SRC = sys.argv[1]
 OUT = sys.argv[2]
 ED = sys.argv[3] if len(sys.argv) > 3 else "main"  # "main" = Conseguí trabajo en 30 días, "pro" = Secretos de reclutador, "sueldo" = Cuánto pedir de sueldo
-BOOK = {"main": "Conseguí trabajo en 30 días", "pro": "Secretos de reclutador", "sueldo": "Cuánto pedir de sueldo"}[ED]
+# Guías cortas (Introducción + Capítulo N + Caja de herramientas): nombre e ilustración de cada apertura
+GEN = {
+    "sueldo": dict(book="Cuánto pedir de sueldo", illus=["s0", "s1", "s2", "s3", "s4", "s5", "s6"]),
+    "psico": dict(book="Psicotécnico sin miedo", illus=["p0", "p1", "p2", "p3", "b3", 4, "p6"]),
+    "entrevista": dict(book="Las preguntas de la entrevista", illus=[5, "b3", 1, 3, "s3", "b4", 4, "s4"]),
+    "primer": dict(book="Tu primer trabajo", illus=[0, "b1", 2, 4, 3, 5, "b4", 7]),
+}
+BOOK = GEN[ED]["book"] if ED in GEN else {"main": "Conseguí trabajo en 30 días", "pro": "Secretos de reclutador"}[ED]
 md = open(SRC, encoding="utf-8").read()
 
 # --- split into chapters -------------------------------------------------
@@ -140,7 +147,8 @@ def body_html(text):
                r'<div class="callout"><strong>\1</strong>\2</div>', h, flags=re.S)
     h = re.sub(r"<p><strong>(Secreto de reclutador:)</strong>(.*?)</p>",
                r'<div class="secret"><div class="secret-tag">Secreto de reclutador</div>\2</div>', h, flags=re.S)
-    h = h.replace("<blockquote>", '<blockquote><div class="bq-tag">Plantilla para copiar</div>')
+    # con [corchetes] es una plantilla para completar; sin corchetes, un ejemplo de cómo decirlo
+    h = re.sub(r"<blockquote>(.*?)</blockquote>", lambda m: '<blockquote><div class="bq-tag">' + ("Plantilla para copiar" if "[" in m.group(1) else "Ejemplo") + '</div>' + m.group(1) + '</blockquote>', h, flags=re.S)
     h = h.replace("<p>%%ROADMAP%%</p>", ROADMAP)
     h = h.replace("<table>", '<div class="tbl"><table>').replace("</table>", "</table></div>")
     return h
@@ -233,17 +241,57 @@ ILLU["s6"] = svg(
     f'<text x="260" y="290" text-anchor="middle" font-family="Inter Display" font-weight="900" font-size="58" fill="{ACC}">$</text>'
 )
 
+# psicotécnicos: p0 cabeza con engranaje · p1 cartas de tests · p2 dibujo casa-árbol-persona · p3 matriz · p6 reloj
+ILLU["p0"] = svg(
+    blob(260, 210, 190, "#fff", .06) +
+    '<path d="M300 360 v-50 c60 -10 90 -60 90 -110 c0 -80 -60 -140 -140 -140 c-80 0 -130 60 -130 130 c0 30 -20 50 -30 70 h40 v50 c0 20 20 30 40 30 h30 v20 z" fill="#fff"/>'
+    f'<circle cx="250" cy="180" r="52" fill="{ACC2}"/>'
+    + "".join(f'<rect x="242" y="112" width="16" height="22" rx="4" fill="{ACC2}" transform="rotate({a} 250 180)"/>' for a in range(0, 360, 45))
+    + f'<circle cx="250" cy="180" r="20" fill="#fff"/>'
+)
+ILLU["p1"] = svg(
+    blob(260, 210, 190, "#fff", .06) +
+    "".join(f'<g transform="rotate({r} {x+60} {y+80})"><rect x="{x}" y="{y}" width="120" height="160" rx="14" fill="#fff" opacity="{o}"/></g>' for x, y, r, o in [(90, 130, -14, .5), (200, 110, 0, .7), (310, 130, 14, .95)])
+    + f'<circle cx="370" cy="200" r="22" fill="none" stroke="{ACC}" stroke-width="8"/><path d="M335 250 h70" stroke="{INK}" stroke-width="8" stroke-linecap="round"/>'
+      f'<path d="M340 270 h50" stroke="#C9D3E6" stroke-width="8" stroke-linecap="round"/>'
+)
+ILLU["p2"] = svg(
+    blob(260, 210, 190, "#fff", .06) +
+    '<rect x="80" y="60" width="360" height="300" rx="10" fill="#fff"/>'
+    f'<path d="M120 250 l50 -45 l50 45 v60 h-100 z" fill="none" stroke="{INK}" stroke-width="6" stroke-linejoin="round"/><rect x="155" y="275" width="26" height="35" fill="none" stroke="{INK}" stroke-width="5"/>'
+    f'<rect x="250" y="250" width="14" height="60" fill="{INK}"/><circle cx="257" cy="225" r="38" fill="none" stroke="{MINT}" stroke-width="7"/>'
+    f'<circle cx="350" cy="205" r="16" fill="none" stroke="{INK}" stroke-width="5"/><path d="M350 222 v48 M330 240 h40 M350 270 l-16 38 M350 270 l16 38" stroke="{INK}" stroke-width="5" stroke-linecap="round"/>'
+    + "".join(f'<path d="M{x} {y} l-8 22" stroke="{SKY}" stroke-width="4" stroke-linecap="round"/>' for x, y in [(320, 90), (350, 110), (380, 85), (410, 115), (335, 140), (395, 150)])
+    + f'<rect x="400" y="300" width="80" height="14" rx="7" fill="{ACC}" transform="rotate(-35 440 307)"/>'
+)
+ILLU["p3"] = svg(
+    blob(260, 210, 190, "#fff", .06) +
+    '<rect x="130" y="70" width="260" height="260" rx="16" fill="#fff"/>'
+    + "".join(f'<line x1="{130+i*87}" y1="70" x2="{130+i*87}" y2="330" stroke="#E5E7EB" stroke-width="4"/><line x1="130" y1="{70+i*87}" x2="390" y2="{70+i*87}" stroke="#E5E7EB" stroke-width="4"/>' for i in (1, 2))
+    + "".join(f'<circle cx="{173+c*87}" cy="{113+r*87}" r="{10+c*8}" fill="{[ACC, SKY, MINT][r]}"/>' for r in range(3) for c in range(3) if (r, c) != (2, 2))
+    + f'<text x="347" y="320" text-anchor="middle" font-family="Inter Display" font-weight="900" font-size="64" fill="{ACC2}">?</text>'
+)
+ILLU["p6"] = svg(
+    blob(260, 210, 190, "#fff", .06) +
+    '<circle cx="260" cy="215" r="130" fill="#fff"/>'
+    f'<circle cx="260" cy="215" r="112" fill="none" stroke="#E5E7EB" stroke-width="6"/>'
+    + "".join(f'<rect x="256" y="112" width="8" height="18" rx="4" fill="{INK}" transform="rotate({a} 260 215)"/>' for a in range(0, 360, 30))
+    + f'<line x1="260" y1="215" x2="260" y2="140" stroke="{INK}" stroke-width="10" stroke-linecap="round"/><line x1="260" y1="215" x2="320" y2="245" stroke="{ACC}" stroke-width="8" stroke-linecap="round"/>'
+      f'<circle cx="260" cy="215" r="12" fill="{ACC2}"/><rect x="235" y="62" width="50" height="22" rx="8" fill="#fff"/>'
+)
+
 def meta_for(chapters):
     out, n = [], 0
     for title, _ in chapters:
-        if ED == "sueldo":
+        if ED in GEN:
+            il = GEN[ED]["illus"]
             if title.startswith("Introducci"):
-                out.append(dict(num="00", kicker="Introducción", main=title.split(":", 1)[1], illu="s0", photo="sueldo0", theme=THEMES[0], bonus=False))
+                out.append(dict(num="00", kicker="Introducción", main=title.split(":", 1)[1], illu=il[0], photo=ED + "0", theme=THEMES[0], bonus=False))
             elif title.startswith("Capítulo"):
                 k = int(re.match(r"Capítulo (\d+)", title).group(1))
-                out.append(dict(num=f"{k:02d}", kicker=f"Capítulo {k}", main=title.split(":", 1)[1], illu=f"s{k}", photo=f"sueldo{k}", theme=THEMES[k + 1], bonus=False))
+                out.append(dict(num=f"{k:02d}", kicker=f"Capítulo {k}", main=title.split(":", 1)[1], illu=il[k] if k < len(il) else 7, photo=f"{ED}{k}", theme=THEMES[(k + 1) % 8], bonus=False))
             else:
-                out.append(dict(num="+", kicker="Caja de herramientas", main=title.split(":", 1)[1], illu=8, photo="sueldo8", theme=THEMES[8], bonus=False))
+                out.append(dict(num="+", kicker="Caja de herramientas", main=title.split(":", 1)[1], illu=8, photo=ED + "8", theme=THEMES[8], bonus=False))
             continue
         if title.startswith("Introducci"):
             out.append(dict(num="00", kicker="Introducción", main=title.split(":", 1)[1], illu=0, photo="pro0" if ED == "pro" else "cap0", theme=BONUS_THEME if ED == "pro" else THEMES[0], bonus=ED == "pro"))
@@ -321,6 +369,54 @@ elif ED == "sueldo":
         cl_title="Ahora sabés cuánto pedir",
         cl_lead="Tenés tu número, las frases y el paso a paso. La próxima vez que te pregunten cuánto pretendés, vas a responder con datos y con seguridad.",
         steps=["Armá tus tres números con la tabla de la Caja de herramientas", "Practicá en voz alta las frases del capítulo 3", "Antes de aceptar cualquier oferta, repasá el checklist final"],
+    )
+elif ED == "psico":
+    E = dict(
+        doc_title="Psicotécnico sin miedo", photo="psico_portada", cover_cls="cover psico",
+        badge="Método 30 · Guía práctica",
+        title="Psicotécnico<br>sin<br><span>miedo</span>",
+        sub="Qué te van a tomar, cómo prepararte de verdad y qué hacer el día de la evaluación",
+        seal='<div class="cv-seal"><div class="cv-seal-star">✓</div><div class="cv-seal-l">23<br>EJERCICIOS</div></div>',
+        illu=ILLU["p2"],
+        pills=["Tests de dibujo", "Raven y Dominó", "Cuestionarios", "Dinámicas grupales", "El día de la evaluación"],
+        wl_title="La etapa que más nervios da, explicada",
+        wl_lead="El psicotécnico no es un examen para aprobar: es una forma de conocer cómo sos para ver si encajás con un puesto. Esta guía te cuenta qué pruebas se usan en Argentina, qué se observa en cada una, cuáles se pueden practicar y cómo llegar tranquilo. Al final tenés ejercicios de razonamiento con las respuestas explicadas.",
+        stats=[("7", "pruebas de dibujo y de láminas explicadas"), ("3", "tipos de pruebas de razonamiento"), ("23", "ejercicios de práctica con respuestas"), ("2", "checklists: el día anterior y el día de la evaluación")],
+        cl_title="Ahora sabés qué esperar",
+        cl_lead="Ya sabés qué te pueden tomar, qué se observa y cómo prepararte. Lo demás es ser vos, con calma y siguiendo cada consigna.",
+        steps=["Hacé los ejercicios de práctica de la Caja de herramientas", "Prepará tus ejemplos para la entrevista psicológica", "Repasá el checklist la noche anterior"],
+    )
+elif ED == "entrevista":
+    E = dict(
+        doc_title="Las preguntas de la entrevista", photo="entrevista_portada", cover_cls="cover entrevista",
+        badge="Método 30 · Guía práctica",
+        title="Las preguntas<br>de la<br><span>entrevista</span>",
+        sub="Qué te van a preguntar, qué buscan con cada pregunta y cómo responder con ejemplos reales",
+        seal='<div class="cv-seal"><div class="cv-seal-star">?</div><div class="cv-seal-l">28<br>PREGUNTAS</div></div>',
+        illu=ILLU[5],
+        pills=["Método STAR", "Preguntas difíciles", "Entrevista virtual", "Tus preguntas", "Después de la entrevista"],
+        wl_title="Llegá sabiendo qué te van a preguntar",
+        wl_lead="Casi todas las entrevistas se arman con las mismas preguntas, dichas de distintas formas. Esta guía te muestra qué evalúa cada una y cómo responderla con tus propios ejemplos, para que dejes de improvisar y llegues con tus historias preparadas.",
+        stats=[("28", "preguntas frecuentes con cómo responderlas"), ("4", "pasos del método STAR"), ("8", "historias para preparar antes de cualquier entrevista"), ("10", "preguntas para hacer vos al final")],
+        cl_title="Ahora te toca practicar",
+        cl_lead="Las respuestas que funcionan no se improvisan: se preparan y se practican en voz alta. Armá tus historias y ensayalas hasta que te salgan naturales.",
+        steps=["Completá tu banco de 8 historias STAR", "Practicá en voz alta las preguntas de la Caja de herramientas", "Prepará 3 preguntas para hacer al final"],
+    )
+elif ED == "primer":
+    E = dict(
+        doc_title="Tu primer trabajo", photo="primer_portada", cover_cls="cover primer",
+        badge="Método 30 · Guía práctica",
+        title="Tu<br>primer<br><span>trabajo</span>",
+        sub="Cómo armar tu CV sin experiencia, dónde buscar y cómo pasar tu primera entrevista",
+        seal='<div class="cv-seal"><div class="cv-seal-star">★</div><div class="cv-seal-l">SIN<br>EXPERIENCIA</div></div>',
+        illu=ILLU[0],
+        pills=["CV sin experiencia", "Dónde buscar", "LinkedIn desde cero", "Primera entrevista", "Tus derechos"],
+        wl_title="Todos empezamos sin experiencia",
+        wl_lead="Conseguir el primer trabajo es difícil porque te piden experiencia que todavía no tuviste. Esta guía te muestra cómo mostrar lo que sí tenés, dónde buscar las oportunidades que de verdad contratan sin experiencia y cómo prepararte para tu primera entrevista.",
+        stats=[("12", "fuentes de experiencia que sí cuentan"), ("1", "modelo de CV para primer empleo"), ("10", "preguntas de primera entrevista con respuesta"), ("5", "derechos que tenés que conocer")],
+        cl_title="Tu primer trabajo empieza hoy",
+        cl_lead="No necesitás experiencia para empezar: necesitás mostrar bien lo que ya hiciste y postularte con constancia. Elegí tus primeras diez búsquedas y arrancá esta semana.",
+        steps=["Armá tu CV con el modelo de la Caja de herramientas", "Abrí o completá tu perfil de LinkedIn", "Postulate a 10 búsquedas esta semana"],
     )
 else:
     E = dict(
