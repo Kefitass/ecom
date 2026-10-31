@@ -20,6 +20,7 @@ GEN = {
     "linkedin": dict(book="LinkedIn que te encuentra", illus=[4, "b1", 3, 2, "b3", 1, "s3", 7]),
     "remoto": dict(book="Trabajo remoto para el exterior", illus=["b2", "p1", "s3", 2, 4, 5, 6, "b4"]),
     "senior": dict(book="Buscar trabajo después de los 45", illus=[7, "b1", 2, "p0", 4, 5, 1, "b4"]),
+    "ia": dict(book="Buscar trabajo con IA", illus=["p0", "p1", "s3", 2, 3, 5, "p6", "b4"]),
 }
 BOOK = GEN[ED]["book"] if ED in GEN else {"main": "Conseguí trabajo en 30 días", "pro": "Secretos de reclutador"}[ED]
 md = open(SRC, encoding="utf-8").read()
@@ -468,6 +469,22 @@ elif ED == "senior":
         cl_title="Tu experiencia es tu ventaja",
         cl_lead="Ya sabés cómo mostrarla, cómo desarmar los prejuicios y dónde buscar. Empezá por tu red: es el recurso más valioso que tenés.",
         steps=["Actualizá tu CV con la estructura de la Caja de herramientas", "Hacé tu lista de 50 contactos y escribile a 5 esta semana", "Elegí un curso corto para actualizar una herramienta clave"],
+    )
+elif ED == "ia":
+    E = dict(
+        doc_title="Buscar trabajo con IA", photo="ia_portada", cover_cls="cover ia",
+        badge="Método 30 · Guía práctica",
+        title="Buscar<br>trabajo<br>con <span>IA</span>",
+        sub="Cómo usar la inteligencia artificial para tu CV, tu LinkedIn y tus entrevistas, sin inventar nada y sin sonar a robot",
+        seal='<div class="cv-seal"><div class="cv-seal-star">20</div><div class="cv-seal-l">INSTRUC-<br>CIONES</div></div>',
+        illu=ILLU["p0"],
+        pills=["Cómo pedirle", "Tu CV", "LinkedIn y mensajes", "Simulacro de entrevista", "Privacidad"],
+        wl_title="La IA te ahorra horas, si sabés usarla",
+        wl_lead="Los asistentes de inteligencia artificial pueden ayudarte a adaptar tu CV a cada aviso, escribir mensajes, practicar entrevistas y organizar tu búsqueda. Pero usados sin cuidado, inventan datos y escriben textos genéricos que se notan. Esta guía te muestra cómo pedirle las cosas para que el resultado sea tuyo, verdadero y útil.",
+        stats=[("20", "instrucciones listas para copiar"), ("5", "partes de una buena instrucción"), ("1", "simulacro de entrevista paso a paso"), ("6", "reglas para usarla sin riesgos")],
+        cl_title="La IA es tu asistente, no tu reemplazo",
+        cl_lead="Usala para pensar mejor y más rápido, no para copiar. Lo que te hace conseguir trabajo sigue siendo tuyo: tus logros reales, tu voz y tu constancia.",
+        steps=["Probá hoy la instrucción para adaptar tu CV a un aviso", "Hacé un simulacro de entrevista antes de tu próxima entrevista real", "Revisá tus ajustes de privacidad antes de pegar tus datos"],
     )
 else:
     E = dict(
