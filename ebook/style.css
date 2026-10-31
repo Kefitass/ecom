@@ -174,3 +174,7 @@ tr { break-inside: avoid; }
 .cover.ia .cv-title span { color: #7CF0C0; }
 .cover.ia .cv-badge { border-color: rgba(124,240,192,.5); color: #7CF0C0; }
 .cover.ia .cv-seal-star { font-family: "Inter Display"; font-weight: 900; font-size: 22pt; }
+.cover.prueba { background: radial-gradient(circle at 80% 8%, #14B8A6 0%, #0B4F4A 48%, #062A27 100%); }
+.cover.prueba .cv-title span { color: #FDE68A; }
+.cover.prueba .cv-badge { border-color: rgba(253,230,138,.5); color: #FDE68A; }
+.cover.prueba .cv-seal-star { font-family: "Inter Display"; font-weight: 900; font-size: 22pt; }

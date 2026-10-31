@@ -21,6 +21,7 @@ GEN = {
     "remoto": dict(book="Trabajo remoto para el exterior", illus=["b2", "p1", "s3", 2, 4, 5, 6, "b4"]),
     "senior": dict(book="Buscar trabajo después de los 45", illus=[7, "b1", 2, "p0", 4, 5, 1, "b4"]),
     "ia": dict(book="Buscar trabajo con IA", illus=["p0", "p1", "s3", 2, 3, 5, "p6", "b4"]),
+    "prueba": dict(book="Pasá el período de prueba", illus=["p6", "b4", "p1", "p0", 3, "s3", 5, 4]),
 }
 BOOK = GEN[ED]["book"] if ED in GEN else {"main": "Conseguí trabajo en 30 días", "pro": "Secretos de reclutador"}[ED]
 md = open(SRC, encoding="utf-8").read()
@@ -485,6 +486,22 @@ elif ED == "ia":
         cl_title="La IA es tu asistente, no tu reemplazo",
         cl_lead="Usala para pensar mejor y más rápido, no para copiar. Lo que te hace conseguir trabajo sigue siendo tuyo: tus logros reales, tu voz y tu constancia.",
         steps=["Probá hoy la instrucción para adaptar tu CV a un aviso", "Hacé un simulacro de entrevista antes de tu próxima entrevista real", "Revisá tus ajustes de privacidad antes de pegar tus datos"],
+    )
+elif ED == "prueba":
+    E = dict(
+        doc_title="Pasá el período de prueba", photo="prueba_portada", cover_cls="cover prueba",
+        badge="Método 30 · Guía práctica",
+        title="Pasá el<br>período<br>de <span>prueba</span>",
+        sub="Tus primeros 6 meses en un trabajo nuevo: qué hacer, qué evitar y qué derechos tenés",
+        seal='<div class="cv-seal"><div class="cv-seal-star">90</div><div class="cv-seal-l">DÍAS<br>CON PLAN</div></div>',
+        illu=ILLU["p6"],
+        pills=["Tus derechos", "Primer día", "Qué se espera", "Pedir devolución", "Tu equipo"],
+        wl_title="Conseguiste el trabajo. Ahora, a quedarte",
+        wl_lead="Durante el período de prueba, la empresa y vos se están conociendo, y cualquiera de las dos partes puede terminar la relación sin indemnización por antigüedad. Esta guía te muestra qué controlar, cómo arrancar con el pie derecho y cómo demostrar en pocos meses que contratarte fue una buena decisión.",
+        stats=[("6", "meses de prueba, como regla general"), ("3", "claves que predicen una buena adaptación"), ("90", "días con un plan concreto"), ("7", "errores que te pueden costar el puesto")],
+        cl_title="El período de prueba también es para vos",
+        cl_lead="Mientras la empresa te evalúa, vos también evaluás si ese lugar es para vos. Hacé tu parte lo mejor posible, cuidá tus derechos y, si no es el lugar, llevate la experiencia.",
+        steps=["Controlá tu recibo de sueldo y tu registro en el primer mes", "Pedí la reunión de expectativas en tus primeras dos semanas", "Agendá tus revisiones de los 30, 60 y 90 días"],
     )
 else:
     E = dict(
