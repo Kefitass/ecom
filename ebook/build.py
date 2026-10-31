@@ -10,7 +10,8 @@ def foto(name):
 
 SRC = sys.argv[1]
 OUT = sys.argv[2]
-ED = sys.argv[3] if len(sys.argv) > 3 else "main"  # "main" = Conseguí trabajo en 30 días, "pro" = Secretos de reclutador
+ED = sys.argv[3] if len(sys.argv) > 3 else "main"  # "main" = Conseguí trabajo en 30 días, "pro" = Secretos de reclutador, "sueldo" = Cuánto pedir de sueldo
+BOOK = {"main": "Conseguí trabajo en 30 días", "pro": "Secretos de reclutador", "sueldo": "Cuánto pedir de sueldo"}[ED]
 md = open(SRC, encoding="utf-8").read()
 
 # --- split into chapters -------------------------------------------------
@@ -183,9 +184,67 @@ ILLU["b4"] = svg(
     f'<path d="M205 210 l38 38 l75 -80" stroke="{INK}" stroke-width="18" fill="none" stroke-linecap="round" stroke-linejoin="round"/>'
 )
 
+# guía de sueldo: s0 ancla · s1 calculadora · s2 rango · s3 diálogo · s4 oferta · s5 ajuste · s6 aumento
+ILLU["s0"] = svg(
+    blob(260, 210, 190, "#fff", .06) +
+    f'<line x1="260" y1="60" x2="260" y2="300" stroke="#fff" stroke-width="14" stroke-linecap="round"/>'
+    f'<circle cx="260" cy="60" r="26" fill="none" stroke="#fff" stroke-width="12"/>'
+    f'<path d="M150 250 Q160 340 260 345 Q360 340 370 250" fill="none" stroke="#fff" stroke-width="14" stroke-linecap="round"/>'
+    f'<path d="M130 262 l30 -28 l12 40 z" fill="{ACC2}"/><path d="M390 262 l-30 -28 l-12 40 z" fill="{ACC2}"/>'
+    f'<rect x="215" y="120" width="90" height="14" rx="7" fill="#fff"/>'
+)
+ILLU["s1"] = svg(
+    blob(260, 210, 190, "#fff", .06) +
+    '<rect x="160" y="50" width="200" height="320" rx="24" fill="#fff"/>'
+    f'<rect x="185" y="78" width="150" height="62" rx="10" fill="{INK}"/><text x="320" y="122" text-anchor="end" font-family="Inter" font-weight="800" font-size="30" fill="{MINT}">−17%</text>'
+    + "".join(f'<rect x="{185+c*52}" y="{165+r*48}" width="42" height="36" rx="8" fill="{ACC if (r, c) == (3, 2) else "#E5E7EB"}"/>' for r in range(4) for c in range(3))
+)
+ILLU["s2"] = svg(
+    blob(260, 210, 190, "#fff", .06) +
+    f'<rect x="70" y="190" width="380" height="26" rx="13" fill="rgba(255,255,255,.25)"/>'
+    f'<rect x="230" y="190" width="160" height="26" rx="13" fill="{MINT}"/>'
+    + "".join(f'<line x1="{x}" y1="160" x2="{x}" y2="246" stroke="{c}" stroke-width="8" stroke-linecap="round"/><circle cx="{x}" cy="150" r="16" fill="{c}"/>' for x, c in [(130, "#fff"), (230, ACC2), (390, ACC)])
+    + f'<text x="130" y="290" text-anchor="middle" font-family="Inter" font-weight="800" font-size="22" fill="#fff">PISO</text>'
+      f'<text x="230" y="290" text-anchor="middle" font-family="Inter" font-weight="800" font-size="22" fill="{ACC2}">OBJETIVO</text>'
+      f'<text x="390" y="290" text-anchor="middle" font-family="Inter" font-weight="800" font-size="22" fill="{ACC}">TECHO</text>'
+)
+ILLU["s3"] = svg(
+    blob(260, 210, 190, "#fff", .06) +
+    '<path d="M90 90 h220 a20 20 0 0 1 20 20 v90 a20 20 0 0 1 -20 20 h-150 l-40 36 v-36 h-30 a20 20 0 0 1 -20 -20 v-90 a20 20 0 0 1 20 -20 z" fill="#fff"/>'
+    f'<text x="200" y="182" text-anchor="middle" font-family="Inter Display" font-weight="900" font-size="64" fill="{INK}">¿$?</text>'
+    f'<path d="M430 210 h-180 a20 20 0 0 0 -20 20 v70 a20 20 0 0 0 20 20 h120 l40 32 v-32 h20 a20 20 0 0 0 20 -20 v-70 a20 20 0 0 0 -20 -20 z" fill="{ACC2}"/>'
+    + "".join(f'<rect x="260" y="{240+i*26}" width="{140-i*40}" height="12" rx="6" fill="{INK}" opacity=".6"/>' for i in range(3))
+)
+ILLU["s4"] = svg(
+    blob(260, 210, 190, "#fff", .06) +
+    '<rect x="120" y="70" width="280" height="200" rx="16" fill="#fff"/>'
+    f'<path d="M120 86 L260 190 L400 86" fill="none" stroke="#C9D3E6" stroke-width="10" stroke-linejoin="round"/>'
+    f'<circle cx="380" cy="270" r="54" fill="{MINT}"/><path d="M352 270 l20 20 l38 -42" stroke="#fff" stroke-width="14" fill="none" stroke-linecap="round" stroke-linejoin="round"/>'
+)
+ILLU["s5"] = svg(
+    blob(260, 210, 190, "#fff", .06) +
+    "".join(f'<rect x="{90+i*58}" y="{300-h}" width="40" height="{h}" rx="8" fill="#fff" opacity="{.35+i*.1}"/>' for i, h in enumerate([90, 120, 150, 185, 220, 255]))
+    + f'<polyline points="110,250 168,230 226,205 284,170 342,140 400,100" fill="none" stroke="{ACC2}" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>'
+      f'<circle cx="400" cy="100" r="16" fill="{ACC}"/>'
+)
+ILLU["s6"] = svg(
+    blob(260, 210, 190, "#fff", .06) +
+    f'<path d="M260 50 L380 190 H310 V340 H210 V190 H140 Z" fill="#fff"/>'
+    f'<text x="260" y="290" text-anchor="middle" font-family="Inter Display" font-weight="900" font-size="58" fill="{ACC}">$</text>'
+)
+
 def meta_for(chapters):
     out, n = [], 0
     for title, _ in chapters:
+        if ED == "sueldo":
+            if title.startswith("Introducci"):
+                out.append(dict(num="00", kicker="Introducción", main=title.split(":", 1)[1], illu="s0", photo="sueldo0", theme=THEMES[0], bonus=False))
+            elif title.startswith("Capítulo"):
+                k = int(re.match(r"Capítulo (\d+)", title).group(1))
+                out.append(dict(num=f"{k:02d}", kicker=f"Capítulo {k}", main=title.split(":", 1)[1], illu=f"s{k}", photo=f"sueldo{k}", theme=THEMES[k + 1], bonus=False))
+            else:
+                out.append(dict(num="+", kicker="Caja de herramientas", main=title.split(":", 1)[1], illu=8, photo="sueldo8", theme=THEMES[8], bonus=False))
+            continue
         if title.startswith("Introducci"):
             out.append(dict(num="00", kicker="Introducción", main=title.split(":", 1)[1], illu=0, photo="pro0" if ED == "pro" else "cap0", theme=BONUS_THEME if ED == "pro" else THEMES[0], bonus=ED == "pro"))
         elif title.startswith("Bonus"):
@@ -218,7 +277,7 @@ def chapter_open(m):
   <div class="op-kicker">{html.escape(m["kicker"])}</div>
   <h2 class="op-title">{html.escape(m["main"])}</h2>
   {photo_or_illu}
-  <div class="op-foot">Método 30 · {"Secretos de reclutador" if ED == "pro" else "Conseguí trabajo en 30 días"}</div>
+  <div class="op-foot">Método 30 · {BOOK}</div>
 </section>'''
 
 metas = meta_for(chapters)
@@ -246,6 +305,22 @@ if ED == "pro":
         cl_title="Ahora jugás con ventaja",
         cl_lead="Ya sabés lo que pasa del otro lado de la mesa. Usá cada capítulo en su etapa del plan y vas a dejar de competir como un candidato más.",
         steps=["Leé el capítulo de la etapa en la que estás", "Prepará una prueba de trabajo para tu empresa favorita", "Repasá el checklist experto antes de cada entrevista"],
+    )
+elif ED == "sueldo":
+    E = dict(
+        doc_title="Cuánto pedir de sueldo", photo="sueldo_portada", cover_cls="cover sueldo",
+        badge="Método 30 · Guía 2026",
+        title="Cuánto<br>pedir de<br><span>sueldo</span>",
+        sub="El número, las frases exactas y la negociación: para no quedarte corto ni quedar afuera",
+        seal='<div class="cv-seal"><div class="cv-seal-star">$</div><div class="cv-seal-l">GUÍA<br>2026</div></div>',
+        illu=ILLU["s2"],
+        pills=["Bruto y neto", "Tu número", "¿Cuánto pretendés?", "Negociar la oferta", "Pedir un aumento"],
+        wl_title="El número que decís cambia todo",
+        wl_lead="Esta guía te acompaña desde que armás tu número hasta que firmás la oferta, o hasta que pedís tu próximo aumento. Cada técnica está respaldada por estudios sobre negociación o por la ley argentina. Usala como manual de consulta: abrí el capítulo de la etapa en la que estás.",
+        stats=[("3", "números para llegar preparado: piso, objetivo y techo"), ("10", "frases listas para usar en cada momento"), ("6", "capítulos, de la postulación al aumento"), ("2", "checklists: antes de decir un número y antes de aceptar")],
+        cl_title="Ahora sabés cuánto pedir",
+        cl_lead="Tenés tu número, las frases y el paso a paso. La próxima vez que te pregunten cuánto pretendés, vas a responder con datos y con seguridad.",
+        steps=["Armá tus tres números con la tabla de la Caja de herramientas", "Practicá en voz alta las frases del capítulo 3", "Antes de aceptar cualquier oferta, repasá el checklist final"],
     )
 else:
     E = dict(

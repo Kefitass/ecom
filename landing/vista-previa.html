@@ -163,6 +163,21 @@ window.CE_CONFIG = {
   ],
   textoBoton: "QUIERO EMPEZAR HOY",
 
+  // ============================================================
+  // ➕ AGREGADO EN EL CARRITO: la guía "Cuánto pedir de sueldo"
+  // varianteId: el ID de la variante del producto de la guía (vacío = la casilla no se muestra).
+  // imagen: URL https de la tapa en Contenido → Archivos (vacío = sin imagen).
+  // El precio de $4.199 lo aplica el descuento automático de Shopify, no este código.
+  // ============================================================
+  agregado: {
+    varianteId: "",
+    titulo: "Sumá la guía «Cuánto pedir de sueldo»",
+    texto: "Qué responder cuando te preguntan cuánto pretendés, cómo negociar la oferta y cómo pedir un aumento.",
+    precio: "$4.199",
+    precioViejo: "$6.900",
+    imagen: ""
+  },
+
   // Caja debajo del botón
   entrega: {
     titulo: "Acceso inmediato",
@@ -419,6 +434,13 @@ window.CE_imgFail = function(img) {
     "#ce-offers .of.sel .rd{border-color:var(--ce-navy)}",
     "#ce-offers .rd::after{content:'';width:12px;height:12px;border-radius:50%;background:var(--ce-orange);transform:scale(0);transition:transform .2s}",
     "#ce-offers .of.sel .rd::after{transform:scale(1)}",
+    "#ce-addon{display:flex;gap:12px;align-items:center;border:2px dashed var(--ce-orange);background:#FFF7F2;border-radius:14px;padding:12px 14px;margin:12px 0 4px;cursor:pointer}",
+    "#ce-addon:has(input:checked){border-style:solid;background:#FFEFE5}",
+    "#ce-addon input{flex:none;width:22px;height:22px;accent-color:var(--ce-orange);margin:0;cursor:pointer}",
+    "#ce-addon img{flex:none;width:44px;border-radius:3px 6px 6px 3px;box-shadow:0 4px 10px rgba(0,0,0,.2)}",
+    "#ce-addon .tx{flex:1;min-width:0}#ce-addon .tx b{display:block;font:800 15px/1.25 var(--ce-body);color:var(--ce-navy)}",
+    "#ce-addon .tx small{display:block;font-size:13px;line-height:1.35;color:var(--ce-muted);margin-top:3px}",
+    "#ce-addon .pr{flex:none;text-align:right}#ce-addon .pr b{display:block;font:800 18px/1.1 var(--ce-title);color:var(--ce-orange)}#ce-addon .pr s{font-size:13px;color:var(--ce-muted)}",
     "#ce-offers .nm{font:800 17px/1.2 var(--ce-title);color:var(--ce-ink)}",
     "#ce-offers .pr{font:800 20px/1 var(--ce-title);color:var(--ce-ink);text-align:right;font-variant-numeric:tabular-nums}",
     "#ce-offers .sb{font-size:14px;color:var(--ce-muted);line-height:1.3}",
@@ -744,6 +766,31 @@ window.CE_imgFail = function(img) {
     setTimeout(function() { pick(def); }, 300);
   }
 
+  // Agregado en el carrito: una casilla debajo de las opciones. Si está tildada, el botón de compra
+  // (y el de la barra fija, que lo usa) lleva directo al checkout con el ebook elegido + la guía,
+  // usando el enlace de carrito de Shopify (/cart/variante:cantidad,variante:cantidad).
+  function addon() {
+    var a = cfg.agregado || {};
+    var off = document.getElementById("ce-offers");
+    if (!off || document.getElementById("ce-addon") || !/^\d+$/.test(String(a.varianteId || ""))) return;
+    var box = document.createElement("label");
+    box.id = "ce-addon";
+    box.innerHTML = '<input type="checkbox" id="ce-addon-chk">' +
+      (window.CE_OK(a.imagen) && a.imagen ? '<img src="' + a.imagen + '" alt="">' : "") +
+      '<span class="tx"><b>' + esc(a.titulo) + "</b><small>" + esc(a.texto) + "</small></span>" +
+      '<span class="pr"><b>' + esc(a.precio) + "</b><s>" + esc(a.precioViejo) + "</s></span>";
+    off.parentNode.insertBefore(box, off.nextSibling);
+    document.addEventListener("submit", function(e) {
+      var chk = document.getElementById("ce-addon-chk");
+      if (e.target !== D.form() || !chk || !chk.checked) return;
+      if (window.CE_PREVIEW) { e.preventDefault(); e.stopImmediatePropagation(); box.classList.add("ok"); return; }
+      var inp = D.variantInput(), main = inp && String(inp.value);
+      if (!/^\d+$/.test(main || "")) return;
+      e.preventDefault(); e.stopImmediatePropagation();
+      window.location.href = "/cart/" + main + ":1," + a.varianteId + ":1";
+    }, true);
+  }
+
   function delivery() {
     var off = document.getElementById("ce-offers");
     var btn = D.btn();
@@ -767,7 +814,7 @@ window.CE_imgFail = function(img) {
 
   function run() {
     if (!D.form()) return false;
-    topbar(); ratingAndBenefits(); offers(); delivery();
+    topbar(); ratingAndBenefits(); offers(); addon(); delivery();
     return true;
   }
   var tries = 0;

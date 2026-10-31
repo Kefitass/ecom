@@ -139,3 +139,10 @@ tr { break-inside: avoid; }
 .cover.pro.has-photo { background: #0A0907; }
 .cover.has-photo .cv-sub { max-width: 100mm; }
 .cover.has-photo .cv-cal, .cover.has-photo .cv-seal { left: 22mm; right: auto; top: auto; bottom: 46mm; }
+
+/* guía de sueldo: verde y dorado */
+.cover.sueldo { background: radial-gradient(circle at 80% 8%, #1F7A5A 0%, #0E2E26 50%, #071A15 100%); }
+.cover.sueldo .cv-glow { background: radial-gradient(circle, rgba(61,220,151,.30), transparent 65%); }
+.cover.sueldo .cv-title span { color: #F5D27A; }
+.cover.sueldo .cv-badge { border-color: rgba(61,220,151,.55); color: #7CF0C0; }
+.cover.sueldo .cv-seal-star { font-family: "Inter Display"; font-weight: 900; font-size: 26pt; }
