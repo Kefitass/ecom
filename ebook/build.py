@@ -19,6 +19,7 @@ GEN = {
     "primer": dict(book="Tu primer trabajo", illus=[0, "b1", 2, 4, 3, 5, "b4", 7]),
     "linkedin": dict(book="LinkedIn que te encuentra", illus=[4, "b1", 3, 2, "b3", 1, "s3", 7]),
     "remoto": dict(book="Trabajo remoto para el exterior", illus=["b2", "p1", "s3", 2, 4, 5, 6, "b4"]),
+    "senior": dict(book="Buscar trabajo después de los 45", illus=[7, "b1", 2, "p0", 4, 5, 1, "b4"]),
 }
 BOOK = GEN[ED]["book"] if ED in GEN else {"main": "Conseguí trabajo en 30 días", "pro": "Secretos de reclutador"}[ED]
 md = open(SRC, encoding="utf-8").read()
@@ -451,6 +452,22 @@ elif ED == "remoto":
         cl_title="Tu próximo cliente puede estar en otro país",
         cl_lead="Ya tenés el mapa: qué trabajos existen, cómo prepararte, dónde buscar y cómo cobrar. Lo que sigue es practicar inglés, adaptar tu perfil y postularte con constancia.",
         steps=["Pasá tu CV al inglés con el modelo de la Caja de herramientas", "Armá tu LinkedIn en inglés y activá las búsquedas remotas", "Consultá con un contador antes de tu primera factura"],
+    )
+elif ED == "senior":
+    E = dict(
+        doc_title="Buscar trabajo después de los 45", photo="senior_portada", cover_cls="cover senior",
+        badge="Método 30 · Guía práctica",
+        title="Buscar trabajo<br>después<br>de los <span>45</span>",
+        sub="Cómo convertir tu experiencia en tu mayor ventaja y desarmar los prejuicios por la edad",
+        seal='<div class="cv-seal"><div class="cv-seal-star">45+</div><div class="cv-seal-l">EXPERIENCIA<br>QUE SUMA</div></div>',
+        illu=ILLU[7],
+        pills=["Los prejuicios", "Un CV sin edad", "Actualizarte", "Tu red", "Otros caminos"],
+        wl_title="Tu experiencia vale. Hay que saber mostrarla",
+        wl_lead="Buscar trabajo después de los 45 tiene desafíos reales: los prejuicios por la edad existen. Pero la investigación muestra que la mayoría de esos prejuicios no tienen sustento, y vos tenés algo que nadie más tiene: años de experiencia y una red de contactos. Esta guía te muestra cómo usarlos a tu favor.",
+        stats=[("6", "prejuicios frecuentes y cómo desarmarlos"), ("1", "estructura de CV que muestra experiencia, no edad"), ("6", "preguntas incómodas con respuesta"), ("7", "caminos posibles además del empleo tradicional")],
+        cl_title="Tu experiencia es tu ventaja",
+        cl_lead="Ya sabés cómo mostrarla, cómo desarmar los prejuicios y dónde buscar. Empezá por tu red: es el recurso más valioso que tenés.",
+        steps=["Actualizá tu CV con la estructura de la Caja de herramientas", "Hacé tu lista de 50 contactos y escribile a 5 esta semana", "Elegí un curso corto para actualizar una herramienta clave"],
     )
 else:
     E = dict(
