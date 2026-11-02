@@ -2,20 +2,20 @@
 
 Prompts para APIMart, 10 segundos por clip. Para Flow, cambiá «10 segundos» por «8 segundos».
 
-## Creativo B: «¿Y, novedades?» (unos 40 s)
+## Creativo B: «¡Pará de mandar CV!» (unos 40 s)
 
 **Guion**
 
-1. **Dice:** Otra semana más sin que te llamen de ningún lado. En casa ya te preguntan «¿y, novedades?» y vos ya no sabés ni qué contestar.  
-   **Se ve:** Texto «¿Y, NOVEDADES?» desde el primer cuadro. Una mesa familiar o un chat de WhatsApp con ese mensaje.
+1. **Dice:** ¡Pará! Dejá de mandar currículums. En serio. Cada vez que mandás el mismo a todos lados te estás dejando afuera solo, y nadie te lo dice.  
+   **Se ve:** Texto «¡PARÁ DE MANDAR CV!» desde el primer cuadro. Una mano tocando «Enviar» una y otra vez.
 
-2. **Dice:** Y no es que no busques: te postulás a todo. El problema es que mandás un currículum que no pasa los filtros, y nadie te lo dice.  
-   **Se ve:** Muchos CV cayendo en una pila; sello rojo DESCARTADO.
+2. **Dice:** Las empresas filtran tu currículum con un programa que busca las palabras de cada aviso. Si mandás uno genérico, lo descarta sin que lo lea nadie.  
+   **Se ve:** Un CV pasando por un escáner y el sello rojo DESCARTADO.
 
 3. **Dice:** Por eso armamos un generador: contestás unas preguntas y en diez minutos tenés un currículum hecho para cada aviso, con la propuesta lista.  
-   **Se ve:** Pantalla del generador: el puntaje y la pestaña de postulación.
+   **Se ve:** Pantalla del generador: el puntaje y las palabras clave.
 
-4. **Dice:** Viene incluido con Método treinta, el plan de treinta días para conseguir trabajo. Tocá el botón, y que la próxima novedad sea buena.  
+4. **Dice:** Viene incluido con Método treinta, el plan de treinta días para conseguir trabajo. Tocá el botón y empezá a postularte menos, pero mejor.  
    **Se ve:** Tapas y flecha. Texto «Tocá el botón».
 
 ## Creativo C: «¡No te llaman por esto!» (unos 30 s)
@@ -62,9 +62,9 @@ VOZ Y ACENTO: español con acento argentino rioplatense, de Buenos Aires, bien p
 
 ESCENA: la misma chica de la imagen de referencia, con la misma cara, el mismo pelo y la misma ropa, delante de un fondo verde croma liso (#00FF00). Plano medio corto, cámara fija a la altura de los ojos, luz pareja y suave.
 
-ACCIÓN: empieza a hablar desde el primer cuadro. Los labios se mueven perfectamente sincronizados con cada palabra, de la primera a la última, durante los 10 segundos completos. Las manos quedan quietas, abajo y fuera de cuadro, todo el tiempo. No gesticula con las manos. Solo se mueven su cara, sus ojos y un poco su cabeza, de forma natural. Empieza con cara de cansancio y resignación; en "¿y, novedades?" hace una mueca de "ya sé".
+ACCIÓN: empieza a hablar desde el primer cuadro. Los labios se mueven perfectamente sincronizados con cada palabra, de la primera a la última, durante los 10 segundos completos. Las manos quedan quietas, abajo y fuera de cuadro, todo el tiempo. No gesticula con las manos. Solo se mueven su cara, sus ojos y un poco su cabeza, de forma natural. Arranca exaltada desde el primer cuadro, con los ojos bien abiertos, como frenando a alguien que está por cometer un error; después baja un poco la intensidad.
 
-Ella mira a cámara y dice, de corrido, en tono cansado y cercano, de quien entiende perfecto lo que te pasa: Otra semana más sin que te llamen de ningún lado. En casa ya te preguntan «¿y, novedades?» y vos ya no sabés ni qué contestar.
+Ella mira a cámara y dice, de corrido, en tono exaltado y urgente, pero simpático, con mucha energía en «¡Pará!»: ¡Pará! Dejá de mandar currículums. En serio. Cada vez que mandás el mismo a todos lados te estás dejando afuera solo, y nadie te lo dice.
 
 EVITAR: música, otras personas, manos en cuadro, gestos con las manos, movimientos de cámara, cortes, silencio al principio o al final, voz sin que se muevan los labios.
 ```
@@ -80,9 +80,9 @@ VOZ Y ACENTO: español con acento argentino rioplatense, de Buenos Aires, bien p
 
 ESCENA: la misma chica de la imagen de referencia, con la misma cara, el mismo pelo y la misma ropa, delante de un fondo verde croma liso (#00FF00). Plano medio corto, cámara fija a la altura de los ojos, luz pareja y suave.
 
-ACCIÓN: empieza a hablar desde el primer cuadro. Los labios se mueven perfectamente sincronizados con cada palabra, de la primera a la última, durante los 10 segundos completos. Las manos quedan quietas, abajo y fuera de cuadro, todo el tiempo. No gesticula con las manos. Solo se mueven su cara, sus ojos y un poco su cabeza, de forma natural. Se pone firme y un poco indignada en "nadie te lo dice".
+ACCIÓN: empieza a hablar desde el primer cuadro. Los labios se mueven perfectamente sincronizados con cada palabra, de la primera a la última, durante los 10 segundos completos. Las manos quedan quietas, abajo y fuera de cuadro, todo el tiempo. No gesticula con las manos. Solo se mueven su cara, sus ojos y un poco su cabeza, de forma natural. Se inclina apenas hacia la cámara, como contando algo que pocos saben.
 
-Ella mira a cámara y dice, de corrido, en tono firme y revelador: Y no es que no busques: te postulás a todo. El problema es que mandás un currículum que no pasa los filtros, y nadie te lo dice.
+Ella mira a cámara y dice, de corrido, en tono cómplice y revelador: Las empresas filtran tu currículum con un programa que busca las palabras de cada aviso. Si mandás uno genérico, lo descarta sin que lo lea nadie.
 
 EVITAR: música, otras personas, manos en cuadro, gestos con las manos, movimientos de cámara, cortes, silencio al principio o al final, voz sin que se muevan los labios.
 ```
@@ -118,7 +118,7 @@ ESCENA: la misma chica de la imagen de referencia, con la misma cara, el mismo p
 
 ACCIÓN: empieza a hablar desde el primer cuadro. Los labios se mueven perfectamente sincronizados con cada palabra, de la primera a la última, durante los 10 segundos completos. Las manos quedan quietas, abajo y fuera de cuadro, todo el tiempo. No gesticula con las manos. Solo se mueven su cara, sus ojos y un poco su cabeza, de forma natural. Sonríe al final, con cara de invitación y complicidad.
 
-Ella mira a cámara y dice, de corrido, en tono motivador y con energía: Viene incluido con Método treinta, el plan de treinta días para conseguir trabajo. Tocá el botón, y que la próxima novedad sea buena.
+Ella mira a cámara y dice, de corrido, en tono motivador y con energía: Viene incluido con Método treinta, el plan de treinta días para conseguir trabajo. Tocá el botón y empezá a postularte menos, pero mejor.
 
 EVITAR: música, otras personas, manos en cuadro, gestos con las manos, movimientos de cámara, cortes, silencio al principio o al final, voz sin que se muevan los labios.
 ```
