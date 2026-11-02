@@ -44,7 +44,7 @@
 2. **Dice:** En treinta y tres días ya estaba trabajando donde quería. Y antes le ofrecían sueldos bajísimos y horarios eternos.  
    **Se ve:** Un mail que dice «¡Bienvenida al equipo!» o un contador «Día 1 → Día 33».
 
-3. **Dice:** No se postuló a más lugares: cambió cómo se postulaba. Currículum que pasa filtros, LinkedIn y entrevistas preparadas.  
+3. **Dice:** No se postuló a más lugares: cambió cómo se postulaba. Currículum que pasa filtros, un perfil que atrae reclutadores y entrevistas preparadas.  
    **Se ve:** Pantalla del generador: el puntaje y las palabras clave.
 
 4. **Dice:** Ese es Método treinta, el plan que usó ella, ahora con generador de currículum incluido. Tocá el botón y empezá hoy.  
@@ -103,7 +103,7 @@ ESCENA: la misma chica de la imagen de referencia, con la misma cara, el mismo p
 
 ACCIÓN: empieza a hablar desde el primer cuadro. Los labios se mueven perfectamente sincronizados con cada palabra, de la primera a la última, durante los 8 segundos completos. Las manos quedan quietas, abajo y fuera de cuadro, todo el tiempo. No gesticula con las manos. Solo se mueven su cara, sus ojos y un poco su cabeza, de forma natural. Se inclina apenas hacia la cámara, como contando algo que pocos saben.
 
-Ella mira a cámara y dice, de corrido, en tono cómplice y seguro: No se postuló a más lugares: cambió cómo se postulaba. Currículum que pasa filtros, LinkedIn y entrevistas preparadas.
+Ella mira a cámara y dice, de corrido, en tono cómplice y seguro: No se postuló a más lugares: cambió cómo se postulaba. Currículum que pasa filtros, un perfil que atrae reclutadores y entrevistas preparadas.
 
 EVITAR: subtítulos, texto en pantalla, captions, letras, títulos, marcas de agua, música, otras personas, manos en cuadro, gestos con las manos, movimientos de cámara, cortes, silencio al principio o al final, voz sin que se muevan los labios.
 ```
