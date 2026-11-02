@@ -1,0 +1,59 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Creativo D: qué cambió</title>
+<!-- Fondo del clip 3 del creativo D (8 s): "no se postuló a más lugares, cambió cómo se postulaba" y las tres cosas que cambió.
+     Deja libre la esquina inferior derecha para Cami. Lo graba instagram/fondos/grabar.js llamando a render(t). -->
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:1080px;height:1920px;overflow:hidden;font-family:Inter,sans-serif;color:#fff;
+  background:radial-gradient(circle at 50% 30%,#2B3A8C 0%,#14213D 45%,#0B1226 100%)}
+.glow{position:absolute;left:50%;top:700px;width:1200px;height:1200px;margin:-600px 0 0 -600px;border-radius:50%;
+  background:radial-gradient(circle,rgba(245,210,122,.22) 0%,rgba(245,210,122,0) 60%)}
+.h{position:absolute;left:0;right:0;text-align:center;font:900 68px/1.08 "Inter Display",Inter}
+.h s{color:#FF5A5F;text-decoration-thickness:8px}
+.h em{font-style:normal;color:#F5D27A}
+.card{position:absolute;left:90px;width:900px;padding:30px 34px;border-radius:26px;background:#fff;color:#14213D;box-shadow:0 40px 90px rgba(0,0,0,.5);display:flex;gap:28px;align-items:center;padding-right:120px}
+.card .ok{position:absolute;right:28px;top:50%;margin-top:-34px;width:68px;height:68px;border-radius:50%;background:#16A34A;color:#fff;font:900 40px/68px Inter;text-align:center}
+.card .tt{font:900 36px/1.1 "Inter Display",Inter}
+.card .ss{font:600 26px/1.3 Inter;color:#5A6478;margin-top:8px}
+.ring{flex:none;width:130px;height:130px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+.ring b{width:100px;height:100px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;font:900 44px/1 "Inter Display",Inter;color:#14213D}
+.ico{flex:none;width:130px;height:130px;border-radius:30px;display:flex;align-items:center;justify-content:center;font-size:66px}
+.not{position:absolute;left:390px;padding:12px 18px;border-radius:14px;background:#14213D;color:#fff;font:700 24px/1 Inter;white-space:nowrap;box-shadow:0 10px 24px rgba(0,0,0,.35)}
+</style>
+<body>
+<div class="glow"></div>
+<div class="h" id="h1" style="top:190px">No se postuló a <s>más lugares</s>.</div>
+<div class="h" id="h2" style="top:290px">Se postuló <em>mejor</em>.</div>
+<div class="card" id="k0"><div class="ring" id="ring"><b id="pts">35</b></div><div><div class="tt">Currículum que pasa filtros</div><div class="ss">Con las palabras de cada aviso</div></div><div class="ok">✓</div></div>
+<div class="card" id="k1"><div class="ico" style="background:#E0E7FF">👀</div><div><div class="tt">Un perfil que atrae reclutadores</div><div class="ss">Te encuentran a vos</div></div><div class="ok">✓</div></div>
+<div class="card" id="k2"><div class="ico" style="background:#FFEDD5">📅</div><div><div class="tt">Entrevistas preparadas</div><div class="ss">Sabés qué te van a preguntar</div></div><div class="ok">✓</div></div>
+<div class="not" id="n0">🔔 Un reclutador vio tu perfil</div>
+<div class="not" id="n1">🔔 Te invitaron a una entrevista</div>
+<script>
+const clamp = (x, a = 0, b = 1) => Math.max(a, Math.min(b, x));
+const ease = x => 1 - Math.pow(1 - clamp(x), 3);
+const back = x => { x = clamp(x); const c = 1.7; return 1 + (c + 1) * Math.pow(x - 1, 3) + c * Math.pow(x - 1, 2); };
+const span = (t, a, b) => clamp((t - a) / (b - a));
+const $ = id => document.getElementById(id);
+function render(t) {
+  const a = ease(span(t, 0, 0.5)), b = back(span(t, 1.2, 1.7));
+  Object.assign($("h1").style, { opacity: a, transform: `translateY(${(1 - a) * 40}px)` });
+  Object.assign($("h2").style, { opacity: span(t, 1.2, 1.4), transform: `scale(${b})` });
+  const starts = [2.4, 3.6, 4.8];
+  for (let i = 0; i < 3; i++) {
+    const k = back(span(t, starts[i], starts[i] + 0.5));
+    Object.assign($("k" + i).style, { top: (520 + i * 260) + "px", opacity: span(t, starts[i], starts[i] + 0.2),
+      transform: `translateX(${(1 - k) * 400}px)` });
+    $("k" + i).querySelector(".ok").style.transform = `scale(${back(span(t, starts[i] + 0.7, starts[i] + 1.0))})`;
+  }
+  const p = Math.round(35 + 57 * ease(span(t, 2.7, 3.6)));
+  $("pts").textContent = p;
+  const col = p > 80 ? "#16A34A" : p > 60 ? "#F59E0B" : "#E5484D";
+  $("ring").style.background = `conic-gradient(${col} ${p * 3.6}deg,#E5E7EB 0)`;
+  const n0 = back(span(t, 4.3, 4.7)), n1 = back(span(t, 5.6, 6.0));
+  Object.assign($("n0").style, { top: "760px", opacity: span(t, 4.3, 4.4), transform: `scale(${n0})` });
+  Object.assign($("n1").style, { top: "1020px", opacity: span(t, 5.6, 5.7), transform: `scale(${n1})` });
+}
+render(0);
+</script>
