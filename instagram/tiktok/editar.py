@@ -1,12 +1,14 @@
 # Edita los creativos para publicarlos orgánicos en TikTok:
 # corta el "Tocá el botón" del final, suma el texto del gancho arriba, agrega al final una parte nueva que pide un comentario,
 # y en la parte del generador (fondo blanco) tapa los subtítulos quemados con un recuadro oscuro y los reescribe.
-#   python3 instagram/tiktok/editar.py CREATIVO_C.mp4 CREATIVO_B.mp4
+#   python3 instagram/tiktok/editar.py C=creativoC.mp4 B=creativoB.mp4 V1=... V2=... V3=... V4=... V5=...
+# Solo se arman los videos cuyas fuentes se pasan.
 # Los tiempos salen de la transcripción palabra por palabra y de los cambios de escena de cada video.
 import os, subprocess, sys, json, tempfile
 
 AQUI = os.path.dirname(os.path.abspath(__file__))
-C_IN, B_IN = sys.argv[1], sys.argv[2]
+FUENTES = dict(a.split("=", 1) for a in sys.argv[1:] if "=" in a)
+C_IN, B_IN = "C", "B"
 
 # Recuadro que tapa los subtítulos quemados (zona abajo a la izquierda, al lado de Cami)
 CAJA = dict(x=30, y=1395, w=600, h=330)
@@ -34,6 +36,24 @@ TRABAJOS = [
          subs=[(12.933, 15.02, "*MIRÁ:* PONGO MIS DATOS, PEGO EL AVISO"),
                (15.02, 17.28, "Y ME DICE QUÉ *PALABRAS* ME FALTAN"),
                (17.28, 18.68, "EN *10 MINUTOS*, LISTO")]),
+    # Segunda tanda: solo se corrigen los subtítulos que estaban mal, se corta el «Tocá el botón» y se suma el cierre
+    dict(salida="tiktok-4-sos-un-salame.mp4", entrada="V5", desde=0.0, hasta=28.15,
+         cierre=dict(titulo="¿Cuál de los 3 no hacías?", sub="Comentá 1, 2 o 3 👇", comentario="El 2 😅"),
+         subs=[(1.13, 2.83, "VER ESTO SEGUÍS MANDANDO EL MISMO *CV*", dict(x=265, y=1315, w=550, h=270))]),
+    dict(salida="tiktok-5-entrevista.mp4", entrada="V4", desde=0.0, hasta=23.55,
+         cierre=dict(titulo="¿Cuál es tu mayor debilidad?", sub="Comentala y te digo cómo decirla 👇", comentario="Soy impaciente 😅"),
+         subs=[(22.27, 23.55, "*RESUELTAS* PASO A PASO", dict(x=95, y=1395, w=545, h=260))]),
+    dict(salida="tiktok-6-asi-termina-tu-cv.mp4", entrada="V3", desde=0.0, hasta=27.80,
+         cierre=dict(titulo="¿Cuántos CV mandaste este mes?", sub="Contalo en los comentarios 👇", comentario="Más de 50 😩"),
+         subs=[(6.2, 7.77, "MANDASTE *40 CVS*", dict(x=110, y=1415, w=480, h=190))]),
+    dict(salida="tiktok-7-isabela.mp4", entrada="V1", desde=0.0, hasta=27.03,
+         cierre=dict(titulo="¿Hace cuánto estás buscando?", sub="Contalo en los comentarios 👇", comentario="8 meses 😩"),
+         subs=[(0.0, 2.33, "UN AÑO Y MEDIO ESTUVO *ISABELA* MANDANDO"),
+               (21.57, 24.40, "ESE ES *MÉTODO 30*, EL PLAN QUE USÓ ELLA"),
+               (24.40, 27.03, "AHORA CON *GENERADOR DE CURRÍCULUM* INCLUIDO")]),
+    dict(salida="tiktok-8-tres-errores.mp4", entrada="V2", desde=0.0, hasta=26.97,
+         cierre=dict(titulo="Comentá «CV»", sub="y te digo cómo arreglar el tuyo 👇", comentario="CV"),
+         subs=[]),
 ]
 
 HTML = """<!doctype html><meta charset="utf-8"><style>
@@ -74,10 +94,12 @@ def render_pngs(job, carpeta):
     """Devuelve una lista de (png, inicio, fin, fundido) en segundos del video original."""
     piezas = []
     tareas = []
-    t, ti, tf = job["titulo"]
-    tareas.append(("t", t, dict(y=250), ti, tf, True))
-    for a, b, txt in job["subs"]:
-        tareas.append(("s", txt, CAJA, a, b, False))
+    if job.get("titulo"):
+        t, ti, tf = job["titulo"]
+        tareas.append(("t", t, dict(y=250), ti, tf, True))
+    for sub in job["subs"]:
+        a, b, txt = sub[:3]
+        tareas.append(("s", txt, sub[3] if len(sub) > 3 else CAJA, a, b, False))
     script = os.path.join(carpeta, "render.js")
     html = os.path.join(carpeta, "o.html")
     open(html, "w", encoding="utf-8").write(HTML)
@@ -105,7 +127,7 @@ const { chromium } = require('playwright'); const fs = require('fs');
     return piezas
 
 
-CIERRE_SEG = 2.6
+CIERRE_SEG = 4.0
 CIERRE_HTML = """<!doctype html><meta charset="utf-8"><style>
 *{margin:0;padding:0;box-sizing:border-box}
 html,body{width:1080px;height:1920px;overflow:hidden;background:#0B1226}
@@ -139,7 +161,7 @@ function setup(d){D=d;$('h1').innerHTML=d.titulo.replace(/«(.+?)»/g,'<em>«$1�
   const cb=$('card').getBoundingClientRect(); $('com').style.top=(cb.bottom+40)+'px';
   const mb=$('com').getBoundingClientRect(); $('pill').style.top=(mb.bottom+44)+'px';}
 function render(t){
-  $('bg').style.transform=`scale(${1.04+0.03*t/2.6})`;
+  $('bg').style.transform=`scale(${1.04+0.04*t/4})`;
   const c=back(span(t,0,0.38)); $('card').style.opacity=span(t,0,0.12); $('card').style.transform=`scale(${0.7+0.3*c})`;
   const m=back(span(t,0.45,0.8)); $('com').style.opacity=span(t,0.45,0.55); $('com').style.transform=`translateY(${(1-m)*60}px)`;
   const chars=Array.from(D.comentario), k=Math.floor(clamp((t-0.8)/0.14,0,chars.length));
@@ -181,6 +203,7 @@ const { chromium } = require('playwright'); const fs = require('fs'); const path
 
 
 def editar(job):
+    job = dict(job, entrada=FUENTES[job["entrada"]])
     carpeta = tempfile.mkdtemp(prefix="tt-")
     piezas = render_pngs(job, carpeta)
     d0, d1 = job["desde"], job["hasta"]
@@ -214,7 +237,6 @@ def editar(job):
 
 
 if __name__ == "__main__":
-    solo = sys.argv[3:]  # opcional: nombres de salida a rehacer
     for job in TRABAJOS:
-        if not solo or job["salida"] in solo:
+        if job["entrada"] in FUENTES:
             editar(job)
