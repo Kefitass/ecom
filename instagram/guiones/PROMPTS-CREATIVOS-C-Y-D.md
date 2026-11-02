@@ -193,3 +193,61 @@ Ella mira a cámara y dice, de corrido, en tono de quien cuenta una historia rea
 
 EVITAR: música, otras personas, manos en cuadro, gestos con las manos, movimientos de cámara, cortes, silencio al principio o al final, voz sin que se muevan los labios.
 ```
+
+## Creativo C nuevo: «Si no te llaman, es por esto» (reemplaza todo el C)
+
+Texto en pantalla desde el primer cuadro: «NO TE LLAMAN POR ESTO 👇». En el clip 1, mostrá un CV de Canva con columnas y foto; en el clip 2, el sello DESCARTADO; en el clip 3, la pantalla del generador y después las tapas con la flecha.
+
+### Clip 1
+
+```
+Video de una chica hablándole a cámara, plano limpio, solo ella y el fondo.
+
+AUDIO: solo su voz. Sin música, sin sonido de fondo, sin efectos, sin voz en off. La voz sale únicamente de su boca.
+
+VOZ Y ACENTO: español con acento argentino rioplatense, de Buenos Aires, bien porteña, con la "sh" típica en la "ll" y la "y". Cantito porteño y voseo. Nada de acento neutro ni extranjero. Voz femenina liviana y con energía, de unos 25 años: clara, un poco aguda, cálida y simpática, a ritmo natural de charla.
+
+ESCENA: la misma chica de la imagen de referencia, con la misma cara, el mismo pelo y la misma ropa, delante de un fondo verde croma liso (#00FF00). Plano medio corto, cámara fija a la altura de los ojos, luz pareja y suave.
+
+ACCIÓN: empieza a hablar desde el primer cuadro. Los labios se mueven perfectamente sincronizados con cada palabra, de la primera a la última, durante los 10 segundos completos. Las manos quedan quietas, abajo y fuera de cuadro, todo el tiempo. No gesticula con las manos. Solo se mueven su cara, sus ojos y un poco su cabeza, de forma natural. Mirada seria y directa, como quien va a decir una verdad incómoda.
+
+Ella mira a cámara y dice, de corrido, en tono serio y directo: Si no te llaman de ningún trabajo, casi seguro es por esto. Mandás el mismo currículum a todos lados, y encima lo armaste en Canva, con columnas y fotito.
+
+EVITAR: música, otras personas, manos en cuadro, gestos con las manos, movimientos de cámara, cortes, silencio al principio o al final, voz sin que se muevan los labios.
+```
+
+### Clip 2
+
+```
+Video de una chica hablándole a cámara, plano limpio, solo ella y el fondo.
+
+AUDIO: solo su voz. Sin música, sin sonido de fondo, sin efectos, sin voz en off. La voz sale únicamente de su boca.
+
+VOZ Y ACENTO: español con acento argentino rioplatense, de Buenos Aires, bien porteña, con la "sh" típica en la "ll" y la "y". Cantito porteño y voseo. Nada de acento neutro ni extranjero. Voz femenina liviana y con energía, de unos 25 años: clara, un poco aguda, cálida y simpática, a ritmo natural de charla.
+
+ESCENA: la misma chica de la imagen de referencia, con la misma cara, el mismo pelo y la misma ropa, delante de un fondo verde croma liso (#00FF00). Plano medio corto, cámara fija a la altura de los ojos, luz pareja y suave.
+
+ACCIÓN: empieza a hablar desde el primer cuadro. Los labios se mueven perfectamente sincronizados con cada palabra, de la primera a la última, durante los 10 segundos completos. Las manos quedan quietas, abajo y fuera de cuadro, todo el tiempo. No gesticula con las manos. Solo se mueven su cara, sus ojos y un poco su cabeza, de forma natural. Niega apenas con la cabeza en "lo descarta" y después vuelve a mirar firme a cámara.
+
+Ella mira a cámara y dice, de corrido, en tono explicativo y seguro: Y no tiene las palabras del aviso. Entonces el programa que filtra lo descarta antes de que lo lea una persona. Mirá cómo lo arreglo en diez minutos.
+
+EVITAR: música, otras personas, manos en cuadro, gestos con las manos, movimientos de cámara, cortes, silencio al principio o al final, voz sin que se muevan los labios.
+```
+
+### Clip 3
+
+```
+Video de una chica hablándole a cámara, plano limpio, solo ella y el fondo.
+
+AUDIO: solo su voz. Sin música, sin sonido de fondo, sin efectos, sin voz en off. La voz sale únicamente de su boca.
+
+VOZ Y ACENTO: español con acento argentino rioplatense, de Buenos Aires, bien porteña, con la "sh" típica en la "ll" y la "y". Cantito porteño y voseo. Nada de acento neutro ni extranjero. Voz femenina liviana y con energía, de unos 25 años: clara, un poco aguda, cálida y simpática, a ritmo natural de charla.
+
+ESCENA: la misma chica de la imagen de referencia, con la misma cara, el mismo pelo y la misma ropa, delante de un fondo verde croma liso (#00FF00). Plano medio corto, cámara fija a la altura de los ojos, luz pareja y suave.
+
+ACCIÓN: empieza a hablar desde el primer cuadro. Los labios se mueven perfectamente sincronizados con cada palabra, de la primera a la última, durante los 10 segundos completos. Las manos quedan quietas, abajo y fuera de cuadro, todo el tiempo. No gesticula con las manos. Solo se mueven su cara, sus ojos y un poco su cabeza, de forma natural. Sonríe al final, con cara de invitación.
+
+Ella mira a cámara y dice, de corrido, en tono cercano y con energía: Pongo mis datos, pego el aviso y me dice qué palabras me faltan. Viene incluido con Método treinta. Tocá el botón y armá el tuyo hoy.
+
+EVITAR: música, otras personas, manos en cuadro, gestos con las manos, movimientos de cámara, cortes, silencio al principio o al final, voz sin que se muevan los labios.
+```
