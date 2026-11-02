@@ -135,3 +135,61 @@ Ella mira a cámara y dice, de corrido, en tono motivador y con energía: Ese es
 
 EVITAR: música, otras personas, manos en cuadro, gestos con las manos, movimientos de cámara, cortes, silencio al principio o al final, voz sin que se muevan los labios.
 ```
+
+## Hooks nuevos, directo al dolor
+
+Estos clips reemplazan al clip 1 de cada creativo. El resto de los clips no cambia.
+
+### B · Clip 1 (reemplaza al clip 1 del creativo B)
+
+```
+Video de una chica hablándole a cámara, plano limpio, solo ella y el fondo.
+
+AUDIO: solo su voz. Sin música, sin sonido de fondo, sin efectos, sin voz en off. La voz sale únicamente de su boca.
+
+VOZ Y ACENTO: español con acento argentino rioplatense, de Buenos Aires, bien porteña, con la "sh" típica en la "ll" y la "y". Cantito porteño y voseo. Nada de acento neutro ni extranjero. Voz femenina liviana y con energía, de unos 25 años: clara, un poco aguda, cálida y simpática, a ritmo natural de charla.
+
+ESCENA: la misma chica de la imagen de referencia, con la misma cara, el mismo pelo y la misma ropa, delante de un fondo verde croma liso (#00FF00). Plano medio corto, cámara fija a la altura de los ojos, luz pareja y suave.
+
+ACCIÓN: empieza a hablar desde el primer cuadro. Los labios se mueven perfectamente sincronizados con cada palabra, de la primera a la última, durante los 10 segundos completos. Las manos quedan quietas, abajo y fuera de cuadro, todo el tiempo. No gesticula con las manos. Solo se mueven su cara, sus ojos y un poco su cabeza, de forma natural. Empieza seria y cansada, como quien dice algo que duele; en "no sos vos" la mirada se vuelve firme.
+
+Ella mira a cámara y dice, de corrido, en tono seco y directo, que duele: Cuarenta currículums mandados y no te llamó nadie. Ni uno. Y ya empezás a pensar que el problema sos vos. No sos vos. Escuchame.
+
+EVITAR: música, otras personas, manos en cuadro, gestos con las manos, movimientos de cámara, cortes, silencio al principio o al final, voz sin que se muevan los labios.
+```
+
+### C · Clip 1 (reemplaza al clip 1 del creativo C)
+
+```
+Video de una chica hablándole a cámara, plano limpio, solo ella y el fondo.
+
+AUDIO: solo su voz. Sin música, sin sonido de fondo, sin efectos, sin voz en off. La voz sale únicamente de su boca.
+
+VOZ Y ACENTO: español con acento argentino rioplatense, de Buenos Aires, bien porteña, con la "sh" típica en la "ll" y la "y". Cantito porteño y voseo. Nada de acento neutro ni extranjero. Voz femenina liviana y con energía, de unos 25 años: clara, un poco aguda, cálida y simpática, a ritmo natural de charla.
+
+ESCENA: la misma chica de la imagen de referencia, con la misma cara, el mismo pelo y la misma ropa, delante de un fondo verde croma liso (#00FF00). Plano medio corto, cámara fija a la altura de los ojos, luz pareja y suave.
+
+ACCIÓN: empieza a hablar desde el primer cuadro. Los labios se mueven perfectamente sincronizados con cada palabra, de la primera a la última, durante los 10 segundos completos. Las manos quedan quietas, abajo y fuera de cuadro, todo el tiempo. No gesticula con las manos. Solo se mueven su cara, sus ojos y un poco su cabeza, de forma natural. Mirada intensa, como revelando algo que nadie dice.
+
+Ella mira a cámara y dice, de corrido, en tono serio y revelador: Cada currículum que mandás lo tira un programa antes de que lo lea una persona. Por eso no te llaman. Mirá cómo lo armo para que pase.
+
+EVITAR: música, otras personas, manos en cuadro, gestos con las manos, movimientos de cámara, cortes, silencio al principio o al final, voz sin que se muevan los labios.
+```
+
+### D · Clip 1 (reemplaza al clip 1 del creativo D)
+
+```
+Video de una chica hablándole a cámara, plano limpio, solo ella y el fondo.
+
+AUDIO: solo su voz. Sin música, sin sonido de fondo, sin efectos, sin voz en off. La voz sale únicamente de su boca.
+
+VOZ Y ACENTO: español con acento argentino rioplatense, de Buenos Aires, bien porteña, con la "sh" típica en la "ll" y la "y". Cantito porteño y voseo. Nada de acento neutro ni extranjero. Voz femenina liviana y con energía, de unos 25 años: clara, un poco aguda, cálida y simpática, a ritmo natural de charla.
+
+ESCENA: la misma chica de la imagen de referencia, con la misma cara, el mismo pelo y la misma ropa, delante de un fondo verde croma liso (#00FF00). Plano medio corto, cámara fija a la altura de los ojos, luz pareja y suave.
+
+ACCIÓN: empieza a hablar desde el primer cuadro. Los labios se mueven perfectamente sincronizados con cada palabra, de la primera a la última, durante los 10 segundos completos. Las manos quedan quietas, abajo y fuera de cuadro, todo el tiempo. No gesticula con las manos. Solo se mueven su cara, sus ojos y un poco su cabeza, de forma natural. Empieza seria; en "treinta y tres días" se le ilumina la cara.
+
+Ella mira a cámara y dice, de corrido, en tono de quien cuenta una historia real que duele y emociona: Un año y medio. Eso estuvo Isabela mandando currículums sin que nadie la llamara. Hasta que cambió una sola cosa, y en treinta y tres días tenía trabajo.
+
+EVITAR: música, otras personas, manos en cuadro, gestos con las manos, movimientos de cámara, cortes, silencio al principio o al final, voz sin que se muevan los labios.
+```
