@@ -209,9 +209,9 @@ VOZ Y ACENTO: español con acento argentino rioplatense, de Buenos Aires, bien p
 
 ESCENA: la misma chica de la imagen de referencia, con la misma cara, el mismo pelo y la misma ropa, delante de un fondo verde croma liso (#00FF00). Plano medio corto, cámara fija a la altura de los ojos, luz pareja y suave.
 
-ACCIÓN: empieza a hablar desde el primer cuadro. Los labios se mueven perfectamente sincronizados con cada palabra, de la primera a la última, durante los 10 segundos completos. Las manos quedan quietas, abajo y fuera de cuadro, todo el tiempo. No gesticula con las manos. Solo se mueven su cara, sus ojos y un poco su cabeza, de forma natural. Mirada seria y directa, como quien va a decir una verdad incómoda.
+ACCIÓN: empieza a hablar desde el primer cuadro. Los labios se mueven perfectamente sincronizados con cada palabra, de la primera a la última, durante los 10 segundos completos. Las manos quedan quietas, abajo y fuera de cuadro, todo el tiempo. No gesticula con las manos. Solo se mueven su cara, sus ojos y un poco su cabeza, de forma natural. Arranca exaltada desde el primer cuadro, con los ojos bien abiertos y las cejas levantadas, como quien no puede creer lo que ve; después baja un poco la intensidad para enumerar.
 
-Ella mira a cámara y dice, de corrido, en tono serio y directo: Si no te llaman de ningún trabajo, casi seguro es por esto. Mandás el mismo currículum a todos lados, y encima lo armaste en Canva, con columnas y fotito.
+Ella mira a cámara y dice, de corrido, en tono exaltado e indignado, pero simpático, con mucha energía en la primera frase: ¡No te llaman de ningún trabajo por esto! Mandás el mismo currículum a todos lados, y encima lo armaste en Canva, con columnas y fotito.
 
 EVITAR: música, otras personas, manos en cuadro, gestos con las manos, movimientos de cámara, cortes, silencio al principio o al final, voz sin que se muevan los labios.
 ```
