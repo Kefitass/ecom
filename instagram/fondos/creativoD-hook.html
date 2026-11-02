@@ -1,0 +1,65 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Creativo D: hook</title>
+<!-- Hook del creativo D (6 s): pasan 547 días, los CV enviados suben sin parar y las llamadas quedan en 0,
+     hasta que todo se frena en "una sola cosa". Deja libre la esquina inferior derecha para Cami. -->
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:1080px;height:1920px;overflow:hidden;font-family:Inter,sans-serif;color:#fff;background:#070B18}
+#bg{position:absolute;inset:0;background:radial-gradient(circle at 50% 35%,#1E2A5A 0%,#0B1226 55%,#05070F 100%)}
+.sheet{position:absolute;width:150px;height:200px;border-radius:8px;background:#F3F4F8;box-shadow:0 10px 30px rgba(0,0,0,.5);overflow:hidden}
+.sheet i{position:absolute;left:18px;height:9px;border-radius:5px;background:#C9CFDB}
+#cal{position:absolute;left:50%;top:230px;width:560px;margin-left:-280px;border-radius:30px;overflow:hidden;background:#fff;color:#14213D;text-align:center;box-shadow:0 40px 100px rgba(0,0,0,.7)}
+#cal .top{background:#E5484D;color:#fff;padding:22px 0;font:800 36px/1 Inter;letter-spacing:.14em}
+#cal .num{font:900 210px/1 "Inter Display",Inter;padding:20px 0 0;font-variant-numeric:tabular-nums}
+#cal .lab{font:700 34px/1 Inter;color:#5A6478;padding:6px 0 30px}
+.stat{position:absolute;left:110px;width:860px;display:flex;justify-content:space-between;align-items:center;padding:30px 40px;border-radius:24px;background:rgba(14,22,48,.94);border:2px solid rgba(255,255,255,.18);box-shadow:0 20px 50px rgba(0,0,0,.5);font:800 46px/1 Inter}
+.stat b{font:900 76px/1 "Inter Display",Inter;font-variant-numeric:tabular-nums}
+#s2 b{color:#FF4D4F}
+#flash{position:absolute;inset:0;background:#fff;opacity:0}
+#final{position:absolute;left:0;right:0;top:760px;text-align:center;font:900 96px/1.05 "Inter Display",Inter;opacity:0}
+#final em{font-style:normal;color:#F5D27A}
+</style>
+<body>
+<div id="bg"></div>
+<div id="rain"></div>
+<div id="cal"><div class="top">SIN TRABAJO</div><div class="num" id="num">1</div><div class="lab">días buscando</div></div>
+<div class="stat" id="s1" style="top:820px">CV enviados <b id="cv">0</b></div>
+<div class="stat" id="s2" style="top:980px">Llamadas <b id="ll">0</b></div>
+<div id="final">Hasta que cambió<br><em>una sola cosa</em>.</div>
+<div id="flash"></div>
+<script>
+const clamp = (x, a = 0, b = 1) => Math.max(a, Math.min(b, x));
+const ease = x => 1 - Math.pow(1 - clamp(x), 3);
+const span = (t, a, b) => clamp((t - a) / (b - a));
+const $ = id => document.getElementById(id);
+// hojas que caen: posiciones fijas para que el render sea determinista
+const R = n => { let x = Math.sin(n * 9301 + 49297) * 233280; return x - Math.floor(x); };
+const N = 34, sheets = [];
+for (let i = 0; i < N; i++) {
+  const d = document.createElement("div"); d.className = "sheet";
+  for (let j = 0; j < 9; j++) { const l = document.createElement("i"); l.style.top = (22 + j * 19) + "px"; l.style.width = (60 + R(i * 13 + j) * 55) + "px"; d.appendChild(l); }
+  $("rain").appendChild(d); sheets.push({ el: d, x: R(i) * 1080 - 75, d: R(i + 50) * 4.2, v: 700 + R(i + 99) * 700, r: R(i + 7) * 360, s: 0.6 + R(i + 3) * 0.7 });
+}
+function render(t) {
+  const stop = 4.3, k = clamp(t / stop);
+  const days = Math.round(1 + 546 * Math.pow(k, 1.6));
+  $("num").textContent = t >= stop ? 547 : days;
+  $("cv").textContent = t >= stop ? 312 : Math.round(312 * Math.pow(k, 1.4));
+  const shake = t < stop ? Math.sin(t * 70) * 3 * k : 0;
+  $("cal").style.transform = `translateX(${shake}px) scale(${1 + 0.04 * Math.sin(t * 9) * (t < stop)})`;
+  $("ll").style.opacity = 0.55 + 0.45 * Math.abs(Math.sin(t * 6));
+  for (const s of sheets) {
+    const y = -260 + ((t + s.d) * s.v) % 2400;
+    s.el.style.transform = `translate(${s.x}px,${t < stop ? y : -400}px) rotate(${s.r + t * 120}deg) scale(${s.s})`;
+    s.el.style.opacity = t < stop ? 0.85 : 0;
+  }
+  // 4.3 s: golpe, se frena todo y aparece "una sola cosa"
+  $("flash").style.opacity = t >= stop ? 0.9 * (1 - span(t, stop, stop + 0.25)) : 0;
+  const f = ease(span(t, stop + 0.05, stop + 0.5)), dim = t >= stop ? 1 : 0;
+  ["cal", "s1", "s2"].forEach(id => $(id).style.opacity = 1 - 0.85 * dim);
+  $("final").style.opacity = f;
+  $("final").style.transform = `scale(${1.3 - 0.3 * f})`;
+}
+render(0);
+</script>
