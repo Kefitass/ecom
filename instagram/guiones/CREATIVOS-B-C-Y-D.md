@@ -1,6 +1,22 @@
-# Creativos C y D: guion y prompts
+# Creativos B, C y D: guion y prompts
 
 Prompts para APIMart, 10 segundos por clip. Para Flow, cambiá «10 segundos» por «8 segundos».
+
+## Creativo B: «¿Y, novedades?» (unos 40 s)
+
+**Guion**
+
+1. **Dice:** Otra semana más sin que te llamen de ningún lado. En casa ya te preguntan «¿y, novedades?» y vos ya no sabés ni qué contestar.  
+   **Se ve:** Texto «¿Y, NOVEDADES?» desde el primer cuadro. Una mesa familiar o un chat de WhatsApp con ese mensaje.
+
+2. **Dice:** Y no es que no busques: te postulás a todo. El problema es que mandás un currículum que no pasa los filtros, y nadie te lo dice.  
+   **Se ve:** Muchos CV cayendo en una pila; sello rojo DESCARTADO.
+
+3. **Dice:** Por eso armamos un generador: contestás unas preguntas y en diez minutos tenés un currículum hecho para cada aviso, con la propuesta lista.  
+   **Se ve:** Pantalla del generador: el puntaje y la pestaña de postulación.
+
+4. **Dice:** Viene incluido con Método treinta, el plan de treinta días para conseguir trabajo. Tocá el botón, y que la próxima novedad sea buena.  
+   **Se ve:** Tapas y flecha. Texto «Tocá el botón».
 
 ## Creativo C: «¡No te llaman por esto!» (unos 30 s)
 
@@ -32,6 +48,80 @@ Prompts para APIMart, 10 segundos por clip. Para Flow, cambiá «10 segundos» p
    **Se ve:** Tapas y flecha. Texto «Tocá el botón».
 
 ---
+
+## Prompts del creativo B
+
+### B · Clip 1
+
+```
+Video de una chica hablándole a cámara, plano limpio, solo ella y el fondo.
+
+AUDIO: solo su voz. Sin música, sin sonido de fondo, sin efectos, sin voz en off. La voz sale únicamente de su boca.
+
+VOZ Y ACENTO: español con acento argentino rioplatense, de Buenos Aires, bien porteña, con la "sh" típica en la "ll" y la "y". Cantito porteño y voseo. Nada de acento neutro ni extranjero. Voz femenina liviana y con energía, de unos 25 años: clara, un poco aguda, cálida y simpática, a ritmo natural de charla.
+
+ESCENA: la misma chica de la imagen de referencia, con la misma cara, el mismo pelo y la misma ropa, delante de un fondo verde croma liso (#00FF00). Plano medio corto, cámara fija a la altura de los ojos, luz pareja y suave.
+
+ACCIÓN: empieza a hablar desde el primer cuadro. Los labios se mueven perfectamente sincronizados con cada palabra, de la primera a la última, durante los 10 segundos completos. Las manos quedan quietas, abajo y fuera de cuadro, todo el tiempo. No gesticula con las manos. Solo se mueven su cara, sus ojos y un poco su cabeza, de forma natural. Empieza con cara de cansancio y resignación; en "¿y, novedades?" hace una mueca de "ya sé".
+
+Ella mira a cámara y dice, de corrido, en tono cansado y cercano, de quien entiende perfecto lo que te pasa: Otra semana más sin que te llamen de ningún lado. En casa ya te preguntan «¿y, novedades?» y vos ya no sabés ni qué contestar.
+
+EVITAR: música, otras personas, manos en cuadro, gestos con las manos, movimientos de cámara, cortes, silencio al principio o al final, voz sin que se muevan los labios.
+```
+
+### B · Clip 2
+
+```
+Video de una chica hablándole a cámara, plano limpio, solo ella y el fondo.
+
+AUDIO: solo su voz. Sin música, sin sonido de fondo, sin efectos, sin voz en off. La voz sale únicamente de su boca.
+
+VOZ Y ACENTO: español con acento argentino rioplatense, de Buenos Aires, bien porteña, con la "sh" típica en la "ll" y la "y". Cantito porteño y voseo. Nada de acento neutro ni extranjero. Voz femenina liviana y con energía, de unos 25 años: clara, un poco aguda, cálida y simpática, a ritmo natural de charla.
+
+ESCENA: la misma chica de la imagen de referencia, con la misma cara, el mismo pelo y la misma ropa, delante de un fondo verde croma liso (#00FF00). Plano medio corto, cámara fija a la altura de los ojos, luz pareja y suave.
+
+ACCIÓN: empieza a hablar desde el primer cuadro. Los labios se mueven perfectamente sincronizados con cada palabra, de la primera a la última, durante los 10 segundos completos. Las manos quedan quietas, abajo y fuera de cuadro, todo el tiempo. No gesticula con las manos. Solo se mueven su cara, sus ojos y un poco su cabeza, de forma natural. Se pone firme y un poco indignada en "nadie te lo dice".
+
+Ella mira a cámara y dice, de corrido, en tono firme y revelador: Y no es que no busques: te postulás a todo. El problema es que mandás un currículum que no pasa los filtros, y nadie te lo dice.
+
+EVITAR: música, otras personas, manos en cuadro, gestos con las manos, movimientos de cámara, cortes, silencio al principio o al final, voz sin que se muevan los labios.
+```
+
+### B · Clip 3
+
+```
+Video de una chica hablándole a cámara, plano limpio, solo ella y el fondo.
+
+AUDIO: solo su voz. Sin música, sin sonido de fondo, sin efectos, sin voz en off. La voz sale únicamente de su boca.
+
+VOZ Y ACENTO: español con acento argentino rioplatense, de Buenos Aires, bien porteña, con la "sh" típica en la "ll" y la "y". Cantito porteño y voseo. Nada de acento neutro ni extranjero. Voz femenina liviana y con energía, de unos 25 años: clara, un poco aguda, cálida y simpática, a ritmo natural de charla.
+
+ESCENA: la misma chica de la imagen de referencia, con la misma cara, el mismo pelo y la misma ropa, delante de un fondo verde croma liso (#00FF00). Plano medio corto, cámara fija a la altura de los ojos, luz pareja y suave.
+
+ACCIÓN: empieza a hablar desde el primer cuadro. Los labios se mueven perfectamente sincronizados con cada palabra, de la primera a la última, durante los 10 segundos completos. Las manos quedan quietas, abajo y fuera de cuadro, todo el tiempo. No gesticula con las manos. Solo se mueven su cara, sus ojos y un poco su cabeza, de forma natural. Se le ilumina la cara, como quien trae la solución.
+
+Ella mira a cámara y dice, de corrido, en tono entusiasta y claro: Por eso armamos un generador: contestás unas preguntas y en diez minutos tenés un currículum hecho para cada aviso, con la propuesta lista.
+
+EVITAR: música, otras personas, manos en cuadro, gestos con las manos, movimientos de cámara, cortes, silencio al principio o al final, voz sin que se muevan los labios.
+```
+
+### B · Clip 4
+
+```
+Video de una chica hablándole a cámara, plano limpio, solo ella y el fondo.
+
+AUDIO: solo su voz. Sin música, sin sonido de fondo, sin efectos, sin voz en off. La voz sale únicamente de su boca.
+
+VOZ Y ACENTO: español con acento argentino rioplatense, de Buenos Aires, bien porteña, con la "sh" típica en la "ll" y la "y". Cantito porteño y voseo. Nada de acento neutro ni extranjero. Voz femenina liviana y con energía, de unos 25 años: clara, un poco aguda, cálida y simpática, a ritmo natural de charla.
+
+ESCENA: la misma chica de la imagen de referencia, con la misma cara, el mismo pelo y la misma ropa, delante de un fondo verde croma liso (#00FF00). Plano medio corto, cámara fija a la altura de los ojos, luz pareja y suave.
+
+ACCIÓN: empieza a hablar desde el primer cuadro. Los labios se mueven perfectamente sincronizados con cada palabra, de la primera a la última, durante los 10 segundos completos. Las manos quedan quietas, abajo y fuera de cuadro, todo el tiempo. No gesticula con las manos. Solo se mueven su cara, sus ojos y un poco su cabeza, de forma natural. Sonríe al final, con cara de invitación y complicidad.
+
+Ella mira a cámara y dice, de corrido, en tono motivador y con energía: Viene incluido con Método treinta, el plan de treinta días para conseguir trabajo. Tocá el botón, y que la próxima novedad sea buena.
+
+EVITAR: música, otras personas, manos en cuadro, gestos con las manos, movimientos de cámara, cortes, silencio al principio o al final, voz sin que se muevan los labios.
+```
 
 ## Prompts del creativo C
 
