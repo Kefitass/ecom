@@ -1,0 +1,53 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Fondo video fundador</title>
+<!-- Fondo animado con la identidad de Método 30 para poner detrás de una persona recortada.
+     Se adapta al tamaño de la ventana (vertical u horizontal) y hace un loop perfecto de 10 s.
+     Lo graba instagram/fondos/grabar.js llamando a render(t), con t en segundos (0 a 10). -->
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100%;height:100%;overflow:hidden}
+body{background:#0B1226}
+#base{position:absolute;inset:0;background:radial-gradient(circle at 50% 38%,#2B3A8C 0%,#14213D 46%,#0B1226 100%)}
+.glow{position:absolute;border-radius:50%;filter:blur(30px)}
+#g1{background:radial-gradient(circle,rgba(232,99,46,.42) 0%,rgba(232,99,46,0) 62%)}
+#g2{background:radial-gradient(circle,rgba(245,210,122,.20) 0%,rgba(245,210,122,0) 60%)}
+#g3{background:radial-gradient(circle,rgba(58,63,158,.55) 0%,rgba(58,63,158,0) 62%)}
+#spot{position:absolute;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.10) 0%,rgba(255,255,255,0) 60%)}
+#dots{position:absolute;inset:-80px;background-image:radial-gradient(rgba(255,255,255,.11) 1.6px,transparent 1.8px);background-size:40px 40px;
+  -webkit-mask-image:radial-gradient(ellipse at 50% 45%,rgba(0,0,0,.9) 0%,rgba(0,0,0,0) 72%);mask-image:radial-gradient(ellipse at 50% 45%,rgba(0,0,0,.9) 0%,rgba(0,0,0,0) 72%)}
+#ring{position:absolute;border-radius:50%;border:2px solid rgba(245,210,122,.16)}
+#ring2{position:absolute;border-radius:50%;border:2px solid rgba(232,99,46,.14)}
+#vig{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 45%,rgba(0,0,0,0) 55%,rgba(0,0,0,.45) 100%)}
+#logo{position:absolute;left:50%;transform:translateX(-50%);opacity:.92}
+</style>
+<body>
+<div id="base"></div>
+<div class="glow" id="g3"></div>
+<div class="glow" id="g1"></div>
+<div class="glow" id="g2"></div>
+<div id="dots"></div>
+<div id="ring"></div>
+<div id="ring2"></div>
+<div id="spot"></div>
+<div id="vig"></div>
+<img id="logo" src="../../marca/logo-metodo30-blanco.png" alt="">
+<script>
+const $ = id => document.getElementById(id);
+const TAU = Math.PI * 2, P = 10;
+function place(el, cx, cy, d) { Object.assign(el.style, { width: d + "px", height: d + "px", left: (cx - d / 2) + "px", top: (cy - d / 2) + "px" }); }
+function render(t) {
+  const W = innerWidth, H = innerHeight, vert = H > W, m = Math.min(W, H), a = TAU * t / P;
+  place($("g1"), W * (0.72 + 0.06 * Math.cos(a)), H * (vert ? 0.30 : 0.35) + m * 0.05 * Math.sin(a), m * 1.25);
+  place($("g2"), W * (0.25 + 0.05 * Math.sin(a)), H * (vert ? 0.62 : 0.70) + m * 0.04 * Math.cos(a), m * 1.0);
+  place($("g3"), W * (0.30 + 0.05 * Math.cos(a + 1)), H * (vert ? 0.18 : 0.20), m * 1.1);
+  place($("spot"), W * 0.5, H * (vert ? 0.42 : 0.45), m * (1.15 + 0.03 * Math.sin(a)));
+  const r = m * (vert ? 0.86 : 0.78);
+  place($("ring"), W * 0.5, H * (vert ? 0.42 : 0.45), r * (1 + 0.025 * Math.sin(a)));
+  place($("ring2"), W * 0.5, H * (vert ? 0.42 : 0.45), r * (1.32 + 0.025 * Math.cos(a)));
+  $("dots").style.transform = `translate(${40 * t / P}px, ${-40 * t / P}px)`;
+  const lw = vert ? W * 0.30 : W * 0.15;
+  Object.assign($("logo").style, { width: lw + "px", top: (vert ? H * 0.045 : H * 0.05) + "px" });
+}
+render(0);
+</script>
