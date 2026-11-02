@@ -57,7 +57,7 @@
 ### D · Clip 1
 
 ```
-Video crudo de una chica hablándole a cámara, como una grabación original de celular sin editar: sin postproducción, sin gráficos, sin nada superpuesto a la imagen. Plano limpio, solo ella y el fondo.
+Video de una mujer de unos 25 años hablándole a cámara, filmado de forma natural, sin gráficos ni elementos superpuestos a la imagen. Plano limpio, solo ella y el fondo.
 
 AUDIO: solo su voz. Sin música, sin sonido de fondo, sin efectos, sin voz en off. La voz sale únicamente de su boca.
 
@@ -75,7 +75,7 @@ EVITAR: subtítulos, texto en pantalla, captions, letras, títulos, marcas de ag
 ### D · Clip 2
 
 ```
-Video crudo de una chica hablándole a cámara, como una grabación original de celular sin editar: sin postproducción, sin gráficos, sin nada superpuesto a la imagen. Plano limpio, solo ella y el fondo.
+Video de una mujer de unos 25 años hablándole a cámara, filmado de forma natural, sin gráficos ni elementos superpuestos a la imagen. Plano limpio, solo ella y el fondo.
 
 AUDIO: solo su voz. Sin música, sin sonido de fondo, sin efectos, sin voz en off. La voz sale únicamente de su boca.
 
@@ -93,7 +93,7 @@ EVITAR: subtítulos, texto en pantalla, captions, letras, títulos, marcas de ag
 ### D · Clip 3
 
 ```
-Video crudo de una chica hablándole a cámara, como una grabación original de celular sin editar: sin postproducción, sin gráficos, sin nada superpuesto a la imagen. Plano limpio, solo ella y el fondo.
+Video de una mujer de unos 25 años hablándole a cámara, filmado de forma natural, sin gráficos ni elementos superpuestos a la imagen. Plano limpio, solo ella y el fondo.
 
 AUDIO: solo su voz. Sin música, sin sonido de fondo, sin efectos, sin voz en off. La voz sale únicamente de su boca.
 
@@ -111,7 +111,7 @@ EVITAR: subtítulos, texto en pantalla, captions, letras, títulos, marcas de ag
 ### D · Clip 4
 
 ```
-Video crudo de una chica hablándole a cámara, como una grabación original de celular sin editar: sin postproducción, sin gráficos, sin nada superpuesto a la imagen. Plano limpio, solo ella y el fondo.
+Video de una mujer de unos 25 años hablándole a cámara, filmado de forma natural, sin gráficos ni elementos superpuestos a la imagen. Plano limpio, solo ella y el fondo.
 
 AUDIO: solo su voz. Sin música, sin sonido de fondo, sin efectos, sin voz en off. La voz sale únicamente de su boca.
 
@@ -131,7 +131,7 @@ EVITAR: subtítulos, texto en pantalla, captions, letras, títulos, marcas de ag
 ### B · Clip 1
 
 ```
-Video crudo de una chica hablándole a cámara, como una grabación original de celular sin editar: sin postproducción, sin gráficos, sin nada superpuesto a la imagen. Plano limpio, solo ella y el fondo.
+Video de una mujer de unos 25 años hablándole a cámara, filmado de forma natural, sin gráficos ni elementos superpuestos a la imagen. Plano limpio, solo ella y el fondo.
 
 AUDIO: solo su voz. Sin música, sin sonido de fondo, sin efectos, sin voz en off. La voz sale únicamente de su boca.
 
@@ -149,7 +149,7 @@ EVITAR: subtítulos, texto en pantalla, captions, letras, títulos, marcas de ag
 ### B · Clip 2
 
 ```
-Video crudo de una chica hablándole a cámara, como una grabación original de celular sin editar: sin postproducción, sin gráficos, sin nada superpuesto a la imagen. Plano limpio, solo ella y el fondo.
+Video de una mujer de unos 25 años hablándole a cámara, filmado de forma natural, sin gráficos ni elementos superpuestos a la imagen. Plano limpio, solo ella y el fondo.
 
 AUDIO: solo su voz. Sin música, sin sonido de fondo, sin efectos, sin voz en off. La voz sale únicamente de su boca.
 
@@ -167,7 +167,7 @@ EVITAR: subtítulos, texto en pantalla, captions, letras, títulos, marcas de ag
 ### B · Clip 3
 
 ```
-Video crudo de una chica hablándole a cámara, como una grabación original de celular sin editar: sin postproducción, sin gráficos, sin nada superpuesto a la imagen. Plano limpio, solo ella y el fondo.
+Video de una mujer de unos 25 años hablándole a cámara, filmado de forma natural, sin gráficos ni elementos superpuestos a la imagen. Plano limpio, solo ella y el fondo.
 
 AUDIO: solo su voz. Sin música, sin sonido de fondo, sin efectos, sin voz en off. La voz sale únicamente de su boca.
 
@@ -185,7 +185,7 @@ EVITAR: subtítulos, texto en pantalla, captions, letras, títulos, marcas de ag
 ### B · Clip 4
 
 ```
-Video crudo de una chica hablándole a cámara, como una grabación original de celular sin editar: sin postproducción, sin gráficos, sin nada superpuesto a la imagen. Plano limpio, solo ella y el fondo.
+Video de una mujer de unos 25 años hablándole a cámara, filmado de forma natural, sin gráficos ni elementos superpuestos a la imagen. Plano limpio, solo ella y el fondo.
 
 AUDIO: solo su voz. Sin música, sin sonido de fondo, sin efectos, sin voz en off. La voz sale únicamente de su boca.
 
@@ -205,7 +205,7 @@ EVITAR: subtítulos, texto en pantalla, captions, letras, títulos, marcas de ag
 ### C · Clip 1
 
 ```
-Video crudo de una chica hablándole a cámara, como una grabación original de celular sin editar: sin postproducción, sin gráficos, sin nada superpuesto a la imagen. Plano limpio, solo ella y el fondo.
+Video de una mujer de unos 25 años hablándole a cámara, filmado de forma natural, sin gráficos ni elementos superpuestos a la imagen. Plano limpio, solo ella y el fondo.
 
 AUDIO: solo su voz. Sin música, sin sonido de fondo, sin efectos, sin voz en off. La voz sale únicamente de su boca.
 
@@ -223,7 +223,7 @@ EVITAR: subtítulos, texto en pantalla, captions, letras, títulos, marcas de ag
 ### C · Clip 2
 
 ```
-Video crudo de una chica hablándole a cámara, como una grabación original de celular sin editar: sin postproducción, sin gráficos, sin nada superpuesto a la imagen. Plano limpio, solo ella y el fondo.
+Video de una mujer de unos 25 años hablándole a cámara, filmado de forma natural, sin gráficos ni elementos superpuestos a la imagen. Plano limpio, solo ella y el fondo.
 
 AUDIO: solo su voz. Sin música, sin sonido de fondo, sin efectos, sin voz en off. La voz sale únicamente de su boca.
 
@@ -241,7 +241,7 @@ EVITAR: subtítulos, texto en pantalla, captions, letras, títulos, marcas de ag
 ### C · Clip 3
 
 ```
-Video crudo de una chica hablándole a cámara, como una grabación original de celular sin editar: sin postproducción, sin gráficos, sin nada superpuesto a la imagen. Plano limpio, solo ella y el fondo.
+Video de una mujer de unos 25 años hablándole a cámara, filmado de forma natural, sin gráficos ni elementos superpuestos a la imagen. Plano limpio, solo ella y el fondo.
 
 AUDIO: solo su voz. Sin música, sin sonido de fondo, sin efectos, sin voz en off. La voz sale únicamente de su boca.
 
@@ -259,7 +259,7 @@ EVITAR: subtítulos, texto en pantalla, captions, letras, títulos, marcas de ag
 ### C · Clip 4
 
 ```
-Video crudo de una chica hablándole a cámara, como una grabación original de celular sin editar: sin postproducción, sin gráficos, sin nada superpuesto a la imagen. Plano limpio, solo ella y el fondo.
+Video de una mujer de unos 25 años hablándole a cámara, filmado de forma natural, sin gráficos ni elementos superpuestos a la imagen. Plano limpio, solo ella y el fondo.
 
 AUDIO: solo su voz. Sin música, sin sonido de fondo, sin efectos, sin voz en off. La voz sale únicamente de su boca.
 
