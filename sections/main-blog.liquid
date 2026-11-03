@@ -1,4 +1,4 @@
-<section class="section" style="--section-bg: {{ section.settings.background }};">
+<section class="section">
   <div class="page-width">
     {% render 'section-heading', eyebrow: 'BLOG', title: blog.title, tag: 'h1' %}
 
@@ -28,7 +28,6 @@
 {
   "name": "Blog",
   "settings": [
-    { "type": "color", "id": "background", "label": "Color de fondo", "default": "#f3f1ef" }
   ]
 }
 {% endschema %}

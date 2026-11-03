@@ -1,22 +1,25 @@
 {%- comment -%}
-  Texto de cuotas. Uso: {% render 'price-installments', price: product.price %}
+  Precio con transferencia + pastilla de ahorro + cuotas.
+  Uso: {% render 'price-installments', price: product.price, pill: true %}
 {%- endcomment -%}
 {%- liquid
   assign count = settings.installments_count | plus: 0
+  assign pct = settings.transfer_discount | plus: 0
 -%}
-{%- if count > 1 and settings.installments_show -%}
-  {%- assign per_installment = price | divided_by: count -%}
-  <p class="installments{% if class %} {{ class }}{% endif %}">
-    {{ count }} cuotas sin interés
-    {%- if settings.installments_show_amount %} de <strong>{{ per_installment | money_without_trailing_zeros }}</strong>{% endif %}
-  </p>
-{%- endif -%}
-{%- if settings.transfer_discount > 0 and settings.transfer_show -%}
+{%- if settings.transfer_show and pct > 0 -%}
   {%- liquid
-    assign pct = 100 | minus: settings.transfer_discount
-    assign transfer_price = price | times: pct | divided_by: 100
+    assign keep = 100 | minus: pct
+    assign transfer_price = price | times: keep | divided_by: 100
   -%}
-  <p class="transfer-price">
-    <strong>{{ transfer_price | money_without_trailing_zeros }}</strong> con transferencia ({{ settings.transfer_discount }}% OFF)
+  <p class="transfer-price"><span data-transfer>{{ transfer_price | money }}</span> con TRANSFERENCIA</p>
+  {%- if pill -%}
+    <p class="save-pill"><span aria-hidden="true">💸</span> Ahorrás un {{ pct }}% · Precio especial de hoy</p>
+  {%- endif -%}
+{%- endif -%}
+{%- if settings.installments_show and count > 1 -%}
+  {%- assign per_installment = price | divided_by: count -%}
+  <p class="installments">
+    <strong>{{ count }}</strong> cuotas sin interés
+    {%- if settings.installments_show_amount %} de <strong data-installment>{{ per_installment | money }}</strong>{% endif %}
   </p>
 {%- endif -%}

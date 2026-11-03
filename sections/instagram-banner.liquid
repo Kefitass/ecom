@@ -1,0 +1,32 @@
+{%- liquid
+  assign handle = section.settings.handle | default: settings.instagram_handle | default: shop.name
+  assign url = settings.social_instagram
+  if url == blank and settings.instagram_handle != blank
+    assign url = 'https://instagram.com/' | append: settings.instagram_handle
+  endif
+-%}
+<section class="ig-banner">
+  <div class="page-width">
+    {% render 'icon', name: 'instagram', px: 34 %}
+    <h2 class="ig-banner__handle">
+      {%- if url != blank -%}<a href="{{ url }}" target="_blank" rel="noopener">{{ handle }}</a>{%- else -%}{{ handle }}{%- endif -%}
+    </h2>
+    <p>{{ section.settings.text }}</p>
+    {%- if url != blank -%}
+      <a href="{{ url }}" target="_blank" rel="noopener" class="ig-banner__button">{{ section.settings.button_label }}</a>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Instagram",
+  "class": "section-ig",
+  "settings": [
+    { "type": "text", "id": "handle", "label": "Texto grande", "info": "Vacío = tu usuario de Instagram (Configuración del tema → Contacto y redes)." },
+    { "type": "text", "id": "text", "label": "Texto", "default": "Estamos en Instagram" },
+    { "type": "text", "id": "button_label", "label": "Botón", "default": "Seguinos" }
+  ],
+  "presets": [{ "name": "Instagram" }]
+}
+{% endschema %}

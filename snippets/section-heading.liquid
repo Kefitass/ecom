@@ -1,12 +1,13 @@
 {%- comment -%}
-  Encabezado centrado de sección (etiqueta + título + subtítulo).
+  Encabezado centrado: pastilla + título + línea degradé + subtítulo.
   Uso: {% render 'section-heading', eyebrow: ..., title: ..., subtitle: ..., tag: 'h1' %}
 {%- endcomment -%}
 {%- assign tag = tag | default: 'h2' -%}
 {%- if eyebrow != blank or title != blank or subtitle != blank -%}
   <div class="section-heading">
-    {%- if eyebrow != blank -%}<p class="eyebrow">{{ eyebrow }}</p>{%- endif -%}
+    {%- if eyebrow != blank -%}<p class="eyebrow-pill">{% render 'icon', name: 'zap', px: 11 %} {{ eyebrow }}</p>{%- endif -%}
     {%- if title != blank -%}<{{ tag }} class="section-heading__title">{{ title }}</{{ tag }}>{%- endif -%}
+    {%- unless no_line -%}<span class="section-heading__line" aria-hidden="true"></span>{%- endunless -%}
     {%- if subtitle != blank -%}<div class="section-heading__subtitle">{{ subtitle }}</div>{%- endif -%}
   </div>
 {%- endif -%}

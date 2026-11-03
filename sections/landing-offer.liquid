@@ -1,0 +1,140 @@
+{%- liquid
+  assign variant = product.selected_or_first_available_variant
+  assign price = variant.price
+  assign compare = variant.compare_at_price
+  if section.settings.compare_override != blank
+    assign compare = section.settings.compare_override | times: 100
+  endif
+  assign pct = settings.transfer_discount | plus: 0
+  assign count = settings.installments_count | plus: 0
+  assign keep = 100 | minus: pct
+  assign transfer_price = price | times: keep | divided_by: 100
+  assign per_installment = price | divided_by: count
+  assign off = 0
+  if compare > price
+    assign off = compare | minus: price | times: 100 | divided_by: compare | floor
+  endif
+  assign price_text = price | money_without_trailing_zeros
+  assign title_gold = section.settings.title_gold | replace: '[precio]', price_text
+-%}
+
+<section class="landing">
+  <div class="landing__col landing-offer{% if section.settings.bg != blank %} landing-offer--bg{% endif %}">
+    {%- if section.settings.bg != blank -%}
+      {{ section.settings.bg | image_url: width: 1200 | image_tag: class: 'landing-offer__bg', loading: 'lazy', alt: '' }}
+    {%- endif -%}
+    <div class="landing-offer__inner">
+      {% render 'landing-heading', eyebrow: section.settings.eyebrow, title: section.settings.title, title_gold: title_gold, text: section.settings.text %}
+
+      {%- if section.settings.image != blank -%}
+        <div class="landing-offer__image">
+          {{ section.settings.image | image_url: width: 900 | image_tag: loading: 'lazy', widths: '400, 600, 900', sizes: '420px', alt: '' }}
+        </div>
+      {%- endif -%}
+
+      {%- assign chips = section.blocks | where: 'type', 'chip' -%}
+      {%- if chips.size > 0 -%}
+        <ul class="l-chips">
+          {%- for block in chips -%}
+            <li class="l-chip l-chip--{{ block.settings.style }}" {{ block.shopify_attributes }}>{{ block.settings.text }}</li>
+          {%- endfor -%}
+        </ul>
+      {%- endif -%}
+
+      {%- assign checks = section.blocks | where: 'type', 'check' -%}
+      {%- if checks.size > 0 -%}
+        <ul class="l-checkbox">
+          {%- for block in checks -%}
+            {%- assign txt = block.settings.text | remove: '[cuota]' | remove: '[transferencia]' -%}
+            <li {{ block.shopify_attributes }}>
+              <span class="l-goldcheck">✓</span>
+              <span>{{ txt }}{% if block.settings.text contains '[cuota]' %}{{ per_installment | money_without_trailing_zeros }}{% endif %}{% if block.settings.text contains '[transferencia]' %}{{ transfer_price | money_without_trailing_zeros }}{% endif %}</span>
+            </li>
+          {%- endfor -%}
+        </ul>
+      {%- endif -%}
+
+      {%- if section.settings.show_price_card -%}
+        <div class="l-pricecard">
+          {%- if section.settings.price_label != blank -%}<p class="l-pricecard__label">{{ section.settings.price_label }}</p>{%- endif -%}
+          {%- if off > 0 -%}
+            <p class="l-pricecard__before">antes <s>{{ compare | money_without_trailing_zeros }}</s> <span class="l-off">{{ off }}% OFF</span></p>
+          {%- endif -%}
+          <p class="l-pricecard__price">{{ price | money_without_trailing_zeros }}</p>
+          {%- if settings.installments_show and count > 1 -%}
+            <p class="l-pricecard__line"><span aria-hidden="true">💳</span> {{ count }} cuotas sin interés de <strong>{{ per_installment | money_without_trailing_zeros }}</strong></p>
+          {%- endif -%}
+          {%- if settings.transfer_show and pct > 0 -%}
+            <p class="l-pricecard__line"><span aria-hidden="true">💸</span> o <strong class="l-gold">{{ transfer_price | money_without_trailing_zeros }}</strong> por transferencia ({{ pct }}% OFF)</p>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+
+      {%- if section.settings.button_label != blank -%}
+        {% render 'landing-cta', product: product, label: section.settings.button_label, sub: section.settings.button_sub %}
+      {%- endif -%}
+
+      {%- if section.settings.footnote != blank -%}
+        <div class="l-footnote">{{ section.settings.footnote }}</div>
+      {%- endif -%}
+
+      {%- if section.settings.show_arrow -%}<p class="l-arrow" aria-hidden="true">⌄</p>{%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Landing · Oferta",
+  "class": "section-landing",
+  "settings": [
+    { "type": "paragraph", "content": "Toma el precio, el precio tachado, las cuotas y la transferencia del producto automáticamente. En el título dorado podés escribir [precio]." },
+    { "type": "text", "id": "eyebrow", "label": "Pastilla" },
+    { "type": "text", "id": "title", "label": "Título (blanco)", "default": "Tres perfumes árabes." },
+    { "type": "text", "id": "title_gold", "label": "Título (dorado)", "default": "Pagás 1. Te llevás 3." },
+    { "type": "richtext", "id": "text", "label": "Texto", "default": "<p>Tres perfumes árabes intensos: uno para la noche, otro para una cita y otro para el día. Con mini perfumero de regalo y envío gratis a todo el país.</p>" },
+    { "type": "image_picker", "id": "image", "label": "Imagen (opcional)" },
+    { "type": "image_picker", "id": "bg", "label": "Imagen de fondo (opcional)" },
+    { "type": "checkbox", "id": "show_price_card", "label": "Mostrar tarjeta de precio", "default": true },
+    { "type": "text", "id": "price_label", "label": "Texto arriba del precio", "default": "LOS 3 PERFUMES + MINI PERFUMERO" },
+    { "type": "number", "id": "compare_override", "label": "Precio 'antes' (opcional, en pesos)", "info": "Vacío = usa el precio tachado del producto." },
+    { "type": "text", "id": "button_label", "label": "Botón", "default": "Quiero mi 3x1" },
+    { "type": "text", "id": "button_sub", "label": "Texto chico del botón", "default": "PAGÁS 1 · TE LLEVÁS 3 · ENVÍO GRATIS" },
+    { "type": "richtext", "id": "footnote", "label": "Texto debajo del botón", "default": "<p>📦 Envío gratis a todo el país · 🔁 Si no te gusta, lo cambiás</p>" },
+    { "type": "checkbox", "id": "show_arrow", "label": "Mostrar flechita hacia abajo", "default": true }
+  ],
+  "blocks": [
+    {
+      "type": "chip",
+      "name": "Chip",
+      "settings": [
+        { "type": "text", "id": "text", "label": "Texto", "default": "💧 Base de aceite" },
+        {
+          "type": "select", "id": "style", "label": "Color", "default": "gold",
+          "options": [{ "value": "gold", "label": "Dorado" }, { "value": "teal", "label": "Turquesa" }]
+        }
+      ]
+    },
+    {
+      "type": "check",
+      "name": "Ítem con tilde",
+      "settings": [
+        { "type": "text", "id": "text", "label": "Texto", "default": "Envío gratis a todo el país", "info": "Podés poner [cuota] o [transferencia] al final para mostrar el monto." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Landing · Oferta",
+      "blocks": [
+        { "type": "chip", "settings": { "text": "🧪 Extracto al 30%", "style": "gold" } },
+        { "type": "chip", "settings": { "text": "💧 Base de aceite", "style": "gold" } },
+        { "type": "chip", "settings": { "text": "⏱ 8-12 horas", "style": "gold" } },
+        { "type": "chip", "settings": { "text": "💎 Combo 3x1", "style": "teal" } },
+        { "type": "chip", "settings": { "text": "🎁 Mini perfumero", "style": "teal" } },
+        { "type": "chip", "settings": { "text": "🚚 Envío gratis", "style": "teal" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

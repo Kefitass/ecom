@@ -1,0 +1,77 @@
+<section class="landing">
+  <div class="landing__col landing-pad">
+    {% render 'landing-heading', eyebrow: section.settings.eyebrow, title: section.settings.title, title_gold: section.settings.title_gold %}
+
+    <div class="l-details">
+      {%- for block in section.blocks -%}
+        <article class="l-detail l-detail--{{ block.settings.accent }}{% cycle '', ' l-detail--flip' %}" {{ block.shopify_attributes }}>
+          {%- if block.settings.image != blank -%}
+            <div class="l-detail__img">{{ block.settings.image | image_url: width: 400 | image_tag: loading: 'lazy', alt: block.settings.name }}</div>
+          {%- endif -%}
+          <div class="l-detail__body">
+            {%- if block.settings.tag != blank -%}<p class="l-card__tag">{{ block.settings.tag }}</p>{%- endif -%}
+            <h3>{{ block.settings.name }}</h3>
+            {%- if block.settings.subtitle != blank -%}<p class="l-detail__sub">{{ block.settings.subtitle }}</p>{%- endif -%}
+            {%- if block.settings.text != blank -%}<p>{{ block.settings.text }}</p>{%- endif -%}
+            {%- if block.settings.notes != blank -%}
+              <ul class="l-notes">
+                {%- assign notes = block.settings.notes | split: ',' -%}
+                {%- for note in notes -%}<li>{{ note | strip }}</li>{%- endfor -%}
+              </ul>
+            {%- endif -%}
+            {%- if block.settings.quote != blank -%}
+              <p class="l-detail__quote">{{ section.settings.quote_label }} <em>“{{ block.settings.quote }}”</em></p>
+            {%- endif -%}
+          </div>
+        </article>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Landing · Uno por uno",
+  "class": "section-landing",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Pastilla", "default": "CONOCÉ TU 3X1" },
+    { "type": "text", "id": "title", "label": "Título (blanco)", "default": "Los tres, uno por uno" },
+    { "type": "text", "id": "title_gold", "label": "Título (dorado)" },
+    { "type": "text", "id": "quote_label", "label": "Texto antes de la frase", "default": "LO QUE VAS A ESCUCHAR:" }
+  ],
+  "blocks": [
+    {
+      "type": "perfume",
+      "name": "Perfume",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Imagen (frasco sin fondo, PNG)" },
+        { "type": "text", "id": "tag", "label": "Etiqueta", "default": "🌙 NOCHE Y SALIDAS" },
+        { "type": "text", "id": "name", "label": "Nombre", "default": "Perfume 1" },
+        { "type": "text", "id": "subtitle", "label": "Subtítulo (chico)", "info": "Por ejemplo, la casa o la familia olfativa." },
+        { "type": "textarea", "id": "text", "label": "Descripción", "default": "Pimienta negra, tabaco, café y pachulí sobre ámbar y vainilla. Especiado, intenso y elegante." },
+        { "type": "text", "id": "notes", "label": "Notas (separadas por coma)", "default": "Pimienta, Tabaco, Café, Ámbar, Vainilla" },
+        { "type": "text", "id": "quote", "label": "Frase", "default": "Te sentí antes de verte." },
+        {
+          "type": "select", "id": "accent", "label": "Color", "default": "gold",
+          "options": [
+            { "value": "gold", "label": "Dorado" },
+            { "value": "rose", "label": "Rosado" },
+            { "value": "teal", "label": "Turquesa" }
+          ]
+        }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [
+    {
+      "name": "Landing · Uno por uno",
+      "blocks": [
+        { "type": "perfume", "settings": { "tag": "🌙 NOCHE Y SALIDAS", "name": "Perfume 1", "accent": "gold" } },
+        { "type": "perfume", "settings": { "tag": "💋 CITAS E INVIERNO", "name": "Perfume 2", "text": "Canela y nuez moscada con dátiles, praliné, vainilla y tonka. Dulce, cálido y adictivo.", "notes": "Canela, Dátiles, Praliné, Vainilla, Tonka", "quote": "Me quedó tu perfume en la campera.", "accent": "rose" } },
+        { "type": "perfume", "settings": { "tag": "☀️ DÍA A DÍA", "name": "Perfume 3", "text": "Naranja y limón con frutas, sobre ámbar, vainilla y almizcle. Frutal, dulce y fresco.", "notes": "Naranja, Limón, Frutas, Ámbar, Vainilla", "quote": "¿Qué perfume tenés puesto?", "accent": "teal" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

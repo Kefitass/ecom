@@ -5,17 +5,26 @@
     "announcement-bar": {
       "type": "announcement-bar",
       "blocks": {
-        "a1": { "type": "announcement", "settings": { "text": "ENVÍO GRATIS" } },
-        "a2": { "type": "announcement", "settings": { "text": "3 CUOTAS SIN INTERÉS" } },
-        "a3": { "type": "announcement", "settings": { "text": "LLEVÁ 2 Y AHORRÁ 30%" } }
+        "a1": { "type": "announcement", "settings": { "text": "3 CUOTAS SIN INTERÉS" } },
+        "a2": { "type": "announcement", "settings": { "text": "ENVÍO GRATIS A TODO EL PAÍS" } },
+        "a3": { "type": "announcement", "settings": { "text": "PROMOCIONES 3X1" } }
       },
       "block_order": ["a1", "a2", "a3"],
-      "settings": { "speed": 36 }
+      "settings": { "style": "violet", "separator": "", "speed": 40 }
+    },
+    "promo-strip": {
+      "type": "promo-strip",
+      "settings": { "text": "🔥 50% OFF EN TODA LA TIENDA 🔥" }
     },
     "header": {
       "type": "header",
-      "settings": { "menu": "main-menu", "sticky": true }
+      "settings": {
+        "menu": "main-menu",
+        "topline": "⚡ COMBOS 3X1 · ENVÍO GRATIS · 3 CUOTAS SIN INTERÉS",
+        "tracking_text": "<p><strong>Seguí acá</strong> tu última compra</p>",
+        "sticky": false
+      }
     }
   },
-  "order": ["announcement-bar", "header"]
+  "order": ["announcement-bar", "promo-strip", "header"]
 }

@@ -1,0 +1,23 @@
+{%- comment -%}
+  Botón dorado que agrega el producto actual al carrito.
+  Uso: {% render 'landing-cta', product: product, label: 'Quiero mi 3x1', sub: 'PAGÁS 1 · TE LLEVÁS 3' %}
+{%- endcomment -%}
+{%- if product -%}
+  {%- assign variant = product.selected_or_first_available_variant -%}
+  <form method="post" action="{{ routes.cart_add_url }}" class="l-cta-form">
+    <input type="hidden" name="form_type" value="product">
+    <input type="hidden" name="utf8" value="✓">
+    <input type="hidden" name="id" value="{{ variant.id }}">
+    <input type="hidden" name="quantity" value="1">
+    <input type="hidden" name="return_to" value="{{ routes.cart_url }}">
+    <button type="submit" class="l-cta"{% unless variant.available %} disabled{% endunless %}>
+      <span class="l-cta__label">{% if variant.available %}{{ label }} <span aria-hidden="true">→</span>{% else %}Sin stock{% endif %}</span>
+      {%- if sub != blank -%}<span class="l-cta__sub">{{ sub }}</span>{%- endif -%}
+    </button>
+  </form>
+{%- else -%}
+  <a href="{{ routes.all_products_collection_url }}" class="l-cta">
+    <span class="l-cta__label">{{ label }} <span aria-hidden="true">→</span></span>
+    {%- if sub != blank -%}<span class="l-cta__sub">{{ sub }}</span>{%- endif -%}
+  </a>
+{%- endif -%}

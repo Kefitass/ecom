@@ -1,0 +1,78 @@
+<section class="landing">
+  <div class="landing__col landing-pad">
+    <div class="l-heading">
+      {%- if section.settings.eyebrow != blank -%}<p class="l-pill l-pill--orange">{{ section.settings.eyebrow }}</p>{%- endif -%}
+      <div class="l-title l-title--rich">{{ section.settings.title }}</div>
+    </div>
+
+    <div class="l-why__media">
+      {%- if section.settings.image != blank -%}
+        {{ section.settings.image | image_url: width: 900 | image_tag: loading: 'lazy', widths: '400, 600, 900', sizes: '420px', alt: '' }}
+      {%- else -%}
+        <div class="l-why__empty"></div>
+      {%- endif -%}
+      {%- if section.settings.overlay_title != blank or section.settings.overlay_text != blank -%}
+        <div class="l-why__overlay">
+          <small>{{ section.settings.overlay_title }}</small>
+          <em>{{ section.settings.overlay_text }}</em>
+        </div>
+      {%- endif -%}
+    </div>
+
+    <ul class="l-feats">
+      {%- for block in section.blocks -%}
+        <li class="l-feat l-feat--{{ block.settings.accent }}" {{ block.shopify_attributes }}>
+          <span class="l-feat__icon" aria-hidden="true">{{ block.settings.emoji }}</span>
+          <div>
+            <strong>{{ block.settings.title }}</strong>
+            <p>{{ block.settings.text }}</p>
+          </div>
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Landing · Por qué",
+  "class": "section-landing",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Pastilla", "default": "🔥 ¿POR QUÉ TODOS HABLAN DE LOS ÁRABES?" },
+    { "type": "richtext", "id": "title", "label": "Título", "default": "<p>Te ponés dos tiradas a la <strong>mañana</strong> y a la <strong>noche</strong> todavía te preguntan qué tenés <strong>puesto</strong>.</p>", "info": "Lo que pongas en negrita sale en dorado." },
+    { "type": "image_picker", "id": "image", "label": "Imagen", "info": "Cuadrada, 1080 × 1080 px" },
+    { "type": "text", "id": "overlay_title", "label": "Texto sobre la imagen (chico)", "default": "A QUÉ HUELEN" },
+    { "type": "text", "id": "overlay_text", "label": "Texto sobre la imagen (cursiva)", "default": "canela, dátiles, café, vainilla y cítricos" }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Dato",
+      "settings": [
+        { "type": "text", "id": "emoji", "label": "Emoji", "default": "🕰️" },
+        { "type": "text", "id": "title", "label": "Título", "default": "Duran un montón" },
+        { "type": "textarea", "id": "text", "label": "Texto", "default": "Son dulces, especiados y con ámbar: los aromas que más aguantan en la piel." },
+        {
+          "type": "select", "id": "accent", "label": "Color", "default": "gold",
+          "options": [
+            { "value": "gold", "label": "Dorado" },
+            { "value": "rose", "label": "Rosado" },
+            { "value": "teal", "label": "Turquesa" }
+          ]
+        }
+      ]
+    }
+  ],
+  "max_blocks": 4,
+  "presets": [
+    {
+      "name": "Landing · Por qué",
+      "blocks": [
+        { "type": "feature", "settings": { "emoji": "🕰️", "title": "Duran un montón", "text": "Son dulces, especiados y con ámbar: los aromas que más aguantan en la piel.", "accent": "gold" } },
+        { "type": "feature", "settings": { "emoji": "📈", "title": "Están en todos lados", "text": "Los perfumes árabes son de los más vendidos de la Argentina.", "accent": "rose" } },
+        { "type": "feature", "settings": { "emoji": "💎", "title": "Rinden muchísimo", "text": "Con dos o tres tiradas alcanza para todo el día.", "accent": "teal" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

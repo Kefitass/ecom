@@ -1,16 +1,20 @@
 {%- comment -%}
-  Estrellas + calificación.
-  Uso: {% render 'stars', rating: '4.9', text: '+1.000 clientes felices' %}
+  Estrellas. Uso: {% render 'stars', rating: 4.8, count: 286 %}  ·  o con texto: text: '+1.000 clientes'
 {%- endcomment -%}
-{%- if rating != blank or text != blank -%}
+{%- liquid
+  assign r = rating | plus: 0
+  assign full = r | round
+-%}
+{%- if r > 0 or text != blank -%}
   <div class="stars{% if class %} {{ class }}{% endif %}">
-    <span class="stars__icons" aria-hidden="true">
-      {%- for i in (1..5) -%}{% render 'icon', name: 'star', px: 15 %}{%- endfor -%}
-    </span>
-    <span class="stars__text">
-      {%- if rating != blank -%}<strong>{{ rating }}</strong>{%- endif -%}
-      {%- if rating != blank and text != blank %} · {% endif -%}
-      {{- text -}}
-    </span>
+    {%- if r > 0 -%}
+      <span class="stars__icons" aria-label="{{ r | round: 1 }} de 5">
+        {%- for i in (1..5) -%}
+          <span class="{% if i > full %}is-empty{% endif %}">{% render 'icon', name: 'star', px: 17 %}</span>
+        {%- endfor -%}
+      </span>
+    {%- endif -%}
+    {%- if count != blank -%}<span class="stars__count">({{ count }})</span>{%- endif -%}
+    {%- if text != blank -%}<span class="stars__count">{{ text }}</span>{%- endif -%}
   </div>
 {%- endif -%}

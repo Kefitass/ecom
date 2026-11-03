@@ -1,0 +1,45 @@
+<section class="landing">
+  <div class="landing__col landing-pad">
+    {% render 'landing-heading', eyebrow: section.settings.eyebrow, title: section.settings.title, title_gold: section.settings.title_gold %}
+
+    <div class="l-photo">
+      {%- if section.settings.image != blank -%}
+        {{ section.settings.image | image_url: width: 900 | image_tag: loading: 'lazy', widths: '400, 600, 900', sizes: '420px', alt: section.settings.title }}
+      {%- else -%}
+        {{ 'product-2' | placeholder_svg_tag: 'placeholder' }}
+      {%- endif -%}
+    </div>
+
+    {%- if section.settings.gift_title != blank -%}
+      <div class="l-gift">
+        {%- if section.settings.gift_image != blank -%}
+          {{ section.settings.gift_image | image_url: width: 200, height: 200, crop: 'center' | image_tag: loading: 'lazy', class: 'l-gift__img', alt: '' }}
+        {%- endif -%}
+        <div>
+          <p class="l-card__tag l-card__tag--teal">{{ section.settings.gift_label }}</p>
+          <h3>{{ section.settings.gift_title }}</h3>
+          <p>{{ section.settings.gift_text }}</p>
+        </div>
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Landing · Qué incluye",
+  "class": "section-landing",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Pastilla" },
+    { "type": "text", "id": "title", "label": "Título (blanco)", "default": "3 perfumes de 60 ml" },
+    { "type": "text", "id": "title_gold", "label": "Título (dorado)", "default": "+ mini perfumero de regalo" },
+    { "type": "image_picker", "id": "image", "label": "Foto de los productos", "info": "Cuadrada, 1080 × 1080 px" },
+    { "type": "header", "content": "Regalo" },
+    { "type": "image_picker", "id": "gift_image", "label": "Foto del regalo" },
+    { "type": "text", "id": "gift_label", "label": "Etiqueta", "default": "🎁 DE REGALO" },
+    { "type": "text", "id": "gift_title", "label": "Título", "default": "Mini perfumero recargable" },
+    { "type": "textarea", "id": "gift_text", "label": "Texto", "default": "Lo cargás con el que quieras y lo llevás en el bolsillo o la mochila para retocarte." }
+  ],
+  "presets": [{ "name": "Landing · Qué incluye" }]
+}
+{% endschema %}

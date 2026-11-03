@@ -1,4 +1,4 @@
-<section class="section" style="--section-bg: {{ section.settings.background }};">
+<section class="section">
   <div class="page-width">
     {% render 'section-heading', eyebrow: 'TU PEDIDO', title: section.settings.title, tag: 'h1' %}
 
@@ -78,8 +78,7 @@
   "name": "Carrito",
   "settings": [
     { "type": "text", "id": "title", "label": "Título", "default": "Tu carrito" },
-    { "type": "checkbox", "id": "show_note", "label": "Permitir nota en el pedido", "default": true },
-    { "type": "color", "id": "background", "label": "Color de fondo", "default": "#f3f1ef" }
+    { "type": "checkbox", "id": "show_note", "label": "Permitir nota en el pedido", "default": true }
   ]
 }
 {% endschema %}

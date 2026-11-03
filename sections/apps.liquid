@@ -1,0 +1,23 @@
+<section class="section section--tight">
+  <div class="page-width{% if section.settings.narrow %} page-width--narrow{% endif %}">
+    {%- if section.settings.title != blank -%}
+      {% render 'section-heading', title: section.settings.title, no_line: true %}
+    {%- endif -%}
+    {%- for block in section.blocks -%}
+      {% render block %}
+    {%- endfor -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Apps (reseñas, etc.)",
+  "settings": [
+    { "type": "text", "id": "title", "label": "Título", "default": "" },
+    { "type": "checkbox", "id": "narrow", "label": "Ancho angosto", "default": true },
+    { "type": "paragraph", "content": "Agregá acá el bloque de tu app de reseñas (por ejemplo Judge.me o Shopify Product Reviews)." }
+  ],
+  "blocks": [{ "type": "@app" }],
+  "presets": [{ "name": "Apps (reseñas, etc.)" }]
+}
+{% endschema %}

@@ -1,0 +1,42 @@
+<section class="landing">
+  <div class="landing__col landing-pad landing__col--warm">
+    {%- if section.settings.title != blank or section.settings.title_gold != blank -%}
+      {% render 'landing-heading', eyebrow: section.settings.eyebrow, title: section.settings.title, title_gold: section.settings.title_gold %}
+    {%- endif -%}
+    <ul class="l-checklist">
+      {%- for block in section.blocks -%}
+        <li {{ block.shopify_attributes }}><span class="l-goldcheck l-goldcheck--round">✓</span> {{ block.settings.text }}</li>
+      {%- endfor -%}
+    </ul>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Landing · Tildes",
+  "class": "section-landing",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Pastilla" },
+    { "type": "text", "id": "title", "label": "Título (blanco)", "default": "Con tu 3x1:" },
+    { "type": "text", "id": "title_gold", "label": "Título (dorado)" }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Ítem",
+      "settings": [{ "type": "text", "id": "text", "label": "Texto", "default": "Te dura todo el día (8 a 12 horas, según tu piel)." }]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Landing · Tildes",
+      "blocks": [
+        { "type": "item", "settings": { "text": "Te dura todo el día (8 a 12 horas, según tu piel)." } },
+        { "type": "item", "settings": { "text": "Te preguntan qué perfume tenés puesto." } },
+        { "type": "item", "settings": { "text": "Tenés uno para cada salida, no el mismo para todo." } },
+        { "type": "item", "settings": { "text": "Pagás uno y te llevás tres." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

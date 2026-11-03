@@ -1,4 +1,4 @@
-<section class="section" style="--section-bg: {{ section.settings.background }};">
+<section class="section">
   <div class="page-width page-width--narrow">
     {% render 'section-heading',
       eyebrow: section.settings.eyebrow,
@@ -27,8 +27,7 @@
   "settings": [
     { "type": "text", "id": "eyebrow", "label": "Etiqueta", "default": "PREGUNTAS FRECUENTES" },
     { "type": "text", "id": "title", "label": "Título", "default": "¿Tenés dudas?" },
-    { "type": "richtext", "id": "subtitle", "label": "Subtítulo", "default": "<p>Te dejamos las respuestas a lo que más nos preguntan.</p>" },
-    { "type": "color", "id": "background", "label": "Color de fondo", "default": "#f3f1ef" }
+    { "type": "richtext", "id": "subtitle", "label": "Subtítulo", "default": "<p>Te dejamos las respuestas a lo que más nos preguntan.</p>" }
   ],
   "blocks": [
     {

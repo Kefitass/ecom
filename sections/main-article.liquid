@@ -1,4 +1,4 @@
-<article class="section" style="--section-bg: {{ section.settings.background }};">
+<article class="section">
   <div class="page-width page-width--narrow">
     {%- assign published = article.published_at | date: '%d/%m/%Y' -%}
     {% render 'section-heading', eyebrow: blog.title, title: article.title, subtitle: published, tag: 'h1' %}
@@ -16,7 +16,6 @@
 {
   "name": "Artículo",
   "settings": [
-    { "type": "color", "id": "background", "label": "Color de fondo", "default": "#f3f1ef" }
   ]
 }
 {% endschema %}

@@ -1,114 +1,51 @@
 {
   "sections": {
-    "hero": {
-      "type": "hero",
+    "slider": {
+      "type": "slideshow",
       "blocks": {
-        "check-1": { "type": "check", "settings": { "text": "100% originales" } },
-        "check-2": { "type": "check", "settings": { "text": "Larga duración" } },
-        "check-3": { "type": "check", "settings": { "text": "Asesoramiento por WhatsApp" } }
+        "s1": { "type": "slide", "settings": { "alt": "Promo 3x1 en perfumes árabes", "link": "shopify://collections/all" } },
+        "s2": { "type": "slide", "settings": { "alt": "Envíos gratis a todo el país", "link": "shopify://collections/all" } }
       },
-      "block_order": ["check-1", "check-2", "check-3"],
-      "settings": {
-        "pill_emoji": "✨",
-        "pill": "+1.000 clientes del barrio ya lo eligen",
-        "heading": "Perfumes árabes que duran todo el día",
-        "text": "<p>Fragancias originales de las mejores casas árabes, con fijación de verdad y a precio de barrio. Te asesoramos por WhatsApp para que encuentres tu aroma.</p>",
-        "button_label": "Quiero mi perfume",
-        "button_link": "shopify://collections/all",
-        "rating": "4.9",
-        "rating_text": "+1.000 clientes felices",
-        "sticker_top": "HASTA 35%",
-        "sticker_bottom": "OFF en packs",
-        "background": "#f3f1ef"
-      }
+      "block_order": ["s1", "s2"],
+      "settings": { "autoplay_speed": 5 }
     },
-    "trust": {
-      "type": "trust-bar",
+    "instagram": {
+      "type": "instagram-banner",
+      "settings": { "text": "Estamos en Instagram", "button_label": "Seguinos" }
+    },
+    "categories": {
+      "type": "category-banners",
       "blocks": {
-        "t1": { "type": "item", "settings": { "icon": "truck", "title": "Despacho en 24 hs", "subtitle": "A todo el país" } },
-        "t2": { "type": "item", "settings": { "icon": "card", "title": "3 cuotas sin interés", "subtitle": "Con todas las tarjetas" } },
-        "t3": { "type": "item", "settings": { "icon": "shield", "title": "Garantía 100%", "subtitle": "Compra protegida" } },
-        "t4": { "type": "item", "settings": { "icon": "chat", "title": "Atención 24/7", "subtitle": "Por WhatsApp y mail" } }
+        "c1": { "type": "banner", "settings": { "title": "COMBOS DE PERFUMES", "link": "shopify://collections/all" } },
+        "c2": { "type": "banner", "settings": { "title": "ARMÁ TU COMBO", "link": "shopify://collections/all" } }
       },
-      "block_order": ["t1", "t2", "t3", "t4"],
+      "block_order": ["c1", "c2"],
       "settings": {}
     },
-    "featured": {
-      "type": "featured-products",
-      "blocks": {
-        "c1": { "type": "chip", "settings": { "icon": "truck", "text": "Despacho en 24 hs" } },
-        "c2": { "type": "chip", "settings": { "icon": "card", "text": "3 cuotas sin interés" } },
-        "c3": { "type": "chip", "settings": { "icon": "shield", "text": "Garantía 100%" } }
-      },
-      "block_order": ["c1", "c2", "c3"],
-      "settings": {
-        "eyebrow": "LOS MÁS VENDIDOS",
-        "title": "Nuestros perfumes",
-        "subtitle": "<p>Fragancias árabes originales que duran todo el día. 🌙</p>",
-        "collection": "all",
-        "limit": 4,
-        "columns": "2",
-        "button_label": "Ver todo el catálogo",
-        "background": "#ffffff"
-      }
-    },
-    "benefits": {
-      "type": "benefits",
-      "blocks": {
-        "b1": { "type": "benefit", "settings": { "icon": "sparkles", "title": "100% originales", "text": "<p>Perfumes sellados de las casas árabes más buscadas, sin imitaciones.</p>" } },
-        "b2": { "type": "benefit", "settings": { "icon": "clock", "title": "Duran todo el día", "text": "<p>Las fragancias árabes son famosas por su fijación y su estela: te acompañan de la mañana a la noche.</p>" } },
-        "b3": { "type": "benefit", "settings": { "icon": "home", "title": "Trato de barrio", "text": "<p>Te asesoramos por WhatsApp como en la perfumería de la esquina, para que aciertes con tu aroma.</p>" } }
-      },
-      "block_order": ["b1", "b2", "b3"],
-      "settings": {
-        "eyebrow": "¿POR QUÉ ELEGIRNOS?",
-        "title": "La perfumería de siempre, con aromas de Oriente",
-        "background": "#f3f1ef"
-      }
-    },
-    "testimonials": {
-      "type": "testimonials",
+    "videos": {
+      "type": "video-strip",
       "disabled": true,
       "blocks": {
-        "r1": { "type": "testimonial", "settings": { "rating": 5 } },
-        "r2": { "type": "testimonial", "settings": { "rating": 5 } },
-        "r3": { "type": "testimonial", "settings": { "rating": 5 } }
+        "v1": { "type": "video", "settings": {} },
+        "v2": { "type": "video", "settings": {} },
+        "v3": { "type": "video", "settings": {} },
+        "v4": { "type": "video", "settings": {} },
+        "v5": { "type": "video", "settings": {} }
       },
-      "block_order": ["r1", "r2", "r3"],
-      "settings": {
-        "eyebrow": "OPINIONES",
-        "title": "Lo que dicen nuestros clientes",
-        "background": "#ffffff"
-      }
+      "block_order": ["v1", "v2", "v3", "v4", "v5"],
+      "settings": { "title": "🔒 COMPRA SEGURO/A 🔒" }
     },
-    "faq": {
-      "type": "faq",
-      "blocks": {
-        "q1": { "type": "question", "settings": { "question": "¿Los perfumes son originales?", "answer": "<p>Sí. Todos nuestros perfumes son originales y llegan sellados de fábrica.</p>" } },
-        "q2": { "type": "question", "settings": { "question": "¿Cuánto duran los perfumes árabes?", "answer": "<p>Depende de la fragancia y de tu piel, pero en general tienen muy buena fijación: entre 8 y 12 horas en la piel y más en la ropa.</p>" } },
-        "q3": { "type": "question", "settings": { "question": "¿Cuánto tarda el envío?", "answer": "<p>Despachamos en 24 hs hábiles. El tiempo de entrega depende de tu ciudad; te pasamos el código de seguimiento apenas sale.</p>" } },
-        "q4": { "type": "question", "settings": { "question": "¿Puedo pagar en cuotas?", "answer": "<p>Sí, tenés 3 cuotas sin interés con todas las tarjetas.</p>" } },
-        "q5": { "type": "question", "settings": { "question": "No sé cuál elegir, ¿me ayudan?", "answer": "<p>¡Claro! Escribinos por WhatsApp, contanos qué aromas te gustan y te recomendamos el ideal.</p>" } }
-      },
-      "block_order": ["q1", "q2", "q3", "q4", "q5"],
+    "promos": {
+      "type": "featured-products",
       "settings": {
-        "eyebrow": "PREGUNTAS FRECUENTES",
-        "title": "¿Tenés dudas?",
-        "subtitle": "<p>Te dejamos las respuestas a lo que más nos preguntan.</p>",
-        "background": "#f3f1ef"
-      }
-    },
-    "cta": {
-      "type": "cta-banner",
-      "settings": {
-        "eyebrow": "RESPUESTA MÁS RÁPIDA",
-        "title": "¿No sabés cuál elegir?",
-        "text": "<p>Contanos qué aromas te gustan y te recomendamos tu perfume ideal.</p>",
-        "button_type": "whatsapp",
-        "button_label": "Abrir WhatsApp",
-        "background": "#ffffff"
+        "eyebrow": "PROMO 3X1 BARRIO",
+        "title": "Promociones actuales",
+        "collection": "all",
+        "limit": 12,
+        "show_pill": false,
+        "button_label": ""
       }
     }
   },
-  "order": ["hero", "trust", "featured", "benefits", "testimonials", "faq", "cta"]
+  "order": ["slider", "instagram", "categories", "videos", "promos"]
 }

@@ -1,11 +1,12 @@
 /* Perfumería de Barrio · interacciones del tema */
 (function () {
   document.documentElement.classList.add('js');
+  var root = (window.Shopify && Shopify.routes && Shopify.routes.root) || '/';
 
-  /* ---------- Formato de precios ---------- */
+  /* ---------- Formato de precios (igual al de la tienda) ---------- */
   function formatMoney(cents, format) {
     if (typeof cents === 'string') cents = cents.replace('.', '');
-    format = format || '${{amount}}';
+    format = format || '${{amount_with_comma_separator}}';
     var match = format.match(/\{\{\s*(\w+)\s*\}\}/);
     if (!match) return String(cents);
 
@@ -26,27 +27,84 @@
       case 'amount_with_apostrophe_separator': value = withDelimiters(cents, 2, "'", '.'); break;
       default: value = withDelimiters(cents, 2, ',', '.');
     }
-    // Igual que money_without_trailing_zeros: saca ",00" / ".00"
-    value = value.replace(/[.,]00$/, '');
     return format.replace(match[0], value).replace(/<[^>]*>/g, '');
   }
 
-  /* ---------- Cerrar menús desplegables al tocar afuera ---------- */
+  /* ---------- Menú celular: cerrar al tocar afuera ---------- */
   document.addEventListener('click', function (event) {
-    document.querySelectorAll('.mobile-menu[open], .header-search[open]').forEach(function (details) {
+    document.querySelectorAll('.mobile-menu[open]').forEach(function (details) {
       if (!details.contains(event.target)) details.removeAttribute('open');
     });
   });
   document.addEventListener('keydown', function (event) {
     if (event.key !== 'Escape') return;
-    document.querySelectorAll('.mobile-menu[open], .header-search[open]').forEach(function (d) { d.removeAttribute('open'); });
+    document.querySelectorAll('.mobile-menu[open]').forEach(function (d) { d.removeAttribute('open'); });
   });
-  document.querySelectorAll('.header-search').forEach(function (details) {
-    details.addEventListener('toggle', function () {
-      if (details.open) {
-        var input = details.querySelector('input[type="search"]');
-        if (input) input.focus();
-      }
+
+  /* ---------- Barra "Seguí acá tu última compra" ---------- */
+  document.querySelectorAll('[data-tracking-close]').forEach(function (button) {
+    button.addEventListener('click', function () {
+      var bar = button.closest('[data-tracking-bar]');
+      if (bar) bar.hidden = true;
+      try { sessionStorage.setItem('tracking-closed', '1'); } catch (e) {}
+    });
+  });
+  try {
+    if (sessionStorage.getItem('tracking-closed') === '1') {
+      document.querySelectorAll('[data-tracking-bar]').forEach(function (bar) { bar.hidden = true; });
+    }
+  } catch (e) {}
+
+  /* ---------- Slider de banners ---------- */
+  document.querySelectorAll('[data-slideshow]').forEach(function (slider) {
+    var track = slider.querySelector('[data-slideshow-track]');
+    var slides = track.children;
+    var dots = slider.querySelectorAll('[data-slideshow-dot]');
+    var seconds = parseInt(slider.dataset.autoplay || '0', 10);
+    var timer;
+
+    function current() { return Math.round(track.scrollLeft / track.clientWidth); }
+    function go(index) {
+      var total = slides.length;
+      index = (index + total) % total;
+      track.scrollTo({ left: index * track.clientWidth, behavior: 'smooth' });
+    }
+    function restart() {
+      clearInterval(timer);
+      if (seconds > 0 && slides.length > 1) timer = setInterval(function () { go(current() + 1); }, seconds * 1000);
+    }
+
+    var prev = slider.querySelector('[data-slideshow-prev]');
+    var next = slider.querySelector('[data-slideshow-next]');
+    if (prev) prev.addEventListener('click', function () { go(current() - 1); restart(); });
+    if (next) next.addEventListener('click', function () { go(current() + 1); restart(); });
+    dots.forEach(function (dot) {
+      dot.addEventListener('click', function () { go(parseInt(dot.dataset.slideshowDot, 10)); restart(); });
+    });
+    track.addEventListener('scroll', function () {
+      var i = current();
+      dots.forEach(function (dot, n) { dot.classList.toggle('is-active', n === i); });
+    }, { passive: true });
+    slider.addEventListener('mouseenter', function () { clearInterval(timer); });
+    slider.addEventListener('mouseleave', restart);
+    restart();
+  });
+
+  /* ---------- Carrusel de videos ---------- */
+  document.querySelectorAll('[data-scroll]').forEach(function (button) {
+    button.addEventListener('click', function () {
+      var scroller = button.closest('.page-width').querySelector('[data-scroller]');
+      if (scroller) scroller.scrollBy({ left: parseInt(button.dataset.scroll, 10) * scroller.clientWidth * 0.8, behavior: 'smooth' });
+    });
+  });
+
+  /* ---------- Ordenar catálogo ---------- */
+  document.querySelectorAll('[data-sort-select]').forEach(function (select) {
+    select.addEventListener('change', function () {
+      var url = new URL(window.location.href);
+      url.searchParams.set('sort_by', select.value);
+      url.searchParams.delete('page');
+      window.location.href = url.toString();
     });
   });
 
@@ -54,23 +112,21 @@
   document.addEventListener('click', function (event) {
     var button = event.target.closest('[data-qty]');
     if (!button) return;
-    var wrapper = button.closest('.qty');
-    var input = wrapper && wrapper.querySelector('input');
+    var input = button.closest('.qty') && button.closest('.qty').querySelector('input');
     if (!input) return;
     var min = parseInt(input.min || '0', 10);
-    var next = Math.max(min, (parseInt(input.value, 10) || 0) + parseInt(button.dataset.qty, 10));
-    input.value = next;
+    input.value = Math.max(min, (parseInt(input.value, 10) || 0) + parseInt(button.dataset.qty, 10));
     input.dispatchEvent(new Event('change', { bubbles: true }));
   });
 
   /* ---------- Carrito: actualizar al cambiar cantidades ---------- */
   var cartForm = document.querySelector('[data-cart-form]');
   if (cartForm) {
-    var timer;
+    var cartTimer;
     cartForm.addEventListener('change', function (event) {
       if (!event.target.matches('[data-cart-qty]')) return;
-      clearTimeout(timer);
-      timer = setTimeout(function () {
+      clearTimeout(cartTimer);
+      cartTimer = setTimeout(function () {
         var update = cartForm.querySelector('[data-cart-update]');
         if (cartForm.requestSubmit) cartForm.requestSubmit(update);
         else update.click();
@@ -89,6 +145,10 @@
     var addLabel = section.querySelector('[data-add-label]');
     var errorEl = section.querySelector('[data-form-error]');
 
+    function setText(selector, text) {
+      section.querySelectorAll(selector).forEach(function (el) { el.textContent = text; });
+    }
+
     function showMedia(mediaId) {
       if (!mediaId) return;
       var slide = section.querySelector('.product__slide[data-media-id="' + mediaId + '"]');
@@ -101,65 +161,40 @@
       thumb.addEventListener('click', function () { showMedia(thumb.dataset.thumb); });
     });
 
-    function selectedOptions() {
-      var values = [];
-      section.querySelectorAll('[data-option-index]:checked').forEach(function (input) {
-        values[parseInt(input.dataset.optionIndex, 10)] = input.value;
-      });
-      return values;
-    }
-
-    function updateInstallments(price) {
-      var box = section.querySelector('[data-installments]');
-      if (!box) return;
-      var html = '';
-      if (data.installmentsShow && data.installments > 1) {
-        html += '<p class="installments">' + data.installments + ' cuotas sin interés';
-        if (data.installmentsAmount) html += ' de <strong>' + formatMoney(Math.floor(price / data.installments), data.moneyFormat) + '</strong>';
-        html += '</p>';
-      }
-      if (data.transferDiscount > 0) {
-        var transfer = Math.floor(price * (100 - data.transferDiscount) / 100);
-        html += '<p class="transfer-price"><strong>' + formatMoney(transfer, data.moneyFormat) + '</strong> con transferencia (' + data.transferDiscount + '% OFF)</p>';
-      }
-      box.innerHTML = html;
-    }
-
     function onOptionChange() {
-      var options = selectedOptions();
-      options.forEach(function (value, index) {
-        var label = section.querySelector('[data-option-label="' + index + '"]');
-        if (label) label.textContent = value;
+      var options = [];
+      section.querySelectorAll('[data-option-index]:checked').forEach(function (input) {
+        options[parseInt(input.dataset.optionIndex, 10)] = input.value;
       });
+      options.forEach(function (value, index) { setText('[data-option-label="' + index + '"]', value); });
 
       var variant = data.variants.find(function (v) {
         return v.options.every(function (value, i) { return value === options[i]; });
       });
-
       if (!variant) {
         addButton.disabled = true;
-        addLabel.textContent = 'No disponible';
+        addLabel.textContent = 'NO DISPONIBLE';
         return;
       }
 
       idInput.value = variant.id;
-      section.querySelector('[data-price]').textContent = formatMoney(variant.price, data.moneyFormat);
-
+      setText('[data-price]', formatMoney(variant.price, data.moneyFormat));
       var compare = section.querySelector('[data-compare]');
-      var off = section.querySelector('[data-off]');
       if (variant.compare_at_price && variant.compare_at_price > variant.price) {
         compare.textContent = formatMoney(variant.compare_at_price, data.moneyFormat);
         compare.hidden = false;
-        off.textContent = Math.floor((variant.compare_at_price - variant.price) * 100 / variant.compare_at_price) + '% OFF';
-        off.hidden = false;
       } else {
         compare.hidden = true;
-        off.hidden = true;
+      }
+      if (data.transferDiscount > 0) {
+        setText('[data-transfer]', formatMoney(Math.floor(variant.price * (100 - data.transferDiscount) / 100), data.moneyFormat));
+      }
+      if (data.installments > 1) {
+        setText('[data-installment]', formatMoney(Math.floor(variant.price / data.installments), data.moneyFormat));
       }
 
-      updateInstallments(variant.price);
       addButton.disabled = !variant.available;
-      addLabel.textContent = variant.available ? data.addLabel : 'Sin stock';
+      addLabel.textContent = variant.available ? data.addLabel : 'SIN STOCK';
       if (variant.featured_media) showMedia(variant.featured_media.id);
 
       var url = new URL(window.location.href);
@@ -180,15 +215,11 @@
         addButton.disabled = true;
         addButton.setAttribute('aria-busy', 'true');
 
-        fetch((window.Shopify && Shopify.routes ? Shopify.routes.root : '/') + 'cart/add.js', {
-          method: 'POST',
-          headers: { Accept: 'application/json' },
-          body: new FormData(form)
-        })
+        fetch(root + 'cart/add.js', { method: 'POST', headers: { Accept: 'application/json' }, body: new FormData(form) })
           .then(function (response) { return response.json().then(function (json) { return { ok: response.ok, json: json }; }); })
           .then(function (result) {
             if (!result.ok) throw new Error(result.json.description || result.json.message || 'No pudimos agregar el producto.');
-            window.location.href = (window.Shopify && Shopify.routes ? Shopify.routes.root : '/') + 'cart';
+            window.location.href = root + 'cart';
           })
           .catch(function (error) {
             errorEl.textContent = error.message;

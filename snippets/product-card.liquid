@@ -1,51 +1,53 @@
 {%- comment -%}
-  Tarjeta de producto. Uso: {% render 'product-card', product: product %}
+  Tarjeta de producto. Uso: {% render 'product-card', product: product, pill: false %}
 {%- endcomment -%}
 {%- liquid
   capture badge
     render 'product-tags', product: product, key: 'badge'
   endcapture
-  capture promo
-    render 'product-tags', product: product, key: 'promo'
-  endcapture
   assign badge = badge | strip
-  assign promo = promo | strip
 
-  if badge == blank and product.compare_at_price > product.price and settings.card_show_discount
-    assign discount = product.compare_at_price | minus: product.price | times: 100 | divided_by: product.compare_at_price
-    assign badge = discount | append: '% OFF'
+  assign discount = 0
+  if product.compare_at_price > product.price and settings.card_show_discount
+    assign discount = product.compare_at_price | minus: product.price | times: 100 | divided_by: product.compare_at_price | floor
   endif
 
-  assign rating = product.metafields.reviews.rating.value.rating | round: 1
+  assign rating = product.metafields.reviews.rating.value
   assign rating_count = product.metafields.reviews.rating_count.value
-  if rating > 0
-    assign rating_text = '+' | append: rating_count | append: ' opiniones'
-  else
-    assign rating = settings.card_rating_value
-    assign rating_text = settings.card_rating_text
-  endif
 -%}
 
-<article class="product-card{% if promo != blank %} product-card--promo{% endif %}">
+<article class="product-card">
   <a href="{{ product.url }}" class="product-card__media" tabindex="-1" aria-hidden="true">
     {%- if product.featured_media -%}
       {{
         product.featured_media
-        | image_url: width: 900
+        | image_url: width: 700
         | image_tag:
           loading: 'lazy',
-          widths: '360, 540, 720, 900',
-          sizes: '(min-width: 990px) 560px, (min-width: 750px) 50vw, 100vw',
+          widths: '300, 400, 550, 700',
+          sizes: '(min-width: 990px) 300px, 50vw',
           alt: product.featured_media.alt
       }}
     {%- else -%}
       {{ 'product-1' | placeholder_svg_tag: 'placeholder' }}
     {%- endif -%}
-    {%- if badge != blank -%}
-      <span class="badge badge--accent product-card__badge">{{ badge }}</span>
+
+    {%- if settings.card_sticker_top != blank -%}
+      <span class="sticker-badge">
+        <strong>{{ settings.card_sticker_top }}</strong>
+        {%- if settings.card_sticker_bottom != blank -%}<small>{{ settings.card_sticker_bottom }}</small>{%- endif -%}
+      </span>
     {%- endif -%}
+
+    {%- if badge != blank -%}<span class="tag tag--violet product-card__badge">🔥 {{ badge }}</span>{%- endif -%}
+
+    <span class="product-card__tags">
+      {%- if discount > 0 -%}<span class="tag tag--pink">{{ discount }}% OFF</span>{%- endif -%}
+      {%- if settings.card_shipping_label != blank -%}<span class="tag tag--cyan">{{ settings.card_shipping_label }}</span>{%- endif -%}
+    </span>
+
     {%- unless product.available -%}
-      <span class="badge badge--dark product-card__soldout">Sin stock</span>
+      <span class="tag tag--dark product-card__soldout">SIN STOCK</span>
     {%- endunless -%}
   </a>
 
@@ -54,27 +56,20 @@
       <a href="{{ product.url }}">{{ product.title }}</a>
     </h3>
 
-    {% render 'stars', rating: rating, text: rating_text %}
-
     <div class="price">
+      {%- if product.compare_at_price > product.price -%}
+        <s class="price__compare">{{ product.compare_at_price | money }}</s>
+      {%- endif -%}
       <span class="price__current">
         {%- if product.price_varies -%}Desde {% endif -%}
-        {{ product.price | money_without_trailing_zeros }}
+        {{ product.price | money }}
       </span>
-      {%- if product.compare_at_price > product.price -%}
-        <s class="price__compare">{{ product.compare_at_price | money_without_trailing_zeros }}</s>
-      {%- endif -%}
     </div>
 
-    {% render 'price-installments', price: product.price %}
-
-    {%- if promo != blank -%}
-      <p class="product-card__promo">{% render 'icon', name: 'gift', px: 16 %} {{ promo }}</p>
+    {%- if rating != blank -%}
+      {% render 'stars', rating: rating.rating, count: rating_count %}
     {%- endif -%}
 
-    <a href="{{ product.url }}" class="button {% if promo != blank %}button--accent{% else %}button--primary{% endif %} button--full product-card__cta">
-      {%- if promo != blank -%}Ver ofertas{%- else -%}Ver producto{%- endif -%}
-      {% render 'icon', name: 'arrow', px: 18 %}
-    </a>
+    {% render 'price-installments', price: product.price, pill: pill %}
   </div>
 </article>

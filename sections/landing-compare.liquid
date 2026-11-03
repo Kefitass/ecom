@@ -1,0 +1,76 @@
+{%- liquid
+  assign price = product.selected_or_first_available_variant.price
+-%}
+<section class="landing">
+  <div class="landing__col landing-pad">
+    {% render 'landing-heading', eyebrow: section.settings.eyebrow, title: section.settings.title, title_gold: section.settings.title_gold, text: section.settings.text %}
+
+    <div class="l-compare">
+      <ul>
+        {%- for block in section.blocks -%}
+          <li class="l-compare__row" {{ block.shopify_attributes }}>
+            <span><i class="l-dot l-dot--{{ block.settings.accent }}"></i>{{ block.settings.label }}</span>
+            <strong>{{ block.settings.value }}</strong>
+          </li>
+        {%- endfor -%}
+        {%- if section.settings.total_label != blank -%}
+          <li class="l-compare__row l-compare__row--total">
+            <span>{{ section.settings.total_label }}</span>
+            <strong>{{ section.settings.total_value }}</strong>
+          </li>
+        {%- endif -%}
+      </ul>
+      <div class="l-compare__result">
+        <small>{{ section.settings.result_label }}</small>
+        <strong>{% if product %}{{ price | money_without_trailing_zeros }}{% else %}$0{% endif %}</strong>
+      </div>
+    </div>
+    {%- if section.settings.footnote != blank -%}<p class="l-footnote l-footnote--small">{{ section.settings.footnote }}</p>{%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Landing · Hacé la cuenta",
+  "class": "section-landing",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Pastilla", "default": "HACÉ LA CUENTA" },
+    { "type": "text", "id": "title", "label": "Título (blanco)", "default": "Comprando por separado" },
+    { "type": "text", "id": "title_gold", "label": "Título (dorado)", "default": "pagás mucho más." },
+    { "type": "richtext", "id": "text", "label": "Texto" },
+    { "type": "text", "id": "total_label", "label": "Fila total: texto", "default": "Los 3 por separado" },
+    { "type": "text", "id": "total_value", "label": "Fila total: valor", "default": "+$150.000" },
+    { "type": "text", "id": "result_label", "label": "Texto sobre tu precio", "default": "TU 3X1 + MINI PERFUMERO" },
+    { "type": "text", "id": "footnote", "label": "Aclaración", "default": "Precios de referencia de mercado. Usá valores reales y actualizados." }
+  ],
+  "blocks": [
+    {
+      "type": "row",
+      "name": "Fila",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Producto", "default": "Perfume 1 · 100 ml" },
+        { "type": "text", "id": "value", "label": "Precio", "default": "desde $50.000" },
+        {
+          "type": "select", "id": "accent", "label": "Color", "default": "gold",
+          "options": [
+            { "value": "gold", "label": "Dorado" },
+            { "value": "rose", "label": "Rosado" },
+            { "value": "teal", "label": "Turquesa" }
+          ]
+        }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [
+    {
+      "name": "Landing · Hacé la cuenta",
+      "blocks": [
+        { "type": "row", "settings": { "label": "Perfume 1 · 100 ml", "value": "desde $50.000", "accent": "gold" } },
+        { "type": "row", "settings": { "label": "Perfume 2 · 100 ml", "value": "desde $50.000", "accent": "rose" } },
+        { "type": "row", "settings": { "label": "Perfume 3 · 100 ml", "value": "desde $50.000", "accent": "teal" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

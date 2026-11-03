@@ -1,0 +1,22 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "settings": { "show_description": true }
+    },
+    "reviews": { "type": "apps", "settings": { "title": "", "narrow": true } },
+    "similar": {
+      "type": "featured-products",
+      "settings": {
+        "eyebrow": "",
+        "title": "Productos similares",
+        "hide_line": true,
+        "collection": "all",
+        "limit": 4,
+        "show_pill": true,
+        "button_label": ""
+      }
+    }
+  },
+  "order": ["main", "reviews", "similar"]
+}

@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="theme-color" content="{{ settings.color_primary }}">
+    <meta name="theme-color" content="{{ settings.color_dark }}">
     <link rel="canonical" href="{{ canonical_url }}">
 
     {%- if settings.favicon != blank -%}
@@ -43,20 +43,24 @@
         --font-body: {{ body_font.family }}, {{ body_font.fallback_families }};
         --font-body-weight: {{ body_font.weight }};
 
+        --c-dark: {{ settings.color_dark }};
         --c-primary: {{ settings.color_primary }};
         --c-primary-dark: {{ settings.color_primary | color_darken: 8 }};
-        --c-accent: {{ settings.color_accent }};
-        --c-accent-dark: {{ settings.color_accent | color_darken: 8 }};
+        --c-pink: {{ settings.color_pink }};
+        --c-cyan: {{ settings.color_cyan }};
+        --c-gold: {{ settings.color_gold }};
+        --c-gold-dark: {{ settings.color_gold | color_darken: 18 }};
         --c-heading: {{ settings.color_heading }};
         --c-text: {{ settings.color_text }};
         --c-bg: {{ settings.color_background }};
         --c-surface: {{ settings.color_surface }};
-        --c-announcement: {{ settings.color_announcement }};
         --c-stars: {{ settings.color_stars }};
         --c-whatsapp: #25d366;
-        --c-border: {{ settings.color_heading | color_modify: 'alpha', 0.1 }};
-        --c-primary-soft: {{ settings.color_primary | color_modify: 'alpha', 0.1 }};
-
+        --c-border: {{ settings.color_primary | color_modify: 'alpha', 0.14 }};
+        --c-primary-soft: {{ settings.color_primary | color_modify: 'alpha', 0.08 }};
+        --grad: linear-gradient(90deg, {{ settings.color_primary }}, {{ settings.color_pink }});
+        --grad-3: linear-gradient(90deg, {{ settings.color_primary }}, {{ settings.color_pink }}, {{ settings.color_cyan }});
+        --grad-gold: linear-gradient(135deg, #fde7a6, {{ settings.color_gold }} 45%, {{ settings.color_gold | color_darken: 18 }});
         --radius: {{ settings.card_radius }}px;
         --page-width: 1200px;
       }

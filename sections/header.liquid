@@ -2,52 +2,87 @@
   assign menu = section.settings.menu
 -%}
 
-<header class="header{% if section.settings.sticky %} header--sticky{% endif %}">
-  <div class="page-width header__inner">
-    <details class="mobile-menu" data-mobile-menu>
-      <summary class="header__icon mobile-menu__toggle" aria-label="Abrir menú">
-        <span class="mobile-menu__open">{% render 'icon', name: 'menu' %}</span>
-        <span class="mobile-menu__close">{% render 'icon', name: 'close' %}</span>
-      </summary>
-      <nav class="mobile-menu__panel" aria-label="Menú">
-        <ul>
-          {%- for link in menu.links -%}
-            <li>
-              <a href="{{ link.url }}"{% if link.current %} aria-current="page"{% endif %}>{{ link.title }}</a>
-              {%- if link.links.size > 0 -%}
-                <ul class="mobile-menu__sub">
-                  {%- for child in link.links -%}
-                    <li><a href="{{ child.url }}">{{ child.title }}</a></li>
-                  {%- endfor -%}
-                </ul>
-              {%- endif -%}
-            </li>
-          {%- endfor -%}
-        </ul>
-      </nav>
-    </details>
+<div class="header-wrap{% if section.settings.sticky %} header-wrap--sticky{% endif %}">
+  <header class="header">
+    <div class="header__topline">
+      {%- if settings.social_instagram != blank -%}
+        <a href="{{ settings.social_instagram }}" target="_blank" rel="noopener" aria-label="Instagram">{% render 'icon', name: 'instagram', px: 13 %}</a>
+      {%- else -%}<span></span>{%- endif -%}
+      {%- if section.settings.topline != blank -%}<span class="header__topline-text">{{ section.settings.topline }}</span>{%- endif -%}
+    </div>
 
-    <a href="{{ routes.root_url }}" class="header__logo">
-      {%- if settings.logo != blank -%}
-        {%- liquid
-          assign logo_width_2x = settings.logo_width | times: 2
-          assign logo_style = 'width: ' | append: settings.logo_width | append: 'px; height: auto;'
-        -%}
-        {{
-          settings.logo
-          | image_url: width: logo_width_2x
-          | image_tag: alt: shop.name, style: logo_style
-        }}
-      {%- else -%}
-        <span class="header__logo-text">{{ shop.name }}</span>
-      {%- endif -%}
-    </a>
+    <div class="header__main">
+      <details class="mobile-menu" data-mobile-menu>
+        <summary class="header__icon mobile-menu__toggle" aria-label="Abrir menú">
+          <span class="mobile-menu__open">{% render 'icon', name: 'menu' %}</span>
+          <span class="mobile-menu__close">{% render 'icon', name: 'close' %}</span>
+        </summary>
+        <nav class="mobile-menu__panel" aria-label="Menú">
+          <ul>
+            {%- for link in menu.links -%}
+              <li>
+                <a href="{{ link.url }}"{% if link.current %} aria-current="page"{% endif %}>{{ link.title }}</a>
+                {%- if link.links.size > 0 -%}
+                  <ul class="mobile-menu__sub">
+                    {%- for child in link.links -%}
+                      <li><a href="{{ child.url }}">{{ child.title }}</a></li>
+                    {%- endfor -%}
+                  </ul>
+                {%- endif -%}
+              </li>
+            {%- endfor -%}
+          </ul>
+        </nav>
+      </details>
+
+      <form action="{{ routes.search_url }}" method="get" role="search" class="header__search">
+        <input type="hidden" name="type" value="product">
+        <input type="search" name="q" placeholder="¿Qué estás buscando?" aria-label="Buscar" autocomplete="off">
+        <button type="submit" aria-label="Buscar">{% render 'icon', name: 'search', px: 22 %}</button>
+      </form>
+
+      <a href="{{ routes.root_url }}" class="header__logo">
+        {%- if settings.logo != blank -%}
+          {%- liquid
+            assign logo_width_2x = settings.logo_width | times: 2
+            assign logo_style = 'width: ' | append: settings.logo_width | append: 'px; height: auto;'
+          -%}
+          {{ settings.logo | image_url: width: logo_width_2x | image_tag: alt: shop.name, style: logo_style }}
+        {%- else -%}
+          <span class="header__logo-text">{{ shop.name }}</span>
+        {%- endif -%}
+        {%- if settings.logo_pill != blank -%}
+          <span class="header__logo-pill">{% render 'icon', name: 'zap', px: 10 %} {{ settings.logo_pill }}</span>
+        {%- endif -%}
+      </a>
+
+      <div class="header__icons">
+        <a href="{{ section.settings.help_link | default: '/pages/contact' }}" class="header__icon-link header__icon-link--help">
+          {% render 'icon', name: 'chat' %}<span>Ayuda</span>
+        </a>
+        {%- if shop.customer_accounts_enabled -%}
+          <a href="{{ routes.account_url }}" class="header__icon-link header__icon-link--account">
+            {% render 'icon', name: 'user' %}<span>Mi cuenta</span>
+          </a>
+        {%- endif -%}
+        <a href="{{ routes.cart_url }}" class="header__icon-link header__cart">
+          <span class="header__cart-icon">
+            {% render 'icon', name: 'cart' %}
+            <span class="header__cart-count" data-cart-count>{{ cart.item_count }}</span>
+          </span>
+          <span>Mi carrito</span>
+        </a>
+      </div>
+    </div>
 
     <nav class="header__nav" aria-label="Principal">
       <ul>
         {%- for link in menu.links -%}
           <li>
-            <a href="{{ link.url }}" class="header__link{% if link.current or link.child_active %} is-active{% endif %}">{{ link.title }}</a>
+            <a href="{{ link.url }}" class="header__link{% if link.current or link.child_active %} is-active{% endif %}">
+              {{ link.title }}
+              {%- if link.links.size > 0 %} {% render 'icon', name: 'chevron', px: 14 %}{% endif -%}
+            </a>
             {%- if link.links.size > 0 -%}
               <ul class="header__dropdown">
                 {%- for child in link.links -%}
@@ -60,51 +95,28 @@
       </ul>
     </nav>
 
-    <div class="header__icons">
-      <details class="header-search">
-        <summary class="header__icon" aria-label="Buscar">{% render 'icon', name: 'search' %}</summary>
-        <div class="header-search__panel">
-          <form action="{{ routes.search_url }}" method="get" role="search" class="page-width header-search__form">
-            <input type="hidden" name="type" value="product">
-            <input type="search" name="q" placeholder="¿Qué perfume buscás?" aria-label="Buscar" autocomplete="off">
-            <button type="submit" class="button button--primary">{% render 'icon', name: 'search', px: 18 %}<span class="visually-hidden">Buscar</span></button>
-          </form>
-        </div>
-      </details>
-
-      {%- if shop.customer_accounts_enabled -%}
-        <a href="{{ routes.account_url }}" class="header__icon header__icon--account" aria-label="Mi cuenta">{% render 'icon', name: 'user' %}</a>
-      {%- endif -%}
-
-      <a href="{{ routes.cart_url }}" class="header__icon header__cart" aria-label="Carrito ({{ cart.item_count }})">
-        {% render 'icon', name: 'bag' %}
-        <span class="header__cart-count{% if cart.item_count == 0 %} is-empty{% endif %}" data-cart-count>{{ cart.item_count }}</span>
-      </a>
-    </div>
-  </div>
-</header>
+    {%- if section.settings.tracking_text != blank -%}
+      <div class="header__tracking" data-tracking-bar>
+        <a href="{{ section.settings.tracking_link | default: routes.account_url }}">{{ section.settings.tracking_text }}</a>
+        <button type="button" aria-label="Cerrar" data-tracking-close>{% render 'icon', name: 'close', px: 16 %}</button>
+      </div>
+    {%- endif -%}
+  </header>
+</div>
 
 {% schema %}
 {
   "name": "Encabezado",
   "class": "section-header",
   "settings": [
-    {
-      "type": "link_list",
-      "id": "menu",
-      "label": "Menú",
-      "default": "main-menu"
-    },
-    {
-      "type": "checkbox",
-      "id": "sticky",
-      "label": "Fijar al hacer scroll",
-      "default": true
-    },
-    {
-      "type": "paragraph",
-      "content": "El logo y su tamaño se cambian en Configuración del tema → Logo."
-    }
+    { "type": "link_list", "id": "menu", "label": "Menú", "default": "main-menu" },
+    { "type": "text", "id": "topline", "label": "Texto de la línea superior", "default": "⚡ COMBOS 3X1 · ENVÍO GRATIS · 3 CUOTAS SIN INTERÉS" },
+    { "type": "url", "id": "help_link", "label": "Link del botón Ayuda", "info": "Vacío = página de contacto." },
+    { "type": "header", "content": "Barra de seguimiento" },
+    { "type": "richtext", "id": "tracking_text", "label": "Texto", "default": "<p><strong>Seguí acá</strong> tu última compra</p>", "info": "Vacío = oculta." },
+    { "type": "url", "id": "tracking_link", "label": "Link", "info": "Por ejemplo, la página de seguimiento de tu correo." },
+    { "type": "checkbox", "id": "sticky", "label": "Fijar al hacer scroll", "default": false },
+    { "type": "paragraph", "content": "El logo y la etiqueta debajo del logo se cambian en Configuración del tema → Logo." }
   ]
 }
 {% endschema %}

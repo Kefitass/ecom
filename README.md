@@ -1,51 +1,62 @@
 # Perfumería de Barrio · tema de Shopify
 
-Tema de Shopify (Online Store 2.0) hecho a medida para **Perfumería de Barrio**, una tienda de perfumes árabes.
-Todo se edita desde el personalizador de Shopify (**Tienda online → Temas → Personalizar**), sin tocar código.
+Tema de Shopify (Online Store 2.0) para **Perfumería de Barrio**, con estilo neón violeta, rosa y celeste para la tienda y una landing oscura con dorado en cada producto.
+Todo se edita desde **Tienda online → Temas → Personalizar**, sin tocar código.
 
 ## Qué incluye
 
 | Página | Secciones |
 |---|---|
-| **Inicio** | Barra de anuncios animada · Encabezado · Hero con sello de oferta · Barra de confianza · Productos destacados · Beneficios · Opiniones (oculta hasta que cargues reseñas reales) · Preguntas frecuentes · Llamado a WhatsApp · Pie |
-| **Catálogo** | Título, chips de beneficios y tarjetas con puntaje, precio, cuotas, línea de oferta y botón |
-| **Producto** | Galería, precio con % OFF, cuotas, selector de variantes (ej: packs x1 / x2 / x3), botón de compra, "Comprar ahora", consulta por WhatsApp y desplegables |
-| **Contacto** | Tarjeta de WhatsApp, datos de contacto y formulario |
-| **Carrito, búsqueda, blog, 404 y contraseña** | Con el mismo estilo |
+| **Todas** | Barra de anuncios animada · Franja "50% OFF" · Header oscuro (buscador, logo con etiqueta, Ayuda / Mi cuenta / Mi carrito, menú, "Seguí acá tu última compra") · Footer violeta con medios de pago y envío, Defensa del Consumidor y Botón de arrepentimiento · Botón flotante de WhatsApp |
+| **Inicio** | Slider de banners · Instagram · Banners de categorías ("Combos de perfumes" / "Armá tu combo") · Videos "Compra seguro/a" (oculta hasta que subas videos) · Promociones actuales (grilla de 4) |
+| **Catálogo** | Banner · Migas de pan · Ordenar por · Filtros (marca, precio) · Grilla de tarjetas |
+| **Producto** | Galería con miniaturas, sello, precio tachado, precio, precio con transferencia, "Ahorrás un 15%", cuotas, envío gratis y botón de compra. Debajo va la **landing oscura**: portada 3X1, oferta, "Así llega tu pedido", "Uno para cada ocasión", "¿Por qué los árabes?", lista con tildes, "Los tres, uno por uno", "Qué incluye", "Hacé la cuenta" (oculta), "Tu combo" y "Comprá tranquilo". Después: reseñas (app), preguntas frecuentes y productos similares |
+| **Otras** | Carrito, contacto, búsqueda, blog, 404 y contraseña |
 
-Además, en todas las páginas aparece el botón flotante de WhatsApp.
+Las **tarjetas de producto** muestran el sello de esquina, % OFF, ENVÍO GRATIS, estrellas (si usás una app de reseñas), precio tachado + precio, precio con TRANSFERENCIA y cuotas sin interés.
 
 ## Cómo subirlo a Shopify
 
-**Opción A, conectado a GitHub (recomendada).** Cada cambio en el repo se actualiza solo.
+**Opción A, conectado a GitHub (recomendada).**
 1. En Shopify: **Tienda online → Temas → Agregar tema → Conectar desde GitHub**.
 2. Elegí el repositorio `kefitass/ecom` y la rama.
 
-**Opción B, subir un ZIP.**
-1. Descargá el repo como ZIP. El ZIP tiene que tener en la raíz las carpetas `layout`, `sections`, `templates`, etc.
-2. En Shopify: **Tienda online → Temas → Agregar tema → Subir archivo zip**.
+**Opción B, ZIP.**
+1. Descargá el repo como ZIP. El ZIP tiene que tener en la raíz las carpetas `layout`, `sections`, `templates`, etc. La carpeta `importar` no hace falta.
+2. En Shopify: **Temas → Agregar tema → Subir archivo zip**.
 
-## Primeros pasos después de instalarlo
+## Cargar los productos con los precios
 
-1. **Configuración del tema → Logo**: subí tu logo.
-2. **Configuración del tema → Contacto y redes**: cargá tu WhatsApp (con +54 9…), email e Instagram.
-3. **Configuración del tema → Colores**: si querés, cambiá la paleta (por defecto bordó + ámbar).
-4. **Navegación**: el menú `main-menu` debería tener *Inicio*, *Catálogo* y *Contacto*, y el menú `footer` las páginas de ayuda.
-5. **Páginas → Contacto**: en la página de contacto, elegí la plantilla **page.contact**.
-6. **Hero**: subí la foto principal y ajustá el puntaje y la cantidad de clientes **con tus números reales**.
-7. **Opiniones**: cargá reseñas reales de clientes y recién ahí activá la sección.
+`importar/productos.csv` trae 5 combos árabes con los precios de la página de referencia:
 
-## Etiquetas especiales en los productos
+| Combo | Precio | Tachado |
+|---|---|---|
+| 3x1 Asad | $79.990 | $160.000 |
+| 3x1 Hawas | $79.990 | $160.000 |
+| 3x1 Árabes mujer | $84.990 | $170.000 |
+| 3x1 Árabes unisex | $84.990 | $170.000 |
+| 3x1 Árabes de verano | $84.990 | $170.000 |
 
-En cada producto, en el campo **Etiquetas**:
+Para importarlos: **Productos → Importar → subir `productos.csv`**. Después les cargás las fotos.
 
-- `badge:HASTA 35% OFF EN PACKS` muestra el sello naranja sobre la foto.
-- `promo:Llevá 2 y ahorrá 30% · Llevá 3: 35% OFF + envío gratis` muestra la línea de oferta y cambia el botón a **"Ver ofertas"** (naranja).
+> El stock viene en 20 unidades por producto: cambialo por tu stock real.
 
-Si el producto tiene precio de comparación (precio tachado) y no tiene `badge:`, se muestra solo el **% OFF**.
+## Primeros pasos
 
-> Las promos "Llevá 2 / Llevá 3" solo se anuncian desde el tema. El descuento en sí se crea en **Shopify → Descuentos** (por ejemplo, un descuento automático por cantidad).
+1. **Configuración del tema → Logo**: logo en PNG con letras claras, más la etiqueta de abajo (por ejemplo, PROMO 3X1 o CYBER MONDAY).
+2. **Configuración del tema → Contacto y redes**: WhatsApp, email, usuario y link de Instagram.
+3. **Configuración del tema → Cuotas y transferencia**: 3 cuotas y 15% por transferencia ya vienen activados. El descuento real por transferencia se configura en Shopify.
+4. **Navegación**: menú `main-menu` (Inicio, Productos, Seguir mi pedido, Contacto) y menú `footer`.
+5. **Páginas → Contacto**: asignale la plantilla `page.contact`.
+6. **Pie de página**: CUIT y link del **Botón de arrepentimiento**, que es obligatorio en Argentina.
+7. **Reseñas**: instalá una app de reseñas (por ejemplo Judge.me, que es gratis) y agregá su bloque en la sección "Apps (reseñas, etc.)" del producto.
 
-## Cuotas y transferencia
+## Etiquetas especiales del producto
 
-En **Configuración del tema → Cuotas y transferencia** elegís la cantidad de cuotas sin interés, si se muestra el valor de cada cuota y, opcionalmente, el precio con descuento por transferencia.
+- `badge:MÁS VENDIDO` muestra la etiqueta arriba a la izquierda de la foto (también sirve `badge:NUEVO`, `badge:EN TENDENCIA`, etc.).
+- El **% OFF** se calcula solo con el precio tachado.
+
+## Landing por producto
+
+La plantilla `product` trae la landing oscura completa, y `product.simple` es solo el producto, sin landing.
+Para tener una landing distinta por combo: en el editor, **Productos → Crear plantilla** (basada en `product`), editá los textos y fotos, y asignala al producto.

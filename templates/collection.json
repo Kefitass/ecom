@@ -2,18 +2,13 @@
   "sections": {
     "main": {
       "type": "main-collection",
-      "blocks": {
-        "chip-1": { "type": "chip", "settings": { "icon": "truck", "text": "Despacho en 24 hs" } },
-        "chip-2": { "type": "chip", "settings": { "icon": "card", "text": "3 cuotas sin interés" } },
-        "chip-3": { "type": "chip", "settings": { "icon": "shield", "text": "Garantía 100%" } }
-      },
-      "block_order": ["chip-1", "chip-2", "chip-3"],
       "settings": {
-        "eyebrow": "PERFUMERÍA DE BARRIO",
-        "title_all": "Nuestros perfumes",
-        "per_page": 16,
-        "columns": "2",
-        "show_sort": false
+        "use_collection_image": true,
+        "title_all": "Combos de Perfumes",
+        "show_filters": true,
+        "per_page": 24,
+        "columns": "4",
+        "show_pill": false
       }
     }
   },

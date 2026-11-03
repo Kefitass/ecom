@@ -1,0 +1,41 @@
+<section class="cat-banners-section">
+  <div class="cat-banners">
+    {%- for block in section.blocks -%}
+      <a href="{{ block.settings.link | default: routes.all_products_collection_url }}" class="cat-banner" {{ block.shopify_attributes }}>
+        {%- if block.settings.image != blank -%}
+          {{ block.settings.image | image_url: width: 1400 | image_tag: loading: 'lazy', widths: '600, 900, 1200, 1400', sizes: '(min-width: 750px) 50vw, 100vw', alt: block.settings.title }}
+        {%- endif -%}
+        <span class="cat-banner__title">{{ block.settings.title }}</span>
+      </a>
+    {%- endfor -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Banners de categorías",
+  "class": "section-cat-banners",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "banner",
+      "name": "Banner",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Imagen", "info": "1200 × 900 px" },
+        { "type": "text", "id": "title", "label": "Título", "default": "COMBOS DE PERFUMES" },
+        { "type": "url", "id": "link", "label": "Link" }
+      ]
+    }
+  ],
+  "max_blocks": 4,
+  "presets": [
+    {
+      "name": "Banners de categorías",
+      "blocks": [
+        { "type": "banner", "settings": { "title": "COMBOS DE PERFUMES" } },
+        { "type": "banner", "settings": { "title": "ARMÁ TU COMBO" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

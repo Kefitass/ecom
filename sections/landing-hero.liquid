@@ -1,0 +1,28 @@
+<section class="landing">
+  <div class="landing__col landing-hero">
+    {%- if section.settings.image != blank -%}
+      {{ section.settings.image | image_url: width: 1200 | image_tag: class: 'landing-hero__bg', widths: '600, 900, 1200', sizes: '(min-width: 600px) 560px, 100vw', alt: '' }}
+    {%- else -%}
+      <div class="landing-hero__bg landing-hero__bg--empty"></div>
+    {%- endif -%}
+    <div class="landing-hero__content">
+      {%- if section.settings.pill != blank -%}<p class="l-pill l-pill--glass">{{ section.settings.pill }}</p>{%- endif -%}
+      {%- if section.settings.big != blank -%}<p class="landing-hero__big">{{ section.settings.big }}</p>{%- endif -%}
+      {%- if section.settings.script != blank -%}<p class="landing-hero__script">{{ section.settings.script }}</p>{%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Landing · Portada",
+  "class": "section-landing",
+  "settings": [
+    { "type": "image_picker", "id": "image", "label": "Imagen de fondo", "info": "Vertical, 1080 × 1350 px. El texto va arriba, dejá esa zona despejada." },
+    { "type": "text", "id": "pill", "label": "Pastilla", "default": "🌙 PERFUMES ÁRABES" },
+    { "type": "text", "id": "big", "label": "Texto gigante dorado", "default": "3X1" },
+    { "type": "text", "id": "script", "label": "Texto en cursiva", "default": "que duran todo el día" }
+  ],
+  "presets": [{ "name": "Landing · Portada" }]
+}
+{% endschema %}

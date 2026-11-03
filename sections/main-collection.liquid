@@ -1,51 +1,103 @@
 {%- liquid
-  assign eyebrow = section.settings.eyebrow
+  assign banner = section.settings.banner
+  if collection.image and section.settings.use_collection_image
+    assign banner = collection.image
+  endif
   assign title = collection.title
-  if collection.handle == 'all' or collection.handle == blank
+  if collection.handle == 'all'
     assign title = section.settings.title_all
   endif
-  assign subtitle = collection.description | default: section.settings.subtitle
+  assign sort_by = collection.sort_by | default: collection.default_sort_by
 -%}
 
-<section class="section" style="--section-bg: {{ section.settings.background }};">
+{%- if banner != blank -%}
+  <div class="collection-banner">
+    {{ banner | image_url: width: 2400 | image_tag: widths: '750, 1100, 1500, 1920, 2400', sizes: '100vw', alt: title }}
+  </div>
+{%- endif -%}
+
+<section class="section section--collection">
   <div class="page-width">
-    {% render 'section-heading', eyebrow: eyebrow, title: title, subtitle: subtitle, tag: 'h1' %}
-
-    {%- if section.blocks.size > 0 -%}
-      <ul class="chips">
-        {%- for block in section.blocks -%}
-          <li class="chip" {{ block.shopify_attributes }}>{% render 'icon', name: block.settings.icon, px: 16 %} {{ block.settings.text }}</li>
-        {%- endfor -%}
-      </ul>
-    {%- endif -%}
-
-    {%- paginate collection.products by section.settings.per_page -%}
-      {%- if section.settings.show_sort and collection.products_count > 1 -%}
-        <form class="collection-sort" method="get">
-          <label for="SortBy">Ordenar por</label>
-          <select id="SortBy" name="sort_by" onchange="this.form.submit()">
-            {%- assign sort_by = collection.sort_by | default: collection.default_sort_by -%}
-            {%- for option in collection.sort_options -%}
-              <option value="{{ option.value }}"{% if option.value == sort_by %} selected{% endif %}>{{ option.name }}</option>
-            {%- endfor -%}
-          </select>
-        </form>
-      {%- endif -%}
-
-      {%- if collection.products.size > 0 -%}
-        <div class="product-grid product-grid--{{ section.settings.columns }}">
-          {%- for product in collection.products -%}
-            {% render 'product-card', product: product %}
+    <div class="collection-bar">
+      <nav class="breadcrumb" aria-label="Migas de pan">
+        <a href="{{ routes.root_url }}">Inicio</a> <span aria-hidden="true">›</span> <span>{{ title }}</span>
+      </nav>
+      <div class="collection-sort">
+        <label for="SortBy" class="visually-hidden">Ordenar por</label>
+        <select id="SortBy" data-sort-select>
+          {%- for option in collection.sort_options -%}
+            <option value="{{ option.value }}"{% if option.value == sort_by %} selected{% endif %}>{{ option.name }}</option>
           {%- endfor -%}
-        </div>
-      {%- else -%}
-        <p class="empty-state">Todavía no hay productos en esta colección.</p>
+        </select>
+        {% render 'icon', name: 'sort', px: 18 %}
+      </div>
+    </div>
+
+    {%- liquid
+      assign has_filters = false
+      if section.settings.show_filters and collection.filters.size > 0
+        assign has_filters = true
+      endif
+    -%}
+    <div class="collection-layout{% if has_filters %} collection-layout--filters{% endif %}">
+      {%- if has_filters -%}
+        <aside class="filters">
+          <details class="filters__wrap" open>
+            <summary class="filters__title">Filtrar por</summary>
+            <form method="get" class="filters__form">
+              <input type="hidden" name="sort_by" value="{{ sort_by }}">
+              {%- for filter in collection.filters -%}
+                <div class="filters__group">
+                  <h3>{{ filter.label }}</h3>
+                  {%- case filter.type -%}
+                    {%- when 'price_range' -%}
+                      <div class="filters__price">
+                        <label>Desde
+                          <input type="number" name="{{ filter.min_value.param_name }}" placeholder="{{ filter.range_min | divided_by: 100 }}" value="{% if filter.min_value.value %}{{ filter.min_value.value | divided_by: 100 }}{% endif %}" min="0">
+                        </label>
+                        <label>Hasta
+                          <input type="number" name="{{ filter.max_value.param_name }}" placeholder="{{ filter.range_max | divided_by: 100 }}" value="{% if filter.max_value.value %}{{ filter.max_value.value | divided_by: 100 }}{% endif %}" min="0">
+                        </label>
+                        <button type="submit" class="filters__go" aria-label="Aplicar">{% render 'icon', name: 'chevron-right', px: 16 %}</button>
+                      </div>
+                    {%- else -%}
+                      <ul>
+                        {%- for value in filter.values -%}
+                          <li>
+                            <label class="filters__check">
+                              <input type="checkbox" name="{{ value.param_name }}" value="{{ value.value }}"{% if value.active %} checked{% endif %}{% if value.count == 0 and value.active == false %} disabled{% endif %} onchange="this.form.submit()">
+                              <span>{{ value.label }} ({{ value.count }})</span>
+                            </label>
+                          </li>
+                        {%- endfor -%}
+                      </ul>
+                  {%- endcase -%}
+                </div>
+              {%- endfor -%}
+              <noscript><button type="submit" class="button button--grad">Filtrar</button></noscript>
+            </form>
+          </details>
+        </aside>
       {%- endif -%}
 
-      {%- if paginate.pages > 1 -%}
-        {% render 'pagination', paginate: paginate %}
-      {%- endif -%}
-    {%- endpaginate -%}
+      <div>
+        {%- paginate collection.products by section.settings.per_page -%}
+          {%- if collection.products.size > 0 -%}
+            <div class="product-grid product-grid--{{ section.settings.columns }}">
+              {%- for product in collection.products -%}
+                {% render 'product-card', product: product, pill: section.settings.show_pill %}
+              {%- endfor -%}
+            </div>
+          {%- else -%}
+            <p class="empty-state">No hay productos con esos filtros.</p>
+          {%- endif -%}
+
+          {%- if paginate.pages > 1 -%}
+            {% render 'pagination', paginate: paginate %}
+          {%- endif -%}
+        {%- endpaginate -%}
+      </div>
+    </div>
   </div>
 </section>
 
@@ -54,47 +106,22 @@
   "name": "Catálogo",
   "class": "section-main-collection",
   "settings": [
-    { "type": "text", "id": "eyebrow", "label": "Etiqueta", "default": "PERFUMERÍA DE BARRIO" },
-    { "type": "text", "id": "title_all", "label": "Título para 'Todos los productos'", "default": "Nuestros perfumes" },
-    { "type": "richtext", "id": "subtitle", "label": "Subtítulo (si la colección no tiene descripción)", "default": "<p>Perfumes árabes originales, con fijación de verdad y a precio de barrio. 🌙</p>" },
-    { "type": "range", "id": "per_page", "label": "Productos por página", "min": 4, "max": 48, "step": 4, "default": 16 },
+    { "type": "image_picker", "id": "banner", "label": "Banner superior", "info": "1920 × 450 px" },
+    { "type": "checkbox", "id": "use_collection_image", "label": "Usar la imagen de la colección como banner si tiene", "default": true },
+    { "type": "text", "id": "title_all", "label": "Nombre para 'Todos los productos'", "default": "Combos de Perfumes" },
+    { "type": "checkbox", "id": "show_filters", "label": "Mostrar filtros", "default": true, "info": "Los filtros se configuran con la app gratuita Search & Discovery de Shopify." },
+    { "type": "range", "id": "per_page", "label": "Productos por página", "min": 6, "max": 48, "step": 3, "default": 24 },
     {
       "type": "select",
       "id": "columns",
       "label": "Columnas en compu",
-      "default": "2",
+      "default": "4",
       "options": [
-        { "value": "2", "label": "2 (tarjetas grandes)" },
         { "value": "3", "label": "3" },
         { "value": "4", "label": "4" }
       ]
     },
-    { "type": "checkbox", "id": "show_sort", "label": "Mostrar 'Ordenar por'", "default": false },
-    { "type": "color", "id": "background", "label": "Color de fondo", "default": "#f3f1ef" }
-  ],
-  "blocks": [
-    {
-      "type": "chip",
-      "name": "Chip",
-      "settings": [
-        {
-          "type": "select",
-          "id": "icon",
-          "label": "Ícono",
-          "default": "truck",
-          "options": [
-            { "value": "truck", "label": "Camión" },
-            { "value": "card", "label": "Tarjeta" },
-            { "value": "shield", "label": "Escudo" },
-            { "value": "chat", "label": "Chat" },
-            { "value": "gift", "label": "Regalo" },
-            { "value": "sparkles", "label": "Brillos" }
-          ]
-        },
-        { "type": "text", "id": "text", "label": "Texto", "default": "Despacho en 24 hs" }
-      ]
-    }
-  ],
-  "max_blocks": 4
+    { "type": "checkbox", "id": "show_pill", "label": "Mostrar 'Ahorrás un 15% · Precio especial de hoy'", "default": false }
+  ]
 }
 {% endschema %}

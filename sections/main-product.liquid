@@ -1,45 +1,34 @@
 {%- liquid
   assign current_variant = product.selected_or_first_available_variant
-  capture badge
-    render 'product-tags', product: product, key: 'badge'
-  endcapture
-  capture promo
-    render 'product-tags', product: product, key: 'promo'
-  endcapture
-  assign badge = badge | strip
-  assign promo = promo | strip
-
-  assign rating = product.metafields.reviews.rating.value.rating | round: 1
+  assign rating = product.metafields.reviews.rating.value
   assign rating_count = product.metafields.reviews.rating_count.value
-  if rating > 0
-    assign rating_text = '+' | append: rating_count | append: ' opiniones'
-  else
-    assign rating = settings.card_rating_value
-    assign rating_text = settings.card_rating_text
-  endif
+  assign pct = settings.transfer_discount | plus: 0
+  assign count = settings.installments_count | plus: 0
   capture wa_url
     render 'whatsapp-url'
   endcapture
 -%}
 
-<section class="section product" style="--section-bg: {{ section.settings.background }};" data-product-section>
+<section class="section product" data-product-section>
   <div class="page-width product__grid">
-    <div class="product__media">
-      <div class="product__main-image card">
+    <div class="product__gallery">
+      {%- if product.media.size > 1 -%}
+        <div class="product__thumbs">
+          {%- for media in product.media -%}
+            <button type="button" class="product__thumb{% if media.id == current_variant.featured_media.id or current_variant.featured_media == nil and forloop.first %} is-active{% endif %}" data-thumb="{{ media.id }}" aria-label="Ver imagen {{ forloop.index }}">
+              {{ media.preview_image | image_url: width: 220, height: 220, crop: 'center' | image_tag: loading: 'lazy', alt: '' }}
+            </button>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+
+      <div class="product__main-image">
         {%- if product.media.size > 0 -%}
           {%- for media in product.media -%}
             <div class="product__slide{% if media.id == current_variant.featured_media.id or current_variant.featured_media == nil and forloop.first %} is-active{% endif %}" data-media-id="{{ media.id }}">
               {%- case media.media_type -%}
                 {%- when 'image' -%}
-                  {{
-                    media
-                    | image_url: width: 1400
-                    | image_tag:
-                      loading: 'eager',
-                      widths: '500, 700, 900, 1100, 1400',
-                      sizes: '(min-width: 990px) 600px, 100vw',
-                      alt: media.alt
-                  }}
+                  {{ media | image_url: width: 1400 | image_tag: loading: 'eager', widths: '500, 700, 900, 1100, 1400', sizes: '(min-width: 990px) 640px, 100vw', alt: media.alt }}
                 {%- when 'video' -%}
                   {{ media | video_tag: controls: true, image_size: '1200x' }}
                 {%- when 'external_video' -%}
@@ -52,43 +41,57 @@
         {%- else -%}
           <div class="product__slide is-active">{{ 'product-3' | placeholder_svg_tag: 'placeholder' }}</div>
         {%- endif -%}
-        {%- if badge != blank -%}<span class="badge badge--accent product__badge">{{ badge }}</span>{%- endif -%}
+        {%- if settings.card_sticker_top != blank -%}
+          <span class="sticker-badge sticker-badge--lg">
+            <strong>{{ settings.card_sticker_top }}</strong>
+            {%- if settings.card_sticker_bottom != blank -%}<small>{{ settings.card_sticker_bottom }}</small>{%- endif -%}
+          </span>
+        {%- endif -%}
       </div>
-
-      {%- if product.media.size > 1 -%}
-        <div class="product__thumbs">
-          {%- for media in product.media -%}
-            <button type="button" class="product__thumb{% if media.id == current_variant.featured_media.id or current_variant.featured_media == nil and forloop.first %} is-active{% endif %}" data-thumb="{{ media.id }}" aria-label="Ver imagen {{ forloop.index }}">
-              {{ media.preview_image | image_url: width: 180, height: 180, crop: 'center' | image_tag: loading: 'lazy', alt: '' }}
-            </button>
-          {%- endfor -%}
-        </div>
-      {%- endif -%}
     </div>
 
     <div class="product__info">
-      {%- if section.settings.eyebrow != blank -%}<p class="eyebrow">{{ product.vendor | default: section.settings.eyebrow }}</p>{%- endif -%}
+      {%- if section.settings.proof != blank -%}
+        <p class="proof-pill">{% render 'icon', name: 'check', px: 14 %} {{ section.settings.proof }}</p>
+      {%- endif -%}
+
       <h1 class="product__title">{{ product.title }}</h1>
 
-      {% render 'stars', rating: rating, text: rating_text %}
+      {%- if rating != blank -%}
+        {% render 'stars', rating: rating.rating, count: rating_count %}
+      {%- endif -%}
 
-      <div class="product__price-box">
-        <div class="price price--lg">
-          <span class="price__current" data-price>{{ current_variant.price | money_without_trailing_zeros }}</span>
-          <s class="price__compare" data-compare{% unless current_variant.compare_at_price > current_variant.price %} hidden{% endunless %}>{{ current_variant.compare_at_price | money_without_trailing_zeros }}</s>
-          {%- liquid
-            assign off = 0
-            if current_variant.compare_at_price > current_variant.price
-              assign off = current_variant.compare_at_price | minus: current_variant.price | times: 100 | divided_by: current_variant.compare_at_price
-            endif
-          -%}
-          <span class="badge badge--accent badge--sm" data-off{% if off == 0 %} hidden{% endif %}>{{ off }}% OFF</span>
-        </div>
-        <div data-installments>{% render 'price-installments', price: current_variant.price %}</div>
+      <div class="product__prices">
+        <s class="price__compare" data-compare{% unless current_variant.compare_at_price > current_variant.price %} hidden{% endunless %}>{{ current_variant.compare_at_price | money }}</s>
+        <span class="price__current price__current--xl" data-price>{{ current_variant.price | money }}</span>
       </div>
 
-      {%- if promo != blank -%}
-        <p class="product-card__promo">{% render 'icon', name: 'gift', px: 16 %} {{ promo }}</p>
+      {%- if settings.transfer_show and pct > 0 -%}
+        {%- liquid
+          assign keep = 100 | minus: pct
+          assign transfer_price = current_variant.price | times: keep | divided_by: 100
+        -%}
+        <p class="product__transfer"><span data-transfer>{{ transfer_price | money }}</span> con TRANSFERENCIA</p>
+        <p class="save-pill save-pill--lg"><span aria-hidden="true">💸</span> Ahorrás un {{ pct }}% · Precio especial de hoy</p>
+      {%- endif -%}
+
+      <div class="product__pay-box">
+        {%- if settings.installments_show and count > 1 -%}
+          <p>{% render 'icon', name: 'card', px: 18 %} <span><strong>{{ count }} cuotas sin interés</strong>{% if settings.installments_show_amount %} de <strong data-installment>{{ current_variant.price | divided_by: count | money }}</strong>{% endif %}</span></p>
+        {%- endif -%}
+        {%- if settings.transfer_show and pct > 0 -%}
+          <p>{% render 'icon', name: 'package', px: 18 %} <span><strong>{{ pct }}% de descuento</strong> pagando con TRANSFERENCIA</span></p>
+        {%- endif -%}
+        {%- if section.settings.pay_details != blank -%}
+          <details class="product__pay-details">
+            <summary>Ver más detalles</summary>
+            <div class="rte">{{ section.settings.pay_details }}</div>
+          </details>
+        {%- endif -%}
+      </div>
+
+      {%- if section.settings.shipping_text != blank -%}
+        <p class="product__shipping">{% render 'icon', name: 'truck', px: 20 %} {{ section.settings.shipping_text }}</p>
       {%- endif -%}
 
       {%- form 'product', product, class: 'product-form', data-product-form: '' -%}
@@ -101,13 +104,7 @@
               <div class="variant-picker__options">
                 {%- for value in option.values -%}
                   <label class="variant-pill">
-                    <input
-                      type="radio"
-                      name="option-{{ forloop.parentloop.index0 }}"
-                      value="{{ value | escape }}"
-                      data-option-index="{{ forloop.parentloop.index0 }}"
-                      {% if option.selected_value == value %}checked{% endif %}
-                    >
+                    <input type="radio" name="option-{{ forloop.parentloop.index0 }}" value="{{ value | escape }}" data-option-index="{{ forloop.parentloop.index0 }}"{% if option.selected_value == value %} checked{% endif %}>
                     <span>{{ value }}</span>
                   </label>
                 {%- endfor -%}
@@ -116,17 +113,17 @@
           {%- endfor -%}
         {%- endunless -%}
 
-        <div class="product-form__row">
+        {%- if section.settings.show_quantity -%}
           <div class="qty">
             <button type="button" class="qty__btn" data-qty="-1" aria-label="Restar">{% render 'icon', name: 'minus', px: 16 %}</button>
             <input type="number" name="quantity" value="1" min="1" aria-label="Cantidad">
             <button type="button" class="qty__btn" data-qty="1" aria-label="Sumar">{% render 'icon', name: 'plus', px: 16 %}</button>
           </div>
-          <button type="submit" name="add" class="button button--accent button--lg button--shadow product-form__submit" data-add-button{% unless current_variant.available %} disabled{% endunless %}>
-            <span data-add-label>{% if current_variant.available %}{{ section.settings.add_label }}{% else %}Sin stock{% endif %}</span>
-            {% render 'icon', name: 'bag', px: 18 %}
-          </button>
-        </div>
+        {%- endif -%}
+
+        <button type="submit" name="add" class="button button--grad button--xl button--full" data-add-button{% unless current_variant.available %} disabled{% endunless %}>
+          <span data-add-label>{% if current_variant.available %}{{ section.settings.add_label }}{% else %}SIN STOCK{% endif %}</span>
+        </button>
 
         {%- if section.settings.show_dynamic_checkout -%}
           <div class="product-form__buy-now">{{ form | payment_button }}</div>
@@ -135,46 +132,35 @@
       {%- endform -%}
 
       {%- if section.settings.show_whatsapp and settings.whatsapp_number != blank -%}
-        <a href="{{ wa_url | strip }}" class="button button--outline button--full" target="_blank" rel="noopener">
+        <a href="{{ wa_url | strip }}" class="button button--whatsapp button--full" target="_blank" rel="noopener">
           {% render 'icon', name: 'whatsapp', px: 18 %} {{ section.settings.whatsapp_label }}
         </a>
       {%- endif -%}
 
-      <ul class="product__trust">
-        {%- if section.settings.trust_1 != blank -%}<li>{% render 'icon', name: 'truck', px: 20 %} {{ section.settings.trust_1 }}</li>{%- endif -%}
-        {%- if section.settings.trust_2 != blank -%}<li>{% render 'icon', name: 'card', px: 20 %} {{ section.settings.trust_2 }}</li>{%- endif -%}
-        {%- if section.settings.trust_3 != blank -%}<li>{% render 'icon', name: 'shield', px: 20 %} {{ section.settings.trust_3 }}</li>{%- endif -%}
-      </ul>
-
-      {%- if product.description != blank -%}
+      {%- if section.settings.show_description and product.description != blank -%}
         <div class="product__description rte">{{ product.description }}</div>
       {%- endif -%}
 
-      <div class="faq faq--compact">
-        {%- for block in section.blocks -%}
-          <details class="faq__item card" {{ block.shopify_attributes }}>
-            <summary>{{ block.settings.title }}<span class="faq__icon">{% render 'icon', name: 'plus', px: 18 %}</span></summary>
-            <div class="faq__answer">{{ block.settings.content }}</div>
-          </details>
-        {%- endfor -%}
-      </div>
+      {%- for block in section.blocks -%}
+        {%- case block.type -%}
+          {%- when '@app' -%}
+            {% render block %}
+        {%- endcase -%}
+      {%- endfor -%}
     </div>
   </div>
 
   <script type="application/json" data-product-json>
     {
       "variants": {{ product.variants | json }},
-      "installments": {{ settings.installments_count | default: 0 }},
-      "installmentsShow": {{ settings.installments_show | json }},
-      "installmentsAmount": {{ settings.installments_show_amount | json }},
-      "transferDiscount": {% if settings.transfer_show %}{{ settings.transfer_discount | default: 0 }}{% else %}0{% endif %},
+      "installments": {{ count }},
+      "transferDiscount": {% if settings.transfer_show %}{{ pct }}{% else %}0{% endif %},
       "moneyFormat": {{ shop.money_format | json }},
       "addLabel": {{ section.settings.add_label | json }}
     }
   </script>
 </section>
 
-{%- comment -%} Datos estructurados para Google {%- endcomment -%}
 <script type="application/ld+json">
   {{ product | structured_data }}
 </script>
@@ -184,26 +170,16 @@
   "name": "Producto",
   "class": "section-main-product",
   "settings": [
-    { "type": "text", "id": "eyebrow", "label": "Etiqueta (si el producto no tiene marca)", "default": "PERFUMERÍA DE BARRIO" },
-    { "type": "text", "id": "add_label", "label": "Texto del botón de compra", "default": "Agregar al carrito" },
-    { "type": "checkbox", "id": "show_dynamic_checkout", "label": "Mostrar botón 'Comprar ahora'", "default": true },
-    { "type": "checkbox", "id": "show_whatsapp", "label": "Mostrar botón de consulta por WhatsApp", "default": true },
+    { "type": "text", "id": "proof", "label": "Pastilla superior", "default": "Compra protegida · Envío gratis a todo el país", "info": "Usá solo datos reales (por ejemplo, cantidad de pedidos entregados)." },
+    { "type": "text", "id": "add_label", "label": "Texto del botón de compra", "default": "AGREGAR AL CARRITO" },
+    { "type": "text", "id": "shipping_text", "label": "Línea de envío", "default": "Envío gratis" },
+    { "type": "richtext", "id": "pay_details", "label": "Detalle de medios de pago ('Ver más detalles')", "default": "<p>Tarjetas de crédito en 3 cuotas sin interés. Débito, Mercado Pago y transferencia bancaria con 15% de descuento.</p>" },
+    { "type": "checkbox", "id": "show_quantity", "label": "Mostrar selector de cantidad", "default": false },
+    { "type": "checkbox", "id": "show_dynamic_checkout", "label": "Mostrar botón 'Comprar ahora'", "default": false },
+    { "type": "checkbox", "id": "show_whatsapp", "label": "Mostrar botón de consulta por WhatsApp", "default": false },
     { "type": "text", "id": "whatsapp_label", "label": "Texto del botón de WhatsApp", "default": "Consultanos por WhatsApp" },
-    { "type": "header", "content": "Beneficios bajo el botón" },
-    { "type": "text", "id": "trust_1", "label": "Envío", "default": "Despacho en 24 hs a todo el país" },
-    { "type": "text", "id": "trust_2", "label": "Pago", "default": "3 cuotas sin interés con todas las tarjetas" },
-    { "type": "text", "id": "trust_3", "label": "Garantía", "default": "Producto original con garantía 100%" },
-    { "type": "color", "id": "background", "label": "Color de fondo", "default": "#f3f1ef" }
+    { "type": "checkbox", "id": "show_description", "label": "Mostrar la descripción del producto", "default": true }
   ],
-  "blocks": [
-    {
-      "type": "collapsible",
-      "name": "Desplegable",
-      "settings": [
-        { "type": "text", "id": "title", "label": "Título", "default": "Envíos" },
-        { "type": "richtext", "id": "content", "label": "Contenido", "default": "<p>Despachamos en 24 hs hábiles a todo el país.</p>" }
-      ]
-    }
-  ]
+  "blocks": [{ "type": "@app" }]
 }
 {% endschema %}

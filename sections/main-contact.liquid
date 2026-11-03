@@ -1,5 +1,5 @@
 {%- capture wa_url -%}{% render 'whatsapp-url' %}{%- endcapture -%}
-<section class="section" style="--section-bg: {{ section.settings.background }};">
+<section class="section">
   <div class="page-width">
     {%- capture contact_title -%}{{ section.settings.title }}{% if section.settings.emoji != blank %}<span class="section-heading__emoji">{{ section.settings.emoji }}</span>{% endif %}{%- endcapture -%}
     {% render 'section-heading', eyebrow: section.settings.eyebrow, title: contact_title, subtitle: section.settings.subtitle, tag: 'h1' %}
@@ -86,8 +86,7 @@
     { "type": "textarea", "id": "wa_text", "label": "Texto", "default": "Consultas sobre tu pedido, recomendaciones de aromas o lo que necesites. Te respondemos rapidísimo." },
     { "type": "header", "content": "Formulario" },
     { "type": "text", "id": "form_title", "label": "Título", "default": "Dejanos tu mensaje" },
-    { "type": "text", "id": "form_text", "label": "Texto", "default": "Completá el formulario y te contestamos por mail." },
-    { "type": "color", "id": "background", "label": "Color de fondo", "default": "#f3f1ef" }
+    { "type": "text", "id": "form_text", "label": "Texto", "default": "Completá el formulario y te contestamos por mail." }
   ]
 }
 {% endschema %}

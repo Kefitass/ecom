@@ -1,4 +1,4 @@
-<section class="section" style="--section-bg: {{ section.settings.background }};">
+<section class="section">
   <div class="page-width">
     {% render 'section-heading', eyebrow: section.settings.eyebrow, title: section.settings.title, tag: 'h1' %}
 
@@ -27,8 +27,7 @@
   "name": "Lista de colecciones",
   "settings": [
     { "type": "text", "id": "eyebrow", "label": "Etiqueta", "default": "CATÁLOGO" },
-    { "type": "text", "id": "title", "label": "Título", "default": "Nuestras colecciones" },
-    { "type": "color", "id": "background", "label": "Color de fondo", "default": "#f3f1ef" }
+    { "type": "text", "id": "title", "label": "Título", "default": "Nuestras colecciones" }
   ]
 }
 {% endschema %}

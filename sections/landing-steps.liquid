@@ -1,0 +1,69 @@
+<section class="landing">
+  <div class="landing__col landing-pad">
+    {% render 'landing-heading', eyebrow: section.settings.eyebrow, title: section.settings.title, title_gold: section.settings.title_gold, text: section.settings.text %}
+
+    <ol class="l-steps">
+      {%- for block in section.blocks -%}
+        <li class="l-step" {{ block.shopify_attributes }}>
+          <span class="l-step__num">{{ forloop.index }}</span>
+          <div class="l-step__body">
+            <h3>{{ block.settings.title }}</h3>
+            {%- if block.settings.text != blank -%}<p>{{ block.settings.text }}</p>{%- endif -%}
+            {%- if block.settings.image != blank -%}
+              <figure class="l-step__media">
+                {{ block.settings.image | image_url: width: 900 | image_tag: loading: 'lazy', widths: '400, 600, 900', sizes: '460px', alt: block.settings.caption }}
+                {%- if block.settings.caption != blank -%}<figcaption>{{ block.settings.caption }}</figcaption>{%- endif -%}
+              </figure>
+            {%- endif -%}
+          </div>
+        </li>
+      {%- endfor -%}
+    </ol>
+
+    {%- if section.settings.stat_number != blank -%}
+      <div class="l-stat">
+        <strong>{{ section.settings.stat_number }}</strong>
+        <span>{{ section.settings.stat_text }}</span>
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Landing · Pasos",
+  "class": "section-landing",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Pastilla", "default": "📦 ASÍ LLEGA TU PEDIDO" },
+    { "type": "text", "id": "title", "label": "Título (blanco)", "default": "Del otro lado hay personas," },
+    { "type": "text", "id": "title_gold", "label": "Título (dorado)", "default": "no una página trucha." },
+    { "type": "richtext", "id": "text", "label": "Texto", "default": "<p>Mirá cómo trabajamos. Esto es lo que pasa desde que tocás \"comprar\" hasta que el perfume llega a tu casa.</p>" },
+    { "type": "header", "content": "Dato destacado" },
+    { "type": "text", "id": "stat_number", "label": "Número", "info": "Usá un dato real (por ejemplo, pedidos entregados). Vacío = oculto." },
+    { "type": "text", "id": "stat_text", "label": "Texto", "default": "pedidos entregados en todo el país" }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Paso",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Título", "default": "Recibimos tu pedido" },
+        { "type": "textarea", "id": "text", "label": "Texto", "default": "Somos nosotros los que vemos cada compra que entra. Si tenés una duda, te contestamos nosotros." },
+        { "type": "image_picker", "id": "image", "label": "Foto real (tu equipo, tu depósito, los paquetes)" },
+        { "type": "text", "id": "caption", "label": "Epígrafe de la foto" }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [
+    {
+      "name": "Landing · Pasos",
+      "blocks": [
+        { "type": "step", "settings": { "title": "Recibimos tu pedido", "text": "Somos nosotros los que vemos cada compra que entra. Si tenés una duda, te contestamos nosotros." } },
+        { "type": "step", "settings": { "title": "Lo armamos en nuestro depósito", "text": "Preparamos y embalamos cada pedido a mano, bien protegido para que llegue perfecto." } },
+        { "type": "step", "settings": { "title": "Lo despachamos con seguimiento", "text": "Te mandamos el código para que sigas tu pedido hasta la puerta de tu casa." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

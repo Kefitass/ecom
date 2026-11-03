@@ -3,34 +3,30 @@
   assign limit = section.settings.limit
 -%}
 
-<section class="section" style="--section-bg: {{ section.settings.background }};">
+<section class="section">
   <div class="page-width">
     {% render 'section-heading',
       eyebrow: section.settings.eyebrow,
       title: section.settings.title,
-      subtitle: section.settings.subtitle
+      subtitle: section.settings.subtitle,
+      no_line: section.settings.hide_line
     %}
 
-    {%- if section.blocks.size > 0 -%}
-      <ul class="chips">
-        {%- for block in section.blocks -%}
-          <li class="chip" {{ block.shopify_attributes }}>{% render 'icon', name: block.settings.icon, px: 16 %} {{ block.settings.text }}</li>
-        {%- endfor -%}
-      </ul>
-    {%- endif -%}
-
-    <div class="product-grid product-grid--{{ section.settings.columns }}">
+    <div class="product-grid">
       {%- if collection != blank and collection.products_count > 0 -%}
-        {%- for product in collection.products limit: limit -%}
-          {% render 'product-card', product: product %}
+        {%- assign shown = 0 -%}
+        {%- for item in collection.products -%}
+          {%- if product and item.id == product.id -%}{%- continue -%}{%- endif -%}
+          {% render 'product-card', product: item, pill: section.settings.show_pill %}
+          {%- assign shown = shown | plus: 1 -%}
+          {%- if shown >= limit -%}{%- break -%}{%- endif -%}
         {%- endfor -%}
       {%- else -%}
-        {%- for i in (1..limit) limit: 4 -%}
+        {%- for i in (1..4) -%}
           <article class="product-card">
             <div class="product-card__media">{{ 'product-apparel-1' | placeholder_svg_tag: 'placeholder' }}</div>
             <div class="product-card__body">
-              <h3 class="product-card__title">Nombre del perfume</h3>
-              <div class="price"><span class="price__current">$ 00.000</span></div>
+              <h3 class="product-card__title">¡3x1 Perfumes árabes!</h3>
               <p class="installments">Elegí una colección en el editor para mostrar tus productos.</p>
             </div>
           </article>
@@ -40,7 +36,7 @@
 
     {%- if section.settings.button_label != blank -%}
       <div class="section__footer">
-        <a href="{{ collection.url | default: routes.all_products_collection_url }}" class="button button--outline">
+        <a href="{{ collection.url | default: routes.all_products_collection_url }}" class="button button--grad">
           {{ section.settings.button_label }} {% render 'icon', name: 'arrow', px: 18 %}
         </a>
       </div>
@@ -50,61 +46,18 @@
 
 {% schema %}
 {
-  "name": "Productos destacados",
+  "name": "Grilla de productos",
   "class": "section-featured",
   "settings": [
-    { "type": "text", "id": "eyebrow", "label": "Etiqueta", "default": "LOS MÁS VENDIDOS" },
-    { "type": "text", "id": "title", "label": "Título", "default": "Nuestros perfumes" },
-    { "type": "richtext", "id": "subtitle", "label": "Subtítulo", "default": "<p>Fragancias árabes originales que duran todo el día. 🌙</p>" },
+    { "type": "text", "id": "eyebrow", "label": "Pastilla", "default": "PROMO 3X1 BARRIO" },
+    { "type": "text", "id": "title", "label": "Título", "default": "Promociones actuales" },
+    { "type": "richtext", "id": "subtitle", "label": "Subtítulo" },
+    { "type": "checkbox", "id": "hide_line", "label": "Ocultar línea degradé bajo el título", "default": false },
     { "type": "collection", "id": "collection", "label": "Colección" },
-    { "type": "range", "id": "limit", "label": "Cantidad de productos", "min": 2, "max": 12, "step": 1, "default": 4 },
-    {
-      "type": "select",
-      "id": "columns",
-      "label": "Columnas en compu",
-      "default": "2",
-      "options": [
-        { "value": "2", "label": "2 (tarjetas grandes)" },
-        { "value": "3", "label": "3" },
-        { "value": "4", "label": "4" }
-      ]
-    },
-    { "type": "text", "id": "button_label", "label": "Botón inferior", "default": "Ver todo el catálogo" },
-    { "type": "color", "id": "background", "label": "Color de fondo", "default": "#ffffff" }
+    { "type": "range", "id": "limit", "label": "Cantidad de productos", "min": 2, "max": 48, "step": 1, "default": 12 },
+    { "type": "checkbox", "id": "show_pill", "label": "Mostrar 'Ahorrás un 15% · Precio especial de hoy'", "default": false },
+    { "type": "text", "id": "button_label", "label": "Botón inferior", "default": "" }
   ],
-  "blocks": [
-    {
-      "type": "chip",
-      "name": "Chip",
-      "settings": [
-        {
-          "type": "select",
-          "id": "icon",
-          "label": "Ícono",
-          "default": "truck",
-          "options": [
-            { "value": "truck", "label": "Camión" },
-            { "value": "card", "label": "Tarjeta" },
-            { "value": "shield", "label": "Escudo" },
-            { "value": "chat", "label": "Chat" },
-            { "value": "gift", "label": "Regalo" },
-            { "value": "sparkles", "label": "Brillos" }
-          ]
-        },
-        { "type": "text", "id": "text", "label": "Texto", "default": "Despacho en 24 hs" }
-      ]
-    }
-  ],
-  "max_blocks": 4,
-  "presets": [
-    {
-      "name": "Productos destacados",
-      "blocks": [
-        { "type": "chip", "settings": { "icon": "truck", "text": "Despacho en 24 hs" } },
-        { "type": "chip", "settings": { "icon": "card", "text": "3 cuotas sin interés" } },
-        { "type": "chip", "settings": { "icon": "shield", "text": "Garantía 100%" } }
-      ]
-    }
-  ]
+  "presets": [{ "name": "Grilla de productos" }]
 }
 {% endschema %}

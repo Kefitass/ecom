@@ -1,0 +1,14 @@
+{%- comment -%}
+  Encabezado de landing: pastilla dorada + título blanco + título dorado + texto.
+  Uso: {% render 'landing-heading', eyebrow: ..., title: ..., title_gold: ..., text: ... %}
+{%- endcomment -%}
+<div class="l-heading">
+  {%- if eyebrow != blank -%}<p class="l-pill">{{ eyebrow }}</p>{%- endif -%}
+  {%- if title != blank or title_gold != blank -%}
+    <h2 class="l-title">
+      {{- title -}}
+      {%- if title_gold != blank -%}{% if title != blank %}<br>{% endif %}<span class="l-gold">{{ title_gold }}</span>{%- endif -%}
+    </h2>
+  {%- endif -%}
+  {%- if text != blank -%}<div class="l-text">{{ text }}</div>{%- endif -%}
+</div>
