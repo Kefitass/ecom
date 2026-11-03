@@ -1,0 +1,56 @@
+<section class="section" style="--section-bg: {{ section.settings.background }};">
+  <div class="page-width page-width--narrow">
+    {% render 'section-heading',
+      eyebrow: section.settings.eyebrow,
+      title: section.settings.title,
+      subtitle: section.settings.subtitle
+    %}
+
+    <div class="faq">
+      {%- for block in section.blocks -%}
+        <details class="faq__item card" {{ block.shopify_attributes }}{% if forloop.first %} open{% endif %}>
+          <summary>
+            {{ block.settings.question }}
+            <span class="faq__icon">{% render 'icon', name: 'plus', px: 18 %}</span>
+          </summary>
+          <div class="faq__answer">{{ block.settings.answer }}</div>
+        </details>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Preguntas frecuentes",
+  "class": "section-faq",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Etiqueta", "default": "PREGUNTAS FRECUENTES" },
+    { "type": "text", "id": "title", "label": "Título", "default": "¿Tenés dudas?" },
+    { "type": "richtext", "id": "subtitle", "label": "Subtítulo", "default": "<p>Te dejamos las respuestas a lo que más nos preguntan.</p>" },
+    { "type": "color", "id": "background", "label": "Color de fondo", "default": "#f3f1ef" }
+  ],
+  "blocks": [
+    {
+      "type": "question",
+      "name": "Pregunta",
+      "settings": [
+        { "type": "text", "id": "question", "label": "Pregunta", "default": "¿Los perfumes son originales?" },
+        { "type": "richtext", "id": "answer", "label": "Respuesta", "default": "<p>Sí, todos nuestros perfumes son originales y vienen sellados.</p>" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Preguntas frecuentes",
+      "blocks": [
+        { "type": "question", "settings": { "question": "¿Los perfumes son originales?", "answer": "<p>Sí. Todos nuestros perfumes son originales y llegan sellados de fábrica.</p>" } },
+        { "type": "question", "settings": { "question": "¿Cuánto duran los perfumes árabes?", "answer": "<p>Depende de la fragancia y de tu piel, pero en general tienen muy buena fijación: entre 8 y 12 horas en piel y más en la ropa.</p>" } },
+        { "type": "question", "settings": { "question": "¿Cuánto tarda el envío?", "answer": "<p>Despachamos en 24 hs hábiles. El tiempo de entrega depende de tu ciudad; te pasamos el código de seguimiento apenas sale.</p>" } },
+        { "type": "question", "settings": { "question": "¿Puedo pagar en cuotas?", "answer": "<p>Sí, tenés 3 cuotas sin interés con todas las tarjetas.</p>" } },
+        { "type": "question", "settings": { "question": "No sé cuál elegir, ¿me ayudan?", "answer": "<p>¡Claro! Escribinos por WhatsApp, contanos qué aromas te gustan y te recomendamos el ideal.</p>" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

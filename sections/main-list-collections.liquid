@@ -1,0 +1,34 @@
+<section class="section" style="--section-bg: {{ section.settings.background }};">
+  <div class="page-width">
+    {% render 'section-heading', eyebrow: section.settings.eyebrow, title: section.settings.title, tag: 'h1' %}
+
+    <div class="collection-list">
+      {%- for collection in collections -%}
+        <a href="{{ collection.url }}" class="collection-tile card">
+          <div class="collection-tile__media">
+            {%- if collection.featured_image -%}
+              {{ collection.featured_image | image_url: width: 700 | image_tag: loading: 'lazy', sizes: '(min-width: 750px) 33vw, 100vw', widths: '350, 500, 700' }}
+            {%- else -%}
+              {{ 'collection-1' | placeholder_svg_tag: 'placeholder' }}
+            {%- endif -%}
+          </div>
+          <div class="collection-tile__body">
+            <h2>{{ collection.title }}</h2>
+            <span>{{ collection.products_count }} productos {% render 'icon', name: 'arrow', px: 16 %}</span>
+          </div>
+        </a>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Lista de colecciones",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Etiqueta", "default": "CATÁLOGO" },
+    { "type": "text", "id": "title", "label": "Título", "default": "Nuestras colecciones" },
+    { "type": "color", "id": "background", "label": "Color de fondo", "default": "#f3f1ef" }
+  ]
+}
+{% endschema %}

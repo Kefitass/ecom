@@ -1,0 +1,20 @@
+{
+  "type": "footer",
+  "name": "Pie de página",
+  "sections": {
+    "footer": {
+      "type": "footer",
+      "settings": {
+        "tagline": "Tu perfumería de confianza ✨",
+        "text": "<p>Perfumes árabes originales con trato de barrio y envíos a todo el país.</p>",
+        "menu_1_title": "Tienda",
+        "menu_1": "main-menu",
+        "menu_2_title": "Ayuda",
+        "menu_2": "footer",
+        "contact_title": "Contacto",
+        "show_payment_icons": true
+      }
+    }
+  },
+  "order": ["footer"]
+}

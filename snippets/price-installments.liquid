@@ -1,0 +1,22 @@
+{%- comment -%}
+  Texto de cuotas. Uso: {% render 'price-installments', price: product.price %}
+{%- endcomment -%}
+{%- liquid
+  assign count = settings.installments_count | plus: 0
+-%}
+{%- if count > 1 and settings.installments_show -%}
+  {%- assign per_installment = price | divided_by: count -%}
+  <p class="installments{% if class %} {{ class }}{% endif %}">
+    {{ count }} cuotas sin interés
+    {%- if settings.installments_show_amount %} de <strong>{{ per_installment | money_without_trailing_zeros }}</strong>{% endif %}
+  </p>
+{%- endif -%}
+{%- if settings.transfer_discount > 0 and settings.transfer_show -%}
+  {%- liquid
+    assign pct = 100 | minus: settings.transfer_discount
+    assign transfer_price = price | times: pct | divided_by: 100
+  -%}
+  <p class="transfer-price">
+    <strong>{{ transfer_price | money_without_trailing_zeros }}</strong> con transferencia ({{ settings.transfer_discount }}% OFF)
+  </p>
+{%- endif -%}

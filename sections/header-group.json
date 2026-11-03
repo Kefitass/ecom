@@ -1,0 +1,21 @@
+{
+  "type": "header",
+  "name": "Encabezado",
+  "sections": {
+    "announcement-bar": {
+      "type": "announcement-bar",
+      "blocks": {
+        "a1": { "type": "announcement", "settings": { "text": "ENVÍO GRATIS" } },
+        "a2": { "type": "announcement", "settings": { "text": "3 CUOTAS SIN INTERÉS" } },
+        "a3": { "type": "announcement", "settings": { "text": "LLEVÁ 2 Y AHORRÁ 30%" } }
+      },
+      "block_order": ["a1", "a2", "a3"],
+      "settings": { "speed": 36 }
+    },
+    "header": {
+      "type": "header",
+      "settings": { "menu": "main-menu", "sticky": true }
+    }
+  },
+  "order": ["announcement-bar", "header"]
+}

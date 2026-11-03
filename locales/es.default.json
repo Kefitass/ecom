@@ -1,0 +1,17 @@
+{
+  "general": {
+    "skip_to_content": "Ir al contenido",
+    "search": "Buscar",
+    "cart": "Carrito",
+    "account": "Mi cuenta"
+  },
+  "products": {
+    "add_to_cart": "Agregar al carrito",
+    "sold_out": "Sin stock",
+    "installments": "cuotas sin interés"
+  },
+  "cart": {
+    "empty": "Tu carrito está vacío.",
+    "checkout": "Finalizar compra"
+  }
+}

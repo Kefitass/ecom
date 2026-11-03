@@ -1,0 +1,85 @@
+<section class="section" style="--section-bg: {{ section.settings.background }};">
+  <div class="page-width">
+    {% render 'section-heading', eyebrow: 'TU PEDIDO', title: section.settings.title, tag: 'h1' %}
+
+    {%- if cart.item_count > 0 -%}
+      <form action="{{ routes.cart_url }}" method="post" class="cart" data-cart-form>
+        <div class="cart__items card">
+          {%- for item in cart.items -%}
+            <div class="cart-item">
+              <a href="{{ item.url }}" class="cart-item__media">
+                {%- if item.image -%}
+                  {{ item.image | image_url: width: 240 | image_tag: loading: 'lazy', alt: item.title }}
+                {%- else -%}
+                  {{ 'product-1' | placeholder_svg_tag: 'placeholder' }}
+                {%- endif -%}
+              </a>
+              <div class="cart-item__info">
+                <a href="{{ item.url }}" class="cart-item__title">{{ item.product.title }}</a>
+                {%- unless item.product.has_only_default_variant -%}
+                  <p class="cart-item__variant">{{ item.variant.title }}</p>
+                {%- endunless -%}
+                {%- for discount in item.line_level_discount_allocations -%}
+                  <p class="cart-item__discount">{% render 'icon', name: 'gift', px: 14 %} {{ discount.discount_application.title }} (-{{ discount.amount | money_without_trailing_zeros }})</p>
+                {%- endfor -%}
+                <div class="cart-item__row">
+                  <div class="qty qty--sm">
+                    <button type="button" class="qty__btn" data-qty="-1" aria-label="Restar">{% render 'icon', name: 'minus', px: 14 %}</button>
+                    <input type="number" name="updates[]" value="{{ item.quantity }}" min="0" aria-label="Cantidad" data-cart-qty>
+                    <button type="button" class="qty__btn" data-qty="1" aria-label="Sumar">{% render 'icon', name: 'plus', px: 14 %}</button>
+                  </div>
+                  <a href="{{ item.url_to_remove }}" class="cart-item__remove" aria-label="Quitar">{% render 'icon', name: 'trash', px: 18 %}</a>
+                </div>
+              </div>
+              <div class="cart-item__price">
+                {%- if item.original_line_price > item.final_line_price -%}
+                  <s>{{ item.original_line_price | money_without_trailing_zeros }}</s>
+                {%- endif -%}
+                <strong>{{ item.final_line_price | money_without_trailing_zeros }}</strong>
+              </div>
+            </div>
+          {%- endfor -%}
+        </div>
+
+        <aside class="cart__summary card">
+          <h2>Resumen</h2>
+          {%- for discount in cart.cart_level_discount_applications -%}
+            <p class="cart__line"><span>{{ discount.title }}</span><span>-{{ discount.total_allocated_amount | money_without_trailing_zeros }}</span></p>
+          {%- endfor -%}
+          <p class="cart__line cart__total"><span>Total</span><span>{{ cart.total_price | money_without_trailing_zeros }}</span></p>
+          {% render 'price-installments', price: cart.total_price %}
+          <p class="cart__note">Impuestos incluidos. El envío se calcula en el checkout.</p>
+
+          {%- if section.settings.show_note -%}
+            <label for="CartNote" class="cart__note-label">Nota para el pedido</label>
+            <textarea id="CartNote" name="note" rows="3" placeholder="¿Es para regalo? Contanos...">{{ cart.note }}</textarea>
+          {%- endif -%}
+
+          <button type="submit" name="checkout" class="button button--accent button--lg button--full button--shadow">
+            Finalizar compra {% render 'icon', name: 'arrow', px: 18 %}
+          </button>
+          <button type="submit" name="update" class="button button--link" data-cart-update>Actualizar carrito</button>
+          {%- if additional_checkout_buttons -%}
+            <div class="cart__dynamic">{{ content_for_additional_checkout_buttons }}</div>
+          {%- endif -%}
+        </aside>
+      </form>
+    {%- else -%}
+      <div class="empty-state card">
+        <p>Tu carrito está vacío.</p>
+        <a href="{{ routes.all_products_collection_url }}" class="button button--primary">Ver perfumes {% render 'icon', name: 'arrow', px: 18 %}</a>
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Carrito",
+  "settings": [
+    { "type": "text", "id": "title", "label": "Título", "default": "Tu carrito" },
+    { "type": "checkbox", "id": "show_note", "label": "Permitir nota en el pedido", "default": true },
+    { "type": "color", "id": "background", "label": "Color de fondo", "default": "#f3f1ef" }
+  ]
+}
+{% endschema %}

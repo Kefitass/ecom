@@ -1,0 +1,46 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "envios": {
+          "type": "collapsible",
+          "settings": {
+            "title": "Envíos",
+            "content": "<p>Despachamos en 24 hs hábiles a todo el país. Apenas sale tu pedido te mandamos el código de seguimiento.</p>"
+          }
+        },
+        "pagos": {
+          "type": "collapsible",
+          "settings": {
+            "title": "Medios de pago",
+            "content": "<p>Tarjetas de crédito en 3 cuotas sin interés, débito y transferencia.</p>"
+          }
+        },
+        "garantia": {
+          "type": "collapsible",
+          "settings": {
+            "title": "Garantía y cambios",
+            "content": "<p>Todos nuestros perfumes son originales y llegan sellados. Si tu pedido llega con algún problema, escribinos y lo resolvemos.</p>"
+          }
+        }
+      },
+      "block_order": ["envios", "pagos", "garantia"],
+      "settings": {}
+    },
+    "featured": {
+      "type": "featured-products",
+      "settings": {
+        "eyebrow": "TE PUEDE GUSTAR",
+        "title": "Otros perfumes del barrio",
+        "subtitle": "",
+        "collection": "all",
+        "limit": 4,
+        "columns": "4",
+        "button_label": "",
+        "background": "#ffffff"
+      }
+    }
+  },
+  "order": ["main", "featured"]
+}

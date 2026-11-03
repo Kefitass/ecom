@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="{{ request.locale.iso_code }}">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="{{ settings.color_primary }}">
+    <link rel="canonical" href="{{ canonical_url }}">
+
+    {%- if settings.favicon != blank -%}
+      <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 64, height: 64 }}">
+    {%- endif -%}
+
+    <title>
+      {{ page_title }}
+      {%- if current_tags %} &ndash; {{ current_tags | join: ', ' }}{% endif -%}
+      {%- if current_page != 1 %} &ndash; Página {{ current_page }}{% endif -%}
+      {%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
+    </title>
+
+    {% if page_description %}
+      <meta name="description" content="{{ page_description | escape }}">
+    {% endif %}
+
+    {% render 'meta-tags' %}
+
+    {%- liquid
+      assign heading_font = settings.type_heading_font
+      assign body_font = settings.type_body_font
+      assign body_font_bold = body_font | font_modify: 'weight', 'bold'
+      assign heading_font_heavy = heading_font | font_modify: 'weight', '800'
+    -%}
+
+    {% style %}
+      {{ heading_font | font_face: font_display: 'swap' }}
+      {%- if heading_font_heavy -%}{{ heading_font_heavy | font_face: font_display: 'swap' }}{%- endif -%}
+      {{ body_font | font_face: font_display: 'swap' }}
+      {%- if body_font_bold -%}{{ body_font_bold | font_face: font_display: 'swap' }}{%- endif -%}
+
+      :root {
+        --font-heading: {{ heading_font.family }}, {{ heading_font.fallback_families }};
+        --font-heading-weight: {% if heading_font_heavy %}800{% else %}{{ heading_font.weight }}{% endif %};
+        --font-body: {{ body_font.family }}, {{ body_font.fallback_families }};
+        --font-body-weight: {{ body_font.weight }};
+
+        --c-primary: {{ settings.color_primary }};
+        --c-primary-dark: {{ settings.color_primary | color_darken: 8 }};
+        --c-accent: {{ settings.color_accent }};
+        --c-accent-dark: {{ settings.color_accent | color_darken: 8 }};
+        --c-heading: {{ settings.color_heading }};
+        --c-text: {{ settings.color_text }};
+        --c-bg: {{ settings.color_background }};
+        --c-surface: {{ settings.color_surface }};
+        --c-announcement: {{ settings.color_announcement }};
+        --c-stars: {{ settings.color_stars }};
+        --c-whatsapp: #25d366;
+        --c-border: {{ settings.color_heading | color_modify: 'alpha', 0.1 }};
+        --c-primary-soft: {{ settings.color_primary | color_modify: 'alpha', 0.1 }};
+
+        --radius: {{ settings.card_radius }}px;
+        --page-width: 1200px;
+      }
+    {% endstyle %}
+
+    {{ 'base.css' | asset_url | stylesheet_tag }}
+
+    <script src="{{ 'theme.js' | asset_url }}" defer="defer"></script>
+
+    {{ content_for_header }}
+  </head>
+
+  <body class="template-{{ template.name }}">
+    <a class="skip-link visually-hidden" href="#MainContent">Ir al contenido</a>
+
+    {% sections 'header-group' %}
+
+    <main id="MainContent" class="main" role="main" tabindex="-1">
+      {{ content_for_layout }}
+    </main>
+
+    {% sections 'footer-group' %}
+
+    {% render 'whatsapp-float' %}
+  </body>
+</html>

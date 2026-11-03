@@ -1,0 +1,107 @@
+{%- capture wa_url -%}{% render 'whatsapp-url' %}{%- endcapture -%}
+<footer class="footer"{% if section.settings.background != blank %} style="--footer-bg: {{ section.settings.background }};"{% endif %}>
+  <div class="page-width footer__grid">
+    <div class="footer__brand">
+      <a href="{{ routes.root_url }}" class="footer__logo">
+        {%- assign footer_logo = section.settings.logo | default: settings.logo -%}
+        {%- if footer_logo != blank -%}
+          {{ footer_logo | image_url: width: 240 | image_tag: loading: 'lazy', alt: shop.name }}
+        {%- else -%}
+          <span class="footer__logo-text">{{ shop.name }}</span>
+        {%- endif -%}
+      </a>
+      {%- if section.settings.tagline != blank -%}<p class="footer__tagline">{{ section.settings.tagline }}</p>{%- endif -%}
+      {%- if section.settings.text != blank -%}<div class="footer__text">{{ section.settings.text }}</div>{%- endif -%}
+
+      <div class="footer__social">
+        {%- if settings.social_instagram != blank -%}
+          <a href="{{ settings.social_instagram }}" target="_blank" rel="noopener" aria-label="Instagram">{% render 'icon', name: 'instagram', px: 18 %}</a>
+        {%- endif -%}
+        {%- if settings.social_tiktok != blank -%}
+          <a href="{{ settings.social_tiktok }}" target="_blank" rel="noopener" aria-label="TikTok">{% render 'icon', name: 'tiktok', px: 18 %}</a>
+        {%- endif -%}
+        {%- if settings.social_facebook != blank -%}
+          <a href="{{ settings.social_facebook }}" target="_blank" rel="noopener" aria-label="Facebook">{% render 'icon', name: 'facebook', px: 18 %}</a>
+        {%- endif -%}
+      </div>
+    </div>
+
+    {%- for menu_setting in (1..2) -%}
+      {%- liquid
+        if menu_setting == 1
+          assign col_title = section.settings.menu_1_title
+          assign col_menu = section.settings.menu_1
+        else
+          assign col_title = section.settings.menu_2_title
+          assign col_menu = section.settings.menu_2
+        endif
+      -%}
+      {%- if col_menu.links.size > 0 -%}
+        <div class="footer__col">
+          <h3>{{ col_title }}</h3>
+          <ul>
+            {%- for link in col_menu.links -%}
+              <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+            {%- endfor -%}
+          </ul>
+        </div>
+      {%- endif -%}
+    {%- endfor -%}
+
+    <div class="footer__col">
+      <h3>{{ section.settings.contact_title }}</h3>
+      <ul class="footer__contact">
+        {%- if settings.whatsapp_number != blank -%}
+          <li>{% render 'icon', name: 'chat', px: 18 %} <a href="{{ wa_url | strip }}" target="_blank" rel="noopener">{{ settings.whatsapp_number }}</a></li>
+        {%- endif -%}
+        {%- if settings.contact_email != blank -%}
+          <li>{% render 'icon', name: 'mail', px: 18 %} <a href="mailto:{{ settings.contact_email }}">{{ settings.contact_email }}</a></li>
+        {%- endif -%}
+        {%- if settings.contact_hours != blank -%}
+          <li>{% render 'icon', name: 'clock', px: 18 %} {{ settings.contact_hours }}</li>
+        {%- endif -%}
+        {%- if settings.contact_shipping != blank -%}
+          <li>{% render 'icon', name: 'truck', px: 18 %} {{ settings.contact_shipping }}</li>
+        {%- endif -%}
+      </ul>
+      {%- if settings.whatsapp_number != blank -%}
+        <a href="{{ wa_url | strip }}" target="_blank" rel="noopener" class="button button--whatsapp">
+          {% render 'icon', name: 'whatsapp', px: 18 %} Escribinos por WhatsApp
+        </a>
+      {%- endif -%}
+    </div>
+  </div>
+
+  <div class="page-width footer__bottom">
+    <p>© {{ 'now' | date: '%Y' }} {{ shop.name }}. Todos los derechos reservados.</p>
+    {%- if section.settings.show_payment_icons -%}
+      <ul class="footer__payments" aria-label="Medios de pago">
+        {%- for type in shop.enabled_payment_types -%}
+          <li>{{ type | payment_type_svg_tag: class: 'payment-icon' }}</li>
+        {%- endfor -%}
+      </ul>
+    {%- endif -%}
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Pie de página",
+  "class": "section-footer",
+  "settings": [
+    { "type": "image_picker", "id": "logo", "label": "Logo del pie (opcional)", "info": "Si lo dejás vacío se usa el logo principal." },
+    { "type": "text", "id": "tagline", "label": "Frase", "default": "Tu perfumería de confianza ✨" },
+    { "type": "richtext", "id": "text", "label": "Descripción", "default": "<p>Perfumes árabes originales con trato de barrio y envíos a todo el país.</p>" },
+    { "type": "header", "content": "Columnas" },
+    { "type": "text", "id": "menu_1_title", "label": "Título columna 1", "default": "Tienda" },
+    { "type": "link_list", "id": "menu_1", "label": "Menú columna 1", "default": "main-menu" },
+    { "type": "text", "id": "menu_2_title", "label": "Título columna 2", "default": "Ayuda" },
+    { "type": "link_list", "id": "menu_2", "label": "Menú columna 2", "default": "footer" },
+    { "type": "text", "id": "contact_title", "label": "Título columna de contacto", "default": "Contacto" },
+    { "type": "paragraph", "content": "Los datos de contacto y redes se cargan en Configuración del tema → Contacto y redes." },
+    { "type": "header", "content": "Estilo" },
+    { "type": "color", "id": "background", "label": "Color de fondo", "info": "Vacío = color principal del tema." },
+    { "type": "checkbox", "id": "show_payment_icons", "label": "Mostrar medios de pago", "default": true }
+  ]
+}
+{% endschema %}

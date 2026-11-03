@@ -1,0 +1,19 @@
+{%- comment -%}
+  Lee etiquetas especiales del producto y devuelve el valor pedido.
+    · "badge:Texto"  → etiqueta naranja sobre la foto
+    · "promo:Texto"  → línea de oferta + botón "Ver ofertas"
+  Uso: {% capture badge %}{% render 'product-tags', product: product, key: 'badge' %}{% endcapture %}
+{%- endcomment -%}
+{%- liquid
+  assign prefix = key | append: ':'
+  for tag in product.tags
+    if tag contains prefix
+      assign first = tag | slice: 0, prefix.size | downcase
+      if first == prefix
+        assign value = tag | slice: prefix.size, 200 | strip
+        echo value
+        break
+      endif
+    endif
+  endfor
+-%}

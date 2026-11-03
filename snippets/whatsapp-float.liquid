@@ -1,0 +1,12 @@
+{%- if settings.whatsapp_number != blank and settings.whatsapp_float -%}
+  {%- assign wa_number = settings.whatsapp_number | remove: '+' | remove: ' ' | remove: '-' | remove: '(' | remove: ')' -%}
+  <a
+    href="https://wa.me/{{ wa_number }}?text={{ settings.whatsapp_message | url_encode }}"
+    class="whatsapp-float"
+    target="_blank"
+    rel="noopener"
+    aria-label="Escribinos por WhatsApp"
+  >
+    {% render 'icon', name: 'whatsapp', px: 30 %}
+  </a>
+{%- endif -%}

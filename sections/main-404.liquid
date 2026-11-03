@@ -1,0 +1,15 @@
+<section class="section" style="--section-bg: {{ section.settings.background }};">
+  <div class="page-width page-width--narrow empty-state">
+    {% render 'section-heading', eyebrow: 'ERROR 404', title: 'No encontramos esta página', subtitle: 'Puede que el link esté mal o que el producto ya no esté disponible.', tag: 'h1' %}
+    <a href="{{ routes.all_products_collection_url }}" class="button button--primary button--lg">Ver perfumes {% render 'icon', name: 'arrow', px: 18 %}</a>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Página 404",
+  "settings": [
+    { "type": "color", "id": "background", "label": "Color de fondo", "default": "#f3f1ef" }
+  ]
+}
+{% endschema %}

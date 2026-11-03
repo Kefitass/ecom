@@ -1,0 +1,31 @@
+{
+  "current": "Default",
+  "presets": {
+    "Default": {
+      "logo_width": 90,
+      "color_primary": "#5c2233",
+      "color_accent": "#c8873a",
+      "color_heading": "#3b2a22",
+      "color_text": "#5f5652",
+      "color_background": "#f3f1ef",
+      "color_surface": "#ffffff",
+      "color_announcement": "#3b2a22",
+      "color_stars": "#e7a72c",
+      "type_heading_font": "poppins_n7",
+      "type_body_font": "nunito_sans_n4",
+      "card_radius": 22,
+      "card_show_discount": true,
+      "card_rating_value": "4.9",
+      "card_rating_text": "+1.000 clientes felices",
+      "installments_show": true,
+      "installments_count": 3,
+      "installments_show_amount": true,
+      "transfer_show": false,
+      "transfer_discount": 10,
+      "whatsapp_message": "¡Hola! Quería hacer una consulta sobre un perfume.",
+      "whatsapp_float": true,
+      "contact_hours": "Lunes a viernes de 9 a 18 hs",
+      "contact_shipping": "Envíos a todo el país"
+    }
+  }
+}

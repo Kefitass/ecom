@@ -1,0 +1,72 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Perfumería de Barrio",
+    "theme_version": "1.0.0",
+    "theme_author": "Perfumería de Barrio",
+    "theme_documentation_url": "https://help.shopify.com/manual/online-store/themes",
+    "theme_support_url": "https://help.shopify.com/"
+  },
+  {
+    "name": "Logo",
+    "settings": [
+      { "type": "image_picker", "id": "logo", "label": "Logo" },
+      { "type": "range", "id": "logo_width", "label": "Ancho del logo", "min": 50, "max": 260, "step": 5, "unit": "px", "default": 90 },
+      { "type": "image_picker", "id": "favicon", "label": "Ícono de la pestaña (favicon)", "info": "32 × 32 px" }
+    ]
+  },
+  {
+    "name": "Colores",
+    "settings": [
+      { "type": "color", "id": "color_primary", "label": "Principal (botones, barra de confianza, pie)", "default": "#5c2233" },
+      { "type": "color", "id": "color_accent", "label": "Ofertas (sellos, botón comprar)", "default": "#c8873a" },
+      { "type": "color", "id": "color_heading", "label": "Títulos", "default": "#3b2a22" },
+      { "type": "color", "id": "color_text", "label": "Texto", "default": "#5f5652" },
+      { "type": "color", "id": "color_background", "label": "Fondo general", "default": "#f3f1ef" },
+      { "type": "color", "id": "color_surface", "label": "Fondo de tarjetas", "default": "#ffffff" },
+      { "type": "color", "id": "color_announcement", "label": "Barra de anuncios", "default": "#3b2a22" },
+      { "type": "color", "id": "color_stars", "label": "Estrellas", "default": "#e7a72c" }
+    ]
+  },
+  {
+    "name": "Tipografía",
+    "settings": [
+      { "type": "font_picker", "id": "type_heading_font", "label": "Títulos", "default": "poppins_n7" },
+      { "type": "font_picker", "id": "type_body_font", "label": "Texto", "default": "nunito_sans_n4" }
+    ]
+  },
+  {
+    "name": "Tarjetas de producto",
+    "settings": [
+      { "type": "range", "id": "card_radius", "label": "Redondeo de esquinas", "min": 0, "max": 32, "step": 2, "unit": "px", "default": 22 },
+      { "type": "checkbox", "id": "card_show_discount", "label": "Mostrar % OFF automático si hay precio tachado", "default": true },
+      { "type": "text", "id": "card_rating_value", "label": "Puntaje por defecto", "default": "4.9", "info": "Se usa si el producto no tiene reseñas de una app. Dejalo vacío para ocultarlo." },
+      { "type": "text", "id": "card_rating_text", "label": "Texto del puntaje por defecto", "default": "+1.000 clientes felices" },
+      { "type": "paragraph", "content": "Etiquetas especiales del producto: 'badge:HASTA 35% OFF' muestra un sello sobre la foto, y 'promo:Llevá 2 y ahorrá 30%' muestra la línea de oferta y el botón naranja 'Ver ofertas'." }
+    ]
+  },
+  {
+    "name": "Cuotas y transferencia",
+    "settings": [
+      { "type": "checkbox", "id": "installments_show", "label": "Mostrar cuotas sin interés", "default": true },
+      { "type": "range", "id": "installments_count", "label": "Cantidad de cuotas", "min": 2, "max": 12, "step": 1, "default": 3 },
+      { "type": "checkbox", "id": "installments_show_amount", "label": "Mostrar el valor de cada cuota", "default": true },
+      { "type": "checkbox", "id": "transfer_show", "label": "Mostrar precio con transferencia", "default": false },
+      { "type": "range", "id": "transfer_discount", "label": "Descuento por transferencia", "min": 0, "max": 30, "step": 1, "unit": "%", "default": 10, "info": "Es solo informativo: el descuento real se configura en Shopify (Descuentos o Pagos manuales)." }
+    ]
+  },
+  {
+    "name": "Contacto y redes",
+    "settings": [
+      { "type": "text", "id": "whatsapp_number", "label": "WhatsApp", "info": "Con código de país, por ejemplo: +54 9 11 1234-5678" },
+      { "type": "text", "id": "whatsapp_message", "label": "Mensaje inicial de WhatsApp", "default": "¡Hola! Quería hacer una consulta sobre un perfume." },
+      { "type": "checkbox", "id": "whatsapp_float", "label": "Mostrar botón flotante de WhatsApp", "default": true },
+      { "type": "text", "id": "contact_email", "label": "Email" },
+      { "type": "text", "id": "contact_hours", "label": "Horario", "default": "Lunes a viernes de 9 a 18 hs" },
+      { "type": "text", "id": "contact_shipping", "label": "Envíos", "default": "Envíos a todo el país" },
+      { "type": "url", "id": "social_instagram", "label": "Instagram" },
+      { "type": "url", "id": "social_tiktok", "label": "TikTok" },
+      { "type": "url", "id": "social_facebook", "label": "Facebook" }
+    ]
+  }
+]

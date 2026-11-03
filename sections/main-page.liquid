@@ -1,0 +1,15 @@
+<section class="section" style="--section-bg: {{ section.settings.background }};">
+  <div class="page-width page-width--narrow">
+    {% render 'section-heading', title: page.title, tag: 'h1' %}
+    <div class="rte card card--padded">{{ page.content }}</div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Página",
+  "settings": [
+    { "type": "color", "id": "background", "label": "Color de fondo", "default": "#f3f1ef" }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,22 @@
+<article class="section" style="--section-bg: {{ section.settings.background }};">
+  <div class="page-width page-width--narrow">
+    {%- assign published = article.published_at | date: '%d/%m/%Y' -%}
+    {% render 'section-heading', eyebrow: blog.title, title: article.title, subtitle: published, tag: 'h1' %}
+    {%- if article.image -%}
+      <div class="article__image card">
+        {{ article.image | image_url: width: 1400 | image_tag: widths: '600, 900, 1200, 1400', sizes: '(min-width: 990px) 800px, 100vw' }}
+      </div>
+    {%- endif -%}
+    <div class="rte card card--padded">{{ article.content }}</div>
+    <p class="section__footer"><a href="{{ blog.url }}" class="button button--outline">← Volver al blog</a></p>
+  </div>
+</article>
+
+{% schema %}
+{
+  "name": "Artículo",
+  "settings": [
+    { "type": "color", "id": "background", "label": "Color de fondo", "default": "#f3f1ef" }
+  ]
+}
+{% endschema %}

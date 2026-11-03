@@ -1,0 +1,100 @@
+{%- liquid
+  assign eyebrow = section.settings.eyebrow
+  assign title = collection.title
+  if collection.handle == 'all' or collection.handle == blank
+    assign title = section.settings.title_all
+  endif
+  assign subtitle = collection.description | default: section.settings.subtitle
+-%}
+
+<section class="section" style="--section-bg: {{ section.settings.background }};">
+  <div class="page-width">
+    {% render 'section-heading', eyebrow: eyebrow, title: title, subtitle: subtitle, tag: 'h1' %}
+
+    {%- if section.blocks.size > 0 -%}
+      <ul class="chips">
+        {%- for block in section.blocks -%}
+          <li class="chip" {{ block.shopify_attributes }}>{% render 'icon', name: block.settings.icon, px: 16 %} {{ block.settings.text }}</li>
+        {%- endfor -%}
+      </ul>
+    {%- endif -%}
+
+    {%- paginate collection.products by section.settings.per_page -%}
+      {%- if section.settings.show_sort and collection.products_count > 1 -%}
+        <form class="collection-sort" method="get">
+          <label for="SortBy">Ordenar por</label>
+          <select id="SortBy" name="sort_by" onchange="this.form.submit()">
+            {%- assign sort_by = collection.sort_by | default: collection.default_sort_by -%}
+            {%- for option in collection.sort_options -%}
+              <option value="{{ option.value }}"{% if option.value == sort_by %} selected{% endif %}>{{ option.name }}</option>
+            {%- endfor -%}
+          </select>
+        </form>
+      {%- endif -%}
+
+      {%- if collection.products.size > 0 -%}
+        <div class="product-grid product-grid--{{ section.settings.columns }}">
+          {%- for product in collection.products -%}
+            {% render 'product-card', product: product %}
+          {%- endfor -%}
+        </div>
+      {%- else -%}
+        <p class="empty-state">Todavía no hay productos en esta colección.</p>
+      {%- endif -%}
+
+      {%- if paginate.pages > 1 -%}
+        {% render 'pagination', paginate: paginate %}
+      {%- endif -%}
+    {%- endpaginate -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Catálogo",
+  "class": "section-main-collection",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Etiqueta", "default": "PERFUMERÍA DE BARRIO" },
+    { "type": "text", "id": "title_all", "label": "Título para 'Todos los productos'", "default": "Nuestros perfumes" },
+    { "type": "richtext", "id": "subtitle", "label": "Subtítulo (si la colección no tiene descripción)", "default": "<p>Perfumes árabes originales, con fijación de verdad y a precio de barrio. 🌙</p>" },
+    { "type": "range", "id": "per_page", "label": "Productos por página", "min": 4, "max": 48, "step": 4, "default": 16 },
+    {
+      "type": "select",
+      "id": "columns",
+      "label": "Columnas en compu",
+      "default": "2",
+      "options": [
+        { "value": "2", "label": "2 (tarjetas grandes)" },
+        { "value": "3", "label": "3" },
+        { "value": "4", "label": "4" }
+      ]
+    },
+    { "type": "checkbox", "id": "show_sort", "label": "Mostrar 'Ordenar por'", "default": false },
+    { "type": "color", "id": "background", "label": "Color de fondo", "default": "#f3f1ef" }
+  ],
+  "blocks": [
+    {
+      "type": "chip",
+      "name": "Chip",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Ícono",
+          "default": "truck",
+          "options": [
+            { "value": "truck", "label": "Camión" },
+            { "value": "card", "label": "Tarjeta" },
+            { "value": "shield", "label": "Escudo" },
+            { "value": "chat", "label": "Chat" },
+            { "value": "gift", "label": "Regalo" },
+            { "value": "sparkles", "label": "Brillos" }
+          ]
+        },
+        { "type": "text", "id": "text", "label": "Texto", "default": "Despacho en 24 hs" }
+      ]
+    }
+  ],
+  "max_blocks": 4
+}
+{% endschema %}

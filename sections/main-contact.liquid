@@ -1,0 +1,93 @@
+{%- capture wa_url -%}{% render 'whatsapp-url' %}{%- endcapture -%}
+<section class="section" style="--section-bg: {{ section.settings.background }};">
+  <div class="page-width">
+    {%- capture contact_title -%}{{ section.settings.title }}{% if section.settings.emoji != blank %}<span class="section-heading__emoji">{{ section.settings.emoji }}</span>{% endif %}{%- endcapture -%}
+    {% render 'section-heading', eyebrow: section.settings.eyebrow, title: contact_title, subtitle: section.settings.subtitle, tag: 'h1' %}
+
+    <div class="contact">
+      <div class="contact__side">
+        {%- if settings.whatsapp_number != blank -%}
+          <div class="contact__wa">
+            <p class="pill pill--on-dark">{% render 'icon', name: 'zap', px: 14 %} {{ section.settings.wa_pill }}</p>
+            <h2>{{ section.settings.wa_title }}</h2>
+            <p>{{ section.settings.wa_text }}</p>
+            <a href="{{ wa_url | strip }}" target="_blank" rel="noopener" class="button button--whatsapp button--lg button--full">
+              {% render 'icon', name: 'whatsapp', px: 20 %} Abrir WhatsApp
+            </a>
+          </div>
+        {%- endif -%}
+
+        <ul class="contact__info card">
+          {%- if settings.whatsapp_number != blank -%}
+            <li><span class="contact__icon">{% render 'icon', name: 'chat', px: 20 %}</span><div><strong>WhatsApp</strong><span>{{ settings.whatsapp_number }}</span></div></li>
+          {%- endif -%}
+          {%- if settings.contact_email != blank -%}
+            <li><span class="contact__icon">{% render 'icon', name: 'mail', px: 20 %}</span><div><strong>Email</strong><a href="mailto:{{ settings.contact_email }}">{{ settings.contact_email }}</a></div></li>
+          {%- endif -%}
+          {%- if settings.contact_hours != blank -%}
+            <li><span class="contact__icon">{% render 'icon', name: 'clock', px: 20 %}</span><div><strong>Horario de atención</strong><span>{{ settings.contact_hours }}</span></div></li>
+          {%- endif -%}
+          {%- if settings.contact_shipping != blank -%}
+            <li><span class="contact__icon">{% render 'icon', name: 'truck', px: 20 %}</span><div><strong>Envíos</strong><span>{{ settings.contact_shipping }}</span></div></li>
+          {%- endif -%}
+        </ul>
+      </div>
+
+      <div class="contact__form card">
+        <h2>{{ section.settings.form_title }}</h2>
+        <p class="contact__form-sub">{{ section.settings.form_text }}</p>
+
+        {%- form 'contact', id: 'ContactForm' -%}
+          {%- if form.posted_successfully? -%}
+            <p class="form-message form-message--success">{% render 'icon', name: 'check', px: 18 %} ¡Gracias! Recibimos tu mensaje y te respondemos a la brevedad.</p>
+          {%- elsif form.errors -%}
+            <div class="form-message form-message--error">{{ form.errors | default_errors }}</div>
+          {%- endif -%}
+
+          <div class="form-grid">
+            <div class="field">
+              <label for="ContactName">Nombre</label>
+              <input id="ContactName" type="text" name="contact[name]" placeholder="Tu nombre" autocomplete="name" value="{{ form.name }}">
+            </div>
+            <div class="field">
+              <label for="ContactEmail">Email <span class="req">*</span></label>
+              <input id="ContactEmail" type="email" name="contact[email]" placeholder="tu@email.com" autocomplete="email" required value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}">
+            </div>
+            <div class="field field--full">
+              <label for="ContactPhone">Teléfono / WhatsApp</label>
+              <input id="ContactPhone" type="tel" name="contact[phone]" placeholder="Ej: 11 2345-6789" autocomplete="tel" value="{{ form.phone }}">
+            </div>
+            <div class="field field--full">
+              <label for="ContactBody">¿En qué te ayudamos? <span class="req">*</span></label>
+              <textarea id="ContactBody" name="contact[body]" rows="5" required placeholder="Contanos tu consulta: tu pedido, qué perfume buscás, aromas que te gustan...">{{ form.body }}</textarea>
+            </div>
+          </div>
+          <button type="submit" class="button button--accent button--lg button--full button--shadow">
+            Enviar mensaje {% render 'icon', name: 'arrow', px: 18 %}
+          </button>
+        {%- endform -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Contacto",
+  "class": "section-main-contact",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Etiqueta", "default": "CONTACTO" },
+    { "type": "text", "id": "title", "label": "Título", "default": "¡Estamos para ayudarte!" },
+    { "type": "text", "id": "emoji", "label": "Emoji", "default": "🌙" },
+    { "type": "richtext", "id": "subtitle", "label": "Subtítulo", "default": "<p>¿Tenés alguna duda sobre tu pedido o no sabés qué perfume elegir? Escribinos y te respondemos en menos de 24 hs hábiles.</p>" },
+    { "type": "header", "content": "Tarjeta de WhatsApp" },
+    { "type": "text", "id": "wa_pill", "label": "Etiqueta", "default": "RESPUESTA MÁS RÁPIDA" },
+    { "type": "text", "id": "wa_title", "label": "Título", "default": "Escribinos por WhatsApp" },
+    { "type": "textarea", "id": "wa_text", "label": "Texto", "default": "Consultas sobre tu pedido, recomendaciones de aromas o lo que necesites. Te respondemos rapidísimo." },
+    { "type": "header", "content": "Formulario" },
+    { "type": "text", "id": "form_title", "label": "Título", "default": "Dejanos tu mensaje" },
+    { "type": "text", "id": "form_text", "label": "Texto", "default": "Completá el formulario y te contestamos por mail." },
+    { "type": "color", "id": "background", "label": "Color de fondo", "default": "#f3f1ef" }
+  ]
+}
+{% endschema %}

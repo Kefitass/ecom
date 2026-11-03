@@ -1,0 +1,110 @@
+{%- liquid
+  assign menu = section.settings.menu
+-%}
+
+<header class="header{% if section.settings.sticky %} header--sticky{% endif %}">
+  <div class="page-width header__inner">
+    <details class="mobile-menu" data-mobile-menu>
+      <summary class="header__icon mobile-menu__toggle" aria-label="Abrir menú">
+        <span class="mobile-menu__open">{% render 'icon', name: 'menu' %}</span>
+        <span class="mobile-menu__close">{% render 'icon', name: 'close' %}</span>
+      </summary>
+      <nav class="mobile-menu__panel" aria-label="Menú">
+        <ul>
+          {%- for link in menu.links -%}
+            <li>
+              <a href="{{ link.url }}"{% if link.current %} aria-current="page"{% endif %}>{{ link.title }}</a>
+              {%- if link.links.size > 0 -%}
+                <ul class="mobile-menu__sub">
+                  {%- for child in link.links -%}
+                    <li><a href="{{ child.url }}">{{ child.title }}</a></li>
+                  {%- endfor -%}
+                </ul>
+              {%- endif -%}
+            </li>
+          {%- endfor -%}
+        </ul>
+      </nav>
+    </details>
+
+    <a href="{{ routes.root_url }}" class="header__logo">
+      {%- if settings.logo != blank -%}
+        {%- liquid
+          assign logo_width_2x = settings.logo_width | times: 2
+          assign logo_style = 'width: ' | append: settings.logo_width | append: 'px; height: auto;'
+        -%}
+        {{
+          settings.logo
+          | image_url: width: logo_width_2x
+          | image_tag: alt: shop.name, style: logo_style
+        }}
+      {%- else -%}
+        <span class="header__logo-text">{{ shop.name }}</span>
+      {%- endif -%}
+    </a>
+
+    <nav class="header__nav" aria-label="Principal">
+      <ul>
+        {%- for link in menu.links -%}
+          <li>
+            <a href="{{ link.url }}" class="header__link{% if link.current or link.child_active %} is-active{% endif %}">{{ link.title }}</a>
+            {%- if link.links.size > 0 -%}
+              <ul class="header__dropdown">
+                {%- for child in link.links -%}
+                  <li><a href="{{ child.url }}">{{ child.title }}</a></li>
+                {%- endfor -%}
+              </ul>
+            {%- endif -%}
+          </li>
+        {%- endfor -%}
+      </ul>
+    </nav>
+
+    <div class="header__icons">
+      <details class="header-search">
+        <summary class="header__icon" aria-label="Buscar">{% render 'icon', name: 'search' %}</summary>
+        <div class="header-search__panel">
+          <form action="{{ routes.search_url }}" method="get" role="search" class="page-width header-search__form">
+            <input type="hidden" name="type" value="product">
+            <input type="search" name="q" placeholder="¿Qué perfume buscás?" aria-label="Buscar" autocomplete="off">
+            <button type="submit" class="button button--primary">{% render 'icon', name: 'search', px: 18 %}<span class="visually-hidden">Buscar</span></button>
+          </form>
+        </div>
+      </details>
+
+      {%- if shop.customer_accounts_enabled -%}
+        <a href="{{ routes.account_url }}" class="header__icon header__icon--account" aria-label="Mi cuenta">{% render 'icon', name: 'user' %}</a>
+      {%- endif -%}
+
+      <a href="{{ routes.cart_url }}" class="header__icon header__cart" aria-label="Carrito ({{ cart.item_count }})">
+        {% render 'icon', name: 'bag' %}
+        <span class="header__cart-count{% if cart.item_count == 0 %} is-empty{% endif %}" data-cart-count>{{ cart.item_count }}</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+{% schema %}
+{
+  "name": "Encabezado",
+  "class": "section-header",
+  "settings": [
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Menú",
+      "default": "main-menu"
+    },
+    {
+      "type": "checkbox",
+      "id": "sticky",
+      "label": "Fijar al hacer scroll",
+      "default": true
+    },
+    {
+      "type": "paragraph",
+      "content": "El logo y su tamaño se cambian en Configuración del tema → Logo."
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,69 @@
+<section class="section" style="--section-bg: {{ section.settings.background }};">
+  <div class="page-width">
+    {% render 'section-heading',
+      eyebrow: section.settings.eyebrow,
+      title: section.settings.title,
+      subtitle: section.settings.subtitle
+    %}
+
+    <div class="testimonials">
+      {%- for block in section.blocks -%}
+        <figure class="testimonial card" {{ block.shopify_attributes }}>
+          <div class="stars__icons" aria-label="{{ block.settings.rating }} de 5 estrellas">
+            {%- for i in (1..block.settings.rating) -%}{% render 'icon', name: 'star', px: 16 %}{%- endfor -%}
+          </div>
+          <blockquote>{{ block.settings.text }}</blockquote>
+          <figcaption>
+            {%- if block.settings.image != blank -%}
+              {{ block.settings.image | image_url: width: 96, height: 96 | image_tag: loading: 'lazy', class: 'testimonial__avatar' }}
+            {%- else -%}
+              <span class="testimonial__avatar testimonial__avatar--initial">{{ block.settings.name | slice: 0 }}</span>
+            {%- endif -%}
+            <span>
+              <strong>{{ block.settings.name }}</strong>
+              {%- if block.settings.detail != blank -%}<small>{{ block.settings.detail }}</small>{%- endif -%}
+            </span>
+          </figcaption>
+        </figure>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Opiniones",
+  "class": "section-testimonials",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Etiqueta", "default": "OPINIONES" },
+    { "type": "text", "id": "title", "label": "Título", "default": "Lo que dicen nuestros clientes" },
+    { "type": "richtext", "id": "subtitle", "label": "Subtítulo" },
+    { "type": "color", "id": "background", "label": "Color de fondo", "default": "#ffffff" },
+    { "type": "paragraph", "content": "Cargá solo opiniones reales de tus clientes (por ejemplo, capturas de WhatsApp o reseñas de Google)." }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Opinión",
+      "settings": [
+        { "type": "range", "id": "rating", "label": "Estrellas", "min": 1, "max": 5, "step": 1, "default": 5 },
+        { "type": "richtext", "id": "text", "label": "Opinión", "default": "<p>Pegá acá la opinión real de un cliente.</p>" },
+        { "type": "text", "id": "name", "label": "Nombre", "default": "Nombre del cliente" },
+        { "type": "text", "id": "detail", "label": "Detalle", "default": "Compró: nombre del perfume" },
+        { "type": "image_picker", "id": "image", "label": "Foto (opcional)" }
+      ]
+    }
+  ],
+  "max_blocks": 9,
+  "presets": [
+    {
+      "name": "Opiniones",
+      "blocks": [
+        { "type": "testimonial" },
+        { "type": "testimonial" },
+        { "type": "testimonial" }
+      ]
+    }
+  ]
+}
+{% endschema %}
