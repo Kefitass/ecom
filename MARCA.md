@@ -96,20 +96,25 @@ Las tres fuentes son gratis y están en Google Fonts.
 
 ## 4. Logo
 
-**Isotipo:** un arco oriental (mihrab) con una gota de perfume adentro. El arco representa Oriente y la puerta del local de barrio; la gota es el perfume.
-**Logotipo:** "PERFUMERÍA" en Poppins Bold espaciada, con "*de Barrio*" en serif itálica Ámbar debajo.
+**Isotipo "Gato del arco":** un gato sentado dentro de un arco árabe (mihrab), con ojos ámbar y la cola que termina en una gota de perfume.
+- El **gato** es el del barrio, y también un animal muy querido en la cultura árabe: está en todos los zocos.
+- El **arco** es Oriente y la puerta del local.
+- La **gota** es el perfume.
 
-| Versión | Cuándo |
-|---|---|
-| **Clara** (letras blancas + Ámbar) | Sobre Noche, Ciruela o fotos oscuras. Es la principal |
-| **Oscura** (Tinta + Ciruela) | Sobre Crema o blanco |
-| **Isotipo solo** (arco + gota) | Foto de perfil, favicon, sticker, tapa de caja, sello de lacre |
+**Logotipo:** "PERFUMERÍA" en Poppins Bold espaciada, con "*de Barrio*" en serif itálica (Playfair Display) Ámbar debajo.
 
+| Versión | Colores | Cuándo |
+|---|---|---|
+| **Clara** | Gato blanco, arco Ámbar, gota Granada, letras blanco + Ámbar | Sobre Noche, Ciruela o fotos oscuras. Es la principal |
+| **Oscura** | Gato Ciruela, arco Ámbar, gota Granada, letras Tinta + Ciruela | Sobre Crema o blanco |
+| **Isotipo solo** | El gato en el arco, sin letras | Foto de perfil, favicon, sticker, tapa de caja, sello |
+
+- **Mascota:** el gato puede aparecer solo (sin arco) en stickers, la tarjeta de agradecimiento y las stories, por ejemplo oliendo un frasco o durmiendo sobre la caja. Siempre en silueta plana, con ojos Ámbar.
 - **Área de respeto:** alrededor del logo, dejá libre como mínimo el ancho del arco.
-- **Tamaño mínimo:** 120 px de ancho en pantalla y 30 mm impreso. El isotipo solo, 24 px o 8 mm.
+- **Tamaño mínimo:** 120 px de ancho en pantalla y 30 mm impreso. El isotipo solo, 24 px u 8 mm.
 - **No hacer:** deformarlo, cambiarle los colores fuera de la paleta, ponerle sombras o contornos, ni usarlo sobre fondos con mucho detalle sin una placa Noche detrás.
 
-> El tema trae el logo armado en código (`snippets/brand-logo.liquid`). Cuando tengas el logo final hecho por un diseñador, subilo en *Configuración del tema → Logo* y reemplaza al del código.
+> El tema trae el logo armado en código (`snippets/brand-logo.liquid`) y el favicon (`assets/favicon.svg`). Cuando un diseñador entregue la versión final vectorizada, subila en *Configuración del tema → Logo* y *Favicon*.
 
 ---
 
