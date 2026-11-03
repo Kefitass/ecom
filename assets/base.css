@@ -11,7 +11,7 @@
   --c-sand: color-mix(in srgb, var(--c-bg) 92%, var(--c-heading));
   --c-sand-soft: color-mix(in srgb, var(--c-bg) 60%, #fff);
   --c-line: color-mix(in srgb, var(--c-heading) 13%, transparent);
-  --c-muted: color-mix(in srgb, var(--c-text) 60%, var(--c-bg));
+  --c-muted: color-mix(in srgb, var(--c-text) 78%, var(--c-bg));
   --c-rose: color-mix(in srgb, var(--c-pink) 65%, #fff);
   --c-teal-ink: color-mix(in srgb, var(--c-cyan) 18%, #000);
   --c-teal-soft: color-mix(in srgb, var(--c-cyan) 55%, #fff);
