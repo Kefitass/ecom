@@ -639,6 +639,20 @@ window.CE_imgFail = function(img) {
     "#ce-landing-full .story .big{text-align:center;min-width:200px}",
     "#ce-landing-full .story .big b{display:block;font:900 120px/1 var(--ce-title);color:#F5D27A;letter-spacing:-.04em}",
     "#ce-landing-full .story .big span{display:block;font:800 15px/1.3 var(--ce-title);letter-spacing:.12em;text-transform:uppercase;opacity:.8;margin-top:6px}",
+    "#ce-landing-full .mito{background:radial-gradient(circle at 15% 20%,#2B3A8C 0%,#14213D 48%,#0B1226 100%);color:#fff}",
+    "#ce-landing-full .mito .w{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:56px;align-items:center}",
+    "#ce-landing-full .mito .h2{color:#fff}#ce-landing-full .mito .h2 span{color:#F5D27A}#ce-landing-full .mito .ld{color:rgba(255,255,255,.78)}",
+    "#ce-landing-full .mfig{position:relative;text-align:center;padding:30px 0}",
+    "#ce-landing-full .mfig .n{display:inline-block;font:900 190px/1 var(--ce-title);letter-spacing:-.05em;color:transparent;-webkit-text-stroke:3px rgba(255,255,255,.35)}",
+    "#ce-landing-full .mfig i{position:absolute;left:4%;right:4%;top:50%;height:10px;border-radius:6px;background:#E8632E;transform:rotate(-9deg);box-shadow:0 0 26px rgba(232,99,46,.75)}",
+    "#ce-landing-full .mfig b{position:absolute;right:6%;top:26%;padding:8px 18px;border:5px solid #E8632E;border-radius:12px;color:#E8632E;font:900 40px/1 var(--ce-title);letter-spacing:.04em;transform:rotate(10deg);background:rgba(11,18,38,.6)}",
+    "#ce-landing-full .capas{list-style:none;margin:22px 0 0;padding:0;display:grid;gap:12px}",
+    "#ce-landing-full .capas li{display:flex;gap:18px;align-items:flex-start;padding:18px 20px;border-radius:16px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12)}",
+    "#ce-landing-full .capas b{flex:none;font:900 32px/1 var(--ce-title);color:#F5D27A;min-width:26px}",
+    "#ce-landing-full .capas strong{display:block;font:800 17px/1.3 var(--ce-title);color:#fff}",
+    "#ce-landing-full .capas span{display:block;margin-top:4px;font-size:15px;line-height:1.5;color:rgba(255,255,255,.72)}",
+    "#ce-landing-full .mok{margin-top:18px;font-size:16px;color:#fff}#ce-landing-full .mok strong{color:#FF8A57}",
+    "@media(max-width:749px){#ce-landing-full .mito .w{grid-template-columns:1fr;gap:10px}#ce-landing-full .mfig .n{font-size:120px}#ce-landing-full .mfig b{font-size:28px;right:8%}}",
     "#ce-landing-full .fund .w{text-align:center}",
     "#ce-landing-full .fvid{position:relative;max-width:340px;margin:22px auto 0;aspect-ratio:9/16;border-radius:24px;overflow:hidden;background:#0B1226;box-shadow:0 20px 44px rgba(11,18,38,.28)}",
     "#ce-landing-full .fvid video{display:block;width:100%;height:100%;object-fit:cover}",
@@ -883,6 +897,21 @@ window.CE_imgFail = function(img) {
   }
 
   // La sección estrella: el Generador de CV, con video si está cargado o una maqueta si no.
+  // «El 75 % de los CV los descarta un robot»: el dato no tiene respaldo; lo real son tres momentos donde te pueden dejar afuera.
+  function mito() {
+    var capas = [
+      ["Cuando el sistema lee tu CV", "Si el formato es raro (columnas, íconos, tablas), se carga mal y quedás invisible en las búsquedas. Se arregla con un formato simple."],
+      ["Las preguntas del formulario", "El descarte automático casi siempre viene de una pregunta eliminatoria, como la zona o los años de experiencia, no de que tu CV sea feo."],
+      ["La búsqueda y el ranking", "Decide una persona, pero si quedaste muy abajo en la lista, nunca llega a leerte. Por eso importan las palabras exactas del aviso."]
+    ];
+    return '<section class="sec mito"><div class="w"><div class="mfig" aria-hidden="true"><span class="n">75%</span><i></i><b>MITO</b></div>' +
+      '<div><div class="ey">Lo que casi nadie te dice</div>' +
+      '<h2 class="h2">«El 75 % de los CV los descarta un robot.» <span>No es tan así.</span></h2>' +
+      '<p class="ld">Esa cifra se repite desde 2012, pero nunca se publicó cómo se calculó. Lo real es que el sistema de selección (ATS) te puede dejar afuera en tres momentos:</p>' +
+      '<ol class="capas">' + capas.map(function(c, i) { return "<li><b>" + (i + 1) + "</b><div><strong>" + c[0] + "</strong><span>" + c[1] + "</span></div></li>"; }).join("") + "</ol>" +
+      '<p class="mok">El <strong>Generador de CV</strong> de Método 30 te resuelve el 1 y el 3: formato simple y las palabras de cada aviso.</p></div></div></section>';
+  }
+
   function generador() {
     var g = cfg.generador || {};
     if (!g.mostrar) return "";
@@ -964,7 +993,10 @@ window.CE_imgFail = function(img) {
     if (!c) return false;
     var faqs = (cfg.faqs || []).map(function(f) { return "<details><summary>" + f.p + "</summary><p>" + f.r + "</p></details>"; }).join("");
     c.innerHTML =
-      // 0. El Generador de CV (la estrella)
+      // 0. El mito del 75 % (entre la compra y el generador)
+      mito() +
+
+      // 0a. El Generador de CV (la estrella)
       generador() +
 
       // 0b. Antes y después
@@ -986,22 +1018,6 @@ window.CE_imgFail = function(img) {
 
       // 1c. Quién está detrás (video de presentación)
       fundador() +
-
-      // 2. Solución: el plan
-      '<section class="sec paper"><div class="w ' + row("book-row", img.tapa1) + '">' +
-        pic("book", img.tapa1, "Tapa del ebook Conseguí trabajo en 30 días") +
-        '<div><div class="ey">El Método 30 · Ebook de 43 páginas</div><h2 class="h2">Un plan día por día para <span>conseguir trabajo en 30 días</span></h2>' +
-        '<p class="ld">Cada etapa tiene tareas concretas, checklists para tildar y plantillas listas para copiar. Sabés exactamente qué hacer cada día.</p>' +
-        '<ol class="steps">' +
-          "<li><b>1</b><div><small>Días 1–3</small><strong>Objetivo y propuesta de valor</strong><span>Qué buscás y por qué te tienen que elegir.</span></div></li>" +
-          "<li><b>2</b><div><small>Días 4–8</small><strong>Un CV que pasa los filtros</strong><span>La fórmula de logros que consigue entrevistas.</span></div></li>" +
-          "<li><b>3</b><div><small>Días 9–12</small><strong>LinkedIn que atrae reclutadores</strong><span>Titular, perfil y red para que te encuentren.</span></div></li>" +
-          "<li><b>4</b><div><small>Días 13–17</small><strong>Búsqueda y networking</strong><span>El mercado oculto y los mensajes que abren puertas.</span></div></li>" +
-          '<li class="hl"><b>5</b><div><small>Días 18–24</small><strong>Entrevistas que terminan en oferta</strong><span>Método STAR y las 15 preguntas clave.</span></div></li>' +
-          "<li><b>6</b><div><small>Días 25–28</small><strong>Negociación de sueldo</strong><span>Qué decir para no aceptar menos de lo que valés.</span></div></li>" +
-          "<li><b>7</b><div><small>Días 29–30</small><strong>Cierre y plan B</strong><span>Cómo arrancar bien o ajustar si todavía no llegó.</span></div></li>" +
-        "</ol></div>" +
-      "</div></section>" +
 
       // 3. Qué incluye
       '<section class="sec"><div class="w"><div class="ey">Qué incluye</div><h2 class="h2">Todo lo que necesitás, listo para usar</h2><div class="grid">' +
