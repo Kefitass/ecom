@@ -10,70 +10,278 @@
   {
     "name": "Logo",
     "settings": [
-      { "type": "image_picker", "id": "logo", "label": "Logo", "info": "Ideal PNG con fondo transparente y letras claras (el header es oscuro)." },
-      { "type": "range", "id": "logo_width", "label": "Ancho del logo", "min": 80, "max": 300, "step": 5, "unit": "px", "default": 160 },
-      { "type": "text", "id": "logo_pill", "label": "Etiqueta debajo del logo", "default": "PROMO 3X1", "info": "Ej: CYBER MONDAY, HOT SALE, PROMO 3X1. Vacío = oculta." },
-      { "type": "image_picker", "id": "favicon", "label": "Ícono de la pestaña (favicon)", "info": "32 × 32 px" }
+      {
+        "type": "image_picker",
+        "id": "logo",
+        "label": "Logo",
+        "info": "Si lo dejás vacío se usa el logo de marca incluido en el tema. Ideal PNG transparente con letras claras."
+      },
+      {
+        "type": "range",
+        "id": "logo_width",
+        "label": "Ancho del logo",
+        "min": 80,
+        "max": 300,
+        "step": 5,
+        "unit": "px",
+        "default": 170
+      },
+      {
+        "type": "text",
+        "id": "logo_pill",
+        "label": "Etiqueta debajo del logo",
+        "default": "PROMO 3X1",
+        "info": "Ej: CYBER MONDAY, HOT SALE, PROMO 3X1. Vacío = oculta."
+      },
+      {
+        "type": "image_picker",
+        "id": "favicon",
+        "label": "Ícono de la pestaña (favicon)",
+        "info": "32 × 32 px"
+      }
     ]
   },
   {
     "name": "Colores",
     "settings": [
-      { "type": "color", "id": "color_dark", "label": "Oscuro (header, landing)", "default": "#0e0a26" },
-      { "type": "color", "id": "color_primary", "label": "Violeta (botones, textos de transferencia)", "default": "#7b2ff7" },
-      { "type": "color", "id": "color_pink", "label": "Rosa (precios, % OFF)", "default": "#ff2e8b" },
-      { "type": "color", "id": "color_cyan", "label": "Celeste (envío gratis)", "default": "#22d3ee" },
-      { "type": "color", "id": "color_gold", "label": "Dorado (landing de producto)", "default": "#f5c962" },
-      { "type": "color", "id": "color_heading", "label": "Títulos", "default": "#1c1240" },
-      { "type": "color", "id": "color_text", "label": "Texto", "default": "#4a4463" },
-      { "type": "color", "id": "color_background", "label": "Fondo general", "default": "#f6f2ff" },
-      { "type": "color", "id": "color_surface", "label": "Fondo de tarjetas", "default": "#ffffff" },
-      { "type": "color", "id": "color_stars", "label": "Estrellas", "default": "#f5b301" }
+      {
+        "type": "paragraph",
+        "content": "Paleta de marca Perfumería de Barrio. Cambiala solo si cambia la identidad: todo el tema sale de estos colores."
+      },
+      {
+        "type": "color",
+        "id": "color_dark",
+        "label": "Noche (header, footer, landing)",
+        "default": "#17101F"
+      },
+      {
+        "type": "color",
+        "id": "color_primary",
+        "label": "Ciruela (marca, botones, transferencia)",
+        "default": "#6A2C70"
+      },
+      {
+        "type": "color",
+        "id": "color_pink",
+        "label": "Granada (precios, % OFF, ofertas)",
+        "default": "#D1335F"
+      },
+      {
+        "type": "color",
+        "id": "color_gold",
+        "label": "Ámbar (detalles dorados, landing)",
+        "default": "#E8A838"
+      },
+      {
+        "type": "color",
+        "id": "color_cyan",
+        "label": "Turquesa (envío gratis, confianza)",
+        "default": "#2BB5A8"
+      },
+      {
+        "type": "color",
+        "id": "color_heading",
+        "label": "Tinta (títulos)",
+        "default": "#1E1424"
+      },
+      {
+        "type": "color",
+        "id": "color_text",
+        "label": "Texto",
+        "default": "#4A3F4D"
+      },
+      {
+        "type": "color",
+        "id": "color_background",
+        "label": "Crema (fondo general)",
+        "default": "#FBF5EF"
+      },
+      {
+        "type": "color",
+        "id": "color_surface",
+        "label": "Fondo de tarjetas",
+        "default": "#FFFFFF"
+      },
+      {
+        "type": "color",
+        "id": "color_stars",
+        "label": "Estrellas",
+        "default": "#F2B33D"
+      }
     ]
   },
   {
     "name": "Tipografía",
     "settings": [
-      { "type": "font_picker", "id": "type_heading_font", "label": "Títulos", "default": "poppins_n7" },
-      { "type": "font_picker", "id": "type_body_font", "label": "Texto", "default": "poppins_n4" }
+      {
+        "type": "font_picker",
+        "id": "type_heading_font",
+        "label": "Títulos",
+        "default": "poppins_n7"
+      },
+      {
+        "type": "font_picker",
+        "id": "type_body_font",
+        "label": "Texto",
+        "default": "poppins_n4"
+      }
     ]
   },
   {
     "name": "Tarjetas de producto",
     "settings": [
-      { "type": "range", "id": "card_radius", "label": "Redondeo de esquinas", "min": 0, "max": 32, "step": 2, "unit": "px", "default": 18 },
-      { "type": "header", "content": "Sello en la esquina de la foto" },
-      { "type": "text", "id": "card_sticker_top", "label": "Línea grande", "default": "PROMO 3X1", "info": "Vacío = sin sello." },
-      { "type": "text", "id": "card_sticker_bottom", "label": "Línea chica", "default": "BARRIO" },
-      { "type": "header", "content": "Etiquetas sobre la foto" },
-      { "type": "checkbox", "id": "card_show_discount", "label": "Mostrar % OFF si hay precio tachado", "default": true },
-      { "type": "text", "id": "card_shipping_label", "label": "Etiqueta de envío", "default": "ENVÍO GRATIS", "info": "Vacío = oculta." },
-      { "type": "paragraph", "content": "Etiqueta de producto 'badge:MÁS VENDIDO' muestra una etiqueta extra sobre la foto. Las estrellas aparecen solas si usás una app de reseñas (Judge.me, Shopify Product Reviews, etc.)." }
+      {
+        "type": "range",
+        "id": "card_radius",
+        "label": "Redondeo de esquinas",
+        "min": 0,
+        "max": 32,
+        "step": 2,
+        "unit": "px",
+        "default": 18
+      },
+      {
+        "type": "header",
+        "content": "Sello en la esquina de la foto"
+      },
+      {
+        "type": "text",
+        "id": "card_sticker_top",
+        "label": "Línea grande",
+        "default": "PROMO 3X1",
+        "info": "Vacío = sin sello."
+      },
+      {
+        "type": "text",
+        "id": "card_sticker_bottom",
+        "label": "Línea chica",
+        "default": "BARRIO"
+      },
+      {
+        "type": "header",
+        "content": "Etiquetas sobre la foto"
+      },
+      {
+        "type": "checkbox",
+        "id": "card_show_discount",
+        "label": "Mostrar % OFF si hay precio tachado",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "card_shipping_label",
+        "label": "Etiqueta de envío",
+        "default": "ENVÍO GRATIS",
+        "info": "Vacío = oculta."
+      },
+      {
+        "type": "paragraph",
+        "content": "Etiqueta de producto 'badge:MÁS VENDIDO' muestra una etiqueta extra sobre la foto. Las estrellas aparecen solas si usás una app de reseñas (Judge.me, Shopify Product Reviews, etc.)."
+      }
     ]
   },
   {
     "name": "Cuotas y transferencia",
     "settings": [
-      { "type": "checkbox", "id": "installments_show", "label": "Mostrar cuotas sin interés", "default": true },
-      { "type": "range", "id": "installments_count", "label": "Cantidad de cuotas", "min": 2, "max": 12, "step": 1, "default": 3 },
-      { "type": "checkbox", "id": "installments_show_amount", "label": "Mostrar el valor de cada cuota", "default": true },
-      { "type": "checkbox", "id": "transfer_show", "label": "Mostrar precio con transferencia", "default": true },
-      { "type": "range", "id": "transfer_discount", "label": "Descuento por transferencia", "min": 0, "max": 30, "step": 1, "unit": "%", "default": 15, "info": "Es solo informativo: el descuento real se configura en Shopify (Configuración → Pagos → Pagos manuales / Descuentos)." }
+      {
+        "type": "checkbox",
+        "id": "installments_show",
+        "label": "Mostrar cuotas sin interés",
+        "default": true
+      },
+      {
+        "type": "range",
+        "id": "installments_count",
+        "label": "Cantidad de cuotas",
+        "min": 2,
+        "max": 12,
+        "step": 1,
+        "default": 3
+      },
+      {
+        "type": "checkbox",
+        "id": "installments_show_amount",
+        "label": "Mostrar el valor de cada cuota",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "transfer_show",
+        "label": "Mostrar precio con transferencia",
+        "default": true
+      },
+      {
+        "type": "range",
+        "id": "transfer_discount",
+        "label": "Descuento por transferencia",
+        "min": 0,
+        "max": 30,
+        "step": 1,
+        "unit": "%",
+        "default": 5,
+        "info": "Es solo informativo: el descuento real se configura en Shopify (Configuración → Pagos → Pagos manuales / Descuentos)."
+      }
     ]
   },
   {
     "name": "Contacto y redes",
     "settings": [
-      { "type": "text", "id": "whatsapp_number", "label": "WhatsApp", "info": "Con código de país, por ejemplo: +54 9 11 1234-5678" },
-      { "type": "text", "id": "whatsapp_message", "label": "Mensaje inicial de WhatsApp", "default": "¡Hola! Quería hacer una consulta sobre un perfume." },
-      { "type": "checkbox", "id": "whatsapp_float", "label": "Mostrar botón flotante de WhatsApp", "default": true },
-      { "type": "text", "id": "contact_email", "label": "Email" },
-      { "type": "text", "id": "contact_hours", "label": "Horario", "default": "Lunes a viernes de 9 a 18 hs" },
-      { "type": "text", "id": "contact_shipping", "label": "Envíos", "default": "Envíos gratis a todo el país" },
-      { "type": "text", "id": "instagram_handle", "label": "Usuario de Instagram", "info": "Sin @, por ejemplo: perfumeriadebarrio" },
-      { "type": "url", "id": "social_instagram", "label": "Instagram (link)" },
-      { "type": "url", "id": "social_tiktok", "label": "TikTok (link)" },
-      { "type": "url", "id": "social_facebook", "label": "Facebook (link)" }
+      {
+        "type": "text",
+        "id": "whatsapp_number",
+        "label": "WhatsApp",
+        "info": "Con código de país, por ejemplo: +54 9 11 1234-5678"
+      },
+      {
+        "type": "text",
+        "id": "whatsapp_message",
+        "label": "Mensaje inicial de WhatsApp",
+        "default": "¡Hola! Quería hacer una consulta sobre un perfume."
+      },
+      {
+        "type": "checkbox",
+        "id": "whatsapp_float",
+        "label": "Mostrar botón flotante de WhatsApp",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "contact_email",
+        "label": "Email"
+      },
+      {
+        "type": "text",
+        "id": "contact_hours",
+        "label": "Horario",
+        "default": "Lunes a viernes de 9 a 18 hs"
+      },
+      {
+        "type": "text",
+        "id": "contact_shipping",
+        "label": "Envíos",
+        "default": "Envíos gratis a todo el país"
+      },
+      {
+        "type": "text",
+        "id": "instagram_handle",
+        "label": "Usuario de Instagram",
+        "info": "Sin @, por ejemplo: perfumeriadebarrio"
+      },
+      {
+        "type": "url",
+        "id": "social_instagram",
+        "label": "Instagram (link)"
+      },
+      {
+        "type": "url",
+        "id": "social_tiktok",
+        "label": "TikTok (link)"
+      },
+      {
+        "type": "url",
+        "id": "social_facebook",
+        "label": "Facebook (link)"
+      }
     ]
   }
 ]

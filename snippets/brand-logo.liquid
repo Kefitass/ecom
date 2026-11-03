@@ -1,0 +1,30 @@
+{%- comment -%}
+  Logo de marca Perfumería de Barrio (SVG, sin imágenes).
+  Isotipo: arco oriental (mihrab) con una gota de perfume adentro.
+  Uso: {% render 'brand-logo', variant: 'light' %}  ·  variant: 'light' (sobre fondo oscuro) | 'dark' (sobre fondo claro) | 'mark' (solo isotipo)
+{%- endcomment -%}
+{%- liquid
+  assign variant = variant | default: 'light'
+  if variant == 'dark'
+    assign word = 'var(--c-heading)'
+    assign sub = 'var(--c-primary)'
+  else
+    assign word = '#ffffff'
+    assign sub = 'var(--c-gold)'
+  endif
+-%}
+{%- capture mark -%}
+  <path d="M20 4c6.6 4.3 14 7.4 14 17.5V44H6V21.5C6 11.4 13.4 8.3 20 4Z" fill="none" stroke="var(--c-gold)" stroke-width="2.6" stroke-linejoin="round"/>
+  <path d="M20 16c3.6 4.6 6 8 6 11.3a6 6 0 0 1-12 0c0-3.3 2.4-6.7 6-11.3Z" fill="var(--c-pink)"/>
+  <path d="M17.6 28.4a2.6 2.6 0 0 0 2.4 2.5" fill="none" stroke="#fff" stroke-opacity=".7" stroke-width="1.4" stroke-linecap="round"/>
+  <circle cx="20" cy="2" r="1.6" fill="var(--c-gold)"/>
+{%- endcapture -%}
+{%- if variant == 'mark' -%}
+  <svg class="brand-logo brand-logo--mark" viewBox="0 0 40 46" width="{{ width | default: 40 }}" role="img" aria-label="{{ shop.name }}">{{ mark }}</svg>
+{%- else -%}
+  <svg class="brand-logo" viewBox="0 0 232 52" width="{{ width | default: 200 }}" role="img" aria-label="{{ shop.name }}">
+    <g transform="translate(0 3)">{{ mark }}</g>
+    <text x="50" y="22" fill="{{ word }}" font-family="Poppins, 'Helvetica Neue', Arial, sans-serif" font-weight="700" font-size="15.5" letter-spacing="3.6">PERFUMERÍA</text>
+    <text x="49" y="47" fill="{{ sub }}" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-weight="700" font-size="25">de Barrio</text>
+  </svg>
+{%- endif -%}

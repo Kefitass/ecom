@@ -127,7 +127,7 @@
         "f2": { "type": "check", "settings": { "text": "Mini perfumero recargable de regalo" } },
         "f3": { "type": "check", "settings": { "text": "Envío gratis a todo el país" } },
         "f4": { "type": "check", "settings": { "text": "3 cuotas sin interés de [cuota]" } },
-        "f5": { "type": "check", "settings": { "text": "15% OFF por transferencia: [transferencia]" } }
+        "f5": { "type": "check", "settings": { "text": "5% OFF por transferencia: [transferencia]" } }
       },
       "block_order": ["f1", "f2", "f3", "f4", "f5"],
       "settings": {
@@ -147,7 +147,7 @@
       "blocks": {
         "t1": { "type": "card", "settings": { "emoji": "🚚", "tag": "", "name": "Envío gratis", "text": "A todo el país, con seguimiento.", "accent": "gold" } },
         "t2": { "type": "card", "settings": { "emoji": "💳", "tag": "", "name": "3 cuotas sin interés", "text": "Con tarjeta de crédito.", "accent": "gold" } },
-        "t3": { "type": "card", "settings": { "emoji": "💸", "tag": "", "name": "15% OFF transferencia", "text": "Pagando por transferencia bancaria.", "accent": "gold" } }
+        "t3": { "type": "card", "settings": { "emoji": "💸", "tag": "", "name": "5% OFF transferencia", "text": "Pagando por transferencia bancaria.", "accent": "gold" } }
       },
       "block_order": ["t1", "t2", "t3"],
       "settings": { "eyebrow": "COMPRÁ TRANQUILO", "title": "", "title_gold": "", "text": "", "alt_bg": true }

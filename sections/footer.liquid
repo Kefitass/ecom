@@ -1,6 +1,14 @@
 {%- capture wa_url -%}{% render 'whatsapp-url' %}{%- endcapture -%}
 <footer class="footer-wrap">
   <div class="footer">
+    <div class="footer__brand">
+      {%- if settings.logo != blank -%}
+        {{ settings.logo | image_url: width: 400 | image_tag: loading: 'lazy', alt: shop.name, class: 'footer__logo-img' }}
+      {%- else -%}
+        {% render 'brand-logo', variant: 'light', width: 190 %}
+      {%- endif -%}
+      {%- if section.settings.tagline != blank -%}<p>{{ section.settings.tagline }}</p>{%- endif -%}
+    </div>
     <div class="footer__grid">
       <div class="footer__col">
         <h3>{{ section.settings.menu_title }}</h3>
@@ -84,6 +92,7 @@
   "name": "Pie de página",
   "class": "section-footer",
   "settings": [
+    { "type": "text", "id": "tagline", "label": "Frase de marca", "default": "Perfumes árabes con trato de barrio." },
     { "type": "text", "id": "menu_title", "label": "Título del menú", "default": "Categorías" },
     { "type": "link_list", "id": "menu", "label": "Menú", "default": "footer" },
     { "type": "text", "id": "contact_title", "label": "Título de contacto", "default": "Contactanos" },

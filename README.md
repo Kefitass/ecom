@@ -1,6 +1,6 @@
 # Perfumería de Barrio · tema de Shopify
 
-Tema de Shopify (Online Store 2.0) para **Perfumería de Barrio**, con estilo neón violeta, rosa y celeste para la tienda y una landing oscura con dorado en cada producto.
+Tema de Shopify (Online Store 2.0) para **Perfumería de Barrio**, con la identidad de marca propia (Noche, Ciruela, Granada, Ámbar y Turquesa sobre Crema) y una landing oscura con dorado en cada producto. La guía de marca está en [`MARCA.md`](MARCA.md).
 Todo se edita desde **Tienda online → Temas → Personalizar**, sin tocar código.
 
 ## Qué incluye
@@ -10,7 +10,7 @@ Todo se edita desde **Tienda online → Temas → Personalizar**, sin tocar cód
 | **Todas** | Barra de anuncios animada · Franja "50% OFF" · Header oscuro (buscador, logo con etiqueta, Ayuda / Mi cuenta / Mi carrito, menú, "Seguí acá tu última compra") · Footer violeta con medios de pago y envío, Defensa del Consumidor y Botón de arrepentimiento · Botón flotante de WhatsApp |
 | **Inicio** | Slider de banners · Instagram · Banners de categorías ("Combos de perfumes" / "Armá tu combo") · Videos "Compra seguro/a" (oculta hasta que subas videos) · Promociones actuales (grilla de 4) |
 | **Catálogo** | Banner · Migas de pan · Ordenar por · Filtros (marca, precio) · Grilla de tarjetas |
-| **Producto** | Galería con miniaturas, sello, precio tachado, precio, precio con transferencia, "Ahorrás un 15%", cuotas, envío gratis y botón de compra. Debajo va la **landing oscura**: portada 3X1, oferta, "Así llega tu pedido", "Uno para cada ocasión", "¿Por qué los árabes?", lista con tildes, "Los tres, uno por uno", "Qué incluye", "Hacé la cuenta" (oculta), "Tu combo" y "Comprá tranquilo". Después: reseñas (app), preguntas frecuentes y productos similares |
+| **Producto** | Galería con miniaturas, sello, precio tachado, precio, precio con transferencia, "Ahorrás un 5%", cuotas, envío gratis y botón de compra. Debajo va la **landing oscura**: portada 3X1, oferta, "Así llega tu pedido", "Uno para cada ocasión", "¿Por qué los árabes?", lista con tildes, "Los tres, uno por uno", "Qué incluye", "Hacé la cuenta" (oculta), "Tu combo" y "Comprá tranquilo". Después: reseñas (app), preguntas frecuentes y productos similares |
 | **Otras** | Carrito, contacto, búsqueda, blog, 404 y contraseña |
 
 Las **tarjetas de producto** muestran el sello de esquina, % OFF, ENVÍO GRATIS, estrellas (si usás una app de reseñas), precio tachado + precio, precio con TRANSFERENCIA y cuotas sin interés.
@@ -45,7 +45,7 @@ Para importarlos: **Productos → Importar → subir `productos.csv`**. Después
 
 1. **Configuración del tema → Logo**: logo en PNG con letras claras, más la etiqueta de abajo (por ejemplo, PROMO 3X1 o CYBER MONDAY).
 2. **Configuración del tema → Contacto y redes**: WhatsApp, email, usuario y link de Instagram.
-3. **Configuración del tema → Cuotas y transferencia**: 3 cuotas y 15% por transferencia ya vienen activados. El descuento real por transferencia se configura en Shopify.
+3. **Configuración del tema → Cuotas y transferencia**: 3 cuotas y 5% por transferencia ya vienen activados. El descuento real por transferencia se configura en Shopify.
 4. **Navegación**: menú `main-menu` (Inicio, Productos, Seguir mi pedido, Contacto) y menú `footer`.
 5. **Páginas → Contacto**: asignale la plantilla `page.contact`.
 6. **Pie de página**: CUIT y link del **Botón de arrepentimiento**, que es obligatorio en Argentina.

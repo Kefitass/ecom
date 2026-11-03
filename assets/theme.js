@@ -98,6 +98,11 @@
     });
   });
 
+  /* ---------- Filtros: cerrados de entrada en celu y tablet ---------- */
+  if (window.matchMedia('(max-width: 989px)').matches) {
+    document.querySelectorAll('.filters__wrap[open]').forEach(function (d) { d.removeAttribute('open'); });
+  }
+
   /* ---------- Ordenar catálogo ---------- */
   document.querySelectorAll('[data-sort-select]').forEach(function (select) {
     select.addEventListener('change', function () {

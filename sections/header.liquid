@@ -49,7 +49,7 @@
           -%}
           {{ settings.logo | image_url: width: logo_width_2x | image_tag: alt: shop.name, style: logo_style }}
         {%- else -%}
-          <span class="header__logo-text">{{ shop.name }}</span>
+          {% render 'brand-logo', variant: 'light', width: settings.logo_width %}
         {%- endif -%}
         {%- if settings.logo_pill != blank -%}
           <span class="header__logo-pill">{% render 'icon', name: 'zap', px: 10 %} {{ settings.logo_pill }}</span>
