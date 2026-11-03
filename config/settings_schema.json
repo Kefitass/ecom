@@ -1,9 +1,9 @@
 [
   {
     "name": "theme_info",
-    "theme_name": "Perfumería de Barrio",
+    "theme_name": "Casa del Oud",
     "theme_version": "2.0.0",
-    "theme_author": "Perfumería de Barrio",
+    "theme_author": "Casa del Oud",
     "theme_documentation_url": "https://help.shopify.com/manual/online-store/themes",
     "theme_support_url": "https://help.shopify.com/"
   },
@@ -46,7 +46,7 @@
     "settings": [
       {
         "type": "paragraph",
-        "content": "Paleta de marca Perfumería de Barrio: Oud, Jade, Terracota, Azafrán, Azulejo y Arena. Todo el tema sale de estos colores."
+        "content": "Paleta de marca Casa del Oud: Oud, Jade, Terracota, Azafrán, Azulejo y Arena. Todo el tema sale de estos colores."
       },
       {
         "type": "color",
@@ -155,7 +155,7 @@
         "type": "text",
         "id": "card_sticker_bottom",
         "label": "Línea chica",
-        "default": "BARRIO"
+        "default": "CASA DEL OUD"
       },
       {
         "type": "header",
@@ -265,7 +265,7 @@
         "type": "text",
         "id": "instagram_handle",
         "label": "Usuario de Instagram",
-        "info": "Sin @, por ejemplo: perfumeriadebarrio"
+        "info": "Sin @, por ejemplo: casadeloud"
       },
       {
         "type": "url",

@@ -1,6 +1,6 @@
 {%- comment -%}
-  Logo de marca Perfumería de Barrio (SVG, sin imágenes).
-  Isotipo "Gato del arco": un gato sentado dentro de un arco árabe (mihrab),
+  Logo de marca Casa del Oud (SVG, sin imágenes).
+  Isotipo "Gato del arco": un gato sentado en la puerta de la casa, un arco árabe (mihrab),
   con ojos ámbar y la cola que termina en una gota de perfume.
   Uso: {% render 'brand-logo', variant: 'light', width: 180 %}
     variant: 'light' (sobre fondo oscuro) | 'dark' (sobre fondo claro) | 'mark' (solo isotipo, para fondo oscuro) | 'mark-dark' (solo isotipo, para fondo claro)
@@ -31,9 +31,9 @@
 {%- if variant == 'mark' or variant == 'mark-dark' -%}
   <svg class="brand-logo brand-logo--mark" viewBox="-2 -4 104 124" width="{{ width | default: 40 }}" role="img" aria-label="{{ shop.name }}">{{ mark }}</svg>
 {%- else -%}
-  <svg class="brand-logo" viewBox="0 0 262 62" width="{{ width | default: 200 }}" role="img" aria-label="{{ shop.name }}">
+  <svg class="brand-logo" viewBox="0 0 208 62" width="{{ width | default: 180 }}" role="img" aria-label="{{ shop.name }}">
     <g transform="translate(2 2.5) scale(.47)">{{ mark }}</g>
-    <text x="62" y="27" fill="{{ word }}" font-family="Poppins, 'Helvetica Neue', Arial, sans-serif" font-weight="700" font-size="16" letter-spacing="3.8">PERFUMERÍA</text>
-    <text x="61" y="54" fill="{{ sub }}" font-family="'Playfair Display', Georgia, 'Times New Roman', serif" font-style="italic" font-weight="700" font-size="27">de Barrio</text>
+    <text x="62" y="24" fill="{{ word }}" font-family="Poppins, 'Helvetica Neue', Arial, sans-serif" font-weight="700" font-size="15" letter-spacing="5">CASA DEL</text>
+    <text x="60" y="56" fill="{{ sub }}" font-family="'Playfair Display', Georgia, 'Times New Roman', serif" font-style="italic" font-weight="700" font-size="36">Oud</text>
   </svg>
 {%- endif -%}

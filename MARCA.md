@@ -1,7 +1,7 @@
-# Perfumería de Barrio · Guía de marca
+# Casa del Oud · Guía de marca
 
-> **Perfumes árabes con trato de barrio.**
-> La fragancia intensa de Oriente, con la confianza de la perfumería de la esquina.
+> **Perfumes árabes, como en casa.**
+> La fragancia intensa de Oriente, con la calidez y la confianza de una casa donde te reciben bien.
 
 Esta guía es la base para que la marca se vea igual en todos lados: la tienda, Instagram, los anuncios, el packaging y, más adelante, la línea de perfumes propia.
 
@@ -13,15 +13,17 @@ Esta guía es la base para que la marca se vea igual en todos lados: la tienda, 
 |---|---|
 | **Qué somos** | Una perfumería online especializada en fragancias árabes de larga duración. |
 | **Para quién** | Gente de 18 a 40 años que quiere oler bien todo el día sin pagar precios de lujo, y que compra por Instagram y WhatsApp. |
-| **Promesa** | Perfumes que duran, a precio de barrio, con alguien real del otro lado. |
+| **Promesa** | Perfumes que duran, a precio justo, con alguien real del otro lado. |
 | **Diferencial** | Asesoramiento humano (te ayudamos a elegir), combos pensados por ocasión y envío rápido. |
-| **Personalidad** | Cálida · Cercana · Entendida · Honesta · Con un toque de misterio oriental. |
+| **Personalidad** | Cálida · Hospitalaria · Entendida · Honesta · Con un toque de misterio oriental. |
+
+**El nombre:** *Casa del Oud*. El **oud** es la madera más preciada de la perfumería árabe y la nota que define a estos perfumes. La **casa** es el lugar donde te reciben, te convidan un café y te ayudan a elegir.
 
 **Los dos mundos de la marca:**
-- **Barrio:** cercanía, confianza, humor, voseo, el "te conozco".
-- **Oriente:** noche, oud, especias, dorado, arcos y lujo.
+- **Casa:** hospitalidad, cercanía, confianza, voseo, "pasá, te ayudamos".
+- **Oriente:** noche, oud, especias, dorado y arcos.
 
-La marca vive en el cruce de los dos. Si una pieza es solo lujo, queda fría. Si es solo barrio, se ve barata.
+La marca vive en el cruce de los dos. Si una pieza es solo lujo, queda fría. Si es solo cercanía, se ve barata.
 
 ---
 
@@ -86,7 +88,7 @@ Una paleta tomada del mundo árabe real: la madera de **oud**, el **jade** de lo
 |---|---|---|---|
 | Títulos | **Poppins** | Bold 700 / ExtraBold 800 | **Promociones actuales** |
 | Texto | **Poppins** | Regular 400 | Envío gratis a todo el país |
-| Frases de marca | **Serif itálica** (Georgia en la web; *Playfair Display Italic* en diseño e impresos) | Bold Italic | *de Barrio* · *que duran todo el día* |
+| Frases de marca | **Serif itálica** (Georgia en la web; *Playfair Display Italic* en diseño e impresos) | Bold Italic | *Oud* · *que duran todo el día* |
 | Etiquetas | Poppins | Bold 700, MAYÚSCULAS, espaciado +15% | ENVÍO GRATIS · PROMO 3X1 |
 
 Las tres fuentes son gratis y están en Google Fonts.
@@ -99,12 +101,12 @@ Las tres fuentes son gratis y están en Google Fonts.
 
 ## 4. Logo
 
-**Isotipo "Gato del arco":** un gato sentado dentro de un arco árabe (mihrab), con ojos ámbar y la cola que termina en una gota de perfume.
-- El **gato** es el del barrio, y también un animal muy querido en la cultura árabe: está en todos los zocos.
-- El **arco** es Oriente y la puerta del local.
+**Isotipo "Gato del arco":** un gato sentado en la puerta de la casa, un arco árabe (mihrab), con ojos Azafrán y la cola que termina en una gota de perfume.
+- El **gato** es el dueño de casa que te recibe, y también un animal muy querido en la cultura árabe: está en todos los zocos.
+- El **arco** es Oriente y la puerta de la casa.
 - La **gota** es el perfume.
 
-**Logotipo:** "PERFUMERÍA" en Poppins Bold espaciada, con "*de Barrio*" en serif itálica (Playfair Display) Azafrán debajo.
+**Logotipo:** "CASA DEL" en Poppins Bold espaciada, con "*Oud*" grande en serif itálica (Playfair Display) Azafrán debajo.
 
 | Versión | Colores | Cuándo |
 |---|---|---|
@@ -123,7 +125,7 @@ Las tres fuentes son gratis y están en Google Fonts.
 
 ## 5. Voz y tono
 
-Hablamos como el que atiende la perfumería del barrio y sabe un montón de perfumes: de vos, simple, con onda y sin chamuyo.
+Hablamos como quien te recibe en su casa y sabe un montón de perfumes: de vos, simple, cálido y sin chamuyo.
 
 | ✅ Sí | ❌ No |
 |---|---|
@@ -157,8 +159,8 @@ Hablamos como el que atiende la perfumería del barrio y sabe un montón de perf
 | **Instagram (post 1080×1350)** | Fondo Oud, título Poppins blanco, palabra clave en Azafrán y logo claro abajo |
 | **Stories (1080×1920)** | Mismo estilo. Sticker de link en Terracota |
 | **Caja / bolsa** | Jade mate con el isotipo en Azafrán (hot stamping dorado si el presupuesto da) |
-| **Sticker de cierre** | Círculo Oud con isotipo Azafrán y "*de Barrio*" |
-| **Tarjeta de agradecimiento** | Arena, con la frase "Gracias por ser del barrio ✨", el @ y "Etiquetanos" |
+| **Sticker de cierre** | Círculo Oud con el isotipo Azafrán y "*Casa del Oud*" |
+| **Tarjeta de agradecimiento** | Arena, con la frase "Gracias por pasar por casa ✨", el @ y "Etiquetanos" |
 | **Mini perfumero de regalo** | Etiqueta Jade con el isotipo |
 
 ---
@@ -167,7 +169,7 @@ Hablamos como el que atiende la perfumería del barrio y sabe un montón de perf
 
 Cuando lances tus propios perfumes, usá un sistema de nombres que sea solo tuyo y no dependa de marcas ajenas:
 
-**Línea "Barrio"**: número + nombre evocador + familia olfativa.
+**Línea "Casa"**: número + nombre evocador + familia olfativa.
 
 | Código | Nombre | Familia | Momento |
 |---|---|---|---|

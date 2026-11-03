@@ -1,6 +1,6 @@
-# Perfumería de Barrio · tema de Shopify
+# Casa del Oud · tema de Shopify
 
-Tema de Shopify (Online Store 2.0) para **Perfumería de Barrio**, con la identidad de marca propia (Oud, Jade, Terracota, Azafrán y Azulejo sobre Arena) y una landing oscura con dorado en cada producto. La guía de marca está en [`MARCA.md`](MARCA.md).
+Tema de Shopify (Online Store 2.0) para **Casa del Oud**, con la identidad de marca propia (Oud, Jade, Terracota, Azafrán y Azulejo sobre Arena) y una landing oscura con dorado en cada producto. La guía de marca está en [`MARCA.md`](MARCA.md).
 Todo se edita desde **Tienda online → Temas → Personalizar**, sin tocar código.
 
 ## Qué incluye

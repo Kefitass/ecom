@@ -159,7 +159,7 @@
     "faq": {
       "type": "faq",
       "blocks": {
-        "q1": { "type": "question", "settings": { "question": "⭐ ¿Es confiable comprar en Perfumería de Barrio?", "answer": "<p>Sí. Pagás con Mercado Pago o tarjeta a través del checkout seguro de Shopify, y te mandamos el seguimiento de tu envío. Ante cualquier duda, escribinos por WhatsApp.</p>" } },
+        "q1": { "type": "question", "settings": { "question": "⭐ ¿Es confiable comprar en Casa del Oud?", "answer": "<p>Sí. Pagás con Mercado Pago o tarjeta a través del checkout seguro de Shopify, y te mandamos el seguimiento de tu envío. Ante cualquier duda, escribinos por WhatsApp.</p>" } },
         "q2": { "type": "question", "settings": { "question": "🚚 ¿Cuánto tarda el envío?", "answer": "<p>Despachamos en 24 a 48 hs hábiles. La entrega demora entre 3 y 7 días hábiles según tu ciudad.</p>" } },
         "q3": { "type": "question", "settings": { "question": "⏱ ¿Cuánto duran los perfumes?", "answer": "<p>Entre 8 y 12 horas en la piel, según tu tipo de piel y el clima. En la ropa duran más.</p>" } },
         "q4": { "type": "question", "settings": { "question": "🔁 ¿Puedo cambiarlo?", "answer": "<p>Sí. Si no te gusta, escribinos dentro de los 10 días de recibido y lo resolvemos.</p>" } }

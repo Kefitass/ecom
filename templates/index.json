@@ -38,7 +38,7 @@
     "promos": {
       "type": "featured-products",
       "settings": {
-        "eyebrow": "PROMO 3X1 BARRIO",
+        "eyebrow": "PROMOS DE LA CASA",
         "title": "Promociones actuales",
         "collection": "all",
         "limit": 12,

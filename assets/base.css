@@ -806,6 +806,7 @@ p:last-child { margin-bottom: 0; }
   .cat-banners { gap: 10px; }
   .cat-banner__title { padding: 12px 8px; font-size: .78rem; }
   .sticker-badge strong { font-size: .55rem; }
+  .product-card__badge { top: auto; bottom: 30px; }
   .product-card__body { padding: 12px 8px 14px; }
   .product-card__title { font-size: .76rem; }
   .price { gap: 6px; }
