@@ -10,7 +10,7 @@
         "a3": { "type": "announcement", "settings": { "text": "PROMOCIONES 3X1" } }
       },
       "block_order": ["a1", "a2", "a3"],
-      "settings": { "style": "violet", "separator": "", "speed": 40 }
+      "settings": { "style": "violet", "speed": 40 }
     },
     "promo-strip": {
       "type": "promo-strip",
