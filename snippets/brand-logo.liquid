@@ -1,39 +1,30 @@
 {%- comment -%}
-  Logo de marca Casa del Oud (SVG, sin imágenes).
-  Isotipo "Gato del arco": un gato sentado en la puerta de la casa, un arco árabe (mihrab),
-  con ojos ámbar y la cola que termina en una gota de perfume.
+  Logo de marca Casa del Oud.
+  Isotipo: el gato blanco sentado dentro del arco árabe (borde dorado, fondo vino),
+  con la cola que sostiene una gota de perfume. Imagen: assets/logo-casa-del-oud.webp
   Uso: {% render 'brand-logo', variant: 'light', width: 180 %}
-    variant: 'light' (sobre fondo oscuro) | 'dark' (sobre fondo claro) | 'mark' (solo isotipo, para fondo oscuro) | 'mark-dark' (solo isotipo, para fondo claro)
+    variant: 'light' (sobre fondo oscuro) | 'dark' (sobre fondo claro) | 'mark' (solo isotipo)
 {%- endcomment -%}
 {%- liquid
   assign variant = variant | default: 'light'
-  if variant == 'dark' or variant == 'mark-dark'
-    assign cat = 'var(--c-primary)'
+  assign width = width | default: 180
+  if variant == 'dark'
     assign word = 'var(--c-heading)'
     assign sub = 'var(--c-primary)'
   else
-    assign cat = '#ffffff'
     assign word = '#ffffff'
     assign sub = 'var(--c-gold)'
   endif
+  assign mark_src = 'logo-casa-del-oud.webp' | asset_url
 -%}
-{%- capture mark -%}
-  <path d="M50 4c17 11 40 19 40 46v66H10V50C10 23 33 15 50 4Z" fill="none" stroke="var(--c-gold)" stroke-width="4.5" stroke-linejoin="round"/>
-  <circle cx="50" cy="1.5" r="3" fill="var(--c-gold)"/>
-  <path d="M60 104c16 2 24-6 22-16" fill="none" stroke="{{ cat }}" stroke-width="5" stroke-linecap="round"/>
-  <path d="M82 70c4 6 7.5 10.5 7.5 15a7.5 7.5 0 0 1-15 0c0-4.5 3.5-9 7.5-15Z" fill="var(--c-pink)"/>
-  <path d="M38 58c-9 14-12 33-7 50h33c5-17 2-36-7-50Z" fill="{{ cat }}"/>
-  <path d="M35 33l1-17 10 9h8l10-9 1 17c0 10-7 18-15 18s-15-8-15-18Z" fill="{{ cat }}"/>
-  <path d="M40.5 34c2-2.6 5.5-2.6 7.5 0-2 2.6-5.5 2.6-7.5 0Z" fill="var(--c-gold)"/>
-  <path d="M52 34c2-2.6 5.5-2.6 7.5 0-2 2.6-5.5 2.6-7.5 0Z" fill="var(--c-gold)"/>
-  <path d="M48 40.5h4l-2 2.4Z" fill="var(--c-pink)"/>
-{%- endcapture -%}
-{%- if variant == 'mark' or variant == 'mark-dark' -%}
-  <svg class="brand-logo brand-logo--mark" viewBox="-2 -4 104 124" width="{{ width | default: 40 }}" role="img" aria-label="{{ shop.name }}">{{ mark }}</svg>
+{%- if variant == 'mark' -%}
+  <img class="brand-logo brand-logo--mark" src="{{ mark_src }}" width="{{ width }}" height="{{ width | times: 4 | divided_by: 3 }}" alt="{{ shop.name }}" style="width: {{ width }}px; height: auto;">
 {%- else -%}
-  <svg class="brand-logo" viewBox="0 0 208 62" width="{{ width | default: 180 }}" role="img" aria-label="{{ shop.name }}">
-    <g transform="translate(2 2.5) scale(.47)">{{ mark }}</g>
-    <text x="62" y="24" fill="{{ word }}" font-family="Poppins, 'Helvetica Neue', Arial, sans-serif" font-weight="700" font-size="15" letter-spacing="5">CASA DEL</text>
-    <text x="60" y="56" fill="{{ sub }}" font-family="'Playfair Display', Georgia, 'Times New Roman', serif" font-style="italic" font-weight="700" font-size="36">Oud</text>
-  </svg>
+  <span class="brand-logo brand-logo--lockup" style="width: {{ width }}px;" role="img" aria-label="{{ shop.name }}">
+    <img class="brand-logo__mark" src="{{ mark_src }}" width="60" height="80" alt="">
+    <svg class="brand-logo__word" viewBox="0 0 132 62" aria-hidden="true">
+      <text x="1" y="24" fill="{{ word }}" font-family="Poppins, 'Helvetica Neue', Arial, sans-serif" font-weight="700" font-size="15" letter-spacing="5">CASA DEL</text>
+      <text x="0" y="56" fill="{{ sub }}" font-family="'Playfair Display', Georgia, 'Times New Roman', serif" font-style="italic" font-weight="700" font-size="36">Oud</text>
+    </svg>
+  </span>
 {%- endif -%}

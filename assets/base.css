@@ -163,6 +163,9 @@ p:last-child { margin-bottom: 0; }
 .header__search button { border: 0; background: none; padding: 8px 16px 8px 8px; color: #fff; }
 .header__logo { display: flex; flex-direction: column; align-items: center; gap: 6px; min-width: 0; }
 .brand-logo { display: block; height: auto; max-width: 100%; }
+.brand-logo--lockup { display: inline-flex; align-items: center; gap: 8%; }
+.brand-logo__mark { width: 30%; height: auto; flex-shrink: 0; filter: drop-shadow(0 4px 10px rgba(0, 0, 0, .35)); }
+.brand-logo__word { width: 62%; height: auto; display: block; }
 .header__logo-text {
   font-family: var(--font-heading); font-weight: 800; font-size: 1.7rem; line-height: 1; letter-spacing: -0.01em; text-align: center;
   background: linear-gradient(180deg, var(--c-gold-soft), var(--c-gold)); -webkit-background-clip: text; background-clip: text; color: transparent;

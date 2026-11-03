@@ -101,25 +101,24 @@ Las tres fuentes son gratis y están en Google Fonts.
 
 ## 4. Logo
 
-**Isotipo "Gato del arco":** un gato sentado en la puerta de la casa, un arco árabe (mihrab), con ojos Azafrán y la cola que termina en una gota de perfume.
-- El **gato** es el dueño de casa que te recibe, y también un animal muy querido en la cultura árabe: está en todos los zocos.
+**Isotipo "Gato del arco":** un gato blanco sentado en la puerta de la casa, un arco árabe con borde dorado y fondo vino, con ornamentos dorados a los costados, una estrella arriba y la cola sosteniendo una gota de perfume rubí.
+- El **gato** es el dueño de casa que te recibe, y también un animal muy querido en la cultura árabe.
 - El **arco** es Oriente y la puerta de la casa.
 - La **gota** es el perfume.
 
-**Logotipo:** "CASA DEL" en Poppins Bold espaciada, con "*Oud*" grande en serif itálica (Playfair Display) Azafrán debajo.
+**Logotipo:** "CASA DEL" en Poppins Bold espaciada, con "*Oud*" grande en serif itálica (Playfair Display) Azafrán debajo, a la derecha del isotipo.
 
-| Versión | Colores | Cuándo |
-|---|---|---|
-| **Clara** | Gato blanco, arco Azafrán, gota Terracota, letras blanco + Azafrán | Sobre Oud, Jade o fotos oscuras. Es la principal |
-| **Oscura** | Gato Jade, arco Azafrán, gota Terracota, letras Tinta + Jade | Sobre Arena o blanco |
-| **Isotipo solo** | El gato en el arco, sin letras | Foto de perfil, favicon, sticker, tapa de caja, sello |
+| Versión | Cuándo |
+|---|---|
+| **Isotipo + logotipo claro** (letras blanco + Azafrán) | Sobre Oud, Jade o fotos oscuras. Es la principal (header y footer) |
+| **Isotipo + logotipo oscuro** (letras Tinta + Jade) | Sobre Arena o blanco |
+| **Isotipo solo** | Foto de perfil, favicon, sticker, tapa de caja, sello |
 
-- **Mascota:** el gato puede aparecer solo (sin arco) en stickers, la tarjeta de agradecimiento y las stories, por ejemplo oliendo un frasco o durmiendo sobre la caja. Siempre en silueta plana, con ojos Azafrán.
-- **Área de respeto:** alrededor del logo, dejá libre como mínimo el ancho del arco.
-- **Tamaño mínimo:** 120 px de ancho en pantalla y 30 mm impreso. El isotipo solo, 24 px u 8 mm.
-- **No hacer:** deformarlo, cambiarle los colores fuera de la paleta, ponerle sombras o contornos, ni usarlo sobre fondos con mucho detalle sin una placa Oud detrás.
-
-> El tema trae el logo armado en código (`snippets/brand-logo.liquid`) y el favicon (`assets/favicon.svg`). Cuando un diseñador entregue la versión final vectorizada, subila en *Configuración del tema → Logo* y *Favicon*.
+- **Archivo:** `assets/logo-casa-del-oud.webp` (sin fondo). El original con fondo crema lo tenés vos.
+- **Área de respeto:** alrededor del logo, dejá libre como mínimo un tercio del ancho del arco.
+- **Tamaño mínimo:** 48 px de alto en pantalla y 15 mm impreso. Por debajo de eso se pierden los ornamentos: para favicon y sellos chicos conviene una versión simplificada, sin los ornamentos laterales.
+- **No hacer:** deformarlo, recortarle el arco, cambiarle los colores ni ponerlo sobre fondos con mucho detalle.
+- **Para imprenta:** la imagen está generada con IA. Pedile a un diseñador que la redibuje en vector (SVG o AI) antes de hacer stickers, cajas o hot stamping, y que revise que no se parezca a otra marca registrada.
 
 ---
 
