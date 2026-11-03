@@ -60,8 +60,8 @@
         --c-whatsapp: #25d366;
         --c-border: {{ settings.color_primary | color_modify: 'alpha', 0.14 }};
         --c-primary-soft: {{ settings.color_primary | color_modify: 'alpha', 0.08 }};
-        --grad: linear-gradient(90deg, {{ settings.color_primary }}, {{ settings.color_pink }});
-        --grad-3: linear-gradient(90deg, {{ settings.color_primary }}, {{ settings.color_pink }}, {{ settings.color_gold }});
+        --grad: linear-gradient(90deg, {{ settings.color_primary }}, color-mix(in srgb, {{ settings.color_primary }} 62%, {{ settings.color_cyan }}));
+        --grad-3: linear-gradient(90deg, {{ settings.color_primary }}, {{ settings.color_cyan }}, {{ settings.color_gold }});
         --grad-gold: linear-gradient(135deg, {{ settings.color_gold | color_lighten: 22 }}, {{ settings.color_gold }} 45%, {{ settings.color_gold | color_darken: 16 }});
         --radius: {{ settings.card_radius }}px;
         --page-width: 1200px;

@@ -46,55 +46,55 @@
     "settings": [
       {
         "type": "paragraph",
-        "content": "Paleta de marca Perfumería de Barrio. Cambiala solo si cambia la identidad: todo el tema sale de estos colores."
+        "content": "Paleta de marca Perfumería de Barrio: Oud, Jade, Terracota, Azafrán, Azulejo y Arena. Todo el tema sale de estos colores."
       },
       {
         "type": "color",
         "id": "color_dark",
-        "label": "Noche (header, footer, landing)",
-        "default": "#17101F"
+        "label": "Oud (header, footer, landing)",
+        "default": "#1A1310"
       },
       {
         "type": "color",
         "id": "color_primary",
-        "label": "Ciruela (marca, botones, transferencia)",
-        "default": "#6A2C70"
+        "label": "Jade (marca, botones, transferencia)",
+        "default": "#0E5A52"
       },
       {
         "type": "color",
         "id": "color_pink",
-        "label": "Granada (precios, % OFF, ofertas)",
-        "default": "#D1335F"
+        "label": "Terracota (precios, % OFF, ofertas)",
+        "default": "#B8432B"
       },
       {
         "type": "color",
         "id": "color_gold",
-        "label": "Ámbar (detalles dorados, landing)",
-        "default": "#E8A838"
+        "label": "Azafrán (detalles dorados, landing)",
+        "default": "#E2A33A"
       },
       {
         "type": "color",
         "id": "color_cyan",
-        "label": "Turquesa (envío gratis, confianza)",
-        "default": "#2BB5A8"
+        "label": "Azulejo (envío gratis, confianza)",
+        "default": "#2F9C95"
       },
       {
         "type": "color",
         "id": "color_heading",
         "label": "Tinta (títulos)",
-        "default": "#1E1424"
+        "default": "#22170F"
       },
       {
         "type": "color",
         "id": "color_text",
         "label": "Texto",
-        "default": "#4A3F4D"
+        "default": "#4D3F35"
       },
       {
         "type": "color",
         "id": "color_background",
-        "label": "Crema (fondo general)",
-        "default": "#FBF5EF"
+        "label": "Arena (fondo general)",
+        "default": "#F7EFE3"
       },
       {
         "type": "color",
@@ -106,7 +106,7 @@
         "type": "color",
         "id": "color_stars",
         "label": "Estrellas",
-        "default": "#F2B33D"
+        "default": "#F0B23E"
       }
     ]
   },
