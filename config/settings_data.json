@@ -29,7 +29,9 @@
       "whatsapp_message": "¡Hola! Quería hacer una consulta sobre un perfume.",
       "whatsapp_float": true,
       "contact_hours": "Lunes a viernes de 9 a 18 hs",
-      "contact_shipping": "Envíos gratis a todo el país"
+      "contact_shipping": "Envíos gratis a todo el país",
+      "instagram_handle": "casa.del.oud",
+      "social_instagram": "https://www.instagram.com/casa.del.oud/"
     }
   }
 }
