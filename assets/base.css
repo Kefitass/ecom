@@ -553,35 +553,45 @@ p:last-child { margin-bottom: 0; }
 .form-message--error ul { list-style: disc; padding-left: 1.2em; }
 
 /* ---------- Footer ---------- */
-.section-footer { padding: 50px 0 0; }
+.section-footer { padding: 64px 0 0; }
 .footer-wrap { max-width: none; margin: 0; }
-.footer { --footer-gutter: max(32px, calc((100% - 1200px) / 2 + 32px)); }
-.footer__brand, .footer__grid, .footer__row, .footer__bottom { padding-left: var(--footer-gutter) !important; padding-right: var(--footer-gutter) !important; }
-.footer {
-  position: relative; overflow: hidden; color: #f3ecf1;
-  border-radius: 28px 28px 0 0;
-  background: radial-gradient(circle at 0% 0%, var(--c-primary), transparent 45%), radial-gradient(circle at 100% 0%, var(--c-dark-2), transparent 50%), linear-gradient(180deg, var(--c-dark-2), var(--c-dark));
-  box-shadow: 0 -10px 40px -20px color-mix(in srgb, var(--c-pink) 50%, transparent);
+.footer { position: relative; overflow: hidden; color: #cfc3b4; background: var(--c-dark); border-top: 1px solid color-mix(in srgb, var(--c-gold) 45%, transparent); }
+.footer__inner { max-width: 1200px; margin: 0 auto; padding: 0 max(24px, env(safe-area-inset-left, 0px)); }
+.footer__top { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1.25fr; gap: 48px; padding: 64px 0 48px; }
+.footer__logo { display: inline-block; }
+.footer__logo-img { max-width: 200px; }
+.footer__tagline { margin: 18px 0 8px; color: var(--c-gold-soft); font-family: var(--font-accent, Georgia), Georgia, serif; font-style: italic; font-size: 1.15rem; }
+.footer__text { font-size: .85rem; line-height: 1.6; max-width: 300px; color: #a99d8e; }
+.footer__social { display: flex; gap: 10px; margin-top: 22px; }
+.footer__social a { width: 38px; height: 38px; border-radius: 50%; border: 1px solid color-mix(in srgb, var(--c-gold) 55%, transparent); color: var(--c-gold-soft); display: inline-flex; align-items: center; justify-content: center; transition: background .2s ease, color .2s ease; }
+.footer__social a:hover { background: var(--c-gold); color: var(--c-dark); }
+.footer h3 { margin: 6px 0 22px; color: #fff; font-family: var(--font-body); font-size: .72rem; font-weight: 600; letter-spacing: .28em; text-transform: uppercase; }
+.footer__col ul { display: grid; gap: 14px; font-size: .88rem; }
+.footer__col a { color: #cfc3b4; transition: color .2s ease; }
+.footer__col a:hover { color: var(--c-gold-soft); }
+.footer__contact li { display: flex; align-items: center; gap: 12px; word-break: break-word; }
+.footer__contact .icon { flex-shrink: 0; color: var(--c-gold); }
+.footer__mid { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 20px 48px; padding: 26px 0; border-top: 1px solid rgba(255, 255, 255, .08); border-bottom: 1px solid rgba(255, 255, 255, .08); }
+.footer__group { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+.footer__label { margin: 0; font-size: .68rem; font-weight: 600; letter-spacing: .24em; text-transform: uppercase; color: #8e8273; }
+.footer__logos { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+.footer__logos-img { max-height: 32px; width: auto; }
+.payment-icon { width: 38px; height: 24px; }
+.footer__shipping { margin: 0; display: flex; align-items: center; gap: 8px; font-size: .85rem; color: #cfc3b4; }
+.footer__shipping .icon { color: var(--c-gold); }
+.footer__bottom { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px 24px; padding: 22px 0 30px; font-size: .74rem; color: #8e8273; }
+.footer__bottom p { margin: 0; }
+.footer__legal { display: flex; gap: 10px; flex-wrap: wrap; }
+.footer__bottom a:hover { color: var(--c-gold-soft); }
+@media (max-width: 989px) {
+  .footer__top { grid-template-columns: 1fr 1fr; gap: 40px 32px; }
+  .footer__brand { grid-column: 1 / -1; }
 }
-.footer::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 2px; background: var(--grad-3); }
-.footer__brand { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 24px; padding: 30px 32px 4px; }
-.footer__brand p { margin: 0; color: var(--c-gold-soft); font-family: Georgia, 'Times New Roman', serif; font-style: italic; font-size: 1rem; }
-.footer__logo-img { max-width: 190px; }
-.footer h3 { color: #fff; font-size: .95rem; margin-bottom: 18px; }
-.footer__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; padding: 36px 32px 10px; }
-.footer__col ul { display: grid; gap: 12px; font-size: .74rem; }
-.footer__col a:hover { color: var(--c-gold); }
-.footer__contact li { display: flex; align-items: center; gap: 8px; }
-.footer__social { display: flex; gap: 10px; }
-.footer__social a { width: 30px; height: 30px; border-radius: 50%; background: #fff; color: #111; display: inline-flex; align-items: center; justify-content: center; }
-.footer__row { display: grid; grid-template-columns: 1fr 2fr; align-items: center; gap: 20px; padding: 18px 32px; }
-.footer__row h3 { margin: 0; }
-.footer__logos { display: flex; flex-wrap: wrap; align-items: center; gap: 4px; }
-.footer__logos-img { max-height: 40px; width: auto; }
-.footer__shipping-text { font-size: .8rem; font-weight: 700; }
-.payment-icon { width: 34px; height: 22px; }
-.footer__bottom { margin-top: 26px; padding: 18px 32px 40px; background: #000; font-size: .66rem; color: #ddd; }
-.footer__bottom a:hover { text-decoration: underline; }
+@media (max-width: 749px) {
+  .footer__top { grid-template-columns: 1fr; gap: 34px; padding: 48px 0 36px; }
+  .footer__mid { flex-direction: column; align-items: flex-start; }
+  .footer__bottom { flex-direction: column; padding-bottom: 90px; }
+}
 
 /* ---------- WhatsApp flotante ---------- */
 .whatsapp-float {
@@ -821,11 +831,6 @@ p:last-child { margin-bottom: 0; }
   .cart-item { grid-template-columns: 72px 1fr; }
   .cart-item__price { grid-column: 2; text-align: left; flex-direction: row; gap: 10px; align-items: baseline; }
   .form-grid { grid-template-columns: 1fr; }
-  .footer__grid { grid-template-columns: 1fr; padding: 28px 20px 0; }
-  .footer__brand { padding: 26px 20px 0; }
-  .footer__row { grid-template-columns: 1fr; padding: 16px 20px; gap: 10px; }
-  .footer__bottom { padding: 18px 20px 80px; }
-  .footer { --footer-gutter: 20px; border-radius: 22px 22px 0 0; }
   .search-form { flex-direction: column; }
   .landing { padding: 0; }
   .l-feat:nth-child(2), .l-feat:nth-child(3) { margin-left: 0; transform: none; }

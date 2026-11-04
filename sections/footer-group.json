@@ -6,13 +6,15 @@
       "type": "footer",
       "settings": {
         "tagline": "Perfumes árabes, como en casa.",
-        "menu_title": "Categorías",
-        "menu": "footer",
-        "contact_title": "Contactanos",
-        "social_title": "Sigamos conectados",
-        "shipping_text": "Andreani · Correo Argentino"
+        "text": "<p>Fragancias árabes y de nicho, elegidas una por una. Envíos a todo el país.</p>",
+        "menu_title": "Tienda",
+        "help_title": "Ayuda",
+        "contact_title": "Contacto",
+        "shipping_text": "Envío gratis a todo el país"
       }
     }
   },
-  "order": ["footer"]
+  "order": [
+    "footer"
+  ]
 }

@@ -1,88 +1,116 @@
 {%- capture wa_url -%}{% render 'whatsapp-url' %}{%- endcapture -%}
 <footer class="footer-wrap">
   <div class="footer">
-    <div class="footer__brand">
-      {%- if settings.logo != blank -%}
-        {{ settings.logo | image_url: width: 400 | image_tag: loading: 'lazy', alt: shop.name, class: 'footer__logo-img' }}
-      {%- else -%}
-        {% render 'brand-logo', variant: 'light', width: 190 %}
-      {%- endif -%}
-      {%- if section.settings.tagline != blank -%}<p>{{ section.settings.tagline }}</p>{%- endif -%}
-    </div>
-    <div class="footer__grid">
-      <div class="footer__col">
-        <h3>{{ section.settings.menu_title }}</h3>
-        <ul>
-          {%- for link in section.settings.menu.links -%}
-            <li><a href="{{ link.url }}">{{ link.title }}</a></li>
-          {%- endfor -%}
-        </ul>
-      </div>
+    <div class="footer__inner">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <a href="{{ routes.root_url }}" class="footer__logo" aria-label="{{ shop.name }}">
+            {%- if settings.logo != blank -%}
+              {{ settings.logo | image_url: width: 400 | image_tag: loading: 'lazy', alt: shop.name, class: 'footer__logo-img' }}
+            {%- else -%}
+              {% render 'brand-logo', variant: 'light', width: 200 %}
+            {%- endif -%}
+          </a>
+          {%- if section.settings.tagline != blank -%}<p class="footer__tagline">{{ section.settings.tagline }}</p>{%- endif -%}
+          {%- if section.settings.text != blank -%}<div class="footer__text">{{ section.settings.text }}</div>{%- endif -%}
+          <div class="footer__social">
+            {%- if settings.social_instagram != blank -%}
+              <a href="{{ settings.social_instagram }}" target="_blank" rel="noopener" aria-label="Instagram">{% render 'icon', name: 'instagram', px: 17 %}</a>
+            {%- endif -%}
+            {%- if settings.social_tiktok != blank -%}
+              <a href="{{ settings.social_tiktok }}" target="_blank" rel="noopener" aria-label="TikTok">{% render 'icon', name: 'tiktok', px: 17 %}</a>
+            {%- endif -%}
+            {%- if settings.social_facebook != blank -%}
+              <a href="{{ settings.social_facebook }}" target="_blank" rel="noopener" aria-label="Facebook">{% render 'icon', name: 'facebook', px: 17 %}</a>
+            {%- endif -%}
+            {%- if settings.whatsapp_number != blank -%}
+              <a href="{{ wa_url | strip }}" target="_blank" rel="noopener" aria-label="WhatsApp">{% render 'icon', name: 'whatsapp', px: 17 %}</a>
+            {%- endif -%}
+          </div>
+        </div>
 
-      <div class="footer__col">
-        <h3>{{ section.settings.contact_title }}</h3>
-        <ul class="footer__contact">
-          {%- if settings.whatsapp_number != blank -%}
-            <li>{% render 'icon', name: 'whatsapp', px: 15 %} <a href="{{ wa_url | strip }}" target="_blank" rel="noopener">{{ settings.whatsapp_number }}</a></li>
-          {%- endif -%}
-          {%- if section.settings.phone != blank -%}
-            <li>{% render 'icon', name: 'phone', px: 15 %} <a href="tel:{{ section.settings.phone | remove: ' ' }}">{{ section.settings.phone }}</a></li>
-          {%- endif -%}
-          {%- if settings.contact_email != blank -%}
-            <li>{% render 'icon', name: 'mail', px: 15 %} <a href="mailto:{{ settings.contact_email }}">{{ settings.contact_email }}</a></li>
-          {%- endif -%}
-        </ul>
-      </div>
+        <nav class="footer__col" aria-label="{{ section.settings.menu_title }}">
+          <h3>{{ section.settings.menu_title }}</h3>
+          <ul>
+            {%- if section.settings.menu.links.size > 0 -%}
+              {%- for link in section.settings.menu.links -%}
+                <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+              {%- endfor -%}
+            {%- else -%}
+              <li><a href="{{ routes.all_products_collection_url }}">Todos los perfumes</a></li>
+              <li><a href="{{ routes.search_url }}?type=product&q=3x1">Combos 3x1</a></li>
+              <li><a href="{{ routes.search_url }}?type=product&q=perfume">Perfumes individuales</a></li>
+            {%- endif -%}
+          </ul>
+        </nav>
 
-      <div class="footer__col">
-        <h3>{{ section.settings.social_title }}</h3>
-        <div class="footer__social">
-          {%- if settings.social_instagram != blank -%}
-            <a href="{{ settings.social_instagram }}" target="_blank" rel="noopener" aria-label="Instagram">{% render 'icon', name: 'instagram', px: 16 %}</a>
-          {%- endif -%}
-          {%- if settings.social_tiktok != blank -%}
-            <a href="{{ settings.social_tiktok }}" target="_blank" rel="noopener" aria-label="TikTok">{% render 'icon', name: 'tiktok', px: 16 %}</a>
-          {%- endif -%}
-          {%- if settings.social_facebook != blank -%}
-            <a href="{{ settings.social_facebook }}" target="_blank" rel="noopener" aria-label="Facebook">{% render 'icon', name: 'facebook', px: 16 %}</a>
-          {%- endif -%}
+        <nav class="footer__col" aria-label="{{ section.settings.help_title }}">
+          <h3>{{ section.settings.help_title }}</h3>
+          <ul>
+            {%- if section.settings.help_menu.links.size > 0 -%}
+              {%- for link in section.settings.help_menu.links -%}
+                <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+              {%- endfor -%}
+            {%- else -%}
+              <li><a href="/pages/contact">Contacto</a></li>
+              <li><a href="{{ routes.account_url }}">Seguí tu pedido</a></li>
+              <li><a href="/policies/refund-policy">Cambios y devoluciones</a></li>
+              <li><a href="/policies/shipping-policy">Envíos</a></li>
+            {%- endif -%}
+          </ul>
+        </nav>
+
+        <div class="footer__col">
+          <h3>{{ section.settings.contact_title }}</h3>
+          <ul class="footer__contact">
+            {%- if settings.contact_email != blank -%}
+              <li>{% render 'icon', name: 'mail', px: 16 %}<a href="mailto:{{ settings.contact_email }}">{{ settings.contact_email }}</a></li>
+            {%- endif -%}
+            {%- if settings.whatsapp_number != blank -%}
+              <li>{% render 'icon', name: 'whatsapp', px: 16 %}<a href="{{ wa_url | strip }}" target="_blank" rel="noopener">{{ settings.whatsapp_number }}</a></li>
+            {%- endif -%}
+            {%- if section.settings.phone != blank -%}
+              <li>{% render 'icon', name: 'phone', px: 16 %}<a href="tel:{{ section.settings.phone | remove: ' ' }}">{{ section.settings.phone }}</a></li>
+            {%- endif -%}
+            {%- if settings.contact_hours != blank -%}
+              <li>{% render 'icon', name: 'clock', px: 16 %}<span>{{ settings.contact_hours }}</span></li>
+            {%- endif -%}
+          </ul>
         </div>
       </div>
-    </div>
 
-    <div class="footer__row">
-      <h3>Medios de pago</h3>
-      <ul class="footer__logos">
-        {%- if section.settings.payments_image != blank -%}
-          <li>{{ section.settings.payments_image | image_url: width: 900 | image_tag: loading: 'lazy', class: 'footer__logos-img' }}</li>
-        {%- else -%}
-          {%- for type in shop.enabled_payment_types -%}
-            <li>{{ type | payment_type_svg_tag: class: 'payment-icon' }}</li>
-          {%- endfor -%}
+      <div class="footer__mid">
+        <div class="footer__group">
+          <p class="footer__label">Medios de pago</p>
+          <ul class="footer__logos">
+            {%- if section.settings.payments_image != blank -%}
+              <li>{{ section.settings.payments_image | image_url: width: 900 | image_tag: loading: 'lazy', class: 'footer__logos-img' }}</li>
+            {%- else -%}
+              {%- for type in shop.enabled_payment_types -%}
+                <li>{{ type | payment_type_svg_tag: class: 'payment-icon' }}</li>
+              {%- endfor -%}
+            {%- endif -%}
+          </ul>
+        </div>
+        {%- if section.settings.shipping_image != blank or section.settings.shipping_text != blank -%}
+          <div class="footer__group">
+            <p class="footer__label">Envíos</p>
+            {%- if section.settings.shipping_image != blank -%}
+              {{ section.settings.shipping_image | image_url: width: 600 | image_tag: loading: 'lazy', class: 'footer__logos-img' }}
+            {%- else -%}
+              <p class="footer__shipping">{% render 'icon', name: 'truck', px: 16 %} {{ section.settings.shipping_text }}</p>
+            {%- endif -%}
+          </div>
         {%- endif -%}
-      </ul>
-    </div>
-
-    {%- if section.settings.shipping_image != blank or section.settings.shipping_text != blank -%}
-      <div class="footer__row">
-        <h3>Medios de envío</h3>
-        <div class="footer__logos">
-          {%- if section.settings.shipping_image != blank -%}
-            {{ section.settings.shipping_image | image_url: width: 600 | image_tag: loading: 'lazy', class: 'footer__logos-img' }}
-          {%- else -%}
-            <span class="footer__shipping-text">{{ section.settings.shipping_text }}</span>
-          {%- endif -%}
-        </div>
       </div>
-    {%- endif -%}
 
-    <div class="footer__bottom">
-      <p>
-        Copyright {{ shop.name }}{% if section.settings.cuit != blank %} - {{ section.settings.cuit }}{% endif %} - {{ 'now' | date: '%Y' }}. Todos los derechos reservados.<br>
-        Defensa de las y los consumidores. Para reclamos
-        <a href="{{ section.settings.consumer_link | default: 'https://www.argentina.gob.ar/produccion/defensadelconsumidor/formulario' }}" target="_blank" rel="noopener"><strong>ingresá acá</strong></a>.
-        {%- if section.settings.regret_link != blank %} / <a href="{{ section.settings.regret_link }}"><strong>Botón de arrepentimiento</strong></a>{% endif %}
-      </p>
+      <div class="footer__bottom">
+        <p>© {{ 'now' | date: '%Y' }} {{ shop.name }}{% if section.settings.cuit != blank %} · CUIT {{ section.settings.cuit }}{% endif %}. Todos los derechos reservados.</p>
+        <p class="footer__legal">
+          <a href="{{ section.settings.consumer_link | default: 'https://www.argentina.gob.ar/produccion/defensadelconsumidor/formulario' }}" target="_blank" rel="noopener">Defensa del consumidor</a>
+          {%- if section.settings.regret_link != blank -%}<span aria-hidden="true">·</span><a href="{{ section.settings.regret_link }}">Botón de arrepentimiento</a>{%- endif -%}
+        </p>
+      </div>
     </div>
   </div>
 </footer>
@@ -93,20 +121,23 @@
   "class": "section-footer",
   "settings": [
     { "type": "text", "id": "tagline", "label": "Frase de marca", "default": "Perfumes árabes, como en casa." },
-    { "type": "text", "id": "menu_title", "label": "Título del menú", "default": "Categorías" },
-    { "type": "link_list", "id": "menu", "label": "Menú", "default": "footer" },
-    { "type": "text", "id": "contact_title", "label": "Título de contacto", "default": "Contactanos" },
+    { "type": "richtext", "id": "text", "label": "Texto corto", "default": "<p>Fragancias árabes y de nicho, elegidas una por una. Envíos a todo el país.</p>" },
+    { "type": "header", "content": "Columnas" },
+    { "type": "text", "id": "menu_title", "label": "Título columna 1", "default": "Tienda" },
+    { "type": "link_list", "id": "menu", "label": "Menú columna 1", "info": "Vacío = muestra links de la tienda." },
+    { "type": "text", "id": "help_title", "label": "Título columna 2", "default": "Ayuda" },
+    { "type": "link_list", "id": "help_menu", "label": "Menú columna 2", "info": "Vacío = muestra contacto, seguimiento, cambios y envíos." },
+    { "type": "text", "id": "contact_title", "label": "Título de contacto", "default": "Contacto" },
     { "type": "text", "id": "phone", "label": "Teléfono (opcional)" },
-    { "type": "text", "id": "social_title", "label": "Título de redes", "default": "Sigamos conectados" },
-    { "type": "paragraph", "content": "WhatsApp, email y redes se cargan en Configuración del tema → Contacto y redes." },
+    { "type": "paragraph", "content": "Email, WhatsApp, horario y redes se cargan en Configuración del tema → Contacto y redes." },
     { "type": "header", "content": "Medios de pago y envío" },
-    { "type": "image_picker", "id": "payments_image", "label": "Imagen de medios de pago (opcional)", "info": "Vacío = se muestran los íconos de los pagos activos en Shopify." },
+    { "type": "image_picker", "id": "payments_image", "label": "Imagen de medios de pago (opcional)", "info": "Vacío = íconos de los pagos activos en Shopify." },
     { "type": "image_picker", "id": "shipping_image", "label": "Imagen de medios de envío (opcional)" },
-    { "type": "text", "id": "shipping_text", "label": "Texto de medios de envío", "default": "Andreani · Correo Argentino" },
+    { "type": "text", "id": "shipping_text", "label": "Texto de envíos", "default": "Envío gratis a todo el país" },
     { "type": "header", "content": "Datos legales (Argentina)" },
     { "type": "text", "id": "cuit", "label": "CUIT" },
     { "type": "url", "id": "consumer_link", "label": "Link de Defensa del Consumidor", "info": "Vacío = formulario oficial de argentina.gob.ar" },
-    { "type": "url", "id": "regret_link", "label": "Link del Botón de arrepentimiento", "info": "Obligatorio en Argentina. Creá una página con el formulario y pegá el link." }
+    { "type": "url", "id": "regret_link", "label": "Link del Botón de arrepentimiento", "info": "Obligatorio en Argentina." }
   ]
 }
 {% endschema %}
