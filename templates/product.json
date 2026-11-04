@@ -516,13 +516,6 @@
             "asset": "resena-khamrah-qahwa-01.webp"
           }
         },
-        "f2": {
-          "type": "photo",
-          "settings": {
-            "product": "Khamrah Qahwa",
-            "asset": "resena-khamrah-qahwa-02.webp"
-          }
-        },
         "f3": {
           "type": "photo",
           "settings": {
@@ -558,13 +551,6 @@
             "asset": "resena-khamrah-qahwa-05.webp"
           }
         },
-        "f8": {
-          "type": "photo",
-          "settings": {
-            "product": "Khamrah Qahwa",
-            "asset": "resena-khamrah-qahwa-06.webp"
-          }
-        },
         "f9": {
           "type": "photo",
           "settings": {
@@ -577,13 +563,6 @@
           "settings": {
             "product": "Khamrah Qahwa",
             "asset": "resena-khamrah-qahwa-07.webp"
-          }
-        },
-        "f11": {
-          "type": "photo",
-          "settings": {
-            "product": "Khamrah Qahwa",
-            "asset": "resena-khamrah-qahwa-08.webp"
           }
         },
         "f12": {
@@ -600,13 +579,6 @@
             "asset": "resena-khamrah-qahwa-09.webp"
           }
         },
-        "f14": {
-          "type": "photo",
-          "settings": {
-            "product": "Khamrah Qahwa",
-            "asset": "resena-khamrah-qahwa-10.webp"
-          }
-        },
         "f15": {
           "type": "photo",
           "settings": {
@@ -619,13 +591,6 @@
           "settings": {
             "product": "Khamrah Qahwa",
             "asset": "resena-khamrah-qahwa-11.webp"
-          }
-        },
-        "f17": {
-          "type": "photo",
-          "settings": {
-            "product": "Khamrah Qahwa",
-            "asset": "resena-khamrah-qahwa-12.webp"
           }
         },
         "r1": {
@@ -833,37 +798,140 @@
             "title": "Marca la diferencia",
             "text": "Un perfume que marca la diferencia nada que envidiarle al scandal muy rico un aroma fresco 10/10 para mi unos de los mejore de odissey armaf gracias por el. Producto."
           }
+        },
+        "y1": {
+          "type": "photo",
+          "settings": {
+            "product": "Yara Moi",
+            "asset": "resena-yara-moi-01.webp"
+          }
+        },
+        "y2": {
+          "type": "photo",
+          "settings": {
+            "product": "Yara Moi",
+            "asset": "resena-yara-moi-02.webp"
+          }
+        },
+        "y3": {
+          "type": "photo",
+          "settings": {
+            "product": "Yara Moi",
+            "asset": "resena-yara-moi-03.webp"
+          }
+        },
+        "y4": {
+          "type": "photo",
+          "settings": {
+            "product": "Yara Moi",
+            "asset": "resena-yara-moi-04.webp"
+          }
+        },
+        "h1": {
+          "type": "photo",
+          "settings": {
+            "product": "Honor & Glory",
+            "asset": "resena-honor-and-glory-01.webp"
+          }
+        },
+        "h2": {
+          "type": "photo",
+          "settings": {
+            "product": "Honor & Glory",
+            "asset": "resena-honor-and-glory-02.webp"
+          }
+        },
+        "yh1": {
+          "type": "review",
+          "settings": {
+            "product": "Yara Moi",
+            "rating": 5,
+            "title": "Exquisito, con flores blancas",
+            "text": "dura de 6 a 8 horas. Perfume exquisito. Intenso sin saturar. Notas de flores blancas.\nMe encanta."
+          }
+        },
+        "yh2": {
+          "type": "review",
+          "settings": {
+            "product": "Yara Moi",
+            "rating": 5,
+            "title": "Ideal para regalar",
+            "text": "Excelente para regalar o regalarse. Muy linda presentación: elegante y sofisticada. De aroma con notas frescas y florales. Muy buena fijación y duración. Totalmente conforme con la elección."
+          }
+        },
+        "yh3": {
+          "type": "review",
+          "settings": {
+            "product": "Yara Moi",
+            "rating": 5,
+            "title": "Lo volvería a comprar",
+            "text": "Me encantó lo volvería a comprar un aroma intenso y buena duración."
+          }
+        },
+        "yh4": {
+          "type": "review",
+          "settings": {
+            "product": "Yara Moi",
+            "rating": 5,
+            "title": "Riquísimo",
+            "text": "Riquísimo aroma."
+          }
+        },
+        "yh5": {
+          "type": "review",
+          "settings": {
+            "product": "Honor & Glory",
+            "rating": 5,
+            "title": "Dulce y versátil",
+            "text": "La verdad me encanto, tenia miedo de comprar porque hay muchos vendiendo replicas, pero este si es 100% original.\nHablando del perfume, tiene una salida muy dulce de anana, vainilla y crema brullete. Es un perfume versatil para el dia a dia, se puede usar en el verano y tiene una duración de 10hs con una proyeccion fuerte de 3 horas, si lo dejan maserar dura mas."
+          }
+        },
+        "yh6": {
+          "type": "review",
+          "settings": {
+            "product": "Honor & Glory",
+            "rating": 5,
+            "title": "Perfume de primera",
+            "text": "Perfume maravilloso… lo recomiendo. Perfume de primera.\nRiquisimo. Presentacion inpecable entrega rapida"
+          }
         }
       },
       "block_order": [
         "f1",
+        "y1",
         "m1",
-        "f2",
+        "y2",
         "m2",
+        "y3",
         "f3",
+        "y4",
         "m3",
+        "h1",
         "f4",
+        "h2",
         "m4",
         "f5",
         "m5",
         "f6",
         "f7",
-        "f8",
         "f9",
         "f10",
-        "f11",
         "f12",
         "f13",
-        "f14",
         "f15",
         "f16",
-        "f17",
         "r1",
+        "yh1",
         "mr1",
+        "yh2",
         "r2",
+        "yh3",
         "mr2",
+        "yh4",
         "r3",
+        "yh5",
         "mr3",
+        "yh6",
         "r4",
         "mr4",
         "r5",
