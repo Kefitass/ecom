@@ -5,7 +5,7 @@
     "announcement-bar": {
       "type": "announcement-bar",
       "blocks": {
-        "a1": { "type": "announcement", "settings": { "text": "3 CUOTAS SIN INTERÉS" } },
+        "a1": { "type": "announcement", "settings": { "text": "2 CUOTAS SIN INTERÉS DESDE $100.000" } },
         "a2": { "type": "announcement", "settings": { "text": "ENVÍO GRATIS A TODO EL PAÍS" } },
         "a3": { "type": "announcement", "settings": { "text": "PROMOCIONES 3X1" } }
       },
@@ -20,7 +20,7 @@
       "type": "header",
       "settings": {
         "menu": "main-menu",
-        "topline": "⚡ COMBOS 3X1 · ENVÍO GRATIS · 3 CUOTAS SIN INTERÉS",
+        "topline": "⚡ COMBOS 3X1 · ENVÍO GRATIS · 2 CUOTAS SIN INTERÉS",
         "tracking_text": "<p><strong>Seguí acá</strong> tu última compra</p>",
         "sticky": false
       }

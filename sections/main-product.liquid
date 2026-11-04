@@ -4,6 +4,7 @@
   assign rating_count = product.metafields.reviews.rating_count.value
   assign pct = settings.transfer_discount | plus: 0
   assign count = settings.installments_count | plus: 0
+  assign min_cents = settings.installments_min | plus: 0 | times: 100
   capture wa_url
     render 'whatsapp-url'
   endcapture
@@ -78,7 +79,8 @@
 
       <div class="product__pay-box">
         {%- if settings.installments_show and count > 1 -%}
-          <p>{% render 'icon', name: 'card', px: 18 %} <span><strong>{{ count }} cuotas sin interés</strong>{% if settings.installments_show_amount %} de <strong data-installment>{{ current_variant.price | divided_by: count | money }}</strong>{% endif %}</span></p>
+          <p data-installments-yes{% if current_variant.price < min_cents %} hidden{% endif %}>{% render 'icon', name: 'card', px: 18 %} <span><strong>{{ count }} cuotas sin interés</strong>{% if settings.installments_show_amount %} de <strong data-installment>{{ current_variant.price | divided_by: count | money }}</strong>{% endif %}</span></p>
+          <p data-installments-no{% if current_variant.price >= min_cents %} hidden{% endif %}>{% render 'icon', name: 'card', px: 18 %} <span><strong>{{ count }} cuotas sin interés</strong> en compras desde {{ min_cents | money_without_trailing_zeros }}</span></p>
         {%- endif -%}
         {%- if settings.transfer_show and pct > 0 -%}
           <p>{% render 'icon', name: 'package', px: 18 %} <span><strong>{{ pct }}% de descuento</strong> pagando con TRANSFERENCIA</span></p>
@@ -155,6 +157,7 @@
     {
       "variants": {{ product.variants | json }},
       "installments": {{ count }},
+      "installmentsMin": {{ min_cents }},
       "transferDiscount": {% if settings.transfer_show %}{{ pct }}{% else %}0{% endif %},
       "moneyFormat": {{ shop.money_format | json }},
       "addLabel": {{ section.settings.add_label | json }}
@@ -174,7 +177,7 @@
     { "type": "text", "id": "proof", "label": "Pastilla superior", "default": "Compra protegida · Envío gratis a todo el país", "info": "Usá solo datos reales (por ejemplo, cantidad de pedidos entregados)." },
     { "type": "text", "id": "add_label", "label": "Texto del botón de compra", "default": "AGREGAR AL CARRITO" },
     { "type": "text", "id": "shipping_text", "label": "Línea de envío", "default": "Envío gratis" },
-    { "type": "richtext", "id": "pay_details", "label": "Detalle de medios de pago ('Ver más detalles')", "default": "<p>Tarjetas de crédito en 3 cuotas sin interés. Débito, Mercado Pago y transferencia bancaria con 5% de descuento.</p>" },
+    { "type": "richtext", "id": "pay_details", "label": "Detalle de medios de pago ('Ver más detalles')", "default": "<p>Tarjetas de crédito en 2 cuotas sin interés en compras desde $100.000. Débito, Mercado Pago y transferencia bancaria con 5% de descuento.</p>" },
     { "type": "checkbox", "id": "show_quantity", "label": "Mostrar selector de cantidad", "default": false },
     { "type": "checkbox", "id": "show_dynamic_checkout", "label": "Mostrar botón 'Comprar ahora'", "default": false },
     { "type": "checkbox", "id": "show_whatsapp", "label": "Mostrar botón de consulta por WhatsApp", "default": false },

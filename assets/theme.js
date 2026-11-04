@@ -205,6 +205,9 @@
       }
       if (data.installments > 1) {
         setText('[data-installment]', formatMoney(Math.floor(variant.price / data.installments), data.moneyFormat));
+        var ok = variant.price >= (data.installmentsMin || 0);
+        section.querySelectorAll('[data-installments-yes]').forEach(function (el) { el.hidden = !ok; });
+        section.querySelectorAll('[data-installments-no]').forEach(function (el) { el.hidden = ok; });
       }
 
       addButton.disabled = !variant.available;

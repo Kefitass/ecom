@@ -4,6 +4,7 @@
 {%- endcomment -%}
 {%- liquid
   assign count = settings.installments_count | plus: 0
+  assign min_cents = settings.installments_min | plus: 0 | times: 100
   assign pct = settings.transfer_discount | plus: 0
 -%}
 {%- if settings.transfer_show and pct > 0 -%}
@@ -16,10 +17,13 @@
     <p class="save-pill"><span aria-hidden="true">💸</span> Ahorrás un {{ pct }}% · Precio especial de hoy</p>
   {%- endif -%}
 {%- endif -%}
-{%- if settings.installments_show and count > 1 -%}
+{%- if settings.installments_show and count > 1 and price >= min_cents -%}
   {%- assign per_installment = price | divided_by: count -%}
   <p class="installments">
     <strong>{{ count }}</strong> cuotas sin interés
     {%- if settings.installments_show_amount %} de <strong data-installment>{{ per_installment | money }}</strong>{% endif %}
   </p>
+{%- elsif settings.installments_show and count > 1 and cart_hint -%}
+  {%- assign missing = min_cents | minus: price -%}
+  <p class="installments">Sumá <strong>{{ missing | money_without_trailing_zeros }}</strong> más y pagá en <strong>{{ count }} cuotas sin interés</strong></p>
 {%- endif -%}

@@ -202,7 +202,14 @@
         "min": 2,
         "max": 12,
         "step": 1,
-        "default": 3
+        "default": 2
+      },
+      {
+        "type": "number",
+        "id": "installments_min",
+        "label": "Monto mínimo para cuotas (en pesos)",
+        "default": 100000,
+        "info": "Las cuotas se muestran solo en productos o carritos desde este monto. 0 = siempre."
       },
       {
         "type": "checkbox",

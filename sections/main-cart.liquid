@@ -47,7 +47,7 @@
             <p class="cart__line"><span>{{ discount.title }}</span><span>-{{ discount.total_allocated_amount | money_without_trailing_zeros }}</span></p>
           {%- endfor -%}
           <p class="cart__line cart__total"><span>Total</span><span>{{ cart.total_price | money_without_trailing_zeros }}</span></p>
-          {% render 'price-installments', price: cart.total_price %}
+          {% render 'price-installments', price: cart.total_price, cart_hint: true %}
           <p class="cart__note">Impuestos incluidos. El envío se calcula en el checkout.</p>
 
           {%- if section.settings.show_note -%}

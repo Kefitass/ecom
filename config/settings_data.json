@@ -22,7 +22,7 @@
       "card_show_discount": true,
       "card_shipping_label": "ENVÍO GRATIS",
       "installments_show": true,
-      "installments_count": 3,
+      "installments_count": 2,
       "installments_show_amount": true,
       "transfer_show": true,
       "transfer_discount": 5,
@@ -33,7 +33,8 @@
       "instagram_handle": "casa.del.oud",
       "social_instagram": "https://www.instagram.com/casa.del.oud/",
       "type_accent_font": "playfair_display_n4",
-      "contact_email": "somoscasadeloud@gmail.com"
+      "contact_email": "somoscasadeloud@gmail.com",
+      "installments_min": 100000
     }
   }
 }

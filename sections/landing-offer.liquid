@@ -7,6 +7,7 @@
   endif
   assign pct = settings.transfer_discount | plus: 0
   assign count = settings.installments_count | plus: 0
+  assign min_cents = settings.installments_min | plus: 0 | times: 100
   assign keep = 100 | minus: pct
   assign transfer_price = price | times: keep | divided_by: 100
   assign per_installment = price | divided_by: count
@@ -45,6 +46,9 @@
       {%- if checks.size > 0 -%}
         <ul class="l-checkbox">
           {%- for block in checks -%}
+            {%- if block.settings.text contains '[cuota]' -%}
+              {%- unless settings.installments_show and count > 1 and price >= min_cents -%}{%- continue -%}{%- endunless -%}
+            {%- endif -%}
             {%- assign txt = block.settings.text | remove: '[cuota]' | remove: '[transferencia]' -%}
             <li {{ block.shopify_attributes }}>
               <span class="l-goldcheck">✓</span>
@@ -61,7 +65,7 @@
             <p class="l-pricecard__before">antes <s>{{ compare | money_without_trailing_zeros }}</s> <span class="l-off">{{ off }}% OFF</span></p>
           {%- endif -%}
           <p class="l-pricecard__price">{{ price | money_without_trailing_zeros }}</p>
-          {%- if settings.installments_show and count > 1 -%}
+          {%- if settings.installments_show and count > 1 and price >= min_cents -%}
             <p class="l-pricecard__line"><span aria-hidden="true">💳</span> {{ count }} cuotas sin interés de <strong>{{ per_installment | money_without_trailing_zeros }}</strong></p>
           {%- endif -%}
           {%- if settings.transfer_show and pct > 0 -%}

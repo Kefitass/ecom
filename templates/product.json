@@ -367,7 +367,7 @@
         "f4": {
           "type": "check",
           "settings": {
-            "text": "3 cuotas sin interés de [cuota]"
+            "text": "2 cuotas sin interés desde $100.000"
           }
         },
         "f5": {
@@ -414,8 +414,8 @@
           "settings": {
             "emoji": "💳",
             "tag": "",
-            "name": "3 cuotas sin interés",
-            "text": "Con tarjeta de crédito.",
+            "name": "2 cuotas sin interés",
+            "text": "En compras desde $100.000.",
             "accent": "gold"
           }
         },
