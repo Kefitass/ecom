@@ -1,4 +1,4 @@
-<section class="showcase showcase--{{ section.settings.style }}">
+<section class="showcase showcase--{{ section.settings.style }}" style="--cols: {{ section.settings.columns }};">
   <div class="page-width">
     <div class="showcase__head">
       {%- if section.settings.eyebrow != blank -%}<p class="showcase__eyebrow">{{ section.settings.eyebrow }}</p>{%- endif -%}
@@ -46,6 +46,10 @@
       "type": "select", "id": "style", "label": "Estilo", "default": "dark",
       "options": [{ "value": "dark", "label": "Oscuro" }, { "value": "light", "label": "Claro" }]
     },
+    {
+      "type": "select", "id": "columns", "label": "Fotos por fila (compu)", "default": "4",
+      "options": [{ "value": "3", "label": "3" }, { "value": "4", "label": "4" }, { "value": "5", "label": "5" }]
+    },
     { "type": "text", "id": "eyebrow", "label": "Texto chico", "default": "LA COLECCIÓN" },
     { "type": "text", "id": "title", "label": "Título", "default": "Perfumes que se quedan" },
     { "type": "richtext", "id": "text", "label": "Texto", "default": "<p>Fragancias árabes y de nicho, elegidas una por una.</p>" },
@@ -60,12 +64,12 @@
         { "type": "image_picker", "id": "image", "label": "Foto" },
         { "type": "text", "id": "asset", "label": "Archivo del tema (avanzado)", "info": "Para las fotos que ya vienen en el tema, por ejemplo coleccion-asad.webp" },
         { "type": "text", "id": "name", "label": "Nombre", "default": "Asad" },
-        { "type": "text", "id": "brand", "label": "Marca", "default": "Lattafa" },
+        { "type": "text", "id": "brand", "label": "Texto chico (marca o perfumes)", "default": "Lattafa" },
         { "type": "url", "id": "link", "label": "Link", "info": "Vacío = busca el nombre en la tienda." }
       ]
     }
   ],
   "max_blocks": 16,
-  "presets": [{ "name": "La colección" }]
+  "presets": [{ "name": "La colección" }, { "name": "Combos 3x1", "settings": { "columns": "5", "style": "light", "eyebrow": "PAGÁS 1 · TE LLEVÁS 3", "title": "Combos 3x1", "text": "<p>Tres perfumes + mini perfumero de regalo y envío gratis.</p>", "button_label": "Ver todos los combos" } }]
 }
 {% endschema %}
