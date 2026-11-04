@@ -3,37 +3,95 @@
     "slider": {
       "type": "slideshow",
       "blocks": {
-        "s1": { "type": "slide", "settings": { "alt": "Promo 3x1 en perfumes árabes", "link": "shopify://collections/all" } },
-        "s2": { "type": "slide", "settings": { "alt": "Envíos gratis a todo el país", "link": "shopify://collections/all" } }
+        "s1": {
+          "type": "slide",
+          "settings": {
+            "alt": "Promo 3x1 en perfumes árabes",
+            "link": "shopify://collections/all"
+          }
+        },
+        "s2": {
+          "type": "slide",
+          "settings": {
+            "alt": "Envíos gratis a todo el país",
+            "link": "shopify://collections/all"
+          }
+        }
       },
-      "block_order": ["s1", "s2"],
-      "settings": { "autoplay_speed": 5 }
+      "block_order": [
+        "s1",
+        "s2"
+      ],
+      "settings": {
+        "autoplay_speed": 5
+      }
     },
     "instagram": {
       "type": "instagram-banner",
-      "settings": { "text": "Estamos en Instagram", "button_label": "Seguinos" }
+      "settings": {
+        "text": "Estamos en Instagram",
+        "button_label": "Seguinos"
+      }
     },
     "categories": {
       "type": "category-banners",
       "blocks": {
-        "c1": { "type": "banner", "settings": { "title": "COMBOS DE PERFUMES", "link": "shopify://collections/all" } },
-        "c2": { "type": "banner", "settings": { "title": "ARMÁ TU COMBO", "link": "shopify://collections/all" } }
+        "c1": {
+          "type": "banner",
+          "settings": {
+            "title": "COMBOS DE PERFUMES",
+            "link": "shopify://collections/all"
+          }
+        },
+        "c2": {
+          "type": "banner",
+          "settings": {
+            "title": "ARMÁ TU COMBO",
+            "link": "shopify://collections/all"
+          }
+        }
       },
-      "block_order": ["c1", "c2"],
+      "block_order": [
+        "c1",
+        "c2"
+      ],
       "settings": {}
     },
     "videos": {
       "type": "video-strip",
       "disabled": true,
       "blocks": {
-        "v1": { "type": "video", "settings": {} },
-        "v2": { "type": "video", "settings": {} },
-        "v3": { "type": "video", "settings": {} },
-        "v4": { "type": "video", "settings": {} },
-        "v5": { "type": "video", "settings": {} }
+        "v1": {
+          "type": "video",
+          "settings": {}
+        },
+        "v2": {
+          "type": "video",
+          "settings": {}
+        },
+        "v3": {
+          "type": "video",
+          "settings": {}
+        },
+        "v4": {
+          "type": "video",
+          "settings": {}
+        },
+        "v5": {
+          "type": "video",
+          "settings": {}
+        }
       },
-      "block_order": ["v1", "v2", "v3", "v4", "v5"],
-      "settings": { "title": "🔒 COMPRA SEGURO/A 🔒" }
+      "block_order": [
+        "v1",
+        "v2",
+        "v3",
+        "v4",
+        "v5"
+      ],
+      "settings": {
+        "title": "🔒 COMPRA SEGURO/A 🔒"
+      }
     },
     "promos": {
       "type": "featured-products",
@@ -45,7 +103,313 @@
         "show_pill": false,
         "button_label": ""
       }
+    },
+    "resenas": {
+      "type": "customer-reviews",
+      "blocks": {
+        "f1": {
+          "type": "photo",
+          "settings": {
+            "product": "Khamrah Qahwa",
+            "asset": "resena-khamrah-qahwa-01.webp"
+          }
+        },
+        "f2": {
+          "type": "photo",
+          "settings": {
+            "product": "Khamrah Qahwa",
+            "asset": "resena-khamrah-qahwa-02.webp"
+          }
+        },
+        "f3": {
+          "type": "photo",
+          "settings": {
+            "product": "Erba Pura",
+            "asset": "resena-erba-pura-01.webp"
+          }
+        },
+        "f4": {
+          "type": "photo",
+          "settings": {
+            "product": "Khamrah Qahwa",
+            "asset": "resena-khamrah-qahwa-03.webp"
+          }
+        },
+        "f5": {
+          "type": "photo",
+          "settings": {
+            "product": "Khamrah Qahwa",
+            "asset": "resena-khamrah-qahwa-04.webp"
+          }
+        },
+        "f6": {
+          "type": "photo",
+          "settings": {
+            "product": "Erba Pura",
+            "asset": "resena-erba-pura-02.webp"
+          }
+        },
+        "f7": {
+          "type": "photo",
+          "settings": {
+            "product": "Khamrah Qahwa",
+            "asset": "resena-khamrah-qahwa-05.webp"
+          }
+        },
+        "f8": {
+          "type": "photo",
+          "settings": {
+            "product": "Khamrah Qahwa",
+            "asset": "resena-khamrah-qahwa-06.webp"
+          }
+        },
+        "f9": {
+          "type": "photo",
+          "settings": {
+            "product": "Erba Pura",
+            "asset": "resena-erba-pura-03.webp"
+          }
+        },
+        "f10": {
+          "type": "photo",
+          "settings": {
+            "product": "Khamrah Qahwa",
+            "asset": "resena-khamrah-qahwa-07.webp"
+          }
+        },
+        "f11": {
+          "type": "photo",
+          "settings": {
+            "product": "Khamrah Qahwa",
+            "asset": "resena-khamrah-qahwa-08.webp"
+          }
+        },
+        "f12": {
+          "type": "photo",
+          "settings": {
+            "product": "Erba Pura",
+            "asset": "resena-erba-pura-04.webp"
+          }
+        },
+        "f13": {
+          "type": "photo",
+          "settings": {
+            "product": "Khamrah Qahwa",
+            "asset": "resena-khamrah-qahwa-09.webp"
+          }
+        },
+        "f14": {
+          "type": "photo",
+          "settings": {
+            "product": "Khamrah Qahwa",
+            "asset": "resena-khamrah-qahwa-10.webp"
+          }
+        },
+        "f15": {
+          "type": "photo",
+          "settings": {
+            "product": "Erba Pura",
+            "asset": "resena-erba-pura-05.webp"
+          }
+        },
+        "f16": {
+          "type": "photo",
+          "settings": {
+            "product": "Khamrah Qahwa",
+            "asset": "resena-khamrah-qahwa-11.webp"
+          }
+        },
+        "f17": {
+          "type": "photo",
+          "settings": {
+            "product": "Khamrah Qahwa",
+            "asset": "resena-khamrah-qahwa-12.webp"
+          }
+        },
+        "r1": {
+          "type": "review",
+          "settings": {
+            "product": "Khamrah Qahwa",
+            "rating": 5,
+            "title": "Exquisito para otoño e invierno",
+            "text": "Muy buen producto, excelente aroma, excelente fijación, especial para otoño/invierno, perfume dulce cálido, con toques a café, vainilla, toffee, algo demasiado exquisito, si bien al principio se siente fuerte ya después de unos segundo baja algo su intensidad y ya se sienten todos esos aromas dulces, un perfume 1000% recomendable, exquisito."
+          }
+        },
+        "r2": {
+          "type": "review",
+          "settings": {
+            "product": "Khamrah Qahwa",
+            "rating": 5,
+            "title": "Todo chequeado y en orden",
+            "text": "Exelente perfume y calidad ¡¡¡original!!!, sello de autenticidad nuevo de lattafa, nro de lote correcto, en general todo fué chequeado y todo en orden, recomendado 😉."
+          }
+        },
+        "r3": {
+          "type": "review",
+          "settings": {
+            "product": "Khamrah Qahwa",
+            "rating": 5,
+            "title": "Gourmand y duradero",
+            "text": "Una fragancia muy rica, la canela con la vainilla le da un toque gourmant, en piel de 6 a 8 hrs y en mi ropa hasta el otro día, muy recomendable entre los 3 khamrah para una dama (aunque si mantiene su toque unisex)."
+          }
+        },
+        "r4": {
+          "type": "review",
+          "settings": {
+            "product": "Khamrah Qahwa",
+            "rating": 5,
+            "title": "Mi favorito de los Khamrah",
+            "text": "Está súper huele muy rico y fuerte se siente ese aroma como licor jaja entre el khamrah normal y este yo elijo este tengo los dos y me gustó un poco más este, se siente un poco menos la canela y tiene una vainilla un poco más pronunciada según yo jaja 🥵 comprenlo pero esos i empalaga mucho si lo utilizas en la calor jaja es mas para climas fríos y ahí sí es muy exquisito."
+          }
+        },
+        "r5": {
+          "type": "review",
+          "settings": {
+            "product": "Khamrah Qahwa",
+            "rating": 5,
+            "title": "De los mejores árabes",
+            "text": "Muy bien perfume, de los mejores árabes que he probado, original"
+          }
+        },
+        "r6": {
+          "type": "review",
+          "settings": {
+            "product": "Khamrah Qahwa",
+            "rating": 5,
+            "title": "Cumplió mis expectativas",
+            "text": "Aroma: un olor excepcional.\nDuración: fija mucho, muy dulce, muy seductor.\nLo compré a ciegas, elegí por la pirámide olfativa, y de hecho cumplió con mis expectativas, muy agradable, es dulce en la medida justa para mí, y eso que no soy muy fan de los perfumes dulces. Acaba de llegar, presentación excelente, y la fragancia deliciosa. Para quienes no gustan de perfumes dulces, no recomiendo en absoluto este perfume, para la noche y encuentros, es una excelente opción. Llegó en el plazo justo y muy bien envuelto. La verdad, me encantó este perfume, muy buena relación calidad-precio"
+          }
+        },
+        "r7": {
+          "type": "review",
+          "settings": {
+            "product": "Khamrah Qahwa",
+            "rating": 5,
+            "title": "Dulce y duradero",
+            "text": "Muy bueno la verdad lo vengo usando y es dulce y duradero y me encantó su presentación recomendado."
+          }
+        },
+        "r8": {
+          "type": "review",
+          "settings": {
+            "product": "Khamrah Qahwa",
+            "rating": 5,
+            "title": "Para los que aman lo dulce",
+            "text": "Exelente perfume de lo mejor aroma muy rico 💯% recomendado para los que les guste los perfumes dulces y alicorados."
+          }
+        },
+        "r9": {
+          "type": "review",
+          "settings": {
+            "product": "Khamrah Qahwa",
+            "rating": 5,
+            "title": "¡Sensacional!",
+            "text": "¡sensacional! muy llamativo y se fija muy bien. Exageré en la primera prueba y pensé que había cometido un error en la compra, pero con el paso de los minutos quedó excelente. Producto verificado en el sitio oficial de lattafa y el número de lote coincide como original en el sitio checkfresh. ¡voy a comprar otro!."
+          }
+        },
+        "r10": {
+          "type": "review",
+          "settings": {
+            "product": "Erba Pura",
+            "rating": 5,
+            "title": "Intensidad y frescura",
+            "text": "Envase: impecable.\nAroma: intensidad y frescura."
+          }
+        },
+        "r11": {
+          "type": "review",
+          "settings": {
+            "product": "Erba Pura",
+            "rating": 5,
+            "title": "Excelente presentación",
+            "text": "El producto ofrece un frasco y presentación excelentes. Tiene un aroma exquisito y una buena relación calidadprecio. Además, su durabilidad es destacable tanto en la ropa como en el cuerpo."
+          }
+        },
+        "r12": {
+          "type": "review",
+          "settings": {
+            "product": "Erba Pura",
+            "rating": 5,
+            "title": "Calidad 10/10",
+            "text": "Envase: calidad de todo 10/10.\nDuración: tiene muy buena duración en la ropa tanto como en el cuerpo.\nSe los recomiendo mucho es un exelente producto."
+          }
+        },
+        "r13": {
+          "type": "review",
+          "settings": {
+            "product": "Erba Pura",
+            "rating": 5,
+            "title": "Buena duración",
+            "text": "Duración: buena duración.\nEnvase: buen envase."
+          }
+        },
+        "r14": {
+          "type": "review",
+          "settings": {
+            "product": "Erba Pura",
+            "rating": 5,
+            "title": "Una bestia",
+            "text": "Duración: la duración es un crimen de lo buena q es.\nEl perfume es súper 10 si bien aún no lo eh usado para salir pero solo un pequeño gatillo en la mano y después sentis el perfume constante mente por lo menos unas 5a6 horas aproximadamente es lo q yo lo siento pero para salir aún no lo eh usado así que no puedo decir si se nota tanto el aroma pero q es una bestia es una bestia excelente."
+          }
+        },
+        "r15": {
+          "type": "review",
+          "settings": {
+            "product": "Erba Pura",
+            "rating": 5,
+            "title": "Llegó perfecto",
+            "text": "Muy lindo el envase y llegó en perfecto estado."
+          }
+        }
+      },
+      "block_order": [
+        "f1",
+        "f2",
+        "f3",
+        "f4",
+        "f5",
+        "f6",
+        "f7",
+        "f8",
+        "f9",
+        "f10",
+        "f11",
+        "f12",
+        "f13",
+        "f14",
+        "f15",
+        "f16",
+        "f17",
+        "r1",
+        "r2",
+        "r3",
+        "r4",
+        "r5",
+        "r6",
+        "r7",
+        "r8",
+        "r9",
+        "r10",
+        "r11",
+        "r12",
+        "r13",
+        "r14",
+        "r15"
+      ],
+      "settings": {
+        "eyebrow": "RESEÑAS REALES",
+        "title": "Lo que dicen en casa",
+        "subtitle": "<p>Fotos y opiniones de clientes que ya recibieron su perfume.</p>",
+        "match_product": true
+      }
     }
   },
-  "order": ["slider", "instagram", "categories", "videos", "promos"]
+  "order": [
+    "slider",
+    "instagram",
+    "categories",
+    "videos",
+    "promos",
+    "resenas"
+  ]
 }

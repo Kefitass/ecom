@@ -1,0 +1,124 @@
+{%- liquid
+  assign only_product = false
+  if section.settings.match_product and product
+    assign only_product = true
+    assign current_title = product.title | downcase
+  endif
+
+  capture review_cards
+    for block in section.blocks
+      if block.type != 'review'
+        continue
+      endif
+      assign key = block.settings.product | downcase | strip
+      if only_product and key != blank
+        unless current_title contains key
+          continue
+        endunless
+      endif
+      echo '<article class="review-card" ' | append: block.shopify_attributes | append: '>'
+      echo '<div class="stars__icons" aria-label="' | append: block.settings.rating | append: ' de 5 estrellas">'
+      for i in (1..5)
+        if i <= block.settings.rating
+          echo '<span>'
+        else
+          echo '<span class="is-empty">'
+        endif
+        render 'icon', name: 'star', px: 17
+        echo '</span>'
+      endfor
+      echo '</div>'
+      if block.settings.title != blank
+        echo '<h3>' | append: block.settings.title | append: '</h3>'
+      endif
+      echo '<p class="review-card__text">' | append: block.settings.text | append: '</p>'
+      echo '<p class="review-card__meta">'
+      render 'icon', name: 'check', px: 14
+      echo ' Cliente verificado'
+      if block.settings.product != blank
+        echo ' · <strong>' | append: block.settings.product | append: '</strong>'
+      endif
+      echo '</p></article>'
+    endfor
+  endcapture
+
+  capture review_photos
+    for block in section.blocks
+      if block.type != 'photo'
+        continue
+      endif
+      assign key = block.settings.product | downcase | strip
+      if only_product and key != blank
+        unless current_title contains key
+          continue
+        endunless
+      endif
+      echo '<figure class="review-photo" ' | append: block.shopify_attributes | append: '>'
+      if block.settings.image != blank
+        echo block.settings.image | image_url: width: 600 | image_tag: loading: 'lazy', alt: block.settings.product
+      elsif block.settings.asset != blank
+        assign src = block.settings.asset | asset_url
+        echo '<img src="' | append: src | append: '" loading="lazy" alt="Foto de cliente · ' | append: block.settings.product | append: '">'
+      endif
+      if block.settings.product != blank
+        echo '<figcaption>' | append: block.settings.product | append: '</figcaption>'
+      endif
+      echo '</figure>'
+    endfor
+  endcapture
+-%}
+
+{%- if review_cards != blank or review_photos != blank -%}
+  <section class="section customer-reviews">
+    <div class="page-width">
+      {% render 'section-heading', eyebrow: section.settings.eyebrow, title: section.settings.title, subtitle: section.settings.subtitle %}
+
+      {%- if review_photos != blank -%}
+        <div class="review-photos" data-scroller>{{ review_photos }}</div>
+      {%- endif -%}
+
+      {%- if review_cards != blank -%}
+        <div class="review-grid" data-review-grid>{{ review_cards }}</div>
+        <div class="section__footer review-more">
+          <button type="button" class="button button--outline" data-review-more>Ver más reseñas</button>
+        </div>
+      {%- endif -%}
+    </div>
+  </section>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Reseñas de clientes",
+  "class": "section-customer-reviews",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Pastilla", "default": "RESEÑAS REALES" },
+    { "type": "text", "id": "title", "label": "Título", "default": "Lo que dicen en casa" },
+    { "type": "richtext", "id": "subtitle", "label": "Subtítulo", "default": "<p>Fotos y opiniones de clientes que ya recibieron su perfume.</p>" },
+    { "type": "checkbox", "id": "match_product", "label": "En páginas de producto, mostrar solo las reseñas de ese perfume", "default": true, "info": "Compara el campo 'Perfume' de cada reseña con el nombre del producto." },
+    { "type": "paragraph", "content": "Cargá solo reseñas reales de tus clientes. No cambies sus palabras." }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Reseña",
+      "settings": [
+        { "type": "text", "id": "product", "label": "Perfume", "default": "Khamrah Qahwa" },
+        { "type": "range", "id": "rating", "label": "Estrellas", "min": 1, "max": 5, "step": 1, "default": 5 },
+        { "type": "text", "id": "title", "label": "Título corto" },
+        { "type": "textarea", "id": "text", "label": "Reseña (tal cual la escribió el cliente)" }
+      ]
+    },
+    {
+      "type": "photo",
+      "name": "Foto de cliente",
+      "settings": [
+        { "type": "text", "id": "product", "label": "Perfume", "default": "Khamrah Qahwa" },
+        { "type": "image_picker", "id": "image", "label": "Foto" },
+        { "type": "text", "id": "asset", "label": "Archivo del tema (avanzado)", "info": "Para las fotos que ya vienen en el tema, por ejemplo resena-erba-pura-01.webp" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Reseñas de clientes" }]
+}
+{% endschema %}

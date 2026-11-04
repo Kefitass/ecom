@@ -11,20 +11,74 @@
     },
     "l-hero": {
       "type": "landing-hero",
-      "settings": { "pill": "🌙 PERFUMES ÁRABES", "big": "3X1", "script": "que duran todo el día" }
+      "settings": {
+        "pill": "🌙 PERFUMES ÁRABES",
+        "big": "3X1",
+        "script": "que duran todo el día"
+      }
     },
     "l-offer": {
       "type": "landing-offer",
       "blocks": {
-        "ch1": { "type": "chip", "settings": { "text": "🧪 Extracto al 30%", "style": "gold" } },
-        "ch2": { "type": "chip", "settings": { "text": "💧 Base de aceite", "style": "gold" } },
-        "ch3": { "type": "chip", "settings": { "text": "⏱ 8-12 horas", "style": "gold" } },
-        "ch4": { "type": "chip", "settings": { "text": "🧴 3 × 60 ml", "style": "gold" } },
-        "ch5": { "type": "chip", "settings": { "text": "💎 Combo 3x1", "style": "teal" } },
-        "ch6": { "type": "chip", "settings": { "text": "🎁 Mini perfumero", "style": "teal" } },
-        "ch7": { "type": "chip", "settings": { "text": "🚚 Envío gratis", "style": "teal" } }
+        "ch1": {
+          "type": "chip",
+          "settings": {
+            "text": "🧪 Extracto al 30%",
+            "style": "gold"
+          }
+        },
+        "ch2": {
+          "type": "chip",
+          "settings": {
+            "text": "💧 Base de aceite",
+            "style": "gold"
+          }
+        },
+        "ch3": {
+          "type": "chip",
+          "settings": {
+            "text": "⏱ 8-12 horas",
+            "style": "gold"
+          }
+        },
+        "ch4": {
+          "type": "chip",
+          "settings": {
+            "text": "🧴 3 × 60 ml",
+            "style": "gold"
+          }
+        },
+        "ch5": {
+          "type": "chip",
+          "settings": {
+            "text": "💎 Combo 3x1",
+            "style": "teal"
+          }
+        },
+        "ch6": {
+          "type": "chip",
+          "settings": {
+            "text": "🎁 Mini perfumero",
+            "style": "teal"
+          }
+        },
+        "ch7": {
+          "type": "chip",
+          "settings": {
+            "text": "🚚 Envío gratis",
+            "style": "teal"
+          }
+        }
       },
-      "block_order": ["ch1", "ch2", "ch3", "ch4", "ch5", "ch6", "ch7"],
+      "block_order": [
+        "ch1",
+        "ch2",
+        "ch3",
+        "ch4",
+        "ch5",
+        "ch6",
+        "ch7"
+      ],
       "settings": {
         "title": "Tres perfumes árabes.",
         "title_gold": "Pagás 1. Te llevás 3.",
@@ -40,11 +94,33 @@
     "l-steps": {
       "type": "landing-steps",
       "blocks": {
-        "st1": { "type": "step", "settings": { "title": "Recibimos tu pedido", "text": "Somos nosotros los que vemos cada compra que entra. Si tenés una duda, te contestamos nosotros." } },
-        "st2": { "type": "step", "settings": { "title": "Lo armamos en nuestro depósito", "text": "Preparamos y embalamos cada pedido a mano, bien protegido para que llegue perfecto." } },
-        "st3": { "type": "step", "settings": { "title": "Lo despachamos con seguimiento", "text": "Te mandamos el código para que sigas tu pedido hasta la puerta de tu casa." } }
+        "st1": {
+          "type": "step",
+          "settings": {
+            "title": "Recibimos tu pedido",
+            "text": "Somos nosotros los que vemos cada compra que entra. Si tenés una duda, te contestamos nosotros."
+          }
+        },
+        "st2": {
+          "type": "step",
+          "settings": {
+            "title": "Lo armamos en nuestro depósito",
+            "text": "Preparamos y embalamos cada pedido a mano, bien protegido para que llegue perfecto."
+          }
+        },
+        "st3": {
+          "type": "step",
+          "settings": {
+            "title": "Lo despachamos con seguimiento",
+            "text": "Te mandamos el código para que sigas tu pedido hasta la puerta de tu casa."
+          }
+        }
       },
-      "block_order": ["st1", "st2", "st3"],
+      "block_order": [
+        "st1",
+        "st2",
+        "st3"
+      ],
       "settings": {
         "eyebrow": "📦 ASÍ LLEGA TU PEDIDO",
         "title": "Del otro lado hay personas,",
@@ -56,11 +132,39 @@
     "l-trio": {
       "type": "landing-cards",
       "blocks": {
-        "k1": { "type": "card", "settings": { "tag": "🌙 NOCHE Y SALIDAS", "name": "Perfume 1", "text": "Especiado e intenso. Se siente de lejos.", "accent": "gold" } },
-        "k2": { "type": "card", "settings": { "tag": "💋 CITAS", "name": "Perfume 2", "text": "Dulce y cálido. Para estar cerca.", "accent": "rose" } },
-        "k3": { "type": "card", "settings": { "tag": "☀️ DÍA A DÍA", "name": "Perfume 3", "text": "Frutal y fresco. Va con todo.", "accent": "teal" } }
+        "k1": {
+          "type": "card",
+          "settings": {
+            "tag": "🌙 NOCHE Y SALIDAS",
+            "name": "Perfume 1",
+            "text": "Especiado e intenso. Se siente de lejos.",
+            "accent": "gold"
+          }
+        },
+        "k2": {
+          "type": "card",
+          "settings": {
+            "tag": "💋 CITAS",
+            "name": "Perfume 2",
+            "text": "Dulce y cálido. Para estar cerca.",
+            "accent": "rose"
+          }
+        },
+        "k3": {
+          "type": "card",
+          "settings": {
+            "tag": "☀️ DÍA A DÍA",
+            "name": "Perfume 3",
+            "text": "Frutal y fresco. Va con todo.",
+            "accent": "teal"
+          }
+        }
       },
-      "block_order": ["k1", "k2", "k3"],
+      "block_order": [
+        "k1",
+        "k2",
+        "k3"
+      ],
       "settings": {
         "eyebrow": "UNO PARA CADA OCASIÓN",
         "title": "No son tres perfumes iguales.",
@@ -71,33 +175,127 @@
     "l-why": {
       "type": "landing-why",
       "blocks": {
-        "w1": { "type": "feature", "settings": { "emoji": "🕰️", "title": "Duran un montón", "text": "Son dulces, especiados y con ámbar: los aromas que más aguantan en la piel.", "accent": "gold" } },
-        "w2": { "type": "feature", "settings": { "emoji": "📈", "title": "Están en todos lados", "text": "Los perfumes árabes son de los más buscados de la Argentina.", "accent": "rose" } },
-        "w3": { "type": "feature", "settings": { "emoji": "💎", "title": "Rinden muchísimo", "text": "Con dos o tres tiradas alcanza para todo el día.", "accent": "teal" } }
+        "w1": {
+          "type": "feature",
+          "settings": {
+            "emoji": "🕰️",
+            "title": "Duran un montón",
+            "text": "Son dulces, especiados y con ámbar: los aromas que más aguantan en la piel.",
+            "accent": "gold"
+          }
+        },
+        "w2": {
+          "type": "feature",
+          "settings": {
+            "emoji": "📈",
+            "title": "Están en todos lados",
+            "text": "Los perfumes árabes son de los más buscados de la Argentina.",
+            "accent": "rose"
+          }
+        },
+        "w3": {
+          "type": "feature",
+          "settings": {
+            "emoji": "💎",
+            "title": "Rinden muchísimo",
+            "text": "Con dos o tres tiradas alcanza para todo el día.",
+            "accent": "teal"
+          }
+        }
       },
-      "block_order": ["w1", "w2", "w3"],
+      "block_order": [
+        "w1",
+        "w2",
+        "w3"
+      ],
       "settings": {}
     },
     "l-checks": {
       "type": "landing-checklist",
       "blocks": {
-        "i1": { "type": "item", "settings": { "text": "Te dura todo el día (8 a 12 horas, según tu piel)." } },
-        "i2": { "type": "item", "settings": { "text": "Te preguntan qué perfume tenés puesto." } },
-        "i3": { "type": "item", "settings": { "text": "Tenés uno para cada salida, no el mismo para todo." } },
-        "i4": { "type": "item", "settings": { "text": "Pagás uno y te llevás tres." } }
+        "i1": {
+          "type": "item",
+          "settings": {
+            "text": "Te dura todo el día (8 a 12 horas, según tu piel)."
+          }
+        },
+        "i2": {
+          "type": "item",
+          "settings": {
+            "text": "Te preguntan qué perfume tenés puesto."
+          }
+        },
+        "i3": {
+          "type": "item",
+          "settings": {
+            "text": "Tenés uno para cada salida, no el mismo para todo."
+          }
+        },
+        "i4": {
+          "type": "item",
+          "settings": {
+            "text": "Pagás uno y te llevás tres."
+          }
+        }
       },
-      "block_order": ["i1", "i2", "i3", "i4"],
-      "settings": { "title": "", "title_gold": "" }
+      "block_order": [
+        "i1",
+        "i2",
+        "i3",
+        "i4"
+      ],
+      "settings": {
+        "title": "",
+        "title_gold": ""
+      }
     },
     "l-details": {
       "type": "landing-details",
       "blocks": {
-        "d1": { "type": "perfume", "settings": { "tag": "🌙 NOCHE Y SALIDAS", "name": "Perfume 1", "text": "Pimienta negra, tabaco, café y pachulí sobre ámbar y vainilla. Especiado, intenso y elegante.", "notes": "Pimienta, Tabaco, Café, Ámbar, Vainilla", "quote": "Te sentí antes de verte.", "accent": "gold" } },
-        "d2": { "type": "perfume", "settings": { "tag": "💋 CITAS E INVIERNO", "name": "Perfume 2", "text": "Canela y nuez moscada con dátiles, praliné, vainilla y tonka. Dulce, cálido y adictivo.", "notes": "Canela, Dátiles, Praliné, Vainilla, Tonka", "quote": "Me quedó tu perfume en la campera.", "accent": "rose" } },
-        "d3": { "type": "perfume", "settings": { "tag": "☀️ DÍA A DÍA", "name": "Perfume 3", "text": "Naranja y limón con frutas, sobre ámbar, vainilla y almizcle. Frutal, dulce y fresco.", "notes": "Naranja, Limón, Frutas, Ámbar, Vainilla", "quote": "¿Qué perfume tenés puesto?", "accent": "teal" } }
+        "d1": {
+          "type": "perfume",
+          "settings": {
+            "tag": "🌙 NOCHE Y SALIDAS",
+            "name": "Perfume 1",
+            "text": "Pimienta negra, tabaco, café y pachulí sobre ámbar y vainilla. Especiado, intenso y elegante.",
+            "notes": "Pimienta, Tabaco, Café, Ámbar, Vainilla",
+            "quote": "Te sentí antes de verte.",
+            "accent": "gold"
+          }
+        },
+        "d2": {
+          "type": "perfume",
+          "settings": {
+            "tag": "💋 CITAS E INVIERNO",
+            "name": "Perfume 2",
+            "text": "Canela y nuez moscada con dátiles, praliné, vainilla y tonka. Dulce, cálido y adictivo.",
+            "notes": "Canela, Dátiles, Praliné, Vainilla, Tonka",
+            "quote": "Me quedó tu perfume en la campera.",
+            "accent": "rose"
+          }
+        },
+        "d3": {
+          "type": "perfume",
+          "settings": {
+            "tag": "☀️ DÍA A DÍA",
+            "name": "Perfume 3",
+            "text": "Naranja y limón con frutas, sobre ámbar, vainilla y almizcle. Frutal, dulce y fresco.",
+            "notes": "Naranja, Limón, Frutas, Ámbar, Vainilla",
+            "quote": "¿Qué perfume tenés puesto?",
+            "accent": "teal"
+          }
+        }
       },
-      "block_order": ["d1", "d2", "d3"],
-      "settings": { "eyebrow": "CONOCÉ TU 3X1", "title": "Los tres, uno por uno", "quote_label": "LO QUE VAS A ESCUCHAR:" }
+      "block_order": [
+        "d1",
+        "d2",
+        "d3"
+      ],
+      "settings": {
+        "eyebrow": "CONOCÉ TU 3X1",
+        "title": "Los tres, uno por uno",
+        "quote_label": "LO QUE VAS A ESCUCHAR:"
+      }
     },
     "l-gift": {
       "type": "landing-gift",
@@ -113,23 +311,79 @@
       "type": "landing-compare",
       "disabled": true,
       "blocks": {
-        "r1": { "type": "row", "settings": { "label": "Perfume 1 · 100 ml", "value": "desde $50.000", "accent": "gold" } },
-        "r2": { "type": "row", "settings": { "label": "Perfume 2 · 100 ml", "value": "desde $50.000", "accent": "rose" } },
-        "r3": { "type": "row", "settings": { "label": "Perfume 3 · 100 ml", "value": "desde $50.000", "accent": "teal" } }
+        "r1": {
+          "type": "row",
+          "settings": {
+            "label": "Perfume 1 · 100 ml",
+            "value": "desde $50.000",
+            "accent": "gold"
+          }
+        },
+        "r2": {
+          "type": "row",
+          "settings": {
+            "label": "Perfume 2 · 100 ml",
+            "value": "desde $50.000",
+            "accent": "rose"
+          }
+        },
+        "r3": {
+          "type": "row",
+          "settings": {
+            "label": "Perfume 3 · 100 ml",
+            "value": "desde $50.000",
+            "accent": "teal"
+          }
+        }
       },
-      "block_order": ["r1", "r2", "r3"],
+      "block_order": [
+        "r1",
+        "r2",
+        "r3"
+      ],
       "settings": {}
     },
     "l-final": {
       "type": "landing-offer",
       "blocks": {
-        "f1": { "type": "check", "settings": { "text": "3 perfumes de 60 ml (180 ml en total)" } },
-        "f2": { "type": "check", "settings": { "text": "Mini perfumero recargable de regalo" } },
-        "f3": { "type": "check", "settings": { "text": "Envío gratis a todo el país" } },
-        "f4": { "type": "check", "settings": { "text": "3 cuotas sin interés de [cuota]" } },
-        "f5": { "type": "check", "settings": { "text": "5% OFF por transferencia: [transferencia]" } }
+        "f1": {
+          "type": "check",
+          "settings": {
+            "text": "3 perfumes de 60 ml (180 ml en total)"
+          }
+        },
+        "f2": {
+          "type": "check",
+          "settings": {
+            "text": "Mini perfumero recargable de regalo"
+          }
+        },
+        "f3": {
+          "type": "check",
+          "settings": {
+            "text": "Envío gratis a todo el país"
+          }
+        },
+        "f4": {
+          "type": "check",
+          "settings": {
+            "text": "3 cuotas sin interés de [cuota]"
+          }
+        },
+        "f5": {
+          "type": "check",
+          "settings": {
+            "text": "5% OFF por transferencia: [transferencia]"
+          }
+        }
       },
-      "block_order": ["f1", "f2", "f3", "f4", "f5"],
+      "block_order": [
+        "f1",
+        "f2",
+        "f3",
+        "f4",
+        "f5"
+      ],
       "settings": {
         "eyebrow": "TU COMBO",
         "title": "Noche, cita y día.",
@@ -145,27 +399,100 @@
     "l-trust": {
       "type": "landing-cards",
       "blocks": {
-        "t1": { "type": "card", "settings": { "emoji": "🚚", "tag": "", "name": "Envío gratis", "text": "A todo el país, con seguimiento.", "accent": "gold" } },
-        "t2": { "type": "card", "settings": { "emoji": "💳", "tag": "", "name": "3 cuotas sin interés", "text": "Con tarjeta de crédito.", "accent": "gold" } },
-        "t3": { "type": "card", "settings": { "emoji": "💸", "tag": "", "name": "5% OFF transferencia", "text": "Pagando por transferencia bancaria.", "accent": "gold" } }
+        "t1": {
+          "type": "card",
+          "settings": {
+            "emoji": "🚚",
+            "tag": "",
+            "name": "Envío gratis",
+            "text": "A todo el país, con seguimiento.",
+            "accent": "gold"
+          }
+        },
+        "t2": {
+          "type": "card",
+          "settings": {
+            "emoji": "💳",
+            "tag": "",
+            "name": "3 cuotas sin interés",
+            "text": "Con tarjeta de crédito.",
+            "accent": "gold"
+          }
+        },
+        "t3": {
+          "type": "card",
+          "settings": {
+            "emoji": "💸",
+            "tag": "",
+            "name": "5% OFF transferencia",
+            "text": "Pagando por transferencia bancaria.",
+            "accent": "gold"
+          }
+        }
       },
-      "block_order": ["t1", "t2", "t3"],
-      "settings": { "eyebrow": "COMPRÁ TRANQUILO", "title": "", "title_gold": "", "text": "", "alt_bg": true }
+      "block_order": [
+        "t1",
+        "t2",
+        "t3"
+      ],
+      "settings": {
+        "eyebrow": "COMPRÁ TRANQUILO",
+        "title": "",
+        "title_gold": "",
+        "text": "",
+        "alt_bg": true
+      }
     },
     "reviews": {
       "type": "apps",
-      "settings": { "title": "", "narrow": true }
+      "settings": {
+        "title": "",
+        "narrow": true
+      }
     },
     "faq": {
       "type": "faq",
       "blocks": {
-        "q1": { "type": "question", "settings": { "question": "⭐ ¿Es confiable comprar en Casa del Oud?", "answer": "<p>Sí. Pagás con Mercado Pago o tarjeta a través del checkout seguro de Shopify, y te mandamos el seguimiento de tu envío. Ante cualquier duda, escribinos por WhatsApp.</p>" } },
-        "q2": { "type": "question", "settings": { "question": "🚚 ¿Cuánto tarda el envío?", "answer": "<p>Despachamos en 24 a 48 hs hábiles. La entrega demora entre 3 y 7 días hábiles según tu ciudad.</p>" } },
-        "q3": { "type": "question", "settings": { "question": "⏱ ¿Cuánto duran los perfumes?", "answer": "<p>Entre 8 y 12 horas en la piel, según tu tipo de piel y el clima. En la ropa duran más.</p>" } },
-        "q4": { "type": "question", "settings": { "question": "🔁 ¿Puedo cambiarlo?", "answer": "<p>Sí. Si no te gusta, escribinos dentro de los 10 días de recibido y lo resolvemos.</p>" } }
+        "q1": {
+          "type": "question",
+          "settings": {
+            "question": "⭐ ¿Es confiable comprar en Casa del Oud?",
+            "answer": "<p>Sí. Pagás con Mercado Pago o tarjeta a través del checkout seguro de Shopify, y te mandamos el seguimiento de tu envío. Ante cualquier duda, escribinos por WhatsApp.</p>"
+          }
+        },
+        "q2": {
+          "type": "question",
+          "settings": {
+            "question": "🚚 ¿Cuánto tarda el envío?",
+            "answer": "<p>Despachamos en 24 a 48 hs hábiles. La entrega demora entre 3 y 7 días hábiles según tu ciudad.</p>"
+          }
+        },
+        "q3": {
+          "type": "question",
+          "settings": {
+            "question": "⏱ ¿Cuánto duran los perfumes?",
+            "answer": "<p>Entre 8 y 12 horas en la piel, según tu tipo de piel y el clima. En la ropa duran más.</p>"
+          }
+        },
+        "q4": {
+          "type": "question",
+          "settings": {
+            "question": "🔁 ¿Puedo cambiarlo?",
+            "answer": "<p>Sí. Si no te gusta, escribinos dentro de los 10 días de recibido y lo resolvemos.</p>"
+          }
+        }
       },
-      "block_order": ["q1", "q2", "q3", "q4"],
-      "settings": { "eyebrow": "", "title": "", "subtitle": "" }
+      "block_order": [
+        "q1",
+        "q2",
+        "q3",
+        "q4"
+      ],
+      "settings": {
+        "eyebrow": "",
+        "title": "",
+        "subtitle": ""
+      }
     },
     "similar": {
       "type": "featured-products",
@@ -178,7 +505,323 @@
         "show_pill": true,
         "button_label": ""
       }
+    },
+    "resenas": {
+      "type": "customer-reviews",
+      "blocks": {
+        "f1": {
+          "type": "photo",
+          "settings": {
+            "product": "Khamrah Qahwa",
+            "asset": "resena-khamrah-qahwa-01.webp"
+          }
+        },
+        "f2": {
+          "type": "photo",
+          "settings": {
+            "product": "Khamrah Qahwa",
+            "asset": "resena-khamrah-qahwa-02.webp"
+          }
+        },
+        "f3": {
+          "type": "photo",
+          "settings": {
+            "product": "Erba Pura",
+            "asset": "resena-erba-pura-01.webp"
+          }
+        },
+        "f4": {
+          "type": "photo",
+          "settings": {
+            "product": "Khamrah Qahwa",
+            "asset": "resena-khamrah-qahwa-03.webp"
+          }
+        },
+        "f5": {
+          "type": "photo",
+          "settings": {
+            "product": "Khamrah Qahwa",
+            "asset": "resena-khamrah-qahwa-04.webp"
+          }
+        },
+        "f6": {
+          "type": "photo",
+          "settings": {
+            "product": "Erba Pura",
+            "asset": "resena-erba-pura-02.webp"
+          }
+        },
+        "f7": {
+          "type": "photo",
+          "settings": {
+            "product": "Khamrah Qahwa",
+            "asset": "resena-khamrah-qahwa-05.webp"
+          }
+        },
+        "f8": {
+          "type": "photo",
+          "settings": {
+            "product": "Khamrah Qahwa",
+            "asset": "resena-khamrah-qahwa-06.webp"
+          }
+        },
+        "f9": {
+          "type": "photo",
+          "settings": {
+            "product": "Erba Pura",
+            "asset": "resena-erba-pura-03.webp"
+          }
+        },
+        "f10": {
+          "type": "photo",
+          "settings": {
+            "product": "Khamrah Qahwa",
+            "asset": "resena-khamrah-qahwa-07.webp"
+          }
+        },
+        "f11": {
+          "type": "photo",
+          "settings": {
+            "product": "Khamrah Qahwa",
+            "asset": "resena-khamrah-qahwa-08.webp"
+          }
+        },
+        "f12": {
+          "type": "photo",
+          "settings": {
+            "product": "Erba Pura",
+            "asset": "resena-erba-pura-04.webp"
+          }
+        },
+        "f13": {
+          "type": "photo",
+          "settings": {
+            "product": "Khamrah Qahwa",
+            "asset": "resena-khamrah-qahwa-09.webp"
+          }
+        },
+        "f14": {
+          "type": "photo",
+          "settings": {
+            "product": "Khamrah Qahwa",
+            "asset": "resena-khamrah-qahwa-10.webp"
+          }
+        },
+        "f15": {
+          "type": "photo",
+          "settings": {
+            "product": "Erba Pura",
+            "asset": "resena-erba-pura-05.webp"
+          }
+        },
+        "f16": {
+          "type": "photo",
+          "settings": {
+            "product": "Khamrah Qahwa",
+            "asset": "resena-khamrah-qahwa-11.webp"
+          }
+        },
+        "f17": {
+          "type": "photo",
+          "settings": {
+            "product": "Khamrah Qahwa",
+            "asset": "resena-khamrah-qahwa-12.webp"
+          }
+        },
+        "r1": {
+          "type": "review",
+          "settings": {
+            "product": "Khamrah Qahwa",
+            "rating": 5,
+            "title": "Exquisito para otoño e invierno",
+            "text": "Muy buen producto, excelente aroma, excelente fijación, especial para otoño/invierno, perfume dulce cálido, con toques a café, vainilla, toffee, algo demasiado exquisito, si bien al principio se siente fuerte ya después de unos segundo baja algo su intensidad y ya se sienten todos esos aromas dulces, un perfume 1000% recomendable, exquisito."
+          }
+        },
+        "r2": {
+          "type": "review",
+          "settings": {
+            "product": "Khamrah Qahwa",
+            "rating": 5,
+            "title": "Todo chequeado y en orden",
+            "text": "Exelente perfume y calidad ¡¡¡original!!!, sello de autenticidad nuevo de lattafa, nro de lote correcto, en general todo fué chequeado y todo en orden, recomendado 😉."
+          }
+        },
+        "r3": {
+          "type": "review",
+          "settings": {
+            "product": "Khamrah Qahwa",
+            "rating": 5,
+            "title": "Gourmand y duradero",
+            "text": "Una fragancia muy rica, la canela con la vainilla le da un toque gourmant, en piel de 6 a 8 hrs y en mi ropa hasta el otro día, muy recomendable entre los 3 khamrah para una dama (aunque si mantiene su toque unisex)."
+          }
+        },
+        "r4": {
+          "type": "review",
+          "settings": {
+            "product": "Khamrah Qahwa",
+            "rating": 5,
+            "title": "Mi favorito de los Khamrah",
+            "text": "Está súper huele muy rico y fuerte se siente ese aroma como licor jaja entre el khamrah normal y este yo elijo este tengo los dos y me gustó un poco más este, se siente un poco menos la canela y tiene una vainilla un poco más pronunciada según yo jaja 🥵 comprenlo pero esos i empalaga mucho si lo utilizas en la calor jaja es mas para climas fríos y ahí sí es muy exquisito."
+          }
+        },
+        "r5": {
+          "type": "review",
+          "settings": {
+            "product": "Khamrah Qahwa",
+            "rating": 5,
+            "title": "De los mejores árabes",
+            "text": "Muy bien perfume, de los mejores árabes que he probado, original"
+          }
+        },
+        "r6": {
+          "type": "review",
+          "settings": {
+            "product": "Khamrah Qahwa",
+            "rating": 5,
+            "title": "Cumplió mis expectativas",
+            "text": "Aroma: un olor excepcional.\nDuración: fija mucho, muy dulce, muy seductor.\nLo compré a ciegas, elegí por la pirámide olfativa, y de hecho cumplió con mis expectativas, muy agradable, es dulce en la medida justa para mí, y eso que no soy muy fan de los perfumes dulces. Acaba de llegar, presentación excelente, y la fragancia deliciosa. Para quienes no gustan de perfumes dulces, no recomiendo en absoluto este perfume, para la noche y encuentros, es una excelente opción. Llegó en el plazo justo y muy bien envuelto. La verdad, me encantó este perfume, muy buena relación calidad-precio"
+          }
+        },
+        "r7": {
+          "type": "review",
+          "settings": {
+            "product": "Khamrah Qahwa",
+            "rating": 5,
+            "title": "Dulce y duradero",
+            "text": "Muy bueno la verdad lo vengo usando y es dulce y duradero y me encantó su presentación recomendado."
+          }
+        },
+        "r8": {
+          "type": "review",
+          "settings": {
+            "product": "Khamrah Qahwa",
+            "rating": 5,
+            "title": "Para los que aman lo dulce",
+            "text": "Exelente perfume de lo mejor aroma muy rico 💯% recomendado para los que les guste los perfumes dulces y alicorados."
+          }
+        },
+        "r9": {
+          "type": "review",
+          "settings": {
+            "product": "Khamrah Qahwa",
+            "rating": 5,
+            "title": "¡Sensacional!",
+            "text": "¡sensacional! muy llamativo y se fija muy bien. Exageré en la primera prueba y pensé que había cometido un error en la compra, pero con el paso de los minutos quedó excelente. Producto verificado en el sitio oficial de lattafa y el número de lote coincide como original en el sitio checkfresh. ¡voy a comprar otro!."
+          }
+        },
+        "r10": {
+          "type": "review",
+          "settings": {
+            "product": "Erba Pura",
+            "rating": 5,
+            "title": "Intensidad y frescura",
+            "text": "Envase: impecable.\nAroma: intensidad y frescura."
+          }
+        },
+        "r11": {
+          "type": "review",
+          "settings": {
+            "product": "Erba Pura",
+            "rating": 5,
+            "title": "Excelente presentación",
+            "text": "El producto ofrece un frasco y presentación excelentes. Tiene un aroma exquisito y una buena relación calidadprecio. Además, su durabilidad es destacable tanto en la ropa como en el cuerpo."
+          }
+        },
+        "r12": {
+          "type": "review",
+          "settings": {
+            "product": "Erba Pura",
+            "rating": 5,
+            "title": "Calidad 10/10",
+            "text": "Envase: calidad de todo 10/10.\nDuración: tiene muy buena duración en la ropa tanto como en el cuerpo.\nSe los recomiendo mucho es un exelente producto."
+          }
+        },
+        "r13": {
+          "type": "review",
+          "settings": {
+            "product": "Erba Pura",
+            "rating": 5,
+            "title": "Buena duración",
+            "text": "Duración: buena duración.\nEnvase: buen envase."
+          }
+        },
+        "r14": {
+          "type": "review",
+          "settings": {
+            "product": "Erba Pura",
+            "rating": 5,
+            "title": "Una bestia",
+            "text": "Duración: la duración es un crimen de lo buena q es.\nEl perfume es súper 10 si bien aún no lo eh usado para salir pero solo un pequeño gatillo en la mano y después sentis el perfume constante mente por lo menos unas 5a6 horas aproximadamente es lo q yo lo siento pero para salir aún no lo eh usado así que no puedo decir si se nota tanto el aroma pero q es una bestia es una bestia excelente."
+          }
+        },
+        "r15": {
+          "type": "review",
+          "settings": {
+            "product": "Erba Pura",
+            "rating": 5,
+            "title": "Llegó perfecto",
+            "text": "Muy lindo el envase y llegó en perfecto estado."
+          }
+        }
+      },
+      "block_order": [
+        "f1",
+        "f2",
+        "f3",
+        "f4",
+        "f5",
+        "f6",
+        "f7",
+        "f8",
+        "f9",
+        "f10",
+        "f11",
+        "f12",
+        "f13",
+        "f14",
+        "f15",
+        "f16",
+        "f17",
+        "r1",
+        "r2",
+        "r3",
+        "r4",
+        "r5",
+        "r6",
+        "r7",
+        "r8",
+        "r9",
+        "r10",
+        "r11",
+        "r12",
+        "r13",
+        "r14",
+        "r15"
+      ],
+      "settings": {
+        "eyebrow": "RESEÑAS REALES",
+        "title": "Lo que dicen en casa",
+        "subtitle": "<p>Fotos y opiniones de clientes que ya recibieron su perfume.</p>",
+        "match_product": true
+      }
     }
   },
-  "order": ["main", "l-hero", "l-offer", "l-steps", "l-trio", "l-why", "l-checks", "l-details", "l-gift", "l-compare", "l-final", "l-trust", "reviews", "faq", "similar"]
+  "order": [
+    "main",
+    "l-hero",
+    "l-offer",
+    "l-steps",
+    "l-trio",
+    "l-why",
+    "l-checks",
+    "l-details",
+    "l-gift",
+    "l-compare",
+    "l-final",
+    "l-trust",
+    "resenas",
+    "reviews",
+    "faq",
+    "similar"
+  ]
 }

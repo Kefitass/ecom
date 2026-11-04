@@ -103,6 +103,15 @@
     document.querySelectorAll('.filters__wrap[open]').forEach(function (d) { d.removeAttribute('open'); });
   }
 
+  /* ---------- Reseñas: ver más ---------- */
+  document.querySelectorAll('[data-review-more]').forEach(function (button) {
+    button.addEventListener('click', function () {
+      var grid = button.closest('.page-width').querySelector('[data-review-grid]');
+      if (grid) grid.classList.add('is-open');
+      button.parentElement.style.display = 'none';
+    });
+  });
+
   /* ---------- Ordenar catálogo ---------- */
   document.querySelectorAll('[data-sort-select]').forEach(function (select) {
     select.addEventListener('change', function () {
