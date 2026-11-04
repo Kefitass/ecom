@@ -124,6 +124,12 @@
         "id": "type_body_font",
         "label": "Texto",
         "default": "poppins_n4"
+      },
+      {
+        "type": "font_picker",
+        "id": "type_accent_font",
+        "label": "Firma (cursiva elegante)",
+        "default": "playfair_display_n4"
       }
     ]
   },

@@ -550,10 +550,97 @@
         "subtitle": "<p>Fotos y opiniones de clientes que ya recibieron su perfume.</p>",
         "match_product": true
       }
+    },
+    "coleccion": {
+      "type": "collection-showcase",
+      "blocks": {
+        "p1": {
+          "type": "perfume",
+          "settings": {
+            "asset": "coleccion-asad.webp",
+            "name": "Asad",
+            "brand": "Lattafa"
+          }
+        },
+        "p2": {
+          "type": "perfume",
+          "settings": {
+            "asset": "coleccion-erba-pura.webp",
+            "name": "Erba Pura",
+            "brand": "Xerjoff"
+          }
+        },
+        "p3": {
+          "type": "perfume",
+          "settings": {
+            "asset": "coleccion-yara-moi.webp",
+            "name": "Yara Moi",
+            "brand": "Lattafa"
+          }
+        },
+        "p4": {
+          "type": "perfume",
+          "settings": {
+            "asset": "coleccion-khamrah-qahwa.webp",
+            "name": "Khamrah Qahwa",
+            "brand": "Lattafa"
+          }
+        },
+        "p5": {
+          "type": "perfume",
+          "settings": {
+            "asset": "coleccion-honor-and-glory.webp",
+            "name": "Honor & Glory",
+            "brand": "Lattafa"
+          }
+        },
+        "p6": {
+          "type": "perfume",
+          "settings": {
+            "asset": "coleccion-mandarin-sky.webp",
+            "name": "Mandarin Sky",
+            "brand": "Armaf · Odyssey"
+          }
+        },
+        "p7": {
+          "type": "perfume",
+          "settings": {
+            "asset": "coleccion-asad-bourbon.webp",
+            "name": "Asad Bourbon",
+            "brand": "Lattafa"
+          }
+        },
+        "p8": {
+          "type": "perfume",
+          "settings": {
+            "asset": "coleccion-yara.webp",
+            "name": "Yara",
+            "brand": "Lattafa"
+          }
+        }
+      },
+      "block_order": [
+        "p1",
+        "p2",
+        "p3",
+        "p4",
+        "p5",
+        "p6",
+        "p7",
+        "p8"
+      ],
+      "settings": {
+        "style": "dark",
+        "eyebrow": "LA COLECCIÓN",
+        "title": "Perfumes que se quedan",
+        "text": "<p>Fragancias árabes y de nicho, elegidas una por una.</p>",
+        "button_label": "Ver todos los perfumes"
+      }
     }
   },
   "order": [
     "slider",
+    "coleccion",
     "instagram",
     "categories",
     "videos",

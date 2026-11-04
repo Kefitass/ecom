@@ -31,18 +31,21 @@
       assign body_font = settings.type_body_font
       assign body_font_bold = body_font | font_modify: 'weight', 'bold'
       assign heading_font_heavy = heading_font | font_modify: 'weight', '800'
+      assign accent_font = settings.type_accent_font | font_modify: 'style', 'italic' | font_modify: 'weight', 'bold'
     -%}
 
     {% style %}
       {{ heading_font | font_face: font_display: 'swap' }}
       {%- if heading_font_heavy -%}{{ heading_font_heavy | font_face: font_display: 'swap' }}{%- endif -%}
       {{ body_font | font_face: font_display: 'swap' }}
+      {%- if accent_font -%}{{ accent_font | font_face: font_display: 'swap' }}{%- endif -%}
       {%- if body_font_bold -%}{{ body_font_bold | font_face: font_display: 'swap' }}{%- endif -%}
 
       :root {
         --font-heading: {{ heading_font.family }}, {{ heading_font.fallback_families }};
         --font-heading-weight: {% if heading_font_heavy %}800{% else %}{{ heading_font.weight }}{% endif %};
         --font-body: {{ body_font.family }}, {{ body_font.fallback_families }};
+        --font-accent: {{ settings.type_accent_font.family }}, Georgia, serif;
         --font-body-weight: {{ body_font.weight }};
 
         --c-dark: {{ settings.color_dark }};

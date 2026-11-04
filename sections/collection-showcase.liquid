@@ -1,0 +1,71 @@
+<section class="showcase showcase--{{ section.settings.style }}">
+  <div class="page-width">
+    <div class="showcase__head">
+      {%- if section.settings.eyebrow != blank -%}<p class="showcase__eyebrow">{{ section.settings.eyebrow }}</p>{%- endif -%}
+      {%- if section.settings.title != blank -%}<h2 class="showcase__title">{{ section.settings.title }}</h2>{%- endif -%}
+      {%- if section.settings.text != blank -%}<div class="showcase__text">{{ section.settings.text }}</div>{%- endif -%}
+    </div>
+
+    <div class="showcase__grid" data-scroller>
+      {%- for block in section.blocks -%}
+        {%- liquid
+          assign url = block.settings.link
+          if url == blank
+            assign q = block.settings.name | url_encode
+            assign url = routes.search_url | append: '?type=product&q=' | append: q
+          endif
+        -%}
+        <a href="{{ url }}" class="showcase__item" {{ block.shopify_attributes }}>
+          <div class="showcase__media">
+            {%- if block.settings.image != blank -%}
+              {{ block.settings.image | image_url: width: 900 | image_tag: loading: 'lazy', widths: '360, 540, 720, 900', sizes: '(min-width: 990px) 25vw, 45vw', alt: block.settings.name }}
+            {%- elsif block.settings.asset != blank -%}
+              <img src="{{ block.settings.asset | asset_url }}" loading="lazy" width="900" height="900" alt="{{ block.settings.name }}">
+            {%- endif -%}
+          </div>
+          <p class="showcase__name">{{ block.settings.name }}</p>
+          {%- if block.settings.brand != blank -%}<p class="showcase__brand">{{ block.settings.brand }}</p>{%- endif -%}
+        </a>
+      {%- endfor -%}
+    </div>
+
+    {%- if section.settings.button_label != blank -%}
+      <div class="showcase__foot">
+        <a href="{{ section.settings.button_link | default: routes.all_products_collection_url }}" class="showcase__button">{{ section.settings.button_label }}</a>
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "La colección",
+  "class": "section-showcase",
+  "settings": [
+    {
+      "type": "select", "id": "style", "label": "Estilo", "default": "dark",
+      "options": [{ "value": "dark", "label": "Oscuro" }, { "value": "light", "label": "Claro" }]
+    },
+    { "type": "text", "id": "eyebrow", "label": "Texto chico", "default": "LA COLECCIÓN" },
+    { "type": "text", "id": "title", "label": "Título", "default": "Perfumes que se quedan" },
+    { "type": "richtext", "id": "text", "label": "Texto", "default": "<p>Fragancias árabes y de nicho, elegidas una por una.</p>" },
+    { "type": "text", "id": "button_label", "label": "Botón", "default": "Ver todos los perfumes" },
+    { "type": "url", "id": "button_link", "label": "Link del botón" }
+  ],
+  "blocks": [
+    {
+      "type": "perfume",
+      "name": "Perfume",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Foto" },
+        { "type": "text", "id": "asset", "label": "Archivo del tema (avanzado)", "info": "Para las fotos que ya vienen en el tema, por ejemplo coleccion-asad.webp" },
+        { "type": "text", "id": "name", "label": "Nombre", "default": "Asad" },
+        { "type": "text", "id": "brand", "label": "Marca", "default": "Lattafa" },
+        { "type": "url", "id": "link", "label": "Link", "info": "Vacío = busca el nombre en la tienda." }
+      ]
+    }
+  ],
+  "max_blocks": 16,
+  "presets": [{ "name": "La colección" }]
+}
+{% endschema %}
