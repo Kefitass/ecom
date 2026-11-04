@@ -360,14 +360,90 @@
             "title": "Llegó perfecto",
             "text": "Muy lindo el envase y llegó en perfecto estado."
           }
+        },
+        "m1": {
+          "type": "photo",
+          "settings": {
+            "product": "Mandarin Sky",
+            "asset": "resena-mandarin-sky-01.webp"
+          }
+        },
+        "m2": {
+          "type": "photo",
+          "settings": {
+            "product": "Mandarin Sky",
+            "asset": "resena-mandarin-sky-02.webp"
+          }
+        },
+        "m3": {
+          "type": "photo",
+          "settings": {
+            "product": "Mandarin Sky",
+            "asset": "resena-mandarin-sky-03.webp"
+          }
+        },
+        "m4": {
+          "type": "photo",
+          "settings": {
+            "product": "Mandarin Sky",
+            "asset": "resena-mandarin-sky-04.webp"
+          }
+        },
+        "m5": {
+          "type": "photo",
+          "settings": {
+            "product": "Mandarin Sky",
+            "asset": "resena-mandarin-sky-05.webp"
+          }
+        },
+        "mr1": {
+          "type": "review",
+          "settings": {
+            "product": "Mandarin Sky",
+            "rating": 5,
+            "title": "Rico y versátil",
+            "text": "Huele muy muy rico, es algo dulce pero versátil para cualquier época del año, nada empalagoso y dura hasta 12 horas mi ropa y a pesar de que la caja y el envase se ven de buena calidad tengo el armaf odyssey homme white edition y al quitar la tapa del spray el pibote donde se puede utilizar un decant ese pibote es diferente y no trae la fecha de caducidad solo la de producción a comparación del white edition fuera de eso por la calidad, el precio y el aroma tan rico es muy pero muy bueno y huele riquísimo."
+          }
+        },
+        "mr2": {
+          "type": "review",
+          "settings": {
+            "product": "Mandarin Sky",
+            "rating": 5,
+            "title": "La gente me preguntaba qué llevaba puesto",
+            "text": "Al principio tenia mis dudas sobre el parecido que tuviera con scandal eau de toilette, al primer contacto con mi piel y al secar fue mágico. Huele igual al perfume de jean paul gaultier aunque siento que menos dulce pero igual de rico y cremoso.\nEs ideal para lo días fríos o en la noche. 8 atomizaciones me duraron 10 horas y estuve en un espacio mediano de tamaño encerrado y las personas se detenian a preguntarme que llevaba puesto. Es un olor muy diferente al promedio y sobre todo muy rico. Es lo mismo que scandal edt. Con confianza es original y llega rapido. 10/10."
+          }
+        },
+        "mr3": {
+          "type": "review",
+          "settings": {
+            "product": "Mandarin Sky",
+            "rating": 5,
+            "title": "Todo el mundo te elogia",
+            "text": "Es el perfume perfecto para este verano, increíble su presentación, aroma y permanencia ! sus notas dejan destellos cuando caminas , y todo el mundo te elogia ! que buen perfume !."
+          }
+        },
+        "mr4": {
+          "type": "review",
+          "settings": {
+            "product": "Mandarin Sky",
+            "rating": 5,
+            "title": "Marca la diferencia",
+            "text": "Un perfume que marca la diferencia nada que envidiarle al scandal muy rico un aroma fresco 10/10 para mi unos de los mejore de odissey armaf gracias por el. Producto."
+          }
         }
       },
       "block_order": [
         "f1",
+        "m1",
         "f2",
+        "m2",
         "f3",
+        "m3",
         "f4",
+        "m4",
         "f5",
+        "m5",
         "f6",
         "f7",
         "f8",
@@ -381,9 +457,13 @@
         "f16",
         "f17",
         "r1",
+        "mr1",
         "r2",
+        "mr2",
         "r3",
+        "mr3",
         "r4",
+        "mr4",
         "r5",
         "r6",
         "r7",
