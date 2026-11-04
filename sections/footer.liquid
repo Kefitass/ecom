@@ -62,9 +62,8 @@
         <div class="footer__col">
           <h3>{{ section.settings.contact_title }}</h3>
           <ul class="footer__contact">
-            {%- if settings.contact_email != blank -%}
-              <li>{% render 'icon', name: 'mail', px: 16 %}<a href="mailto:{{ settings.contact_email }}">{{ settings.contact_email }}</a></li>
-            {%- endif -%}
+            {%- assign footer_email = settings.contact_email | default: 'somoscasadeloud@gmail.com' -%}
+            <li>{% render 'icon', name: 'mail', px: 16 %}<a href="mailto:{{ footer_email }}">{{ footer_email }}</a></li>
             {%- if settings.whatsapp_number != blank -%}
               <li>{% render 'icon', name: 'whatsapp', px: 16 %}<a href="{{ wa_url | strip }}" target="_blank" rel="noopener">{{ settings.whatsapp_number }}</a></li>
             {%- endif -%}
