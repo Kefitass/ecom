@@ -41,7 +41,8 @@
         {%- else -%}
           <div class="product__slide is-active">{{ 'product-3' | placeholder_svg_tag: 'placeholder' }}</div>
         {%- endif -%}
-        {%- if settings.card_sticker_top != blank -%}
+        {%- assign tags_down = product.tags | join: ',' | downcase -%}
+    {%- if settings.card_sticker_top != blank and tags_down contains '3x1' -%}
           <span class="sticker-badge sticker-badge--lg">
             <strong>{{ settings.card_sticker_top }}</strong>
             {%- if settings.card_sticker_bottom != blank -%}<small>{{ settings.card_sticker_bottom }}</small>{%- endif -%}

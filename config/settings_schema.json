@@ -154,12 +154,14 @@
         "type": "text",
         "id": "card_sticker_top",
         "label": "Línea grande",
-        "info": "Vacío = sin sello."
+        "info": "Aparece solo en los productos con la etiqueta \"3x1\". Vacío = sin sello.",
+        "default": "PROMO 3X1"
       },
       {
         "type": "text",
         "id": "card_sticker_bottom",
-        "label": "Línea chica"
+        "label": "Línea chica",
+        "default": "CASA DEL OUD"
       },
       {
         "type": "header",
