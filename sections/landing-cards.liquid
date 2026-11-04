@@ -11,8 +11,8 @@
             <div class="l-card__emoji" aria-hidden="true">{{ block.settings.emoji }}</div>
           {%- endif -%}
           {%- if block.settings.tag != blank -%}<p class="l-card__tag">{{ block.settings.tag }}</p>{%- endif -%}
-          <h3>{{ block.settings.name }}</h3>
-          {%- if block.settings.text != blank -%}<p>{{ block.settings.text }}</p>{%- endif -%}
+          <h3>{% render 'cuotas-fix', t: block.settings.name %}</h3>
+          {%- if block.settings.text != blank -%}<p>{% render 'cuotas-fix', t: block.settings.text %}</p>{%- endif -%}
         </div>
       {%- endfor -%}
     </div>

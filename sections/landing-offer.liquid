@@ -37,7 +37,7 @@
       {%- if chips.size > 0 -%}
         <ul class="l-chips">
           {%- for block in chips -%}
-            <li class="l-chip l-chip--{{ block.settings.style }}" {{ block.shopify_attributes }}>{{ block.settings.text }}</li>
+            <li class="l-chip l-chip--{{ block.settings.style }}" {{ block.shopify_attributes }}>{% render 'cuotas-fix', t: block.settings.text %}</li>
           {%- endfor -%}
         </ul>
       {%- endif -%}
@@ -52,7 +52,7 @@
             {%- assign txt = block.settings.text | remove: '[cuota]' | remove: '[transferencia]' -%}
             <li {{ block.shopify_attributes }}>
               <span class="l-goldcheck">✓</span>
-              <span>{{ txt }}{% if block.settings.text contains '[cuota]' %}{{ per_installment | money_without_trailing_zeros }}{% endif %}{% if block.settings.text contains '[transferencia]' %}{{ transfer_price | money_without_trailing_zeros }}{% endif %}</span>
+              <span>{% render 'cuotas-fix', t: txt %}{% if block.settings.text contains '[cuota]' %}{{ per_installment | money_without_trailing_zeros }}{% endif %}{% if block.settings.text contains '[transferencia]' %}{{ transfer_price | money_without_trailing_zeros }}{% endif %}</span>
             </li>
           {%- endfor -%}
         </ul>

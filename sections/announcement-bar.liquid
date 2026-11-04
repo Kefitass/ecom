@@ -7,9 +7,9 @@
             {%- for block in section.blocks -%}
               <span class="announcement__item" {% if forloop.first and n == 1 and i == 1 %}{{ block.shopify_attributes }}{% endif %}>
                 {%- if block.settings.link != blank -%}
-                  <a href="{{ block.settings.link }}">{{ block.settings.text }}</a>
+                  <a href="{{ block.settings.link }}">{% render 'cuotas-fix', t: block.settings.text %}</a>
                 {%- else -%}
-                  {{ block.settings.text }}
+                  {% render 'cuotas-fix', t: block.settings.text %}
                 {%- endif -%}
               </span>
               {%- if section.settings.separator != blank -%}<span class="announcement__sep" aria-hidden="true">{{ section.settings.separator }}</span>{%- endif -%}

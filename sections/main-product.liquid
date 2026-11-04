@@ -88,7 +88,7 @@
         {%- if section.settings.pay_details != blank -%}
           <details class="product__pay-details">
             <summary>Ver más detalles</summary>
-            <div class="rte">{{ section.settings.pay_details }}</div>
+            <div class="rte">{% render 'cuotas-fix', t: section.settings.pay_details %}</div>
           </details>
         {%- endif -%}
       </div>

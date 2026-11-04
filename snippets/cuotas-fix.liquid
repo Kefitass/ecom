@@ -1,0 +1,16 @@
+{%- comment -%}
+  Corrige textos guardados que digan "3 cuotas" para que coincidan con la configuración de cuotas.
+  Uso: {% render 'cuotas-fix', t: block.settings.text %}
+{%- endcomment -%}
+{%- liquid
+  assign n = settings.installments_count | append: ''
+  assign low = n | append: ' cuotas'
+  assign up = n | append: ' CUOTAS'
+  assign min_cents = settings.installments_min | plus: 0 | times: 100
+  assign out = t | replace: '3 cuotas', low | replace: '3 CUOTAS', up
+  if min_cents > 0
+    assign desde = min_cents | money_without_trailing_zeros | prepend: 'En compras desde ' | append: '.'
+    assign out = out | replace: 'Con tarjeta de crédito.', desde
+  endif
+  echo out
+-%}

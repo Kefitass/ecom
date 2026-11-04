@@ -5,7 +5,7 @@
     {%- endif -%}
     <ul class="l-checklist">
       {%- for block in section.blocks -%}
-        <li {{ block.shopify_attributes }}><span class="l-goldcheck l-goldcheck--round">✓</span> {{ block.settings.text }}</li>
+        <li {{ block.shopify_attributes }}><span class="l-goldcheck l-goldcheck--round">✓</span> {% render 'cuotas-fix', t: block.settings.text %}</li>
       {%- endfor -%}
     </ul>
   </div>
