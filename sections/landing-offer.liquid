@@ -1,5 +1,9 @@
 {%- liquid
-  assign variant = product.selected_or_first_available_variant
+  assign offer_product = product
+  if section.settings.offer_product != blank
+    assign offer_product = section.settings.offer_product
+  endif
+  assign variant = offer_product.selected_or_first_available_variant
   assign price = variant.price
   assign compare = variant.compare_at_price
   if section.settings.compare_override != blank
@@ -75,7 +79,7 @@
       {%- endif -%}
 
       {%- if section.settings.button_label != blank -%}
-        {% render 'landing-cta', product: product, label: section.settings.button_label, sub: section.settings.button_sub %}
+        {% render 'landing-cta', product: offer_product, label: section.settings.button_label, sub: section.settings.button_sub %}
       {%- endif -%}
 
       {%- if section.settings.footnote != blank -%}
@@ -93,6 +97,7 @@
   "class": "section-landing",
   "settings": [
     { "type": "paragraph", "content": "Toma el precio, el precio tachado, las cuotas y la transferencia del producto automáticamente. En el título dorado podés escribir [precio]." },
+    { "type": "product", "id": "offer_product", "label": "Combo que se ofrece (opcional)", "info": "Usalo en la plantilla de perfumes sueltos: elegí un combo 3x1 y la oferta muestra su precio y el botón lo agrega al carrito. Vacío = usa el producto de la página." },
     { "type": "text", "id": "eyebrow", "label": "Pastilla" },
     { "type": "text", "id": "title", "label": "Título (blanco)", "default": "Tres perfumes árabes." },
     { "type": "text", "id": "title_gold", "label": "Título (dorado)", "default": "Pagás 1. Te llevás 3." },

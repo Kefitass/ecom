@@ -1,20 +1,30 @@
 {%- liquid
   assign only_product = false
+  assign passes = 1
   if section.settings.match_product and product
     assign only_product = true
     assign current_title = product.title | downcase
+    assign passes = 2
   endif
 
   capture review_cards
+    for pass in (1..passes)
     for block in section.blocks
       if block.type != 'review'
         continue
       endif
-      assign key = block.settings.product | downcase | strip
-      if only_product and key != blank
-        unless current_title contains key
+      if only_product
+        assign key = block.settings.product | downcase | strip
+        assign matched = false
+        if key != blank and current_title contains key
+          assign matched = true
+        endif
+        if pass == 1 and matched == false
           continue
-        endunless
+        endif
+        if pass == 2 and matched
+          continue
+        endif
       endif
       echo '<article class="review-card" ' | append: block.shopify_attributes | append: '>'
       echo '<div class="stars__icons" aria-label="' | append: block.settings.rating | append: ' de 5 estrellas">'
@@ -40,18 +50,27 @@
       endif
       echo '</p></article>'
     endfor
+    endfor
   endcapture
 
   capture review_photos
+    for pass in (1..passes)
     for block in section.blocks
       if block.type != 'photo'
         continue
       endif
-      assign key = block.settings.product | downcase | strip
-      if only_product and key != blank
-        unless current_title contains key
+      if only_product
+        assign key = block.settings.product | downcase | strip
+        assign matched = false
+        if key != blank and current_title contains key
+          assign matched = true
+        endif
+        if pass == 1 and matched == false
           continue
-        endunless
+        endif
+        if pass == 2 and matched
+          continue
+        endif
       endif
       echo '<figure class="review-photo" ' | append: block.shopify_attributes | append: '>'
       if block.settings.image != blank
@@ -64,6 +83,7 @@
         echo '<figcaption>' | append: block.settings.product | append: '</figcaption>'
       endif
       echo '</figure>'
+    endfor
     endfor
   endcapture
 -%}
@@ -95,7 +115,7 @@
     { "type": "text", "id": "eyebrow", "label": "Pastilla", "default": "RESEÑAS REALES" },
     { "type": "text", "id": "title", "label": "Título", "default": "Lo que dicen en casa" },
     { "type": "richtext", "id": "subtitle", "label": "Subtítulo", "default": "<p>Fotos y opiniones de clientes que ya recibieron su perfume.</p>" },
-    { "type": "checkbox", "id": "match_product", "label": "En páginas de producto, mostrar solo las reseñas de ese perfume", "default": true, "info": "Compara el campo 'Perfume' de cada reseña con el nombre del producto." },
+    { "type": "checkbox", "id": "match_product", "label": "En páginas de producto, mostrar primero las reseñas de ese perfume", "default": true, "info": "Primero aparecen las reseñas de ese perfume y después todas las demás. Si el perfume no tiene reseñas, se ven todas igual." },
     { "type": "paragraph", "content": "Cargá solo reseñas reales de tus clientes. No cambies sus palabras." }
   ],
   "blocks": [
