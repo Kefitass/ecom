@@ -244,13 +244,6 @@
         </ul>
       {%- endif -%}
 
-      {%- if section.settings.quote_text != blank -%}
-        <figure class="quote-card">
-          <span class="quote-card__stars" aria-label="5 de 5 estrellas">★★★★★</span>
-          <blockquote>“{{ section.settings.quote_text }}”</blockquote>
-          <figcaption>{% render 'icon', name: 'check', px: 13 %} Cliente verificado{% if section.settings.quote_product != blank %} · <strong>{{ section.settings.quote_product }}</strong>{% endif %}</figcaption>
-        </figure>
-      {%- endif -%}
 
       {%- if is_combo == false and section.settings.show_upsell -%}
         {%- liquid
@@ -361,6 +354,14 @@
   {{ product | structured_data }}
 </script>
 
+{% style %}
+  @media (min-width: 990px) {
+    .product__gallery { position: sticky; top: 24px; }
+    .section-header:has(.header-wrap--sticky) ~ main .product__gallery,
+    body:has(.header-wrap--sticky) .product__gallery { top: 120px; }
+  }
+{% endstyle %}
+
 {% schema %}
 {
   "name": "Producto",
@@ -384,8 +385,6 @@
     { "type": "image_picker", "id": "social_img3", "label": "Foto de cliente 3 (opcional)" },
     { "type": "image_picker", "id": "social_img4", "label": "Foto de cliente 4 (opcional)" },
     { "type": "checkbox", "id": "show_trust", "label": "Mostrar sellos de confianza", "info": "Pago seguro, envío gratis y originales sellados, debajo del botón.", "default": true },
-    { "type": "textarea", "id": "quote_text", "label": "Reseña destacada debajo del botón", "default": "Muy bien perfume, de los mejores árabes que he probado, original.", "info": "Usá una reseña real, sin cambiar sus palabras. Vacío = no se muestra." },
-    { "type": "text", "id": "quote_product", "label": "Perfume de la reseña destacada", "default": "Khamrah Qahwa" },
     { "type": "header", "content": "Combos 3x1: qué incluye" },
     { "type": "paragraph", "content": "En los productos con la etiqueta '3x1', arma la caja con los perfumes del nombre (lo que va después del '·', separado por ' + '), sus fotos y precios, el regalo y cuánto se ahorra." },
     { "type": "checkbox", "id": "show_bundle", "label": "Mostrar la caja del combo", "default": true },
