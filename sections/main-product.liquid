@@ -84,8 +84,8 @@
             {%- endfor -%}
           </span>
           <span class="social-proof__text">
-            <span class="social-proof__stars" aria-label="5 de 5 estrellas">★★★★★</span>
-            <span>{{ section.settings.social_text }}</span>
+            <span class="social-proof__top"><span class="social-proof__stars" aria-label="5 de 5 estrellas">★★★★★</span>{% if section.settings.social_count != blank %} <strong>{{ section.settings.social_count }}</strong>{% endif %}</span>
+            <span class="social-proof__link">{{ section.settings.social_text }}</span>
           </span>
         </a>
       {%- endif -%}
@@ -377,6 +377,7 @@
     { "type": "checkbox", "id": "show_description", "label": "Mostrar la descripción del producto", "default": true },
     { "type": "header", "content": "Prueba social" },
     { "type": "checkbox", "id": "show_social", "label": "Mostrar fotos de clientes y estrellas debajo del título", "default": true, "info": "Al tocarlo baja a la sección de reseñas." },
+    { "type": "text", "id": "social_count", "label": "Número junto a las estrellas", "default": "+973 ventas", "info": "Usá solo números reales." },
     { "type": "text", "id": "social_text", "label": "Texto junto a las fotos", "default": "Clientes reales que ya recibieron su perfume" },
     { "type": "image_picker", "id": "social_img1", "label": "Foto de cliente 1 (opcional)" },
     { "type": "image_picker", "id": "social_img2", "label": "Foto de cliente 2 (opcional)" },

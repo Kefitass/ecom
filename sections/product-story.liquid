@@ -1,0 +1,186 @@
+{%- liquid
+  assign story = nil
+  assign fallback = nil
+  assign my_name = ''
+  if product
+    assign my_name = product.title | split: ' · ' | first | strip | downcase
+  endif
+  for block in section.blocks
+    assign key = block.settings.product | strip | downcase
+    if key == blank
+      if fallback == nil
+        assign fallback = block
+      endif
+    elsif key == my_name
+      assign story = block
+      break
+    endif
+  endfor
+  if story == nil
+    assign story = fallback
+  endif
+-%}
+
+{%- if story -%}
+  <section class="section product-story" {{ story.shopify_attributes }}>
+    <div class="page-width page-width--narrow product-story__inner">
+      {%- if story.settings.eyebrow != blank -%}<p class="product-story__eyebrow">{{ story.settings.eyebrow }}</p>{%- endif -%}
+      {%- if story.settings.title != blank -%}<h2 class="product-story__title">{{ story.settings.title }}</h2>{%- endif -%}
+      {%- if story.settings.text != blank -%}<div class="product-story__text">{{ story.settings.text }}</div>{%- endif -%}
+      {%- if story.settings.highlight != blank -%}<p class="product-story__highlight">{{ story.settings.highlight }}</p>{%- endif -%}
+    </div>
+  </section>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Historia del perfume",
+  "class": "section-product-story",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Muestra el bloque cuyo campo 'Perfume' coincide con el nombre del producto (lo que va antes del '·'). Si ninguno coincide, usa el bloque con 'Perfume' vacío."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "story",
+      "name": "Historia",
+      "settings": [
+        {
+          "type": "text",
+          "id": "product",
+          "label": "Perfume",
+          "info": "Ej: Mandarin Sky. Vacío = se usa para los perfumes sin historia propia."
+        },
+        {
+          "type": "text",
+          "id": "eyebrow",
+          "label": "Pastilla",
+          "default": "EL DULCE MÁS VIRAL DE ARMAF"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Título",
+          "default": "Odyssey Mandarin Sky se volvió viral por algo"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Texto",
+          "default": "<p>Mandarina luminosa sobre un fondo dulce y cremoso.</p>"
+        },
+        {
+          "type": "text",
+          "id": "highlight",
+          "label": "Frase destacada",
+          "default": "Si viste este perfume recomendado en todos lados, hay una razón."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Historia del perfume",
+      "blocks": [
+        {
+          "type": "story",
+          "settings": {
+            "product": "",
+            "eyebrow": "ELEGIDO UNO POR UNO",
+            "title": "Un perfume que se nota",
+            "text": "<p>Fragancias árabes y de nicho de alta concentración, que duran todo el día. Las elegimos una por una para que recibas exactamente lo que buscás.</p>",
+            "highlight": "¿No sabés cuál elegir? Escribinos y te ayudamos."
+          }
+        },
+        {
+          "type": "story",
+          "settings": {
+            "product": "Asad",
+            "eyebrow": "EL ÁRABE QUE ENCIENDE LA NOCHE",
+            "title": "Asad: presencia desde la primera rociada",
+            "text": "<p>Pimienta y ananá en la salida, y un fondo de tabaco, café y vainilla que te acompaña toda la noche. Intenso, especiado y con carácter: de esos perfumes que no pasan desapercibidos.</p>",
+            "highlight": "Si buscás un perfume que se note y dure, empezá por acá."
+          }
+        },
+        {
+          "type": "story",
+          "settings": {
+            "product": "Asad Bourbon",
+            "eyebrow": "LA VERSIÓN MÁS CÁLIDA DE ASAD",
+            "title": "Asad Bourbon: el Asad para las noches frías",
+            "text": "<p>Toma el carácter del Asad original y lo vuelve más suave y licoroso: vainilla, lavanda y ámbar en un perfume cálido, envolvente y elegante.</p>",
+            "highlight": "Ideal si te gusta lo dulce, pero con un toque más adulto."
+          }
+        },
+        {
+          "type": "story",
+          "settings": {
+            "product": "Khamrah Qahwa",
+            "eyebrow": "EL DULCE DEL CAFÉ",
+            "title": "Khamrah Qahwa se volvió un favorito por algo",
+            "text": "<p>Café recién hecho, canela, vainilla y toffee. Un dulce cálido y adictivo que nuestros clientes describen como alicorado y muy seductor. De los que hacen que te pregunten qué perfume tenés puesto.</p>",
+            "highlight": "Si te gustan los perfumes dulces, este es el que tenés que probar."
+          }
+        },
+        {
+          "type": "story",
+          "settings": {
+            "product": "Erba Pura",
+            "eyebrow": "FRUTAL, LUMINOSO E INOLVIDABLE",
+            "title": "Erba Pura: la estela que todos notan",
+            "text": "<p>Cítricos jugosos y frutas sobre un fondo de ámbar y almizcle. Fresco y dulce a la vez, con una proyección que se siente al pasar y una duración que sorprende.</p>",
+            "highlight": "Para los que quieren un perfume que deje huella."
+          }
+        },
+        {
+          "type": "story",
+          "settings": {
+            "product": "Mandarin Sky",
+            "eyebrow": "EL DULCE MÁS VIRAL DE ARMAF",
+            "title": "Odyssey Mandarin Sky se volvió viral por algo",
+            "text": "<p>Mandarina luminosa sobre un fondo dulce y cremoso. Dulce sin ser empalagoso, versátil para cualquier época del año y fácil de usar todos los días.</p>",
+            "highlight": "Si viste este perfume recomendado en todos lados, hay una razón."
+          }
+        },
+        {
+          "type": "story",
+          "settings": {
+            "product": "Yara Moi",
+            "eyebrow": "FLORAL Y ELEGANTE",
+            "title": "Yara Moi: intenso sin saturar",
+            "text": "<p>Flores blancas, caramelo y ámbar sobre un fondo amaderado. Un floral sofisticado, con una presentación que se luce sola: ideal para regalar o regalarte.</p>",
+            "highlight": "Para quien busca un perfume elegante que se sienta especial."
+          }
+        },
+        {
+          "type": "story",
+          "settings": {
+            "product": "Yara",
+            "eyebrow": "EL ROSA QUE ENAMORA",
+            "title": "Yara: dulce, delicado y femenino",
+            "text": "<p>Notas dulces, frutales y atalcadas en un frasco rosa que enamora a primera vista. Suave, cómodo y fácil de llevar todos los días.</p>",
+            "highlight": "Uno de los regalos más lindos que podés hacer (o hacerte)."
+          }
+        },
+        {
+          "type": "story",
+          "settings": {
+            "product": "Honor & Glory",
+            "eyebrow": "DULCE PERO FRESCO",
+            "title": "Honor & Glory: el dulce para todo el año",
+            "text": "<p>Abre con ananá jugoso y se funde en vainilla y crème brûlée. Cremoso y adictivo, pero lo bastante fresco para usarlo incluso en verano.</p>",
+            "highlight": "Si te encantan los dulces pero no querés algo pesado, es para vos."
+          }
+        }
+      ]
+    }
+  ],
+  "enabled_on": {
+    "templates": [
+      "product"
+    ]
+  }
+}
+{% endschema %}
