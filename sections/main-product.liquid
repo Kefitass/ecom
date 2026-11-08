@@ -90,6 +90,17 @@
         </a>
       {%- endif -%}
 
+      {%- liquid
+        if is_combo
+          assign promo_text = section.settings.promo_combo
+        else
+          assign promo_text = section.settings.promo_single
+        endif
+      -%}
+      {%- if promo_text != blank -%}
+        <p class="promo-banner">{{ promo_text }}</p>
+      {%- endif -%}
+
       <div class="product__prices">
         <s class="price__compare" data-compare{% unless current_variant.compare_at_price > current_variant.price %} hidden{% endunless %}>{{ current_variant.compare_at_price | money }}</s>
         <span class="price__current price__current--xl" data-price>{{ current_variant.price | money }}</span>
@@ -240,7 +251,7 @@
         <ul class="trust-row">
           <li>{% render 'icon', name: 'check', px: 15 %} Pago seguro</li>
           <li>{% render 'icon', name: 'truck', px: 15 %} Envío gratis</li>
-          <li>{% render 'icon', name: 'package', px: 15 %} Originales sellados</li>
+          <li>{% render 'icon', name: 'droplet', px: 15 %} Alta concentración</li>
         </ul>
       {%- endif -%}
 
@@ -376,6 +387,9 @@
     { "type": "checkbox", "id": "show_whatsapp", "label": "Mostrar botón de consulta por WhatsApp", "default": false },
     { "type": "text", "id": "whatsapp_label", "label": "Texto del botón de WhatsApp", "default": "Consultanos por WhatsApp" },
     { "type": "checkbox", "id": "show_description", "label": "Mostrar la descripción del producto", "default": true },
+    { "type": "header", "content": "Promo (arriba del precio)" },
+    { "type": "text", "id": "promo_single", "label": "Texto en perfumes sueltos", "default": "🔥 CYBER WEEK: llevá 2 por $64.990 · Últimas unidades", "info": "Vacío = no se muestra. El descuento se arma en Shopify (Descuentos)." },
+    { "type": "text", "id": "promo_combo", "label": "Texto en combos 3x1", "default": "🔥 CYBER WEEK · Últimas unidades", "info": "Vacío = no se muestra." },
     { "type": "header", "content": "Prueba social" },
     { "type": "checkbox", "id": "show_social", "label": "Mostrar fotos de clientes y estrellas", "default": true, "info": "Al tocarlo baja a la sección de reseñas." },
     { "type": "text", "id": "social_count", "label": "Número junto a las estrellas", "default": "+973 ventas", "info": "Usá solo números reales." },
@@ -384,7 +398,7 @@
     { "type": "image_picker", "id": "social_img2", "label": "Foto de cliente 2 (opcional)" },
     { "type": "image_picker", "id": "social_img3", "label": "Foto de cliente 3 (opcional)" },
     { "type": "image_picker", "id": "social_img4", "label": "Foto de cliente 4 (opcional)" },
-    { "type": "checkbox", "id": "show_trust", "label": "Mostrar sellos de confianza", "info": "Pago seguro, envío gratis y originales sellados, debajo del botón.", "default": true },
+    { "type": "checkbox", "id": "show_trust", "label": "Mostrar sellos de confianza", "info": "Pago seguro, envío gratis y alta concentración, debajo del botón.", "default": true },
     { "type": "header", "content": "Combos 3x1: qué incluye" },
     { "type": "paragraph", "content": "En los productos con la etiqueta '3x1', arma la caja con los perfumes del nombre (lo que va después del '·', separado por ' + '), sus fotos y precios, el regalo y cuánto se ahorra." },
     { "type": "checkbox", "id": "show_bundle", "label": "Mostrar la caja del combo", "default": true },
