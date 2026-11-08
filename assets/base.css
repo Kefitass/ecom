@@ -1091,3 +1091,6 @@ html { scroll-behavior: smooth; }
 .product-story__highlight { margin: 22px auto 0; padding: 16px 20px; max-width: 640px; border-radius: 12px; border-left: 4px solid var(--c-gold); background: color-mix(in srgb, var(--c-gold) 20%, #fff); font-family: var(--font-heading); font-weight: 700; font-size: .92rem; color: var(--c-heading); }
 
 .promo-banner { display: inline-block; margin: 6px 0 4px; padding: 7px 14px; border-radius: 8px; background: linear-gradient(90deg, var(--c-pink), color-mix(in srgb, var(--c-pink) 70%, var(--c-gold))); color: #fff; font-family: var(--font-heading); font-weight: 800; font-size: .82rem; letter-spacing: .02em; box-shadow: 0 8px 18px -10px color-mix(in srgb, var(--c-pink) 80%, transparent); }
+
+.product-card__promo { margin: 10px auto 0; padding: 6px 12px; border-radius: 8px; background: linear-gradient(90deg, var(--c-pink), color-mix(in srgb, var(--c-pink) 70%, var(--c-gold))); color: #fff; font-family: var(--font-heading); font-weight: 800; font-size: .74rem; letter-spacing: .03em; text-align: center; width: fit-content; max-width: 100%; }
+@media (max-width: 480px) { .product-card__promo { font-size: .62rem; padding: 6px 8px; letter-spacing: 0; } }

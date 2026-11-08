@@ -72,5 +72,11 @@
     {%- endif -%}
 
     {% render 'price-installments', price: product.price, pill: pill %}
+
+    {%- if settings.card_promo_single != blank -%}
+      {%- unless tags_down contains '3x1' -%}
+        <p class="product-card__promo">{{ settings.card_promo_single }}</p>
+      {%- endunless -%}
+    {%- endif -%}
   </div>
 </article>

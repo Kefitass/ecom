@@ -164,6 +164,13 @@
         "default": "CASA DEL OUD"
       },
       {
+        "type": "text",
+        "id": "card_promo_single",
+        "label": "Promo en perfumes sueltos",
+        "info": "Franja debajo del precio en los productos SIN la etiqueta \"3x1\". Vacío = no se muestra.",
+        "default": "🔥 LLEVÁ 2 POR $64.990"
+      },
+      {
         "type": "header",
         "content": "Etiquetas sobre la foto"
       },
