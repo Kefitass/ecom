@@ -87,7 +87,7 @@
         "price_label": "LOS 3 PERFUMES + MINI PERFUMERO",
         "button_label": "Quiero mi 3x1",
         "button_sub": "PAGÁS 1 · TE LLEVÁS 3 · ENVÍO GRATIS",
-        "footnote": "<p>📦 Seguimiento de tu envío · 🔁 Si no te gusta, lo cambiás</p>",
+        "footnote": "<p>📦 Seguimiento de tu envío</p>",
         "show_arrow": true
       }
     },
@@ -392,7 +392,7 @@
         "show_price_card": false,
         "button_label": "Quiero mi 3x1",
         "button_sub": "PAGÁS 1 · TE LLEVÁS 3 · ENVÍO GRATIS",
-        "footnote": "<p>🔁 Si no te gusta, lo cambiás.</p>",
+        "footnote": "",
         "show_arrow": false
       }
     },

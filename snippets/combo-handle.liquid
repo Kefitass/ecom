@@ -1,0 +1,41 @@
+{%- comment -%}
+  Devuelve el handle del combo 3x1 a usar para un producto:
+  - si el producto ya es un combo (etiqueta 3x1), su propio handle;
+  - si es un perfume suelto, el primer combo que lo incluye;
+  - si no hay ninguno, el primer combo 3x1 de la tienda.
+  Uso: {% capture h %}{% render 'combo-handle', product: product %}{% endcapture %}
+{%- endcomment -%}
+{%- liquid
+  assign own_tags = product.tags | join: ',' | downcase
+  if own_tags contains '3x1'
+    echo product.handle
+  else
+    assign my_name = product.title | split: ' · ' | first | strip | downcase
+    assign found = ''
+    assign first_combo = ''
+    for p in collections.all.products
+      assign p_tags = p.tags | join: ',' | downcase
+      unless p_tags contains '3x1'
+        continue
+      endunless
+      if first_combo == blank
+        assign first_combo = p.handle
+      endif
+      assign p_items = p.title | split: ' · ' | last | split: ' + '
+      for it in p_items
+        assign it_down = it | strip | downcase
+        if it_down == my_name
+          assign found = p.handle
+          break
+        endif
+      endfor
+      if found != blank
+        break
+      endif
+    endfor
+    if found == blank
+      assign found = first_combo
+    endif
+    echo found
+  endif
+-%}

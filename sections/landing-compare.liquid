@@ -1,5 +1,15 @@
 {%- liquid
-  assign price = product.selected_or_first_available_variant.price
+  assign offer_product = product
+  if product
+    capture combo_h
+      render 'combo-handle', product: product
+    endcapture
+    assign combo_h = combo_h | strip
+    if combo_h != blank and combo_h != product.handle
+      assign offer_product = all_products[combo_h]
+    endif
+  endif
+  assign price = offer_product.selected_or_first_available_variant.price
 -%}
 <section class="landing">
   <div class="landing__col landing-pad">

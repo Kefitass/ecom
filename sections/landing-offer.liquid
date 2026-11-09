@@ -2,6 +2,14 @@
   assign offer_product = product
   if section.settings.offer_product != blank
     assign offer_product = section.settings.offer_product
+  elsif product
+    capture combo_h
+      render 'combo-handle', product: product
+    endcapture
+    assign combo_h = combo_h | strip
+    if combo_h != blank and combo_h != product.handle
+      assign offer_product = all_products[combo_h]
+    endif
   endif
   assign variant = offer_product.selected_or_first_available_variant
   assign price = variant.price
@@ -82,8 +90,12 @@
         {% render 'landing-cta', product: offer_product, label: section.settings.button_label, sub: section.settings.button_sub %}
       {%- endif -%}
 
-      {%- if section.settings.footnote != blank -%}
-        <div class="l-footnote">{{ section.settings.footnote }}</div>
+      {%- liquid
+        assign foot = section.settings.footnote | remove: ' · 🔁 Si no te gusta, lo cambiás' | remove: '🔁 Si no te gusta, lo cambiás.' | remove: '🔁 Si no te gusta, lo cambiás' | remove: 'Si no te gusta, lo cambiás.' | remove: 'Si no te gusta, lo cambiás'
+        assign foot_text = foot | strip_html | strip
+      -%}
+      {%- if foot_text != blank -%}
+        <div class="l-footnote">{{ foot }}</div>
       {%- endif -%}
 
       {%- if section.settings.show_arrow -%}<p class="l-arrow" aria-hidden="true">⌄</p>{%- endif -%}
@@ -97,7 +109,7 @@
   "class": "section-landing",
   "settings": [
     { "type": "paragraph", "content": "Toma el precio, el precio tachado, las cuotas y la transferencia del producto automáticamente. En el título dorado podés escribir [precio]." },
-    { "type": "product", "id": "offer_product", "label": "Combo que se ofrece (opcional)", "info": "Usalo en la plantilla de perfumes sueltos: elegí un combo 3x1 y la oferta muestra su precio y el botón lo agrega al carrito. Vacío = usa el producto de la página." },
+    { "type": "product", "id": "offer_product", "label": "Combo que se ofrece (opcional)", "info": "Vacío = automático: en un combo usa ese combo; en un perfume suelto usa el combo 3x1 que lo incluye (precio y botón del combo)." },
     { "type": "text", "id": "eyebrow", "label": "Pastilla" },
     { "type": "text", "id": "title", "label": "Título (blanco)", "default": "Tres perfumes árabes." },
     { "type": "text", "id": "title_gold", "label": "Título (dorado)", "default": "Pagás 1. Te llevás 3." },
@@ -109,7 +121,7 @@
     { "type": "number", "id": "compare_override", "label": "Precio 'antes' (opcional, en pesos)", "info": "Vacío = usa el precio tachado del producto." },
     { "type": "text", "id": "button_label", "label": "Botón", "default": "Quiero mi 3x1" },
     { "type": "text", "id": "button_sub", "label": "Texto chico del botón", "default": "PAGÁS 1 · TE LLEVÁS 3 · ENVÍO GRATIS" },
-    { "type": "richtext", "id": "footnote", "label": "Texto debajo del botón", "default": "<p>📦 Envío gratis a todo el país · 🔁 Si no te gusta, lo cambiás</p>" },
+    { "type": "richtext", "id": "footnote", "label": "Texto debajo del botón", "default": "<p>📦 Envío gratis a todo el país · 🎁 Mini perfumero de regalo</p>" },
     { "type": "checkbox", "id": "show_arrow", "label": "Mostrar flechita hacia abajo", "default": true }
   ],
   "blocks": [
